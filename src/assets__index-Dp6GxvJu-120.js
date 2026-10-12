@@ -1,0 +1,1866 @@
+// assets__index-Dp6GxvJu 120 — map
+// Lines 72013-73876 of readable/assets__index-Dp6GxvJu.pretty.js (statement-aligned).
+const Bj = [
+    [
+      "Thank you. We'll review your report.",
+      "Спасибо. Мы рассмотрим вашу жалобу.",
+    ],
+    ["NORTH GATE", "СЕВЕРНЫЕ ВОРОТА"],
+    ["SOUTH GATE", "ЮЖНЫЕ ВОРОТА"],
+    ["EAST GATE", "ВОСТОЧНЫЕ ВОРОТА"],
+    ["WEST GATE", "ЗАПАДНЫЕ ВОРОТА"],
+    ["Wilderness ahead", "Впереди дикие земли"],
+    ["PvP", "PvP"],
+    ["raids", "рейды"],
+    ["wild animals", "звери"],
+    ["Outside = no protection", "Снаружи защиты нет"],
+    ["Welcome Center", "Центр новичков"],
+    ["You cannot report yourself", "Нельзя отправить жалобу на себя"],
+    [
+      "Reports require an official server",
+      "Жалобы доступны на официальном сервере",
+    ],
+    ["Usage: /report <nickname>", "Использование: /report <ник>"],
+    ["Recipient balance limit reached", "Достигнут лимит баланса получателя"],
+    ["The chair is already occupied", "Стул уже занят"],
+    ["Major General Volkov", "генерал-майор Волков"],
+    ["an infantry squad", "пехотное отделение"],
+    ["a light escort truck", "лёгкий грузовик сопровождения"],
+    ["a T-72 tank (estimated)", "танк Т-72 (оценка)"],
+    ["motorized infantry", "мотопехота"],
+    ["a tank", "танк"],
+    ["an attack helicopter", "ударный вертолёт"],
+    ["a ground-attack aircraft", "штурмовик"],
+    ["an assault group", "штурмовая группа"],
+    ["a tank platoon", "танковый взвод"],
+    ["fire-support helicopters", "вертолёты огневой поддержки"],
+    ["bombers", "бомбардировщики"],
+    ["heavy aviation", "тяжёлая авиация"],
+    ["long-range HIMARS", "HIMARS дальнего огня"],
+    [
+      "warships (if water is detected)",
+      "военные корабли (если обнаружена вода)",
+    ],
+    [
+      "two Tomahawk missile carriers with warship escorts",
+      "два ракетоносца Tomahawk с кораблями охранения",
+    ],
+    ["a Tomahawk missile carrier", "ракетоносец Tomahawk"],
+    ["low", "низкая"],
+    ["medium", "средняя"],
+    ["high", "высокая"],
+    ["RAID! Target: {0}", "РЕЙД! Цель: {0}"],
+    [
+      "An enemy raid has started on {0} ({1}). Intel: {2}…",
+      "На {0} начат вражеский рейд ({1}). Разведданные: {2}…",
+    ],
+    ["for contributing to the raid victory", "за вклад в победу в рейде"],
+    ["for the raid victory", "за победу в рейде"],
+    [
+      "Raid on {0} called off: nobody in the raid zone for 3 minutes. No reward.",
+      "Рейд на {0} свёрнут: в зоне рейда 3 минуты никого нет. Награды нет.",
+    ],
+    [
+      "Raid on {0} cancelled — target left the sector.",
+      "Рейд на {0} отменён — цель покинула сектор.",
+    ],
+    ["Raid on {0} cancelled.", "Рейд на {0} отменён."],
+    [
+      "A raid nuclear missile has been launched at the operation centre! The target is marked on every player’s map.",
+      "Ядерная ракета рейда запущена по центру операции! Всем игрокам доступна отметка цели на карте.",
+    ],
+    ["Wolf", "Волк"],
+    ["Hardtack", "Сухарь"],
+    ["Cobra", "Кобра"],
+    ["Thunder", "Гром"],
+    ["Shadow", "Тень"],
+    ["Snow Leopard", "Барс"],
+    ["Falcon", "Сокол"],
+    ["Raven", "Ворон"],
+    ["Lynx", "Рысь"],
+    ["Bear", "Медведь"],
+    ["Fang", "Клык"],
+    ["Bayonet", "Штык"],
+    ["Scorpion", "Скорпион"],
+    ["Adder", "Гадюка"],
+    ["Golden Eagle", "Беркут"],
+    ["Hawk", "Ястреб"],
+    ["Panther", "Пантера"],
+    ["Tiger", "Тигр"],
+    ["Leopard", "Леопард"],
+    ["Hornet", "Шершень"],
+    ["Wasp", "Оса"],
+    ["Gyrfalcon", "Кречет"],
+    ["Viper", "Гюрза"],
+    ["Swift", "Стриж"],
+    ["Eagle-Owl", "Филин"],
+    ["Ranger", "Рейнджер"],
+    ["Thunderstorm", "Гроза"],
+    ["Lightning", "Молния"],
+    ["Hurricane", "Ураган"],
+    ["Storm", "Шторм"],
+    ["Blizzard", "Метель"],
+    ["Bullet", "Пуля"],
+    ["Shrapnel", "Осколок"],
+    ["Cartridge", "Патрон"],
+    ["Count", "Граф"],
+    ["Baron", "Барон"],
+    ["Ataman", "Атаман"],
+    ["Grim", "Хмурый"],
+    ["Veteran", "Бывалый"],
+    ["Frost", "Мороз"],
+    ["Corporal Dima", "Ефрейтор Дима"],
+    ["Corporal Igor", "Ефрейтор Игорь"],
+    ["Corporal Sanya", "Ефрейтор Саня"],
+    ["Sergeant Volkov", "Сержант Волков"],
+    ["Sergeant Petrov", "Сержант Петров"],
+    ["Corporal Orlov", "Капрал Орлов"],
+    ["Corporal Sidorov", "Капрал Сидоров"],
+    ["Sniper Kostya", "Снайпер Костя"],
+    ["Private Ivanov", "Рядовой Иванов"],
+    ["Private Smirnov", "Рядовой Смирнов"],
+    ["Lieutenant Kryukov", "Лейтенант Крюков"],
+    ["Warrant Officer Gusev", "Прапорщик Гусев"],
+    ["Cross", "Крест"],
+    ["Axe", "Топор"],
+    ["Hedgehog", "Ёж"],
+    ["Dagger", "Кинжал"],
+    ["Spear", "Копьё"],
+    ["Nagant", "Наган"],
+    ["Assault", "Штурм"],
+    ["Knight", "Витязь"],
+    ["Cactus", "Кактус"],
+    ["Fire", "Огонь"],
+    ["Shark", "Акула"],
+    ["a shark", "акула"],
+    ['{0}: rank "{1}"', "{0}: звание «{1}»"],
+    ["for a player kill", "за убийство игрока"],
+    ["for destroying an enemy bot", "за уничтожение вражеского бота"],
+    [
+      "Your bed was destroyed — spawning at the default point",
+      "Ваша кровать разрушена — спавн в точке по умолчанию",
+    ],
+    ["north (-Z)", "север (-Z)"],
+    ["south (+Z)", "юг (+Z)"],
+    ["west (-X)", "запад (-X)"],
+    ["east (+X)", "восток (+X)"],
+    ["Switch set to: {0}", "Стрелка переведена: {0}"],
+    ["Raid", "Рейд"],
+    ["A raid vehicle ran over {0}", "Техника рейда раздавила бойца: {0}"],
+    ["for dying", "за смерть"],
+    [", hit: {0}", ", попадание: {0}"],
+    ["{0} killed {1}{2}", "{0} убил {1}{2}"],
+    ["{0} died{1}", "{0} погиб{1}"],
+    ["{0} destroyed a vehicle: {1}{2}", "{0} уничтожил технику: {1}{2}"],
+    ["for destroying a vehicle", "за уничтожение техники"],
+    ["Usage: /friends add <nick>", "Использование: /friends add <ник>"],
+    ["You cannot add yourself as a friend", "Нельзя добавить себя в друзья"],
+    ["{0} is already on your friend list", "{0} уже у вас в друзьях"],
+    ["{0} added to your friends", "{0} добавлен в друзья"],
+    ["Usage: /friends remove <nick>", "Использование: /friends remove <ник>"],
+    ["{0} is not on your friend list", "{0} не найден в вашем списке друзей"],
+    ["{0} removed from your friends", "{0} удалён из друзей"],
+    [
+      "Your friend list is empty. /friends add <nick> to add someone.",
+      "Список друзей пуст. /friends add <ник> — добавить",
+    ],
+    ["{0} (online)", "{0} (в сети)"],
+    [
+      "An enemy camp has been spotted near {0}...",
+      "Обнаружен вражеский лагерь неподалёку от {0}...",
+    ],
+    ["Recon marked a new object: {0}", "Разведка отметила новый объект: {0}"],
+    [
+      "{0} destroyed an enemy soldier: {1}",
+      "{0} уничтожил вражеского бойца: {1}",
+    ],
+    [
+      '{0} captured "{1}" and raised their flag! Supplies are waiting by the flag.',
+      "{0} захватил объект «{1}» и поднял свой флаг! Припасы ждут у флага.",
+    ],
+    [
+      'Alarm at "{0}": gates closed, searchlights on.',
+      "Тревога на объекте «{0}»: ворота закрыты, прожекторы включены.",
+    ],
+    [
+      "{0} destroyed an enemy soldier: {1} ({2}{3})",
+      "{0} уничтожил вражеского бойца: {1} ({2}{3})",
+    ],
+    [
+      "{0} destroyed a soldier: Military {1} ({2}{3})",
+      "{0} уничтожил бойца: Военный {1} ({2}{3})",
+    ],
+    ["fist", "кулак"],
+    ["Egg", "Яйцо"],
+    ["explosion", "взрыв"],
+    ["Auto turret", "Автотуррель"],
+    [
+      "Turret ({0}) destroyed an enemy soldier: {1}",
+      "Туррель ({0}) уничтожила вражеского бойца: {1}",
+    ],
+    [
+      "Turret ({0}) destroyed a soldier: Military {1}",
+      "Туррель ({0}) уничтожила бойца: Военный {1}",
+    ],
+    ["Turret ({0})", "Туррель ({0})"],
+    ["AK-47", "АК-47"],
+    ["APC ({0})", "БТР ({0})"],
+    ["machine gun", "пулемёт"],
+    [
+      "WorldEdit (select two points with the axe): //set, //replace <from> <to>, //clear, //walls <block>, //restore, //undo",
+      "WorldEdit (выберите две точки топориком): //set, //replace <из> <в>, //clear, //walls <блок>, //restore, //undo",
+    ],
+    [
+      "Usage: /friends, /friends add <nick>, /friends remove <nick>",
+      "Использование: /friends, /friends add <ник>, /friends remove <ник>",
+    ],
+    [
+      'Unknown block: "{0}". /help — block list',
+      'Неизвестный блок: "{0}". /help — список блоков',
+    ],
+    ["Usage: /setbalance <amount>", "Использование: /setbalance <сумма>"],
+    ["Usage: /pay <nick> <amount>", "Использование: /pay <ник> <сумма>"],
+    ['Player "{0}" is offline', 'Игрок "{0}" не в сети'],
+    ["You cannot pay yourself", "Нельзя платить самому себе"],
+    [
+      "Usage: /keepinventory true/false",
+      "Использование: /keepinventory true/false",
+    ],
+    ["Keep inventory on death: {0}", "Сохранение инвентаря при смерти: {0}"],
+    ["enabled", "включено"],
+    ["disabled", "выключено"],
+    ["{0} froze the passage of time", "{0} заморозил ход времени"],
+    ["{0} unfroze the passage of time", "{0} разморозил ход времени"],
+    [
+      "Usage: /time <freeze|unfreeze> or /time set <day|night|sunrise|sunset|0-24000>",
+      "Использование: /time <freeze|unfreeze> или /time set <day|night|sunrise|sunset|0-24000>",
+    ],
+    ["Server weather disabled", "Погода отключена на сервере"],
+    ["Automatic weather enabled", "Автоматическая погода включена"],
+    [
+      "Usage: /weather auto|off|clear|rain|thunder|snow",
+      "Использование: /weather auto|off|clear|rain|thunder|snow",
+    ],
+    ["Animal spawned", "Животное создано"],
+    [
+      "A shark needs a large body of water: deep, open water all around",
+      "Акуле нужен большой водоём: глубокая открытая вода вокруг",
+    ],
+    [
+      "No room for an animal here — it needs suitable ground",
+      "Здесь негде разместить животное — нужна подходящая земля",
+    ],
+    ["Flight enabled", "Полёт включён"],
+    ["Flight disabled", "Полёт выключен"],
+    ["God mode enabled", "Режим бога включён"],
+    ["God mode disabled", "Режим бога выключен"],
+    [
+      "Usage: /gamemode <creative|survival>",
+      "Использование: /gamemode <creative|survival>",
+    ],
+    [
+      "Mode: creative — unlimited blocks, invulnerability",
+      "Режим: креатив — бесконечные блоки, бессмертие",
+    ],
+    ["Mode: survival", "Режим: выживание"],
+    ["Dirt", "Земля"],
+    ["Teleported to world spawn", "Телепорт на точку спавна мира"],
+    ["Teleported home", "Телепорт домой"],
+    [
+      "You have no home — sleep in a bed to set one",
+      "У вас нет дома — поспите в кровати, чтобы установить точку",
+    ],
+    ["Current difficulty: {0}", "Текущая сложность: {0}"],
+    [
+      "Usage: /difficulty peace|easy|medium|hard|hardcore|ultra-hardcore|unreal-hardcore",
+      "Использование: /difficulty peace|easy|medium|hard|hardcore|ultra-hardcore|unreal-hardcore",
+    ],
+    ["World difficulty changed to: {0}", "Сложность мира изменена на: {0}"],
+    ["Usage: /military on|off", "Использование: /military on|off"],
+    [
+      "Automatic enemy military spawning enabled",
+      "Автоматический спаун вражеских военных включён",
+    ],
+    [
+      "Automatic enemy military spawning disabled",
+      "Автоматический спаун вражеских военных отключён",
+    ],
+    ["Enemy spawned: {0}", "Заспавнен враг: {0}"],
+    [
+      "Failed to spawn (enemy limit reached)",
+      "Не удалось заспавнить (достигнут лимит врагов)",
+    ],
+    ["No active raid", "Активного рейда нет"],
+    ["Raid cancelled", "Рейд отменён"],
+    [
+      "Raids are disabled on peaceful difficulty (/difficulty)",
+      "Рейды отключены на мирной сложности (/difficulty)",
+    ],
+    [
+      "A raid on {0} is already underway. /raid stop — cancel",
+      "Уже идёт рейд на {0}. /raid stop — отменить",
+    ],
+    ["Player not found: {0}", "Игрок не найден: {0}"],
+    [
+      "Unknown command: /{0}. Type /help",
+      "Неизвестная команда: /{0}. Введите /help",
+    ],
+    ["WorldEdit: nothing to undo", "WorldEdit: нечего отменять"],
+    [
+      "The suppressor is fully worn out and has broken",
+      "Глушитель полностью изношен и сломался",
+    ],
+    [
+      "{0}: durability depleted, item broken",
+      "{0}: прочность исчерпана, предмет сломался",
+    ],
+    [
+      "Reinforced stone can only be broken starting with the diamond drill",
+      "Армированный камень ломается начиная с алмазного бура",
+    ],
+    ["Composter: {0}%", "Компостер: {0}%"],
+    ["Spawn point set ", "Точка спавна установлена "],
+    ["weapon", "оружие"],
+    [
+      "Cannot deploy vehicle: unknown type",
+      "Нельзя поставить технику: неизвестный тип",
+    ],
+    [
+      "Cannot deploy vehicle: invalid position",
+      "Нельзя поставить технику: некорректная позиция",
+    ],
+    [
+      "This vehicle requires Earth atmosphere or an ocean",
+      "Эта техника требует земной атмосферы или океана",
+    ],
+    [
+      "A submarine needs open water at least 5 blocks deep",
+      "Подводной лодке нужна открытая вода глубиной не менее 5 блоков",
+    ],
+    ["You cannot board enemy vehicles", "Нельзя сесть во вражескую технику"],
+    [
+      "{0} launched a Tomahawk — take cover!",
+      "{0} запустил Tomahawk — всем укрыться!",
+    ],
+    ["fall", "падение"],
+    ["This sheep has already been sheared", "Эта овца уже пострижена"],
+    [
+      "This camel has no milk yet — it needs to drink water",
+      "Верблюд ещё не даёт молока — ему нужно напиться воды",
+    ],
+    [
+      "This cow has no milk yet — it needs grass",
+      "Корова ещё не даёт молока — ей нужна трава",
+    ],
+    [
+      "Sale rejected: item not found in inventory",
+      "Продажа отклонена: предмет не найден в инвентаре",
+    ],
+    ["Raid vehicles cannot be armoured", "Технику рейда нельзя бронировать"],
+    [
+      "This vehicle cannot carry welded armour",
+      "На эту технику нельзя навесить броню",
+    ],
+    ["That armour is already welded on", "Эта броня уже установлена"],
+    ["Move closer to the vehicle", "Подойдите ближе к технике"],
+    [
+      "Stop the vehicle to weld armour on",
+      "Остановите технику, чтобы приварить броню",
+    ],
+    ["Raid vehicles cannot be repaired", "Технику рейда нельзя чинить"],
+    ["Vehicle is already fully repaired", "Техника уже в полном порядке"],
+    ["← {0} left the server", "← {0} вышел с сервера"],
+    ["This nickname is already online", "Игрок с таким ником уже на сервере"],
+    ["→ {0} joined the server", "→ {0} зашёл на сервер"],
+    [
+      "Welcome to Voxel Rush! Type /help to see every command.",
+      "Добро пожаловать в Voxel Rush! /help — список всех команд",
+    ],
+    [
+      "Enemy soldier {0} died in a fall",
+      "Вражеский боец {0} разбился при падении",
+    ],
+    ["Military {0} died in a fall", "Военный {0} разбился при падении"],
+    ["Military {0}", "Военный {0}"],
+    ["Combat knife", "Боевой нож"],
+    ["Barbed wire", "Колючая проволока"],
+    ["Radio relay", "Радиореле"],
+    ["Approach the machine on foot.", "Подойдите к автомату пешком."],
+    ["Move closer to the machine screen.", "Подойдите к экрану автомата."],
+    [
+      "Return to machine {0} and cash out first. Use /casino to find it.",
+      "Сначала вернитесь к автомату {0} и заберите баланс сессии. Команда /casino приведёт к нему.",
+    ],
+    [
+      "Another player is using this machine.",
+      "Этот автомат занят другим игроком.",
+    ],
+    [
+      "Your game wallet is empty. Earn money in the game first.",
+      "На игровом балансе нет средств. Заработайте деньги в игре.",
+    ],
+    ["Session already closed.", "Сессия уже закрыта."],
+    ["Invalid session update.", "Некорректное обновление сессии."],
+    [
+      "Wait for the round to end or save with Exit.",
+      "Дождитесь завершения раунда или сохраните сессию кнопкой «Выйти».",
+    ],
+    [
+      "Wallet limit reached. Make room, then return to cash out.",
+      "Превышен предел игрового кошелька. Освободите средства и вернитесь за балансом сессии.",
+    ],
+    [
+      "Eagle: transport lost. Cargo at {0}, {1}. Head to the cyan marker. /evac status",
+      "«Беркут»: транспорт потерян. Груз у {0}, {1}. Добровольцам — к бирюзовой метке! /evac status",
+    ],
+    [
+      "Eagle: request received. Hold the landing zone. The winch needs open sky.",
+      "«Беркут»: вызов принят. Удерживайте площадку. Для лебёдки нужен открытый участок неба!",
+    ],
+    [
+      "Radio intercept: enemies approaching the landing zone.",
+      "Перехват: противник приближается к площадке!",
+    ],
+    ["Operation cancelled", "Операция отменена"],
+    ["Squad left the sector", "Группа покинула сектор"],
+    ["Evacuation window closed", "Окно эвакуации закрыто"],
+    ["Eagle: {0}. Evacuated: {1}.", "«Беркут»: {0}. Эвакуировано: {1}."],
+    [
+      "No active evacuation. /evac on · /evac start · /evac off",
+      "Эвакуация: активной операции нет. /evac on · /evac start · /evac off",
+    ],
+    [
+      "Main cargo secured. Call evacuation with /evac call. Optional container: +60% reward, more enemies and a longer wait.",
+      "Основной груз закреплён! Вызовите эвакуацию кнопкой или /evac call. Второй контейнер: +60% награды, больше врагов и дольше ожидание.",
+    ],
+    [
+      "Eagle overhead. Stand under the winch for 8 seconds. Departure in 45 seconds.",
+      "«Беркут» над площадкой! Подойдите под лебёдку и оставайтесь 8 секунд. Уходим через 45 секунд!",
+    ],
+    [
+      "Evacuated! Cargo delivered: ${0}.",
+      "Эвакуированы! Груз доставлен: ${0}.",
+    ],
+    ["Cargo delivered", "Груз доставлен"],
+    ["No survivors evacuated", "Никто не эвакуировался"],
+    ["Main cargo", "Основной груз"],
+    ["Optional container", "Риск: второй контейнер"],
+    ["Evacuation zone", "Площадка эвакуации"],
+    ["Eagle winch", "Лебёдка «Беркута»"],
+    ["01 / FIND CARGO", "01 / ПОИСК ГРУЗА"],
+    ["02 / CHOOSE", "02 / РЕШЕНИЕ"],
+    ["03 / HOLD", "03 / УДЕРЖАНИЕ"],
+    ["04 / EVACUATE", "04 / ЭВАКУАЦИЯ"],
+    [
+      "Clear the container. Stay nearby for 6 seconds.",
+      "Зачистите контейнер. Оставайтесь рядом 6 сек.",
+    ],
+    [
+      "Call Eagle or recover the second container?",
+      "Вызвать «Беркут» или забрать второй груз?",
+    ],
+    [
+      "Reach the cyan landing zone and hold your position",
+      "Двигайтесь к бирюзовой площадке и держите оборону",
+    ],
+    [
+      "Stand under the winch for 8 seconds",
+      "Под лебёдку! 8 секунд на открытом месте",
+    ],
+    ["OPERATION EAGLE", "ОПЕРАЦИЯ «БЕРКУТ»"],
+    [
+      "You are safe. Waiting for the others.",
+      "Вы в безопасности. Ждём остальных.",
+    ],
+    ["Squad: {0} · Enemies: {1}{2}", "Группа: {0} · Враги: {1}{2}"],
+    [" · Cargo ×1.6", " · Груз ×1,6"],
+    ["Call evacuation", "Вызвать эвакуацию"],
+    ["Recon", "Разведка"],
+    ["Infantry", "Пехота"],
+    ["Armor", "Бронетехника"],
+    ["Air support", "Поддержка с воздуха"],
+    ["Radio station", "Радиостанция"],
+    ["Air defense", "ПВО"],
+    ["Depot", "Склад"],
+    ["Headquarters", "Штаб"],
+    [
+      "Defense line: 150 seconds to prepare. Three positions, shared reserves. /defense ready to start early.",
+      "Линия обороны: 150 секунд на подготовку. Три рубежа, общий резерв. /defense ready — начать раньше.",
+    ],
+    [
+      "District capture: choose your targets. Clear the guards and hold each point for 10 seconds. /district air <radio|depot|hq> after disabling air defense.",
+      "Захват района: порядок целей свободный. Уберите охрану и удерживайте точку 10 секунд. /district air <radio|depot|hq> — поддержка после подавления ПВО.",
+    ],
+    ["Assault squad", "Штурмовая группа"],
+    ["District garrison", "Гарнизон района"],
+    ["Could not deploy the assault", "Не удалось развернуть штурм"],
+    ["Assault: {0}. Hold position {1}!", "Штурм: {0}. Удерживайте рубеж {1}!"],
+    ["Last position lost", "Последний рубеж потерян"],
+    [
+      "Position {0} lost. Fall back to {1}. Vehicles and fortifications remain on the battlefield.",
+      "Рубеж {0} потерян. Отступайте к рубежу {1}! Техника и укрепления остаются на поле боя.",
+    ],
+    ["Siege repelled", "Осада отбита"],
+    [
+      "Next phase: {0}. Approaches marked. 35 seconds to repair and regroup.",
+      "Следующий этап: {0}. Направления отмечены; 35 секунд на ремонт и перегруппировку.",
+    ],
+    ["Operation timed out", "Время операции истекло"],
+    [
+      "{0} captured. Supplies available: /district support ammo|repair|squad.",
+      "{0} захвачена. Доступно снабжение: /district support ammo|repair|squad.",
+    ],
+    [
+      "Headquarters captured. District secured",
+      "Штаб захвачен — район под контролем",
+    ],
+    [
+      "{0} recaptured by the enemy. Capture bonus lost.",
+      "{0} снова у противника! Эффект захвата потерян.",
+    ],
+    [
+      "Enemy radio called reinforcements. Capture it to stop them.",
+      "Радиостанция вызвала подкрепление. Захватите её, чтобы остановить пополнения.",
+    ],
+    ["Counterattack in 15 seconds: {0}.", "Контратака через 15 секунд: {0}."],
+    ["Participants left the sector", "Участники покинули сектор"],
+    ["Position {0}{1}", "Рубеж {0}{1}"],
+    [" · DEFEND", " · ОБОРОНА"],
+    [" · reserve", " · резерв"],
+    [" · lost", " · потерян"],
+    ["friendly", "наш"],
+    ["enemy", "врагов"],
+    ["Attack direction {0}", "Направление атаки {0}"],
+    ["DEFENSE LINE", "ЛИНИЯ ОБОРОНЫ"],
+    ["DISTRICT CAPTURE", "ЗАХВАТ РАЙОНА"],
+    ["PREPARATION", "ПОДГОТОВКА"],
+    ["ASSAULT", "ШТУРМ"],
+    ["Position", "Рубеж"],
+    ["OBJECTIVES {0}/4 · {1} PLAYERS", "ОБЪЕКТЫ {0}/4 · {1} УЧ."],
+    [
+      "Final objective: headquarters. Choose your approach.",
+      "Конечная цель — штаб. Порядок выбираете вы.",
+    ],
+    [
+      "Wave {0}/4. Fortify, dig trenches, save your vehicles. Reserves: {1}; support costs 2.",
+      "Волна {0}/4. Стройте, копайте окопы, спасайте технику. Резерв: {1}; поддержка −2.",
+    ],
+    [
+      "Radio: {0}. Air defense: {1}. Depot: {2}. Reserves: {3}. Hold 10 s; counterattack in {4} s.",
+      "Радио: {0}. ПВО: {1}. Склад: {2}. Резерв: {3}. Удерживайте 10 сек.; контратака {4} сек.",
+    ],
+    ["disabled", "подавлено"],
+    ["reinforcements", "подкрепления"],
+    ["active", "активно"],
+    ["captured — enemy weakened", "наш — враг ослаблен"],
+    ["supplying the enemy", "снабжает врага"],
+    ["Ready", "Готов к бою"],
+    ["HQ airstrike · 3 reserves", "Авиаудар по штабу · 3 резерва"],
+    ["Vehicle abandoned", "Транспорт покинут"],
+    ["jet fighter", "реактивный истребитель"],
+    ["two Tomahawk carriers", "два ракетоносца Tomahawk"],
+    [
+      "a nuclear submarine with 1–2 escort boats",
+      "ядерная подводная лодка с 1–2 катерами охранения",
+    ],
+    ["kamikaze drones", "дроны-камикадзе"],
+    ["Grenadier ", "Гранатомётчик "],
+    ["Sniper ", "Снайпер "],
+    ["Machine gunner ", "Пулемётчик "],
+    [
+      "Wave {0}/{1}: enemies approaching your position!",
+      "Волна {0}/{1}: противник выдвигается к вашей позиции!",
+    ],
+    ["Raid on {0}: wave {1}/{2}", "Рейд на {0}: волна {1}/{2}"],
+    [
+      "Finish the current operation first: /evac stop, /defense stop or /district stop",
+      "Сначала завершите текущую операцию: /evac stop, /defense stop или /district stop",
+    ],
+    [
+      "{0}, district HQ: {1}, an enemy raid is approaching ",
+      "«{0}», штаб округа: «{1}, на вас готовится рейд ",
+    ],
+    ["(threat: {0}). ", "(угроза: {0}). "],
+    ["Intel: {0}. ", "По разведданным возможны: {0}. "],
+    [
+      "Hold your position. The operation ends without a bonus if the raid zone stays empty for 3 minutes.",
+      "Удерживайте позицию. Если в зоне рейда 3 минуты не будет ни одного бойца — операция свёрнута, премии не будет.»",
+    ],
+    [
+      "{0} Your contribution: {1} infantry, {2} vehicles, {3} support points. Reward: ${4}.",
+      "{0} Ваш вклад: {1} пехоты, {2} техники, поддержка {3} очк. — премия ${4}.",
+    ],
+    ["Raid repelled!", "Рейд отбит!"],
+    ["Checkpoint reward banked.", "Контрольный этап — выплата в банк."],
+    [
+      "{0} {1}: ${2} distributed by contribution.",
+      "{0} {1}: Награда ${2} распределена по вкладу участников.",
+    ],
+    ["Raid repelled.", "Рейд отбит."],
+    ["Checkpoint reached.", "Контрольный этап."],
+    ["{0} {1} receives ${2}.", "{0} {1} получает премию ${2}."],
+    [
+      "{0}: Sector abandoned. Operation cancelled without a bonus.",
+      "«{0}»: «Сектор оставлен. Операция отменена, премии не будет.»",
+    ],
+    [
+      "Participants keep ${0} paid at checkpoints.",
+      "Выплаченные на контрольных этапах ${0} сохранены у участников.",
+    ],
+    ["Runway blocked · clear the strip", "ВПП перекрыта · освободите полосу"],
+    [
+      "Obstacle · waiting for a clear route",
+      "Препятствие · ожидание свободного пути",
+    ],
+    ["Mounted machine gun", "Бортовой пулемёт"],
+    ["Airborne troops", "Воздушный десант"],
+    [
+      "Helicopter deployed troops in the raid sector.",
+      "Вертолёт высадил десант в секторе рейда.",
+    ],
+    ["Restarting · waiting", "Перезапуск · ожидание"],
+    ["Restarting · holding position", "Перезапуск · удержание"],
+    ["lightning", "молния"],
+    ["cactus", "кактус"],
+    ["Suffocation", "Удушье"],
+    ["inside a block", "внутри блока"],
+    ["fire", "огонь"],
+    [
+      "The blood moon rises. A Wendigo hunts in the woods tonight.",
+      "Восходит кровавая луна. В лесах сегодня охотится Вендиго…",
+    ],
+    ["Wendigo", "Вендиго"],
+    ["claws", "когти"],
+    ["Catch: {0} × {1}", "Улов: {0} × {1}"],
+    [
+      "No room for the catch. Inventory full",
+      "Улов некуда положить: инвентарь полон",
+    ],
+    ["for fishing", "за улов"],
+    ["The hook missed the water", "Крючок не попал в воду"],
+    [
+      "Leave the vehicle and approach on foot.",
+      "Выйдите из транспорта и подойдите пешком.",
+    ],
+    ["Access denied to this claim.", "Нет доступа к привату."],
+    [
+      "Use a welder to pack up your own standalone machine.",
+      "Сварочным аппаратом можно упаковать только свой отдельно установленный автомат.",
+    ],
+    [
+      "Cash out all sessions on this machine first.",
+      "Сначала заберите баланс всех сессий этого автомата.",
+    ],
+    ["Make room in your inventory.", "Освободите место в инвентаре."],
+    ["Inventory full.", "Инвентарь полон."],
+    [
+      "Hold a machine and aim at a nearby floor.",
+      "Выберите автомат в руке и наведите на пол рядом с собой.",
+    ],
+    [
+      "The machine overlaps another player's claim.",
+      "Площадка автомата пересекает чужой приват.",
+    ],
+    [
+      "A flat, solid 3 × 3 floor is required.",
+      "Нужен ровный твёрдый пол 3 × 3.",
+    ],
+    [
+      "Clear a 3 × 3 area and four blocks above it.",
+      "Освободите площадку 3 × 3 и четыре блока над ней.",
+    ],
+    [
+      "Leave more space between machines.",
+      "Поставьте автомат дальше от соседнего.",
+    ],
+    [
+      "A player is standing in the placement area.",
+      "Игрок стоит на месте установки.",
+    ],
+    [
+      "Clear space for a chair in front of the machine.",
+      "Освободите место перед автоматом для стула.",
+    ],
+    ["Machine not found in inventory.", "Автомат не найден в инвентаре."],
+    ["{0}{1} XP {2} · {3} ({4} XP)", "{0}{1} опыта {2} · {3} ({4} XP)"],
+    ["smoke inhalation", "удушье от дыма"],
+    ["ramming ({0})", "таран ({0})"],
+    ["{0}: armor destroyed by the hit", "{0}: броня разрушена попаданием"],
+    [", at {0} m", ", с {0} м"],
+    ["Severely wounded", "Тяжёлое ранение"],
+    ["Friend list full (maximum {0})", "Список друзей заполнен (максимум {0})"],
+    ["Friends ({0}): {1}", "Друзья ({0}): {1}"],
+    ["Lunar sentry", "Лунный часовой"],
+    ["Selene soldier", "Солдат «Селена»"],
+    ["Crater trooper", "Штурмовик кратера"],
+    ["Base guard", "Охранник базы"],
+    ["Lunar rifleman", "Лунный стрелок"],
+    ["Anubis guard", "Страж Анубиса"],
+    ["Medjay", "Меджай"],
+    ["Tomb keeper", "Хранитель гробницы"],
+    ["Duat priest", "Жрец Дуата"],
+    ["Ra guard", "Страж Ра"],
+    ["sleeping", "спит"],
+    ["working", "работает"],
+    ["sheltering from the weather", "укрывается от непогоды"],
+    ["Task: bring {0} × {1}.", "Поручение: принести {0} × {1}."],
+    ["item", "предмет"],
+    [
+      "A village task is available.",
+      "Можно взять небольшое поручение для деревни.",
+    ],
+    ["farmer", "фермер"],
+    ["blacksmith", "кузнец"],
+    ["merchant", "торговец"],
+    ["doctor", "врач"],
+    ["Buy food", "Купить продукты"],
+    ["Repair equipment", "Починить снаряжение"],
+    ["Buy travel supplies", "Купить походный набор"],
+    ["Receive treatment", "Получить лечение"],
+    [
+      `{0}{1}, {2}; currently {3}.
+`,
+      `{0}{1}, {2}; сейчас {3}.
+`,
+    ],
+    ["Village reputation: {0}{1}. {2}", "Репутация деревни: {0}{1}. {2}"],
+    ["You are already at full health.", "Вы и так полностью здоровы."],
+    [
+      "Treatment costs ${0}. Not enough funds.",
+      "Лечение стоит ${0}; средств не хватает.",
+    ],
+    ["Wounds treated. Paid ${0}.", "Раны обработаны. Списано ${0}."],
+    ["Equipment needs no repairs.", "Снаряжение не нуждается в ремонте."],
+    [
+      "Repairs cost ${0}. Not enough funds.",
+      "Ремонт стоит ${0}; средств не хватает.",
+    ],
+    [
+      "Equipment repaired. Paid ${0}.",
+      "Снаряжение восстановлено. Списано ${0}.",
+    ],
+    [
+      "The kit costs ${0}. Not enough funds.",
+      "Набор стоит ${0}; средств не хватает.",
+    ],
+    ["Purchase complete. Paid ${0}.", "Покупка готова. Списано ${0}."],
+    [
+      "Task accepted: bring {0} × {1}.",
+      "Поручение принято: принесите {0} × {1}.",
+    ],
+    [
+      "Nothing for you right now. Come back in {0} min.",
+      "Пока поручений для вас нет. Загляните через {0} мин.",
+    ],
+    ["Next task in {0} min.", "Следующее поручение — через {0} мин."],
+    ["Still needed: {0} × {1}.", "Пока не хватает: {0} × {1}."],
+    [
+      "Thank you! Reward: ${0}. Reputation: {1}{2}.",
+      "Спасибо! Награда ${0}, репутация теперь {1}{2}.",
+    ],
+    ["{0} killed a resident: {1}", "{0} убил жителя: {1}"],
+    ["Bandit {0}", "Бандит {0}"],
+    [
+      "{0} stopped {2} from capturing {1}. The base remains with {3}.",
+      "{0} отменил захват базы «{1}» игроком {2}. База остаётся у {3}.",
+    ],
+    [
+      "{0} is capturing {1}, owned by {2}. {3} seconds to defend. {4} can cancel the capture at the flag.",
+      "{0} начал захват базы «{1}», владелец — {2}. На отбитие захвата: {3} сек. {4} может отменить захват у флага базы.",
+    ],
+    ["{0} controls this base.", "Эту базу контролирует {0}."],
+    ["Supplies ready in {0} seconds.", "Припасы будут готовы через {0} сек."],
+    [
+      "Supplies from {0} received. Pick them up at your feet.",
+      "Припасы с базы «{0}» получены — заберите их под ногами.",
+    ],
+    [
+      "Command center locked: {0} defenders remaining.",
+      "Командный центр заблокирован: осталось защитников — {0}.",
+    ],
+    [
+      "Base captured. Supplies are waiting at the flag.",
+      "База под вашим флагом. Припасы ждут у флага.",
+    ],
+    [
+      "Base captured. Next delivery in {0} seconds.",
+      "База под вашим флагом. Следующая поставка через {0} сек.",
+    ],
+    ["for capturing a base", "за захват базы"],
+    [
+      "{0} captured {1} from {2}. The base now belongs to {3}.",
+      "{0} перезахватил базу «{1}» у {2}. Теперь база принадлежит {3}.",
+    ],
+    [
+      "Supplies ready at {0}. Collect them at the flag.",
+      "На базе «{0}» готовы припасы — заберите их у флага.",
+    ],
+    [
+      "Military convoy returned fire on {0}.",
+      "Военный конвой открыл ответный огонь по {0}.",
+    ],
+    ["Military convoy", "Военный конвой"],
+    [
+      "A military convoy is on the road between settlements.",
+      "Военный конвой вышел на межпоселенческую дорогу.",
+    ],
+    ["Wounded scout", "Раненый разведчик"],
+    [
+      "{0} completed the bonus objective. +15 contribution, +5% prize pool. Next wave weakened.",
+      "{0} выполнил дополнительную цель! +15 очков вклада, +5% к призовому фонду. Следующая волна ослаблена.",
+    ],
+    ["Squad", "Группа"],
+    ["Interception squad", "Группа перехвата"],
+    ["Evacuation", "Эвакуация"],
+    ["{0}: Cease fire, soldier!", "{0}: «Отставить огонь, боец!»"],
+    [
+      "{0} was frightened. Village reputation: {1}",
+      "{0} испугался. Репутация деревни: {1}",
+    ],
+    ["{0} killed a resident: {1} ({2}{3})", "{0} убил жителя: {1} ({2}{3})"],
+    [
+      "Wait for the previous command to finish",
+      "Дождитесь выполнения предыдущей команды",
+    ],
+    [
+      "You do not have permission to use this command",
+      "Недостаточно прав для этой команды",
+    ],
+    ["Permission denied", "Недостаточно прав"],
+    ["Authentication service unavailable", "Сервис авторизации недоступен"],
+    ["Available commands: ", "Доступные команды: "],
+    ["Blocks: ", "Блоки: "],
+    ["/basecapture <0.017–60 minutes>", "/basecapture <0.017–60 минут>"],
+    ["Given: {0} × {1}", "Выдано: {0} × {1}"],
+    ["Balance set: ${0}", "Баланс установлен: ${0}"],
+    ["Not enough funds: you have ${0}", "Недостаточно средств: у вас ${0}"],
+    ["Sent ${0} to {1}", "Переведено ${0} игроку {1}"],
+    ["{0} sent you ${1}", "Игрок {0} перевёл вам ${1}"],
+    [
+      "Open the shop with its assigned key or /shop",
+      "Откройте магазин назначенной клавишей или командой /shop на клиенте",
+    ],
+    ["{0} set the time to {1}", "{0} установил время: {1}"],
+    ["Weather: {0}", "Погода: {0}"],
+    [
+      "Earth animals cannot spawn on the Moon",
+      "Земные животные не могут появиться на Луне",
+    ],
+    [
+      "Aim at open water, even a small pond",
+      "Нужна открытая вода перед игроком (даже небольшой водоём)",
+    ],
+    ["Teleported to {0}", "Телепорт: {0}"],
+    ["Moon", "Луна"],
+    ["Teleported to {0}", "Телепорт к игроку {0}"],
+    [
+      "Usage: /tp <player>, /tp earth|moon or /tp <x> <y> <z>",
+      "Использование: /tp <ник>, /tp earth|moon или /tp <x> <y> <z>",
+    ],
+    [
+      "Creative mode required (/gamemode creative)",
+      "Только в творческом режиме (/gamemode creative)",
+    ],
+    [
+      "/bombtest <{0}|all> [seconds to detonation] — sequential explosions ahead",
+      "/bombtest <{0}|all> [секунд до взрыва] — заряды взрываются по очереди перед вами",
+    ],
+    [
+      "Test range: {0}. First explosion in {1} s. F8 hides the HUD.",
+      "Полигон: {0} — первый взрыв через {1} с. F8 — скрыть HUD для записи.",
+    ],
+    ["Mines are only available on Earth", "Шахты есть только на Земле"],
+    ["No abandoned mines nearby", "Поблизости нет заброшенных шахт"],
+    ["Abandoned mine: {0} {1} {2}", "Заброшенная шахта: {0} {1} {2}"],
+    [
+      "Casino unavailable on this server.",
+      "Казино недоступно на этом сервере.",
+    ],
+    [
+      "Olympus Casino · Use a machine to play. Sessions are saved on the server.",
+      "Olympus Casino · Подойдите к автомату и нажмите кнопку использования. Средства сессии сохраняются на сервере.",
+    ],
+    [
+      "Your Earth home is unavailable on the Moon. Use /spawn or a rocket",
+      "На Луне нет земного дома — используйте /spawn или ракету",
+    ],
+    [
+      "This settlement command requires creative mode.",
+      "Эта команда поселений доступна только в творческом режиме.",
+    ],
+    ["The blood moon has set", "Кровавая луна зашла"],
+    ["The next night will have a blood moon", "Следующая ночь будет кровавой"],
+    ["Could not build", "Не удалось построить"],
+    [
+      "Earth soldiers do not spawn on the Moon. Look for lunar garrisons",
+      "Обычные земные солдаты не появляются на Луне — ищите гарнизоны лунных баз",
+    ],
+    ["Vote accepted.", "Выбор принят."],
+    [
+      "Raid participants can vote after victory: /raid vote cash|continue, /raid support repair|ammo|squad.",
+      "Выбор доступен участникам рейда после победы: /raid vote cash|continue, /raid support repair|ammo|squad.",
+    ],
+    ["Raids: {0}. {1}", "Рейды: {0}. {1}"],
+    ["enabled", "включены"],
+    ["disabled", "отключены"],
+    [
+      "Wave {0}/{1}; reward ${2}, banked ${3}.",
+      "Волна {0}/{1}; награда ${2}, в банке ${3}.",
+    ],
+    ["No active raid.", "Активного рейда нет."],
+    [
+      "Raids enabled. Enemy waves can begin again",
+      "Рейды включены — вражеские волны снова могут начаться",
+    ],
+    [
+      "Raids disabled. Active raid cancelled",
+      "Рейды отключены — новые волны не начнутся, активный рейд свёрнут",
+    ],
+    [
+      "Raids disabled. Enable with /raid on",
+      "Рейды отключены. Включите: /raid on",
+    ],
+    [
+      "Earth raids cannot start on the Moon. Lunar bases have their own garrisons.",
+      "Земной рейд не может начаться на Луне. На лунных базах есть отдельные гарнизоны.",
+    ],
+    [
+      "A living player in survival mode is required.",
+      "Нужен живой игрок в режиме выживания.",
+    ],
+    ["{0} {1}. /{2} start to begin.", "Режим {0} {1}. /{2} start — начать."],
+    ["Defense line", "«Линия обороны»"],
+    ["District capture", "«Захват района»"],
+    ["enabled", "включён"],
+    ["disabled", "отключён"],
+    ["Operation stopped.", "Операция остановлена."],
+    ["No active operation.", "Активной операции нет."],
+    ["Enable this mode first: /{0} on", "Сначала включите режим: /{0} on"],
+    [
+      "Operation unavailable on peaceful difficulty.",
+      "Операция недоступна на мирной сложности.",
+    ],
+    [
+      "Finish the current operation first: /raid stop, /evac stop, /defense stop or /district stop.",
+      "Сначала завершите текущую операцию. Команды: /raid stop, /evac stop, /defense stop, /district stop.",
+    ],
+    [
+      "A living player in survival mode on Earth is required.",
+      "Нужен живой игрок в режиме выживания на Земле.",
+    ],
+    [
+      "Could not deploy the operation. Find open land with room for a garrison.",
+      "Не удалось развернуть операцию. Нужны свободная суша и место для гарнизона.",
+    ],
+    ["Defense line", "Линия обороны"],
+    ["District capture", "Захват района"],
+    ["operation underway", "операция идёт"],
+    ["operation not started", "операция не начата"],
+    ["No active operation on Earth.", "Нет активной операции на Земле."],
+    [
+      "Approach the operation sector in survival mode.",
+      "Подойдите к сектору операции в режиме выживания.",
+    ],
+    [
+      "Support: repair|ammo|squad at your position or a captured point. Costs 2 reserves; 25 s cooldown. Squad requires free slots.",
+      "Поддержка: repair|ammo|squad. Подойдите к своему рубежу или захваченной точке. Нужно 2 резерва; пауза 25 сек. Отряд требует свободных мест.",
+    ],
+    [
+      "Early start is available during solo preparation. Groups share a timer.",
+      "Ранний старт доступен в подготовке соло. У группы общий таймер.",
+    ],
+    [
+      "Disable air defense first. /district air radio|depot|hq; costs 3 reserves, 25 s cooldown.",
+      "Сначала подавите ПВО. /district air radio|depot|hq; нужно 3 резерва, пауза 25 сек.",
+    ],
+    [
+      "/{0} on|off|start [player]|stop|join|status|support repair|ammo|squad{1}",
+      "/{0} on|off|start [ник]|stop|join|status|support repair|ammo|squad{1}",
+    ],
+    [
+      "Evacuation enabled. /evac start to begin.",
+      "Эвакуация включена. /evac start — начать сейчас.",
+    ],
+    [
+      "Evacuation disabled. Active operation cancelled.",
+      "Эвакуация отключена, активная операция свёрнута.",
+    ],
+    [
+      "Evacuation: {0}. /evac on|off|start|stop|call|status",
+      "Эвакуация: {0}. /evac on|off|start|stop|call|status",
+    ],
+    ["enabled", "включена"],
+    ["disabled", "отключена"],
+    [
+      "Secure the main cargo, then call evacuation from the operation sector.",
+      "Закрепите основной груз и вызовите эвакуацию из сектора операции.",
+    ],
+    ["Enable this mode first: /evac on", "Сначала включите режим: /evac on"],
+    [
+      "Evacuation unavailable on peaceful difficulty.",
+      "Эвакуация недоступна на мирной сложности.",
+    ],
+    [
+      "Finish the current operation first: /raid stop, /defense stop or /district stop.",
+      "Сначала завершите текущую операцию: /raid stop, /defense stop или /district stop.",
+    ],
+    [
+      "Evacuation already underway. /evac status",
+      "Эвакуация уже идёт. /evac status",
+    ],
+    [
+      "No suitable land found. Try an open area.",
+      "Нет подходящего участка суши. Попробуйте в открытой местности.",
+    ],
+    [
+      "/evac on|off|start [player]|stop|call|status",
+      "/evac on|off|start [ник]|stop|call|status",
+    ],
+    [
+      "Military contacts are only available on Earth",
+      "Военные связные работают только на Земле",
+    ],
+    ["Missions not loaded", "Миссии не загружены"],
+    [
+      "Joined the operation. Rewards are shared by contribution.",
+      "Вы присоединились к операции. Награда делится по вкладу.",
+    ],
+    [
+      "Could not join. /mission join <commander>",
+      "Не удалось присоединиться. /mission join <ник командира>",
+    ],
+    [
+      "A military contact has arrived. Approach and use the interaction key to talk.",
+      "Военный связной прибыл — подойдите и поговорите с ним (клавиша взаимодействия, по умолчанию F)",
+    ],
+    [
+      "Could not place the contact. Try an open area",
+      "Не удалось разместить связного — попробуйте на открытой местности",
+    ],
+    [
+      "WorldEdit undo: restored {0} blocks",
+      "WorldEdit undo: восстановлено {0} блоков",
+    ],
+    [
+      "Region too large: {0} blocks (maximum 300000)",
+      "Регион слишком большой: {0} блоков (макс 300000)",
+    ],
+    [
+      "WorldEdit {0}: changed {1} blocks (//undo to revert)",
+      "WorldEdit {0}: изменено {1} блоков (//undo — отмена)",
+    ],
+    [
+      "Casinos can only be built on Earth.",
+      "Казино можно построить только на Земле.",
+    ],
+    [
+      "Blueprint overlaps existing machines. Choose another plot.",
+      "Чертёж перекрывает существующие автоматы. Выберите другой участок.",
+    ],
+    [
+      "Lunar blocks require a white lunar drill",
+      "Лунные блоки можно добывать только белым лунным буром",
+    ],
+    [
+      "Plant berries on grass, dirt or farmland",
+      "Ягоды сажают в траву, землю или удобренную землю",
+    ],
+    [
+      "Plant seeds on dirt or farmland",
+      "Семена сажают в землю или удобренную землю",
+    ],
+    [
+      "Crops need water within 8 blocks",
+      "Посевам нужна вода в радиусе 8 блоков",
+    ],
+    [
+      "This block goes out and breaks in liquid",
+      "В жидкости этот блок сразу гаснет и ломается",
+    ],
+    [
+      "Crop already mature. No fertilizer needed",
+      "Посев уже созрел — удобрение не требуется",
+    ],
+    [
+      "Fertilizer applied: growth accelerated by 55%",
+      "Удобрение внесено: рост ускорен на 55%",
+    ],
+    [
+      "Compost leaves, seeds, wood, flowers and organic matter",
+      "Компостер принимает листву, семена, древесину, цветы и органику",
+    ],
+    [
+      "Composter full: received fertilizer ×{0}",
+      "Компостер заполнен: получено удобрение ×{0}",
+    ],
+    [" · remaining {0}%", " · остаток {0}%"],
+    [
+      "Add a toadstool for a potion, an apple for caramel or a pumpkin for candy",
+      "В котёл бросают мухомор (зелье), яблоко (карамель) или тыкву (конфеты)",
+    ],
+    ["You are full", "Вы сыты"],
+    [
+      "Cannot deploy vehicle: vehicle limit reached ({0})",
+      "Нельзя поставить технику: достигнут лимит пользовательской техники ({0})",
+    ],
+    [
+      "Blocks obstruct the hull, wings or turret",
+      "Нельзя поставить технику: корпусу, крыльям или башне мешают блоки",
+    ],
+    [
+      "Another vehicle occupies this space",
+      "Нельзя поставить технику: место занято другой техникой",
+    ],
+    [
+      "Soldier limit: at most {0} active bots per player",
+      "Лимит военных: не больше {0} активных ботов на игрока",
+    ],
+    [
+      "{0} launched a nuclear missile. Target marked on everyone's map.",
+      "{0} запустил ядерную ракету! Цель отмечена на карте всех игроков.",
+    ],
+    ["Wait {0} s before eating again", "Ещё рано есть — {0} сек"],
+    ["Poisoning", "Отравление"],
+    ["poisoning", "отравление"],
+    ["{0}: durability depleted", "{0}: ресурс исчерпан"],
+    ["Picked up ${0}", "Вы подобрали ${0}"],
+    ["Picked up: {0} × {1}", "Вы подобрали: {0} × {1}"],
+    [
+      "Charges armed: {0}. Countdown started.",
+      "Заряды активированы: {0}. Начат обратный отсчёт.",
+    ],
+    ["Not enough money: ${0} required", "Недостаточно долларов: нужно ${0}"],
+    ["Inventory full. Make room first", "Инвентарь полон — освободите место"],
+    ["Purchased: {0} × {1}", "Куплено: {0} × {1}"],
+    ["Sold: {0} × {1} for ${2}", "Продано: {0} × {1} за ${2}"],
+    [
+      "Stop the vehicle, release controls and disembark the crew",
+      "Остановите технику, завершите управление и высадите экипаж",
+    ],
+    ["Clear the deck first", "Сначала освободите палубу"],
+    [
+      "Remove attached charges before packing",
+      "На технике установлен заряд — упаковка недоступна",
+    ],
+    [
+      "Fully repair the vehicle before packing",
+      "Перед упаковкой полностью отремонтируйте технику",
+    ],
+    [
+      "Vehicle packed into inventory · ${0}{1}",
+      "Техника упакована в инвентарь · ${0}{1}",
+    ],
+    [" · armor removed: +${0}", " · броня срезана: +${0}"],
+    ["{0} welded · {1} · ${2}", "{0} приварена · {1} · ${2}"],
+    [
+      "Sold from chest: {0} × {1} for ${2}",
+      "Продано из сундука: {0} × {1} за ${2}",
+    ],
+    [
+      "Sold from backpack: {0} × {1} for ${2}",
+      "Продано из рюкзака: {0} × {1} за ${2}",
+    ],
+    [
+      "Sold from furnace: {0} × {1} for ${2}",
+      "Продано из печки: {0} × {1} за ${2}",
+    ],
+    ["Escorting player", "Сопровождение игрока"],
+    ["Holding position", "Удержание позиции"],
+    ["Autopilot · waiting for pilot", "Автопилот · ожидание пилота"],
+    ["Hovering · waiting for pilot", "Зависание · ожидание пилота"],
+    ["Parked · waiting for pilot", "На стоянке · ожидание пилота"],
+    ["Defending", "Оборона"],
+    ["Automatic defense", "Автооборона"],
+    ["Me · ", "Я · "],
+    ["Reloading · {0} s", "Перезарядка · {0} с"],
+    ["Ready · 1 rocket · 224 m", "Готова · 1 ракета · 224 м"],
+    ["Waiting", "Ожидание"],
+    [
+      "Install the module on a gate or bridge sign",
+      "Установите модуль на табличку ворот или моста",
+    ],
+    ["Radio module already installed", "Радиомодуль уже установлен"],
+    [
+      "Radio module linked. Configure its name and signal at the station",
+      "Радиомодуль подключён · название и сигнал настраиваются на станции",
+    ],
+    [
+      "Install radio modules on your nearby vehicles only.",
+      "Радиомодуль устанавливается только на вашу технику рядом с вами.",
+    ],
+    ["Radio module already installed.", "Радиомодуль уже установлен."],
+    [
+      "Radio module installed · range 20,000 blocks",
+      "Радиомодуль установлен · дальность 20 000 блоков",
+    ],
+    ["Station unavailable", "Станция недоступна"],
+    [
+      "Vehicle occupied or out of radio range.",
+      "Техника занята или вне радиосвязи.",
+    ],
+    [
+      "HIMARS: wait for the current attack to finish.",
+      "HIMARS: дождитесь завершения текущей атаки.",
+    ],
+    [
+      "Remote repairs require a fixed command station.",
+      "Удалённый ремонт доступен только на стационарном пункте управления.",
+    ],
+    ["Vehicle repaired · ${0}", "Техника отремонтирована · ${0}"],
+    ["Manual control", "Ручное управление"],
+    ["Mortar: target beyond {0} blocks.", "Мортира: цель дальше {0} блоков."],
+    ["Mortar: reloading for {0} s.", "Мортира: перезарядка {0} с."],
+    ["Single strike", "Одиночный удар"],
+    ["Navigating", "Навигация"],
+    ["Attacking target", "Атака цели"],
+    [
+      "A stationary weapon cannot escort a target.",
+      "Стационарная установка не может сопровождать цель.",
+    ],
+    [
+      "Escort orders cannot form a loop.",
+      "Нельзя создавать замкнутую цепочку сопровождения.",
+    ],
+    ["Escorting", "Сопровождение"],
+    ["AK-47 · manual control", "АК-47 · ручное управление"],
+    ["Signal lost · holding", "Нет связи · удержание"],
+    ["Escort target unavailable", "Цель сопровождения недоступна"],
+    ["Route blocked", "Маршрут перекрыт"],
+    ["Waypoint reached · defending", "Точка достигнута · оборона"],
+    [
+      "Holding fire · friendlies near target",
+      "Огонь отложен · союзники у цели",
+    ],
+    [
+      "{0}: automatic launch at marked target.",
+      "{0}: автоматический пуск по отмеченной цели.",
+    ],
+    ["Station connection lost", "Соединение со станцией прервано"],
+    ["Target lost", "Цель потеряна"],
+    ["Barrage at designated point", "Залп по заданной точке"],
+    ["Pulling out · climbing", "Выход из атаки · набор высоты"],
+    ["Turning for another pass", "Разворот на новый заход"],
+    ["Attack run", "Боевой заход"],
+    ["Firing from position", "Огонь с позиции"],
+    ["Closing to launch range", "Сближение до дистанции пуска"],
+    ["Waypoint reached · patrolling", "Точка достигнута · патрулирование"],
+    ["Following flight route", "Полёт по маршруту"],
+    ["Patrolling", "Патрулирование"],
+    ["Stationary weapon", "Стационарная установка"],
+    ["Avoiding obstacle · reversing", "Обход препятствия · задний ход"],
+    ["Turning toward route", "Разворот к маршруту"],
+    ["Replanning route", "Перестроение маршрута"],
+    ["Intercepting missile", "Перехват ракеты"],
+    ["Moving and firing", "В пути · ведёт огонь"],
+    ["In combat", "Ведёт бой"],
+    ["Escorting · ", "Сопровождение · "],
+    [" · in combat", " · бой"],
+    ["Session ended or account banned", "Сессия завершена или бан"],
+    ["Authentication unavailable", "Авторизация недоступна"],
+    [
+      "Voxel Rush server is running. Build the client with npm run build or use npm run dev on port 5173.",
+      "Voxel Rush server работает. Клиент не собран: выполните npm run build (или используйте npm run dev на порту 5173).",
+    ],
+    ["[-] {0}, online: {1}", "[-] {0}, онлайн: {1}"],
+    ["Player", "Игрок"],
+    ["Server full", "Сервер заполнен"],
+    ["[+] {0} (#{1}), online: {2}", "[+] {0} (#{1}), онлайн: {2}"],
+    ["Invalid packet", "Некорректный пакет"],
+    ["Packet processing error:", "Ошибка обработки пакета:"],
+    ["{0} killed {1}: {2}", "{0} уничтожил {1}: {2}"],
+    ["an enemy soldier", "вражеского бойца"],
+    ["a soldier", "бойца"],
+    [
+      "Click! Pressure charge triggered. Move away from the plate!",
+      "Щелчок! Нажимной заряд — отойдите от плиты!",
+    ],
+    ["Knife broken", "Нож сломался"],
+    [
+      "Spacesuit life support depleted",
+      "Система жизнеобеспечения скафандра исчерпана",
+    ],
+    ["Lunar vacuum", "Лунный вакуум"],
+    ["decompression", "разгерметизация"],
+    [
+      "An intact spacesuit helmet is required on the Moon",
+      "На Луне нужен исправный скафандр-шлем",
+    ],
+    ["barbed wire", "колючая проволока"],
+    [
+      "Autosave: {0} chunks ({1} regions remaining)",
+      "Автосохранение: {0} чанков (осталось регионов: {1})",
+    ],
+    ["Autosave: {0} chunks", "Автосохранение: {0} чанков"],
+    [
+      "Voxel Rush server running: http://localhost:{0} (seed {1}, world: {2}/)",
+      "Voxel Rush сервер запущен: http://localhost:{0} (seed {1}, мир: {2}/)",
+    ],
+    [
+      `
+Saving world...`,
+      `
+Сохранение мира...`,
+    ],
+    ["Saved {0} chunks. Goodbye!", "Сохранено чанков: {0}. Пока!"],
+    ["Reinforcement radio operator", "Связист подкрепления"],
+    ["Quick reaction squad", "Группа быстрого реагирования"],
+    ["Sign in to play multiplayer", "Для сетевой игры войдите в профиль"],
+    ["Mechanism", "Механизм"],
+    [
+      "Device unavailable or out of radio range",
+      "Устройство недоступно или вне радиосвязи",
+    ],
+    ["Enter a device name", "Введите название устройства"],
+    ["Spotter Vector", "Корректировщик «Вектор»"],
+    ["Special squad guard", "Охрана спецгруппы"],
+    ["Eliminate the spotter", "Устранить корректировщика"],
+    ["Intercept supplies", "Перехватить снабжение"],
+    ["Rescue the allied squad", "Спасти союзную группу"],
+    ["Next wave: 35% less infantry", "Следующая волна: на 35% меньше пехоты"],
+    [
+      "Next wave: one fewer armored vehicle",
+      "Следующая волна: на одну бронемашину меньше",
+    ],
+    [
+      "Next wave: 25% less infantry, +20 s preparation",
+      "Следующая волна: −25% пехоты и +20 сек. подготовки",
+    ],
+    ["Night battle", "Ночной бой"],
+    ["Armored column", "Бронеколонна"],
+    ["ONE MORE WAVE", "ЕЩЁ ОДНА ВОЛНА"],
+    ["VOTING · {0}/{1}", "ГОЛОСОВАНИЕ · {0}/{1}"],
+    ["BONUS ROUND {0}", "ДОП. ЭТАП {0}"],
+    ["Cash out or continue?", "Забрать награду или продолжить?"],
+    [
+      "Banked ${0}; at risk ${1}. Next: {2} → ${3}. Unanimous vote required; silence means cash out. Support: {4}.",
+      "В банке ${0}; под риском ${1}. Далее: {2} → ${3}. Продолжение единогласно, молчание — выход. Поддержка: {4}.",
+    ],
+    [
+      "Banked ${0}. Defeat loses only the unprotected bonus. Every second round is a checkpoint.",
+      "В банке ${0}. При поражении теряется только незащищённый бонус. Контрольный этап — каждый второй.",
+    ],
+    ["Cash out", "Забрать"],
+    ["Continue", "Продолжить"],
+    ["Mine", "Шахта"],
+    ["Watchtower", "Сторожевая вышка"],
+    ["city", "город"],
+    ["village", "деревню"],
+    ["{0} died{1}", "{0} погиб(ла){1}"],
+    [
+      "Robbery in {0}: {1}. Reputation: {2}. Residents are defending the settlement!",
+      "Ограбление «{0}»: {1}. Репутация: {2}. Жители защищают поселение!",
+    ],
+    ["Play", "Поиграть"],
+    ["village", "деревня"],
+    ["Sign not found", "Табличка не найдена"],
+    ["Only the sign owner can edit it", "Редактировать может автор таблички"],
+    ["Close the mechanism first", "Сначала закройте механизм"],
+    [
+      "Enter corners on lines 3 and 4: dx,dy,dz relative to the sign",
+      "В строках 3 и 4 укажите углы: dx,dy,dz относительно таблички",
+    ],
+    [
+      "Each corner must be within 24 blocks",
+      "До каждого угла — не более 24 блоков",
+    ],
+    [
+      "Mechanisms support at most 256 blocks",
+      "Максимум 256 блоков в механизме",
+    ],
+    [
+      "A horizontal mechanism must be one block tall",
+      "Горизонтальный механизм должен иметь высоту 1 блок",
+    ],
+    [
+      "Vertical gates must be one block thick",
+      "Вертикальные ворота должны иметь толщину 1 блок",
+    ],
+    [
+      "Select a solid area of building blocks without containers or mechanisms",
+      "Выберите заполненную область строительных блоков без контейнеров и механизмов",
+    ],
+    ["Claim access denied", "Нет доступа к привату"],
+    [
+      "Enter the command on the second line",
+      "Укажите команду во второй строке",
+    ],
+    [
+      "This is a lift stop. Use [Lift Up] or [Lift Down]",
+      "Это остановка лифта. Используйте [Lift Up] или [Lift Down]",
+    ],
+    [
+      "No lift stop in that direction",
+      "Нет остановки лифта в этом направлении",
+    ],
+    [
+      "Lift exit is in another player's claim",
+      "Выход лифта находится в чужом привате",
+    ],
+    ["Lift exit blocked", "Выход лифта заблокирован"],
+    [
+      "Mechanism overlaps another player's claim",
+      "Механизм пересекает чужой приват",
+    ],
+    [
+      "Mechanism blocked. Remove obstacles and step away",
+      "Механизм заблокирован: уберите препятствия и отойдите",
+    ],
+    ["Soldier", "Военный"],
+    ["stone", "каменные"],
+    ["diamond", "алмазные"],
+    ["pistols", "пистолеты"],
+    ["rifles", "автоматы"],
+    ["enemy", "враг"],
+    ["friend", "друг"],
+    [
+      "Username: 3–24 letters, numbers or underscores",
+      "Ник: 3–24 латинские буквы, цифры или _",
+    ],
+    [
+      "Password must contain at least 12 characters",
+      "Пароль: минимум 12 символов",
+    ],
+    ["Invalid server address", "Некорректный адрес сервера"],
+    ["Sign in to your account", "Войдите в аккаунт"],
+    ["Account or IP address banned", "Аккаунт или IP заблокирован"],
+    [
+      "Too many attempts. Try again in 15 minutes",
+      "Слишком много попыток. Повторите через 15 минут",
+    ],
+    ["IP address banned", "IP заблокирован"],
+    [
+      "Use /sethome at the location you want to save",
+      "Используйте /sethome в точке, которую хотите сохранить",
+    ],
+    [
+      "Use /home to return to your saved home",
+      "Используйте /home для возвращения домой",
+    ],
+    [
+      "You must be alive to set or visit your home",
+      "Установить точку дома или вернуться домой можно только живым",
+    ],
+    [
+      "Home saved. Use /home to return here.",
+      "Точка дома сохранена. Используйте /home, чтобы вернуться.",
+    ],
+    [
+      "You have no home. Use /sethome or sleep in a bed.",
+      "Точка дома не задана. Используйте /sethome или поспите в кровати.",
+    ],
+    ["Usage: /tphere <player>", "Использование: /tphere <ник>"],
+    [
+      "Usage: /tp <player> <target player> or /tp <player> <x> <y> <z>",
+      "Использование: /tp <игрок> <другой игрок> или /tp <игрок> <x> <y> <z>",
+    ],
+    [
+      "This player must be alive to teleport",
+      "Этот игрок должен быть жив для телепортации",
+    ],
+    ["Player teleported.", "Игрок телепортирован."],
+    ["An administrator teleported you.", "Администратор телепортировал вас."],
+    ["Chat mute applied.", "Запрет чата установлен."],
+    ["Chat mute removed.", "Запрет чата снят."],
+    [
+      "Only the issuing moderator or an admin can change this mute",
+      "Изменить этот мут может выдавший его модератор или администратор",
+    ],
+    [
+      "Use /mute <username> <duration>: 10m, 2h, 1d or 30d (maximum 365d)",
+      "Используйте /mute <ник> <срок>: 10m, 2h, 1d или 30d (максимум 365d)",
+    ],
+    ["Use /unmute <username>", "Используйте /unmute <ник>"],
+    [
+      "Wait for the previous message to finish",
+      "Дождитесь отправки предыдущего сообщения",
+    ],
+    [
+      "Chat is unavailable for this account",
+      "Чат недоступен для этого аккаунта",
+    ],
+    ["Incorrect username or password", "Неверный логин или пароль"],
+    ["Incorrect current password", "Неверный текущий пароль"],
+    ["You can save up to 100 servers", "Можно сохранить до 100 серверов"],
+    ["Maximum of 5 hosted servers", "Лимит: 5 серверов"],
+    [
+      "Server not registered with Voxel Rush",
+      "Сервер не зарегистрирован в Voxel Rush",
+    ],
+    ["Player not found", "Игрок не найден"],
+    ["The owner role is protected", "Роль создателя защищена"],
+    ["Enter a username or IP address", "Укажите ник или IP"],
+    ["This role cannot be banned", "Нельзя заблокировать эту группу"],
+    ["This IP belongs to a protected account", "IP защищённого аккаунта"],
+    ["Ban not found", "Бан не найден"],
+    [
+      "Session ended or player banned",
+      "Сессия завершена или игрок заблокирован",
+    ],
+    ["Sign in and reconnect", "Войдите в профиль и подключитесь заново"],
+    [
+      "Network moderation requires an official server",
+      "Модерация сети доступна на официальных серверах",
+    ],
+    ["Rule violation", "Нарушение правил"],
+    ["Player is protected", "Игрок защищён"],
+    [
+      "Done. Changes will apply within 10 seconds.",
+      "Готово. Изменения применятся в течение 10 секунд.",
+    ],
+    [
+      "Username, email or address already in use",
+      "Этот ник, email или адрес уже занят",
+    ],
+    ["Service temporarily unavailable", "Сервис временно недоступен"],
+    ["Condor Airbase", "Авиабаза «Кондор»"],
+    ["Blizzard Airbase", "Зимняя авиабаза «Буран»"],
+    ["Falcon Airbase", "Пустынная авиабаза «Сокол»"],
+    ["Harpy Airbase", "Джунглевая авиабаза «Гарпия»"],
+    ["Albatross Airbase", "Береговая авиабаза «Альбатрос»"],
+    [
+      `Floor 1
+[Lift Up]`,
+      `Этаж 1
+[Lift Up]`,
+    ],
+    [
+      `Floor 2
+[Lift Down]`,
+      `Этаж 2
+[Lift Down]`,
+    ],
+    [
+      `Main gate
+[gate]
+1,0,-2
+9,3,-2`,
+      `Главные ворота
+[gate]
+1,0,-2
+9,3,-2`,
+    ],
+    ["Underground Shelter", "Подземное убежище"],
+    ["Quiet Bay Fishing Harbor", "Рыбацкая гавань «Тихая бухта»"],
+    ["Ice Bay Fishing Harbor", "Рыбацкая гавань «Ледяная бухта»"],
+    ["Salt Coast Fishing Harbor", "Рыбацкая гавань «Солёный берег»"],
+    ["Mangrove Bay Fishing Harbor", "Рыбацкая гавань «Мангровая бухта»"],
+    ["Fisherman Stepan", "Рыбак Степан"],
+    ["Last Vein Gold Mine", "Заброшенный прииск «Последняя жила»"],
+    ["Bastion Fortress", "Крепость «Бастион»"],
+    ["Northern Bastion", "Зимняя крепость «Северный бастион»"],
+    ["Desert Citadel", "Пустынная крепость «Цитадель»"],
+    ["Anaconda Fortress", "Джунглевая крепость «Анаконда»"],
+    ["Cape Fortress", "Береговая крепость «Мыс»"],
+    ["Golden Spring Caravanserai", "Караван-сарай · Золотой источник"],
+    ["Samir", "Самир"],
+    ["Olympus Casino", "Казино «Олимп» · 2 стола блэкджека"],
+    [
+      `OLYMPUS CASINO
+31 SLOTS · DEMO
+USE → PLAY`,
+      `OLYMPUS CASINO
+31 SLOTS · DEMO
+ИСПОЛЬЗОВАТЬ → ИГРАТЬ`,
+    ],
+    ["Abandoned Mine", "Заброшенная шахта"],
+    ["Military Checkpoint", "Военный блокпост"],
+    [
+      `Main gate
+[gate]
+1,0,-2
+7,2,-2`,
+      `Главные ворота
+[gate]
+1,0,-2
+7,2,-2`,
+    ],
+    ["Abandoned House", "Заброшенный дом"],
+    ["Northhaven", "Нортхейвен · город небоскрёбов"],
+    ["Alex", "Алекс"],
+    ["Emma", "Эмма"],
+    ["James", "Джеймс"],
+    ["Mia", "Мия"],
+    ["Oliver", "Оливер"],
+    ["Zoe", "Зои"],
+    ["Liam", "Лиам"],
+    ["Lily", "Лили"],
+    ["Noah", "Ной"],
+    ["Ava", "Эйва"],
+    ["Lucas", "Лукас"],
+    ["Ethan", "Итан"],
+    ["Alex · 13", "Алекс · 13"],
+    ["Emma · 14", "Эмма · 14"],
+    ["James · 15", "Джеймс · 15"],
+    ["Mia · 16", "Мия · 16"],
+    ["Oliver · 17", "Оливер · 17"],
+    ["Zoe · 18", "Зои · 18"],
+    ["Liam · 19", "Лиам · 19"],
+    ["Lily · 20", "Лили · 20"],
+    ["Noah · 21", "Ной · 21"],
+    ["Ava · 22", "Эйва · 22"],
+    ["Lucas · 23", "Лукас · 23"],
+    ["Ethan · 24", "Итан · 24"],
+    ["Alex · 25", "Алекс · 25"],
+    ["Emma · 26", "Эмма · 26"],
+    ["James · 27", "Джеймс · 27"],
+    ["Mia · 28", "Мия · 28"],
+    ["Oliver · 29", "Оливер · 29"],
+    ["Zoe · 30", "Зои · 30"],
+    ["Liam · 31", "Лиам · 31"],
+    ["Lily · 32", "Лили · 32"],
+    [
+      `Floor 2
+[Lift Up]`,
+      `Этаж 2
+[Lift Up]`,
+    ],
+    [
+      `Floor 3
+[Lift Up]`,
+      `Этаж 3
+[Lift Up]`,
+    ],
+    [
+      `Floor 3
+[Lift Down]`,
+      `Этаж 3
+[Lift Down]`,
+    ],
+    [
+      `Floor 4
+[Lift Up]`,
+      `Этаж 4
+[Lift Up]`,
+    ],
+    [
+      `Floor 4
+[Lift Down]`,
+      `Этаж 4
+[Lift Down]`,
+    ],
+    [
+      `Floor 5
+[Lift Down]`,
+      `Этаж 5
+[Lift Down]`,
+    ],
+    [
+      `Floor 5
+[Lift Up]`,
+      `Этаж 5
+[Lift Up]`,
+    ],
+    [
+      `Floor 6
+[Lift Up]`,
+      `Этаж 6
+[Lift Up]`,
+    ],
+    [
+      `Floor 6
+[Lift Down]`,
+      `Этаж 6
+[Lift Down]`,
+    ],
+    [
+      `Floor 7
+[Lift Down]`,
+      `Этаж 7
+[Lift Down]`,
+    ],
+    [
+      `Floor 7
+[Lift Up]`,
+      `Этаж 7
+[Lift Up]`,
+    ],
+    [
+      `Floor 8
+[Lift Up]`,
+      `Этаж 8
+[Lift Up]`,
+    ],
+    [
+      `Floor 8
+[Lift Down]`,
+      `Этаж 8
+[Lift Down]`,
+    ],
+    [
+      `Floor 9
+[Lift Up]`,
+      `Этаж 9
+[Lift Up]`,
+    ],
+    [
+      `Floor 9
+[Lift Down]`,
+      `Этаж 9
+[Lift Down]`,
+    ],
+    [
+      `Floor 10
+[Lift Up]`,
+      `Этаж 10
+[Lift Up]`,
+    ],
+    [
+      `Floor 10
+[Lift Down]`,
+      `Этаж 10
+[Lift Down]`,
+    ],
+    [
+      `Floor 11
+[Lift Down]`,
+      `Этаж 11
+[Lift Down]`,
+    ],
+    ["Edelweiss Mountain Refuge", "Эдельвейс · горный приют"],
+    ["Ranger", "Рейнджер"],
+    ["Yellowstone Ranger Station", "Йеллоустоун · станция рейнджеров"],
+    ["Great Pyramid of the Golden Sun", "Великая пирамида Золотого Солнца"],
+    ["Old Graveyard", "Старое кладбище"],
+    [
+      `Old Graveyard
+~ rest in peace ~
+Keep out at night`,
+      `Старое кладбище
+~ покойтесь с миром ~
+Не ходите сюда ночью`,
+    ],
+    ["Bellerive", "Бельрив · город света"],
+    ["Camille", "Камиль"],
+    ["Louis", "Луи"],
+    ["Jules", "Жюль"],
+    ["Adele", "Адель"],
+    ["Claude", "Клод"],
+    ["Lea", "Лея"],
+    ["Pierre", "Пьер"],
+    ["Sophie", "Софи"],
+    ["Theo", "Тео"],
+    ["Elise", "Элиза"],
+    ["Henri", "Анри"],
+    ["Marie", "Мари"],
+    ["Camille · 13", "Камиль · 13"],
+    ["Louis · 14", "Луи · 14"],
+    ["Jules · 15", "Жюль · 15"],
+    ["Adele · 16", "Адель · 16"],
+    ["Claude · 17", "Клод · 17"],
+    ["Lea · 18", "Лея · 18"],
+    ["Pierre · 19", "Пьер · 19"],
+    ["Sophie · 20", "Софи · 20"],
+    ["Theo · 21", "Тео · 21"],
+    ["Elise · 22", "Элиза · 22"],
+    ["Henri · 23", "Анри · 23"],
+    ["Marie · 24", "Мари · 24"],
+    ["Camille · 25", "Камиль · 25"],
+    ["Louis · 26", "Луи · 26"],
+    ["Jules · 27", "Жюль · 27"],
+    ["Adele · 28", "Адель · 28"],
+    ["Claude · 29", "Клод · 29"],
+    ["Lea · 30", "Лея · 30"],
+    ["Pierre · 31", "Пьер · 31"],
+    ["Sophie · 32", "Софи · 32"],
+    ["Black Vein Mine", "Шахта «Чёрная жила»"],
+    ["Horizon Bunker", "Бункер «Горизонт»"],
+    [
+      `Upper hatch
+[gate horizontal]
+1,4,-1
+3,4,1`,
+      `Верхний люк
+[gate horizontal]
+1,4,-1
+3,4,1`,
+    ],
+    ["Military Base", "Военная база"],
+    ["Polar Military Base", "Зимняя военная база «Полюс»"],
+    ["Mirage Military Base", "Пустынная военная база «Мираж»"],
+    ["Jaguar Military Base", "Джунглевая военная база «Ягуар»"],
+    ["Surf Military Base", "Береговая военная база «Прибой»"],
+    ["Frontier Base", "Передовая база «Рубеж»"],
+    ["Frost Forward Base", "Зимняя передовая база «Иней»"],
+    ["Dune Forward Base", "Пустынная передовая база «Бархан»"],
+    ["Cobra Forward Base", "Джунглевая передовая база «Кобра»"],
+    ["Fairway Forward Base", "Береговая передовая база «Фарватер»"],
+    ["Northern Seaport", "Морской порт «Северный терминал»"],
+    ["Polar Seaport", "Морской порт «Полярный терминал»"],
+    ["Southern Seaport", "Морской порт «Южный терминал»"],
+    ["Harbormaster", "Начальник порта"],
+    ["Witch Hut", "Хижина ведьмы"],
+    [
+      `Do not knock.
+The witch is home.`,
+      `Не стучите.
+Ведьма дома.`,
+    ],
+    ["Pumpkin Farm", "Тыквенная ферма"],
+    [
+      `Pumpkin Farm
+Fresh pumpkins!
+Seeds and pies`,
+      `Тыквенная ферма
+Свежие тыквы!
+Семена и пироги`,
+    ],
+    ["Farmer Jack", "Фермер Джек"],
+    ["Roadside Gas Station", "Придорожная заправка"],
+    ["Birchwood Village", "Мирная деревня «Берёзки»"],
+    ["Northwind Village", "Зимняя деревня «Северянка»"],
+    ["Oasis Village", "Пустынный аул «Оазис»"],
+    ["Vinewood Village", "Джунглевая деревня «Лианы»"],
+    ["Beacon Village", "Прибрежная деревня «Маячная»"],
+    ["Farmer Miron", "Фермер Мирон"],
+    ["Blacksmith Vera", "Кузнец Вера"],
+    ["Merchant Leo", "Торговец Лев"],
+    ["Doctor Alina", "Врач Алина"],
+    [
+      `Village bridge
+[bridge]
+1,0,1
+3,0,7`,
+      `Деревенский мост
+[bridge]
+1,0,1
+3,0,7`,
+    ],
+    ["Typhoon Naval Base", "Морская база «Тайфун»"],
+    ["Iceberg Naval Base", "Арктическая морская база «Льдина»"],
+    ["Sirocco Naval Base", "Южная морская база «Сирокко»"],
+    ["Mangrove Naval Base", "Тропическая морская база «Мангр»"],
+    ["Al-Kayla Bedouin Camp", "Становище бедуинов «Аль-Кайла»"],
+    ["Shepherd Salim", "Пастух Салим"],
+    ["Blacksmith Rashid", "Кузнец Рашид"],
+    ["Healer Leila", "Знахарка Лейла"],
+    ["Azure Coast Lighthouse", "Маяк · Лазурный берег"],
+    ["Floor {0}", "Этаж {0}"],
+    ["Me · {0}", "Я · {0}"],
+    ["Grenadier {0}", "Гранатомётчик {0}"],
+    [
+      "{0}, district HQ: {1}, an enemy raid is approaching (threat: {2}). Intel: {3}. Hold your position. The operation ends without a bonus if the raid zone stays empty for 3 minutes.",
+      "«{0}», штаб округа: «{1}, на вас готовится рейд (угроза: {2}). По разведданным возможны: {3}. Удерживайте позицию. Если в зоне рейда 3 минуты не будет ни одного бойца — операция свёрнута, премии не будет.»",
+    ],
+    [
+      `{0}{1}, {2}; currently {3}.
+Village reputation: {4}{5}. {6}`,
+      `{0}{1}, {2}; сейчас {3}.
+Репутация деревни: {4}{5}. {6}`,
+    ],
+    ["Available commands: {0}", "Доступные команды: {0}"],
+    ["Blocks: {0}", "Блоки: {0}"],
+    [
+      "Composter full: received fertilizer ×{0}{1}",
+      "Компостер заполнен: получено удобрение ×{0}{1}",
+    ],
+    ["Escorting · {0}{1}", "Сопровождение · {0}{1}"],
+  ],
+  hI = { en: new Map(), ru: new Map() },
+  dI = { en: [], ru: [] },
+  Um = { en: new Map(), ru: new Map() },
+  Hj = (n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
+  zj = (n) =>
+    n
+      .replace(new RegExp("\\p{Extended_Pictographic}\\uFE0F?\\s?", "gu"), "")
+      .replace(/\uFE0F/g, ""),
+  d1 = Bj.map(([n, e]) => [n, e]);

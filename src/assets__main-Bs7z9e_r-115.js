@@ -1,0 +1,303 @@
+// assets__main-Bs7z9e_r 115 — x5d322a
+// Lines 37837-38137 of readable/assets__main-Bs7z9e_r.pretty.js (statement-aligned).
+const fH = 0x28,
+  hH = (_0x1b9517) => typeof _0x1b9517 == _0x5d322a(0xd23) && _0x1b9517 in mr,
+  uH = ["A", "B", "C", "D", "E"],
+  dH = {
+    warmup: 0xc,
+    round: 0x384,
+    results: 0x18,
+    respawn: 0x6,
+    botRespawn: 0x8,
+  },
+  e3 = {
+    warmup: 0xa,
+    round: 0x258,
+    results: 0x16,
+    respawn: 0x4,
+    botRespawn: 4.5,
+    shield: 0x3,
+  },
+  mH = new Set([
+    A[_0x5d322a(0x1812)],
+    A["AMMO_9MM"],
+    A[_0x5d322a(0x1c5e)],
+    A["AMMO_SHELL"],
+  ]),
+  pH = { [A["AMMO_40MM"]]: 0x8, [A[_0x5d322a(0xd8a)]]: 0x19 },
+  br = {
+    kill: 0x64,
+    headshot: 0x32,
+    firstBlood: 0x64,
+    streak: 0x32,
+    revenge: 0x32,
+    knife: 0x64,
+    assist: 0x32,
+  },
+  EH = {
+    0x3: { en: _0x5d322a(0x1f4), ru: "СЕРИЯ\x20УБИЙСТВ" },
+    0x5: { en: _0x5d322a(0x15c6), ru: "НЕУДЕРЖИМЫЙ" },
+    0x7: { en: _0x5d322a(0x201e), ru: _0x5d322a(0x113b) },
+    0xa: { en: _0x5d322a(0x15d3), ru: "НЕОСТАНОВИМ" },
+    0xf: { en: _0x5d322a(0x78c), ru: _0x5d322a(0x1c84) },
+  },
+  wh = {
+    depotRadius: 2.6,
+    flagRadius: 0x8,
+    hold: 1.5,
+    hqCooldown: 0xa,
+    flagCooldown: 0x2d,
+  },
+  Ai = {
+    kill: 0x64,
+    headshot: 0x19,
+    capture: 0xfa,
+    neutralize: 0x64,
+    defend: 0x32,
+    assistCapture: 0x64,
+    vehicleAssistMin: 0x32,
+    assist: 0x32,
+  },
+  Gm = {
+    capture: 0x64,
+    captureAssist: 0x32,
+    neutralize: 0x28,
+    killAssist: 0x19,
+  },
+  yH = 0x3,
+  AH = {
+    minActive: 0x3c,
+    minScore: 0x96,
+    base: 0xfa,
+    perScore: 1.2,
+    win: 0x3e8,
+    maxMoney: 0x1d4c,
+    goldLoss: 0x1,
+    goldWin: 0x4,
+    goldPerScore: 0x258,
+    maxGold: 0xf,
+  };
+function gH(_0x19f599, _0x9f1a78, _0x4444a9) {
+  const _0xb4416a = _0x5d322a,
+    _0x10cb2f = AH;
+  if (
+    _0x9f1a78 < _0x10cb2f[_0xb4416a(0x167d)] &&
+    _0x19f599 < _0x10cb2f[_0xb4416a(0x186b)]
+  )
+    return { money: 0x0, gold: 0x0 };
+  const _0x1f71d9 = Math[_0xb4416a(0x48a)](
+      _0x10cb2f[_0xb4416a(0x16b2)],
+      Math[_0xb4416a(0xa70)](
+        (_0x10cb2f[_0xb4416a(0x1a1b)] +
+          Math[_0xb4416a(0x1267)](0x0, _0x19f599) * _0x10cb2f["perScore"] +
+          (_0x4444a9 ? _0x10cb2f["win"] : 0x0)) /
+          0xa,
+      ) * 0xa,
+    ),
+    _0x56468f = Math["min"](
+      _0x10cb2f[_0xb4416a(0xcb2)],
+      (_0x4444a9
+        ? _0x10cb2f[_0xb4416a(0x1459)]
+        : _0x10cb2f[_0xb4416a(0x1e89)]) +
+        Math[_0xb4416a(0x17b0)](
+          Math[_0xb4416a(0x1267)](0x0, _0x19f599) / _0x10cb2f["goldPerScore"],
+        ),
+    );
+  return { money: _0x1f71d9, gold: _0x56468f };
+}
+const wA = { minActive: 0x3c, minScore: 0x12c, fullScore: 0xbb8 },
+  NA = {
+    uncommon: 0.64,
+    rare: 0.262,
+    epic: 0.075,
+    legendary: 0.018,
+    mythic: 0.0042,
+    exotic: 0.0008,
+  };
+function MH(_0x5f28ab, _0x1305be, _0x55cbbb, _0x547eb3, _0x3ab993) {
+  const _0x3e8483 = _0x5d322a,
+    _0x3962bf = (_0x431318) =>
+      _0x5f28ab["filter"](
+        (_0x38813b) =>
+          _0x38813b[_0x3e8483(0xd76)] === _0x431318 &&
+          _0x38813b[_0x3e8483(0x1cbe)] > 0x0,
+      ),
+    _0x31e9d2 = Object["keys"](NA)[_0x3e8483(0x3f4)](
+      (_0x598675) => _0x3962bf(_0x598675)[_0x3e8483(0x18ce)],
+    ),
+    _0x41caa1 = _0x31e9d2[_0x3e8483(0xae4)](
+      (_0x518142, _0xcca62) => _0x518142 + NA[_0xcca62],
+      0x0,
+    );
+  let _0x56e280 = _0x55cbbb * _0x41caa1,
+    _0x2d4157 = _0x31e9d2[0x0];
+  for (const _0x310acc of _0x31e9d2)
+    if (((_0x56e280 -= NA[_0x310acc]), _0x56e280 < 0x0)) {
+      _0x2d4157 = _0x310acc;
+      break;
+    }
+  const _0x9b688b = _0x3962bf(_0x2d4157),
+    _0x1b52e6 =
+      _0x9b688b[
+        Math[_0x3e8483(0x48a)](
+          _0x9b688b["length"] - 0x1,
+          Math["floor"](_0x547eb3 * _0x9b688b[_0x3e8483(0x18ce)]),
+        )
+      ];
+  return {
+    skin: _0x1b52e6["id"],
+    weapon: _0x1305be(_0x3ab993, _0x1b52e6["id"]),
+    rarity: _0x1b52e6[_0x3e8483(0xd76)],
+  };
+}
+const m5 = [
+    "river",
+    _0x5d322a(0x1f76),
+    "frost",
+    _0x5d322a(0x3f9),
+    _0x5d322a(0x1f13),
+  ],
+  p5 = (_0x48cbce) =>
+    typeof _0x48cbce == _0x5d322a(0xd23) && m5[_0x5d322a(0x1b5e)](_0x48cbce),
+  E5 = [_0x5d322a(0x74c), _0x5d322a(0x12a7), "hanami"],
+  y5 = (_0x2a8043) =>
+    typeof _0x2a8043 == _0x5d322a(0xd23) && E5["includes"](_0x2a8043),
+  A5 = {
+    river: {
+      id: _0x5d322a(0xd5),
+      name: { en: _0x5d322a(0xb8d), ru: _0x5d322a(0x1af3) },
+      blurb: { en: _0x5d322a(0xb13), ru: _0x5d322a(0x1f21) },
+      accent: _0x5d322a(0x10b5),
+      sky: ["#7fb8e8", _0x5d322a(0x89f)],
+      vehicles: { tanks: 0x2, helis: 0x2 },
+      size: 0xec,
+    },
+    kavir: {
+      id: _0x5d322a(0x1f76),
+      name: { en: "Kavir\x20Citadel", ru: "Цитадель\x20Кавир" },
+      blurb: {
+        en: _0x5d322a(0x15b7),
+        ru: "Город\x20в\x20пустыне,\x20цитадель\x20на\x20острове,\x20нефтезавод",
+      },
+      accent: _0x5d322a(0x10d3),
+      sky: [_0x5d322a(0x1bae), _0x5d322a(0x1487)],
+      haze: { color: _0x5d322a(0x1aa7), horizon: 0.62, dome: 0.18 },
+      vehicles: { tanks: 0x2, helis: 0x3, apcs: 0x1 },
+      size: 0x150,
+    },
+    frost: {
+      id: "frost",
+      name: { en: _0x5d322a(0x3d7), ru: _0x5d322a(0x1687) },
+      blurb: { en: _0x5d322a(0x19ab), ru: _0x5d322a(0x135f) },
+      accent: _0x5d322a(0x1ad),
+      sky: ["#bcd6ec", "#3b566f"],
+      haze: { color: "#dde8f1", horizon: 0.55, dome: 0.22 },
+      vehicles: { tanks: 0x3, helis: 0x2 },
+      size: 0x11c,
+      added: "2026-10-10",
+    },
+    city: {
+      id: _0x5d322a(0x3f9),
+      name: { en: "Fallen\x20City", ru: _0x5d322a(0xad4) },
+      blurb: { en: _0x5d322a(0x1a0f), ru: _0x5d322a(0x792) },
+      accent: _0x5d322a(0x1cb9),
+      sky: [_0x5d322a(0xa25), _0x5d322a(0x1cd6)],
+      haze: { color: _0x5d322a(0xb12), horizon: 0.5, dome: 0.2 },
+      vehicles: { tanks: 0x2, helis: 0x2, apcs: 0x1 },
+      size: 0xfc,
+      added: _0x5d322a(0x1ed9),
+    },
+    cosmo: {
+      id: _0x5d322a(0x1f13),
+      name: { en: _0x5d322a(0x1528), ru: _0x5d322a(0x1818) },
+      blurb: { en: _0x5d322a(0xd9d), ru: _0x5d322a(0x19f5) },
+      accent: _0x5d322a(0xdf4),
+      sky: [_0x5d322a(0x272), _0x5d322a(0x88a)],
+      haze: { color: _0x5d322a(0x32f), horizon: 0.42, dome: 0.14 },
+      vehicles: { tanks: 0x2, helis: 0x2, apcs: 0x1 },
+      size: 0xf8,
+      added: "2026-10-11",
+    },
+  },
+  g5 = {
+    sirocco: {
+      id: _0x5d322a(0x74c),
+      name: { en: _0x5d322a(0x11e5), ru: "Сирокко" },
+      blurb: { en: _0x5d322a(0x1199), ru: _0x5d322a(0x1840) },
+      accent: _0x5d322a(0xdf8),
+      sky: [_0x5d322a(0xe2b), _0x5d322a(0x1144)],
+      size: 0x7c,
+      labels: [
+        { en: "A", ru: "A", x: 0x0, z: -0x24 },
+        { en: _0x5d322a(0x11ac), ru: "MID", x: 0x0, z: 0x0 },
+        { en: "B", ru: "B", x: 0x0, z: 0x21 },
+      ],
+    },
+    junction: {
+      id: _0x5d322a(0x12a7),
+      name: { en: "Junction", ru: _0x5d322a(0x1ee3) },
+      blurb: {
+        en: _0x5d322a(0x1963),
+        ru: "Железнодорожный\x20узел\x20осенью:\x20вокзал,\x20поворотный\x20круг,\x20локомотивное\x20депо",
+      },
+      accent: _0x5d322a(0x1d6c),
+      sky: [_0x5d322a(0xd7e), _0x5d322a(0x18a0)],
+      haze: { color: _0x5d322a(0x13a5), horizon: 0.5, dome: 0.16 },
+      size: 0x7c,
+      added: "2026-10-11",
+      labels: [
+        { en: _0x5d322a(0xfcd), ru: "ВОКЗАЛ", x: 0x0, z: -0x2a },
+        { en: _0x5d322a(0x269), ru: _0x5d322a(0x1646), x: 0x0, z: -0x5 },
+        { en: _0x5d322a(0xed9), ru: _0x5d322a(0x192f), x: 0x0, z: 0x25 },
+      ],
+    },
+    hanami: {
+      id: _0x5d322a(0x1867),
+      name: { en: "Hanami", ru: _0x5d322a(0x1950) },
+      blurb: {
+        en: "A\x20mountain\x20shrine\x20in\x20cherry\x20blossom:\x20the\x20torii\x20avenue,\x20the\x20pagoda\x20hill,\x20the\x20dojo",
+        ru: _0x5d322a(0x1eda),
+      },
+      accent: _0x5d322a(0xf0e),
+      sky: [_0x5d322a(0x1201), "#5e3b4b"],
+      haze: { color: _0x5d322a(0xde2), horizon: 0.5, dome: 0.16 },
+      size: 0x7c,
+      added: "2026-10-12",
+      petals: !0x0,
+      labels: [
+        { en: _0x5d322a(0x1d0b), ru: "ХРАМ", x: 0x0, z: -0x28 },
+        { en: _0x5d322a(0xe41), ru: _0x5d322a(0xd93), x: 0x0, z: -0x1 },
+        { en: _0x5d322a(0x5b6), ru: _0x5d322a(0x1d20), x: 0x0, z: 0x25 },
+      ],
+    },
+  },
+  RH = (_0x9d2c6) =>
+    p5(_0x9d2c6) ? A5[_0x9d2c6] : y5(_0x9d2c6) ? g5[_0x9d2c6] : null,
+  SH = 0x4,
+  TH = 0x2,
+  xH = 0x2;
+function _H(
+  _0x7b292e,
+  _0x21ba81,
+  _0x43c060,
+  _0x3d4243 = Math["random"],
+  _0x23ffee = TH,
+) {
+  const _0x3711b5 = _0x5d322a;
+  let _0xcdedab = [...new Set(_0x7b292e)];
+  _0x43c060 >= xH &&
+    _0xcdedab[_0x3711b5(0x18ce)] > _0x23ffee &&
+    (_0xcdedab = _0xcdedab["filter"]((_0x539605) => _0x539605 !== _0x21ba81));
+  for (
+    let _0x2ded68 = _0xcdedab["length"] - 0x1;
+    _0x2ded68 > 0x0;
+    _0x2ded68--
+  ) {
+    const _0x468ad6 = Math[_0x3711b5(0x17b0)](_0x3d4243() * (_0x2ded68 + 0x1));
+    [_0xcdedab[_0x2ded68], _0xcdedab[_0x468ad6]] = [
+      _0xcdedab[_0x468ad6],
+      _0xcdedab[_0x2ded68],
+    ];
+  }
+  return _0xcdedab[_0x3711b5(0x1cf4)](0x0, _0x23ffee);
+}

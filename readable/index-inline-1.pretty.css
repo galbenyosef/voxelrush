@@ -1,0 +1,46 @@
+#boot-loading {
+  display: none;
+}
+html.boot-joining #menu {
+  display: none !important;
+}
+html.boot-joining #boot-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-content: center;
+  gap: 24px;
+  text-align: center;
+  background: #070b10;
+  color: #e6ecf2;
+  font:
+    600 16px system-ui,
+    sans-serif;
+}
+#boot-loading strong {
+  font-size: clamp(30px, 7vw, 54px);
+  letter-spacing: 0.08em;
+}
+#boot-loading strong span {
+  color: #ffb547;
+}
+#boot-loading i {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  border: 3px solid #ffffff24;
+  border-top-color: #ffb547;
+  border-radius: 50%;
+  animation: boot-spin 1s linear infinite;
+}
+@keyframes boot-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #boot-loading i {
+    animation: none;
+  }
+}

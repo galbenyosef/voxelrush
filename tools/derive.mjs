@@ -239,12 +239,21 @@ function scanBlocks(buf) {
 // `window.__THREE__` registration (three.js's own last executable statements).
 // Everything before it is bundler machinery (Vite modulepreload polyfill +
 // property helpers). Both are indexed whole; the guards below fail loudly if a
-// refresh changes the shape.
-function locateThreejs(stmts, pretty) {
+// refresh changes the shape. Obfuscated payloads (obfuscator.io string-table
+// wrappers) also *contain* three.js code but their statements are flattened and
+// their strings live in an encoded table, so no stable anchors exist — those
+// files get no vendor region (they are sliced as app code; the README records
+// this divergence).
+function locateThreejs(stmts, pretty, obfuscated) {
   const text = (s) => s.text;
   const hasThreeWarn = pretty.includes("Multiple instances of Three.js being imported");
   const hasRenderer = pretty.includes("THREE.WebGLRenderer:");
   if (!hasThreeWarn && !hasRenderer) return null;
+  // a chunk that only carries three.js's math/check strings (the mesh worker
+  // merges three.js utilities without the renderer) has no renderer core to
+  // anchor — nothing to protect as a vendor region
+  if (!hasRenderer) return null;
+  if (obfuscated) return null;
   const kRev = stmts.findIndex(
     (s) => /=\s*"1\d\d"\s*,/.test(text(s)) && text(s).includes("35044") && text(s).includes("300 es"),
   );
@@ -364,7 +373,8 @@ async function main() {
     // vendor regions (content-anchored, guarded): only files that carry
     // three.js get them; the machinery prefix is wholeFile for the same reason
     let wholeFileRegions = 0;
-    const region = locateThreejs(stmts, pretty);
+    const obfuscated = /^const _0x[0-9a-f]+=_0x[0-9a-f]+;/.test(text);
+    const region = locateThreejs(stmts, pretty, obfuscated);
     if (region) {
       claim(0, region.kRev - 1, {
         kind: "whole",
@@ -574,10 +584,10 @@ async function main() {
     const entryTag = rel.replace(/\.html$/i, "").split("/").join("__");
     for (const b of inline) {
       const isImportmap = b.kind === "importmap";
-      const parser = isImportmap ? "json" : b.kind === "style" ? "css" : b.kind;
+      const parser = isImportmap ? "json" : b.kind === "style" ? "css" : "babel";
       const DATA_TYPES = new Set(["application/ld+json", "application/json", "importmap", "speculationrules"]);
       const type = (/\btype\s*=\s*["']?([^"'\s>]+)/i.exec(b.tag)?.[1] ?? "").toLowerCase();
-      if (parser === "script" && DATA_TYPES.has(type) && type !== "importmap") {
+      if (b.kind === "script" && DATA_TYPES.has(type) && type !== "importmap") {
         notRendered.push({
           capture: rel,
           kind: "inline-data",

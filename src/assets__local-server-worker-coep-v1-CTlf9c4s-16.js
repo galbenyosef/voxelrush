@@ -1,0 +1,25 @@
+// assets__local-server-worker-coep-v1-CTlf9c4s 16 — beacons
+// Lines 5646-5668 of readable/assets__local-server-worker-coep-v1-CTlf9c4s.pretty.js (statement-aligned).
+var V1 = {
+  formatVersion: L1,
+  id: F1,
+  name: T1,
+  version: D1,
+  enabled: A1,
+  footprint: E1,
+  guardRadius: $1,
+  beacons: O1,
+  generation: U1,
+  terrain: R1,
+  palette: S1,
+  variants: I1,
+  site: N1,
+  blocks: M1,
+  depth: P1,
+  lootTables: G1,
+  chests: B1,
+  soldiers: C1,
+  vehicles: H1,
+  interiorRevision: q1,
+  signs: K1,
+};

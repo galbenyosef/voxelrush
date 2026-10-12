@@ -1,0 +1,164 @@
+// assets__main-Bs7z9e_r 52 — xf5089f
+// Lines 15463-15624 of readable/assets__main-Bs7z9e_r.pretty.js (statement-aligned).
+const Ao = 0x3,
+  Zx = (_0x25bfaa) =>
+    [
+      _0x5d322a(0x664),
+      _0x5d322a(0x11a0),
+      "volcanic",
+      "alpine",
+      _0x5d322a(0x6e9),
+      _0x5d322a(0x4dc),
+    ][_0x5d322a(0x1b5e)](_0x25bfaa);
+function V6(_0xd65b57, _0x53e541, _0x1ec529) {
+  const _0x66fcef = _0x5d322a,
+    _0x393f25 = ne + 0x2 * Ao,
+    _0x357a59 = new Float32Array(_0x393f25 * _0x393f25),
+    _0x16aa05 = new Array(ne * ne);
+  for (let _0xad8537 = -Ao; _0xad8537 < ne + Ao; _0xad8537++)
+    for (let _0x62927a = -Ao; _0x62927a < ne + Ao; _0x62927a++) {
+      const _0x1dbd26 = hS(
+        _0xd65b57,
+        _0x53e541 * ne + _0x62927a,
+        _0x1ec529 * ne + _0xad8537,
+      );
+      ((_0x357a59[_0x62927a + Ao + (_0xad8537 + Ao) * _0x393f25] =
+        _0x1dbd26["height"]),
+        _0x62927a >= 0x0 &&
+          _0x62927a < ne &&
+          _0xad8537 >= 0x0 &&
+          _0xad8537 < ne &&
+          (_0x16aa05[_0x62927a + _0xad8537 * ne] = {
+            height: _0x1dbd26[_0x66fcef(0xc58)],
+            biome: _0x1dbd26[_0x66fcef(0x1105)],
+            heat: _0x1dbd26[_0x66fcef(0x608)],
+            wet: _0x1dbd26[_0x66fcef(0x6e4)],
+          }));
+    }
+  for (let _0x2ebbf9 = 0x0; _0x2ebbf9 < ne; _0x2ebbf9++)
+    for (let _0x16f780 = 0x0; _0x16f780 < ne; _0x16f780++) {
+      let _0x457d3a = 0x0,
+        _0x5d5477 = 0x0;
+      for (let _0x2c382c = -Ao; _0x2c382c <= Ao; _0x2c382c++)
+        for (let _0x2b95a5 = -Ao; _0x2b95a5 <= Ao; _0x2b95a5++) {
+          const _0x54c2ae =
+            (Ao + 0x1 - Math["abs"](_0x2b95a5)) *
+            (Ao + 0x1 - Math["abs"](_0x2c382c));
+          ((_0x457d3a +=
+            _0x357a59[
+              _0x16f780 +
+                _0x2b95a5 +
+                Ao +
+                (_0x2ebbf9 + _0x2c382c + Ao) * _0x393f25
+            ] * _0x54c2ae),
+            (_0x5d5477 += _0x54c2ae));
+        }
+      _0x16aa05[_0x16f780 + _0x2ebbf9 * ne][_0x66fcef(0xc58)] = Math[
+        _0x66fcef(0x17b0)
+      ](_0x457d3a / _0x5d5477);
+    }
+  return _0x16aa05;
+}
+function Y6(_0x5cd299, _0x548acc, _0x56b963) {
+  const _0x231205 = _0x5d322a;
+  let _0x439a68 = 0x0,
+    _0x339f66 = 0x0;
+  for (let _0x8f4d48 = -Ao; _0x8f4d48 <= Ao; _0x8f4d48++)
+    for (let _0x226446 = -Ao; _0x226446 <= Ao; _0x226446++) {
+      const _0x357e6d =
+        (Ao + 0x1 - Math[_0x231205(0x7a3)](_0x226446)) *
+        (Ao + 0x1 - Math["abs"](_0x8f4d48));
+      ((_0x439a68 +=
+        Ko(_0x5cd299, _0x548acc + _0x226446, _0x56b963 + _0x8f4d48) *
+        _0x357e6d),
+        (_0x339f66 += _0x357e6d));
+    }
+  return Math[_0x231205(0x17b0)](_0x439a68 / _0x339f66);
+}
+const Jc = 0x6;
+function _N(_0x8d1e63, _0x55666b, _0x10e8f4) {
+  const _0x37af4e = _0x5d322a;
+  return {
+    gx: _0x55666b,
+    gz: _0x10e8f4,
+    x:
+      _0x55666b * Jc +
+      Math[_0x37af4e(0x17b0)](gt(_0x8d1e63 + 0x3ad, _0x55666b, _0x10e8f4) * Jc),
+    z:
+      _0x10e8f4 * Jc +
+      Math[_0x37af4e(0x17b0)](gt(_0x8d1e63 + 0x3b3, _0x55666b, _0x10e8f4) * Jc),
+    priority: gt(_0x8d1e63 + 0x3b9, _0x55666b, _0x10e8f4),
+  };
+}
+function q6(_0x41f9d0, _0xf5089f, _0x5badbc) {
+  const _0x1af5df = _0x5d322a,
+    _0x43a4e3 = {
+      savanna: 0.2,
+      yellowstone: 0.4,
+      volcanic: 0x0,
+      alpine: 0.15,
+      oasis: 0.48,
+      islands: 0.6,
+      ocean: 0x0,
+      plains: 0.13,
+      mountains: 0.2,
+      desert: 0.11,
+      jungle: 0.9,
+      forest: 0.78,
+      winter: 0.4,
+      autumn: 0.8,
+    },
+    _0x26a37f = vo(
+      _0x41f9d0 + 0x3a3,
+      _0xf5089f["x"] * 0.0022,
+      _0xf5089f["z"] * 0.0022,
+      0x3,
+    ),
+    _0x2fbd04 = vo(
+      _0x41f9d0 + 0x3a9,
+      _0xf5089f["x"] * 0.0055,
+      _0xf5089f["z"] * 0.0055,
+      0x2,
+    );
+  let _0x553cec =
+    _0x43a4e3[_0x5badbc] *
+    ge(0.7 + _0x26a37f * 0.82 + _0x2fbd04 * 0.28, 0.08, 1.15);
+  if (
+    (_0x5badbc === "plains" &&
+      (_0x26a37f < -0.16 || _0x2fbd04 < -0.34) &&
+      (_0x553cec *= 0.06),
+    (_0x5badbc === "forest" ||
+      _0x5badbc === _0x1af5df(0x1484) ||
+      _0x5badbc === _0x1af5df(0xe9f)) &&
+      _0x26a37f < -0.38 &&
+      (_0x553cec *= 0.24),
+    gt(_0x41f9d0 + 0x3c7, _0xf5089f["gx"], _0xf5089f["gz"]) >= _0x553cec)
+  )
+    return !0x1;
+  const _0x574b52 =
+    _0x5badbc === "jungle"
+      ? 4.8
+      : _0x5badbc === _0x1af5df(0x5e7) ||
+          _0x5badbc === _0x1af5df(0xabd) ||
+          _0x5badbc === _0x1af5df(0xe9f)
+        ? 4.2
+        : 3.7;
+  for (let _0x5a37fa = -0x1; _0x5a37fa <= 0x1; _0x5a37fa++)
+    for (let _0xc90f67 = -0x1; _0xc90f67 <= 0x1; _0xc90f67++) {
+      if (_0x5a37fa === 0x0 && _0xc90f67 === 0x0) continue;
+      const _0x14c2f6 = _N(
+        _0x41f9d0,
+        _0xf5089f["gx"] + _0x5a37fa,
+        _0xf5089f["gz"] + _0xc90f67,
+      );
+      if (
+        _0x14c2f6["priority"] > _0xf5089f["priority"] &&
+        Math[_0x1af5df(0x1400)](
+          _0x14c2f6["x"] - _0xf5089f["x"],
+          _0x14c2f6["z"] - _0xf5089f["z"],
+        ) < _0x574b52
+      )
+        return !0x1;
+    }
+  return !0x0;
+}

@@ -1,0 +1,339 @@
+// assets__main-Bs7z9e_r 278 — x5ed435
+// Lines 98563-98899 of readable/assets__main-Bs7z9e_r.pretty.js (statement-aligned).
+function St(_0x29e7d6) {
+  const _0x508abe = _0x5d322a;
+  for (const _0x1eae70 of $[_0x508abe(0x1e01)]())
+    if (_0x1eae70[_0x508abe(0x1351)] === _0x29e7d6) return _0x1eae70;
+  return null;
+}
+function un(_0x1ec77f, _0x3baaf8) {
+  const _0x43eaf7 = _0x5d322a;
+  return (
+    Ty(_0x1ec77f, _0x3baaf8) || cs[_0x43eaf7(0x15d9)](_0x1ec77f, _0x3baaf8)
+  );
+}
+function DT(_0x51666a, _0x44e55a) {
+  const _0x35fd40 = _0x5d322a;
+  return (
+    Aa(_0x51666a, _0x44e55a) || cs[_0x35fd40(0x15d9)](_0x51666a, _0x44e55a)
+  );
+}
+function am() {
+  const _0x35bc48 = _0x5d322a,
+    _0x58f119 = new Set(
+      [...$[_0x35bc48(0x1e01)]()]
+        [_0x35bc48(0x3f4)]((_0x56256f) => !_0x56256f[_0x35bc48(0xe43)])
+        [_0x35bc48(0x164b)]((_0x2a7846) => _0x2a7846[_0x35bc48(0x1351)]),
+    );
+  for (const _0x1bee39 of $[_0x35bc48(0x1e01)]()) {
+    const _0x3fec07 = JSON["stringify"](
+      cs[_0x35bc48(0x594)](_0x1bee39[_0x35bc48(0x1351)], _0x58f119),
+    );
+    bM[_0x35bc48(0x11b7)](_0x1bee39["id"]) !== _0x3fec07 &&
+      (bM["set"](_0x1bee39["id"], _0x3fec07),
+      ie(_0x1bee39, new W(L[_0x35bc48(0x1010)])[_0x35bc48(0x438)](_0x3fec07)));
+  }
+}
+let vh,
+  xO = 0x0;
+function cm(_0x150307 = !0x1) {
+  const _0x1ef9ae = _0x5d322a;
+  return Cs
+    ? vh
+      ? _0x150307
+        ? vh[_0x1ef9ae(0x7ed)](() => cm(!0x0))
+        : vh
+      : !_0x150307 && Date[_0x1ef9ae(0x1cc6)]() - xO < 0x3e8
+        ? Promise[_0x1ef9ae(0x6d4)](!0x0)
+        : ((xO = Date[_0x1ef9ae(0x1cc6)]()),
+          (vh = (async () => {
+            const _0x5ed435 = _0x1ef9ae;
+            await Promise[_0x5ed435(0x6d4)]();
+            try {
+              const _0x4af9b3 = [
+                  ...new Set(
+                    [...$[_0x5ed435(0x1e01)]()]
+                      ["map"]((_0x4ea5bc) => _0x4ea5bc[_0x5ed435(0x1351)])
+                      [_0x5ed435(0xc6a)](
+                        [...ee["values"]()]
+                          [_0x5ed435(0x3f4)](
+                            (_0x3797f5) =>
+                              !_0x3797f5[_0x5ed435(0x87e)] &&
+                              !!_0x3797f5[_0x5ed435(0x1b8)],
+                          )
+                          ["map"]((_0x1c0f9e) => _0x1c0f9e[_0x5ed435(0x1b8)]),
+                        [...Re[_0x5ed435(0x1e01)]()]
+                          [_0x5ed435(0x3f4)](
+                            (_0x1abc40) =>
+                              !_0x1abc40[_0x5ed435(0xfda)] &&
+                              !_0x1abc40[_0x5ed435(0xa4e)],
+                          )
+                          [_0x5ed435(0x164b)](
+                            (_0x493cff) => _0x493cff[_0x5ed435(0x1b8)],
+                          ),
+                      ),
+                  ),
+                ],
+                _0x445303 = new Map();
+              for (
+                let _0x596f01 = 0x0;
+                _0x596f01 < _0x4af9b3["length"];
+                _0x596f01 += 0x64
+              ) {
+                const _0x4c2deb = await is("squads/sync", {
+                  owners: _0x4af9b3[_0x5ed435(0x1cf4)](
+                    _0x596f01,
+                    _0x596f01 + 0x64,
+                  ),
+                });
+                for (const _0x545c42 of _0x4c2deb[_0x5ed435(0x1793)])
+                  _0x445303[_0x5ed435(0x124)](_0x545c42["id"], _0x545c42);
+              }
+              return (
+                cs[_0x5ed435(0x219)]([..._0x445303[_0x5ed435(0x1e01)]()]),
+                Am[_0x5ed435(0xe56)](),
+                am(),
+                !0x0
+              );
+            } catch {
+              return (console[_0x5ed435(0xc8d)](_0x5ed435(0x1bcd)), !0x1);
+            } finally {
+              vh = void 0x0;
+            }
+          })()),
+          vh)
+    : Promise[_0x1ef9ae(0x6d4)](!0x0);
+}
+function Ty(_0x2fcd75, _0x31d94d) {
+  const _0x32a1fa = _0x5d322a;
+  var _0x45bd36;
+  return (
+    ((_0x45bd36 = mi[_0x32a1fa(0x11b7)](_0x2fcd75)) == null
+      ? void 0x0
+      : _0x45bd36[_0x32a1fa(0x448)](_0x31d94d)) ?? !0x1
+  );
+}
+function qf(_0x3ad43a) {
+  const _0x47955f = _0x5d322a,
+    _0x29bb20 = [...dy(_0x3ad43a[_0x47955f(0x1351)])],
+    _0x55da54 = new W(L["S_FRIENDS"])["u8"](
+      Math[_0x47955f(0x48a)](0xff, _0x29bb20[_0x47955f(0x18ce)]),
+    );
+  for (const _0x52eb83 of _0x29bb20[_0x47955f(0x1cf4)](0x0, 0xff))
+    _0x55da54["str"](_0x52eb83);
+  ie(_0x3ad43a, _0x55da54);
+}
+let yg = !0x1,
+  Zp = 0x0;
+const P2 = new Set();
+function G4(_0x3db834) {
+  const _0x5c2b6a = _0x5d322a;
+  let _0x3dcfe4 = !0x1;
+  for (const [_0xa5ff81, _0x24101f] of Object[_0x5c2b6a(0x1127)](_0x3db834)) {
+    const _0x41ca71 = mi[_0x5c2b6a(0x11b7)](_0xa5ff81);
+    if (
+      _0x41ca71 &&
+      _0x41ca71[_0x5c2b6a(0xe0d)] === _0x24101f[_0x5c2b6a(0x18ce)] &&
+      _0x24101f[_0x5c2b6a(0xe00)]((_0x4ededa) =>
+        _0x41ca71[_0x5c2b6a(0x448)](_0x4ededa),
+      )
+    )
+      continue;
+    (mi[_0x5c2b6a(0x124)](_0xa5ff81, new Set(_0x24101f)), (_0x3dcfe4 = !0x0));
+    const _0x2974f8 = St(_0xa5ff81);
+    _0x2974f8 && qf(_0x2974f8);
+  }
+  if (_0x3dcfe4) {
+    Pl();
+    for (const _0x4975ca of $["values"]())
+      _0x4975ca[_0x5c2b6a(0x161)] &&
+        !ln(
+          _0x4975ca,
+          _0x4975ca[_0x5c2b6a(0x161)]["x"],
+          _0x4975ca[_0x5c2b6a(0x161)]["z"],
+          !0x1,
+        ) &&
+        Os(_0x4975ca);
+    for (const _0x1af696 of ee[_0x5c2b6a(0x1e01)]())
+      for (const _0x1f783c of [
+        _0x1af696[_0x5c2b6a(0x30c)],
+        ..._0x1af696["passengers"],
+      ]) {
+        const _0x3462e3 = $[_0x5c2b6a(0x11b7)](_0x1f783c);
+        _0x3462e3 && !na(_0x3462e3, _0x1af696, !0x1) && zy(_0x3462e3);
+      }
+  }
+}
+async function ZK() {
+  const _0x201909 = _0x5d322a;
+  if (!(!Cs || yg)) {
+    yg = !0x0;
+    try {
+      const _0x2f61b0 = [
+        ...new Set(
+          [
+            ...mi["keys"](),
+            ...[...$[_0x201909(0x1e01)]()][_0x201909(0x164b)](
+              (_0x54ecf5) => _0x54ecf5[_0x201909(0x1351)],
+            ),
+            ...vt[_0x201909(0x5da)][_0x201909(0x164b)](
+              (_0x36c47e) => _0x36c47e[_0x201909(0xca5)],
+            ),
+            ...[...ee[_0x201909(0x1e01)]()]["map"](
+              (_0x5cb757) => _0x5cb757[_0x201909(0x1b8)],
+            ),
+          ][_0x201909(0x3f4)](Boolean),
+        ),
+      ];
+      for (
+        let _0x88eb6f = 0x0;
+        _0x88eb6f < _0x2f61b0[_0x201909(0x18ce)];
+        _0x88eb6f += 0x64
+      ) {
+        const _0x2a361 = Zp,
+          _0x566e81 = await is(_0x201909(0x205b), {
+            owners: _0x2f61b0[_0x201909(0x1cf4)](_0x88eb6f, _0x88eb6f + 0x64),
+          });
+        _0x2a361 === Zp && G4(_0x566e81["friends"]);
+      }
+    } catch {
+    } finally {
+      yg = !0x1;
+    }
+  }
+}
+async function BT(_0x1557e4, _0x2bd01c, _0xd35008) {
+  const _0x1965b6 = _0x5d322a;
+  if (!(
+    !_0x1557e4[_0x1965b6(0x1681)] || P2[_0x1965b6(0x448)](_0x1557e4["name"])
+  )) {
+    (P2[_0x1965b6(0x1577)](_0x1557e4[_0x1965b6(0x1351)]), Zp++);
+    try {
+      const _0xf7a57 = await is(_0x1965b6(0xf6b), {
+        session: _0x1557e4[_0x1965b6(0x1681)][_0x1965b6(0x115d)],
+        username: _0x2bd01c["trim"](),
+        action: _0xd35008,
+      });
+      (Zp++,
+        G4(_0xf7a57["lists"]),
+        qf(_0x1557e4),
+        P(
+          0x1,
+          _0x1557e4["language"] === "en"
+            ? _0xd35008 === _0x1965b6(0x1acd)
+              ? _0x1965b6(0xe1d)
+              : _0x1965b6(0xa20)
+            : _0xd35008 === _0x1965b6(0x1acd)
+              ? _0x1965b6(0xfca)
+              : "Общий\x20список\x20друзей\x20обновлён.",
+          _0x1557e4,
+        ));
+    } catch (_0x4da6d9) {
+      (P(
+        0x2,
+        _0x4da6d9 instanceof Error
+          ? _0x4da6d9[_0x1965b6(0x16ff)]
+          : _0x1965b6(0xc4c),
+        _0x1557e4,
+      ),
+        qf(_0x1557e4));
+    } finally {
+      P2[_0x1965b6(0x1d64)](_0x1557e4[_0x1965b6(0x1351)]);
+    }
+  }
+}
+function F4(_0x217f25, _0x134ab5) {
+  const _0xba007d = _0x5d322a;
+  if (Cs) {
+    BT(_0x217f25, _0x134ab5, _0xba007d(0x1acd));
+    return;
+  }
+  const _0x12f30c = _0x134ab5[_0xba007d(0x16cf)]()[_0xba007d(0x1cf4)](
+    0x0,
+    0x40,
+  );
+  if (!_0x12f30c) {
+    P(0x2, "Usage:\x20/friends\x20add\x20<nick>", _0x217f25);
+    return;
+  }
+  if (_0x12f30c === _0x217f25[_0xba007d(0x1351)]) {
+    P(0x2, "You\x20cannot\x20add\x20yourself\x20as\x20a\x20friend", _0x217f25);
+    return;
+  }
+  const _0x273530 = dy(_0x217f25[_0xba007d(0x1351)]);
+  if (_0x273530["has"](_0x12f30c)) {
+    P(
+      0x2,
+      _0x12f30c + "\x20is\x20already\x20on\x20your\x20friend\x20list",
+      _0x217f25,
+    );
+    return;
+  }
+  if (_0x273530[_0xba007d(0xe0d)] >= hO) {
+    P(0x2, _0xba007d(0x1dd7) + hO + ")", _0x217f25);
+    return;
+  }
+  (_0x273530[_0xba007d(0x1577)](_0x12f30c), uy(), Pl());
+  for (const _0x49cc02 of $[_0xba007d(0x1e01)]())
+    _0x49cc02[_0xba007d(0x161)] &&
+      !ln(
+        _0x49cc02,
+        _0x49cc02[_0xba007d(0x161)]["x"],
+        _0x49cc02["chair"]["z"],
+        !0x1,
+      ) &&
+      Os(_0x49cc02);
+  for (const _0x4fc7b6 of ee[_0xba007d(0x1e01)]())
+    for (const _0x511aa2 of [
+      _0x4fc7b6[_0xba007d(0x30c)],
+      ..._0x4fc7b6["passengers"],
+    ]) {
+      const _0x4b616f = $[_0xba007d(0x11b7)](_0x511aa2);
+      _0x4b616f && !na(_0x4b616f, _0x4fc7b6, !0x1) && zy(_0x4b616f);
+    }
+  (qf(_0x217f25), P(0x1, _0x12f30c + _0xba007d(0x591), _0x217f25));
+}
+function $4(_0x2f5f6a, _0x490bf8) {
+  const _0xa3f981 = _0x5d322a;
+  if (Cs) {
+    BT(_0x2f5f6a, _0x490bf8, _0xa3f981(0x163));
+    return;
+  }
+  const _0x2dc8af = _0x490bf8[_0xa3f981(0x16cf)]()[_0xa3f981(0x1cf4)](
+    0x0,
+    0x40,
+  );
+  if (!_0x2dc8af) {
+    P(0x2, _0xa3f981(0xb99), _0x2f5f6a);
+    return;
+  }
+  const _0x45aa1b = dy(_0x2f5f6a["name"]),
+    _0x4568e0 = [..._0x45aa1b][_0xa3f981(0x8f6)](
+      (_0x1ee7c6) =>
+        _0x1ee7c6[_0xa3f981(0x1902)]() === _0x2dc8af[_0xa3f981(0x1902)](),
+    );
+  if (!_0x4568e0) {
+    P(
+      0x2,
+      _0x2dc8af + "\x20is\x20not\x20on\x20your\x20friend\x20list",
+      _0x2f5f6a,
+    );
+    return;
+  }
+  (_0x45aa1b["delete"](_0x4568e0), uy(), Pl());
+  for (const _0x323dec of $[_0xa3f981(0x1e01)]())
+    _0x323dec["chair"] &&
+      !ln(
+        _0x323dec,
+        _0x323dec[_0xa3f981(0x161)]["x"],
+        _0x323dec[_0xa3f981(0x161)]["z"],
+        !0x1,
+      ) &&
+      Os(_0x323dec);
+  for (const _0x482f92 of ee[_0xa3f981(0x1e01)]())
+    for (const _0x1d35fd of [_0x482f92["driver"], ..._0x482f92["passengers"]]) {
+      const _0x1749f2 = $[_0xa3f981(0x11b7)](_0x1d35fd);
+      _0x1749f2 && !na(_0x1749f2, _0x482f92, !0x1) && zy(_0x1749f2);
+    }
+  (qf(_0x2f5f6a), P(0x1, _0x4568e0 + _0xa3f981(0x137b), _0x2f5f6a));
+}
