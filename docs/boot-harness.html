@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>VOXEL RUSH mirror — boot harness</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #070b10; }
+  iframe { display: block; width: 100vw; height: 100vh; border: 0; }
+</style>
+</head>
+<body>
+<!--
+  Boot harness for the local mirror (never part of the capture).
+
+  The game is a first-class embed target: its entry document and bundle switch
+  to embed mode whenever the page runs inside an iframe (window.top !==
+  window.self), which is also what enables its pointer-lock-free drag-look
+  input. This wrapper serves the captured site in that supported mode so the
+  mirror can be played and screenshotted from an automated browser where the
+  Pointer Lock API is unavailable. It loads only captured files (/?menu=1 —
+  no auto-join) and modifies nothing; delete this file and nothing in the
+  capture changes.
+-->
+<iframe src="/?menu=1" allow="fullscreen; gamepad; clipboard-write"></iframe>
+</body>
+</html>
