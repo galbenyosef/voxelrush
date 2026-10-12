@@ -1,0 +1,555 @@
+{
+  "start": "https://play.voxelrush.app/",
+  "origin": "https://play.voxelrush.app",
+  "gated": false,
+  "sessionRenewal": "none",
+  "requests": 129,
+  "fetched": 44,
+  "bytes": 11392795,
+  "paths": [
+    "about/index.html",
+    "assets/chunk-mesh-worker-coep-v1-BX2YFLnd.js",
+    "assets/en-betting-fLWr_8lQ.wav",
+    "assets/en-blackjack-CMYWU1Hz.wav",
+    "assets/en-bust-CFLuSXwu.wav",
+    "assets/en-deal-BPd_AobF.wav",
+    "assets/en-dealer-Cpqy5ae4.wav",
+    "assets/en-lose-Bnl5eKOD.wav",
+    "assets/en-push-lAFFAI5U.wav",
+    "assets/en-result-DThJYp7t.wav",
+    "assets/en-turn-C3MYv3x4.wav",
+    "assets/en-welcome-Bz-fSXWg.wav",
+    "assets/en-win-XqIEpdQu.wav",
+    "assets/index-D16eXMZ8.css",
+    "assets/index-Dp6GxvJu.js",
+    "assets/local-server-worker-coep-v1-CTlf9c4s.js",
+    "assets/ru-betting-DkYbMmUE.wav",
+    "assets/ru-blackjack-C0d4wD-B.wav",
+    "assets/ru-bust-CmfY5Uwj.wav",
+    "assets/ru-deal-BcUhQpGY.wav",
+    "assets/ru-dealer-iH9ICF4N.wav",
+    "assets/ru-lose-BmXQQ3Nd.wav",
+    "assets/ru-push-Chw7w_Ap.wav",
+    "assets/ru-result-DmJKQTJd.wav",
+    "assets/ru-turn-B83vb7y6.wav",
+    "assets/ru-welcome-B0mS1WGt.wav",
+    "assets/ru-win-b_LEoxVr.wav",
+    "favicon.ico",
+    "icons/apple-touch-icon.png",
+    "icons/icon-192.png",
+    "icons/icon-512.png",
+    "icons/icon-maskable-512.png",
+    "index.html",
+    "manifest.webmanifest",
+    "og-image.jpg",
+    "robots.txt",
+    "ru/index.html",
+    "screens/deploy-classes.jpg",
+    "screens/frontline-kavir-citadel.jpg",
+    "screens/frontline-river-crossing.jpg",
+    "screens/frontline-village-fight.jpg",
+    "sitemap.xml",
+    "sw.js",
+    "version.json"
+  ],
+  "unresolved": [
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "abandoned-house.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "airbase.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "alpine-refuge.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/abandoned-house.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/airbase.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/alpine-refuge.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/checkpoint.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/city-new-york.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/city-paris.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/command-bunker.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/convoy-intercept.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-betting.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-blackjack.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-bust.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-deal.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-dealer.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-lose.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-push.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-result.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-turn.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-welcome.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/en-win.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-betting.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-blackjack.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-bust.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-deal.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-dealer.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-lose.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-push.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-result.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-turn.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-welcome.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/dealer/ru-win.wav",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/deep-mine.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/field-commander.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/fortress.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/forward-base.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/gas-station.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/great-pyramid.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/island-lighthouse.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/military-base.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/mine.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/naval-base.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/oasis-caravanserai.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/olympus-casino.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/ranger-lodge.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/sam-hunt.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/savanna-gold-mine.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/spawn-hub.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/underground-shelter.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/village.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/voxel-rush-skin.png",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/world/meta.bin",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/world/progression.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/world/settlements.json",
+      "probes": 1
+    },
+    {
+      "status": 404,
+      "path": "assets/world/skills.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "checkpoint.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "city-new-york.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "city-paris.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "command-bunker.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "convoy-intercept.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "deep-mine.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "field-commander.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "fortress.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "forward-base.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "gas-station.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "great-pyramid.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "island-lighthouse.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "military-base.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "mine.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "naval-base.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "oasis-caravanserai.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "olympus-casino.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "ranger-lodge.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "sam-hunt.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "savanna-gold-mine.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "scripts/build-about-pages.mjs",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "spawn-hub.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "underground-shelter.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "village.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "voxel-rush-skin.png",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "world/meta.bin",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "world/progression.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "world/settlements.json",
+      "probes": 1
+    },
+    {
+      "status": 200,
+      "fallback": true,
+      "note": "HTTP 200 text/html SPA index fallback — the file itself is not served",
+      "path": "world/skills.json",
+      "probes": 1
+    }
+  ],
+  "unreachable": [],
+  "external": [
+    "https://discord.gg/Vt35u4XAh",
+    "https://telegram.org/js/telegram-web-app.js",
+    "https://voxelrush.app/",
+    "https://voxelrush.app/ru/",
+    "https://voxelrush.app/ru/wiki/",
+    "https://voxelrush.app/wiki/"
+  ]
+}

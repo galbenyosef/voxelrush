@@ -1,0 +1,18 @@
+{
+  "name": "Voxel Rush",
+  "short_name": "Voxel Rush",
+  "description": "Free multiplayer voxel shooter: 40-soldier battles with tanks, helicopters and drones, Team Deathmatch and a survival sandbox.",
+  "id": "/",
+  "start_url": "/?src=app",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#0c0f0a",
+  "theme_color": "#070b10",
+  "categories": ["games"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

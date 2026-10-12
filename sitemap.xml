@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://play.voxelrush.app/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://play.voxelrush.app/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://play.voxelrush.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://play.voxelrush.app/"/>
+    <image:image><image:loc>https://play.voxelrush.app/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-river-crossing.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-village-fight.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-kavir-citadel.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/deploy-classes.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://play.voxelrush.app/about/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://play.voxelrush.app/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://play.voxelrush.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://play.voxelrush.app/"/>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-river-crossing.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-village-fight.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-kavir-citadel.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/deploy-classes.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://play.voxelrush.app/ru/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://play.voxelrush.app/about/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://play.voxelrush.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://play.voxelrush.app/"/>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-river-crossing.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-village-fight.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/frontline-kavir-citadel.jpg</image:loc></image:image>
+    <image:image><image:loc>https://play.voxelrush.app/screens/deploy-classes.jpg</image:loc></image:image>
+  </url>
+</urlset>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# the game server's own endpoints: nothing to index
+Disallow: /api/
+
+Sitemap: https://play.voxelrush.app/sitemap.xml
