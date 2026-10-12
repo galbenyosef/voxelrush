@@ -1,10 +1,14 @@
 {
-  "generated": "2026-10-12T22:59:14.353Z",
+  "generated": "2026-10-12T23:10:10.724Z",
   "origin": "https://play.voxelrush.app",
   "files": {
     "about/index.html": {
       "bytes": 15662,
       "sha256": "9816934cfd3dad4611fdb9d4c4032f8c77556180290918df46d9ead6166cd5c1"
+    },
+    "assets/bootstrap-C4umvuQD.js": {
+      "bytes": 12786,
+      "sha256": "44d890d23b8ba22423ddec10e78f88827f9856fa4e7ee5935bac711e183e7eb7"
     },
     "assets/chunk-mesh-worker-coep-v1-BX2YFLnd.js": {
       "bytes": 164610,
@@ -66,6 +70,10 @@
       "bytes": 3714882,
       "sha256": "850b7b4cebd501b9d8898cf30aa792a3a3ea5a9ddc680852c7838d1576ffd4bd"
     },
+    "assets/main-Bs7z9e_r.js": {
+      "bytes": 3303284,
+      "sha256": "43951b4eed8df0cd44a0a6483890ecaf9222a8b7b6aa17262cd1f8cd74e0ff8c"
+    },
     "assets/ru-betting-DkYbMmUE.wav": {
       "bytes": 82038,
       "sha256": "ca4edabac3c9aad55b54ba284770876d41554dadb79dd404b019fed8c533d73a"
@@ -109,6 +117,10 @@
     "assets/ru-win-b_LEoxVr.wav": {
       "bytes": 100870,
       "sha256": "70c409f8317b3561f8e9fb0db3ef02d89e59b5be31d11ae225c93b499dc56d27"
+    },
+    "assets/terrain-pool-Dvsi82A-.js": {
+      "bytes": 6638,
+      "sha256": "49e4a63655cc1afc89cc26d573452a39854c5c391d62c46e7946d689c17d5570"
     },
     "favicon.ico": {
       "bytes": 13374,

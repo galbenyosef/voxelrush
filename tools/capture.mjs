@@ -60,10 +60,26 @@ const ORIGIN = "https://play.voxelrush.app";
 const ENTRY = "index.html"; // served at the origin root; capture at repo root (DISK_PREFIX = "")
 const UA = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/126.0" };
 
-// references the static scanner cannot see (none for VOXEL RUSH after the
-// closure rounds — kept for refresh time). robots.txt is a conventional root
-// file the entry does not reference; recorded explicitly for site completeness.
-const KNOWN = ["robots.txt"];
+// references the static scanner cannot see, enumerated explicitly (each one is
+// evidence-backed, discovered by playing the served mirror in a browser and
+// decoding the obfuscated string arrays the build ships):
+//   - assets/bootstrap-C4umvuQD.js — `local-server-worker-coep-v1-*.js` dynamic-
+//     imports it as "./bootstrap-C4umvuQD.js" from its base64-encoded string
+//     table (invisible to the literal scanner; the first boot-test failure was
+//     exactly this fetch).
+//   - assets/main-Bs7z9e_r.js  — bootstrap's own encoded string table imports it.
+//   - assets/terrain-pool-Dvsi82A-.js — main's encoded string table imports it.
+// The decoded tables also name the in-memory world routes the local-server
+// worker serves itself (/world/*, /structures/* — SPA-fallback upstream, no
+// static files; documented in README, deliberately not captured).
+// robots.txt is a conventional root file the entry does not reference; recorded
+// explicitly for site completeness.
+const KNOWN = [
+  "assets/bootstrap-C4umvuQD.js",
+  "assets/main-Bs7z9e_r.js",
+  "assets/terrain-pool-Dvsi82A-.js",
+  "robots.txt",
+];
 
 // strings that look like asset paths but are not fetched refs (empty for
 // VOXEL RUSH after the closure rounds; kept for refresh-time exclusions)
