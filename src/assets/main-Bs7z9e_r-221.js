@@ -1,0 +1,229 @@
+// main-Bs7z9e_r 221 — x2008ae
+// Lines 80152-80378 of readable/assets/main-Bs7z9e_r.pretty.js (statement-aligned).
+function rF(_0x114466, _0x442cc2, _0xef9059, _0x51a49c = 0x5) {
+  const _0xdd8a8a = _0x5d322a,
+    _0x44bfc4 = _0xef9059[_0xdd8a8a(0x164b)]((_0x1a209d) => ({
+      ..._0x1a209d,
+      halfX: _0x1a209d[_0xdd8a8a(0x1ba3)] + _0x51a49c,
+      halfZ: _0x1a209d[_0xdd8a8a(0x2063)] + _0x51a49c,
+    })),
+    _0x3db49c = (_0x3971bd, _0x306516, _0x17ff17) => {
+      const _0x5e2176 = _0xdd8a8a;
+      let _0x33aea1 = 0x0,
+        _0xc5664f = 0x1;
+      for (const _0x38d9d3 of ["x", "z"]) {
+        const _0x37e525 =
+            _0x38d9d3 === "x"
+              ? _0x17ff17[_0x5e2176(0x1ba3)]
+              : _0x17ff17[_0x5e2176(0x2063)],
+          _0x13fd0f = _0x306516[_0x38d9d3] - _0x3971bd[_0x38d9d3],
+          _0x342e36 = _0x17ff17[_0x38d9d3] - _0x37e525,
+          _0x13e148 = _0x17ff17[_0x38d9d3] + _0x37e525;
+        if (Math[_0x5e2176(0x7a3)](_0x13fd0f) < 1e-9) {
+          if (
+            _0x3971bd[_0x38d9d3] < _0x342e36 ||
+            _0x3971bd[_0x38d9d3] > _0x13e148
+          )
+            return !0x1;
+        } else {
+          const _0xb49b86 = (_0x342e36 - _0x3971bd[_0x38d9d3]) / _0x13fd0f,
+            _0x3021e3 = (_0x13e148 - _0x3971bd[_0x38d9d3]) / _0x13fd0f;
+          if (
+            ((_0x33aea1 = Math[_0x5e2176(0x1267)](
+              _0x33aea1,
+              Math[_0x5e2176(0x48a)](_0xb49b86, _0x3021e3),
+            )),
+            (_0xc5664f = Math["min"](
+              _0xc5664f,
+              Math["max"](_0xb49b86, _0x3021e3),
+            )),
+            _0x33aea1 > _0xc5664f)
+          )
+            return !0x1;
+        }
+      }
+      return !0x0;
+    },
+    _0x5798aa = (_0x434e99, _0x2ad1c9) =>
+      !_0x44bfc4[_0xdd8a8a(0x129c)]((_0x2bc04e) =>
+        _0x3db49c(_0x434e99, _0x2ad1c9, _0x2bc04e),
+      ),
+    _0x2b6944 = (_0x213dfa) =>
+      _0x44bfc4["some"](
+        (_0x3ee374) =>
+          Math[_0xdd8a8a(0x7a3)](_0x213dfa["x"] - _0x3ee374["x"]) <=
+            _0x3ee374[_0xdd8a8a(0x1ba3)] &&
+          Math[_0xdd8a8a(0x7a3)](_0x213dfa["z"] - _0x3ee374["z"]) <=
+            _0x3ee374[_0xdd8a8a(0x2063)],
+      );
+  if (_0x2b6944(_0x114466) || _0x2b6944(_0x442cc2)) return [];
+  if (_0x5798aa(_0x114466, _0x442cc2)) return [_0x114466, _0x442cc2];
+  const _0x130141 = [_0x114466, _0x442cc2];
+  for (const _0x5b75f0 of _0x44bfc4)
+    for (const _0x324a74 of [-0x1, 0x1])
+      for (const _0x282eb2 of [-0x1, 0x1]) {
+        const _0x49c92b = {
+          x: _0x5b75f0["x"] + _0x324a74 * (_0x5b75f0["halfX"] + 0x1),
+          z: _0x5b75f0["z"] + _0x282eb2 * (_0x5b75f0[_0xdd8a8a(0x2063)] + 0x1),
+        };
+        _0x44bfc4["some"](
+          (_0x2531a8) =>
+            Math[_0xdd8a8a(0x7a3)](_0x49c92b["x"] - _0x2531a8["x"]) <=
+              _0x2531a8[_0xdd8a8a(0x1ba3)] &&
+            Math[_0xdd8a8a(0x7a3)](_0x49c92b["z"] - _0x2531a8["z"]) <=
+              _0x2531a8["halfZ"],
+        ) || _0x130141[_0xdd8a8a(0x124b)](_0x49c92b);
+      }
+  const _0x178a2d = _0x130141[_0xdd8a8a(0x164b)](() => 0x1 / 0x0),
+    _0x28292b = _0x130141["map"](() => -0x1),
+    _0x2abf22 = new Set();
+  _0x178a2d[0x0] = 0x0;
+  for (
+    let _0x29c083 = 0x0;
+    _0x29c083 < _0x130141[_0xdd8a8a(0x18ce)];
+    _0x29c083++
+  ) {
+    let _0x419b26 = -0x1;
+    for (
+      let _0x2afa6e = 0x0;
+      _0x2afa6e < _0x130141[_0xdd8a8a(0x18ce)];
+      _0x2afa6e++
+    )
+      !_0x2abf22[_0xdd8a8a(0x448)](_0x2afa6e) &&
+        (_0x419b26 < 0x0 || _0x178a2d[_0x2afa6e] < _0x178a2d[_0x419b26]) &&
+        (_0x419b26 = _0x2afa6e);
+    if (_0x419b26 < 0x0 || !Number[_0xdd8a8a(0xb9c)](_0x178a2d[_0x419b26]))
+      break;
+    if (_0x419b26 === 0x1) {
+      const _0x34cf53 = [];
+      for (
+        let _0x31d871 = 0x1;
+        _0x31d871 >= 0x0;
+        _0x31d871 = _0x28292b[_0x31d871]
+      )
+        _0x34cf53[_0xdd8a8a(0x124b)](_0x130141[_0x31d871]);
+      return _0x34cf53["reverse"]();
+    }
+    _0x2abf22["add"](_0x419b26);
+    for (
+      let _0x7b75ca = 0x0;
+      _0x7b75ca < _0x130141[_0xdd8a8a(0x18ce)];
+      _0x7b75ca++
+    ) {
+      if (_0x2abf22["has"](_0x7b75ca)) continue;
+      const _0x5cbe0c =
+        _0x178a2d[_0x419b26] +
+        Math[_0xdd8a8a(0x1400)](
+          _0x130141[_0x419b26]["x"] - _0x130141[_0x7b75ca]["x"],
+          _0x130141[_0x419b26]["z"] - _0x130141[_0x7b75ca]["z"],
+        );
+      _0x5cbe0c < _0x178a2d[_0x7b75ca] &&
+        _0x5798aa(_0x130141[_0x419b26], _0x130141[_0x7b75ca]) &&
+        ((_0x178a2d[_0x7b75ca] = _0x5cbe0c),
+        (_0x28292b[_0x7b75ca] = _0x419b26));
+    }
+  }
+  return [];
+}
+const JA = 0x4,
+  jd = 0x3,
+  aF = new Set([
+    f["GRAVEL"],
+    f["PLANKS"],
+    f[_0x5d322a(0x18fb)],
+    f[_0x5d322a(0x749)],
+    f[_0x5d322a(0x1ae5)],
+    f[_0x5d322a(0xd72)],
+    f["SANDSTONE_SMOOTH"],
+  ]),
+  cF = 0x10;
+function lF(_0x3dfabc, _0x442596) {
+  const _0x2008ae = _0x5d322a;
+  return (
+    (_0x3dfabc === _0x2008ae(0x6e9) || _0x3dfabc === _0x2008ae(0x664)) &&
+      (_0x3dfabc = _0x2008ae(0x1c94)),
+    (_0x3dfabc === _0x2008ae(0x11a0) || _0x3dfabc === _0x2008ae(0xe9f)) &&
+      (_0x3dfabc = _0x2008ae(0x5e7)),
+    (_0x3dfabc === "alpine" || _0x3dfabc === "volcanic") &&
+      (_0x3dfabc = _0x2008ae(0x170d)),
+    _0x3dfabc === "islands" && (_0x3dfabc = "ocean"),
+    _0x442596 || _0x3dfabc === _0x2008ae(0x384)
+      ? {
+          surface:
+            _0x3dfabc === _0x2008ae(0x384)
+              ? f[_0x2008ae(0x1ce3)]
+              : f[_0x2008ae(0x1ae5)],
+          edge:
+            _0x3dfabc === "desert" ? f[_0x2008ae(0x324)] : f[_0x2008ae(0x1ae5)],
+          foundation:
+            _0x3dfabc === _0x2008ae(0x1c94)
+              ? f[_0x2008ae(0xd72)]
+              : f[_0x2008ae(0x18fb)],
+          fence:
+            _0x3dfabc === _0x2008ae(0x1c94)
+              ? f["FENCE_SANDSTONE"]
+              : _0x3dfabc === _0x2008ae(0x1484) ||
+                  _0x3dfabc === _0x2008ae(0x5e7)
+                ? f[_0x2008ae(0x1328)]
+                : f[_0x2008ae(0xd2b)],
+          support:
+            _0x3dfabc === _0x2008ae(0x1c94)
+              ? f[_0x2008ae(0xd72)]
+              : _0x3dfabc === _0x2008ae(0x1484) || _0x3dfabc === "forest"
+                ? f["LOG"]
+                : f["STONE_BRICKS"],
+        }
+      : _0x3dfabc === "desert"
+        ? {
+            surface: f["SANDSTONE_SMOOTH"],
+            edge: f[_0x2008ae(0xd72)],
+            foundation: f[_0x2008ae(0xd72)],
+            fence: f[_0x2008ae(0x15b1)],
+            support: f[_0x2008ae(0xd72)],
+          }
+        : _0x3dfabc === _0x2008ae(0x1484)
+          ? {
+              surface: f[_0x2008ae(0x1ce3)],
+              edge: f["COBBLE"],
+              foundation: f[_0x2008ae(0x18fb)],
+              fence: f["FENCE_WOOD"],
+              support: f[_0x2008ae(0xb2b)],
+            }
+          : _0x3dfabc === _0x2008ae(0xabd)
+            ? {
+                surface: f[_0x2008ae(0x1ae5)],
+                edge: f["COBBLE"],
+                foundation: f[_0x2008ae(0x18fb)],
+                fence: f[_0x2008ae(0xd2b)],
+                support: f[_0x2008ae(0x1ae5)],
+              }
+            : _0x3dfabc === _0x2008ae(0x170d)
+              ? {
+                  surface: f["STONE"],
+                  edge: f[_0x2008ae(0x18fb)],
+                  foundation: f["COBBLE"],
+                  fence: f[_0x2008ae(0x1f1d)],
+                  support: f["STONE"],
+                }
+              : _0x3dfabc === _0x2008ae(0x5e7)
+                ? {
+                    surface: f[_0x2008ae(0x18fb)],
+                    edge: f[_0x2008ae(0x1ce3)],
+                    foundation: f[_0x2008ae(0x18fb)],
+                    fence: f[_0x2008ae(0x1328)],
+                    support: f[_0x2008ae(0xae3)],
+                  }
+                : {
+                    surface: f[_0x2008ae(0x2fc)],
+                    edge: f["COBBLE"],
+                    foundation: f["COBBLE"],
+                    fence: f[_0x2008ae(0x17f0)],
+                    support: f["COBBLE"],
+                  }
+  );
+}
+function Xd(_0x397325, _0x52b942) {
+  return _0x397325 < _0x52b942
+    ? _0x397325 + "<>" + _0x52b942
+    : _0x52b942 + "<>" + _0x397325;
+}

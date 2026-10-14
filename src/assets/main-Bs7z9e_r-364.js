@@ -1,0 +1,80 @@
+// main-Bs7z9e_r 364 — x3486c9
+// Lines 144193-144270 of readable/assets/main-Bs7z9e_r.pretty.js (statement-aligned).
+function Mz(_0x5c1087, _0x5ce2c4 = _0x5d322a(0x167c)) {
+  const _0x526c5f = _0x5d322a;
+  if (it || F1) return !0x1;
+  hr && clearInterval(hr[_0x526c5f(0xa38)]);
+  const _0x24b2ba = {
+    at: Date[_0x526c5f(0x1cc6)]() + _0x5c1087 * 0x3e8,
+    reason: _0x5ce2c4,
+    said: -0x1,
+    timer: setInterval(() => {
+      const _0x262e4b = _0x526c5f,
+        _0x4761b1 = Math[_0x262e4b(0xe53)](
+          (_0x24b2ba["at"] - Date[_0x262e4b(0x1cc6)]()) / 0x3e8,
+        );
+      if (
+        _0x4761b1 !== _0x24b2ba[_0x262e4b(0x1589)] &&
+        [0x3c, 0x1e, 0xf, 0xa, 0x5, 0x4, 0x3, 0x2, 0x1][_0x262e4b(0x1b5e)](
+          _0x4761b1,
+        )
+      ) {
+        _0x24b2ba[_0x262e4b(0x1589)] = _0x4761b1;
+        for (const _0x1c88b9 of $[_0x262e4b(0x1e01)]())
+          P(
+            0x2,
+            S8(_0x4761b1, _0x5ce2c4, _0x1c88b9[_0x262e4b(0x1162)] === "en"),
+            _0x1c88b9,
+          );
+      }
+      Date[_0x262e4b(0x1cc6)]() >= _0x24b2ba["at"] && mY(_0x5ce2c4);
+    }, 0xc8),
+  };
+  return (
+    (hr = _0x24b2ba),
+    en(gz()),
+    console[_0x526c5f(0x38e)](
+      _0x526c5f(0x16c2) + _0x5ce2c4 + _0x526c5f(0x1eeb) + _0x5c1087 + "\x20s",
+    ),
+    !0x0
+  );
+}
+function dY() {
+  const _0x3eb1fc = _0x5d322a;
+  if (!hr) return !0x1;
+  (clearInterval(hr[_0x3eb1fc(0xa38)]),
+    (hr = null),
+    en(fx({ kind: "cancel" })));
+  for (const _0x3efda1 of $[_0x3eb1fc(0x1e01)]())
+    P(
+      0x1,
+      _0x3efda1[_0x3eb1fc(0x1162)] === "en"
+        ? "Server\x20restart\x20cancelled."
+        : "Перезапуск\x20сервера\x20отменён.",
+      _0x3efda1,
+    );
+  return !0x0;
+}
+function mY(_0x79de0b) {
+  const _0x3486c9 = _0x5d322a;
+  if (F1) return;
+  (hr && clearInterval(hr[_0x3486c9(0xa38)]),
+    (hr = null),
+    (F1 = !0x0),
+    yz(),
+    en(fx({ kind: _0x3486c9(0x190a), reason: _0x79de0b })));
+  for (const _0x1af294 of [...$[_0x3486c9(0x1e01)]()])
+    (aE(_0x1af294), _0x1af294["ws"][_0x3486c9(0x958)](R8, _0x3486c9(0x1219)));
+  console[_0x3486c9(0x38e)](_0x3486c9(0x1a09));
+  const _0x2334ce = lx();
+  (console[_0x3486c9(0x38e)](_0x3486c9(0x1fa6) + _0x2334ce + _0x3486c9(0x610)),
+    setTimeout(() => process[_0x3486c9(0x1065)](M8), 0x190));
+}
+(it ||
+  process["on"](_0x5d322a(0x3d1), () => {
+    const _0x3aead8 = _0x5d322a;
+    Mz(Number(nt[_0x3aead8(0x101d)]) || 0xf, _0x3aead8(0x167c));
+  }),
+  process["on"](_0x5d322a(0x16db), Az),
+  process["on"](_0x5d322a(0xcad), Az));
+var TY = Object["freeze"]({ __proto__: null });

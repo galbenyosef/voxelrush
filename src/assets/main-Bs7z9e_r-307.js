@@ -1,0 +1,221 @@
+// main-Bs7z9e_r 307 — x1adc01
+// Lines 117249-117467 of readable/assets/main-Bs7z9e_r.pretty.js (statement-aligned).
+function qU(_0x27bdfa, _0x50c29e, _0xf59166, _0x117773) {
+  const _0x1adc01 = _0x5d322a;
+  if (!Iy(_0x27bdfa)) return;
+  if (_0x27bdfa[_0x1adc01(0xd5e)] <= 0x0) {
+    _0x27bdfa[_0x1adc01(0x1a20)] = 2.1;
+    return;
+  }
+  (_0x27bdfa[_0x1adc01(0xd5e)]--, (_0x27bdfa[_0x1adc01(0x386)] = 0.1));
+  const _0x1f1038 = new ye(_0x27bdfa["x"], _0x27bdfa["y"] + n5, _0x27bdfa["z"]),
+    _0x5a0b9b = new ye(
+      -Math[_0x1adc01(0x813)](_0xf59166) * Math[_0x1adc01(0x363)](_0x117773),
+      Math[_0x1adc01(0x813)](_0x117773),
+      -Math[_0x1adc01(0x363)](_0xf59166) * Math[_0x1adc01(0x363)](_0x117773),
+    ),
+    _0x424858 = new Pf(_0x1f1038, _0x5a0b9b),
+    _0x4766ec = _0x1f1038[_0x1adc01(0x1470)]()[_0x1adc01(0x16dc)](
+      _0x5a0b9b,
+      x1,
+    ),
+    _0xdd3a53 = Ce(_0x27bdfa[_0x1adc01(0x1ed3)]),
+    _0x4e9170 = ai(_0x1f1038, _0x4766ec, (_0x4035ab, _0x1a5a48, _0x17ca03) => {
+      const _0x3f5779 = _0x1adc01,
+        _0x3f543e = _0xdd3a53[_0x3f5779(0x4f7)](
+          _0x4035ab,
+          _0x1a5a48,
+          _0x17ca03,
+        );
+      return nn(_0x3f543e) || ho(_0x3f543e)
+        ? !(_0xdd3a53[_0x3f5779(0x1dfa)](_0x4035ab, _0x1a5a48, _0x17ca03) & ot)
+        : _0x1a5a48 < 0x0 || Xe(_0x3f543e);
+    });
+  let _0x31ea35 = _0x4e9170
+      ? _0x1f1038[_0x1adc01(0x1a1)](
+          new ye(_0x4e9170["x"], _0x4e9170["y"], _0x4e9170["z"]),
+        )
+      : x1,
+    _0x5ed831;
+  const _0x2d241d = (_0x269a96, _0x5fe78) => {
+    const _0x43198f = _0x1adc01;
+    if (!_0x5fe78) return;
+    const _0x53e905 = _0x1f1038[_0x43198f(0x1a1)](_0x5fe78);
+    _0x53e905 < _0x31ea35 && ((_0x31ea35 = _0x53e905), (_0x5ed831 = _0x269a96));
+  };
+  for (const _0x31a155 of Re["values"]())
+    if (
+      _0x31a155["id"] !== _0x27bdfa["id"] &&
+      _0x31a155[_0x1adc01(0x1ed3)] === _0x27bdfa["planet"] &&
+      _0x31a155["hp"] > 0x0
+    ) {
+      const _0x445a81 = new Dr(
+          new ye(
+            _0x31a155["x"] - 0.4,
+            _0x31a155["y"],
+            _0x31a155["z"] - (_0x31a155[_0x1adc01(0x1031)] ? 0.9 : 0.35),
+          ),
+          new ye(
+            _0x31a155["x"] + 0.4,
+            _0x31a155["y"] + (_0x31a155[_0x1adc01(0x1031)] ? 0.65 : 2.06),
+            _0x31a155["z"] + (_0x31a155["prone"] ? 0.9 : 0.35),
+          ),
+        ),
+        _0x27bfb1 = _0x424858[_0x1adc01(0x761)](_0x445a81, new ye());
+      _0x2d241d(
+        {
+          kind: _0x1adc01(0x200),
+          id: _0x31a155["id"],
+          region:
+            _0x27bfb1 && _0x27bfb1["y"] > _0x31a155["y"] + 1.46
+              ? gn[_0x1adc01(0x14d9)]
+              : gn[_0x1adc01(0x1191)],
+        },
+        _0x27bfb1,
+      );
+    }
+  for (const _0x1d7842 of $["values"]())
+    if (
+      _0x1d7842["id"] !== _0x50c29e["id"] &&
+      _0x1d7842[_0x1adc01(0x1ed3)] === _0x27bdfa[_0x1adc01(0x1ed3)] &&
+      _0x1d7842[_0x1adc01(0x174b)] &&
+      _0x1d7842[_0x1adc01(0x1713)] === -0x1
+    ) {
+      const _0x34eb40 =
+          _0x1d7842[_0x1adc01(0x102)] & 0x4
+            ? 0.65
+            : _0x1d7842[_0x1adc01(0x102)] & 0x10
+              ? 1.35
+              : 1.95,
+        _0x5e4207 = _0x424858[_0x1adc01(0x761)](
+          new Dr(
+            new ye(
+              _0x1d7842["x"] - 0.35,
+              _0x1d7842["y"],
+              _0x1d7842["z"] - 0.35,
+            ),
+            new ye(
+              _0x1d7842["x"] + 0.35,
+              _0x1d7842["y"] + _0x34eb40,
+              _0x1d7842["z"] + 0.35,
+            ),
+          ),
+          new ye(),
+        );
+      _0x2d241d(
+        {
+          kind: _0x1adc01(0x1369),
+          id: _0x1d7842["id"],
+          region:
+            _0x5e4207 && _0x5e4207["y"] > _0x1d7842["y"] + _0x34eb40 - 0.45
+              ? gn[_0x1adc01(0x14d9)]
+              : gn[_0x1adc01(0x1191)],
+        },
+        _0x5e4207,
+      );
+    }
+  for (const _0x38d3b3 of ee[_0x1adc01(0x1e01)]())
+    if (
+      (_0x38d3b3[_0x1adc01(0x1ed3)] ?? 0x0) === _0x27bdfa["planet"] &&
+      _0x38d3b3["hp"] > 0x0
+    ) {
+      const _0xdfa5f1 = new cn(
+          _0x38d3b3["qx"],
+          _0x38d3b3["qy"],
+          _0x38d3b3["qz"],
+          _0x38d3b3["qw"],
+        ),
+        _0x4f2c9d = _0xdfa5f1[_0x1adc01(0x1470)]()["invert"](),
+        _0x1d2f3d = new Pf(
+          _0x1f1038["clone"]()
+            ["sub"](new ye(_0x38d3b3["x"], _0x38d3b3["y"], _0x38d3b3["z"]))
+            ["applyQuaternion"](_0x4f2c9d),
+          _0x5a0b9b["clone"]()[_0x1adc01(0xe4d)](_0x4f2c9d),
+        );
+      for (const _0x4d1755 of Qn[_0x38d3b3["type"]] ?? []) {
+        const _0x24223f = _0x1d2f3d["intersectBox"](_0x4d1755, new ye());
+        _0x2d241d(
+          { kind: "vehicle", id: _0x38d3b3["id"] },
+          (_0x24223f == null
+            ? void 0x0
+            : _0x24223f[_0x1adc01(0xe4d)](_0xdfa5f1)["add"](
+                new ye(_0x38d3b3["x"], _0x38d3b3["y"], _0x38d3b3["z"]),
+              )) ?? null,
+        );
+      }
+    }
+  const _0x4f60ec = _0x1f1038[_0x1adc01(0x1470)]()["addScaledVector"](
+    _0x5a0b9b,
+    _0x31ea35,
+  );
+  if (
+    (Od(_0x27bdfa, _0x4f60ec["x"], _0x4f60ec["y"], _0x4f60ec["z"]),
+    !_0x5ed831 ||
+      !Nd(_0x50c29e, _0x27bdfa[_0x1adc01(0x933)][_0x1adc01(0x135d)])[
+        _0x1adc01(0x129c)
+      ](
+        (_0x500f64) =>
+          _0x500f64["kind"] === _0x5ed831[_0x1adc01(0x10d4)] &&
+          _0x500f64["id"] === _0x5ed831["id"] &&
+          lk(_0x27bdfa, _0x500f64),
+      ))
+  )
+    return;
+  const _0x2664a8 =
+    0xc * m1[_0x5ed831[_0x1adc01(0x18f5)] ?? gn[_0x1adc01(0x1191)]];
+  if (_0x5ed831[_0x1adc01(0x10d4)] === _0x1adc01(0x200)) {
+    const _0x2ed0bd = Re[_0x1adc01(0x11b7)](_0x5ed831["id"]);
+    _0x2ed0bd &&
+      Tc(
+        _0x2ed0bd,
+        _0x2664a8,
+        _0x50c29e,
+        "AK-47\x20·\x20manual\x20control",
+        _0x5ed831[_0x1adc01(0x18f5)],
+      );
+  } else {
+    if (_0x5ed831[_0x1adc01(0x10d4)] === _0x1adc01(0x1369)) {
+      const _0x1aa4ed = $[_0x1adc01(0x11b7)](_0x5ed831["id"]);
+      _0x1aa4ed &&
+        Dn(
+          _0x1aa4ed,
+          _0x2664a8,
+          _0x50c29e[_0x1adc01(0x1351)],
+          "AK-47\x20·\x20manual\x20control",
+          _0x1adc01(0x5be),
+          _0x50c29e["id"],
+          _0x5ed831[_0x1adc01(0x18f5)],
+          _0x1f1038,
+        );
+    } else {
+      const _0x4509b0 = ee[_0x1adc01(0x11b7)](_0x5ed831["id"]);
+      _0x4509b0 &&
+        oo(
+          _0x4509b0,
+          0x6,
+          _0x50c29e["id"],
+          0x0,
+          _0x1f1038,
+          !0x1,
+          _0x1adc01(0x5be),
+        );
+    }
+  }
+}
+function lk(_0x35f87a, _0x586d8d) {
+  const _0x290ffa = _0x5d322a;
+  var _0x4052b4, _0x37bb6a;
+  return (
+    !_0x35f87a[_0x290ffa(0x8e8)] ||
+    (_0x586d8d[_0x290ffa(0x10d4)] === _0x290ffa(0x200)
+      ? !!(
+          (_0x4052b4 = Re[_0x290ffa(0x11b7)](_0x586d8d["id"])) != null &&
+          _0x4052b4[_0x290ffa(0xfda)]
+        )
+      : _0x586d8d[_0x290ffa(0x10d4)] === "vehicle" &&
+        !!(
+          (_0x37bb6a = ee[_0x290ffa(0x11b7)](_0x586d8d["id"])) != null &&
+          _0x37bb6a[_0x290ffa(0x87e)]
+        ))
+  );
+}

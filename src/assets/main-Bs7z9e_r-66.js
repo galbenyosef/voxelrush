@@ -1,0 +1,339 @@
+// main-Bs7z9e_r 66 — x5d322a
+// Lines 21579-21915 of readable/assets/main-Bs7z9e_r.pretty.js (statement-aligned).
+const o_ = {
+    owner: {
+      prefix: _0x5d322a(0x1dd4),
+      color: _0x5d322a(0x7ce),
+      weight: "bold",
+    },
+    admin: {
+      prefix: "[Admin]",
+      color: _0x5d322a(0x7ce),
+      weight: _0x5d322a(0x18ca),
+    },
+    moderator: {
+      prefix: _0x5d322a(0x18e5),
+      color: "#65d9ff",
+      weight: _0x5d322a(0x18ca),
+    },
+    player: { prefix: "", color: _0x5d322a(0xa4f), weight: _0x5d322a(0x541) },
+  },
+  s_ = [
+    _0x5d322a(0x150a),
+    _0x5d322a(0xbeb),
+    "economy.pay",
+    _0x5d322a(0x1c73),
+    _0x5d322a(0x1726),
+    _0x5d322a(0x1ccc),
+    "operations.play",
+    "world.inspect",
+  ],
+  Uv = {
+    player: s_,
+    moderator: [
+      ...s_,
+      _0x5d322a(0x113f),
+      _0x5d322a(0x175c),
+      _0x5d322a(0x298),
+      _0x5d322a(0x16f7),
+      _0x5d322a(0x52e),
+      _0x5d322a(0x8ae),
+      _0x5d322a(0x915),
+    ],
+  };
+function Wv(_0x436d7d, _0x4c1602, _0x14a8fe) {
+  const _0x40647c = _0x5d322a;
+  return _0x14a8fe === _0x40647c(0xf29) || _0x14a8fe === "player.vanish"
+    ? _0x436d7d === "owner" || _0x436d7d === "admin"
+    : _0x436d7d === "owner" || _0x436d7d === _0x40647c(0x549)
+      ? !0x0
+      : _0x14a8fe === _0x40647c(0xa76)
+        ? !0x1
+        : _0x4c1602[_0x40647c(0x1b5e)](_0x14a8fe);
+}
+function vN(_0xfd53db) {
+  const _0x4034e8 = _0x5d322a,
+    _0x4057d2 = _0xfd53db["trim"]()
+      [_0x4034e8(0x1902)]()
+      [_0x4034e8(0x219)](/^\//, "")
+      [_0x4034e8(0xdea)](/\s+/),
+    [_0x580cb3, _0x36890e = ""] = _0x4057d2;
+  if (
+    [_0x4034e8(0xa00), "компьютер", _0x4034e8(0x764)][_0x4034e8(0x1b5e)](
+      _0x580cb3,
+    ) ||
+    (_0x580cb3 === "give" &&
+      [_0x4034e8(0xa00), _0x4034e8(0xdf0), "pc"][_0x4034e8(0x1b5e)](_0x36890e))
+  )
+    return "computer.use";
+  if (_0x580cb3["startsWith"]("/")) return _0x4034e8(0x1d26);
+  if (
+    _0x580cb3 === "tp" &&
+    (_0x4057d2[_0x4034e8(0x18ce)] === 0x3 ||
+      _0x4057d2[_0x4034e8(0x18ce)] === 0x5)
+  )
+    return _0x4034e8(0x678);
+  const _0x197c54 = {
+    help: "chat.basic",
+    report: _0x4034e8(0x150a),
+    dance: "chat.basic",
+    friends: _0x4034e8(0xbeb),
+    pay: _0x4034e8(0x189e),
+    home: _0x4034e8(0x1c73),
+    sethome: _0x4034e8(0x1c73),
+    spawn: "travel.home",
+    rtp: _0x4034e8(0x1c73),
+    tpr: _0x4034e8(0x1c73),
+    tpa: _0x4034e8(0x1c73),
+    tpc: _0x4034e8(0x1c73),
+    voicerange: _0x4034e8(0xc37),
+    shop: "shop.use",
+    give: _0x4034e8(0x5b8),
+    setbalance: _0x4034e8(0xaa4),
+    tp: _0x4034e8(0x915),
+    tphere: _0x4034e8(0x678),
+    fly: _0x4034e8(0x696),
+    god: "player.god",
+    gamemode: "player.creative",
+    disguise: _0x4034e8(0x17a6),
+    vanish: _0x4034e8(0x1d18),
+    undisguise: "player.disguise",
+    kick: "moderation.kick",
+    ban: _0x4034e8(0x175c),
+    banip: "moderation.ban_ip",
+    unban: _0x4034e8(0x16f7),
+    mute: _0x4034e8(0x52e),
+    unmute: _0x4034e8(0x8ae),
+    debug: "debug.use",
+    fx: _0x4034e8(0x37c),
+    slowmo: _0x4034e8(0x37c),
+    bombtest: _0x4034e8(0x37c),
+  };
+  if (_0x197c54[_0x580cb3]) return _0x197c54[_0x580cb3];
+  if (
+    [_0x4034e8(0x1a9e), _0x4034e8(0xc38)][_0x4034e8(0x1b5e)](_0x580cb3) &&
+    ["", "status", _0x4034e8(0x4f9)]["includes"](_0x36890e)
+  )
+    return _0x4034e8(0x1ccc);
+  if (_0x580cb3 === "worldborder" && !_0x36890e) return _0x4034e8(0x19aa);
+  const _0x29f7b9 = {
+    mission: [
+      "",
+      _0x4034e8(0x1d54),
+      _0x4034e8(0x1f69),
+      "convoy-intercept",
+      "field-commander",
+      _0x4034e8(0xfa0),
+    ],
+    raid: [_0x4034e8(0xcf5), "vote", "support"],
+    defense: [
+      "",
+      _0x4034e8(0xcf5),
+      _0x4034e8(0x1d54),
+      _0x4034e8(0xb1b),
+      _0x4034e8(0x198a),
+    ],
+    district: [
+      "",
+      _0x4034e8(0xcf5),
+      _0x4034e8(0x1d54),
+      _0x4034e8(0x198a),
+      _0x4034e8(0xcc),
+    ],
+    evac: ["", _0x4034e8(0xcf5), _0x4034e8(0x1834)],
+    evacuation: ["", "status", _0x4034e8(0x1834)],
+  };
+  return _0x29f7b9[_0x580cb3]
+    ? _0x29f7b9[_0x580cb3][_0x4034e8(0x1b5e)](_0x36890e)
+      ? _0x4034e8(0x13f7)
+      : "operations.manage"
+    : "world.manage";
+}
+function Vv(_0x52819d, _0x1cc49d = _0x5d322a(0x1369)) {
+  const _0x114240 = _0x5d322a,
+    _0x10a499 = o_[_0x1cc49d] ?? o_[_0x114240(0x1369)];
+  return _0x10a499[_0x114240(0xddc)]
+    ? _0x10a499[_0x114240(0xddc)] + "\x20" + _0x52819d
+    : _0x52819d;
+}
+const { env: dr } = globalThis[_0x5d322a(0x3ac)],
+  CE = dr[_0x5d322a(0x1860)] === "1",
+  Yv = {
+    name: "Voxel\x20Rush\x20Server",
+    address: "",
+    maxPlayers: 0x14,
+    perPlayerVehicleLimit: 0xf,
+    discoverable: !0x0,
+    requireAuth: !CE && dr[_0x5d322a(0xc53)] !== "0",
+    trustLoopbackProxy: !0x1,
+    allowedOrigins: [],
+  },
+  Gt = {
+    ...Yv,
+    ...(!CE && dr["GAME_CONFIG"]
+      ? JSON[_0x5d322a(0x690)](
+          _0x4a80b7["readFileSync"](dr[_0x5d322a(0x137)], _0x5d322a(0x157e)),
+        )
+      : {}),
+  };
+if (
+  !Number[_0x5d322a(0x7c1)](Gt[_0x5d322a(0x9f5)]) ||
+  Gt[_0x5d322a(0x9f5)] < 0x1 ||
+  Gt[_0x5d322a(0x9f5)] > 0xff
+)
+  throw new Error(_0x5d322a(0x5f8));
+if (
+  !Number["isInteger"](Gt[_0x5d322a(0x108c)]) ||
+  Gt["perPlayerVehicleLimit"] < 0x1 ||
+  Gt[_0x5d322a(0x108c)] > 0x2710
+)
+  throw new Error(_0x5d322a(0xe98));
+for (const e of [_0x5d322a(0x1623), "requireAuth", "trustLoopbackProxy"])
+  if (typeof Gt[e] != "boolean") throw new Error(_0x5d322a(0x5cd) + e);
+if (
+  !CE &&
+  Gt[_0x5d322a(0x1957)] &&
+  (!dr[_0x5d322a(0x162f)] || !dr["GAME_SERVER_KEY"])
+)
+  throw new Error(
+    "Central\x20authentication\x20requires\x20PLATFORM_API_URL\x20and\x20GAME_SERVER_KEY.\x20Use\x20GAME_AUTH_REQUIRED=0\x20only\x20for\x20isolated\x20development.",
+  );
+const Cs = !CE && !!dr[_0x5d322a(0x162f)] && !!dr[_0x5d322a(0x1dde)];
+if (Cs) {
+  const e = new URL(dr[_0x5d322a(0x162f)]);
+  if (
+    e[_0x5d322a(0x2f8)] !== _0x5d322a(0xd0e) &&
+    !(
+      e[_0x5d322a(0x2f8)] === "http:" &&
+      [_0x5d322a(0x9d7), _0x5d322a(0x1c7d), _0x5d322a(0x6e8)][
+        _0x5d322a(0x1b5e)
+      ](e[_0x5d322a(0x111d)])
+    )
+  )
+    throw new Error(_0x5d322a(0x1b7f));
+  if (dr[_0x5d322a(0x1dde)][_0x5d322a(0x18ce)] < 0x20)
+    throw new Error(_0x5d322a(0x77f));
+}
+function _s(_0x233491, _0x287163) {
+  const _0x474924 = _0x5d322a;
+  return (
+    (!Gt[_0x474924(0x1957)] && !_0x233491[_0x474924(0x1681)]) ||
+    (!!_0x233491[_0x474924(0x1681)] &&
+      Wv(
+        _0x233491[_0x474924(0x1681)][_0x474924(0x1758)],
+        _0x233491[_0x474924(0x1681)][_0x474924(0x1d4)],
+        _0x287163,
+      ))
+  );
+}
+function DN(_0x31051c) {
+  const _0x35faa7 = _0x5d322a;
+  var _0x5dd871;
+  const _0x487016 =
+    ((_0x5dd871 =
+      _0x31051c == null
+        ? void 0x0
+        : _0x31051c[_0x35faa7(0x280)][_0x35faa7(0x1f11)]) == null
+      ? void 0x0
+      : _0x5dd871["replace"](/^::ffff:/, "")) || "127.0.0.1";
+  if (
+    Gt[_0x35faa7(0x55e)] &&
+    [_0x35faa7(0x1c7d), _0x35faa7(0x14fe)][_0x35faa7(0x1b5e)](_0x487016)
+  ) {
+    const _0x9dbca7 =
+      _0x31051c == null ? void 0x0 : _0x31051c[_0x35faa7(0x1550)]["x-real-ip"];
+    if (
+      typeof _0x9dbca7 == _0x35faa7(0xd23) &&
+      /^[0-9a-fA-F:.]+$/["test"](_0x9dbca7)
+    )
+      return _0x9dbca7;
+  }
+  return _0x487016;
+}
+async function is(_0x52389a, _0xcf031a) {
+  const _0x31a5b6 = _0x5d322a,
+    _0x2925ba = await fetch(
+      dr[_0x31a5b6(0x162f)] + _0x31a5b6(0x1e38) + _0x52389a,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": _0x31a5b6(0xb22),
+          Authorization: _0x31a5b6(0xc2d) + dr["GAME_SERVER_KEY"],
+        },
+        body: JSON[_0x31a5b6(0x8f9)](_0xcf031a),
+        signal: AbortSignal[_0x31a5b6(0x1f39)](0x1388),
+      },
+    );
+  if (_0x2925ba[_0x31a5b6(0xcf5)] === 0xcc) return;
+  const _0xf0a8dd = await _0x2925ba[_0x31a5b6(0xddd)]();
+  if (!_0x2925ba["ok"])
+    throw new Error(_0xf0a8dd[_0x31a5b6(0x1734)] || _0x31a5b6(0xc3b));
+  return _0xf0a8dd;
+}
+async function qv(_0x5c711d, _0x4f53d0) {
+  const _0x1e1fc5 = _0x5d322a;
+  if (Gt[_0x1e1fc5(0x1957)]) {
+    if (!_0x5c711d) throw new Error(_0x1e1fc5(0x138));
+    return is(_0x1e1fc5(0x1d54), { ticket: _0x5c711d, ip: DN(_0x4f53d0) });
+  }
+}
+function jv(_0x2a27c2) {
+  const _0x42af07 = _0x5d322a;
+  var _0x3e9e3e;
+  return {
+    name: _0x2a27c2[_0x42af07(0x1351)],
+    role:
+      ((_0x3e9e3e = _0x2a27c2[_0x42af07(0x1681)]) == null
+        ? void 0x0
+        : _0x3e9e3e["role"]) || "player",
+  };
+}
+function Xv(_0xb37add) {
+  const _0x2b0e4b = _0x5d322a;
+  var _0x3dc114;
+  return (
+    ((_0x3dc114 = _0xb37add[_0x2b0e4b(0x1681)]) == null
+      ? void 0x0
+      : _0x3dc114[_0x2b0e4b(0x1d4)]) ||
+    (Gt[_0x2b0e4b(0x1957)] ? Uv[_0x2b0e4b(0x1369)] : ["*"])
+  );
+}
+function AS(_0x261c37) {
+  const _0x59464d = _0x5d322a,
+    _0x547efc = _0x261c37[_0x59464d(0x480)]("/"),
+    _0x55785f = [];
+  for (const _0x3cd166 of _0x261c37[_0x59464d(0x219)](/\\/g, "/")[
+    _0x59464d(0xdea)
+  ]("/"))
+    !_0x3cd166 ||
+      _0x3cd166 === "." ||
+      (_0x3cd166 === ".." ? _0x55785f["pop"]() : _0x55785f["push"](_0x3cd166));
+  return (
+    "" + (_0x547efc ? "/" : "") + _0x55785f["join"]("/") ||
+    (_0x547efc ? "/" : ".")
+  );
+}
+function Zv(_0x33d5eb) {
+  return AS(_0x33d5eb);
+}
+function Jv(..._0x1cc625) {
+  const _0x208992 = _0x5d322a;
+  return AS(_0x1cc625[_0x208992(0x1d54)]("/"));
+}
+function Qv(..._0x1af9f0) {
+  const _0x1a0a17 = _0x5d322a;
+  return AS("/" + _0x1af9f0[_0x1a0a17(0x1d54)]("/"));
+}
+function e8(_0x548746) {
+  const _0x5837f3 = _0x5d322a,
+    _0x90aec3 =
+      _0x548746["replace"](/\\/g, "/")
+        [_0x5837f3(0xdea)]("/")
+        [_0x5837f3(0x12b)]() ?? "",
+    _0x5bbdb6 = _0x90aec3["lastIndexOf"](".");
+  return _0x5bbdb6 > 0x0 ? _0x90aec3["slice"](_0x5bbdb6) : "";
+}
+var ht = { normalize: Zv, join: Jv, resolve: Qv, extname: e8 };
+const t8 = _0x5d322a(0xc14),
+  Pd = { x: 0x0, y: 1.7, z: -0.53 },
+  n8 = (_0x9a9874) => (-_0x9a9874[_0x5d322a(0x14f6)] * Math["PI"]) / 0x2;

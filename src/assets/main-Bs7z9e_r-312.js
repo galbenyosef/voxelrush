@@ -1,0 +1,247 @@
+// main-Bs7z9e_r 312 — x8c578f
+// Lines 119495-119739 of readable/assets/main-Bs7z9e_r.pretty.js (statement-aligned).
+function QU(_0x329625, _0x3291c0) {
+  const _0x8c578f = _0x5d322a;
+  if (
+    (uk(_0x329625, _0x3291c0),
+    _0x3291c0[_0x8c578f(0x238)](
+      "Access-Control-Allow-Methods",
+      "GET,\x20OPTIONS",
+    ),
+    _0x3291c0[_0x8c578f(0x238)](_0x8c578f(0x1235), _0x8c578f(0xa0c)),
+    _0x3291c0[_0x8c578f(0x238)]("Cache-Control", _0x8c578f(0x486)),
+    _0x329625[_0x8c578f(0x8bc)] === _0x8c578f(0xc77))
+  ) {
+    (_0x3291c0[_0x8c578f(0x238)](_0x8c578f(0x1235), _0x8c578f(0x12c7)),
+      _0x3291c0[_0x8c578f(0x9b8)](0xcc),
+      _0x3291c0[_0x8c578f(0x1192)]());
+    return;
+  }
+  if (
+    Gt[_0x8c578f(0x1957)] &&
+    ![...$[_0x8c578f(0x1e01)]()]["some"](
+      (_0x58f195) =>
+        _0x58f195[_0x8c578f(0x1226)] &&
+        _0x58f195["httpSessionToken"] ===
+          _0x329625["headers"]["x-game-session"],
+    )
+  ) {
+    (_0x3291c0[_0x8c578f(0x9b8)](0x191),
+      _0x3291c0["end"]("Game\x20session\x20required"));
+    return;
+  }
+  if (_0x329625[_0x8c578f(0x8bc)] !== "GET") {
+    (_0x3291c0[_0x8c578f(0x9b8)](0x195, { "Content-Type": _0x8c578f(0x1f20) }),
+      _0x3291c0["end"]("Method\x20Not\x20Allowed"));
+    return;
+  }
+  if (!uF) {
+    (_0x3291c0["writeHead"](0x1f7, { "Content-Type": _0x8c578f(0xb72) }),
+      _0x3291c0[_0x8c578f(0x1192)](
+        JSON["stringify"]({ iceServers: [], configured: !0x1 }),
+      ));
+    return;
+  }
+  const _0x18f35b = JU(_0x329625);
+  if (!_0x18f35b) {
+    (_0x3291c0[_0x8c578f(0x9b8)](0x1f7, {
+      "Content-Type": "application/json;\x20charset=utf-8",
+    }),
+      _0x3291c0[_0x8c578f(0x1192)](
+        JSON["stringify"]({ iceServers: [], configured: !0x1 }),
+      ));
+    return;
+  }
+  const _0x13c9aa =
+      Math[_0x8c578f(0x17b0)](Date[_0x8c578f(0x1cc6)]() / 0x3e8) +
+      D3 +
+      ":voxel-rush",
+    _0x3f1033 = Mv()[_0x8c578f(0x167c)](_0x13c9aa)["digest"](_0x8c578f(0x47e)),
+    _0x5b151b =
+      _0x18f35b["includes"](":") && !_0x18f35b[_0x8c578f(0x480)]("[")
+        ? "[" + _0x18f35b + "]"
+        : _0x18f35b,
+    _0xe1d5b3 = [
+      { urls: _0x8c578f(0xf24) + _0x5b151b + _0x8c578f(0x17d2) },
+      {
+        urls: [
+          _0x8c578f(0x3d8) + _0x5b151b + _0x8c578f(0x5e1),
+          _0x8c578f(0x3d8) + _0x5b151b + _0x8c578f(0x65a),
+          "turns:" + _0x5b151b + _0x8c578f(0xdde),
+        ],
+        username: _0x13c9aa,
+        credential: _0x3f1033,
+      },
+    ];
+  (_0x3291c0["writeHead"](0xc8, { "Content-Type": _0x8c578f(0xb72) }),
+    _0x3291c0[_0x8c578f(0x1192)](
+      JSON[_0x8c578f(0x8f9)]({ iceServers: _0xe1d5b3, ttl: D3 }),
+    ));
+}
+const us = new HP(ht[_0x5d322a(0x1d54)](qt, _0x5d322a(0x2b1)));
+function D1(_0x27dda6) {
+  const _0x2644a0 = _0x5d322a;
+  return {
+    xp: _0x27dda6["xp"],
+    skills: vE(Zo[_0x2644a0(0x11b7)](_0x27dda6["name"])),
+  };
+}
+function eW(_0x2adf83, _0x23535c) {
+  const _0x29c677 = _0x5d322a;
+  ((_0x2adf83["xp"] = _0x23535c["xp"]),
+    Ta["set"](_0x2adf83[_0x29c677(0x1351)], _0x2adf83["xp"]),
+    (zl = !0x0));
+  const _0xc11fff = vE(_0x23535c[_0x29c677(0xb86)]),
+    _0x5e5f75 = Zo["get"](_0x2adf83["name"]);
+  (_0x5e5f75
+    ? ((_0x5e5f75["xp"] = _0xc11fff["xp"]),
+      (_0x5e5f75[_0x29c677(0xc89)] = _0xc11fff["stats"]))
+    : Zo[_0x29c677(0x124)](_0x2adf83[_0x29c677(0x1351)], _0xc11fff),
+    (Sa = !0x0),
+    Vf["delete"](_0x2adf83[_0x29c677(0x1351)]),
+    en(
+      new W(L[_0x29c677(0xe34)])
+        [_0x29c677(0x1ac4)](_0x2adf83["id"])
+        [_0x29c677(0x1ee5)](_0x2adf83["xp"]),
+    ),
+    xd(_0x2adf83, !0x0));
+}
+function YT(_0x3caf37) {
+  const _0x23dd08 = _0x5d322a;
+  return _0x3caf37[_0x23dd08(0x1681)] &&
+    (Date[_0x23dd08(0x690)](_0x3caf37[_0x23dd08(0x1681)]["mutedUntil"] ?? "") >
+      Date[_0x23dd08(0x1cc6)]() ||
+      !_s(_0x3caf37, "chat.basic"))
+    ? (Am[_0x23dd08(0xc59)](_0x3caf37["id"]),
+      ie(
+        _0x3caf37,
+        new W(L["S_VOICE"])["str"](
+          JSON[_0x23dd08(0x8f9)]({
+            type: _0x23dd08(0xa57),
+            until: _0x3caf37[_0x23dd08(0x1681)]["mutedUntil"],
+          }),
+        ),
+      ),
+      !0x0)
+    : !0x1;
+}
+async function tW(_0x11e2be) {
+  const _0x160c65 = _0x5d322a,
+    _0x5b14f6 = _0x11e2be[_0x160c65(0x3f4)]((_0x3eee6d) => {
+      const _0x1bbd6b = _0x160c65;
+      var _0x452182;
+      return (_0x452182 = _0x3eee6d[_0x1bbd6b(0x1681)]) == null
+        ? void 0x0
+        : _0x452182[_0x1bbd6b(0xc88)];
+    }),
+    _0x599013 = new Map();
+  for (const _0x2b6dba of _0x5b14f6) {
+    const _0x4fcb54 = D1(_0x2b6dba);
+    (us[_0x160c65(0xf9f)](_0x2b6dba["identity"]["id"], _0x4fcb54),
+      _0x599013[_0x160c65(0x124)](
+        _0x2b6dba[_0x160c65(0x1681)]["id"],
+        structuredClone(_0x4fcb54),
+      ));
+  }
+  us[_0x160c65(0x1912)]();
+  const _0x5c65c0 = us["pending"](
+    new Set(
+      _0x5b14f6[_0x160c65(0x164b)]((_0x2c3203) => _0x2c3203["identity"]["id"]),
+    ),
+  );
+  for (const _0x29f39d of PP(
+    _0x5c65c0[_0x160c65(0x164b)](
+      ({
+        user: _0x2a8488,
+        version: _0x1cadc9,
+        baseline: _0x47d34d,
+        earned: _0x2a5c61,
+      }) => ({
+        user: _0x2a8488,
+        version: _0x1cadc9,
+        baseline: _0x47d34d,
+        earned: _0x2a5c61,
+      }),
+    ),
+  )) {
+    const _0x7766f1 = await is(_0x160c65(0x2b5), { players: _0x29f39d });
+    for (const _0x4ea0ac of _0x7766f1[_0x160c65(0xf28)]) {
+      const _0x3a6918 = _0x5b14f6[_0x160c65(0x8f6)](
+        (_0x45aa88) =>
+          _0x45aa88["identity"]["id"] === _0x4ea0ac[_0x160c65(0x14ba)],
+      );
+      if (_0x3a6918 && $[_0x160c65(0x11b7)](_0x3a6918["id"]) === _0x3a6918) {
+        const _0x2be252 = D1(_0x3a6918);
+        us[_0x160c65(0xf9f)](_0x4ea0ac["user"], _0x2be252);
+        const _0x448142 = us[_0x160c65(0xb94)](
+          _0x4ea0ac[_0x160c65(0x14ba)],
+          _0x4ea0ac["progress"],
+          _0x2be252,
+          _0x599013["get"](_0x4ea0ac[_0x160c65(0x14ba)]),
+        );
+        JSON["stringify"](_0x2be252) !== JSON["stringify"](_0x448142) &&
+          eW(_0x3a6918, _0x448142);
+      }
+      us[_0x160c65(0x132c)](
+        _0x4ea0ac[_0x160c65(0x14ba)],
+        _0x4ea0ac[_0x160c65(0x2c5)],
+      );
+    }
+  }
+  (us[_0x160c65(0x455)](
+    new Set(
+      [...$[_0x160c65(0x1e01)]()]
+        ["filter"]((_0x243a08) => {
+          const _0x24840f = _0x160c65;
+          var _0x8270c5;
+          return (_0x8270c5 = _0x243a08[_0x24840f(0x1681)]) == null
+            ? void 0x0
+            : _0x8270c5[_0x24840f(0xc88)];
+        })
+        ["map"]((_0x3e1638) => _0x3e1638["identity"]["id"]),
+    ),
+  ),
+    us["save"]());
+}
+let b2 = !0x1,
+  RR = !0x1;
+function dk() {
+  if (Cs) {
+    if (b2) {
+      RR = !0x0;
+      return;
+    }
+    B1();
+  }
+}
+let bO = Date[_0x5d322a(0x1cc6)]();
+const qa = new Map(),
+  gu = ht[_0x5d322a(0x1d54)](qt, _0x5d322a(0x41b));
+try {
+  for (const [e, t] of Object[_0x5d322a(0x1127)](
+    JSON[_0x5d322a(0x690)](_0x4a80b7[_0x5d322a(0x1ebf)](gu, _0x5d322a(0x157e))),
+  ))
+    Number[_0x5d322a(0x7c1)](t) && qa[_0x5d322a(0x124)](e, Number(t));
+} catch {}
+function mk() {
+  const _0xf9d7bf = _0x5d322a;
+  var _0x29aacb;
+  am();
+  const _0x4ddb66 = [...$["values"]()][_0xf9d7bf(0x164b)](jv);
+  for (const _0x1ad935 of $["values"]())
+    ie(
+      _0x1ad935,
+      new W(L[_0xf9d7bf(0xbe4)])[_0xf9d7bf(0x438)](
+        JSON[_0xf9d7bf(0x8f9)]({
+          role:
+            ((_0x29aacb = _0x1ad935[_0xf9d7bf(0x1681)]) == null
+              ? void 0x0
+              : _0x29aacb["role"]) ||
+            (Gt[_0xf9d7bf(0x1957)] ? _0xf9d7bf(0x1369) : _0xf9d7bf(0xca5)),
+          permissions: Xv(_0x1ad935),
+          roster: _0x4ddb66,
+          httpToken: _0x1ad935[_0xf9d7bf(0x1226)],
+        }),
+      ),
+    );
+}

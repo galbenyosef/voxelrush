@@ -1,0 +1,338 @@
+// main-Bs7z9e_r 92 — math
+// Lines 30446-30781 of readable/assets/main-Bs7z9e_r.pretty.js (statement-aligned).
+const JD = 0x1e;
+function p2(_0x36428b) {
+  return _0x36428b === I["BTR_TURRET"]
+    ? {
+        interval: 0.08,
+        reload: 0x1,
+        accuracy: 0.96,
+        belt: !0x0,
+        spread: 0.012,
+        auto: 0.05,
+      }
+    : {
+        interval: 0.2,
+        reload: 0x2,
+        accuracy: 0.78,
+        belt: !0x1,
+        spread: 0x0,
+        auto: 0.2,
+      };
+}
+function QD(_0x1e809a, _0x14f94e, _0x3b2b01, _0x794839, _0x7100a7, _0x594f77) {
+  const _0x6d201 = _0x5d322a,
+    _0x1bbf85 = _0x794839 + _0x7100a7,
+    _0x1ee357 = 0.52 + 1.76 * Math[_0x6d201(0x363)](_0x594f77);
+  return {
+    x:
+      _0x1e809a +
+      Math["sin"](_0x794839) * 0.15 -
+      Math[_0x6d201(0x813)](_0x1bbf85) * _0x1ee357,
+    y: _0x14f94e + 1.68 + 1.76 * Math[_0x6d201(0x813)](_0x594f77),
+    z:
+      _0x3b2b01 +
+      Math[_0x6d201(0x363)](_0x794839) * 0.15 -
+      Math[_0x6d201(0x363)](_0x1bbf85) * _0x1ee357,
+  };
+}
+class eB {
+  constructor(_0x32f91d, _0x544a6d = Math[_0x5d322a(0xf8b)]) {
+    const _0x49eb27 = _0x5d322a;
+    (Z(this, _0x49eb27(0x1746), new Map()),
+      Z(this, _0x49eb27(0x16a4), 0x1),
+      ((this[_0x49eb27(0x809)] = _0x32f91d),
+      (this[_0x49eb27(0xf8b)] = _0x544a6d)));
+  }
+  [_0x5d322a(0x6fd)](_0x745b4e, _0x22c428, _0x4b0736, _0xaec79e) {
+    const _0x212870 = _0x5d322a;
+    if (
+      this[_0x212870(0x1746)][_0x212870(0xe0d)] >= 0x100 ||
+      [...this[_0x212870(0x1746)][_0x212870(0x1e01)]()][_0x212870(0x3f4)](
+        (_0x6dd16c) => _0x6dd16c[_0x212870(0xca5)] === _0x745b4e,
+      )["length"] >= 0xc ||
+      ![
+        ...Object[_0x212870(0x1e01)](_0x4b0736),
+        ...Object[_0x212870(0x1e01)](_0xaec79e),
+      ][_0x212870(0xe00)](Number[_0x212870(0xb9c)])
+    )
+      return null;
+    const _0x340a1e = Math[_0x212870(0x1400)](
+      _0xaec79e["x"],
+      _0xaec79e["y"],
+      _0xaec79e["z"],
+    );
+    if (_0x340a1e < 0.95 || _0x340a1e > 1.05) return null;
+    const _0x225308 = {
+      id: this[_0x212870(0x16a4)]++ >>> 0x0,
+      owner: _0x745b4e,
+      planet: _0x22c428,
+      ..._0x4b0736,
+      vx: (_0xaec79e["x"] / _0x340a1e) * 0x12,
+      vy: (_0xaec79e["y"] / _0x340a1e) * 0x12 + 0x2,
+      vz: (_0xaec79e["z"] / _0x340a1e) * 0x12,
+      age: 0x0,
+    };
+    return (
+      this[_0x212870(0x1746)][_0x212870(0x124)](_0x225308["id"], _0x225308),
+      this[_0x212870(0x809)][_0x212870(0x458)](_0x225308, !0x1),
+      _0x225308
+    );
+  }
+  [_0x5d322a(0xa1d)](_0x152f26) {
+    const _0x2f6646 = _0x5d322a;
+    for (const _0x41705a of this["eggs"][_0x2f6646(0x1e01)]()) {
+      _0x41705a[_0x2f6646(0x4c7)] += _0x152f26;
+      const _0x52f123 = Math["max"](
+          0x1,
+          Math[_0x2f6646(0xe53)](
+            (Math["hypot"](_0x41705a["vx"], _0x41705a["vy"], _0x41705a["vz"]) *
+              _0x152f26) /
+              0.1,
+          ),
+        ),
+        _0x1728e3 = _0x152f26 / _0x52f123;
+      let _0x365eaa = !0x1;
+      for (let _0x2c29d5 = 0x0; _0x2c29d5 < _0x52f123; _0x2c29d5++) {
+        _0x41705a["vy"] -=
+          0x12 *
+          (_0x41705a[_0x2f6646(0x1ed3)] === C[_0x2f6646(0x465)] ? Bi : 0x1) *
+          _0x1728e3;
+        const _0x34d03d = {
+            x: _0x41705a["x"] + _0x41705a["vx"] * _0x1728e3,
+            y: _0x41705a["y"] + _0x41705a["vy"] * _0x1728e3,
+            z: _0x41705a["z"] + _0x41705a["vz"] * _0x1728e3,
+          },
+          _0x33122b = ai(
+            _0x41705a,
+            _0x34d03d,
+            (_0x29c293, _0x411ecb, _0x4fd351) =>
+              this[_0x2f6646(0x809)][_0x2f6646(0xfdf)](
+                _0x41705a[_0x2f6646(0x1ed3)],
+                _0x29c293,
+                _0x411ecb,
+                _0x4fd351,
+              ),
+          );
+        if (
+          (Object["assign"](_0x41705a, _0x33122b ?? _0x34d03d),
+          _0x33122b || this[_0x2f6646(0x809)][_0x2f6646(0x1786)](_0x41705a))
+        ) {
+          _0x365eaa = !0x0;
+          break;
+        }
+      }
+      _0x365eaa || _0x41705a["age"] > 0x8 || _0x41705a["y"] < 0x0
+        ? (this[_0x2f6646(0x1746)][_0x2f6646(0x1d64)](_0x41705a["id"]),
+          this["hooks"]["changed"](_0x41705a, !0x0),
+          _0x365eaa &&
+            _0x41705a[_0x2f6646(0x1ed3)] === C[_0x2f6646(0x9e2)] &&
+            this[_0x2f6646(0xf8b)]() < 0.3 &&
+            this[_0x2f6646(0x809)][_0x2f6646(0x527)](_0x41705a))
+        : this[_0x2f6646(0x809)][_0x2f6646(0x458)](_0x41705a, !0x1);
+    }
+  }
+}
+const Go = A[_0x5d322a(0xca)],
+  tB = 0x1e,
+  nB = 0.42,
+  oB = 3.3,
+  gA = 0x2e,
+  MA = 0x15,
+  sB = 2.4,
+  iB = 0x18,
+  rB = 0x8,
+  aB = 0x3,
+  cB = 0.45,
+  lB = 0x4,
+  d0 = { FLYING: 0x0, LANDED: 0x1, BROKEN: 0x2, HIT: 0x3 };
+function fB(_0x1f9475) {
+  return {
+    x: _0x1f9475["x"] * MA,
+    y: _0x1f9475["y"] * MA + sB,
+    z: _0x1f9475["z"] * MA,
+  };
+}
+class hB {
+  constructor(_0x507e0e) {
+    const _0xd39d3b = _0x5d322a;
+    (Z(this, _0xd39d3b(0x13b6), new Map()),
+      Z(this, _0xd39d3b(0x16a4), 0x1),
+      (this[_0xd39d3b(0x809)] = _0x507e0e));
+  }
+  [_0x5d322a(0x6fd)](
+    _0x4bd5ee,
+    _0x31fd45,
+    _0x30e1f9,
+    _0x3712e5,
+    _0x395105,
+    _0x14caf6,
+  ) {
+    const _0x3e4156 = _0x5d322a;
+    if (
+      this[_0x3e4156(0x13b6)]["size"] >= 0x80 ||
+      [...this["knives"][_0x3e4156(0x1e01)]()][_0x3e4156(0x3f4)](
+        (_0x2c4d25) => _0x2c4d25["owner"] === _0x4bd5ee,
+      )[_0x3e4156(0x18ce)] >= 0x6 ||
+      ![
+        ...Object["values"](_0x3712e5),
+        ...Object["values"](_0x395105),
+        _0x14caf6,
+      ][_0x3e4156(0xe00)](Number[_0x3e4156(0xb9c)])
+    )
+      return null;
+    const _0x575394 = Math[_0x3e4156(0x1400)](
+      _0x395105["x"],
+      _0x395105["y"],
+      _0x395105["z"],
+    );
+    if (_0x575394 < 0.95 || _0x575394 > 1.05) return null;
+    const _0x305b98 = fB({
+        x: _0x395105["x"] / _0x575394,
+        y: _0x395105["y"] / _0x575394,
+        z: _0x395105["z"] / _0x575394,
+      }),
+      _0x10498d = {
+        id: this["nextId"]++ >>> 0x0,
+        owner: _0x4bd5ee,
+        token: _0x31fd45,
+        planet: _0x30e1f9,
+        ..._0x3712e5,
+        vx: _0x305b98["x"],
+        vy: _0x305b98["y"],
+        vz: _0x305b98["z"],
+        age: 0x0,
+        durability: _0x14caf6,
+      };
+    return (
+      this[_0x3e4156(0x13b6)][_0x3e4156(0x124)](_0x10498d["id"], _0x10498d),
+      this["hooks"][_0x3e4156(0x458)](_0x10498d),
+      _0x10498d
+    );
+  }
+  [_0x5d322a(0xa1d)](_0x2d963d) {
+    const _0x38ea1d = _0x5d322a;
+    for (const _0x20a103 of this[_0x38ea1d(0x13b6)][_0x38ea1d(0x1e01)]()) {
+      _0x20a103[_0x38ea1d(0x4c7)] += _0x2d963d;
+      const _0x299b95 = Math[_0x38ea1d(0x1267)](
+          0x1,
+          Math["ceil"](
+            (Math[_0x38ea1d(0x1400)](
+              _0x20a103["vx"],
+              _0x20a103["vy"],
+              _0x20a103["vz"],
+            ) *
+              _0x2d963d) /
+              0.1,
+          ),
+        ),
+        _0x406294 = _0x2d963d / _0x299b95;
+      let _0x253459 = null;
+      for (let _0x4c68de = 0x0; _0x4c68de < _0x299b95; _0x4c68de++) {
+        _0x20a103["vy"] -=
+          iB *
+          (_0x20a103["planet"] === C[_0x38ea1d(0x465)] ? Bi : 0x1) *
+          _0x406294;
+        const _0x2fe77e = {
+            x: _0x20a103["x"] + _0x20a103["vx"] * _0x406294,
+            y: _0x20a103["y"] + _0x20a103["vy"] * _0x406294,
+            z: _0x20a103["z"] + _0x20a103["vz"] * _0x406294,
+          },
+          _0x3df1b0 = ai(
+            _0x20a103,
+            _0x2fe77e,
+            (_0x1749b0, _0x5b88db, _0x272a8d) =>
+              this[_0x38ea1d(0x809)][_0x38ea1d(0xfdf)](
+                _0x20a103["planet"],
+                _0x1749b0,
+                _0x5b88db,
+                _0x272a8d,
+              ),
+          );
+        if (
+          (Object[_0x38ea1d(0xd94)](_0x20a103, _0x3df1b0 ?? _0x2fe77e),
+          this["hooks"][_0x38ea1d(0x1786)](_0x20a103))
+        ) {
+          _0x253459 = _0x38ea1d(0x193e);
+          break;
+        }
+        if (_0x3df1b0) {
+          _0x253459 = _0x38ea1d(0x850);
+          break;
+        }
+      }
+      (!_0x253459 &&
+        (_0x20a103["age"] > lB || _0x20a103["y"] < 0x0) &&
+        (_0x253459 = _0x38ea1d(0x850)),
+        _0x253459
+          ? (this["knives"][_0x38ea1d(0x1d64)](_0x20a103["id"]),
+            this[_0x38ea1d(0x809)][_0x38ea1d(0x2e4)](
+              _0x20a103,
+              _0x253459 === _0x38ea1d(0x193e),
+            ))
+          : this[_0x38ea1d(0x809)]["changed"](_0x20a103));
+    }
+  }
+}
+function TS(_0x3aa244, _0x4bd475, _0x28b73c, _0x25f271) {
+  const _0xeaae4d = _0x5d322a;
+  let _0x347267 = _0x3aa244[_0xeaae4d(0x1fea)](_0x4bd475, _0x28b73c, _0x25f271);
+  for (
+    ;
+    Number[_0xeaae4d(0xb9c)](_0x347267) &&
+    _0x347267 > 0x0 &&
+    Tt(
+      _0x3aa244[_0xeaae4d(0x4f7)](
+        Math[_0xeaae4d(0x17b0)](_0x4bd475),
+        Math[_0xeaae4d(0x17b0)](_0x347267) - 0x1,
+        Math["floor"](_0x28b73c),
+      ),
+    );
+  )
+    _0x347267 = _0x3aa244[_0xeaae4d(0x1fea)](
+      _0x4bd475,
+      _0x28b73c,
+      _0x347267 - 1.01,
+    );
+  return _0x347267;
+}
+const __ = new Map();
+function Bl(_0x242966) {
+  const _0x5ae469 = _0x5d322a;
+  let _0x4901f3 = __["get"](_0x242966);
+  if (_0x4901f3) return _0x4901f3;
+  const _0x1d7043 = Hf(_0x242966),
+    _0x238cc0 = _0x242966 === I["TANK"] || _0x242966 === I[_0x5ae469(0x626)],
+    _0x99ac86 = Qn[_0x242966] ?? [];
+  return (
+    (_0x4901f3 = {
+      halfWidth:
+        Math[_0x5ae469(0x1267)](
+          0.5,
+          ..._0x99ac86[_0x5ae469(0x1247)]((_0x356cab) => [
+            Math[_0x5ae469(0x7a3)](_0x356cab["min"]["x"]),
+            Math[_0x5ae469(0x7a3)](_0x356cab[_0x5ae469(0x1267)]["x"]),
+          ]),
+        ) + 0.08,
+      halfLength:
+        Math["max"](
+          0.5,
+          ..._0x99ac86[_0x5ae469(0x1247)]((_0x55c406) => [
+            Math["abs"](_0x55c406[_0x5ae469(0x48a)]["z"]),
+            Math[_0x5ae469(0x7a3)](_0x55c406[_0x5ae469(0x1267)]["z"]),
+          ]),
+        ) + 0.08,
+      step: _0x238cc0 ? 2.05 : 1.55,
+      drop: _0x238cc0 ? 2.6 : 2.1,
+      height:
+        Math[_0x5ae469(0x1267)](
+          ..._0x99ac86[_0x5ae469(0x164b)](
+            (_0x1fbd82) => _0x1fbd82[_0x5ae469(0x1267)]["y"],
+          ),
+          1.8 * _0x1d7043["y"],
+        ) + 0.06,
+    }),
+    __["set"](_0x242966, _0x4901f3),
+    _0x4901f3
+  );
+}

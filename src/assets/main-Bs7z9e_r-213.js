@@ -1,0 +1,450 @@
+// main-Bs7z9e_r 213 — x270825
+// Lines 73086-73533 of readable/assets/main-Bs7z9e_r.pretty.js (statement-aligned).
+function YG(_0x2e2245, _0x2fc741) {
+  const _0x270825 = _0x5d322a;
+  if (!_0x2e2245 || typeof _0x2e2245 != _0x270825(0x4c0))
+    throw new Error(_0x2fc741 + _0x270825(0x17d));
+  const _0x226537 = _0x2e2245;
+  if (_0x226537[_0x270825(0xde8)] !== 0x1)
+    throw new Error(_0x2fc741 + _0x270825(0x1520));
+  if (
+    typeof _0x226537["id"] != _0x270825(0xd23) ||
+    !/^[a-z0-9][a-z0-9_-]*$/["test"](_0x226537["id"])
+  )
+    throw new Error(_0x2fc741 + _0x270825(0xa86));
+  if (
+    typeof _0x226537["name"] != _0x270825(0xd23) ||
+    !_0x226537[_0x270825(0x1351)][_0x270825(0x16cf)]()
+  )
+    throw new Error(_0x2fc741 + _0x270825(0x2af));
+  if (
+    !Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0x1e68)]) ||
+    _0x226537["footprint"][_0x270825(0x18ce)] !== 0x2
+  )
+    throw new Error(
+      _0x2fc741 + ":\x20footprint\x20must\x20be\x20[width,\x20depth]",
+    );
+  if (
+    !_0x226537[_0x270825(0x221)] ||
+    typeof _0x226537[_0x270825(0x221)] != _0x270825(0x4c0)
+  )
+    throw new Error(_0x2fc741 + _0x270825(0xf6d));
+  if (
+    !_0x226537[_0x270825(0x850)] ||
+    typeof _0x226537[_0x270825(0x850)] != _0x270825(0x4c0)
+  )
+    throw new Error(_0x2fc741 + _0x270825(0x488));
+  if (!Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0x11f2)]))
+    throw new Error(_0x2fc741 + _0x270825(0x1725));
+  const _0x3b5bd7 = _0x226537[_0x270825(0x221)],
+    _0x41fcd6 = _0x226537[_0x270825(0x850)],
+    _0x1983c5 = (_0x53883a, _0x12f14b) => {
+      const _0x46ba7d = _0x270825;
+      if (!Array[_0x46ba7d(0x1e0b)](_0x53883a))
+        throw new Error(_0x2fc741 + ":\x20" + _0x12f14b + _0x46ba7d(0x166e));
+      return _0x53883a[_0x46ba7d(0x164b)]((_0x23ecc7, _0x3841fe) => {
+        const _0x1c74b3 = _0x46ba7d;
+        if (!_0x23ecc7 || typeof _0x23ecc7 != _0x1c74b3(0x4c0))
+          throw new Error(
+            _0x2fc741 +
+              ":\x20" +
+              _0x12f14b +
+              "[" +
+              _0x3841fe +
+              _0x1c74b3(0x1eae),
+          );
+        const _0x38415a = _0x23ecc7;
+        if (_0x38415a["op"] !== "fill" && _0x38415a["op"] !== _0x1c74b3(0x1977))
+          throw new Error(
+            _0x2fc741 +
+              ":\x20" +
+              _0x12f14b +
+              "[" +
+              _0x3841fe +
+              _0x1c74b3(0x1293),
+          );
+        if (
+          typeof _0x38415a["block"] != _0x1c74b3(0xd23) &&
+          typeof _0x38415a[_0x1c74b3(0x60b)] != "number"
+        )
+          throw new Error(
+            _0x2fc741 +
+              ":\x20" +
+              _0x12f14b +
+              "[" +
+              _0x3841fe +
+              _0x1c74b3(0x22a),
+          );
+        return {
+          op: _0x38415a["op"],
+          from: Zs(
+            _0x38415a[_0x1c74b3(0x1a89)],
+            _0x2fc741 +
+              ":\x20" +
+              _0x12f14b +
+              "[" +
+              _0x3841fe +
+              _0x1c74b3(0xdbc),
+          ),
+          to: Zs(
+            _0x38415a["to"],
+            _0x2fc741 + ":\x20" + _0x12f14b + "[" + _0x3841fe + "].to",
+          ),
+          block: _0x38415a[_0x1c74b3(0x60b)],
+          meta: $r(_0x38415a[_0x1c74b3(0x1f6)], 0x0),
+        };
+      });
+    },
+    _0x51258f = _0x1983c5(_0x226537[_0x270825(0x11f2)], "blocks"),
+    _0x574a32 =
+      _0x226537["depth"] === void 0x0
+        ? []
+        : _0x1983c5(_0x226537[_0x270825(0x1a9d)], "depth"),
+    _0x5774f7 = Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0x12cc)])
+      ? _0x226537[_0x270825(0x12cc)][_0x270825(0x164b)](
+          (_0x4bc4f2, _0x39b91e) => {
+            const _0x310f57 = _0x270825;
+            if (!_0x4bc4f2 || typeof _0x4bc4f2 != _0x310f57(0x4c0))
+              throw new Error(
+                _0x2fc741 + _0x310f57(0x1703) + _0x39b91e + _0x310f57(0x1eae),
+              );
+            const _0x32e228 = _0x4bc4f2;
+            if (typeof _0x32e228[_0x310f57(0x14ad)] != _0x310f57(0xd23))
+              throw new Error(
+                _0x2fc741 + ":\x20chests[" + _0x39b91e + _0x310f57(0xf4b),
+              );
+            if (
+              _0x32e228[_0x310f57(0xcf4)] !== void 0x0 &&
+              typeof _0x32e228[_0x310f57(0xcf4)] != _0x310f57(0xd23) &&
+              typeof _0x32e228[_0x310f57(0xcf4)] != _0x310f57(0x8f8)
+            )
+              throw new Error(
+                _0x2fc741 +
+                  _0x310f57(0x1703) +
+                  _0x39b91e +
+                  "].container\x20must\x20be\x20a\x20block\x20name\x20or\x20id",
+              );
+            return {
+              at: Zs(
+                _0x32e228["at"],
+                _0x2fc741 + ":\x20chests[" + _0x39b91e + _0x310f57(0x19cd),
+              ),
+              lootTable: _0x32e228[_0x310f57(0x14ad)],
+              container: _0x32e228[_0x310f57(0xcf4)],
+            };
+          },
+        )
+      : [],
+    _0x4de8cf = Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0x5a5)])
+      ? _0x226537["soldiers"]["map"]((_0x19e6d0, _0x22e748) => {
+          const _0x4ec821 = _0x270825;
+          if (!_0x19e6d0 || typeof _0x19e6d0 != _0x4ec821(0x4c0))
+            throw new Error(
+              _0x2fc741 + _0x4ec821(0x12d1) + _0x22e748 + _0x4ec821(0x1eae),
+            );
+          const _0x5d1c07 = _0x19e6d0;
+          return {
+            at: Zs(
+              _0x5d1c07["at"],
+              _0x2fc741 + _0x4ec821(0x12d1) + _0x22e748 + _0x4ec821(0x19cd),
+            ),
+            count: Math["max"](0x1, $r(_0x5d1c07[_0x4ec821(0x2021)], 0x1)),
+            spread: Math[_0x4ec821(0x1267)](
+              0x0,
+              qi(_0x5d1c07[_0x4ec821(0x1bc7)], 0x0),
+            ),
+            patrolRadius: Math[_0x4ec821(0x1267)](
+              0x0,
+              qi(_0x5d1c07[_0x4ec821(0x1ffd)], 0x12),
+            ),
+          };
+        })
+      : [],
+    _0x1a83a2 = Array["isArray"](_0x226537[_0x270825(0xd0b)])
+      ? _0x226537[_0x270825(0xd0b)][_0x270825(0x164b)](
+          (_0x2f11d3, _0x148bfe) => {
+            const _0x2b7e08 = _0x270825;
+            if (!_0x2f11d3 || typeof _0x2f11d3 != _0x2b7e08(0x4c0))
+              throw new Error(
+                _0x2fc741 +
+                  _0x2b7e08(0x4b7) +
+                  _0x148bfe +
+                  "]\x20must\x20be\x20an\x20object",
+              );
+            const _0x4da8d1 = _0x2f11d3;
+            if (
+              typeof _0x4da8d1[_0x2b7e08(0x58f)] != _0x2b7e08(0xd23) &&
+              typeof _0x4da8d1["type"] != _0x2b7e08(0x8f8)
+            )
+              throw new Error(
+                _0x2fc741 + _0x2b7e08(0x4b7) + _0x148bfe + _0x2b7e08(0x686),
+              );
+            return {
+              type: _0x4da8d1[_0x2b7e08(0x58f)],
+              at: Zs(
+                _0x4da8d1["at"],
+                _0x2fc741 + _0x2b7e08(0x4b7) + _0x148bfe + _0x2b7e08(0x19cd),
+              ),
+              yaw: qi(_0x4da8d1["yaw"], 0x0),
+            };
+          },
+        )
+      : [],
+    _0x3c89f4 = {};
+  if (
+    _0x226537["variants"] &&
+    typeof _0x226537[_0x270825(0x748)] == _0x270825(0x4c0) &&
+    !Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0x748)])
+  )
+    for (const [_0x52d2ab, _0xc0b176] of Object["entries"](
+      _0x226537["variants"],
+    )) {
+      if (
+        !_0xc0b176 ||
+        typeof _0xc0b176 != _0x270825(0x4c0) ||
+        Array[_0x270825(0x1e0b)](_0xc0b176)
+      )
+        throw new Error(
+          _0x2fc741 + _0x270825(0x1da4) + _0x52d2ab + _0x270825(0xe07),
+        );
+      const _0xcd7a3a = _0xc0b176;
+      _0x3c89f4[_0x52d2ab] = {
+        name:
+          typeof _0xcd7a3a["name"] == _0x270825(0xd23) &&
+          _0xcd7a3a["name"][_0x270825(0x16cf)]()
+            ? cM(_0xcd7a3a[_0x270825(0x1351)][_0x270825(0x16cf)]())
+            : void 0x0,
+        palette:
+          _0xcd7a3a[_0x270825(0x180e)] &&
+          typeof _0xcd7a3a["palette"] == _0x270825(0x4c0) &&
+          !Array[_0x270825(0x1e0b)](_0xcd7a3a["palette"])
+            ? _0xcd7a3a[_0x270825(0x180e)]
+            : {},
+        foundationBlock:
+          typeof _0xcd7a3a[_0x270825(0x115f)] == _0x270825(0x8f8) ||
+          typeof _0xcd7a3a[_0x270825(0x115f)] == "string"
+            ? _0xcd7a3a[_0x270825(0x115f)]
+            : void 0x0,
+      };
+    }
+  let _0x52cbe6;
+  if (
+    _0x226537["site"] &&
+    typeof _0x226537["site"] == _0x270825(0x4c0) &&
+    !Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0x1d27)])
+  ) {
+    const _0x16792e = _0x226537[_0x270825(0x1d27)],
+      _0x1a710e = _0x16792e[_0x270825(0x10d4)],
+      _0xa23749 =
+        typeof _0x1a710e == _0x270825(0x8f8)
+          ? Math[_0x270825(0x1267)](
+              0x0,
+              Math[_0x270825(0x48a)](0x6, Math[_0x270825(0xa70)](_0x1a710e)),
+            )
+          : (VG[String(_0x1a710e ?? "landmark")[_0x270825(0x1902)]()] ?? 0x5),
+      _0x31b725 = Array[_0x270825(0x1e0b)](_0x16792e[_0x270825(0x731)])
+        ? _0x16792e["gates"][_0x270825(0x164b)]((_0x4f27d0, _0x548c09) => {
+            const _0x5aace7 = _0x270825;
+            if (!_0x4f27d0 || typeof _0x4f27d0 != _0x5aace7(0x4c0))
+              throw new Error(
+                _0x2fc741 + _0x5aace7(0xbfd) + _0x548c09 + _0x5aace7(0x1eae),
+              );
+            const _0x325555 = _0x4f27d0;
+            return {
+              from: Zs(
+                _0x325555[_0x5aace7(0x1a89)],
+                _0x2fc741 + _0x5aace7(0xbfd) + _0x548c09 + _0x5aace7(0xdbc),
+              ),
+              to: Zs(
+                _0x325555["to"],
+                _0x2fc741 + ":\x20site.gates[" + _0x548c09 + _0x5aace7(0x3e6),
+              ),
+            };
+          })
+        : [];
+    _0x52cbe6 = {
+      kind: _0xa23749,
+      command: Zs(
+        _0x16792e[_0x270825(0x18c3)] ?? [0x0, 0x1, 0x0],
+        _0x2fc741 + ":\x20site.command",
+      ),
+      flag: Zs(
+        _0x16792e["flag"] ?? [0x0, 0x1, 0x0],
+        _0x2fc741 + _0x270825(0x109b),
+      ),
+      supply: Zs(
+        _0x16792e[_0x270825(0x1bd8)] ?? [0x2, 0x1, 0x2],
+        _0x2fc741 + _0x270825(0xb91),
+      ),
+      gates: _0x31b725,
+    };
+  }
+  return {
+    screens: Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0xe7d)])
+      ? _0x226537[_0x270825(0xe7d)][_0x270825(0x164b)](
+          (_0x3805bb, _0x14f82a) => {
+            const _0x1fe197 = _0x270825,
+              _0x272e0b = _0x3805bb;
+            if (
+              !_0x272e0b ||
+              typeof _0x272e0b[_0x1fe197(0x1ba5)] != _0x1fe197(0xd23)
+            )
+              throw new Error(
+                _0x2fc741 + _0x1fe197(0x1fc9) + _0x14f82a + _0x1fe197(0x14c8),
+              );
+            return {
+              at: Zs(
+                _0x272e0b["at"],
+                _0x2fc741 + _0x1fe197(0x1fc9) + _0x14f82a + _0x1fe197(0x19cd),
+              ),
+              text: _0x272e0b[_0x1fe197(0x1ba5)],
+              color:
+                typeof _0x272e0b[_0x1fe197(0x1033)] == _0x1fe197(0xd23)
+                  ? _0x272e0b[_0x1fe197(0x1033)]
+                  : void 0x0,
+              fx:
+                typeof _0x272e0b["fx"] == _0x1fe197(0xd23)
+                  ? _0x272e0b["fx"]
+                  : void 0x0,
+            };
+          },
+        )
+      : [],
+    spawnPoint:
+      _0x226537[_0x270825(0x10df)] === void 0x0
+        ? void 0x0
+        : Zs(_0x226537[_0x270825(0x10df)], _0x2fc741 + ":\x20spawnPoint"),
+    kiosks: Array[_0x270825(0x1e0b)](_0x226537["kiosks"])
+      ? _0x226537[_0x270825(0xbf4)][_0x270825(0x164b)](
+          (_0x27cda6, _0x39e715) => {
+            const _0x2c2957 = _0x270825,
+              _0x3b6d84 = _0x27cda6,
+              _0x1b069c = _0x3b6d84 == null ? void 0x0 : _0x3b6d84["at"],
+              _0x4efe9f = _0x3b6d84 == null ? void 0x0 : _0x3b6d84["half"];
+            if (
+              !Array[_0x2c2957(0x1e0b)](_0x1b069c) ||
+              _0x1b069c[_0x2c2957(0x18ce)] !== 0x3 ||
+              !_0x1b069c[_0x2c2957(0xe00)](Number[_0x2c2957(0xb9c)]) ||
+              !Array["isArray"](_0x4efe9f) ||
+              _0x4efe9f["length"] !== 0x2 ||
+              !_0x4efe9f["every"](
+                (_0x1e8a44) =>
+                  Number[_0x2c2957(0xb9c)](_0x1e8a44) &&
+                  _0x1e8a44 > 0x0 &&
+                  _0x1e8a44 <= 0x8,
+              ) ||
+              _0x3b6d84[_0x2c2957(0x10db)] !== _0x2c2957(0x158a)
+            )
+              throw new Error(
+                _0x2fc741 + _0x2c2957(0x158) + _0x39e715 + _0x2c2957(0xdc3),
+              );
+            return {
+              at: [..._0x1b069c],
+              half: [..._0x4efe9f],
+              action: _0x2c2957(0x158a),
+            };
+          },
+        )
+      : [],
+    beacons: Array[_0x270825(0x1e0b)](_0x226537[_0x270825(0x9f6)])
+      ? _0x226537[_0x270825(0x9f6)][_0x270825(0x164b)]((_0x5f38ee, _0x2606b5) =>
+          Zs(_0x5f38ee, _0x2fc741 + _0x270825(0x13a3) + _0x2606b5 + "]"),
+        )
+      : [],
+    signs: Array["isArray"](_0x226537[_0x270825(0x1e8f)])
+      ? _0x226537[_0x270825(0x1e8f)][_0x270825(0x164b)](
+          (_0x2d95c1, _0x314118) => {
+            const _0x5a9c76 = _0x270825,
+              _0x5f49e4 = _0x2d95c1;
+            if (!_0x5f49e4 || typeof _0x5f49e4[_0x5a9c76(0x1ba5)] != "string")
+              throw new Error(
+                _0x2fc741 + ":\x20signs[" + _0x314118 + _0x5a9c76(0x14c8),
+              );
+            return {
+              at: Zs(
+                _0x5f49e4["at"],
+                _0x2fc741 + _0x5a9c76(0x1965) + _0x314118 + _0x5a9c76(0x19cd),
+              ),
+              text: Jg(_0x5f49e4[_0x5a9c76(0x1ba5)]),
+              facing: $r(_0x5f49e4[_0x5a9c76(0xf9c)], 0x0) & 0x3,
+            };
+          },
+        )
+      : [],
+    formatVersion: 0x1,
+    id: _0x226537["id"],
+    name: cM(_0x226537[_0x270825(0x1351)][_0x270825(0x16cf)]()),
+    version: Math["max"](0x1, $r(_0x226537["version"], 0x1)),
+    enabled: _0x226537[_0x270825(0x1865)] !== !0x1,
+    footprint: [
+      Math[_0x270825(0x1267)](0x1, $r(_0x226537[_0x270825(0x1e68)][0x0], 0x1)),
+      Math[_0x270825(0x1267)](0x1, $r(_0x226537["footprint"][0x1], 0x1)),
+    ],
+    guardRadius: Math["max"](0x1, qi(_0x226537[_0x270825(0x151b)], 0x64)),
+    generation: {
+      cellSize: Math["max"](0x80, $r(_0x3b5bd7[_0x270825(0x1b12)], 0x280)),
+      chance: Math[_0x270825(0x1267)](
+        0x0,
+        Math["min"](0x1, qi(_0x3b5bd7[_0x270825(0xca2)], 0.2)),
+      ),
+      minDistanceFromSpawn: Math[_0x270825(0x1267)](
+        0x0,
+        qi(_0x3b5bd7[_0x270825(0xb88)], 0xf0),
+      ),
+      activationRadius: Math["max"](
+        0x20,
+        qi(_0x3b5bd7[_0x270825(0x1eb8)], 0xdc),
+      ),
+      maxSlope: Math[_0x270825(0x1267)](0x0, qi(_0x3b5bd7["maxSlope"], 0x6)),
+      minSeparation: Math[_0x270825(0x1267)](
+        0x0,
+        qi(_0x3b5bd7[_0x270825(0x991)], 0x190),
+      ),
+      minAltitude: qi(_0x3b5bd7[_0x270825(0x993)], 0x0),
+      maxAltitude: qi(_0x3b5bd7[_0x270825(0xd29)], Pe),
+      biomes: Array[_0x270825(0x1e0b)](_0x3b5bd7["biomes"])
+        ? _0x3b5bd7[_0x270825(0x1cf6)]
+            [_0x270825(0x3f4)](
+              (_0x1812c6) =>
+                typeof _0x1812c6 == _0x270825(0xd23) && !!_0x1812c6["trim"](),
+            )
+            ["map"]((_0x3cb3f5) => _0x3cb3f5[_0x270825(0x16cf)]())
+        : [],
+    },
+    terrain: {
+      mode:
+        _0x41fcd6[_0x270825(0x42a)] === "coast"
+          ? _0x270825(0x60a)
+          : _0x270825(0x6c6),
+      shore: $r(_0x41fcd6[_0x270825(0xaa7)], 0x0),
+      foundationBlock:
+        typeof _0x41fcd6["foundationBlock"] == _0x270825(0x8f8) ||
+        typeof _0x41fcd6[_0x270825(0x115f)] == _0x270825(0xd23)
+          ? _0x41fcd6[_0x270825(0x115f)]
+          : _0x270825(0x4cc),
+      padding: Math["max"](0x0, $r(_0x41fcd6[_0x270825(0x1074)], 0x3)),
+      clearHeight: Math[_0x270825(0x1267)](
+        0x1,
+        $r(_0x41fcd6["clearHeight"], 0x10),
+      ),
+    },
+    palette:
+      _0x226537[_0x270825(0x180e)] &&
+      typeof _0x226537["palette"] == _0x270825(0x4c0)
+        ? _0x226537[_0x270825(0x180e)]
+        : {},
+    blocks: _0x51258f,
+    depth: _0x574a32,
+    lootTables:
+      _0x226537["lootTables"] &&
+      typeof _0x226537[_0x270825(0x914)] == _0x270825(0x4c0)
+        ? _0x226537[_0x270825(0x914)]
+        : {},
+    chests: _0x5774f7,
+    soldiers: _0x4de8cf,
+    vehicles: _0x1a83a2,
+    variants: _0x3c89f4,
+    site: _0x52cbe6,
+    clearNaturalTrees: _0x226537[_0x270825(0x1fe9)] === !0x0,
+  };
+}
