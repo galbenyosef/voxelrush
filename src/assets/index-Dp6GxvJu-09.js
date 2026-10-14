@@ -1,8 +1,8 @@
-// index-Dp6GxvJu 09 — push
+// index-Dp6GxvJu 09 — block
 // Lines 28831-29180 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-de.push(
-  Fe(
-    v.LUNAR_GLASS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LUNAR_GLASS,
     "lunar_glass",
     "Герметичное стекло",
     3001,
@@ -14,9 +14,9 @@ de.push(
 );
 const rg = Wi + 7,
   Jp = Wi + 8;
-de.push(
-  Fe(
-    v.COMPOSTER,
+BLOCKS.push(
+  blockDef(
+    BLOCK.COMPOSTER,
     "composter",
     "Компостер",
     55,
@@ -26,9 +26,9 @@ de.push(
     "Composter",
   ),
 );
-de.push(
-  Fe(
-    v.WOOD_TABLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.WOOD_TABLE,
     "wood_table",
     "Деревянный стол",
     45,
@@ -38,9 +38,9 @@ de.push(
     "Wooden table",
   ),
 );
-de.push(
-  Fe(
-    v.WOOD_CHAIR,
+BLOCKS.push(
+  blockDef(
+    BLOCK.WOOD_CHAIR,
     "wood_chair",
     "Стул с мягким сиденьем",
     35,
@@ -50,9 +50,9 @@ de.push(
     "Upholstered chair",
   ),
 );
-de.push(
-  Fe(
-    v.WOOD_BENCH,
+BLOCKS.push(
+  blockDef(
+    BLOCK.WOOD_BENCH,
     "wood_bench",
     "Деревянная скамья",
     40,
@@ -62,13 +62,13 @@ de.push(
     "Wooden bench",
   ),
 );
-de.push(
-  Fe(
-    v.MAP_TABLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MAP_TABLE,
     "map_table",
     "Штабной стол с картой",
     55,
-    [de.find((n) => n.name === "green_clay").tex[0], 10, 10],
+    [BLOCKS.find((n) => n.name === "green_clay").tex[0], 10, 10],
     7898715,
     { transparent: !0, shape: "furniture" },
     "Map table",
@@ -76,9 +76,9 @@ de.push(
 );
 const zl = Jp + 1,
   jc = Jp + 2;
-de.push(
-  Fe(
-    v.REMOTE_STATION,
+BLOCKS.push(
+  blockDef(
+    BLOCK.REMOTE_STATION,
     "remote_station",
     "Станция удалённого управления",
     120,
@@ -88,9 +88,9 @@ de.push(
     "Remote command station",
   ),
 );
-de.push(
-  Fe(
-    v.MINE_AP,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MINE_AP,
     "mine_ap",
     "Противопехотная мина",
     12,
@@ -100,9 +100,9 @@ de.push(
     "Anti-personnel mine",
   ),
 );
-de.push(
-  Fe(
-    v.MINE_AT,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MINE_AT,
     "mine_at",
     "Противотанковая мина",
     24,
@@ -114,10 +114,10 @@ de.push(
 );
 const Xc = jc + 1,
   _c = Xc + 2;
-de[v.WOOD_CHAIR].tex[0] = _c;
-de.push(
-  Fe(
-    v.SAVANNA_GRASS,
+BLOCKS[BLOCK.WOOD_CHAIR].tex[0] = _c;
+BLOCKS.push(
+  blockDef(
+    BLOCK.SAVANNA_GRASS,
     "savanna_grass",
     "Сухой дёрн саванны",
     18,
@@ -127,9 +127,9 @@ de.push(
     "Savanna turf",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_RSTONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_RSTONE,
     "reinforced_stone_stairs",
     "Армированная ступенька",
     300,
@@ -141,32 +141,32 @@ de.push(
 );
 for (const [n, e, t, i, s] of [
   [
-    v.KITCHEN_COUNTER,
+    BLOCK.KITCHEN_COUNTER,
     "kitchen_counter",
     "Кухонная тумба",
     "Kitchen cabinet",
     10584160,
   ],
-  [v.SINK, "sink", "Мойка со смесителем", "Sink and faucet", 12831182],
+  [BLOCK.SINK, "sink", "Мойка со смесителем", "Sink and faucet", 12831182],
   [
-    v.STORAGE_SHELF,
+    BLOCK.STORAGE_SHELF,
     "storage_shelf",
     "Стеллаж с припасами",
     "Supply shelving",
     7174759,
   ],
-  [v.SOFA, "sofa", "Мягкий диван", "Upholstered sofa", 10448720],
-  [v.WALL_LIGHT, "wall_light", "Настенный светильник", "Wall light", 16770224],
+  [BLOCK.SOFA, "sofa", "Мягкий диван", "Upholstered sofa", 10448720],
+  [BLOCK.WALL_LIGHT, "wall_light", "Настенный светильник", "Wall light", 16770224],
   [
-    v.POTTED_PLANT,
+    BLOCK.POTTED_PLANT,
     "potted_plant",
     "Растение в горшке",
     "Potted plant",
     6587986,
   ],
 ])
-  de.push(
-    Fe(
+  BLOCKS.push(
+    blockDef(
       n,
       e,
       t,
@@ -176,9 +176,9 @@ for (const [n, e, t, i, s] of [
       {
         transparent: !0,
         shape: "furniture",
-        interactive: n === v.SOFA,
-        solid: n !== v.WALL_LIGHT && n !== v.POTTED_PLANT,
-        light: n === v.WALL_LIGHT ? 14 : 0,
+        interactive: n === BLOCK.SOFA,
+        solid: n !== BLOCK.WALL_LIGHT && n !== BLOCK.POTTED_PLANT,
+        light: n === BLOCK.WALL_LIGHT ? 14 : 0,
       },
       i,
     ),
@@ -192,9 +192,9 @@ const lg = 158,
       en: "Raspberry",
       color: 12595280,
       stages: [
-        v.RASPBERRY_BUSH_SPROUT,
-        v.RASPBERRY_BUSH_YOUNG,
-        v.RASPBERRY_BUSH_RIPE,
+        BLOCK.RASPBERRY_BUSH_SPROUT,
+        BLOCK.RASPBERRY_BUSH_YOUNG,
+        BLOCK.RASPBERRY_BUSH_RIPE,
       ],
     },
     {
@@ -203,9 +203,9 @@ const lg = 158,
       en: "Blueberry",
       color: 4872872,
       stages: [
-        v.BLUEBERRY_BUSH_SPROUT,
-        v.BLUEBERRY_BUSH_YOUNG,
-        v.BLUEBERRY_BUSH_RIPE,
+        BLOCK.BLUEBERRY_BUSH_SPROUT,
+        BLOCK.BLUEBERRY_BUSH_YOUNG,
+        BLOCK.BLUEBERRY_BUSH_RIPE,
       ],
     },
     {
@@ -214,9 +214,9 @@ const lg = 158,
       en: "Blackberry",
       color: 4008773,
       stages: [
-        v.BLACKBERRY_BUSH_SPROUT,
-        v.BLACKBERRY_BUSH_YOUNG,
-        v.BLACKBERRY_BUSH_RIPE,
+        BLOCK.BLACKBERRY_BUSH_SPROUT,
+        BLOCK.BLACKBERRY_BUSH_YOUNG,
+        BLOCK.BLACKBERRY_BUSH_RIPE,
       ],
     },
   ];
@@ -224,8 +224,8 @@ tc.forEach((n, e) => {
   const t = ["Куст", "Молодой куст", "Спелый куст"],
     i = ["bush sprout", "young bush", "ripe bush"];
   n.stages.forEach((s, o) => {
-    de.push(
-      Fe(
+    BLOCKS.push(
+      blockDef(
         s,
         `${n.key}_bush_${["sprout", "young", "ripe"][o]}`,
         `${t[o]} ${n.ru}`,
@@ -239,9 +239,9 @@ tc.forEach((n, e) => {
   });
 });
 const A2 = 168;
-de.push(
-  Fe(
-    v.RGLOWSTONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.RGLOWSTONE,
     "reinforced_glowstone",
     "Армированный светокамень",
     300,
@@ -251,9 +251,9 @@ de.push(
     "Reinforced glowstone",
   ),
 );
-de.push(
-  Fe(
-    v.SIGN,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SIGN,
     "sign",
     "Табличка",
     25,
@@ -263,9 +263,9 @@ de.push(
     "Sign",
   ),
 );
-de.push(
-  Fe(
-    v.RADIO_RELAY,
+BLOCKS.push(
+  blockDef(
+    BLOCK.RADIO_RELAY,
     "radio_relay",
     "Радиореле",
     35,
@@ -302,9 +302,9 @@ const kx = 204,
   sa = 228,
   fC = 229,
   az = 230;
-de.push(
-  Fe(
-    v.AUTUMN_LEAVES_ORANGE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.AUTUMN_LEAVES_ORANGE,
     "autumn_leaves_orange",
     "Оранжевая осенняя листва",
     8,
@@ -314,9 +314,9 @@ de.push(
     "Orange autumn leaves",
   ),
 );
-de.push(
-  Fe(
-    v.AUTUMN_LEAVES_RED,
+BLOCKS.push(
+  blockDef(
+    BLOCK.AUTUMN_LEAVES_RED,
     "autumn_leaves_red",
     "Багряная листва",
     8,
@@ -326,9 +326,9 @@ de.push(
     "Crimson autumn leaves",
   ),
 );
-de.push(
-  Fe(
-    v.AUTUMN_LEAVES_YELLOW,
+BLOCKS.push(
+  blockDef(
+    BLOCK.AUTUMN_LEAVES_YELLOW,
     "autumn_leaves_yellow",
     "Золотая листва",
     8,
@@ -338,9 +338,9 @@ de.push(
     "Golden autumn leaves",
   ),
 );
-de.push(
-  Fe(
-    v.BIRCH_LOG,
+BLOCKS.push(
+  blockDef(
+    BLOCK.BIRCH_LOG,
     "birch_log",
     "Берёзовое бревно",
     55,

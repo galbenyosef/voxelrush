@@ -285,7 +285,7 @@ class Ree {
         [l, c] = r.split(":");
       if (r)
         for (const h of this.units().filter(
-          (d) => d.type !== P.TURRET && d.type !== P.MORTAR,
+          (d) => d.type !== VEHICLE_KIND.TURRET && d.type !== VEHICLE_KIND.MORTAR,
         ))
           this.send(
             this.command(10, h.id)
@@ -308,7 +308,7 @@ class Ree {
       ((this.mapAction = !this.mapAction),
         this.hint(
           this.mapAction
-            ? t.type === P.MORTAR
+            ? t.type === VEHICLE_KIND.MORTAR
               ? Et(
                   "Укажите точку удара · 224 м · 1 ракета",
                   "Pick the impact point · 224 m · 1 rocket",
@@ -374,12 +374,12 @@ class Ree {
       }
       for (const p of this.units().filter(
         (m) =>
-          m.type !== P.MORTAR || this.units().every((y) => y.type === P.MORTAR),
+          m.type !== VEHICLE_KIND.MORTAR || this.units().every((y) => y.type === VEHICLE_KIND.MORTAR),
       ))
         this.send(this.command(5, p.id).f32(a.x).f32(a.z));
       ((this.mapAction = !1),
         this.hint(
-          c.type === P.MORTAR
+          c.type === VEHICLE_KIND.MORTAR
             ? Et("Координаты удара переданы", "Strike coordinates sent")
             : Et(
                 "Маршрут передан · красная цель на карте — приказ атаковать",
@@ -515,7 +515,7 @@ class Ree {
         ),
       (this.root.querySelector('[data-action="navigate"]').textContent =
         this.units().length > 0 &&
-        this.units().every((S) => S.type === P.MORTAR)
+        this.units().every((S) => S.type === VEHICLE_KIND.MORTAR)
           ? Et("ТОЧКА УДАРА", "STRIKE POINT")
           : Et("ЗАДАТЬ МАРШРУТ", "SET ROUTE")));
     const a = this.root.querySelector("[data-action=repair]"),
@@ -543,7 +543,7 @@ class Ree {
       (l.disabled = !t || !t.signal || t.busy || !h.length),
       (this.root.querySelector('[data-action="escort"]').disabled =
         l.disabled ||
-        !this.units().some((S) => S.type !== P.TURRET && S.type !== P.MORTAR)),
+        !this.units().some((S) => S.type !== VEHICLE_KIND.TURRET && S.type !== VEHICLE_KIND.MORTAR)),
       (this.root.querySelector(".rc-link small").textContent = Et(
         `РАДИУС ${(((m = this.snapshot.station) == null ? void 0 : m.range) ?? bd).toLocaleString("ru")} БЛОКОВ`,
         `RANGE ${(((y = this.snapshot.station) == null ? void 0 : y.range) ?? bd).toLocaleString("en")} BLOCKS`,

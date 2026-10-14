@@ -24,7 +24,7 @@ function KW(n, e, t, i, s = 0, o = 0, a = 0) {
       u(0),
     );
   }
-  const f = e === v.DOOR ? Bl : Hl,
+  const f = e === BLOCK.DOOR ? Bl : Hl,
     p = { top: f, side: f, bottom: f },
     m = t ? 0.13 : 0.87,
     y = o + 0.96,

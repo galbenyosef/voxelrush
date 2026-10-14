@@ -19,15 +19,15 @@ function ate() {
 function rte(n) {
   const e = [],
     t = [],
-    i = (o) => n.data[o] === v.WATER || oa(n.data[o], n.meta[o]);
+    i = (o) => n.data[o] === BLOCK.WATER || oa(n.data[o], n.meta[o]);
   for (let o = 0; o < Pe; o++)
     for (let a = 0; a < Pe; a++)
       for (let r = Kt - 1; r >= 0; r--) {
-        const l = Ri(o, r, a);
+        const l = packColor(o, r, a);
         if (!i(l)) continue;
-        const c = r + (n.data[l] === v.WATER ? Ul(n.meta[l]) : Ul(0));
+        const c = r + (n.data[l] === BLOCK.WATER ? Ul(n.meta[l]) : Ul(0));
         let h = r;
-        for (; h > 0 && i(Ri(o, h - 1, a));) h--;
+        for (; h > 0 && i(packColor(o, h - 1, a));) h--;
         const d = n.cx * Pe + o,
           u = n.cz * Pe + a;
         e.push(
@@ -74,7 +74,7 @@ class lte {
     for (let s = -1; s <= 1; s++)
       for (let o = -1; o <= 1; o++)
         this.neighbors[(s + 1) * 3 + (o + 1)] =
-          this.chunks.get(Gn(e + s, t + o)) ?? null;
+          this.chunks.get(cellKey(e + s, t + o)) ?? null;
   }
   getBlock(e, t, i) {
     if (t < 0 || t >= Kt) return 0;
@@ -84,7 +84,7 @@ class lte {
     (s < 0 ? ((a -= 3), (s += Pe)) : s >= Pe && ((a += 3), (s -= Pe)),
       o < 0 ? ((a -= 1), (o += Pe)) : o >= Pe && ((a += 1), (o -= Pe)));
     const r = this.neighbors[a];
-    return r ? r.data[Ri(s, t, o)] : 0;
+    return r ? r.data[packColor(s, t, o)] : 0;
   }
   getMeta(e, t, i) {
     if (t < 0 || t >= Kt) return 0;
@@ -94,7 +94,7 @@ class lte {
     (s < 0 ? ((a -= 3), (s += Pe)) : s >= Pe && ((a += 3), (s -= Pe)),
       o < 0 ? ((a -= 1), (o += Pe)) : o >= Pe && ((a += 1), (o -= Pe)));
     const r = this.neighbors[a];
-    return r ? r.meta[Ri(s, t, o)] : 0;
+    return r ? r.meta[packColor(s, t, o)] : 0;
   }
   loaded(e, t) {
     let i = e - this.ox,
@@ -119,12 +119,12 @@ class lte {
 }
 function zM(n, e = 0) {
   var i;
-  if (n === v.AIR) return 0;
-  if ((i = de[n]) != null && i.solid && !de[n].transparent) return 15;
+  if (n === BLOCK.AIR) return 0;
+  if ((i = BLOCKS[n]) != null && i.solid && !BLOCKS[n].transparent) return 15;
   if (Do(n)) return e & Qn ? 0 : 1;
   if (Ss(n)) return e & Qn ? 0 : 15;
-  if ($n(n) || n === v.WATER || oa(n, e)) return 2;
-  const t = de[n];
+  if ($n(n) || n === BLOCK.WATER || oa(n, e)) return 2;
+  const t = BLOCKS[n];
   return t != null && t.solid && !t.transparent ? 15 : 0;
 }
 const Hf = 15,
@@ -135,11 +135,11 @@ const Hf = 15,
   KI = new Uint8Array(65536),
   YI = new Uint8Array(65536);
 for (let n = 0; n < 256; n++)
-  for (const e of de) {
+  for (const e of BLOCKS) {
     const t = (n << 8) | e.id;
     ((qI[t] = zM(e.id, n)),
       (KI[t] = hg(e.id, n)),
-      (YI[t] = Number(e.id === v.WATER || oa(e.id, n))));
+      (YI[t] = Number(e.id === BLOCK.WATER || oa(e.id, n))));
   }
 class cte {
   constructor() {
@@ -167,7 +167,7 @@ class cte {
               let x = 15;
               const T = S * ja + M * Kt;
               for (
-                let A = Kt - 1, _ = Ri(g, Kt - 1, b);
+                let A = Kt - 1, _ = packColor(g, Kt - 1, b);
                 A >= 0;
                 A--, _ -= Pe * Pe
               ) {

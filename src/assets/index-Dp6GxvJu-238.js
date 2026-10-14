@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 238 — root
+// index-Dp6GxvJu 238 — item
 // Lines 129584-129781 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 class zse {
   constructor() {
@@ -109,51 +109,51 @@ const Use = 65535,
   Fse = 2e4,
   r3 = 9e3,
   Gse = {
-    [v.WHEAT_SPROUT]: E.WHEAT_SEEDS,
-    [v.WHEAT_YOUNG]: E.WHEAT_SEEDS,
-    [v.WHEAT_CROP]: E.WHEAT,
-    [v.POTATO_SPROUT]: E.POTATO_SEEDS,
-    [v.POTATO_YOUNG]: E.POTATO_SEEDS,
-    [v.POTATO_CROP]: E.POTATO,
-    [v.CARROT_SPROUT]: E.CARROT_SEEDS,
-    [v.CARROT_YOUNG]: E.CARROT_SEEDS,
-    [v.CARROT_CROP]: E.CARROT,
-    [v.PUMPKIN_SPROUT]: E.PUMPKIN_SEEDS,
-    [v.PUMPKIN_YOUNG]: E.PUMPKIN_SEEDS,
-    [v.PUMPKIN_CROP]: v.PUMPKIN,
+    [BLOCK.WHEAT_SPROUT]: ITEM.WHEAT_SEEDS,
+    [BLOCK.WHEAT_YOUNG]: ITEM.WHEAT_SEEDS,
+    [BLOCK.WHEAT_CROP]: ITEM.WHEAT,
+    [BLOCK.POTATO_SPROUT]: ITEM.POTATO_SEEDS,
+    [BLOCK.POTATO_YOUNG]: ITEM.POTATO_SEEDS,
+    [BLOCK.POTATO_CROP]: ITEM.POTATO,
+    [BLOCK.CARROT_SPROUT]: ITEM.CARROT_SEEDS,
+    [BLOCK.CARROT_YOUNG]: ITEM.CARROT_SEEDS,
+    [BLOCK.CARROT_CROP]: ITEM.CARROT,
+    [BLOCK.PUMPKIN_SPROUT]: ITEM.PUMPKIN_SEEDS,
+    [BLOCK.PUMPKIN_YOUNG]: ITEM.PUMPKIN_SEEDS,
+    [BLOCK.PUMPKIN_CROP]: BLOCK.PUMPKIN,
     ...Object.fromEntries(
       tc.flatMap((n) => {
         const e = {
-          raspberry: E.RASPBERRY,
-          blueberry: E.BLUEBERRY,
-          blackberry: E.BLACKBERRY,
+          raspberry: ITEM.RASPBERRY,
+          blueberry: ITEM.BLUEBERRY,
+          blackberry: ITEM.BLACKBERRY,
         }[n.key];
         return n.stages.map((t) => [t, e]);
       }),
     ),
   },
   p2 = {
-    [E.WHEAT_SEEDS]: v.WHEAT_SPROUT,
-    [E.POTATO_SEEDS]: v.POTATO_SPROUT,
-    [E.CARROT_SEEDS]: v.CARROT_SPROUT,
-    [E.PUMPKIN_SEEDS]: v.PUMPKIN_SPROUT,
-    [E.RASPBERRY]: v.RASPBERRY_BUSH_SPROUT,
-    [E.BLUEBERRY]: v.BLUEBERRY_BUSH_SPROUT,
-    [E.BLACKBERRY]: v.BLACKBERRY_BUSH_SPROUT,
+    [ITEM.WHEAT_SEEDS]: BLOCK.WHEAT_SPROUT,
+    [ITEM.POTATO_SEEDS]: BLOCK.POTATO_SPROUT,
+    [ITEM.CARROT_SEEDS]: BLOCK.CARROT_SPROUT,
+    [ITEM.PUMPKIN_SEEDS]: BLOCK.PUMPKIN_SPROUT,
+    [ITEM.RASPBERRY]: BLOCK.RASPBERRY_BUSH_SPROUT,
+    [ITEM.BLUEBERRY]: BLOCK.BLUEBERRY_BUSH_SPROUT,
+    [ITEM.BLACKBERRY]: BLOCK.BLACKBERRY_BUSH_SPROUT,
   },
   Wse = new ze(1, 1, 1),
   s8 = 1,
   o8 = (n) => (n <= 80 ? 0.55 : 0.36),
   Vse = new ze(0.65, 0.035, 0.008),
   $se = new ze(0.045, 0.19, 0.3),
-  qse = new Set([v.TORCH, v.RTORCH, v.REDSTONE, v.CAMPFIRE]);
+  qse = new Set([BLOCK.TORCH, BLOCK.RTORCH, BLOCK.REDSTONE, BLOCK.CAMPFIRE]);
 function a8(n, e, t) {
   const i = t.x - e.x,
     s = t.y - e.y,
     o = t.z - e.z,
     a = i * i + s * s + o * o;
   if (a < 1e-6) return n.distanceTo(e);
-  const r = Ne(((n.x - e.x) * i + (n.y - e.y) * s + (n.z - e.z) * o) / a, 0, 1);
+  const r = clamp(((n.x - e.x) * i + (n.y - e.y) * s + (n.z - e.z) * o) / a, 0, 1);
   return Math.hypot(e.x + i * r - n.x, e.y + s * r - n.y, e.z + o * r - n.z);
 }
 function Kse(n) {
@@ -164,22 +164,22 @@ function Yse(n, e) {
   return Math.min(Number.MAX_SAFE_INTEGER, (n >>> 0) * 4294967296 + (e >>> 0));
 }
 const l3 = {
-  [E.TANK]: P.TANK,
-  [E.PLANE]: P.PLANE,
-  [E.FIGHTER_JET]: P.FIGHTER_JET,
-  [E.DRONE]: P.DRONE,
-  [E.BOAT]: P.BOAT,
-  [E.CARRIER]: P.CARRIER,
-  [E.SUBMARINE]: P.SUBMARINE,
-  [E.HELI]: P.HELI,
-  [E.MORTAR]: P.MORTAR,
-  [E.HIMARS]: P.HIMARS,
-  [E.PATRIOT]: P.PATRIOT,
-  [E.TURRET]: P.TURRET,
-  [E.BTR_TURRET]: P.BTR_TURRET,
-  [E.SPACE_ROCKET]: P.SPACE_ROCKET,
+  [ITEM.TANK]: VEHICLE_KIND.TANK,
+  [ITEM.PLANE]: VEHICLE_KIND.PLANE,
+  [ITEM.FIGHTER_JET]: VEHICLE_KIND.FIGHTER_JET,
+  [ITEM.DRONE]: VEHICLE_KIND.DRONE,
+  [ITEM.BOAT]: VEHICLE_KIND.BOAT,
+  [ITEM.CARRIER]: VEHICLE_KIND.CARRIER,
+  [ITEM.SUBMARINE]: VEHICLE_KIND.SUBMARINE,
+  [ITEM.HELI]: VEHICLE_KIND.HELI,
+  [ITEM.MORTAR]: VEHICLE_KIND.MORTAR,
+  [ITEM.HIMARS]: VEHICLE_KIND.HIMARS,
+  [ITEM.PATRIOT]: VEHICLE_KIND.PATRIOT,
+  [ITEM.TURRET]: VEHICLE_KIND.TURRET,
+  [ITEM.BTR_TURRET]: VEHICLE_KIND.BTR_TURRET,
+  [ITEM.SPACE_ROCKET]: VEHICLE_KIND.SPACE_ROCKET,
 };
-Vo(oU(() => z.language === "ru"));
+Vo(oU(() => SETTINGS.language === "ru"));
 const jse = document.documentElement.classList.contains("boot-joining"),
   V = new MM();
 V.init();

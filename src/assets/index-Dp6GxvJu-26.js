@@ -87,7 +87,7 @@ function wF(n, e, t, i, s, o, a, r) {
       },
       G = H(u ? m.from : "grip-l", mF);
     (u && m.w > 0 && G.lerp(H(m.to, gF), m.w),
-      wg(e, G, l === E.GLOCK ? bF : uk, a));
+      wg(e, G, l === ITEM.GLOCK ? bF : uk, a));
   }
   return !0;
 }

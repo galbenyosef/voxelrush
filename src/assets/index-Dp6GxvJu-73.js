@@ -308,10 +308,10 @@ const oA = {
     teleport:
       '<circle cx="12" cy="5" r="2"/><path d="M12 7v6m-3-3 3 3 3-3"/><ellipse cx="12" cy="18" rx="7" ry="2.5"/><path d="M5 15.5v2.5M19 15.5v2.5"/>',
   };
-function Nn(n) {
+function svgIcon(n) {
   return `<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${s$[n]}</svg>`;
 }
-const Qc = [
+const RANKS = [
   { name: "Новобранец", nameEn: "Recruit", minXp: 0 },
   { name: "Рядовой", nameEn: "Private", minXp: 100 },
   { name: "Ефрейтор", nameEn: "Corporal", minXp: 300 },
@@ -327,8 +327,8 @@ const Qc = [
   { name: "Генерал", nameEn: "General", minXp: 15e3 },
 ];
 function Np(n) {
-  let e = Qc[0];
-  for (const t of Qc) {
+  let e = RANKS[0];
+  for (const t of RANKS) {
     if (n < t.minXp) break;
     e = t;
   }

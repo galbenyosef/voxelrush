@@ -3,7 +3,7 @@
 function _J(n, e, t) {
   var u;
   (u = document.getElementById("sign-editor")) == null || u.remove();
-  const i = z.language === "en",
+  const i = SETTINGS.language === "en",
     s = document.createElement("div");
   ((s.id = "sign-editor"),
     (s.className = "overlay"),

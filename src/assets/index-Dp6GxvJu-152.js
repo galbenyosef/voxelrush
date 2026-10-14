@@ -54,7 +54,7 @@ class pQ {
   }
   translate() {
     this.label.textContent =
-      z.language === "en"
+      SETTINGS.language === "en"
         ? "Blackjack dealer voice"
         : "Голос крупье в блэкджеке";
   }
@@ -70,11 +70,11 @@ class pQ {
     const s = uQ(e, t, i);
     if (!s || !this.enabled || document.hidden) return;
     const o =
-      fQ[`../assets/dealer/${z.language === "ru" ? "ru" : "en"}-${s}.wav`];
+      fQ[`../assets/dealer/${SETTINGS.language === "ru" ? "ru" : "en"}-${s}.wav`];
     o &&
       (this.stop(),
       (this.audio.src = o),
-      (this.audio.volume = Math.max(0, Math.min(1, z.sfxVolume))),
+      (this.audio.volume = Math.max(0, Math.min(1, SETTINGS.sfxVolume))),
       this.audio.play().catch(() => {}));
   }
   stop() {

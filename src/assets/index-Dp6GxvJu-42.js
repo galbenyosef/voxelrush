@@ -38,7 +38,7 @@ function Lp(n, e, t) {
   return i && Math.hypot(e - i.x, t - i.z) < i.radius ? i : null;
 }
 const Aw = (n) => {
-  const e = Ne(n, 0, 1);
+  const e = clamp(n, 0, 1);
   return e * e * (3 - 2 * e);
 };
 function jS(n, e, t) {
@@ -138,22 +138,22 @@ function _k(n, e, t, i) {
   const s = e - n.x,
     o = t - n.z;
   if (n.kind === "volcanic")
-    return Fs(n.seed + 51, e * 0.045, t * 0.045, 2) > 0.26 ? v.STONE : 40;
+    return Fs(n.seed + 51, e * 0.045, t * 0.045, 2) > 0.26 ? BLOCK.STONE : 40;
   if (n.kind === "alpine")
     return i > 79 + Math.sin(e * 0.05) * 3 + Math.cos(t * 0.07) * 2
-      ? v.SNOW
+      ? BLOCK.SNOW
       : i > 61
-        ? v.STONE
-        : v.GRASS;
+        ? BLOCK.STONE
+        : BLOCK.GRASS;
   if (n.kind === "savanna")
     return Math.hypot((s + 48) / 25, (o - 30) / 18) < 1.15
-      ? v.SAND
+      ? BLOCK.SAND
       : Fs(n.seed + 77, e * 0.035, t * 0.035, 2) > 0.36
-        ? v.DIRT
-        : v.SAVANNA_GRASS;
-  if (n.kind === "islands") return i <= $o + 3 ? v.SAND : v.GRASS;
+        ? BLOCK.DIRT
+        : BLOCK.SAVANNA_GRASS;
+  if (n.kind === "islands") return i <= $o + 3 ? BLOCK.SAND : BLOCK.GRASS;
   if (n.kind === "oasis")
-    return jS(n, e, t) < 1.65 && i >= 47 ? v.GRASS : v.SAND;
+    return jS(n, e, t) < 1.65 && i >= 47 ? BLOCK.GRASS : BLOCK.SAND;
   const a = XS(n, e, t);
   return a < 0.7
     ? 42
@@ -166,8 +166,8 @@ function _k(n, e, t, i) {
           : a < 1.38
             ? 34
             : a < 1.6 || Math.hypot((s + 38) / 34, (o + 83) / 27) < 1
-              ? v.SANDSTONE_SMOOTH
-              : v.GRASS;
+              ? BLOCK.SANDSTONE_SMOOTH
+              : BLOCK.GRASS;
 }
 function Rk(n, e, t) {
   return n.kind === "savanna" &&
@@ -245,12 +245,12 @@ function GG(n, e, t, i, s) {
   const o = Fs(n + 7, e * 0.011, t * 0.011, 4);
   let a;
   if (s === "ocean") {
-    const r = Ne((-0.14 - i.continent) / 0.55, 0, 1) ** 0.55;
+    const r = clamp((-0.14 - i.continent) / 0.55, 0, 1) ** 0.55;
     a = $o + 1 - (2 + r * 34) + o * (1.5 + r * 4);
   } else {
     a = $o + 5 + o * 8 + i.continent * 12;
     const r = (u) => {
-        const f = Ne(u, 0, 1);
+        const f = clamp(u, 0, 1);
         return f * f * (3 - 2 * f);
       },
       l = r(Math.max((i.ridge - 0.43) / 0.08, (i.continent - 0.49) / 0.08)),
@@ -270,7 +270,7 @@ function GG(n, e, t, i, s) {
         (h > 0 ? h * Math.abs(Fs(n + 17, e * 0.018, t * 0.018, 2)) * 5 : 0) +
         d * o * 3));
   }
-  return Math.floor(Ne(a, 4, Kt - 13));
+  return Math.floor(clamp(a, 4, Kt - 13));
 }
 let Xu = new Map(),
   NT = new Map();

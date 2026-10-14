@@ -130,7 +130,7 @@ function _0x19fe() {
   };
   return _0x19fe();
 }
-function H(_0x22a2a1, _0x484b3b) {
+function installTerrainPool(_0x22a2a1, _0x484b3b) {
   const _0x1bd79b = _0x1108;
   if (_0x22a2a1 <= 0x0) return null;
   const _0x2fef85 = new Map(),

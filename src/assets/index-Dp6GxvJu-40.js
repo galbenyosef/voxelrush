@@ -1,11 +1,11 @@
-// index-Dp6GxvJu 40 — math
+// index-Dp6GxvJu 40 — block
 // Lines 40711-40993 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const MG = (n) =>
-  (n >= v.REDSTONE && n <= v.DOOR) ||
+  (n >= BLOCK.REDSTONE && n <= BLOCK.DOOR) ||
   Ss(n) ||
   Do(n) ||
-  n === v.SIGN ||
-  n === v.RADIO_RELAY;
+  n === BLOCK.SIGN ||
+  n === BLOCK.RADIO_RELAY;
 function Yu(n, e, t, i) {
   return i === 1
     ? [e, 1 - n, t]
@@ -39,7 +39,7 @@ function SG(n, e, t, i, s) {
     const c = t + l[0],
       h = i + l[1],
       d = s + l[2];
-    if (n(c, h, d) !== v.REDSTONE) continue;
+    if (n(c, h, d) !== BLOCK.REDSTONE) continue;
     const u = Oo[e(c, h, d) & 7] ?? Oo[0];
     l[0] * o[0] + l[1] * o[1] + l[2] * o[2] === 0 &&
       o.every((f, p) => f === u[p]) &&
@@ -51,17 +51,17 @@ function SG(n, e, t, i, s) {
       h = t + c[0],
       d = i + c[1],
       u = s + c[2];
-    n(h, d, u) === v.REDSTONE &&
+    n(h, d, u) === BLOCK.REDSTONE &&
       (Oo[e(h, d, u) & 7] ?? Oo[0]).every((f, p) => f === l[p]) &&
       a.push(c);
   }
   if ((e(t, i, s) & 7) === 0)
     for (const [l, c] of xo)
       for (const h of [-1, 1])
-        n(t + l, i + h, s + c) !== v.REDSTONE ||
+        n(t + l, i + h, s + c) !== BLOCK.REDSTONE ||
           (e(t + l, i + h, s + c) & 7) !== 0 ||
           ((r =
-            de[
+            BLOCKS[
               n(h > 0 ? t : t + l, i + 1 * (h > 0 ? 1 : 0), h > 0 ? s : s + c)
             ]) != null &&
             r.solid) ||
@@ -69,7 +69,7 @@ function SG(n, e, t, i, s) {
   return a;
 }
 function Mg(n, e, t, i, s = 0, o = 0, a = 0) {
-  if (n === v.RADIO_RELAY) {
+  if (n === BLOCK.RADIO_RELAY) {
     const u = [],
       f = (p, m) => u.push({ box: p, tile: m });
     for (const p of [0.31, 0.63])
@@ -92,14 +92,14 @@ function Mg(n, e, t, i, s = 0, o = 0, a = 0) {
       u
     );
   }
-  if (n < v.REDSTONE || n > v.PISTON_HEAD || n === v.RTORCH || n === v.LAMP)
+  if (n < BLOCK.REDSTONE || n > BLOCK.PISTON_HEAD || n === BLOCK.RTORCH || n === BLOCK.LAMP)
     return null;
   const r = [],
     l = !!(e & Qn),
     c = e & 7,
     h = (u, f) => r.push({ box: u, tile: f });
   let d = !0;
-  if (n === v.REDSTONE) {
+  if (n === BLOCK.REDSTONE) {
     const u = dC(e) ? 170 : 169;
     h([0.38, 0.012, 0.38, 0.62, 0.04, 0.62], u);
     const f = [];
@@ -109,7 +109,7 @@ function Mg(n, e, t, i, s = 0, o = 0, a = 0) {
       for (const b of $f)
         b[0] * g[0] + b[1] * g[1] + b[2] * g[2] === 0 &&
           MG(t(s + b[0], o + b[1], a + b[2])) &&
-          t(s + b[0], o + b[1], a + b[2]) !== v.REDSTONE &&
+          t(s + b[0], o + b[1], a + b[2]) !== BLOCK.REDSTONE &&
           f.push(b);
     } else f.push([1, 0, 0], [-1, 0, 0], [0, 0, 1], [0, 0, -1]);
     const p = Yu(0.5, 0, 0.5, c),
@@ -137,7 +137,7 @@ function Mg(n, e, t, i, s = 0, o = 0, a = 0) {
         );
       }
     }
-  } else if (n === v.LEVER) {
+  } else if (n === BLOCK.LEVER) {
     (h([0.28, 0, 0.27, 0.72, 0.12, 0.73], 26),
       h([0.42, 0.12, 0.4, 0.58, 0.2, 0.6], 16));
     for (let f = 0; f < 4; f++) {
@@ -146,14 +146,14 @@ function Mg(n, e, t, i, s = 0, o = 0, a = 0) {
     }
     const u = 0.46 + (l ? -1 : 1) * 3 * 0.047;
     h([0.435, 0.39, u - 0.015, 0.565, 0.47, u + 0.105], l ? 170 : 16);
-  } else if (n === v.BUTTON)
+  } else if (n === BLOCK.BUTTON)
     (h([0.28, 0, 0.32, 0.72, 0.035, 0.68], 16),
       h([0.32, 0.035, 0.36, 0.68, l ? 0.065 : 0.12, 0.64], 3));
-  else if (n === v.PLATE)
+  else if (n === BLOCK.PLATE)
     ((d = !1),
       h([0.06, 0, 0.06, 0.94, 0.025, 0.94], 16),
       h([0.08, 0.025, 0.08, 0.92, l ? 0.04 : 0.09, 0.92], 3));
-  else if (n === v.REPEATER) {
+  else if (n === BLOCK.REPEATER) {
     ((d = !1),
       h([0.08, 0, 0.06, 0.92, 0.1, 0.94], 3),
       h([0.42, 0.1, 0.12, 0.58, 0.115, 0.88], l ? 170 : 169));
@@ -174,16 +174,16 @@ function Mg(n, e, t, i, s = 0, o = 0, a = 0) {
               : [p, m, y];
       }),
     }));
-  } else if (n === v.PISTON || n === v.SPISTON || n === v.PISTON_HEAD) {
+  } else if (n === BLOCK.PISTON || n === BLOCK.SPISTON || n === BLOCK.PISTON_HEAD) {
     d = !1;
     const u = $f[e & 7] ?? $f[3];
-    if (n !== v.PISTON_HEAD) {
+    if (n !== BLOCK.PISTON_HEAD) {
       h([0, 0, 0, 1, l ? 0.72 : 0.82, 1], 33);
       for (const p of [0, 0.86])
         for (const m of [0, 0.86]) h([p, 0, m, p + 0.14, 0.82, m + 0.14], 16);
       l
         ? h([0.4, 0.72, 0.4, 0.6, 1, 0.6], 8)
-        : h([0, 0.82, 0, 1, 1, 1], n === v.SPISTON ? 34 : 32);
+        : h([0, 0.82, 0, 1, 1, 1], n === BLOCK.SPISTON ? 34 : 32);
     } else
       (h([0, 0.75, 0, 1, 1, 1], e & 16 ? 34 : 32),
         h([0.4, 0, 0.4, 0.6, 0.75, 0.6], 8));

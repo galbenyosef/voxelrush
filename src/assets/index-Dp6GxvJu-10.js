@@ -1,8 +1,8 @@
-// index-Dp6GxvJu 10 — push
+// index-Dp6GxvJu 10 — block
 // Lines 29181-29527 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-de.push(
-  Fe(
-    v.LEAF_LITTER,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LEAF_LITTER,
     "leaf_litter",
     "Опавшие листья",
     1,
@@ -12,12 +12,12 @@ de.push(
     "Fallen leaves",
   ),
 );
-de.push(
-  Fe(v.PUMPKIN, "pumpkin", "Тыква", 20, [yy, Yl, Yl], 14711327, {}, "Pumpkin"),
+BLOCKS.push(
+  blockDef(BLOCK.PUMPKIN, "pumpkin", "Тыква", 20, [yy, Yl, Yl], 14711327, {}, "Pumpkin"),
 );
-de.push(
-  Fe(
-    v.JACK_O_LANTERN,
+BLOCKS.push(
+  blockDef(
+    BLOCK.JACK_O_LANTERN,
     "jack_o_lantern",
     "Светильник Джека",
     20,
@@ -27,33 +27,33 @@ de.push(
     "Jack o'lantern",
   ),
 );
-wn(
-  v.PUMPKIN_SPROUT,
+defineBlock(
+  BLOCK.PUMPKIN_SPROUT,
   "pumpkin_sprout",
   "Росток тыквы",
   "Pumpkin sprout",
   iz,
   7315007,
 );
-wn(
-  v.PUMPKIN_YOUNG,
+defineBlock(
+  BLOCK.PUMPKIN_YOUNG,
   "young_pumpkin",
   "Тыквенная плеть",
   "Pumpkin vine",
   IS,
   6131510,
 );
-wn(
-  v.PUMPKIN_CROP,
+defineBlock(
+  BLOCK.PUMPKIN_CROP,
   "pumpkin_crop",
   "Спелая тыква на грядке",
   "Ripe pumpkin vine",
   IS,
   14711327,
 );
-de.push(
-  Fe(
-    v.CANDLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CANDLE,
     "candle",
     "Свечи",
     1,
@@ -63,9 +63,9 @@ de.push(
     "Candles",
   ),
 );
-de.push(
-  Fe(
-    v.COBWEB,
+BLOCKS.push(
+  blockDef(
+    BLOCK.COBWEB,
     "cobweb",
     "Паутина",
     4,
@@ -75,9 +75,9 @@ de.push(
     "Cobweb",
   ),
 );
-de.push(
-  Fe(
-    v.GRAVESTONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.GRAVESTONE,
     "gravestone",
     "Надгробие",
     110,
@@ -87,9 +87,9 @@ de.push(
     "Gravestone",
   ),
 );
-de.push(
-  Fe(
-    v.GRAVE_CROSS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.GRAVE_CROSS,
     "grave_cross",
     "Могильный крест",
     60,
@@ -99,9 +99,9 @@ de.push(
     "Grave cross",
   ),
 );
-de.push(
-  Fe(
-    v.SKULL,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SKULL,
     "skull",
     "Череп",
     20,
@@ -111,9 +111,9 @@ de.push(
     "Skull",
   ),
 );
-de.push(
-  Fe(
-    v.CAULDRON,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CAULDRON,
     "cauldron",
     "Ведьмин котёл",
     140,
@@ -123,9 +123,9 @@ de.push(
     "Witch's cauldron",
   ),
 );
-de.push(
-  Fe(
-    v.SCARECROW,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SCARECROW,
     "scarecrow",
     "Пугало",
     20,
@@ -135,9 +135,9 @@ de.push(
     "Scarecrow",
   ),
 );
-de.push(
-  Fe(
-    v.IRON_FENCE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.IRON_FENCE,
     "iron_fence",
     "Кованая ограда",
     150,
@@ -147,9 +147,9 @@ de.push(
     "Wrought iron fence",
   ),
 );
-de.push(
-  Fe(
-    v.DARK_PLANKS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.DARK_PLANKS,
     "dark_planks",
     "Тёмные доски",
     50,
@@ -159,9 +159,9 @@ de.push(
     "Dark planks",
   ),
 );
-de.push(
-  Fe(
-    v.DEAD_LOG,
+BLOCKS.push(
+  blockDef(
+    BLOCK.DEAD_LOG,
     "dead_log",
     "Мёртвое дерево",
     55,
@@ -171,9 +171,9 @@ de.push(
     "Dead wood",
   ),
 );
-de.push(
-  Fe(
-    v.MOSSY_COBBLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MOSSY_COBBLE,
     "mossy_cobble",
     "Замшелый булыжник",
     80,
@@ -183,9 +183,9 @@ de.push(
     "Mossy cobblestone",
   ),
 );
-de.push(
-  Fe(
-    v.COFFIN,
+BLOCKS.push(
+  blockDef(
+    BLOCK.COFFIN,
     "coffin",
     "Гроб",
     45,
@@ -195,9 +195,9 @@ de.push(
     "Coffin",
   ),
 );
-de.push(
-  Fe(
-    v.POTION_SHELF,
+BLOCKS.push(
+  blockDef(
+    BLOCK.POTION_SHELF,
     "potion_shelf",
     "Полка с зельями",
     40,
@@ -207,9 +207,9 @@ de.push(
     "Potion shelf",
   ),
 );
-de.push(
-  Fe(
-    v.HANGING_HERBS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.HANGING_HERBS,
     "hanging_herbs",
     "Сушёные травы",
     1,
@@ -219,11 +219,11 @@ de.push(
     "Drying herbs",
   ),
 );
-wn(v.FLY_AGARIC, "fly_agaric", "Мухомор", "Fly agaric", sz, 13775914);
-wn(v.MUSHROOM, "mushroom", "Гриб", "Mushroom", oz, 9067062);
-de.push(
-  Fe(
-    v.STAIR_DARK,
+defineBlock(BLOCK.FLY_AGARIC, "fly_agaric", "Мухомор", "Fly agaric", sz, 13775914);
+defineBlock(BLOCK.MUSHROOM, "mushroom", "Гриб", "Mushroom", oz, 9067062);
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_DARK,
     "dark_stairs",
     "Ступенька из тёмных досок",
     50,
@@ -233,9 +233,9 @@ de.push(
     "Dark wood stair",
   ),
 );
-de.push(
-  Fe(
-    v.CRACKED_STONE_BRICKS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CRACKED_STONE_BRICKS,
     "cracked_stone_bricks",
     "Потрескавшийся каменный кирпич",
     100,
@@ -245,8 +245,8 @@ de.push(
     "Cracked stone bricks",
   ),
 );
-wn(
-  v.AUTUMN_SAPLING,
+defineBlock(
+  BLOCK.AUTUMN_SAPLING,
   "autumn_sapling",
   "Росток клёна",
   "Maple sapling",
@@ -268,9 +268,9 @@ const mC = (n) => {
   }
   return -1;
 };
-de.push(
-  Fe(
-    v.OWNERSHIP_TOTEM,
+BLOCKS.push(
+  blockDef(
+    BLOCK.OWNERSHIP_TOTEM,
     "ownership_totem",
     "Тотем владения",
     100,
@@ -299,9 +299,9 @@ const ds = {
   DECK: 254,
   CHIPS: 255,
 };
-de.push(
-  Fe(
-    v.CASINO_CARPET,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CASINO_CARPET,
     "casino_carpet",
     "Ковёр казино",
     18,
@@ -311,9 +311,9 @@ de.push(
     "Casino carpet",
   ),
 );
-de.push(
-  Fe(
-    v.ROYAL_CARPET,
+BLOCKS.push(
+  blockDef(
+    BLOCK.ROYAL_CARPET,
     "royal_carpet",
     "Королевский ковёр",
     18,
@@ -323,9 +323,9 @@ de.push(
     "Royal carpet",
   ),
 );
-de.push(
-  Fe(
-    v.MARBLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MARBLE,
     "marble",
     "Мрамор",
     110,
@@ -335,9 +335,9 @@ de.push(
     "Marble",
   ),
 );
-de.push(
-  Fe(
-    v.BLACK_MARBLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.BLACK_MARBLE,
     "black_marble",
     "Чёрный мрамор",
     110,

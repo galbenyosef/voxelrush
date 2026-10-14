@@ -12,8 +12,8 @@ function kg(n) {
 function F$(n, e, t) {
   return Math.ceil((Math.max(0, t - e) / kg(t)) * Dp(n));
 }
-const rL = new Set([P.TANK, P.BTR_TURRET, P.HIMARS, P.PATRIOT]),
-  xu = new Set([P.PLANE, P.HELI, P.FIGHTER_JET]);
+const rL = new Set([VEHICLE_KIND.TANK, VEHICLE_KIND.BTR_TURRET, VEHICLE_KIND.HIMARS, VEHICLE_KIND.PATRIOT]),
+  xu = new Set([VEHICLE_KIND.PLANE, VEHICLE_KIND.HELI, VEHICLE_KIND.FIGHTER_JET]);
 function LA(n) {
   return rL.has(n) ? 2 : xu.has(n) ? 1 : 0;
 }
@@ -77,14 +77,14 @@ function PA(n, e, t) {
           : "Пули −90% · разрывные −80% · ракеты, снаряды, гранаты −60% · скорость −14% · таран ×2.1";
 }
 const lL = {
-    [P.TANK]: 120,
-    [P.BTR_TURRET]: 50,
-    [P.HIMARS]: 35,
-    [P.PATRIOT]: 35,
+    [VEHICLE_KIND.TANK]: 120,
+    [VEHICLE_KIND.BTR_TURRET]: 50,
+    [VEHICLE_KIND.HIMARS]: 35,
+    [VEHICLE_KIND.PATRIOT]: 35,
   },
   K$ = 4;
 function cL(n) {
-  return t1(n) || $n(n) || Bo(n) || n === v.CACTUS;
+  return t1(n) || $n(n) || Bo(n) || n === BLOCK.CACTUS;
 }
 function Tm(n, e, t, i, s, o, a) {
   if (!lL[e]) return [];
@@ -118,13 +118,13 @@ function Tm(n, e, t, i, s, o, a) {
       if (C >= -0.2)
         for (let N = g; N <= b + 1; N++) {
           const D = n.getBlock(S, N, M),
-            H = de[D];
+            H = BLOCKS[D];
           if (
             !H ||
-            D === v.AIR ||
-            D === v.WATER ||
-            D === v.LAVA ||
-            (!H.solid && !Bo(D) && !$n(D) && !w0(D) && !Do(D) && D !== v.CACTUS)
+            D === BLOCK.AIR ||
+            D === BLOCK.WATER ||
+            D === BLOCK.LAVA ||
+            (!H.solid && !Bo(D) && !$n(D) && !w0(D) && !Do(D) && D !== BLOCK.CACTUS)
           )
             continue;
           const G = cL(D);
@@ -134,7 +134,7 @@ function Tm(n, e, t, i, s, o, a) {
               ? 1e-5
               : Bo(D)
                 ? 2
-                : D === v.CACTUS
+                : D === BLOCK.CACTUS
                   ? 6
                   : I
                     ? K$
@@ -171,33 +171,33 @@ function Y$(n, e, t, i, s, o) {
 }
 const hr = 20,
   j$ = 1.75,
-  hL = ["run", "jump", "crawl", "mine", "wood", "fight", "stealth"],
+  STAT_KEYS = ["run", "jump", "crawl", "mine", "wood", "fight", "stealth"],
   Uw = [
-    E.COMBAT_KNIFE,
-    E.GLOCK,
-    E.AK47,
-    E.AWP,
-    E.SHOTGUN,
-    E.MINIGUN,
-    E.RPG,
-    E.GRENADE_LAUNCHER,
-    E.GRENADE,
+    ITEM.COMBAT_KNIFE,
+    ITEM.GLOCK,
+    ITEM.AK47,
+    ITEM.AWP,
+    ITEM.SHOTGUN,
+    ITEM.MINIGUN,
+    ITEM.RPG,
+    ITEM.GRENADE_LAUNCHER,
+    ITEM.GRENADE,
   ],
   Fw = [
-    P.TANK,
-    P.BTR_TURRET,
-    P.HIMARS,
-    P.PATRIOT,
-    P.HELI,
-    P.PLANE,
-    P.FIGHTER_JET,
-    P.DRONE,
-    P.BOAT,
-    P.SUBMARINE,
-    P.CARRIER,
-    P.TURRET,
-    P.MORTAR,
-    P.SPACE_ROCKET,
+    VEHICLE_KIND.TANK,
+    VEHICLE_KIND.BTR_TURRET,
+    VEHICLE_KIND.HIMARS,
+    VEHICLE_KIND.PATRIOT,
+    VEHICLE_KIND.HELI,
+    VEHICLE_KIND.PLANE,
+    VEHICLE_KIND.FIGHTER_JET,
+    VEHICLE_KIND.DRONE,
+    VEHICLE_KIND.BOAT,
+    VEHICLE_KIND.SUBMARINE,
+    VEHICLE_KIND.CARRIER,
+    VEHICLE_KIND.TURRET,
+    VEHICLE_KIND.MORTAR,
+    VEHICLE_KIND.SPACE_ROCKET,
   ],
   X$ = {
     run: 11e3,
@@ -216,7 +216,7 @@ function dL(n) {
   return n.startsWith("w:") ? Z$ : n.startsWith("v:") ? Q$ : (X$[n] ?? 1e3);
 }
 function J$(n) {
-  if (hL.includes(n)) return !0;
+  if (STAT_KEYS.includes(n)) return !0;
   const e = /^([wv]):(\d{1,4})$/.exec(n);
   return e ? (e[1] === "w" ? Uw : Fw).includes(+e[2]) : !1;
 }
@@ -249,24 +249,24 @@ const Ko = (n) => Math.max(0, Math.min(hr, n)) / hr,
   BA = (n) => 1 + 0.5 * Ko(n),
   HA = (n) => 1 / (1 + 0.4 * Ko(n)),
   tq = {
-    [P.TANK]: 0.15,
-    [P.BTR_TURRET]: 0.15,
-    [P.HIMARS]: 0.12,
-    [P.PATRIOT]: 0.12,
-    [P.HELI]: 0.15,
-    [P.PLANE]: 0.1,
-    [P.FIGHTER_JET]: 0.1,
-    [P.DRONE]: 0.2,
-    [P.BOAT]: 0.2,
-    [P.SUBMARINE]: 0.12,
-    [P.CARRIER]: 0.1,
-    [P.SPACE_ROCKET]: 0.1,
+    [VEHICLE_KIND.TANK]: 0.15,
+    [VEHICLE_KIND.BTR_TURRET]: 0.15,
+    [VEHICLE_KIND.HIMARS]: 0.12,
+    [VEHICLE_KIND.PATRIOT]: 0.12,
+    [VEHICLE_KIND.HELI]: 0.15,
+    [VEHICLE_KIND.PLANE]: 0.1,
+    [VEHICLE_KIND.FIGHTER_JET]: 0.1,
+    [VEHICLE_KIND.DRONE]: 0.2,
+    [VEHICLE_KIND.BOAT]: 0.2,
+    [VEHICLE_KIND.SUBMARINE]: 0.12,
+    [VEHICLE_KIND.CARRIER]: 0.1,
+    [VEHICLE_KIND.SPACE_ROCKET]: 0.1,
   },
   uL = (n) => tq[n] ?? 0,
   zA = (n, e) => 1 + uL(n) * Ko(e),
   UA = (n) => 1 - 0.25 * Ko(n),
   iq = (n) => Math.max(0.2, Math.min(10, 360 / Math.max(1, n))),
-  nq = [
+  STAT_ORDER = [
     "playSeconds",
     "distance",
     "jumps",
@@ -289,15 +289,15 @@ function sq(n) {
       s <= 0 ||
       (e.xp[i] = Math.min(s, dL(i) * 1.5));
   for (const [i, s] of Object.entries(t.stats ?? {}))
-    !nq.includes(i) ||
+    !STAT_ORDER.includes(i) ||
       typeof s != "number" ||
       !Number.isFinite(s) ||
       s <= 0 ||
       (e.stats[i] = Math.min(s, 1e10));
   return e;
 }
-const B5 = () => z.language === "en",
-  oq = {
+const B5 = () => SETTINGS.language === "en",
+  STAT_LABELS = {
     run: ["Бег", "Running"],
     jump: ["Прыжки", "Jumping"],
     crawl: ["Ползание", "Crawling"],

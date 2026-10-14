@@ -38,13 +38,13 @@ class fte {
     if (!(performance.now() < this.at)) {
       this.at = performance.now() + 250;
       for (const [, e] of this.records) {
-        if (this.world.getBlock(e.x, e.y, e.z) !== v.SIGN) {
+        if (this.world.getBlock(e.x, e.y, e.z) !== BLOCK.SIGN) {
           e.mesh && (this.dispose(e.mesh), (e.mesh = void 0));
           continue;
         }
         const t = this.world.getMeta(e.x, e.y, e.z);
         if (!e.mesh) {
-          const a = new bi(ute(e.generated ? Ns(e.text, z.language) : e.text));
+          const a = new bi(ute(e.generated ? Ns(e.text, SETTINGS.language) : e.text));
           ((a.magFilter = Jn),
             (a.minFilter = Uo),
             (a.generateMipmaps = !0),
@@ -104,7 +104,7 @@ class mte {
       a = new eo(new Float32Array(t), 1).setUsage(Mn);
     (s.setAttribute("blocklight", o), s.setAttribute("skylight", a));
     const r = new hs(s, this.material, t);
-    ((r.name = e === v.MILITARY_CHEST ? "crate-lids" : "chest-lids"),
+    ((r.name = e === BLOCK.MILITARY_CHEST ? "crate-lids" : "chest-lids"),
       r.instanceMatrix.setUsage(Mn),
       (r.frustumCulled = !1),
       (r.castShadow = this.shadows),
@@ -309,23 +309,23 @@ const qa = 32,
   hp = 240,
   jI = new Map(FM.map((n, e) => [n, e])),
   vte = new Set([
-    ...de
+    ...BLOCKS
       .filter((n) => (n == null ? void 0 : n.shape) === "bush")
       .map((n) => n.id),
-    v.TALL_GRASS,
-    v.DESERT_GRASS,
-    v.FLOWER_RED,
-    v.FLOWER_WHITE,
-    v.FLOWER_BLUE,
-    v.FLOWER_PINK,
-    v.FLOWER_YELLOW,
-    v.LEAF_LITTER,
-    v.FLY_AGARIC,
-    v.MUSHROOM,
-    v.COBWEB,
+    BLOCK.TALL_GRASS,
+    BLOCK.DESERT_GRASS,
+    BLOCK.FLOWER_RED,
+    BLOCK.FLOWER_WHITE,
+    BLOCK.FLOWER_BLUE,
+    BLOCK.FLOWER_PINK,
+    BLOCK.FLOWER_YELLOW,
+    BLOCK.LEAF_LITTER,
+    BLOCK.FLY_AGARIC,
+    BLOCK.MUSHROOM,
+    BLOCK.COBWEB,
   ]);
 function bte(n, e, t, i) {
-  return i === v.SAVANNA_GRASS || i === v.GRASS
+  return i === BLOCK.SAVANNA_GRASS || i === BLOCK.GRASS
     ? hp + (jI.get(rr(n, e, t)) ?? 0)
     : i & 255;
 }
@@ -337,7 +337,7 @@ function zb(n) {
   var e;
   return n >= hp && n < hp + FM.length
     ? zG[FM[n - hp]]
-    : (((e = de[n]) == null ? void 0 : e.color) ?? -1);
+    : (((e = BLOCKS[n]) == null ? void 0 : e.color) ?? -1);
 }
 function wte(n) {
   return Math.max(0, Math.min(UM, Math.floor(Math.log2(Math.max(1, n)))));

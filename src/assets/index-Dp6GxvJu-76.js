@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 76 — math
+// index-Dp6GxvJu 76 — vehicle_kind
 // Lines 52298-52516 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function gA(n, e, t, i) {
   let s = i(e.x, e.z, e.y + 0.3);
@@ -10,9 +10,9 @@ function gA(n, e, t, i) {
   return s;
 }
 const p4 = new gn(new k(-0.13, 1.37, -3), new k(0.13, 1.63, -0.6));
-p4.min.multiply(ms(P.TANK));
-p4.max.multiply(ms(P.TANK));
-const yA = { ...io, [P.TANK]: [...io[P.TANK], p4] };
+p4.min.multiply(ms(VEHICLE_KIND.TANK));
+p4.max.multiply(ms(VEHICLE_KIND.TANK));
+const yA = { ...io, [VEHICLE_KIND.TANK]: [...io[VEHICLE_KIND.TANK], p4] };
 function vA(n, e, t) {
   var o;
   if (
@@ -24,8 +24,8 @@ function vA(n, e, t) {
   )
     return !0;
   if ((o = yA[n]) != null && o.length) return du(n, e, new Jt(), t, yA[n]);
-  const i = n === P.MORTAR ? 0.65 : 0.9,
-    s = n === P.MORTAR ? 1.8 : 2;
+  const i = n === VEHICLE_KIND.MORTAR ? 0.65 : 0.9,
+    s = n === VEHICLE_KIND.MORTAR ? 1.8 : 2;
   for (let a = Math.floor(e.x - i); a < e.x + i; a++)
     for (let r = Math.floor(e.y + 1e-5); r < e.y + s; r++)
       for (let l = Math.floor(e.z - i); l < e.z + i; l++)
@@ -33,20 +33,20 @@ function vA(n, e, t) {
   return !1;
 }
 const p$ = {
-  [P.TANK]: [0.7, 1.33, 1.28],
-  [P.PLANE]: [0, 1.48, 0.8],
-  [P.FIGHTER_JET]: [0, 2.46, 0.4],
-  [P.HELI]: [0.65, 2.04, 0.65],
-  [P.DRONE]: [0, 0.285, 0.02],
-  [P.BOAT]: [0.55, 1.51, 1.65],
-  [P.CARRIER]: [4.25, 7.81, 1.8],
-  [P.SUBMARINE]: [-0.48, 2.61, 0.28],
-  [P.HIMARS]: [-0.65, 2.51, -1.45],
-  [P.PATRIOT]: [-0.65, 2.51, -1.55],
-  [P.BTR_TURRET]: [0.86, 1.5, 1.55],
-  [P.TURRET]: [0.64, 0.45, 0.62],
-  [P.MORTAR]: [1.02, 0.38, 0.5],
-  [P.SPACE_ROCKET]: [0, 4, -1.84],
+  [VEHICLE_KIND.TANK]: [0.7, 1.33, 1.28],
+  [VEHICLE_KIND.PLANE]: [0, 1.48, 0.8],
+  [VEHICLE_KIND.FIGHTER_JET]: [0, 2.46, 0.4],
+  [VEHICLE_KIND.HELI]: [0.65, 2.04, 0.65],
+  [VEHICLE_KIND.DRONE]: [0, 0.285, 0.02],
+  [VEHICLE_KIND.BOAT]: [0.55, 1.51, 1.65],
+  [VEHICLE_KIND.CARRIER]: [4.25, 7.81, 1.8],
+  [VEHICLE_KIND.SUBMARINE]: [-0.48, 2.61, 0.28],
+  [VEHICLE_KIND.HIMARS]: [-0.65, 2.51, -1.45],
+  [VEHICLE_KIND.PATRIOT]: [-0.65, 2.51, -1.55],
+  [VEHICLE_KIND.BTR_TURRET]: [0.86, 1.5, 1.55],
+  [VEHICLE_KIND.TURRET]: [0.64, 0.45, 0.62],
+  [VEHICLE_KIND.MORTAR]: [1.02, 0.38, 0.5],
+  [VEHICLE_KIND.SPACE_ROCKET]: [0, 4, -1.84],
 };
 function m$(n) {
   const e = new pe();
@@ -71,11 +71,11 @@ function m$(n) {
   (t(0.028, 0.04, 0.028, 2371377, 0.078, 0.18, 0.065),
     t(0.012, 0.26, 0.012, 8096387, 0.078, 0.32, 0.065));
   const i = ms(n),
-    s = n === P.DRONE ? 0.4 : 0.75;
+    s = n === VEHICLE_KIND.DRONE ? 0.4 : 0.75;
   return (
     e.scale.set(s / i.x, s / i.y, s / i.z),
     e.position.set(...p$[n]),
-    n === P.SPACE_ROCKET && (e.rotation.x = -Math.PI / 2),
+    n === VEHICLE_KIND.SPACE_ROCKET && (e.rotation.x = -Math.PI / 2),
     e
   );
 }
@@ -88,26 +88,26 @@ function m4(n) {
     e
   );
 }
-const nL = (n) => n !== P.CARRIER && !!io[n],
+const nL = (n) => n !== VEHICLE_KIND.CARRIER && !!io[n],
   g$ = (n) => m4(n) + 3.5;
 function y$(n, e) {
   const t = Math.hypot(e.x - n.x, e.z - n.z),
     i = n.y - e.y - m4(e.type);
   return nL(e.type) && t <= 5 && i >= 0.25 && i <= 9;
 }
-const As = (n) => n === P.PLANE || n === P.FIGHTER_JET,
+const As = (n) => n === VEHICLE_KIND.PLANE || n === VEHICLE_KIND.FIGHTER_JET,
   v$ = 1200,
   Vd = 1e3,
   b$ = 1200,
-  Rg = (n) => (n === P.FIGHTER_JET ? 600 : 400),
-  wA = (n) => As(n) || n === P.HELI || n === P.DRONE || n === P.SPACE_ROCKET,
+  Rg = (n) => (n === VEHICLE_KIND.FIGHTER_JET ? 600 : 400),
+  wA = (n) => As(n) || n === VEHICLE_KIND.HELI || n === VEHICLE_KIND.DRONE || n === VEHICLE_KIND.SPACE_ROCKET,
   R5 = {
-    [P.PLANE]: { gunInterval: 0.085, secondaryInterval: 1.15 },
-    [P.FIGHTER_JET]: { gunInterval: 0.05, secondaryInterval: 0.6 },
+    [VEHICLE_KIND.PLANE]: { gunInterval: 0.085, secondaryInterval: 1.15 },
+    [VEHICLE_KIND.FIGHTER_JET]: { gunInterval: 0.05, secondaryInterval: 0.6 },
   },
-  Pw = { [P.PLANE]: 100 / 3.6, [P.FIGHTER_JET]: 150 / 3.6 },
+  Pw = { [VEHICLE_KIND.PLANE]: 100 / 3.6, [VEHICLE_KIND.FIGHTER_JET]: 150 / 3.6 },
   Ow = {
-    [P.PLANE]: {
+    [VEHICLE_KIND.PLANE]: {
       thrust: 14,
       drag: 0.0085,
       stall: 12,
@@ -115,7 +115,7 @@ const As = (n) => n === P.PLANE || n === P.FIGHTER_JET,
       roll: 1.9,
       rudder: 0.48,
     },
-    [P.FIGHTER_JET]: {
+    [VEHICLE_KIND.FIGHTER_JET]: {
       thrust: 32.5,
       drag: 0.0065,
       stall: 18,
@@ -130,7 +130,7 @@ const As = (n) => n === P.PLANE || n === P.FIGHTER_JET,
   MA = new Jt(),
   SA = new hi();
 function w$(n, e, t, i, s = 1, o = 9.81) {
-  const a = Ow[e] ?? Ow[P.PLANE],
+  const a = Ow[e] ?? Ow[VEHICLE_KIND.PLANE],
     r = n.angularVelocity ?? (n.angularVelocity = new k()),
     l = Math.max(1, Math.ceil(Math.min(i, 0.1) * 120)),
     c = Math.min(i, 0.1) / l;
@@ -139,7 +139,7 @@ function w$(n, e, t, i, s = 1, o = 9.81) {
       rd.set(0, 1, 0).applyQuaternion(n.quat),
       Em.set(1, 0, 0).applyQuaternion(n.quat));
     const d = Math.max(0, n.vel.dot(Sm)),
-      u = Ne(d / a.stall, 0.12, 1);
+      u = clamp(d / a.stall, 0.12, 1);
     ((r.x += (t.pitch * a.pitch * u - r.x) * (1 - Math.exp(-7 * c))),
       (r.y += (t.yaw * a.rudder * u - r.y) * (1 - Math.exp(-5 * c))),
       (r.z += (t.roll * a.roll * u - r.z) * (1 - Math.exp(-8 * c))),
@@ -153,10 +153,10 @@ function w$(n, e, t, i, s = 1, o = 9.81) {
       n.vel.addScaledVector(Sm, n.throttle * a.thrust * (t.speedMul ?? 1) * c),
       (n.vel.y -= o * c));
     const f = Math.atan2(-n.vel.dot(rd), Math.max(1, d)),
-      p = Ne(1 - Math.max(0, Math.abs(f) - 0.3) * 1.7, 0.12, 1),
+      p = clamp(1 - Math.max(0, Math.abs(f) - 0.3) * 1.7, 0.12, 1),
       m = Math.min(34, o * (d / a.stall) ** 2 * 0.7) * p * s,
-      y = Ne(o / Math.max(0.01, m), 0, 1);
-    (n.vel.addScaledVector(rd, m * Math.max(y, Ne(0.35 + f * 2.4, 0, 1)) * c),
+      y = clamp(o / Math.max(0.01, m), 0, 1);
+    (n.vel.addScaledVector(rd, m * Math.max(y, clamp(0.35 + f * 2.4, 0, 1)) * c),
       n.vel.addScaledVector(Em, -n.vel.dot(Em) * (1 - Math.exp(-2.4 * s * c))),
       n.vel.addScaledVector(rd, -n.vel.dot(rd) * (1 - Math.exp(-1.3 * s * c))));
     const g =

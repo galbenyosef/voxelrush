@@ -323,7 +323,7 @@ function qp(n, e, t, i) {
     o += 6;
   }
 }
-const Lh = (n) => de.find((e) => e.name === n).tex[0],
+const Lh = (n) => BLOCKS.find((e) => e.name === n).tex[0],
   Ym = 0.02,
   Dt = {
     ...ds,

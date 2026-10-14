@@ -1,8 +1,8 @@
-// index-Dp6GxvJu 11 — math
+// index-Dp6GxvJu 11 — block
 // Lines 29528-29845 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-de.push(
-  Fe(
-    v.GOLD_BLOCK,
+BLOCKS.push(
+  blockDef(
+    BLOCK.GOLD_BLOCK,
     "gold_block",
     "Золотой блок",
     140,
@@ -12,9 +12,9 @@ de.push(
     "Block of gold",
   ),
 );
-de.push(
-  Fe(
-    v.VELVET_PANEL,
+BLOCKS.push(
+  blockDef(
+    BLOCK.VELVET_PANEL,
     "velvet_panel",
     "Бархатная панель",
     30,
@@ -24,9 +24,9 @@ de.push(
     "Velvet panel",
   ),
 );
-de.push(
-  Fe(
-    v.MARQUEE_LIGHTS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MARQUEE_LIGHTS,
     "marquee_lights",
     "Огни казино",
     35,
@@ -38,9 +38,9 @@ de.push(
 );
 const gC = 182,
   jf = 183;
-de.push(
-  Fe(
-    v.LED_SCREEN,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LED_SCREEN,
     "led_screen",
     "LED-экран",
     60,
@@ -50,9 +50,9 @@ de.push(
     "LED screen",
   ),
 );
-de.push(
-  Fe(
-    v.AVIATION_LIGHT,
+BLOCKS.push(
+  blockDef(
+    BLOCK.AVIATION_LIGHT,
     "aviation_light",
     "Авиационный заградительный огонь",
     30,
@@ -62,8 +62,8 @@ de.push(
     "Aviation obstruction light",
   ),
 );
-de.push(
-  Fe(v.ICE, "ice", "Лёд", 60, [Wi + 3, Wi + 3, Wi + 3], 11128802, {}, "Ice"),
+BLOCKS.push(
+  blockDef(BLOCK.ICE, "ice", "Лёд", 60, [Wi + 3, Wi + 3, Wi + 3], 11128802, {}, "Ice"),
 );
 const i5 = 2;
 function lz(n) {
@@ -76,14 +76,14 @@ function cz(n, e, t, i) {
   return e === s && i === o ? gC : jf;
 }
 const hz = new Set([
-    v.LUNAR_REGOLITH,
-    v.LUNAR_ROCK,
-    v.LUNAR_BASALT,
-    v.LUNAR_ICE,
-    v.LUNAR_ORE,
+    BLOCK.LUNAR_REGOLITH,
+    BLOCK.LUNAR_ROCK,
+    BLOCK.LUNAR_BASALT,
+    BLOCK.LUNAR_ICE,
+    BLOCK.LUNAR_ORE,
   ]),
-  rw = [v.CORAL_PINK, v.CORAL_BLUE, v.CORAL_YELLOW],
-  yC = new Set([v.SEAWEED, v.SEAGRASS, ...rw]),
+  rw = [BLOCK.CORAL_PINK, BLOCK.CORAL_BLUE, BLOCK.CORAL_YELLOW],
+  yC = new Set([BLOCK.SEAWEED, BLOCK.SEAGRASS, ...rw]),
   oa = (n, e = 0) => yC.has(n) || (cg(n) && (e & cC) !== 0),
   uc = (n, e = 0) => cg(n) && (e & hC) !== 0,
   lw = 5,
@@ -94,11 +94,11 @@ const hz = new Set([
     return Math.max(0, Math.min(lw - 1, Math.floor(s * lw)));
   },
   dz = (n, e) => (lw - vC(n, e)) * 2,
-  bC = (n) => n === v.TARGET,
+  bC = (n) => n === BLOCK.TARGET,
   Na = 4,
   pa = 32,
   Xf = 3 / 16,
-  uz = new Set([v.DOOR, v.METAL_DOOR, v.ARMORED_DOOR]),
+  uz = new Set([BLOCK.DOOR, BLOCK.METAL_DOOR, BLOCK.ARMORED_DOOR]),
   Ss = (n) => uz.has(n),
   e1 = [0, -Math.PI / 2, Math.PI, Math.PI / 2];
 function Ep(n, e, t) {
@@ -136,8 +136,8 @@ function fz(n, e, t) {
       for (let c = 0; c < i; c++) [r, l] = [-l, r];
       return [r, l];
     },
-    o = (a = de[n]) == null ? void 0 : a.shape;
-  if (o === "ladder" || o === "torch" || n === v.LEVER || n === v.BUTTON) {
+    o = (a = BLOCKS[n]) == null ? void 0 : a.shape;
+  if (o === "ladder" || o === "torch" || n === BLOCK.LEVER || n === BLOCK.BUTTON) {
     let r = e & 7;
     o === "ladder" && (r < 1 || r > 4) && (r = 4);
     const l = Oo[r];
@@ -145,16 +145,16 @@ function fz(n, e, t) {
     const [c, h] = s(l[0], l[2]);
     return (e & -8) | (c < 0 ? 1 : c > 0 ? 2 : h < 0 ? 3 : 4);
   }
-  if (n === v.PISTON || n === v.SPISTON || n === v.PISTON_HEAD) {
+  if (n === BLOCK.PISTON || n === BLOCK.SPISTON || n === BLOCK.PISTON_HEAD) {
     const r = $f[e & 7];
     if (!r || r[1] !== 0) return e;
     const [l, c] = s(r[0], r[2]);
     return (e & -8) | (l < 0 ? 2 : l > 0 ? 3 : c < 0 ? 4 : 5);
   }
-  return n === v.FURNACE ||
-    n === v.JACK_O_LANTERN ||
-    n === v.REPEATER ||
-    n === v.LED_SCREEN ||
+  return n === BLOCK.FURNACE ||
+    n === BLOCK.JACK_O_LANTERN ||
+    n === BLOCK.REPEATER ||
+    n === BLOCK.LED_SCREEN ||
     o === "bed" ||
     o === "door" ||
     o === "stair" ||
@@ -239,41 +239,41 @@ function gz(n, e, t, i, s, o) {
     : { meta: o & 3, flip: null };
 }
 const yz = new Set([
-    v.CHEST,
-    v.MILITARY_CHEST,
-    v.BARREL,
-    v.SARCOPHAGUS,
-    v.COFFIN,
+    BLOCK.CHEST,
+    BLOCK.MILITARY_CHEST,
+    BLOCK.BARREL,
+    BLOCK.SARCOPHAGUS,
+    BLOCK.COFFIN,
   ]),
   Bx = (n) => yz.has(n),
   MC = new Set([
-    v.FENCE_WOOD,
-    v.FENCE_COBBLE,
-    v.FENCE_STONE,
-    v.FENCE_STONE_BRICKS,
-    v.FENCE_SANDSTONE,
-    v.IRON_FENCE,
+    BLOCK.FENCE_WOOD,
+    BLOCK.FENCE_COBBLE,
+    BLOCK.FENCE_STONE,
+    BLOCK.FENCE_STONE_BRICKS,
+    BLOCK.FENCE_SANDSTONE,
+    BLOCK.IRON_FENCE,
   ]),
   w0 = (n) => MC.has(n),
   SC = new Set([
-    v.FENCE_GATE_WOOD,
-    v.FENCE_GATE_COBBLE,
-    v.FENCE_GATE_STONE,
-    v.FENCE_GATE_STONE_BRICKS,
-    v.FENCE_GATE_SANDSTONE,
+    BLOCK.FENCE_GATE_WOOD,
+    BLOCK.FENCE_GATE_COBBLE,
+    BLOCK.FENCE_GATE_STONE,
+    BLOCK.FENCE_GATE_STONE_BRICKS,
+    BLOCK.FENCE_GATE_SANDSTONE,
   ]),
   Do = (n) => SC.has(n),
   vz = new Set([
-    v.LADDER,
-    v.STAIR_WOOD,
-    v.STAIR_STONE,
-    v.STAIR_SANDSTONE,
-    v.STAIR_COBBLE,
-    v.STAIR_BRICK,
-    v.STAIR_STONE_BRICKS,
-    v.STAIR_SAND,
-    v.STAIR_RSTONE,
-    v.STAIR_DARK,
+    BLOCK.LADDER,
+    BLOCK.STAIR_WOOD,
+    BLOCK.STAIR_STONE,
+    BLOCK.STAIR_SANDSTONE,
+    BLOCK.STAIR_COBBLE,
+    BLOCK.STAIR_BRICK,
+    BLOCK.STAIR_STONE_BRICKS,
+    BLOCK.STAIR_SAND,
+    BLOCK.STAIR_RSTONE,
+    BLOCK.STAIR_DARK,
     ...MC,
     ...SC,
   ]),
@@ -296,8 +296,8 @@ const yz = new Set([
       w0(n) ||
       Do(n) ||
       (n > 0 &&
-        !!((e = de[n]) != null && e.solid) &&
-        ((t = de[n]) == null ? void 0 : t.shape) === "cube")
+        !!((e = BLOCKS[n]) != null && e.solid) &&
+        ((t = BLOCKS[n]) == null ? void 0 : t.shape) === "cube")
     );
   },
   Hx = new Map();

@@ -49,7 +49,7 @@ function jT(n) {
       e.add(De(0.014, 0.022, 0.014, hn, -0.032, -0.028, 0.32)));
   }
   if (n && n.scope > 0) {
-    const d = n.scope === 5 ? Op[E.AWP] : 0.09;
+    const d = n.scope === 5 ? Op[ITEM.AWP] : 0.09;
     e.add(h4(n.scope, 0, d, -0.1, 0.04));
   } else
     (e.add(De(0.012, 0.064, 0.012, hn, 0, 0.068, -0.58)),

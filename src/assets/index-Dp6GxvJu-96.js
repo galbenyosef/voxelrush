@@ -46,14 +46,14 @@ function DL(n, e) {
   }
 }
 const UK = {
-  [P.PLANE]: "air",
-  [P.FIGHTER_JET]: "air",
-  [P.HELI]: "air",
-  [P.DRONE]: "air",
-  [P.BOAT]: "naval",
-  [P.CARRIER]: "naval",
-  [P.SUBMARINE]: "naval",
-  [P.SPACE_ROCKET]: "air",
+  [VEHICLE_KIND.PLANE]: "air",
+  [VEHICLE_KIND.FIGHTER_JET]: "air",
+  [VEHICLE_KIND.HELI]: "air",
+  [VEHICLE_KIND.DRONE]: "air",
+  [VEHICLE_KIND.BOAT]: "naval",
+  [VEHICLE_KIND.CARRIER]: "naval",
+  [VEHICLE_KIND.SUBMARINE]: "naval",
+  [VEHICLE_KIND.SPACE_ROCKET]: "air",
 };
 function $w(n) {
   const e = FK(n);
@@ -91,31 +91,31 @@ function b6(n) {
 }
 function FK(n) {
   switch (n) {
-    case P.TANK:
+    case VEHICLE_KIND.TANK:
       return Qq();
-    case P.PLANE:
+    case VEHICLE_KIND.PLANE:
       return RK();
-    case P.FIGHTER_JET:
+    case VEHICLE_KIND.FIGHTER_JET:
       return R$();
-    case P.BOAT:
+    case VEHICLE_KIND.BOAT:
       return rK();
-    case P.SUBMARINE:
+    case VEHICLE_KIND.SUBMARINE:
       return kK();
-    case P.CARRIER:
+    case VEHICLE_KIND.CARRIER:
       return LK();
-    case P.HELI:
+    case VEHICLE_KIND.HELI:
       return sK();
-    case P.MORTAR:
+    case VEHICLE_KIND.MORTAR:
       return GK();
-    case P.HIMARS:
+    case VEHICLE_KIND.HIMARS:
       return iK();
-    case P.PATRIOT:
+    case VEHICLE_KIND.PATRIOT:
       return nK();
-    case P.TURRET:
+    case VEHICLE_KIND.TURRET:
       return DK();
-    case P.BTR_TURRET:
+    case VEHICLE_KIND.BTR_TURRET:
       return tK();
-    case P.SPACE_ROCKET:
+    case VEHICLE_KIND.SPACE_ROCKET:
       return WK();
     default:
       return IK();

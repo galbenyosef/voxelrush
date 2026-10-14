@@ -27,7 +27,7 @@ class Tee {
       );
     (i.scale.setScalar(t ? 0.3 : 0.2),
       i.position.set(
-        ...(e.item === E.C4
+        ...(e.item === ITEM.C4
           ? [0, -0.042, 0.12]
           : t
             ? [0, 0.38, 0]
@@ -106,7 +106,7 @@ class Tee {
       h = l(),
       d = l(),
       u = l(),
-      f = e.remaining() >= 2 ? e.u16() : E.C4,
+      f = e.remaining() >= 2 ? e.u16() : ITEM.C4,
       p = e.remaining() >= 4 ? e.f32() : -1,
       m = e.remaining() >= 2 ? JSON.parse(e.str()) : null;
     let y = this.charges.get(i);
@@ -128,8 +128,8 @@ class Tee {
           localNormal: u,
         }));
     else {
-      const b = f === E.C4 ? this.template.clone() : Mk(f),
-        S = f === E.C4 ? 0 : -new gn().setFromObject(b).min.y;
+      const b = f === ITEM.C4 ? this.template.clone() : Mk(f),
+        S = f === ITEM.C4 ? 0 : -new gn().setFromObject(b).min.y;
       (b.position.copy(c),
         this.scene.add(b),
         (y = {
@@ -176,7 +176,7 @@ class Tee {
             ),
             this.normal.copy(r.normal)),
         r.model.quaternion.setFromUnitVectors(
-          r.item === E.C4 ? this.front : this.up,
+          r.item === ITEM.C4 ? this.front : this.up,
           this.normal.normalize(),
         ),
         r.mode > 0 &&
@@ -217,17 +217,17 @@ class Tee {
     this.charges.clear();
   }
 }
-const GI = () => z.language === "en",
+const GI = () => SETTINGS.language === "en",
   Et = (n, e) => (GI() ? e : n),
   Aee = () => (GI() ? "en" : "ru"),
   Ob = (n) => (n.kind === "bot" ? Et("Солдат", "Soldier") : Zs(n.type)),
-  Nb = (n) => Ns(n, z.language),
+  Nb = (n) => Ns(n, SETTINGS.language),
   Db = (n) =>
     n.vehicleType !== void 0
       ? /#\d+$/.test(n.label)
         ? `${Zs(n.vehicleType)} #${n.id}`
         : Zs(n.vehicleType)
-      : Ns(n.label, z.language),
+      : Ns(n.label, SETTINGS.language),
   _ee = (n) =>
     n.kind === "relay"
       ? Et("Источник редстоуна", "Redstone source")

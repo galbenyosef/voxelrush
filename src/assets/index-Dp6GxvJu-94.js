@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 94 — math
+// index-Dp6GxvJu 94 — vehicle_kind
 // Lines 57710-58028 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 class mK {
   constructor(e) {
@@ -137,7 +137,7 @@ class S4 {
   }
 }
 const OL = {
-    [P.BOAT]: {
+    [VEHICLE_KIND.BOAT]: {
       x: 0.5,
       y: 2.08,
       z: 0.66,
@@ -145,7 +145,7 @@ const OL = {
       angle: Math.PI / 7,
       pitch: -0.1,
     },
-    [P.CARRIER]: {
+    [VEHICLE_KIND.CARRIER]: {
       x: 3.5,
       y: 3.5,
       z: -20,
@@ -153,7 +153,7 @@ const OL = {
       angle: Math.PI / 6,
       pitch: -0.16,
     },
-    [P.TANK]: {
+    [VEHICLE_KIND.TANK]: {
       x: 0.95,
       y: 1.08,
       z: -1.95,
@@ -161,7 +161,7 @@ const OL = {
       angle: Math.PI / 7,
       pitch: -0.05,
     },
-    [P.BTR_TURRET]: {
+    [VEHICLE_KIND.BTR_TURRET]: {
       x: 0.8,
       y: 1.02,
       z: -2.53,
@@ -169,7 +169,7 @@ const OL = {
       angle: Math.PI / 7,
       pitch: -0.05,
     },
-    [P.HIMARS]: {
+    [VEHICLE_KIND.HIMARS]: {
       x: 0.78,
       y: 1.12,
       z: -2.83,
@@ -177,7 +177,7 @@ const OL = {
       angle: Math.PI / 7,
       pitch: -0.05,
     },
-    [P.PATRIOT]: {
+    [VEHICLE_KIND.PATRIOT]: {
       x: 0.78,
       y: 1.12,
       z: -2.83,
@@ -185,7 +185,7 @@ const OL = {
       angle: Math.PI / 7,
       pitch: -0.05,
     },
-    [P.HELI]: {
+    [VEHICLE_KIND.HELI]: {
       x: 0,
       y: 0.98,
       z: -2.12,
@@ -193,7 +193,7 @@ const OL = {
       angle: Math.PI / 8,
       pitch: -0.55,
     },
-    [P.PLANE]: {
+    [VEHICLE_KIND.PLANE]: {
       x: 1.6,
       y: -0.25,
       z: -1.4,
@@ -201,7 +201,7 @@ const OL = {
       angle: Math.PI / 9,
       pitch: -0.22,
     },
-    [P.SUBMARINE]: {
+    [VEHICLE_KIND.SUBMARINE]: {
       x: 0.9,
       y: 0.1,
       z: -8,
@@ -229,51 +229,51 @@ function ol(n, e) {
     }));
 }
 const wK = {
-    [P.TANK]: 2.4,
-    [P.FIGHTER_JET]: 7.5,
-    [P.PLANE]: 5.5,
-    [P.DRONE]: 0.7,
-    [P.BOAT]: 2.6,
-    [P.CARRIER]: 12,
-    [P.HELI]: 2.8,
-    [P.HIMARS]: 2.8,
-    [P.MORTAR]: 1.3,
-    [P.PATRIOT]: 2.8,
-    [P.TURRET]: 1.5,
-    [P.BTR_TURRET]: 2.8,
-    [P.SUBMARINE]: 6.2,
-    [P.SPACE_ROCKET]: 4.8,
+    [VEHICLE_KIND.TANK]: 2.4,
+    [VEHICLE_KIND.FIGHTER_JET]: 7.5,
+    [VEHICLE_KIND.PLANE]: 5.5,
+    [VEHICLE_KIND.DRONE]: 0.7,
+    [VEHICLE_KIND.BOAT]: 2.6,
+    [VEHICLE_KIND.CARRIER]: 12,
+    [VEHICLE_KIND.HELI]: 2.8,
+    [VEHICLE_KIND.HIMARS]: 2.8,
+    [VEHICLE_KIND.MORTAR]: 1.3,
+    [VEHICLE_KIND.PATRIOT]: 2.8,
+    [VEHICLE_KIND.TURRET]: 1.5,
+    [VEHICLE_KIND.BTR_TURRET]: 2.8,
+    [VEHICLE_KIND.SUBMARINE]: 6.2,
+    [VEHICLE_KIND.SPACE_ROCKET]: 4.8,
   },
   MK = {
-    [P.TANK]: 2.9,
-    [P.FIGHTER_JET]: 4.8,
-    [P.PLANE]: 3.5,
-    [P.DRONE]: 0.9,
-    [P.BOAT]: 2.6,
-    [P.CARRIER]: 12,
-    [P.HELI]: 3.2,
-    [P.HIMARS]: 3.4,
-    [P.MORTAR]: 2.8,
-    [P.PATRIOT]: 3.6,
-    [P.TURRET]: 2.1,
-    [P.BTR_TURRET]: 3.4,
-    [P.SUBMARINE]: 4.7,
-    [P.SPACE_ROCKET]: 13.5,
+    [VEHICLE_KIND.TANK]: 2.9,
+    [VEHICLE_KIND.FIGHTER_JET]: 4.8,
+    [VEHICLE_KIND.PLANE]: 3.5,
+    [VEHICLE_KIND.DRONE]: 0.9,
+    [VEHICLE_KIND.BOAT]: 2.6,
+    [VEHICLE_KIND.CARRIER]: 12,
+    [VEHICLE_KIND.HELI]: 3.2,
+    [VEHICLE_KIND.HIMARS]: 3.4,
+    [VEHICLE_KIND.MORTAR]: 2.8,
+    [VEHICLE_KIND.PATRIOT]: 3.6,
+    [VEHICLE_KIND.TURRET]: 2.1,
+    [VEHICLE_KIND.BTR_TURRET]: 3.4,
+    [VEHICLE_KIND.SUBMARINE]: 4.7,
+    [VEHICLE_KIND.SPACE_ROCKET]: 13.5,
   },
   SK = {
-    [P.TANK]: new k(0.65, 1.35, 1.25),
-    [P.FIGHTER_JET]: new k(0, 1.5, 5.5),
-    [P.PLANE]: new k(0, 1.15, -1.65),
-    [P.DRONE]: new k(0, 0.3, 0),
-    [P.BOAT]: new k(0.7, 1.15, 2.65),
-    [P.CARRIER]: new k(4.8, 8.1, 4),
-    [P.HELI]: new k(0, 2.25, 0.8),
-    [P.HIMARS]: new k(0.7, 1.35, 1.6),
-    [P.PATRIOT]: new k(0.7, 1.35, 1.65),
-    [P.TURRET]: new k(0, 1.45, 0.25),
-    [P.BTR_TURRET]: new k(0.7, 1.35, 1.55),
-    [P.SUBMARINE]: new k(0, 1.1, 4.8),
-    [P.SPACE_ROCKET]: new k(0, 1, 0),
+    [VEHICLE_KIND.TANK]: new k(0.65, 1.35, 1.25),
+    [VEHICLE_KIND.FIGHTER_JET]: new k(0, 1.5, 5.5),
+    [VEHICLE_KIND.PLANE]: new k(0, 1.15, -1.65),
+    [VEHICLE_KIND.DRONE]: new k(0, 0.3, 0),
+    [VEHICLE_KIND.BOAT]: new k(0.7, 1.15, 2.65),
+    [VEHICLE_KIND.CARRIER]: new k(4.8, 8.1, 4),
+    [VEHICLE_KIND.HELI]: new k(0, 2.25, 0.8),
+    [VEHICLE_KIND.HIMARS]: new k(0.7, 1.35, 1.6),
+    [VEHICLE_KIND.PATRIOT]: new k(0.7, 1.35, 1.65),
+    [VEHICLE_KIND.TURRET]: new k(0, 1.45, 0.25),
+    [VEHICLE_KIND.BTR_TURRET]: new k(0.7, 1.35, 1.55),
+    [VEHICLE_KIND.SUBMARINE]: new k(0, 1.1, 4.8),
+    [VEHICLE_KIND.SPACE_ROCKET]: new k(0, 1, 0),
   },
   m6 = 40,
   g6 = -0.52,
@@ -281,7 +281,7 @@ const wK = {
   EK = -0.3,
   xK = 0.95,
   TK = 0.045,
-  W5 = new Set([P.TANK, P.BTR_TURRET, P.HIMARS, P.PATRIOT]),
+  W5 = new Set([VEHICLE_KIND.TANK, VEHICLE_KIND.BTR_TURRET, VEHICLE_KIND.HIMARS, VEHICLE_KIND.PATRIOT]),
   al = (n) =>
     Math.atan2(2 * (n.w * n.y + n.x * n.z), 1 - 2 * (n.y * n.y + n.z * n.z)),
   AK = new hi(),

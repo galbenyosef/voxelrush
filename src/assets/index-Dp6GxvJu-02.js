@@ -1,7 +1,7 @@
 // index-Dp6GxvJu 02 — tostring
 // Lines 26285-26301 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function RH(n, e) {
-  const t = _H(n.game);
+  const t = findSlotGame(n.game);
   if (!t) throw Error("Unknown casino game");
   const i = new URL(`https://${t.host}/`);
   return (

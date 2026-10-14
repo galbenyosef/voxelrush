@@ -141,8 +141,8 @@ function BX(n) {
   const l = new bi(i);
   ((l.colorSpace = vi), (l.magFilter = ji), (l.minFilter = Uo));
   const c =
-      (n >= E.SUPPRESSOR && n <= E.EXT_MAG) ||
-      new Set([E.SHEARS, E.SHARK_TOOTH, E.RADIO_MODULE, E.INTEL_TABLET]).has(n),
+      (n >= ITEM.SUPPRESSOR && n <= ITEM.EXT_MAG) ||
+      new Set([ITEM.SHEARS, ITEM.SHARK_TOOTH, ITEM.RADIO_MODULE, ITEM.INTEL_TABLET]).has(n),
     h = new Us({
       map: l,
       shininess: c ? 38 : 6,
@@ -155,7 +155,7 @@ function BX(n) {
     let f = 0;
     for (let y = 0; y < u.length; y++) f = Math.max(f, u[y]);
     f = Math.min(f, kX);
-    const p = wo(n) || n === E.MONEY || n === E.BANDAGE,
+    const p = wo(n) || n === ITEM.MONEY || n === ITEM.BANDAGE,
       m = new Float32Array(Ii * Ii);
     for (let y = 0; y < m.length; y++) {
       if (!u[y]) continue;

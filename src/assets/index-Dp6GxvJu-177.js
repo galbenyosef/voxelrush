@@ -243,5 +243,5 @@ function Y_(n) {
     );
   });
 }
-const zI = () => z.language === "en",
+const zI = () => SETTINGS.language === "en",
   ni = (n, e) => (zI() ? e : n);

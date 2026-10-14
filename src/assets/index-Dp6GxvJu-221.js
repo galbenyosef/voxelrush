@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 221 — position
+// index-Dp6GxvJu 221 — item
 // Lines 122209-122489 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const JI = new k(0.95, -0.92, 0.05),
   XM = new k(),
@@ -46,7 +46,7 @@ function eP(n, e, t) {
   return (n.updateMatrix(), t.set(0, 0, e).applyMatrix4(n.matrix));
 }
 function ene(n, e) {
-  const t = n <= 0 ? "empty" : n < 256 && de[n] ? "block" : "item",
+  const t = n <= 0 ? "empty" : n < 256 && BLOCKS[n] ? "block" : "item",
     i = new pe();
   i.name = `fp-hold-${t}`;
   const s = ZI();
@@ -60,7 +60,7 @@ function ene(n, e) {
     const r = Xh.block,
       l = d4(e, n, r.size);
     l.name = "fp-held-block";
-    const c = Jie.has(de[n].shape),
+    const c = Jie.has(BLOCKS[n].shape),
       h = c ? Xh.stem.at : r.at,
       d = c ? Xh.stem.rot : r.rot;
     (l.position.set(...h),
@@ -147,31 +147,31 @@ function sne(n, e, t) {
     i.quaternion.copy(Yb).multiply(i.userData.restQuat));
 }
 function one(n) {
-  return n === E.WELDER || n === E.FISHING_ROD
+  return n === ITEM.WELDER || n === ITEM.FISHING_ROD
     ? 0.74
-    : n === E.COMBAT_KNIFE
+    : n === ITEM.COMBAT_KNIFE
       ? 0.8
-      : n === E.DRILL_METAL ||
-          n === E.DRILL_DIAMOND ||
-          n === E.DRILL_TITANIUM ||
-          n === E.DRILL_COMPOSITE ||
-          n === E.DRILL_LASER ||
-          n === E.LUNAR_DRILL ||
-          n === E.FLASHLIGHT
+      : n === ITEM.DRILL_METAL ||
+          n === ITEM.DRILL_DIAMOND ||
+          n === ITEM.DRILL_TITANIUM ||
+          n === ITEM.DRILL_COMPOSITE ||
+          n === ITEM.DRILL_LASER ||
+          n === ITEM.LUNAR_DRILL ||
+          n === ITEM.FLASHLIGHT
         ? 0.86
         : 1.02;
 }
 const VR = new Set([
-    E.DRILL_METAL,
-    E.DRILL_DIAMOND,
-    E.DRILL_TITANIUM,
-    E.DRILL_COMPOSITE,
-    E.DRILL_LASER,
-    E.LUNAR_DRILL,
-    E.CHAINSAW_BASIC,
-    E.CHAINSAW_PRO,
-    E.CHAINSAW_INDUSTRIAL,
-    E.WELDER,
+    ITEM.DRILL_METAL,
+    ITEM.DRILL_DIAMOND,
+    ITEM.DRILL_TITANIUM,
+    ITEM.DRILL_COMPOSITE,
+    ITEM.DRILL_LASER,
+    ITEM.LUNAR_DRILL,
+    ITEM.CHAINSAW_BASIC,
+    ITEM.CHAINSAW_PRO,
+    ITEM.CHAINSAW_INDUSTRIAL,
+    ITEM.WELDER,
   ]),
   j2 = 2;
 function $R(n) {
@@ -179,51 +179,51 @@ function $R(n) {
 }
 function ane(n) {
   return (
-    n === E.MILITARY_MEDKIT ||
+    n === ITEM.MILITARY_MEDKIT ||
     wo(n) ||
-    n === E.AMMO_9MM ||
-    n === E.AMMO_762 ||
-    n === E.AMMO_338 ||
-    n === E.AMMO_762_HE ||
-    n === E.AMMO_338_HE ||
-    n === E.AMMO_SHELL ||
-    n === E.AMMO_SHELL_HE ||
+    n === ITEM.AMMO_9MM ||
+    n === ITEM.AMMO_762 ||
+    n === ITEM.AMMO_338 ||
+    n === ITEM.AMMO_762_HE ||
+    n === ITEM.AMMO_338_HE ||
+    n === ITEM.AMMO_SHELL ||
+    n === ITEM.AMMO_SHELL_HE ||
     !!Cn[n] ||
-    n === E.AXE ||
-    n === E.COMBAT_KNIFE ||
-    n === E.WELDER ||
-    n === E.DRILL_METAL ||
-    n === E.DRILL_DIAMOND ||
-    n === E.DRILL_TITANIUM ||
-    n === E.DRILL_COMPOSITE ||
-    n === E.DRILL_LASER ||
-    n === E.LUNAR_DRILL ||
-    n === E.SPACE_ROCKET ||
-    n === E.CHAINSAW_BASIC ||
-    n === E.CHAINSAW_PRO ||
-    n === E.CHAINSAW_INDUSTRIAL ||
-    n === E.WHEAT_SEEDS ||
-    n === E.FERTILIZER ||
-    n === E.FISHING_ROD ||
+    n === ITEM.AXE ||
+    n === ITEM.COMBAT_KNIFE ||
+    n === ITEM.WELDER ||
+    n === ITEM.DRILL_METAL ||
+    n === ITEM.DRILL_DIAMOND ||
+    n === ITEM.DRILL_TITANIUM ||
+    n === ITEM.DRILL_COMPOSITE ||
+    n === ITEM.DRILL_LASER ||
+    n === ITEM.LUNAR_DRILL ||
+    n === ITEM.SPACE_ROCKET ||
+    n === ITEM.CHAINSAW_BASIC ||
+    n === ITEM.CHAINSAW_PRO ||
+    n === ITEM.CHAINSAW_INDUSTRIAL ||
+    n === ITEM.WHEAT_SEEDS ||
+    n === ITEM.FERTILIZER ||
+    n === ITEM.FISHING_ROD ||
     xa(n) ||
-    n === E.DETONATOR ||
-    n === E.FLASHLIGHT ||
-    n === E.RADIO_MODULE ||
+    n === ITEM.DETONATOR ||
+    n === ITEM.FLASHLIGHT ||
+    n === ITEM.RADIO_MODULE ||
     !!aa(n)
   );
 }
 function qR(n) {
-  return n === E.CHAINSAW_BASIC ||
-    n === E.CHAINSAW_PRO ||
-    n === E.CHAINSAW_INDUSTRIAL
+  return n === ITEM.CHAINSAW_BASIC ||
+    n === ITEM.CHAINSAW_PRO ||
+    n === ITEM.CHAINSAW_INDUSTRIAL
     ? [0.3, -0.22, -0.6]
-    : n === E.WELDER
+    : n === ITEM.WELDER
       ? [0.3, -0.2, -0.5]
-      : n === E.AXE
+      : n === ITEM.AXE
         ? [0.3, -0.17, -0.6]
-        : n === E.COMBAT_KNIFE
+        : n === ITEM.COMBAT_KNIFE
           ? [0.24, -0.2, -0.36]
-          : n === E.FISHING_ROD
+          : n === ITEM.FISHING_ROD
             ? [0.32, -0.22, -0.66]
             : [0.3, -0.19, -0.52];
 }
@@ -277,7 +277,7 @@ function jb(n, e, t) {
   for (; i < n.length - 2 && e > n[i + 1][0];) i++;
   const s = n[i],
     o = n[i + 1],
-    a = QM(Ne((e - s[0]) / Math.max(1e-6, o[0] - s[0]), 0, 1));
+    a = QM(clamp((e - s[0]) / Math.max(1e-6, o[0] - s[0]), 0, 1));
   for (let r = 0; r < 6; r++) t[r] = s[r + 1] + (o[r + 1] - s[r + 1]) * a;
   return t;
 }

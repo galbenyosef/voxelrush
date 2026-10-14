@@ -140,7 +140,7 @@ function qs(n, e, t = !1) {
   const i = dt("button", "", `lobby-button${t ? " quiet" : ""}`);
   return (
     (i.type = "button"),
-    e && (i.innerHTML = Nn(e)),
+    e && (i.innerHTML = svgIcon(e)),
     i.append(dt("span", n)),
     i
   );
@@ -159,7 +159,7 @@ const Q6 = (n) => Mi(n),
         ["15 min", "15 мин"],
       ],
       colors: ["#ff9a3d", "#5a2a0c"],
-      art: ["vehicle", P.TANK],
+      art: ["vehicle", VEHICLE_KIND.TANK],
     },
     tdm: {
       name: ["Team Deathmatch", "Командный бой"],
@@ -173,7 +173,7 @@ const Q6 = (n) => Mi(n),
         ["10 min", "10 мин"],
       ],
       colors: ["#ff4d5e", "#4a0f19"],
-      art: ["showcase", E.AK47],
+      art: ["showcase", ITEM.AK47],
     },
     survival: {
       name: ["Survival", "Выживание"],
@@ -187,6 +187,6 @@ const Q6 = (n) => Mi(n),
         ["Economy", "Экономика"],
       ],
       colors: ["#6fdc8c", "#0f3a24"],
-      art: ["showcase", E.DRILL_METAL],
+      art: ["showcase", ITEM.DRILL_METAL],
     },
   };

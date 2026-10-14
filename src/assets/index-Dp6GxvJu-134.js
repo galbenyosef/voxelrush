@@ -1,8 +1,8 @@
 // index-Dp6GxvJu 134 — fillstyle
 // Lines 79367-79566 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function xX(n, e, t) {
-  if ((Lo(n, e, t), t || e === v.OWNERSHIP_TOTEM || e >= 256 || !de[e])) return;
-  const i = de[e].color,
+  if ((Lo(n, e, t), t || e === BLOCK.OWNERSHIP_TOTEM || e >= 256 || !BLOCKS[e])) return;
+  const i = BLOCKS[e].color,
     s = (o) =>
       "#" +
       [16, 8, 0]
@@ -61,11 +61,11 @@ function TX(n, e) {
     n.fillText(`${e}×`, 20, 35));
 }
 function c_(n, e) {
-  const t = h0.length,
+  const t = WEAPON_ATTACHMENTS.length,
     i = 40 / (t + 1),
     s = 37.5;
   for (let o = 0; o < t; o++) {
-    const a = h0[o],
+    const a = WEAPON_ATTACHMENTS[o],
       r = i * (o + 1);
     (n.beginPath(),
       n.arc(r, s, 2.1, 0, 7),
@@ -77,7 +77,7 @@ function c_(n, e) {
   }
 }
 function AX(n) {
-  return Ti(n) > 0 ? Ey(n, z.language) : (Ki(n) ?? "");
+  return Ti(n) > 0 ? Ey(n, SETTINGS.language) : (Ki(n) ?? "");
 }
 function _X(n, e) {
   const t = ra(e);

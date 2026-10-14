@@ -203,7 +203,7 @@ class nse {
     let s = t + 1;
     for (let o = t + 1; o < Kt; o++) {
       const a = this.world.getBlock(e, o, i);
-      if (a === v.WATER || a === v.LAVA || this.world.isSolidAt(e, o, i))
+      if (a === BLOCK.WATER || a === BLOCK.LAVA || this.world.isSolidAt(e, o, i))
         return -1;
       for (const [r, l] of [
         [1, 0],
@@ -231,8 +231,8 @@ class nse {
         if (this.world.isLoaded(d, u))
           for (let f = c; f <= h; f++) {
             const p = this.world.getBlock(d, f, u),
-              m = p === v.FURNACE && (this.world.getMeta(d, f, u) & Qn) !== 0;
-            if (p !== v.FIRE && p !== v.CAMPFIRE && !m) continue;
+              m = p === BLOCK.FURNACE && (this.world.getMeta(d, f, u) & Qn) !== 0;
+            if (p !== BLOCK.FIRE && p !== BLOCK.CAMPFIRE && !m) continue;
             const y = m ? this.furnaceOutlet(d, f, u) : -1;
             if (m && y >= 0) {
               if (

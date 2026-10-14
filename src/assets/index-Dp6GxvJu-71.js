@@ -1,6 +1,6 @@
 // index-Dp6GxvJu 71 — antialias
 // Lines 50170-50418 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-const f4 = {
+const QUALITY_PRESETS = {
   low: {
     renderDist: 4,
     shadowSize: 0,
@@ -248,4 +248,4 @@ function JV(n) {
   const e = Number(n);
   return Number.isFinite(e) && e > 0 ? Math.max(0.1, Math.min(4, e)) : 1;
 }
-const eL = "fablecraft-settings";
+const SETTINGS_KEY = "fablecraft-settings";

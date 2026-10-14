@@ -33,10 +33,10 @@
   },
   "rename": {
     "map": "rename-map.json",
-    "slices": 0,
-    "wordBoundaryNames": 0,
-    "indexedNames": 0,
-    "indexedOccurrences": 0,
+    "slices": 178,
+    "wordBoundaryNames": 464,
+    "indexedNames": 29,
+    "indexedOccurrences": 425,
     "note": "Semantic rename layer (PLAN §5 campaign; pipeline apply -> recover -> derive -> gates). tools/names.json (reviewed) is applied by tools/apply-names.mjs; rename-map.json is recovered mechanically by tools/recover-scoped-map.mjs and re-applied on every re-cut. The readable layer stays pristine (the capture's own names); only src/ carries semantic names. sources[].renameBindings records the fired app bindings the chunk's index-only skipped sections spell — the reconstruction gates (verify-rename / check-chunk) reach those sections through the binding map (turfwar's (t)(1) mechanism). Identifiers in unrenamed slices are the bundle's own minified/obfuscated names; the obfuscator.io decoder + base64 string table are recorded as machinery (a names.json review exclusion) and stay obfuscated."
   },
   "sources": [
@@ -52,7 +52,7 @@
       "prettyPasses": 2,
       "tag": "index-Dp6GxvJu",
       "slices": 240,
-      "derived": "readable + 240 statement-aligned slice(s) + 2 wholeFile region(s)",
+      "derived": "readable + 240 statement-aligned slice(s) + 2 wholeFile region(s) (177 sliced through the recorded rename map)",
       "what": "app entry chunk",
       "renameBindings": {}
     },
@@ -84,9 +84,11 @@
       "prettyPasses": 1,
       "tag": "terrain-pool-Dvsi82A-",
       "slices": 1,
-      "derived": "readable + 1 statement-aligned slice(s) + 1 skipped section(s)",
+      "derived": "readable + 1 statement-aligned slice(s) + 1 skipped section(s) (1 sliced through the recorded rename map)",
       "what": "app chunk",
-      "renameBindings": {}
+      "renameBindings": {
+        "H": "installTerrainPool"
+      }
     },
     {
       "sourceFile": "readable/assets/chunk-mesh-worker-coep-v1-BX2YFLnd.pretty.js",
@@ -326,7 +328,7 @@
     {
       "file": "assets/index-Dp6GxvJu-01.js",
       "title": "index-Dp6GxvJu 01 — math",
-      "desc": "Lines 25943-26284. Markers: math(11), sky(10).",
+      "desc": "Lines 25943-26284. Markers: math(11), sky(10). Range re-cut through the recorded semantic rename map.",
       "startLine": 25943,
       "endLine": 26284,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -334,15 +336,15 @@
     {
       "file": "assets/index-Dp6GxvJu-02.js",
       "title": "index-Dp6GxvJu 02 — tostring",
-      "desc": "Lines 26285-26301. Markers: tostring(2), balance(1).",
+      "desc": "Lines 26285-26301. Markers: tostring(2), balance(1). Range re-cut through the recorded semantic rename map.",
       "startLine": 26285,
       "endLine": 26301,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-03.js",
-      "title": "index-Dp6GxvJu 03 — boots_1",
-      "desc": "Oversized single declaration (kept whole). Lines 26302-26802. Markers: boots_1(3), boots_2(3).",
+      "title": "index-Dp6GxvJu 03 — item",
+      "desc": "Oversized single declaration (kept whole). Lines 26302-26802. Markers: item(74), biome(6). Range re-cut through the recorded semantic rename map.",
       "startLine": 26302,
       "endLine": 26802,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -357,80 +359,80 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-05.js",
-      "title": "index-Dp6GxvJu 05 — transparent",
-      "desc": "Oversized single declaration (kept whole). Lines 26826-27792. Markers: transparent(18), solid(14).",
+      "title": "index-Dp6GxvJu 05 — item",
+      "desc": "Oversized single declaration (kept whole). Lines 26826-27792. Markers: item(345), vehicle_kind(57). Range re-cut through the recorded semantic rename map.",
       "startLine": 26826,
       "endLine": 27792,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-06.js",
-      "title": "index-Dp6GxvJu 06 — push",
-      "desc": "Lines 27793-28135. Markers: push(27), shape(11).",
+      "title": "index-Dp6GxvJu 06 — blockdef",
+      "desc": "Lines 27793-28135. Markers: blockdef(27), blocks(27). Range re-cut through the recorded semantic rename map.",
       "startLine": 27793,
       "endLine": 28135,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-07.js",
-      "title": "index-Dp6GxvJu 07 — push",
-      "desc": "Lines 28136-28481. Markers: push(25), transparent(19).",
+      "title": "index-Dp6GxvJu 07 — block",
+      "desc": "Lines 28136-28481. Markers: block(30), blockdef(25). Range re-cut through the recorded semantic rename map.",
       "startLine": 28136,
       "endLine": 28481,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-08.js",
-      "title": "index-Dp6GxvJu 08 — push",
-      "desc": "Lines 28482-28830. Markers: push(19), transparent(7).",
+      "title": "index-Dp6GxvJu 08 — block",
+      "desc": "Lines 28482-28830. Markers: block(40), blocks(20). Range re-cut through the recorded semantic rename map.",
       "startLine": 28482,
       "endLine": 28830,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-09.js",
-      "title": "index-Dp6GxvJu 09 — push",
-      "desc": "Lines 28831-29180. Markers: push(20), transparent(17).",
+      "title": "index-Dp6GxvJu 09 — block",
+      "desc": "Lines 28831-29180. Markers: block(38), blocks(22). Range re-cut through the recorded semantic rename map.",
       "startLine": 28831,
       "endLine": 29180,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-10.js",
-      "title": "index-Dp6GxvJu 10 — push",
-      "desc": "Lines 29181-29527. Markers: push(24), shape(14).",
+      "title": "index-Dp6GxvJu 10 — block",
+      "desc": "Lines 29181-29527. Markers: block(30), blockdef(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 29181,
       "endLine": 29527,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-11.js",
-      "title": "index-Dp6GxvJu 11 — math",
-      "desc": "Lines 29528-29845. Markers: math(24), push(10).",
+      "title": "index-Dp6GxvJu 11 — block",
+      "desc": "Lines 29528-29845. Markers: block(55), math(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 29528,
       "endLine": 29845,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-12.js",
-      "title": "index-Dp6GxvJu 12 — light",
-      "desc": "Lines 29846-30186. Markers: light(6), carrot_sprout(4).",
+      "title": "index-Dp6GxvJu 12 — block",
+      "desc": "Lines 29846-30186. Markers: block(216), item(22). Range re-cut through the recorded semantic rename map.",
       "startLine": 29846,
       "endLine": 30186,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-13.js",
-      "title": "index-Dp6GxvJu 13 — suppressor",
-      "desc": "Lines 30187-30337. Markers: suppressor(10), light(6).",
+      "title": "index-Dp6GxvJu 13 — item",
+      "desc": "Lines 30187-30337. Markers: item(40), suppressor(10). Range re-cut through the recorded semantic rename map.",
       "startLine": 30187,
       "endLine": 30337,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-14.js",
-      "title": "index-Dp6GxvJu 14 — count",
-      "desc": "Lines 30338-30683. Markers: count(73), mode(12).",
+      "title": "index-Dp6GxvJu 14 — item",
+      "desc": "Lines 30338-30683. Markers: item(108), count(73). Range re-cut through the recorded semantic rename map.",
       "startLine": 30338,
       "endLine": 30683,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -438,7 +440,7 @@
     {
       "file": "assets/index-Dp6GxvJu-15.js",
       "title": "index-Dp6GxvJu 15 — color",
-      "desc": "Lines 30684-31006. Markers: color(6), includes(6).",
+      "desc": "Lines 30684-31006. Markers: color(6), includes(6). Range re-cut through the recorded semantic rename map.",
       "startLine": 30684,
       "endLine": 31006,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -446,7 +448,7 @@
     {
       "file": "assets/index-Dp6GxvJu-16.js",
       "title": "index-Dp6GxvJu 16 — price",
-      "desc": "Oversized single declaration (kept whole). Lines 31007-32332. Markers: price(86), colors(85).",
+      "desc": "Oversized single declaration (kept whole). Lines 31007-32332. Markers: price(86), colors(85). Range re-cut through the recorded semantic rename map.",
       "startLine": 31007,
       "endLine": 32332,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -454,7 +456,7 @@
     {
       "file": "assets/index-Dp6GxvJu-17.js",
       "title": "index-Dp6GxvJu 17 — theme",
-      "desc": "Lines 32333-32578. Markers: theme(11), math(10).",
+      "desc": "Lines 32333-32578. Markers: theme(11), math(10). Range re-cut through the recorded semantic rename map.",
       "startLine": 32333,
       "endLine": 32578,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -462,7 +464,7 @@
     {
       "file": "assets/index-Dp6GxvJu-18.js",
       "title": "index-Dp6GxvJu 18 — data",
-      "desc": "Lines 32579-32875. Markers: data(9), math(9).",
+      "desc": "Lines 32579-32875. Markers: data(9), item(9). Range re-cut through the recorded semantic rename map.",
       "startLine": 32579,
       "endLine": 32875,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -470,7 +472,7 @@
     {
       "file": "assets/index-Dp6GxvJu-19.js",
       "title": "index-Dp6GxvJu 19 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 32876-34623. Markers: math(213), fillstyle(70).",
+      "desc": "Oversized single declaration (kept whole). Lines 32876-34623. Markers: math(213), fillstyle(70). Range re-cut through the recorded semantic rename map.",
       "startLine": 32876,
       "endLine": 34623,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -494,7 +496,7 @@
     {
       "file": "assets/index-Dp6GxvJu-22.js",
       "title": "index-Dp6GxvJu 22 — math",
-      "desc": "Lines 35221-35570. Markers: math(30), userdata(24).",
+      "desc": "Lines 35221-35570. Markers: math(30), userdata(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 35221,
       "endLine": 35570,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -510,7 +512,7 @@
     {
       "file": "assets/index-Dp6GxvJu-24.js",
       "title": "index-Dp6GxvJu 24 — left",
-      "desc": "Lines 35915-36258. Markers: left(9), mag(8).",
+      "desc": "Lines 35915-36258. Markers: left(9), mag(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 35915,
       "endLine": 36258,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -518,7 +520,7 @@
     {
       "file": "assets/index-Dp6GxvJu-25.js",
       "title": "index-Dp6GxvJu 25 — math",
-      "desc": "Lines 36259-36607. Markers: math(14), mag(13).",
+      "desc": "Lines 36259-36607. Markers: math(14), mag(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 36259,
       "endLine": 36607,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -526,7 +528,7 @@
     {
       "file": "assets/index-Dp6GxvJu-26.js",
       "title": "index-Dp6GxvJu 26 — position",
-      "desc": "Lines 36608-36733. Markers: position(21), rotation(8).",
+      "desc": "Lines 36608-36733. Markers: position(21), rotation(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 36608,
       "endLine": 36733,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -541,72 +543,72 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-28.js",
-      "title": "index-Dp6GxvJu 28 — math",
-      "desc": "Lines 37093-37380. Markers: math(12), fill(9).",
+      "title": "index-Dp6GxvJu 28 — block",
+      "desc": "Lines 37093-37380. Markers: block(22), math(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 37093,
       "endLine": 37380,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-29.js",
-      "title": "index-Dp6GxvJu 29 — put",
-      "desc": "Lines 37381-37709. Markers: put(100), fill(75).",
+      "title": "index-Dp6GxvJu 29 — block",
+      "desc": "Lines 37381-37709. Markers: block(207), put(100). Range re-cut through the recorded semantic rename map.",
       "startLine": 37381,
       "endLine": 37709,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-30.js",
-      "title": "index-Dp6GxvJu 30 — fill",
-      "desc": "Lines 37710-37997. Markers: fill(75), put(72).",
+      "title": "index-Dp6GxvJu 30 — block",
+      "desc": "Lines 37710-37997. Markers: block(167), fill(75). Range re-cut through the recorded semantic rename map.",
       "startLine": 37710,
       "endLine": 37997,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-31.js",
-      "title": "index-Dp6GxvJu 31 — put",
-      "desc": "Lines 37998-38258. Markers: put(66), fill(41).",
+      "title": "index-Dp6GxvJu 31 — block",
+      "desc": "Lines 37998-38258. Markers: block(107), put(66). Range re-cut through the recorded semantic rename map.",
       "startLine": 37998,
       "endLine": 38258,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-32.js",
-      "title": "index-Dp6GxvJu 32 — fill",
-      "desc": "Lines 38259-38507. Markers: fill(57), put(50).",
+      "title": "index-Dp6GxvJu 32 — block",
+      "desc": "Lines 38259-38507. Markers: block(84), fill(57). Range re-cut through the recorded semantic rename map.",
       "startLine": 38259,
       "endLine": 38507,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-33.js",
-      "title": "index-Dp6GxvJu 33 — fill",
-      "desc": "Lines 38508-38844. Markers: fill(73), put(67).",
+      "title": "index-Dp6GxvJu 33 — block",
+      "desc": "Lines 38508-38844. Markers: block(123), fill(73). Range re-cut through the recorded semantic rename map.",
       "startLine": 38508,
       "endLine": 38844,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-34.js",
-      "title": "index-Dp6GxvJu 34 — put",
-      "desc": "Lines 38845-38987. Markers: put(26), fill(17).",
+      "title": "index-Dp6GxvJu 34 — block",
+      "desc": "Lines 38845-38987. Markers: block(37), put(26). Range re-cut through the recorded semantic rename map.",
       "startLine": 38845,
       "endLine": 38987,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-35.js",
-      "title": "index-Dp6GxvJu 35 — map",
-      "desc": "Oversized single declaration (kept whole). Lines 38988-39432. Markers: map(2), blueprint_hangar(1).",
+      "title": "index-Dp6GxvJu 35 — item",
+      "desc": "Oversized single declaration (kept whole). Lines 38988-39432. Markers: item(5), map(2). Range re-cut through the recorded semantic rename map.",
       "startLine": 38988,
       "endLine": 39432,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-36.js",
-      "title": "index-Dp6GxvJu 36 — math",
-      "desc": "Lines 39433-39772. Markers: math(14), map(13).",
+      "title": "index-Dp6GxvJu 36 — item",
+      "desc": "Lines 39433-39772. Markers: item(27), block(20). Range re-cut through the recorded semantic rename map.",
       "startLine": 39433,
       "endLine": 39772,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -614,7 +616,7 @@
     {
       "file": "assets/index-Dp6GxvJu-37.js",
       "title": "index-Dp6GxvJu 37 — math",
-      "desc": "Lines 39773-40059. Markers: math(13), color(11).",
+      "desc": "Lines 39773-40059. Markers: math(13), color(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 39773,
       "endLine": 40059,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -622,31 +624,31 @@
     {
       "file": "assets/index-Dp6GxvJu-38.js",
       "title": "index-Dp6GxvJu 38 — root",
-      "desc": "Lines 40060-40364. Markers: root(15), lid(13).",
+      "desc": "Lines 40060-40364. Markers: root(15), lid(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 40060,
       "endLine": 40364,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-39.js",
-      "title": "index-Dp6GxvJu 39 — box",
-      "desc": "Lines 40365-40710. Markers: box(25), push(23).",
+      "title": "index-Dp6GxvJu 39 — block",
+      "desc": "Lines 40365-40710. Markers: block(36), box(25). Range re-cut through the recorded semantic rename map.",
       "startLine": 40365,
       "endLine": 40710,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-40.js",
-      "title": "index-Dp6GxvJu 40 — math",
-      "desc": "Lines 40711-40993. Markers: math(19), box(8).",
+      "title": "index-Dp6GxvJu 40 — block",
+      "desc": "Lines 40711-40993. Markers: block(23), math(19). Range re-cut through the recorded semantic rename map.",
       "startLine": 40711,
       "endLine": 40993,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-41.js",
-      "title": "index-Dp6GxvJu 41 — math",
-      "desc": "Lines 40994-41315. Markers: math(16), floor(9).",
+      "title": "index-Dp6GxvJu 41 — block",
+      "desc": "Lines 40994-41315. Markers: block(62), math(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 40994,
       "endLine": 41315,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -654,7 +656,7 @@
     {
       "file": "assets/index-Dp6GxvJu-42.js",
       "title": "index-Dp6GxvJu 42 — math",
-      "desc": "Lines 41316-41614. Markers: math(63), kind(18).",
+      "desc": "Lines 41316-41614. Markers: math(63), kind(18). Range re-cut through the recorded semantic rename map.",
       "startLine": 41316,
       "endLine": 41614,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -662,23 +664,23 @@
     {
       "file": "assets/index-Dp6GxvJu-43.js",
       "title": "index-Dp6GxvJu 43 — math",
-      "desc": "Lines 41615-41809. Markers: math(24), floor(12).",
+      "desc": "Lines 41615-41809. Markers: math(24), floor(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 41615,
       "endLine": 41809,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-44.js",
-      "title": "index-Dp6GxvJu 44 — math",
-      "desc": "Lines 41810-42130. Markers: math(30), floor(21).",
+      "title": "index-Dp6GxvJu 44 — block",
+      "desc": "Lines 41810-42130. Markers: block(80), math(30). Range re-cut through the recorded semantic rename map.",
       "startLine": 41810,
       "endLine": 42130,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-45.js",
-      "title": "index-Dp6GxvJu 45 — math",
-      "desc": "Lines 42131-42411. Markers: math(27), floor(18).",
+      "title": "index-Dp6GxvJu 45 — block",
+      "desc": "Lines 42131-42411. Markers: block(51), packcolor(28). Range re-cut through the recorded semantic rename map.",
       "startLine": 42131,
       "endLine": 42411,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -702,7 +704,7 @@
     {
       "file": "assets/index-Dp6GxvJu-48.js",
       "title": "index-Dp6GxvJu 48 — math",
-      "desc": "Lines 43100-43442. Markers: math(38), abs(15).",
+      "desc": "Lines 43100-43442. Markers: math(38), abs(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 43100,
       "endLine": 43442,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -717,8 +719,8 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-50.js",
-      "title": "index-Dp6GxvJu 50 — math",
-      "desc": "Lines 43775-44122. Markers: math(35), sin(15).",
+      "title": "index-Dp6GxvJu 50 — tile_kind",
+      "desc": "Lines 43775-44122. Markers: tile_kind(53), math(35). Range re-cut through the recorded semantic rename map.",
       "startLine": 43775,
       "endLine": 44122,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -726,7 +728,7 @@
     {
       "file": "assets/index-Dp6GxvJu-51.js",
       "title": "index-Dp6GxvJu 51 — math",
-      "desc": "Lines 44123-44412. Markers: math(41), min(15).",
+      "desc": "Lines 44123-44412. Markers: math(41), min(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 44123,
       "endLine": 44412,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -734,7 +736,7 @@
     {
       "file": "assets/index-Dp6GxvJu-52.js",
       "title": "index-Dp6GxvJu 52 — pos",
-      "desc": "Lines 44413-44478. Markers: pos(24), dir(8).",
+      "desc": "Lines 44413-44478. Markers: pos(24), dir(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 44413,
       "endLine": 44478,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -758,7 +760,7 @@
     {
       "file": "assets/index-Dp6GxvJu-55.js",
       "title": "index-Dp6GxvJu 55 — math",
-      "desc": "Lines 45122-45417. Markers: math(26), boxuv(11).",
+      "desc": "Lines 45122-45417. Markers: math(26), boxuv(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 45122,
       "endLine": 45417,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -766,7 +768,7 @@
     {
       "file": "assets/index-Dp6GxvJu-56.js",
       "title": "index-Dp6GxvJu 56 — math",
-      "desc": "Lines 45418-45737. Markers: math(13), rawquad(13).",
+      "desc": "Lines 45418-45737. Markers: math(13), rawquad(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 45418,
       "endLine": 45737,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -774,7 +776,7 @@
     {
       "file": "assets/index-Dp6GxvJu-57.js",
       "title": "index-Dp6GxvJu 57 — math",
-      "desc": "Lines 45738-46084. Markers: math(27), box(12).",
+      "desc": "Lines 45738-46084. Markers: math(27), box(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 45738,
       "endLine": 46084,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -782,15 +784,15 @@
     {
       "file": "assets/index-Dp6GxvJu-58.js",
       "title": "index-Dp6GxvJu 58 — math",
-      "desc": "Lines 46085-46300. Markers: math(15), rawquad(7).",
+      "desc": "Lines 46085-46300. Markers: math(15), rawquad(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 46085,
       "endLine": 46300,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-59.js",
-      "title": "index-Dp6GxvJu 59 — tex",
-      "desc": "Oversized single declaration (kept whole). Lines 46301-46796. Markers: tex(24), shape(18).",
+      "title": "index-Dp6GxvJu 59 — block",
+      "desc": "Oversized single declaration (kept whole). Lines 46301-46796. Markers: block(51), tex(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 46301,
       "endLine": 46796,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -798,7 +800,7 @@
     {
       "file": "assets/index-Dp6GxvJu-60.js",
       "title": "index-Dp6GxvJu 60 — gloss",
-      "desc": "Lines 46797-47129. Markers: gloss(14), porosity(14).",
+      "desc": "Lines 46797-47129. Markers: gloss(14), porosity(14). Range re-cut through the recorded semantic rename map.",
       "startLine": 46797,
       "endLine": 47129,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -814,7 +816,7 @@
     {
       "file": "assets/index-Dp6GxvJu-62.js",
       "title": "index-Dp6GxvJu 62 — add",
-      "desc": "Lines 47469-47720. Markers: add(28), len(10).",
+      "desc": "Lines 47469-47720. Markers: add(28), len(10). Range re-cut through the recorded semantic rename map.",
       "startLine": 47469,
       "endLine": 47720,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -822,7 +824,7 @@
     {
       "file": "assets/index-Dp6GxvJu-63.js",
       "title": "index-Dp6GxvJu 63 — add",
-      "desc": "Lines 47721-48015. Markers: add(68), position(9).",
+      "desc": "Lines 47721-48015. Markers: add(68), position(9). Range re-cut through the recorded semantic rename map.",
       "startLine": 47721,
       "endLine": 48015,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -830,7 +832,7 @@
     {
       "file": "assets/index-Dp6GxvJu-64.js",
       "title": "index-Dp6GxvJu 64 — add",
-      "desc": "Lines 48016-48282. Markers: add(87), position(11).",
+      "desc": "Lines 48016-48282. Markers: add(87), position(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 48016,
       "endLine": 48282,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -862,7 +864,7 @@
     {
       "file": "assets/index-Dp6GxvJu-68.js",
       "title": "index-Dp6GxvJu 68 — add",
-      "desc": "Lines 49222-49533. Markers: add(44), math(15).",
+      "desc": "Lines 49222-49533. Markers: add(44), math(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 49222,
       "endLine": 49533,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -870,15 +872,15 @@
     {
       "file": "assets/index-Dp6GxvJu-69.js",
       "title": "index-Dp6GxvJu 69 — add",
-      "desc": "Lines 49534-49869. Markers: add(34), position(10).",
+      "desc": "Lines 49534-49869. Markers: add(34), position(10). Range re-cut through the recorded semantic rename map.",
       "startLine": 49534,
       "endLine": 49869,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-70.js",
-      "title": "index-Dp6GxvJu 70 — add",
-      "desc": "Lines 49870-50169. Markers: add(11), left(8).",
+      "title": "index-Dp6GxvJu 70 — item",
+      "desc": "Lines 49870-50169. Markers: item(42), add(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 49870,
       "endLine": 50169,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -886,7 +888,7 @@
     {
       "file": "assets/index-Dp6GxvJu-71.js",
       "title": "index-Dp6GxvJu 71 — antialias",
-      "desc": "Lines 50170-50418. Markers: antialias(5), celestialdetail(5).",
+      "desc": "Lines 50170-50418. Markers: antialias(5), celestialdetail(5). Range re-cut through the recorded semantic rename map.",
       "startLine": 50170,
       "endLine": 50418,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -894,7 +896,7 @@
     {
       "file": "assets/index-Dp6GxvJu-72.js",
       "title": "index-Dp6GxvJu 72 — graphics",
-      "desc": "Lines 50419-50624. Markers: graphics(23), binds(19).",
+      "desc": "Lines 50419-50624. Markers: graphics(23), binds(19). Range re-cut through the recorded semantic rename map.",
       "startLine": 50419,
       "endLine": 50624,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -902,7 +904,7 @@
     {
       "file": "assets/index-Dp6GxvJu-73.js",
       "title": "index-Dp6GxvJu 73 — minxp",
-      "desc": "Lines 50625-50958. Markers: minxp(14), nameen(13).",
+      "desc": "Lines 50625-50958. Markers: minxp(14), nameen(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 50625,
       "endLine": 50958,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -918,15 +920,15 @@
     {
       "file": "assets/index-Dp6GxvJu-75.js",
       "title": "index-Dp6GxvJu 75 — math",
-      "desc": "Lines 51950-52297. Markers: math(28), max(19).",
+      "desc": "Lines 51950-52297. Markers: math(28), vehicle_kind(26). Range re-cut through the recorded semantic rename map.",
       "startLine": 51950,
       "endLine": 52297,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-76.js",
-      "title": "index-Dp6GxvJu 76 — math",
-      "desc": "Lines 52298-52516. Markers: math(27), vel(15).",
+      "title": "index-Dp6GxvJu 76 — vehicle_kind",
+      "desc": "Lines 52298-52516. Markers: vehicle_kind(36), math(27). Range re-cut through the recorded semantic rename map.",
       "startLine": 52298,
       "endLine": 52516,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -934,7 +936,7 @@
     {
       "file": "assets/index-Dp6GxvJu-77.js",
       "title": "index-Dp6GxvJu 77 — halo",
-      "desc": "Lines 52517-52774. Markers: halo(16), lens(16).",
+      "desc": "Lines 52517-52774. Markers: halo(16), lens(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 52517,
       "endLine": 52774,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -942,7 +944,7 @@
     {
       "file": "assets/index-Dp6GxvJu-78.js",
       "title": "index-Dp6GxvJu 78 — math",
-      "desc": "Lines 52775-53118. Markers: math(51), yaw(18).",
+      "desc": "Lines 52775-53118. Markers: math(51), yaw(18). Range re-cut through the recorded semantic rename map.",
       "startLine": 52775,
       "endLine": 53118,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -950,15 +952,15 @@
     {
       "file": "assets/index-Dp6GxvJu-79.js",
       "title": "index-Dp6GxvJu 79 — math",
-      "desc": "Lines 53119-53265. Markers: math(36), max(11).",
+      "desc": "Lines 53119-53265. Markers: math(36), max(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 53119,
       "endLine": 53265,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-80.js",
-      "title": "index-Dp6GxvJu 80 — price",
-      "desc": "Oversized single declaration (kept whole). Lines 53266-53702. Markers: price(145), category(144).",
+      "title": "index-Dp6GxvJu 80 — block",
+      "desc": "Oversized single declaration (kept whole). Lines 53266-53702. Markers: block(206), item(168). Range re-cut through the recorded semantic rename map.",
       "startLine": 53266,
       "endLine": 53702,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -966,7 +968,7 @@
     {
       "file": "assets/index-Dp6GxvJu-81.js",
       "title": "index-Dp6GxvJu 81 — math",
-      "desc": "Lines 53703-54010. Markers: math(52), max(14).",
+      "desc": "Lines 53703-54010. Markers: math(52), vehicle_kind(37). Range re-cut through the recorded semantic rename map.",
       "startLine": 53703,
       "endLine": 54010,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -974,7 +976,7 @@
     {
       "file": "assets/index-Dp6GxvJu-82.js",
       "title": "index-Dp6GxvJu 82 — math",
-      "desc": "Lines 54011-54358. Markers: math(19), level(16).",
+      "desc": "Lines 54011-54358. Markers: math(19), level(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 54011,
       "endLine": 54358,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -990,7 +992,7 @@
     {
       "file": "assets/index-Dp6GxvJu-84.js",
       "title": "index-Dp6GxvJu 84 — add",
-      "desc": "Lines 54698-55044. Markers: add(20), math(18).",
+      "desc": "Lines 54698-55044. Markers: add(20), math(18). Range re-cut through the recorded semantic rename map.",
       "startLine": 54698,
       "endLine": 55044,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -998,7 +1000,7 @@
     {
       "file": "assets/index-Dp6GxvJu-85.js",
       "title": "index-Dp6GxvJu 85 — math",
-      "desc": "Lines 55045-55374. Markers: math(35), userdata(23).",
+      "desc": "Lines 55045-55374. Markers: math(35), userdata(23). Range re-cut through the recorded semantic rename map.",
       "startLine": 55045,
       "endLine": 55374,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1014,7 +1016,7 @@
     {
       "file": "assets/index-Dp6GxvJu-87.js",
       "title": "index-Dp6GxvJu 87 — math",
-      "desc": "Lines 55725-56030. Markers: math(40), samples(16).",
+      "desc": "Lines 55725-56030. Markers: math(40), samples(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 55725,
       "endLine": 56030,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1046,7 +1048,7 @@
     {
       "file": "assets/index-Dp6GxvJu-91.js",
       "title": "index-Dp6GxvJu 91 — add",
-      "desc": "Lines 56836-57123. Markers: add(56), push(12).",
+      "desc": "Lines 56836-57123. Markers: add(56), push(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 56836,
       "endLine": 57123,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1054,7 +1056,7 @@
     {
       "file": "assets/index-Dp6GxvJu-92.js",
       "title": "index-Dp6GxvJu 92 — add",
-      "desc": "Lines 57124-57403. Markers: add(48), heli(4).",
+      "desc": "Lines 57124-57403. Markers: add(48), vehicle_kind(18). Range re-cut through the recorded semantic rename map.",
       "startLine": 57124,
       "endLine": 57403,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1069,8 +1071,8 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-94.js",
-      "title": "index-Dp6GxvJu 94 — math",
-      "desc": "Lines 57710-58028. Markers: math(28), position(15).",
+      "title": "index-Dp6GxvJu 94 — vehicle_kind",
+      "desc": "Lines 57710-58028. Markers: vehicle_kind(54), math(28). Range re-cut through the recorded semantic rename map.",
       "startLine": 57710,
       "endLine": 58028,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1078,7 +1080,7 @@
     {
       "file": "assets/index-Dp6GxvJu-95.js",
       "title": "index-Dp6GxvJu 95 — add",
-      "desc": "Lines 58029-58340. Markers: add(93), math(14).",
+      "desc": "Lines 58029-58340. Markers: add(93), math(14). Range re-cut through the recorded semantic rename map.",
       "startLine": 58029,
       "endLine": 58340,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1086,7 +1088,7 @@
     {
       "file": "assets/index-Dp6GxvJu-96.js",
       "title": "index-Dp6GxvJu 96 — add",
-      "desc": "Lines 58341-58624. Markers: add(40), math(19).",
+      "desc": "Lines 58341-58624. Markers: add(40), vehicle_kind(21). Range re-cut through the recorded semantic rename map.",
       "startLine": 58341,
       "endLine": 58624,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1094,7 +1096,7 @@
     {
       "file": "assets/index-Dp6GxvJu-97.js",
       "title": "index-Dp6GxvJu 97 — arcto",
-      "desc": "Lines 58625-58716. Markers: arcto(8), fillstyle(7).",
+      "desc": "Lines 58625-58716. Markers: arcto(8), fillstyle(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 58625,
       "endLine": 58716,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1102,7 +1104,7 @@
     {
       "file": "assets/index-Dp6GxvJu-98.js",
       "title": "index-Dp6GxvJu 98 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 58717-62733. Markers: math(379), pos(314).",
+      "desc": "Oversized single declaration (kept whole). Lines 58717-62733. Markers: math(379), pos(314). Range re-cut through the recorded semantic rename map.",
       "startLine": 58717,
       "endLine": 62733,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1118,15 +1120,15 @@
     {
       "file": "assets/index-Dp6GxvJu-100.js",
       "title": "index-Dp6GxvJu 100 — math",
-      "desc": "Lines 63073-63362. Markers: math(10), gold(6).",
+      "desc": "Lines 63073-63362. Markers: math(10), gold(6). Range re-cut through the recorded semantic rename map.",
       "startLine": 63073,
       "endLine": 63362,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-101.js",
-      "title": "index-Dp6GxvJu 101 — queryselector",
-      "desc": "Lines 63363-63689. Markers: queryselector(22), classlist(11).",
+      "title": "index-Dp6GxvJu 101 — localized",
+      "desc": "Lines 63363-63689. Markers: localized(27), queryselector(22). Range re-cut through the recorded semantic rename map.",
       "startLine": 63363,
       "endLine": 63689,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1134,7 +1136,7 @@
     {
       "file": "assets/index-Dp6GxvJu-102.js",
       "title": "index-Dp6GxvJu 102 — slice",
-      "desc": "Lines 63690-64032. Markers: slice(9), math(8).",
+      "desc": "Lines 63690-64032. Markers: slice(9), math(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 63690,
       "endLine": 64032,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1142,7 +1144,7 @@
     {
       "file": "assets/index-Dp6GxvJu-103.js",
       "title": "index-Dp6GxvJu 103 — addeventlistener",
-      "desc": "Lines 64033-64233. Markers: addeventlistener(6), classlist(4).",
+      "desc": "Lines 64033-64233. Markers: addeventlistener(6), classlist(4). Range re-cut through the recorded semantic rename map.",
       "startLine": 64033,
       "endLine": 64233,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1150,7 +1152,7 @@
     {
       "file": "assets/index-Dp6GxvJu-104.js",
       "title": "index-Dp6GxvJu 104 — append",
-      "desc": "Oversized single declaration (kept whole). Lines 64234-66234. Markers: append(141), rarity(29).",
+      "desc": "Oversized single declaration (kept whole). Lines 64234-66234. Markers: append(141), rarity(29). Range re-cut through the recorded semantic rename map.",
       "startLine": 64234,
       "endLine": 66234,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1158,7 +1160,7 @@
     {
       "file": "assets/index-Dp6GxvJu-105.js",
       "title": "index-Dp6GxvJu 105 — root",
-      "desc": "Lines 66235-66557. Markers: root(18), append(12).",
+      "desc": "Lines 66235-66557. Markers: root(18), append(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 66235,
       "endLine": 66557,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1166,7 +1168,7 @@
     {
       "file": "assets/index-Dp6GxvJu-106.js",
       "title": "index-Dp6GxvJu 106 — state",
-      "desc": "Lines 66558-66875. Markers: state(21), done(15).",
+      "desc": "Lines 66558-66875. Markers: state(21), done(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 66558,
       "endLine": 66875,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1174,7 +1176,7 @@
     {
       "file": "assets/index-Dp6GxvJu-107.js",
       "title": "index-Dp6GxvJu 107 — skills",
-      "desc": "Lines 66876-67214. Markers: skills(10), gold(8).",
+      "desc": "Lines 66876-67214. Markers: skills(10), gold(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 66876,
       "endLine": 67214,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1198,7 +1200,7 @@
     {
       "file": "assets/index-Dp6GxvJu-110.js",
       "title": "index-Dp6GxvJu 110 — queryselector",
-      "desc": "Lines 67867-68007. Markers: queryselector(5), localstorage(4).",
+      "desc": "Lines 67867-68007. Markers: queryselector(5), localstorage(4). Range re-cut through the recorded semantic rename map.",
       "startLine": 67867,
       "endLine": 68007,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1214,7 +1216,7 @@
     {
       "file": "assets/index-Dp6GxvJu-112.js",
       "title": "index-Dp6GxvJu 112 — append",
-      "desc": "Oversized single declaration (kept whole). Lines 68750-69116. Markers: append(24), username(13).",
+      "desc": "Oversized single declaration (kept whole). Lines 68750-69116. Markers: append(24), username(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 68750,
       "endLine": 69116,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1238,7 +1240,7 @@
     {
       "file": "assets/index-Dp6GxvJu-115.js",
       "title": "index-Dp6GxvJu 115 — replace",
-      "desc": "Lines 69491-69680. Markers: replace(8), filter(7).",
+      "desc": "Lines 69491-69680. Markers: replace(8), filter(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 69491,
       "endLine": 69680,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1246,7 +1248,7 @@
     {
       "file": "assets/index-Dp6GxvJu-116.js",
       "title": "index-Dp6GxvJu 116 — append",
-      "desc": "Oversized single declaration (kept whole). Lines 69681-71217. Markers: append(78), address(43).",
+      "desc": "Oversized single declaration (kept whole). Lines 69681-71217. Markers: append(78), address(43). Range re-cut through the recorded semantic rename map.",
       "startLine": 69681,
       "endLine": 71217,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1254,7 +1256,7 @@
     {
       "file": "assets/index-Dp6GxvJu-117.js",
       "title": "index-Dp6GxvJu 117 — size",
-      "desc": "Lines 71218-71504. Markers: size(33), corner(28).",
+      "desc": "Lines 71218-71504. Markers: size(33), corner(28). Range re-cut through the recorded semantic rename map.",
       "startLine": 71218,
       "endLine": 71504,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1262,7 +1264,7 @@
     {
       "file": "assets/index-Dp6GxvJu-118.js",
       "title": "index-Dp6GxvJu 118 — bomb",
-      "desc": "Lines 71505-71847. Markers: bomb(4), camera(4).",
+      "desc": "Lines 71505-71847. Markers: bomb(4), camera(4). Range re-cut through the recorded semantic rename map.",
       "startLine": 71505,
       "endLine": 71847,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1285,40 +1287,40 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-121.js",
-      "title": "index-Dp6GxvJu 121 — count",
-      "desc": "Lines 73877-74184. Markers: count(13), math(13).",
+      "title": "index-Dp6GxvJu 121 — item",
+      "desc": "Lines 73877-74184. Markers: item(68), count(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 73877,
       "endLine": 74184,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-122.js",
-      "title": "index-Dp6GxvJu 122 — beginpath",
-      "desc": "Oversized single declaration (kept whole). Lines 74185-74574. Markers: beginpath(5), restore(5).",
+      "title": "index-Dp6GxvJu 122 — item",
+      "desc": "Oversized single declaration (kept whole). Lines 74185-74574. Markers: item(17), beginpath(5). Range re-cut through the recorded semantic rename map.",
       "startLine": 74185,
       "endLine": 74574,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-123.js",
-      "title": "index-Dp6GxvJu 123 — beginpath",
-      "desc": "Oversized single declaration (kept whole). Lines 74575-74958. Markers: beginpath(7), addcolorstop(6).",
+      "title": "index-Dp6GxvJu 123 — item",
+      "desc": "Oversized single declaration (kept whole). Lines 74575-74958. Markers: item(15), beginpath(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 74575,
       "endLine": 74958,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-124.js",
-      "title": "index-Dp6GxvJu 124 — math",
-      "desc": "Lines 74959-75154. Markers: math(14), addeventlistener(10).",
+      "title": "index-Dp6GxvJu 124 — item",
+      "desc": "Lines 74959-75154. Markers: item(17), math(14). Range re-cut through the recorded semantic rename map.",
       "startLine": 74959,
       "endLine": 75154,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-125.js",
-      "title": "index-Dp6GxvJu 125 — mag",
-      "desc": "Lines 75155-75326. Markers: mag(9), blockdmg(8).",
+      "title": "index-Dp6GxvJu 125 — item",
+      "desc": "Lines 75155-75326. Markers: item(70), mag(9). Range re-cut through the recorded semantic rename map.",
       "startLine": 75155,
       "endLine": 75326,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1326,15 +1328,15 @@
     {
       "file": "assets/index-Dp6GxvJu-126.js",
       "title": "index-Dp6GxvJu 126 — count",
-      "desc": "Lines 75327-75671. Markers: count(30), armor(25).",
+      "desc": "Lines 75327-75671. Markers: count(30), armor(25). Range re-cut through the recorded semantic rename map.",
       "startLine": 75327,
       "endLine": 75671,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-127.js",
-      "title": "index-Dp6GxvJu 127 — grenade",
-      "desc": "Lines 75672-75692. Markers: grenade(2), missile(2).",
+      "title": "index-Dp6GxvJu 127 — projectile_kind",
+      "desc": "Lines 75672-75692. Markers: projectile_kind(8), grenade(2). Range re-cut through the recorded semantic rename map.",
       "startLine": 75672,
       "endLine": 75692,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1342,7 +1344,7 @@
     {
       "file": "assets/index-Dp6GxvJu-128.js",
       "title": "index-Dp6GxvJu 128 — hint",
-      "desc": "Oversized single declaration (kept whole). Lines 75693-76111. Markers: hint(47), args(42).",
+      "desc": "Oversized single declaration (kept whole). Lines 75693-76111. Markers: hint(47), args(42). Range re-cut through the recorded semantic rename map.",
       "startLine": 75693,
       "endLine": 76111,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1350,31 +1352,31 @@
     {
       "file": "assets/index-Dp6GxvJu-129.js",
       "title": "index-Dp6GxvJu 129 — error",
-      "desc": "Lines 76112-76458. Markers: error(17), result(12).",
+      "desc": "Lines 76112-76458. Markers: error(17), result(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 76112,
       "endLine": 76458,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-130.js",
-      "title": "index-Dp6GxvJu 130 — fillstyle",
-      "desc": "Lines 76459-76658. Markers: fillstyle(12), beginpath(11).",
+      "title": "index-Dp6GxvJu 130 — item",
+      "desc": "Lines 76459-76658. Markers: item(14), block(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 76459,
       "endLine": 76658,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-131.js",
-      "title": "index-Dp6GxvJu 131 — fillstyle",
-      "desc": "Lines 76659-76843. Markers: fillstyle(9), fillrect(8).",
+      "title": "index-Dp6GxvJu 131 — block",
+      "desc": "Lines 76659-76843. Markers: block(9), fillstyle(9). Range re-cut through the recorded semantic rename map.",
       "startLine": 76659,
       "endLine": 76843,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-132.js",
-      "title": "index-Dp6GxvJu 132 — beginpath",
-      "desc": "Lines 76844-77035. Markers: beginpath(9), fill(6).",
+      "title": "index-Dp6GxvJu 132 — item",
+      "desc": "Lines 76844-77035. Markers: item(15), beginpath(9). Range re-cut through the recorded semantic rename map.",
       "startLine": 76844,
       "endLine": 77035,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1382,7 +1384,7 @@
     {
       "file": "assets/index-Dp6GxvJu-133.js",
       "title": "index-Dp6GxvJu 133 — fillstyle",
-      "desc": "Oversized single declaration (kept whole). Lines 77036-79366. Markers: fillstyle(325), beginpath(163).",
+      "desc": "Oversized single declaration (kept whole). Lines 77036-79366. Markers: fillstyle(325), beginpath(163). Range re-cut through the recorded semantic rename map.",
       "startLine": 77036,
       "endLine": 79366,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1390,7 +1392,7 @@
     {
       "file": "assets/index-Dp6GxvJu-134.js",
       "title": "index-Dp6GxvJu 134 — fillstyle",
-      "desc": "Lines 79367-79566. Markers: fillstyle(37), level(13).",
+      "desc": "Lines 79367-79566. Markers: fillstyle(37), level(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 79367,
       "endLine": 79566,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1398,7 +1400,7 @@
     {
       "file": "assets/index-Dp6GxvJu-135.js",
       "title": "index-Dp6GxvJu 135 — textcontent",
-      "desc": "Oversized single declaration (kept whole). Lines 79567-85005. Markers: textcontent(187), math(170).",
+      "desc": "Oversized single declaration (kept whole). Lines 79567-85005. Markers: textcontent(187), math(170). Range re-cut through the recorded semantic rename map.",
       "startLine": 79567,
       "endLine": 85005,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1406,7 +1408,7 @@
     {
       "file": "assets/index-Dp6GxvJu-136.js",
       "title": "index-Dp6GxvJu 136 — lineto",
-      "desc": "Lines 85006-85306. Markers: lineto(43), moveto(11).",
+      "desc": "Lines 85006-85306. Markers: lineto(43), vehicle_kind(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 85006,
       "endLine": 85306,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1414,15 +1416,15 @@
     {
       "file": "assets/index-Dp6GxvJu-137.js",
       "title": "index-Dp6GxvJu 137 — fill",
-      "desc": "Lines 85307-85585. Markers: fill(10), math(10).",
+      "desc": "Lines 85307-85585. Markers: fill(10), math(10). Range re-cut through the recorded semantic rename map.",
       "startLine": 85307,
       "endLine": 85585,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-138.js",
-      "title": "index-Dp6GxvJu 138 — beginpath",
-      "desc": "Lines 85586-85908. Markers: beginpath(8), fill(7).",
+      "title": "index-Dp6GxvJu 138 — item",
+      "desc": "Lines 85586-85908. Markers: item(51), beginpath(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 85586,
       "endLine": 85908,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1430,7 +1432,7 @@
     {
       "file": "assets/index-Dp6GxvJu-139.js",
       "title": "index-Dp6GxvJu 139 — position",
-      "desc": "Lines 85909-86251. Markers: position(33), add(30).",
+      "desc": "Lines 85909-86251. Markers: position(33), add(30). Range re-cut through the recorded semantic rename map.",
       "startLine": 85909,
       "endLine": 86251,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1446,7 +1448,7 @@
     {
       "file": "assets/index-Dp6GxvJu-141.js",
       "title": "index-Dp6GxvJu 141 — group",
-      "desc": "Oversized single declaration (kept whole). Lines 86352-87212. Markers: group(76), map(50).",
+      "desc": "Oversized single declaration (kept whole). Lines 86352-87212. Markers: group(76), map(50). Range re-cut through the recorded semantic rename map.",
       "startLine": 86352,
       "endLine": 87212,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1454,7 +1456,7 @@
     {
       "file": "assets/index-Dp6GxvJu-142.js",
       "title": "index-Dp6GxvJu 142 — math",
-      "desc": "Lines 87213-87364. Markers: math(12), addcolorstop(8).",
+      "desc": "Lines 87213-87364. Markers: math(12), addcolorstop(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 87213,
       "endLine": 87364,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1462,15 +1464,15 @@
     {
       "file": "assets/index-Dp6GxvJu-143.js",
       "title": "index-Dp6GxvJu 143 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 87365-88039. Markers: math(69), keep(34).",
+      "desc": "Oversized single declaration (kept whole). Lines 87365-88039. Markers: math(69), keep(34). Range re-cut through the recorded semantic rename map.",
       "startLine": 87365,
       "endLine": 88039,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-144.js",
-      "title": "index-Dp6GxvJu 144 — bandage",
-      "desc": "Lines 88040-88058. Markers: bandage(1), classname(1).",
+      "title": "index-Dp6GxvJu 144 — item",
+      "desc": "Lines 88040-88058. Markers: item(5), bandage(1). Range re-cut through the recorded semantic rename map.",
       "startLine": 88040,
       "endLine": 88058,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1478,7 +1480,7 @@
     {
       "file": "assets/index-Dp6GxvJu-145.js",
       "title": "index-Dp6GxvJu 145 — append",
-      "desc": "Oversized single declaration (kept whole). Lines 88059-88817. Markers: append(53), say(36).",
+      "desc": "Oversized single declaration (kept whole). Lines 88059-88817. Markers: append(53), say(36). Range re-cut through the recorded semantic rename map.",
       "startLine": 88059,
       "endLine": 88817,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1494,15 +1496,15 @@
     {
       "file": "assets/index-Dp6GxvJu-147.js",
       "title": "index-Dp6GxvJu 147 — say",
-      "desc": "Oversized single declaration (kept whole). Lines 88865-90486. Markers: say(75), append(54).",
+      "desc": "Oversized single declaration (kept whole). Lines 88865-90486. Markers: say(75), append(54). Range re-cut through the recorded semantic rename map.",
       "startLine": 88865,
       "endLine": 90486,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-148.js",
-      "title": "index-Dp6GxvJu 148 — canvas",
-      "desc": "Lines 90487-90810. Markers: canvas(8), drill(8).",
+      "title": "index-Dp6GxvJu 148 — block",
+      "desc": "Lines 90487-90810. Markers: block(14), canvas(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 90487,
       "endLine": 90810,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1518,7 +1520,7 @@
     {
       "file": "assets/index-Dp6GxvJu-150.js",
       "title": "index-Dp6GxvJu 150 — createelement",
-      "desc": "Lines 90983-91312. Markers: createelement(30), textcontent(21).",
+      "desc": "Lines 90983-91312. Markers: createelement(30), textcontent(21). Range re-cut through the recorded semantic rename map.",
       "startLine": 90983,
       "endLine": 91312,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1534,7 +1536,7 @@
     {
       "file": "assets/index-Dp6GxvJu-152.js",
       "title": "index-Dp6GxvJu 152 — audio",
-      "desc": "Lines 91657-91758. Markers: audio(7), enabled(7).",
+      "desc": "Lines 91657-91758. Markers: audio(7), enabled(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 91657,
       "endLine": 91758,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1558,7 +1560,7 @@
     {
       "file": "assets/index-Dp6GxvJu-155.js",
       "title": "index-Dp6GxvJu 155 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 92269-92762. Markers: math(23), hooks(22).",
+      "desc": "Oversized single declaration (kept whole). Lines 92269-92762. Markers: math(23), hooks(22). Range re-cut through the recorded semantic rename map.",
       "startLine": 92269,
       "endLine": 92762,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1566,7 +1568,7 @@
     {
       "file": "assets/index-Dp6GxvJu-156.js",
       "title": "index-Dp6GxvJu 156 — style",
-      "desc": "Lines 92763-93110. Markers: style(25), element(16).",
+      "desc": "Lines 92763-93110. Markers: style(25), element(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 92763,
       "endLine": 93110,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1590,7 +1592,7 @@
     {
       "file": "assets/index-Dp6GxvJu-159.js",
       "title": "index-Dp6GxvJu 159 — box",
-      "desc": "Lines 93691-94035. Markers: box(61), math(29).",
+      "desc": "Lines 93691-94035. Markers: box(61), math(29). Range re-cut through the recorded semantic rename map.",
       "startLine": 93691,
       "endLine": 94035,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1606,7 +1608,7 @@
     {
       "file": "assets/index-Dp6GxvJu-161.js",
       "title": "index-Dp6GxvJu 161 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 94286-95195. Markers: math(49), hooks(26).",
+      "desc": "Oversized single declaration (kept whole). Lines 94286-95195. Markers: math(49), hooks(26). Range re-cut through the recorded semantic rename map.",
       "startLine": 94286,
       "endLine": 95195,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1630,7 +1632,7 @@
     {
       "file": "assets/index-Dp6GxvJu-164.js",
       "title": "index-Dp6GxvJu 164 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 95676-96286. Markers: math(29), model(19).",
+      "desc": "Oversized single declaration (kept whole). Lines 95676-96286. Markers: math(29), model(19). Range re-cut through the recorded semantic rename map.",
       "startLine": 95676,
       "endLine": 96286,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1638,7 +1640,7 @@
     {
       "file": "assets/index-Dp6GxvJu-165.js",
       "title": "index-Dp6GxvJu 165 — math",
-      "desc": "Lines 96287-96622. Markers: math(48), max(26).",
+      "desc": "Lines 96287-96622. Markers: math(48), max(26). Range re-cut through the recorded semantic rename map.",
       "startLine": 96287,
       "endLine": 96622,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1646,7 +1648,7 @@
     {
       "file": "assets/index-Dp6GxvJu-166.js",
       "title": "index-Dp6GxvJu 166 — setattribute",
-      "desc": "Lines 96623-96911. Markers: setattribute(9), color(8).",
+      "desc": "Lines 96623-96911. Markers: setattribute(9), color(8). Range re-cut through the recorded semantic rename map.",
       "startLine": 96623,
       "endLine": 96911,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1654,7 +1656,7 @@
     {
       "file": "assets/index-Dp6GxvJu-167.js",
       "title": "index-Dp6GxvJu 167 — classlist",
-      "desc": "Lines 96912-97084. Markers: classlist(15), root(14).",
+      "desc": "Lines 96912-97084. Markers: classlist(15), root(14). Range re-cut through the recorded semantic rename map.",
       "startLine": 96912,
       "endLine": 97084,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1662,7 +1664,7 @@
     {
       "file": "assets/index-Dp6GxvJu-168.js",
       "title": "index-Dp6GxvJu 168 — host",
-      "desc": "Oversized single declaration (kept whole). Lines 97085-97490. Markers: host(16), preview(16).",
+      "desc": "Oversized single declaration (kept whole). Lines 97085-97490. Markers: host(16), preview(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 97085,
       "endLine": 97490,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1670,7 +1672,7 @@
     {
       "file": "assets/index-Dp6GxvJu-169.js",
       "title": "index-Dp6GxvJu 169 — root",
-      "desc": "Lines 97491-97765. Markers: root(10), math(8).",
+      "desc": "Lines 97491-97765. Markers: root(10), vehicle_kind(9). Range re-cut through the recorded semantic rename map.",
       "startLine": 97491,
       "endLine": 97765,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1678,7 +1680,7 @@
     {
       "file": "assets/index-Dp6GxvJu-170.js",
       "title": "index-Dp6GxvJu 170 — math",
-      "desc": "Lines 97766-98053. Markers: math(39), pitch(16).",
+      "desc": "Lines 97766-98053. Markers: math(39), pitch(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 97766,
       "endLine": 98053,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1686,7 +1688,7 @@
     {
       "file": "assets/index-Dp6GxvJu-171.js",
       "title": "index-Dp6GxvJu 171 — createelement",
-      "desc": "Lines 98054-98150. Markers: createelement(7), style(5).",
+      "desc": "Lines 98054-98150. Markers: createelement(7), style(5). Range re-cut through the recorded semantic rename map.",
       "startLine": 98054,
       "endLine": 98150,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1694,7 +1696,7 @@
     {
       "file": "assets/index-Dp6GxvJu-172.js",
       "title": "index-Dp6GxvJu 172 — states",
-      "desc": "Oversized single declaration (kept whole). Lines 98151-98662. Markers: states(18), position(16).",
+      "desc": "Oversized single declaration (kept whole). Lines 98151-98662. Markers: states(18), position(16). Range re-cut through the recorded semantic rename map.",
       "startLine": 98151,
       "endLine": 98662,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1710,7 +1712,7 @@
     {
       "file": "assets/index-Dp6GxvJu-174.js",
       "title": "index-Dp6GxvJu 174 — style",
-      "desc": "Lines 98881-99113. Markers: style(14), touch(11).",
+      "desc": "Lines 98881-99113. Markers: style(14), touch(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 98881,
       "endLine": 99113,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1718,7 +1720,7 @@
     {
       "file": "assets/index-Dp6GxvJu-175.js",
       "title": "index-Dp6GxvJu 175 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 99114-99745. Markers: math(46), lineto(18).",
+      "desc": "Oversized single declaration (kept whole). Lines 99114-99745. Markers: math(46), vehicle_kind(28). Range re-cut through the recorded semantic rename map.",
       "startLine": 99114,
       "endLine": 99745,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1734,7 +1736,7 @@
     {
       "file": "assets/index-Dp6GxvJu-177.js",
       "title": "index-Dp6GxvJu 177 — connect",
-      "desc": "Lines 100089-100333. Markers: connect(21), math(18).",
+      "desc": "Lines 100089-100333. Markers: connect(21), math(18). Range re-cut through the recorded semantic rename map.",
       "startLine": 100089,
       "endLine": 100333,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1742,7 +1744,7 @@
     {
       "file": "assets/index-Dp6GxvJu-178.js",
       "title": "index-Dp6GxvJu 178 — preferences",
-      "desc": "Oversized single declaration (kept whole). Lines 100334-101472. Markers: preferences(31), peers(24).",
+      "desc": "Oversized single declaration (kept whole). Lines 100334-101472. Markers: preferences(31), peers(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 100334,
       "endLine": 101472,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1750,7 +1752,7 @@
     {
       "file": "assets/index-Dp6GxvJu-179.js",
       "title": "index-Dp6GxvJu 179 — language",
-      "desc": "Lines 101473-101596. Markers: language(10), model(7).",
+      "desc": "Lines 101473-101596. Markers: language(10), model(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 101473,
       "endLine": 101596,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1765,8 +1767,8 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-181.js",
-      "title": "index-Dp6GxvJu 181 — math",
-      "desc": "Lines 102138-102418. Markers: math(11), steam(10).",
+      "title": "index-Dp6GxvJu 181 — block",
+      "desc": "Lines 102138-102418. Markers: block(18), math(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 102138,
       "endLine": 102418,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1782,7 +1784,7 @@
     {
       "file": "assets/index-Dp6GxvJu-183.js",
       "title": "index-Dp6GxvJu 183 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 102542-103292. Markers: math(143), random(65).",
+      "desc": "Oversized single declaration (kept whole). Lines 102542-103292. Markers: math(143), random(65). Range re-cut through the recorded semantic rename map.",
       "startLine": 102542,
       "endLine": 103292,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1790,7 +1792,7 @@
     {
       "file": "assets/index-Dp6GxvJu-184.js",
       "title": "index-Dp6GxvJu 184 — copy",
-      "desc": "Lines 103293-103511. Markers: copy(12), f32(12).",
+      "desc": "Lines 103293-103511. Markers: copy(12), f32(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 103293,
       "endLine": 103511,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1798,7 +1800,7 @@
     {
       "file": "assets/index-Dp6GxvJu-185.js",
       "title": "index-Dp6GxvJu 185 — model",
-      "desc": "Lines 103512-103759. Markers: model(17), remaining(12).",
+      "desc": "Lines 103512-103759. Markers: model(17), remaining(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 103512,
       "endLine": 103759,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1806,7 +1808,7 @@
     {
       "file": "assets/index-Dp6GxvJu-186.js",
       "title": "index-Dp6GxvJu 186 — queryselector",
-      "desc": "Oversized single declaration (kept whole). Lines 103760-104465. Markers: queryselector(32), root(31).",
+      "desc": "Oversized single declaration (kept whole). Lines 103760-104465. Markers: queryselector(32), root(31). Range re-cut through the recorded semantic rename map.",
       "startLine": 103760,
       "endLine": 104465,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1821,8 +1823,8 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-188.js",
-      "title": "index-Dp6GxvJu 188 — math",
-      "desc": "Lines 104813-104910. Markers: math(11), surface(6).",
+      "title": "index-Dp6GxvJu 188 — animal_kind",
+      "desc": "Lines 104813-104910. Markers: animal_kind(15), math(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 104813,
       "endLine": 104910,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1830,7 +1832,7 @@
     {
       "file": "assets/index-Dp6GxvJu-189.js",
       "title": "index-Dp6GxvJu 189 — add",
-      "desc": "Oversized single declaration (kept whole). Lines 104911-105262. Markers: add(115), position(13).",
+      "desc": "Oversized single declaration (kept whole). Lines 104911-105262. Markers: add(115), position(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 104911,
       "endLine": 105262,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1838,7 +1840,7 @@
     {
       "file": "assets/index-Dp6GxvJu-190.js",
       "title": "index-Dp6GxvJu 190 — add",
-      "desc": "Lines 105263-105453. Markers: add(40), rotation(7).",
+      "desc": "Lines 105263-105453. Markers: add(40), rotation(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 105263,
       "endLine": 105453,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1854,7 +1856,7 @@
     {
       "file": "assets/index-Dp6GxvJu-192.js",
       "title": "index-Dp6GxvJu 192 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 105656-106150. Markers: math(79), group(49).",
+      "desc": "Oversized single declaration (kept whole). Lines 105656-106150. Markers: math(79), group(49). Range re-cut through the recorded semantic rename map.",
       "startLine": 105656,
       "endLine": 106150,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1870,7 +1872,7 @@
     {
       "file": "assets/index-Dp6GxvJu-194.js",
       "title": "index-Dp6GxvJu 194 — addeventlistener",
-      "desc": "Oversized single declaration (kept whole). Lines 106282-106816. Markers: addeventlistener(27), math(17).",
+      "desc": "Oversized single declaration (kept whole). Lines 106282-106816. Markers: addeventlistener(27), math(17). Range re-cut through the recorded semantic rename map.",
       "startLine": 106282,
       "endLine": 106816,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1886,7 +1888,7 @@
     {
       "file": "assets/index-Dp6GxvJu-196.js",
       "title": "index-Dp6GxvJu 196 — localworker",
-      "desc": "Oversized single declaration (kept whole). Lines 106875-107260. Markers: localworker(15), error(14).",
+      "desc": "Oversized single declaration (kept whole). Lines 106875-107260. Markers: localworker(15), error(14). Range re-cut through the recorded semantic rename map.",
       "startLine": 106875,
       "endLine": 107260,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1894,7 +1896,7 @@
     {
       "file": "assets/index-Dp6GxvJu-197.js",
       "title": "index-Dp6GxvJu 197 — math",
-      "desc": "Lines 107261-107568. Markers: math(14), floor(7).",
+      "desc": "Lines 107261-107568. Markers: math(14), floor(7). Range re-cut through the recorded semantic rename map.",
       "startLine": 107261,
       "endLine": 107568,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1902,15 +1904,15 @@
     {
       "file": "assets/index-Dp6GxvJu-198.js",
       "title": "index-Dp6GxvJu 198 — mesh",
-      "desc": "Lines 107569-107910. Markers: mesh(31), lids(18).",
+      "desc": "Lines 107569-107910. Markers: mesh(31), lids(18). Range re-cut through the recorded semantic rename map.",
       "startLine": 107569,
       "endLine": 107910,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-199.js",
-      "title": "index-Dp6GxvJu 199 — push",
-      "desc": "Lines 107911-107974. Markers: push(4), ste(2).",
+      "title": "index-Dp6GxvJu 199 — block",
+      "desc": "Lines 107911-107974. Markers: block(19), push(4). Range re-cut through the recorded semantic rename map.",
       "startLine": 107911,
       "endLine": 107974,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1918,7 +1920,7 @@
     {
       "file": "assets/index-Dp6GxvJu-200.js",
       "title": "index-Dp6GxvJu 200 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 107975-110572. Markers: math(222), floor(90).",
+      "desc": "Oversized single declaration (kept whole). Lines 107975-110572. Markers: math(222), floor(90). Range re-cut through the recorded semantic rename map.",
       "startLine": 107975,
       "endLine": 110572,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1941,8 +1943,8 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-203.js",
-      "title": "index-Dp6GxvJu 203 — sun",
-      "desc": "Oversized single declaration (kept whole). Lines 110935-111368. Markers: sun(27), math(24).",
+      "title": "index-Dp6GxvJu 203 — lerp",
+      "desc": "Oversized single declaration (kept whole). Lines 110935-111368. Markers: lerp(34), sun(27). Range re-cut through the recorded semantic rename map.",
       "startLine": 110935,
       "endLine": 111368,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1950,7 +1952,7 @@
     {
       "file": "assets/index-Dp6GxvJu-204.js",
       "title": "index-Dp6GxvJu 204 — filter",
-      "desc": "Lines 111369-111634. Markers: filter(12), gain(12).",
+      "desc": "Lines 111369-111634. Markers: filter(12), gain(12). Range re-cut through the recorded semantic rename map.",
       "startLine": 111369,
       "endLine": 111634,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1958,7 +1960,7 @@
     {
       "file": "assets/index-Dp6GxvJu-205.js",
       "title": "index-Dp6GxvJu 205 — gain",
-      "desc": "Lines 111635-111979. Markers: gain(26), connect(20).",
+      "desc": "Lines 111635-111979. Markers: gain(26), connect(20). Range re-cut through the recorded semantic rename map.",
       "startLine": 111635,
       "endLine": 111979,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1974,7 +1976,7 @@
     {
       "file": "assets/index-Dp6GxvJu-207.js",
       "title": "index-Dp6GxvJu 207 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 112199-113866. Markers: math(103), life(71).",
+      "desc": "Oversized single declaration (kept whole). Lines 112199-113866. Markers: math(103), life(71). Range re-cut through the recorded semantic rename map.",
       "startLine": 112199,
       "endLine": 113866,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -1998,7 +2000,7 @@
     {
       "file": "assets/index-Dp6GxvJu-210.js",
       "title": "index-Dp6GxvJu 210 — float32array",
-      "desc": "Lines 114785-115016. Markers: float32array(21), math(18).",
+      "desc": "Lines 114785-115016. Markers: float32array(21), math(18). Range re-cut through the recorded semantic rename map.",
       "startLine": 114785,
       "endLine": 115016,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2006,7 +2008,7 @@
     {
       "file": "assets/index-Dp6GxvJu-211.js",
       "title": "index-Dp6GxvJu 211 — math",
-      "desc": "Lines 115017-115291. Markers: math(16), vel(15).",
+      "desc": "Lines 115017-115291. Markers: math(16), vel(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 115017,
       "endLine": 115291,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2014,7 +2016,7 @@
     {
       "file": "assets/index-Dp6GxvJu-212.js",
       "title": "index-Dp6GxvJu 212 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 115292-116541. Markers: math(72), life(68).",
+      "desc": "Oversized single declaration (kept whole). Lines 115292-116541. Markers: math(72), life(68). Range re-cut through the recorded semantic rename map.",
       "startLine": 115292,
       "endLine": 116541,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2030,7 +2032,7 @@
     {
       "file": "assets/index-Dp6GxvJu-214.js",
       "title": "index-Dp6GxvJu 214 — gain",
-      "desc": "Oversized single declaration (kept whole). Lines 116644-120269. Markers: gain(242), dur(171).",
+      "desc": "Oversized single declaration (kept whole). Lines 116644-120269. Markers: gain(242), dur(171). Range re-cut through the recorded semantic rename map.",
       "startLine": 116644,
       "endLine": 120269,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2038,7 +2040,7 @@
     {
       "file": "assets/index-Dp6GxvJu-215.js",
       "title": "index-Dp6GxvJu 215 — beat",
-      "desc": "Lines 120270-120595. Markers: beat(15), chords(15).",
+      "desc": "Lines 120270-120595. Markers: beat(15), chords(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 120270,
       "endLine": 120595,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2046,7 +2048,7 @@
     {
       "file": "assets/index-Dp6GxvJu-216.js",
       "title": "index-Dp6GxvJu 216 — connect",
-      "desc": "Lines 120596-120908. Markers: connect(21), bus(14).",
+      "desc": "Lines 120596-120908. Markers: connect(21), bus(14). Range re-cut through the recorded semantic rename map.",
       "startLine": 120596,
       "endLine": 120908,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2062,15 +2064,15 @@
     {
       "file": "assets/index-Dp6GxvJu-218.js",
       "title": "index-Dp6GxvJu 218 — pos",
-      "desc": "Oversized single declaration (kept whole). Lines 121071-121564. Markers: pos(77), math(59).",
+      "desc": "Oversized single declaration (kept whole). Lines 121071-121564. Markers: pos(77), math(59). Range re-cut through the recorded semantic rename map.",
       "startLine": 121071,
       "endLine": 121564,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-219.js",
-      "title": "index-Dp6GxvJu 219 — map",
-      "desc": "Lines 121565-121896. Markers: map(24), mesh(19).",
+      "title": "index-Dp6GxvJu 219 — item",
+      "desc": "Lines 121565-121896. Markers: item(34), map(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 121565,
       "endLine": 121896,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2085,16 +2087,16 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-221.js",
-      "title": "index-Dp6GxvJu 221 — position",
-      "desc": "Lines 122209-122489. Markers: position(9), userdata(8).",
+      "title": "index-Dp6GxvJu 221 — item",
+      "desc": "Lines 122209-122489. Markers: item(56), position(9). Range re-cut through the recorded semantic rename map.",
       "startLine": 122209,
       "endLine": 122489,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
     },
     {
       "file": "assets/index-Dp6GxvJu-222.js",
-      "title": "index-Dp6GxvJu 222 — position",
-      "desc": "Lines 122490-122741. Markers: position(21), math(18).",
+      "title": "index-Dp6GxvJu 222 — item",
+      "desc": "Lines 122490-122741. Markers: item(33), projectile_kind(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 122490,
       "endLine": 122741,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2102,7 +2104,7 @@
     {
       "file": "assets/index-Dp6GxvJu-223.js",
       "title": "index-Dp6GxvJu 223 — pos",
-      "desc": "Oversized single declaration (kept whole). Lines 122742-123158. Markers: pos(47), vel(24).",
+      "desc": "Oversized single declaration (kept whole). Lines 122742-123158. Markers: pos(47), projectile_kind(39). Range re-cut through the recorded semantic rename map.",
       "startLine": 122742,
       "endLine": 123158,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2110,7 +2112,7 @@
     {
       "file": "assets/index-Dp6GxvJu-224.js",
       "title": "index-Dp6GxvJu 224 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 123159-124691. Markers: math(89), hooks(62).",
+      "desc": "Oversized single declaration (kept whole). Lines 123159-124691. Markers: math(89), item(78). Range re-cut through the recorded semantic rename map.",
       "startLine": 123159,
       "endLine": 124691,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2118,7 +2120,7 @@
     {
       "file": "assets/index-Dp6GxvJu-225.js",
       "title": "index-Dp6GxvJu 225 — position",
-      "desc": "Lines 124692-124970. Markers: position(30), color(13).",
+      "desc": "Lines 124692-124970. Markers: position(30), color(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 124692,
       "endLine": 124970,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2126,7 +2128,7 @@
     {
       "file": "assets/index-Dp6GxvJu-226.js",
       "title": "index-Dp6GxvJu 226 — group",
-      "desc": "Oversized single declaration (kept whole). Lines 124971-125583. Markers: group(73), math(48).",
+      "desc": "Oversized single declaration (kept whole). Lines 124971-125583. Markers: group(73), math(48). Range re-cut through the recorded semantic rename map.",
       "startLine": 124971,
       "endLine": 125583,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2142,7 +2144,7 @@
     {
       "file": "assets/index-Dp6GxvJu-228.js",
       "title": "index-Dp6GxvJu 228 — math",
-      "desc": "Lines 125893-126220. Markers: math(33), group(17).",
+      "desc": "Lines 125893-126220. Markers: math(33), group(17). Range re-cut through the recorded semantic rename map.",
       "startLine": 125893,
       "endLine": 126220,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2158,7 +2160,7 @@
     {
       "file": "assets/index-Dp6GxvJu-230.js",
       "title": "index-Dp6GxvJu 230 — math",
-      "desc": "Lines 126428-126742. Markers: math(20), position(13).",
+      "desc": "Lines 126428-126742. Markers: math(20), position(13). Range re-cut through the recorded semantic rename map.",
       "startLine": 126428,
       "endLine": 126742,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2166,7 +2168,7 @@
     {
       "file": "assets/index-Dp6GxvJu-231.js",
       "title": "index-Dp6GxvJu 231 — math",
-      "desc": "Lines 126743-127030. Markers: math(17), mode(11).",
+      "desc": "Lines 126743-127030. Markers: math(17), mode(11). Range re-cut through the recorded semantic rename map.",
       "startLine": 126743,
       "endLine": 127030,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2174,7 +2176,7 @@
     {
       "file": "assets/index-Dp6GxvJu-232.js",
       "title": "index-Dp6GxvJu 232 — math",
-      "desc": "Lines 127031-127348. Markers: math(16), fillstyle(8).",
+      "desc": "Lines 127031-127348. Markers: math(16), block(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 127031,
       "endLine": 127348,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2182,7 +2184,7 @@
     {
       "file": "assets/index-Dp6GxvJu-233.js",
       "title": "index-Dp6GxvJu 233 — math",
-      "desc": "Oversized single declaration (kept whole). Lines 127349-127913. Markers: math(66), sin(21).",
+      "desc": "Oversized single declaration (kept whole). Lines 127349-127913. Markers: math(66), block(28). Range re-cut through the recorded semantic rename map.",
       "startLine": 127349,
       "endLine": 127913,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2221,8 +2223,8 @@
     },
     {
       "file": "assets/index-Dp6GxvJu-238.js",
-      "title": "index-Dp6GxvJu 238 — root",
-      "desc": "Lines 129584-129781. Markers: root(14), textcontent(14).",
+      "title": "index-Dp6GxvJu 238 — item",
+      "desc": "Lines 129584-129781. Markers: item(35), block(24). Range re-cut through the recorded semantic rename map.",
       "startLine": 129584,
       "endLine": 129781,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2230,7 +2232,7 @@
     {
       "file": "assets/index-Dp6GxvJu-239.js",
       "title": "index-Dp6GxvJu 239 — player",
-      "desc": "Oversized single declaration (kept whole). Lines 129782-139050. Markers: player(406), f32(278).",
+      "desc": "Oversized single declaration (kept whole). Lines 129782-139050. Markers: player(406), f32(278). Range re-cut through the recorded semantic rename map.",
       "startLine": 129782,
       "endLine": 139050,
       "sourceFile": "readable/assets/index-Dp6GxvJu.pretty.js"
@@ -2273,7 +2275,7 @@
     {
       "file": "assets/terrain-pool-Dvsi82A--01.js",
       "title": "terrain-pool-Dvsi82A- 01 — x2fef85",
-      "desc": "Lines 1-293. Markers: x2fef85(16), x1108(15).",
+      "desc": "Lines 1-293. Markers: x2fef85(16), x1108(15). Range re-cut through the recorded semantic rename map.",
       "startLine": 1,
       "endLine": 293,
       "sourceFile": "readable/assets/terrain-pool-Dvsi82A-.pretty.js"

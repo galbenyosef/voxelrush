@@ -1,12 +1,12 @@
-// index-Dp6GxvJu 132 — beginpath
+// index-Dp6GxvJu 132 — item
 // Lines 76844-77035 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function EX(n, e) {
   const t = new Set([
-      E.COOKED_PORK,
-      E.COOKED_CHICKEN,
-      E.COOKED_MUTTON,
-      E.COOKED_BEEF,
-      E.COOKED_CAMEL,
+      ITEM.COOKED_PORK,
+      ITEM.COOKED_CHICKEN,
+      ITEM.COOKED_MUTTON,
+      ITEM.COOKED_BEEF,
+      ITEM.COOKED_CAMEL,
     ]).has(e),
     i = (...h) => h.includes(e),
     s = (h, d, u = "") => {
@@ -44,8 +44,8 @@ function EX(n, e) {
           n.arc(u + m, f + y, p * 0.62, 0, Math.PI * 2),
           n.fill());
     };
-  if (i(E.RAW_BEEF, E.COOKED_BEEF, E.RAW_CAMEL, E.COOKED_CAMEL)) {
-    const h = i(E.RAW_CAMEL, E.COOKED_CAMEL),
+  if (i(ITEM.RAW_BEEF, ITEM.COOKED_BEEF, ITEM.RAW_CAMEL, ITEM.COOKED_CAMEL)) {
+    const h = i(ITEM.RAW_CAMEL, ITEM.COOKED_CAMEL),
       d = t ? (h ? "#6a3520" : "#8a4a28") : h ? "#a64640" : "#c8423b";
     if (
       (s(
@@ -94,7 +94,7 @@ function EX(n, e) {
     }
     return;
   }
-  if (i(E.RAW_PORK, E.COOKED_PORK)) {
+  if (i(ITEM.RAW_PORK, ITEM.COOKED_PORK)) {
     (s(
       [
         [6, 22],
@@ -130,7 +130,7 @@ function EX(n, e) {
       t && o(14, 20, 28, 15));
     return;
   }
-  if (i(E.RAW_MUTTON, E.COOKED_MUTTON)) {
+  if (i(ITEM.RAW_MUTTON, ITEM.COOKED_MUTTON)) {
     (a(20, 19, 33, 6, 3),
       s(
         [

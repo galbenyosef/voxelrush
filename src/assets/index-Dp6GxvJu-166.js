@@ -84,7 +84,7 @@ class lJ {
       if (!a || !a.content || i.has(a.group.key)) continue;
       i.add(a.group.key);
       const { group: r, content: l } = a,
-        c = `${r.facing}|${r.width}x${r.height}|${r.cells.map((d) => `${d.x},${d.y},${d.z}`).join(";")}|${l.text}|${l.color}|${l.fx}|${z.language}`,
+        c = `${r.facing}|${r.width}x${r.height}|${r.cells.map((d) => `${d.x},${d.y},${d.z}`).join(";")}|${l.text}|${l.color}|${l.fx}|${SETTINGS.language}`,
         h = this.displays.get(r.key);
       (h == null ? void 0 : h.sig) !== c &&
         (h && this.dispose(h), this.displays.set(r.key, this.build(r, l, c)));
@@ -151,7 +151,7 @@ class lJ {
 function cJ(n, e, t, i) {
   var m;
   (m = document.getElementById("screen-editor")) == null || m.remove();
-  const s = z.language === "en",
+  const s = SETTINGS.language === "en",
     o = { ...(n ?? { text: "", color: $g[0], fx: "static" }) },
     a = document.createElement("div");
   ((a.id = "screen-editor"),

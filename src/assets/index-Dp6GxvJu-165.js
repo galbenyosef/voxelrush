@@ -43,7 +43,7 @@ function DI(n) {
   return { text: t, color: i, fx: s };
 }
 function sJ(n, e, t, i, s) {
-  if (n(t, i, s) !== v.LED_SCREEN) return null;
+  if (n(t, i, s) !== BLOCK.LED_SCREEN) return null;
   const o = e(t, i, s) & 3,
     [a, r] = xo[o],
     l = r,
@@ -70,7 +70,7 @@ function sJ(n, e, t, i, s) {
         N < 0 ||
         N > 127 ||
         (d.add(H),
-        n(L, N, D) === v.LED_SCREEN &&
+        n(L, N, D) === BLOCK.LED_SCREEN &&
           (e(L, N, D) & 3) === o &&
           u.push([L, N, D]));
     }
@@ -276,7 +276,7 @@ function aJ(n, e, t) {
   return (g(b, !0), { canvas: a, repeat: 1 });
 }
 function BI(n, e, t) {
-  if (((n = { ...n, text: iJ(n.text, z.language) }), n.fx === "panel"))
+  if (((n = { ...n, text: iJ(n.text, SETTINGS.language) }), n.fx === "panel"))
     return aJ(n, e, t);
   const i = Math.min(32, 2048 / Math.max(1, e, t)),
     s = Math.max(1, e * i),

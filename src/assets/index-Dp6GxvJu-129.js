@@ -4,7 +4,7 @@ let cb = null;
 function sX() {
   return (
     cb ||
-      (cb = de
+      (cb = BLOCKS
         .filter((n) => IC.includes(n.id))
         .map((n) => n.name)
         .sort()),
@@ -60,7 +60,7 @@ function oX(n, e) {
       : {
           value: n,
           all: [],
-          ghost: ` ${z.language === "ru" ? (o.hintRu ?? o.hint) : o.hint}`,
+          ghost: ` ${SETTINGS.language === "ru" ? (o.hintRu ?? o.hint) : o.hint}`,
         };
   const h =
       "words" in r
@@ -135,7 +135,7 @@ function mI() {
 let r_ = 0;
 function vo(n = "light", e = 70) {
   var s, o;
-  if (!z.haptics) return;
+  if (!SETTINGS.haptics) return;
   const t = performance.now();
   if (t - r_ < e) return;
   r_ = t;
@@ -150,7 +150,7 @@ function vo(n = "light", e = 70) {
 }
 function aX(n) {
   var t, i;
-  if (!z.haptics) return;
+  if (!SETTINGS.haptics) return;
   const e = u1();
   e && Wp() && ap(e, "6.1")
     ? (i = (t = e.HapticFeedback) == null ? void 0 : t.notificationOccurred) ==

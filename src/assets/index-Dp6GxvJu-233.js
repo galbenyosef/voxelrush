@@ -6,7 +6,7 @@ function pse(n) {
   const i =
       matchMedia("(pointer: coarse)").matches ||
       Math.min(innerWidth, innerHeight) < 600,
-    s = i || z.quality === "low",
+    s = i || SETTINGS.quality === "low",
     o = matchMedia("(prefers-reduced-motion: reduce)").matches,
     a = new oy({
       antialias: !s,
@@ -39,45 +39,45 @@ function pse(n) {
       (at < 4.6 ||
         (Math.abs(ne - 4) < 1.2 && Ee > 0) ||
         (at < 5.4 && ((ne * 7 + Ee * 13) & 3) === 0)) &&
-        f(ne, -1, Ee, v.GRAVEL);
+        f(ne, -1, Ee, BLOCK.GRAVEL);
     }
   for (let ne = -8; ne <= 8; ne++) {
     if (ne === 0 || ne === 1) continue;
     const Ee = -5 - Math.round(Math.abs(ne) * Math.abs(ne) * 0.05);
-    (f(ne, 0, Ee, v.SANDSTONE_SMOOTH),
+    (f(ne, 0, Ee, BLOCK.SANDSTONE_SMOOTH),
       Math.abs(ne) > 2 &&
         Math.abs(ne) < 7 &&
-        f(ne, 1, Ee, ne & 1 ? v.STAIR_SANDSTONE : v.SANDSTONE_SMOOTH, 2));
+        f(ne, 1, Ee, ne & 1 ? BLOCK.STAIR_SANDSTONE : BLOCK.SANDSTONE_SMOOTH, 2));
   }
   for (const [ne, Ee, at, st] of [
-    [-6, -3, v.MILITARY_CHEST, 2],
-    [-5, -3, v.MILITARY_CHEST, 1],
-    [-7, -2, v.BARREL, 1],
-    [-6, -2, v.BARREL, 1],
-    [6, -3, v.MILITARY_CHEST, 1],
-    [7, -3, v.BARREL, 2],
-    [5, -4, v.HAY_BALE, 1],
-    [8, -2, v.MILITARY_CHEST, 1],
+    [-6, -3, BLOCK.MILITARY_CHEST, 2],
+    [-5, -3, BLOCK.MILITARY_CHEST, 1],
+    [-7, -2, BLOCK.BARREL, 1],
+    [-6, -2, BLOCK.BARREL, 1],
+    [6, -3, BLOCK.MILITARY_CHEST, 1],
+    [7, -3, BLOCK.BARREL, 2],
+    [5, -4, BLOCK.HAY_BALE, 1],
+    [8, -2, BLOCK.MILITARY_CHEST, 1],
   ])
     for (let Ut = 0; Ut < st; Ut++)
-      f(ne, Ut, Ee, at, at === v.MILITARY_CHEST ? 6 : 0);
+      f(ne, Ut, Ee, at, at === BLOCK.MILITARY_CHEST ? 6 : 0);
   const p = { x: 4, z: 2 };
-  f(p.x, 0, p.z, v.CAMPFIRE);
+  f(p.x, 0, p.z, BLOCK.CAMPFIRE);
   const m = new k(fl + p.x + 0.5, u, pl + p.z + 0.5);
-  (f(6, 0, 1, v.WOOD_BENCH, 3),
-    f(5, 0, 4, v.WOOD_BENCH, 2),
-    f(-5, 0, 1, v.MAP_TABLE, 1),
-    f(-6, 0, 2, v.WOOD_CHAIR, 1));
+  (f(6, 0, 1, BLOCK.WOOD_BENCH, 3),
+    f(5, 0, 4, BLOCK.WOOD_BENCH, 2),
+    f(-5, 0, 1, BLOCK.MAP_TABLE, 1),
+    f(-6, 0, 2, BLOCK.WOOD_CHAIR, 1));
   for (const [ne, Ee] of [
     [-4, 3],
     [7, -1],
   ])
-    (f(ne, 0, Ee, v.FENCE_WOOD),
-      f(ne, 1, Ee, v.FENCE_WOOD),
-      f(ne, 2, Ee, v.LANTERN));
-  for (let ne = 0; ne < 7; ne++) f(-9, ne, -8, v.FENCE_WOOD);
+    (f(ne, 0, Ee, BLOCK.FENCE_WOOD),
+      f(ne, 1, Ee, BLOCK.FENCE_WOOD),
+      f(ne, 2, Ee, BLOCK.LANTERN));
+  for (let ne = 0; ne < 7; ne++) f(-9, ne, -8, BLOCK.FENCE_WOOD);
   for (let ne = -2; ne <= 4; ne++)
-    (f(-10, 0, ne, v.BARBED_WIRE), f(10, 0, ne + 1, v.BARBED_WIRE));
+    (f(-10, 0, ne, BLOCK.BARBED_WIRE), f(10, 0, ne + 1, BLOCK.BARBED_WIRE));
   for (let ne = 0; ne < 70; ne++) {
     const Ee = ne * 2.39996,
       at = 7 + (ne % 9) * 0.6,
@@ -85,16 +85,16 @@ function pse(n) {
       Ut = Math.round(Math.sin(Ee) * at);
     (Ut > -4 && Math.abs(st) < 5) ||
       (h.getBlock(fl + st, u, pl + Ut) === 0 &&
-        h.getBlock(fl + st, u - 1, pl + Ut) === v.GRASS &&
+        h.getBlock(fl + st, u - 1, pl + Ut) === BLOCK.GRASS &&
         f(
           st,
           0,
           Ut,
           ne % 7 === 0
-            ? v.FLOWER_YELLOW + 0
+            ? BLOCK.FLOWER_YELLOW + 0
             : ne % 11 === 0
-              ? v.FLOWER_RED
-              : v.TALL_GRASS,
+              ? BLOCK.FLOWER_RED
+              : BLOCK.TALL_GRASS,
         ));
   }
   const y = Bk(32),
@@ -191,7 +191,7 @@ function pse(n) {
       l.add(Ut),
       I.push(Ut));
   }
-  const O = Hp(P.TANK, 0, 7),
+  const O = Hp(VEHICLE_KIND.TANK, 0, 7),
     F = O.getObjectByName("tank-turret") ?? new pe();
   (O.position.set(_.x - 9.5, u, _.z - 10),
     (O.rotation.y = 0.75),
@@ -199,7 +199,7 @@ function pse(n) {
       ((ne.castShadow = !0), (ne.receiveShadow = !0));
     }),
     l.add(O));
-  const X = Hp(P.HELI, 0, 3);
+  const X = Hp(VEHICLE_KIND.HELI, 0, 3);
   X.name = "menu-helicopter";
   const Q = X.getObjectByName("helicopter-rotor");
   l.add(X);
@@ -229,7 +229,7 @@ function pse(n) {
     (J.mesh.rotation.y = 0.5),
     l.add(J.mesh));
   let re = [];
-  const Ce = () => (Me == null ? void 0 : Me.id) ?? z.nick ?? "menu";
+  const Ce = () => (Me == null ? void 0 : Me.id) ?? SETTINGS.nick ?? "menu";
   function Re(ne, Ee, at, st, Ut, xi, ri = "") {
     const vt = i3[ne],
       rt = ec(3951150);
@@ -240,7 +240,7 @@ function pse(n) {
         rt.head,
         rt.legL,
         rt.legR,
-        ne === 0 ? [E.HELMET_2, E.VEST_2] : ne % 2 ? [E.VEST_2] : [E.HELMET_2],
+        ne === 0 ? [ITEM.HELMET_2, ITEM.VEST_2] : ne % 2 ? [ITEM.VEST_2] : [ITEM.HELMET_2],
       ),
       E0(rt, vt.held, y.texture),
       xi)
@@ -272,7 +272,7 @@ function pse(n) {
     re = [];
     const ne =
       (Me == null ? void 0 : Me.username) ??
-      (z.nick || (z.language === "en" ? "You" : "Вы"));
+      (SETTINGS.nick || (SETTINGS.language === "en" ? "You" : "Вы"));
     (re.push(Re(0, Ot.character, Ot.custom, ne, "you", Ot.weapons[257])),
       (((at = Ks.squad) == null ? void 0 : at.members) ?? [])
         .filter((st) => st.id !== (Me == null ? void 0 : Me.id))

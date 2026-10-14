@@ -279,7 +279,7 @@ function Xd(n, e, t, i, s, o, a, r, l, c = 16766826) {
       0.08,
       Xi,
     ),
-      n.quad(-a / 2, -r / 2, a / 2, r / 2, 0.085, e, kI(l, Mu)),
+      n.quad(-a / 2, -r / 2, a / 2, r / 2, 0.085, e, kI(l, SLOT_GAMES)),
       n.box(
         -a / 2 - 0.12,
         r / 2 + 0.12,

@@ -157,7 +157,7 @@ class sse {
     (i &&
       (i.textContent = this.cockpitNightVision
         ? "JET NVG"
-        : this.moduleId === E.THERMAL_GOGGLES
+        : this.moduleId === ITEM.THERMAL_GOGGLES
           ? "THERMAL"
           : "NVG"),
       s &&

@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 131 — fillstyle
+// index-Dp6GxvJu 131 — block
 // Lines 76659-76843 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function SX(n, e) {
   const t = (s, o, a = "", r = 1) => {
@@ -12,10 +12,10 @@ function SX(n, e) {
     i = (s, o, a, r, l) => {
       ((n.fillStyle = l), n.fillRect(s, o, a, r));
     };
-  if (e === v.DOOR || e === v.METAL_DOOR || e === v.ARMORED_DOOR) {
+  if (e === BLOCK.DOOR || e === BLOCK.METAL_DOOR || e === BLOCK.ARMORED_DOOR) {
     n.save();
-    const s = e === v.DOOR,
-      o = e === v.ARMORED_DOOR,
+    const s = e === BLOCK.DOOR,
+      o = e === BLOCK.ARMORED_DOOR,
       [a, r, l, c] = s
         ? ["#5e3f20", "#a8763f", "#8d6132", "#c08b50"]
         : o
@@ -57,7 +57,7 @@ function SX(n, e) {
     for (const h of [7, 31]) i(10.5, h, 2, 3, s ? "#3a2814" : "#1b2125");
     return (n.restore(), !0);
   }
-  if (e === v.LIGHTNING_ROD) {
+  if (e === BLOCK.LIGHTNING_ROD) {
     n.save();
     const s = n.createLinearGradient(17, 0, 23, 0);
     (s.addColorStop(0, "#8d4a24"),
@@ -91,7 +91,7 @@ function SX(n, e) {
       !0
     );
   }
-  if (e === v.SNOW_LAYER) {
+  if (e === BLOCK.SNOW_LAYER) {
     (t(
       [
         [5, 22],
@@ -130,7 +130,7 @@ function SX(n, e) {
       n.fillRect(s, o, 2, 1);
     return !0;
   }
-  if (e === v.RADIO_RELAY) {
+  if (e === BLOCK.RADIO_RELAY) {
     (i(9, 18, 22, 17, "#3d4a43"),
       i(9, 18, 22, 2, "#5d6d63"),
       i(12, 22, 11, 7, "#14261f"),
@@ -150,7 +150,7 @@ function SX(n, e) {
         n.stroke());
     return !0;
   }
-  if (e === v.IRON_FENCE) {
+  if (e === BLOCK.IRON_FENCE) {
     const s = "#2e3338",
       o = "#7c868f";
     (i(5, 7, 4, 30, s), i(31, 7, 4, 30, s));

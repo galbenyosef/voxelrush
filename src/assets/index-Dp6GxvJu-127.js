@@ -1,21 +1,21 @@
-// index-Dp6GxvJu 127 — grenade
+// index-Dp6GxvJu 127 — projectile_kind
 // Lines 75672-75692 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function iX(n) {
   switch (n) {
-    case pt.GRENADE:
-    case pt.GRENADE_40MM:
+    case PROJECTILE_KIND.GRENADE:
+    case PROJECTILE_KIND.GRENADE_40MM:
       return Ft.GRENADE;
-    case pt.ROCKET:
+    case PROJECTILE_KIND.ROCKET:
       return Ft.ROCKET;
-    case pt.SHELL:
+    case PROJECTILE_KIND.SHELL:
       return Ft.SHELL;
-    case pt.BOMB:
+    case PROJECTILE_KIND.BOMB:
       return Ft.AIR_BOMB;
-    case pt.MISSILE:
+    case PROJECTILE_KIND.MISSILE:
       return Ft.MISSILE;
-    case pt.TOMAHAWK:
+    case PROJECTILE_KIND.TOMAHAWK:
       return Ft.TOMAHAWK;
-    case pt.NUCLEAR:
+    case PROJECTILE_KIND.NUCLEAR:
       return Ft.NUCLEAR;
     default:
       return Ft.AUTO;

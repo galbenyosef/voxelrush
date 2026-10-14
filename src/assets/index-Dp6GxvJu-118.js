@@ -341,5 +341,5 @@ function Ij(n) {
 }
 function Pj(n) {
   const e = N4[n];
-  return e ? (z.language === "en" ? e[2] : e[1]) : "";
+  return e ? (SETTINGS.language === "en" ? e[2] : e[1]) : "";
 }

@@ -214,7 +214,7 @@ class pG {
   }
 }
 const Ek = 4,
-  Hr = (n) => n === v.CHEST || n === v.MILITARY_CHEST,
+  Hr = (n) => n === BLOCK.CHEST || n === BLOCK.MILITARY_CHEST,
   mG = 231,
   PT = 232,
   O2 = 233,
@@ -276,7 +276,7 @@ const Ek = 4,
       envelope: [0.03, 0, 0.12, 0.97, 0.775, 0.88],
     };
   })(),
-  Cp = (n) => (n === v.MILITARY_CHEST ? bG : vG);
+  Cp = (n) => (n === BLOCK.MILITARY_CHEST ? bG : vG);
 function Tk(n, e) {
   let [t, i, s, o, a, r] = n;
   for (let l = 0; l < (e & 3); l++) [t, s, o, r] = [1 - r, t, 1 - s, o];
@@ -303,5 +303,5 @@ function KS(n, e, t = "all") {
 }
 const Tw = (n, e) => [Tk(Cp(n).envelope, e)];
 function wG(n) {
-  return n === v.WOOD_CHAIR || n === v.WOOD_BENCH || n === v.SOFA;
+  return n === BLOCK.WOOD_CHAIR || n === BLOCK.WOOD_BENCH || n === BLOCK.SOFA;
 }

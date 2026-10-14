@@ -32,7 +32,7 @@ function of(n) {
       (e.textBaseline = "middle"),
       (e.fillStyle = "#8ff0d8"),
       e.fillText(
-        `${z.language === "en" ? "ALLY" : "СВОЙ"} · ${Zs(n.type)}`,
+        `${SETTINGS.language === "en" ? "ALLY" : "СВОЙ"} · ${Zs(n.type)}`,
         o,
         31,
       ),
@@ -78,8 +78,8 @@ function of(n) {
       e.strokeText(Zs(n.type), o, 25),
       e.fillText(Zs(n.type), o, 25));
   ((e.fillStyle = "rgba(4,12,18,0.92)"), e.fillRect(o - 100, a, 200, 12));
-  const l = Ne(n.hp / n.maxHp, 0, 1),
-    c = n.hpBar.userData.relation === "enemy" || n.ownerName === Mo;
+  const l = clamp(n.hp / n.maxHp, 0, 1),
+    c = n.hpBar.userData.relation === "enemy" || n.ownerName === RAID_LABEL;
   ((e.fillStyle = c
     ? l > 0.5
       ? "#e05040"

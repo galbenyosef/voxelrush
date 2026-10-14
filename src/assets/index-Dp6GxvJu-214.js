@@ -194,14 +194,14 @@ class fie {
       ((m.type = e.type ?? "lowpass"),
         (m.Q.value = e.Q ?? 0.7),
         m.frequency.setValueAtTime(
-          Ne(s ? e.f : (e.cut ?? e.f * 4), 20, 2e4),
+          clamp(s ? e.f : (e.cut ?? e.f * 4), 20, 2e4),
           a,
         ),
         s &&
           e.to &&
           e.to !== e.f &&
           m.frequency.exponentialRampToValueAtTime(
-            Ne(e.to, 20, 2e4),
+            clamp(e.to, 20, 2e4),
             a + e.dur * (e.sweep ?? 1),
           ),
         h.connect(m),
@@ -304,15 +304,15 @@ class fie {
     if (!r || !l) return;
     const c = i ? Math.min(a.range, 58) : a.range;
     if (t >= c || s <= 0.001) return;
-    const h = Ne((c - t) / (c * 0.34), 0, 1),
-      d = (1 / (1 + t * 0.05)) * h * Ne(s, 0, 1),
+    const h = clamp((c - t) / (c * 0.34), 0, 1),
+      d = (1 / (1 + t * 0.05)) * h * clamp(s, 0, 1),
       u = Math.min(1, t / 45),
       f = 0.965 + Math.random() * 0.07,
       p = 0.9 + Math.random() * 0.2,
       m = Math.min(t / 343, 1),
       y = m + 3.5,
       g = this.transient(r.createStereoPanner(), y);
-    ((g.pan.value = Ne(o, -1, 1)), g.connect(l));
+    ((g.pan.value = clamp(o, -1, 1)), g.connect(l));
     let b = g;
     if (i) {
       const ee = this.transient(r.createBiquadFilter(), y);
@@ -496,8 +496,8 @@ class fie {
     this.flybyReadyAt = o.currentTime + (s ? 0.18 : 0.045);
     const a = o.createStereoPanner(),
       r = o.currentTime + Math.min(0.6, i);
-    (a.pan.setValueAtTime(Ne(t, -1, 1), r),
-      a.pan.linearRampToValueAtTime(Ne(t * 0.4, -1, 1), r + 0.16),
+    (a.pan.setValueAtTime(clamp(t, -1, 1), r),
+      a.pan.linearRampToValueAtTime(clamp(t * 0.4, -1, 1), r + 0.16),
       a.connect(this.master));
     const l = (s ? 0.35 : 0.48) * Math.pow(1 - e / (s ? 20 : 8), 1.3),
       c = r - o.currentTime;
@@ -544,15 +544,15 @@ class fie {
   }
   explosion(e, t = 1) {
     if (e >= 300 || t <= 0.001 || this.volumeMul === 0) return;
-    const s = Ne((300 - e) / 90, 0, 1),
-      o = (1 / (1 + e * 0.022)) * s * Ne(t, 0, 1);
+    const s = clamp((300 - e) / 90, 0, 1),
+      o = (1 / (1 + e * 0.022)) * s * clamp(t, 0, 1);
     this.ensure();
     const a = this.ctx,
       r = this.master;
     if (!a || !r) return;
     const l = e / 343,
-      c = Ne(e / 180, 0, 1),
-      h = 1 - Ne(e / 45, 0, 1),
+      c = clamp(e / 180, 0, 1),
+      h = 1 - clamp(e / 45, 0, 1),
       d = 0.93 + Math.random() * 0.14,
       u = this.transient(a.createBiquadFilter(), l + 5);
     ((u.type = "lowpass"),
@@ -672,18 +672,18 @@ class fie {
     const a = this.ctx,
       r = this.master;
     if (!a || !r) return;
-    const l = Ne((o - t) / 90, 0, 1),
-      c = (1 / (1 + t * 0.022)) * l * Ne(i, 0, 1),
+    const l = clamp((o - t) / 90, 0, 1),
+      c = (1 / (1 + t * 0.022)) * l * clamp(i, 0, 1),
       h = t / 343,
-      d = Ne(t / 180, 0, 1),
-      u = 1 - Ne(t / 45, 0, 1),
+      d = clamp(t / 180, 0, 1),
+      u = 1 - clamp(t / 45, 0, 1),
       f = this.transient(a.createBiquadFilter(), h + 8);
     ((f.type = "lowpass"),
       (f.frequency.value = 14e3 / (1 + d * 9)),
       (f.Q.value = 0.5),
       f.connect(r));
     const p = (S) => this.layer({ ...S, delay: (S.delay ?? 0) + h, dest: f }),
-      m = Ne(s / 5, 0.4, 4),
+      m = clamp(s / 5, 0.4, 4),
       y = 1 / Math.sqrt(m),
       g = Math.pow(m, 0.35),
       b = (S, M = 1) => {
@@ -994,8 +994,8 @@ class fie {
   }
   nuclearExplosion(e, t = 1) {
     if (e >= 1150 || t <= 0.001 || this.volumeMul === 0) return;
-    const s = Ne((1150 - e) / 260, 0, 1),
-      o = (1 / (1 + e * 0.012)) * s * Ne(t, 0, 1);
+    const s = clamp((1150 - e) / 260, 0, 1),
+      o = (1 / (1 + e * 0.012)) * s * clamp(t, 0, 1);
     (this.ensure(),
       this.layer({
         src: "brown",
@@ -1052,8 +1052,8 @@ class fie {
   }
   concussion(e, t) {
     if ((this.ensure(), !this.ctx || !this.master)) return;
-    const i = Ne(e, 0, 1),
-      s = Ne(t / 1e3, 0.35, 4.2);
+    const i = clamp(e, 0, 1),
+      s = clamp(t / 1e3, 0.35, 4.2);
     (this.muffle ||
       ((this.muffle = this.ctx.createBiquadFilter()),
       (this.muffle.type = "lowpass"),
@@ -1171,17 +1171,17 @@ class fie {
     this.ensure();
     const i = 0.93 + Math.random() * 0.14,
       s = Math.min(1.4, t);
-    if (e === v.SAVANNA_GRASS || e === v.DESERT_GRASS) {
+    if (e === BLOCK.SAVANNA_GRASS || e === BLOCK.DESERT_GRASS) {
       (this.noise(0.105, 3200 * i, 0.1 * s, "highpass"),
         this.noise(0.065, 440 * i, 0.095 * s));
       return;
     }
-    if (e === v.SNOW || e === v.SNOW_LAYER) {
+    if (e === BLOCK.SNOW || e === BLOCK.SNOW_LAYER) {
       (this.noise(0.13, 1300 * i, 0.1 * s, "bandpass"),
         this.noise(0.07, 240, 0.08 * s));
       return;
     }
-    if (e === v.RSTONE || e === v.STAIR_RSTONE) {
+    if (e === BLOCK.RSTONE || e === BLOCK.STAIR_RSTONE) {
       (this.noise(0.075, 170 * i, 0.2 * s, "lowpass"),
         this.noise(0.038, 1050 * i, 0.12 * s, "bandpass"),
         this.noise(0.09, 2800 * i, 0.028 * s, "highpass"));
@@ -1281,7 +1281,7 @@ class fie {
     this.ensure();
     const t = 0.9 + Math.random() * 0.2,
       i = (s) => this.layer(s);
-    if (e === v.SAVANNA_GRASS || e === v.DESERT_GRASS) {
+    if (e === BLOCK.SAVANNA_GRASS || e === BLOCK.DESERT_GRASS) {
       (i({
         src: "white",
         type: "highpass",
@@ -1717,7 +1717,7 @@ class fie {
         dur: 0.05,
         gain: 0.05 + e * 0.04,
       }),
-      t === v.GOLD_ORE &&
+      t === BLOCK.GOLD_ORE &&
         this.layer({
           src: "triangle",
           f: 1250 + Math.random() * 180,
@@ -1866,7 +1866,7 @@ class fie {
   }
   heartbeat(e) {
     this.ensure();
-    const t = 0.08 + Ne(e, 0, 1) * 0.42;
+    const t = 0.08 + clamp(e, 0, 1) * 0.42;
     (this.tone(62, 38, 0.13, t, "sine"),
       this.tone(48, 30, 0.16, t * 0.7, "sine", 0.17));
   }
@@ -2229,7 +2229,7 @@ class fie {
     const l = this.transient(o.createStereoPanner(), i + 1.5),
       c = this.transient(o.createBiquadFilter(), i + 1.5);
     if (
-      ((l.pan.value = Ne(t, -0.95, 0.95)),
+      ((l.pan.value = clamp(t, -0.95, 0.95)),
       (c.type = "lowpass"),
       (c.frequency.value = 14e3 / (1 + e * 0.05)),
       (c.Q.value = 0.5),
@@ -2237,7 +2237,7 @@ class fie {
       this.reverbIn && e > 6)
     ) {
       const h = this.transient(o.createGain(), i + 1.5);
-      ((h.gain.value = Ne(0.08 + e * 0.006, 0.08, 0.4)),
+      ((h.gain.value = clamp(0.08 + e * 0.006, 0.08, 0.4)),
         c.connect(h).connect(this.reverbIn));
     }
     return { out: c, gain: r };
@@ -2495,7 +2495,7 @@ class fie {
     this.ensure();
     const o = this.spookBus(e, t, 0.8, 32);
     if (!o) return;
-    const a = o.gain * Ne(0.45 + s * 0.12, 0.45, 1.2),
+    const a = o.gain * clamp(0.45 + s * 0.12, 0.45, 1.2),
       r = 0.93 + Math.random() * 0.14;
     (this.layer({
       src: "sine",
@@ -2929,7 +2929,7 @@ class fie {
       d = this.transient(a.createStereoPanner(), h + 1.5),
       u = this.transient(a.createBiquadFilter(), h + 1.5);
     if (
-      ((d.pan.value = Ne(o, -0.9, 0.9)),
+      ((d.pan.value = clamp(o, -0.9, 0.9)),
       (u.type = "lowpass"),
       (u.frequency.value = 11e3 / (1 + s * 0.045)),
       (u.Q.value = 0.5),
@@ -2937,7 +2937,7 @@ class fie {
       this.reverbIn && s > 4)
     ) {
       const m = this.transient(a.createGain(), h + 1.5);
-      ((m.gain.value = Ne(0.03 + s * 0.0045, 0.03, 0.24)),
+      ((m.gain.value = clamp(0.03 + s * 0.0045, 0.03, 0.24)),
         u.connect(m).connect(this.reverbIn));
     }
     const f = a.createBufferSource(),
@@ -3080,7 +3080,7 @@ class fie {
   animalVoice(e, t = 0, i = 0, s = 0, o = "idle", a = !1) {
     if ((this.ensure(), Gb[e] !== void 0)) {
       (this.playAnimalCall(e, o, i, a, t, s),
-        e === Nt.CHICKEN && o !== "idle" && this.chickenFlutter(t));
+        e === ANIMAL_KIND.CHICKEN && o !== "idle" && this.chickenFlutter(t));
       return;
     }
     const r = gie(
@@ -3096,7 +3096,7 @@ class fie {
     let m = 40,
       y = 1;
     switch (e) {
-      case Nt.COW: {
+      case ANIMAL_KIND.COW: {
         if (((m = 70), u || f)) {
           p.push({
             dur: f ? 1.3 : 0.8,
@@ -3213,7 +3213,7 @@ class fie {
         });
         break;
       }
-      case Nt.SHEEP: {
+      case ANIMAL_KIND.SHEEP: {
         m = 55;
         const g = u ? 0.55 : f ? 1 : 0.65 + r() * 0.35;
         p.push({
@@ -3280,7 +3280,7 @@ class fie {
         });
         break;
       }
-      case Nt.PIG: {
+      case ANIMAL_KIND.PIG: {
         if (((m = 45), u || f)) {
           p.push({
             dur: f ? 0.9 : 0.55,
@@ -3393,7 +3393,7 @@ class fie {
         }
         break;
       }
-      case Nt.CHICKEN: {
+      case ANIMAL_KIND.CHICKEN: {
         if (((m = 36), u || f)) {
           (p.push({
             dur: f ? 0.45 : 0.3,
@@ -3508,7 +3508,7 @@ class fie {
           });
         break;
       }
-      case Nt.CAMEL: {
+      case ANIMAL_KIND.CAMEL: {
         m = 60;
         const g = u ? 0.8 : f ? 1.4 : 1 + r() * 0.5;
         (p.push({
@@ -3602,7 +3602,7 @@ class fie {
             }));
         break;
       }
-      case Nt.SHARK: {
+      case ANIMAL_KIND.SHARK: {
         const g = Math.max(0, 0.3 * (1 - t / 34));
         if (g <= 0.01) return;
         u || f
@@ -3612,7 +3612,7 @@ class fie {
             this.tone(62 * l, 44 * l, 0.8, g * 0.18, "sine"));
         return;
       }
-      case Nt.FISH: {
+      case ANIMAL_KIND.FISH: {
         const g = Math.max(0, 0.3 * (1 - t / 30));
         if (g <= 0.01) return;
         const b = u || f ? 3 : 1;

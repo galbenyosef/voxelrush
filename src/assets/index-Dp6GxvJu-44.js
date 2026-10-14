@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 44 — math
+// index-Dp6GxvJu 44 — block
 // Lines 41810-42130 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function jG(n, e, t, i, s, o, a) {
   const r = _y((rn(e + 971, s.gx, s.gz) * 4294967296) >>> 0),
@@ -8,8 +8,8 @@ function jG(n, e, t, i, s, o, a) {
       const A = b - l,
         _ = M - c;
       if (A < 0 || A >= Pe || _ < 0 || _ >= Pe || S < 0 || S >= Kt) return;
-      const C = Ri(A, S, _);
-      (T || n[C] === v.AIR) && (n[C] = x);
+      const C = packColor(A, S, _);
+      (T || n[C] === BLOCK.AIR) && (n[C] = x);
     },
     d = (b, S, M, x, T, A = !1) => {
       const _ = A ? 1 : Math.max(1, x - 1);
@@ -26,17 +26,17 @@ function jG(n, e, t, i, s, o, a) {
     const b = r();
     if (b < 0.3) {
       const C = 6 + Math.floor(r() * 4);
-      for (let L = 1; L <= C; L++) h(s.x, a + L, s.z, v.BIRCH_LOG);
+      for (let L = 1; L <= C; L++) h(s.x, a + L, s.z, BLOCK.BIRCH_LOG);
       const R = () =>
-        r() < 0.88 ? v.AUTUMN_LEAVES_YELLOW : v.AUTUMN_LEAVES_ORANGE;
+        r() < 0.88 ? BLOCK.AUTUMN_LEAVES_YELLOW : BLOCK.AUTUMN_LEAVES_ORANGE;
       (d(s.x, a + C - 1, s.z, 2, R),
         d(s.x, a + C + 1, s.z, 1, R),
-        h(s.x, a + C + 2, s.z, v.AUTUMN_LEAVES_YELLOW));
+        h(s.x, a + C + 2, s.z, BLOCK.AUTUMN_LEAVES_YELLOW));
       return;
     }
     if (b < 0.36) {
       const C = 5 + Math.floor(r() * 4);
-      for (let R = 1; R <= C; R++) h(s.x, a + R, s.z, v.DEAD_LOG);
+      for (let R = 1; R <= C; R++) h(s.x, a + R, s.z, BLOCK.DEAD_LOG);
       for (const [R, L] of [
         [1, 0],
         [-1, 0],
@@ -45,25 +45,25 @@ function jG(n, e, t, i, s, o, a) {
       ]) {
         if (r() < 0.45) continue;
         const N = a + 3 + Math.floor(r() * (C - 3));
-        (h(s.x + R, N, s.z + L, v.DEAD_LOG),
-          r() < 0.6 && h(s.x + R * 2, N + 1, s.z + L * 2, v.DEAD_LOG));
+        (h(s.x + R, N, s.z + L, BLOCK.DEAD_LOG),
+          r() < 0.6 && h(s.x + R * 2, N + 1, s.z + L * 2, BLOCK.DEAD_LOG));
       }
       return;
     }
     const S =
         r() < 0.52
-          ? v.AUTUMN_LEAVES_ORANGE
+          ? BLOCK.AUTUMN_LEAVES_ORANGE
           : r() < 0.72
-            ? v.AUTUMN_LEAVES_RED
-            : v.AUTUMN_LEAVES_YELLOW,
+            ? BLOCK.AUTUMN_LEAVES_RED
+            : BLOCK.AUTUMN_LEAVES_YELLOW,
       M = hw[Math.floor(r() * hw.length)],
       x = () => (r() < 0.8 ? S : M),
       T = 4 + Math.floor(r() * 4);
-    for (let C = 1; C <= T; C++) h(s.x, a + C, s.z, v.LOG);
+    for (let C = 1; C <= T; C++) h(s.x, a + C, s.z, BLOCK.LOG);
     const A = r() < 0.5 ? -1 : 1,
       _ = r() < 0.5 ? -1 : 1;
-    (h(s.x + A, a + T - 1, s.z, v.LOG),
-      r() < 0.62 && h(s.x, a + T - 2, s.z + _, v.LOG),
+    (h(s.x + A, a + T - 1, s.z, BLOCK.LOG),
+      r() < 0.62 && h(s.x, a + T - 2, s.z + _, BLOCK.LOG),
       d(s.x, a + T, s.z, r() < 0.5 ? 3 : 2, x),
       d(s.x + A * 2, a + T, s.z, 2, x),
       r() < 0.72 && d(s.x, a + T - 1, s.z + _ * 2, 2, x));
@@ -71,14 +71,14 @@ function jG(n, e, t, i, s, o, a) {
   }
   if (o === "desert") {
     const b = 2 + Math.floor(r() * 3);
-    for (let S = 1; S <= b; S++) h(s.x, a + S, s.z, v.CACTUS);
+    for (let S = 1; S <= b; S++) h(s.x, a + S, s.z, BLOCK.CACTUS);
     return;
   }
   if (o === "savanna") {
     const b = 5 + Math.floor(r() * 3),
       S = r() < 0.5 ? -1 : 1;
     for (let M = 1; M <= b; M++)
-      h(s.x + (M > 3 ? S : 0), a + M, s.z, v.DESERT_LOG);
+      h(s.x + (M > 3 ? S : 0), a + M, s.z, BLOCK.DESERT_LOG);
     for (const [M, x] of [
       [S * 3, 0],
       [-S * 2, 2],
@@ -90,9 +90,9 @@ function jG(n, e, t, i, s, o, a) {
           s.x + Math.round((M * A) / 3),
           T - 2 + Math.floor(A / 2),
           s.z + Math.round((x * A) / 3),
-          v.DESERT_LOG,
+          BLOCK.DESERT_LOG,
         );
-      d(s.x + M, T, s.z + x, 3, v.DESERT_LEAVES, !0);
+      d(s.x + M, T, s.z + x, 3, BLOCK.DESERT_LEAVES, !0);
     }
     return;
   }
@@ -103,7 +103,7 @@ function jG(n, e, t, i, s, o, a) {
     o === "alpine"
   ) {
     const b = 7 + Math.floor(r() * 5);
-    for (let S = 1; S <= b; S++) h(s.x, a + S, s.z, v.PINE_LOG);
+    for (let S = 1; S <= b; S++) h(s.x, a + S, s.z, BLOCK.PINE_LOG);
     for (let S = 2; S <= b; S++) {
       const M = b - S,
         x = S === b ? 1 : Math.min(3, 1 + Math.floor(M / 2));
@@ -112,9 +112,9 @@ function jG(n, e, t, i, s, o, a) {
           for (let A = -x; A <= x; A++)
             Math.abs(T) + Math.abs(A) > x + 1 ||
               (T === 0 && A === 0) ||
-              h(s.x + T, a + S, s.z + A, v.PINE_LEAVES);
+              h(s.x + T, a + S, s.z + A, BLOCK.PINE_LEAVES);
     }
-    h(s.x, a + b + 1, s.z, v.PINE_LEAVES);
+    h(s.x, a + b + 1, s.z, BLOCK.PINE_LEAVES);
     return;
   }
   if (o === "jungle" || o === "islands" || o === "oasis") {
@@ -129,9 +129,9 @@ function jG(n, e, t, i, s, o, a) {
       T = S ? 2 : 1;
     for (let A = 1; A <= x; A++)
       for (let _ = 0; _ < T; _++)
-        for (let C = 0; C < T; C++) h(s.x + _, a + A, s.z + C, v.TROPICAL_LOG);
+        for (let C = 0; C < T; C++) h(s.x + _, a + A, s.z + C, BLOCK.TROPICAL_LOG);
     if (M) {
-      h(s.x, a + x + 1, s.z, v.TROPICAL_LEAVES);
+      h(s.x, a + x + 1, s.z, BLOCK.TROPICAL_LEAVES);
       const A = [
         [1, 0],
         [-1, 0],
@@ -146,10 +146,10 @@ function jG(n, e, t, i, s, o, a) {
         const R = Math.abs(_) + Math.abs(C) === 2 ? 3 : 4;
         for (let L = 1; L <= R; L++) {
           const N = L === R ? 1 : 0;
-          h(s.x + _ * L, a + x - N, s.z + C * L, v.TROPICAL_LEAVES);
+          h(s.x + _ * L, a + x - N, s.z + C * L, BLOCK.TROPICAL_LEAVES);
         }
       }
-      d(s.x, a + x, s.z, 2, v.TROPICAL_LEAVES, !0);
+      d(s.x, a + x, s.z, 2, BLOCK.TROPICAL_LEAVES, !0);
     } else if (S) {
       for (const [_, C] of [
         [-1, 0],
@@ -157,10 +157,10 @@ function jG(n, e, t, i, s, o, a) {
         [0, -1],
         [0, 2],
       ])
-        (h(s.x + _, a + 1, s.z + C, v.TROPICAL_LOG),
-          r() < 0.65 && h(s.x + _ * 2, a + 1, s.z + C * 2, v.TROPICAL_LOG));
-      (d(s.x, a + x - 2, s.z, 4, v.TROPICAL_LEAVES, !0),
-        d(s.x + 1, a + x + 1, s.z + 1, 3, v.TROPICAL_LEAVES, !0),
+        (h(s.x + _, a + 1, s.z + C, BLOCK.TROPICAL_LOG),
+          r() < 0.65 && h(s.x + _ * 2, a + 1, s.z + C * 2, BLOCK.TROPICAL_LOG));
+      (d(s.x, a + x - 2, s.z, 4, BLOCK.TROPICAL_LEAVES, !0),
+        d(s.x + 1, a + x + 1, s.z + 1, 3, BLOCK.TROPICAL_LEAVES, !0),
         [
           [1, 0],
           [-1, 0],
@@ -171,8 +171,8 @@ function jG(n, e, t, i, s, o, a) {
           const L = a + x - 5 - (R % 2) * 3,
             N = 2 + Math.floor(r() * 3);
           for (let D = 1; D <= N; D++)
-            h(s.x + _ * D, L + Math.floor(D / 3), s.z + C * D, v.TROPICAL_LOG);
-          d(s.x + _ * N, L + 1, s.z + C * N, 2, v.TROPICAL_LEAVES, !0);
+            h(s.x + _ * D, L + Math.floor(D / 3), s.z + C * D, BLOCK.TROPICAL_LOG);
+          d(s.x + _ * N, L + 1, s.z + C * N, 2, BLOCK.TROPICAL_LEAVES, !0);
         }));
       for (const [_, C] of [
         [-3, -2],
@@ -181,28 +181,28 @@ function jG(n, e, t, i, s, o, a) {
       ]) {
         const R = 1 + Math.floor(r() * 3);
         for (let L = 1; L <= R; L++)
-          h(s.x + _, a + x - 2 - L, s.z + C, v.TROPICAL_LEAVES);
+          h(s.x + _, a + x - 2 - L, s.z + C, BLOCK.TROPICAL_LEAVES);
       }
     } else {
       const A = r() < 0.32 ? (r() < 0.5 ? -1 : 1) : 0,
         _ = A === 0 && r() < 0.45 ? (r() < 0.5 ? -1 : 1) : 0;
       if (
-        ((A || _) && h(s.x + A, a + x, s.z + _, v.TROPICAL_LOG),
-        d(s.x + A, a + x, s.z + _, 3, v.TROPICAL_LEAVES, !0),
-        d(s.x - _, a + x + 2, s.z + A, 2, v.TROPICAL_LEAVES, !0),
+        ((A || _) && h(s.x + A, a + x, s.z + _, BLOCK.TROPICAL_LOG),
+        d(s.x + A, a + x, s.z + _, 3, BLOCK.TROPICAL_LEAVES, !0),
+        d(s.x - _, a + x + 2, s.z + A, 2, BLOCK.TROPICAL_LEAVES, !0),
         r() < 0.75)
       ) {
         const C = r() < 0.5 ? -3 : 3,
           R = r() < 0.5 ? -1 : 1;
-        (h(s.x + C, a + x - 1, s.z + R, v.TROPICAL_LEAVES),
-          h(s.x + C, a + x - 2, s.z + R, v.TROPICAL_LEAVES));
+        (h(s.x + C, a + x - 1, s.z + R, BLOCK.TROPICAL_LEAVES),
+          h(s.x + C, a + x - 2, s.z + R, BLOCK.TROPICAL_LEAVES));
       }
     }
     return;
   }
   const u = (o === "forest" || o === "plains") && r() < 0.035,
-    f = u ? v.SAKURA_LOG : v.LOG,
-    p = u ? v.SAKURA_LEAVES : v.LEAVES,
+    f = u ? BLOCK.SAKURA_LOG : BLOCK.LOG,
+    p = u ? BLOCK.SAKURA_LEAVES : BLOCK.LEAVES,
     m = 4 + Math.floor(r() * (o === "forest" ? 5 : 4));
   for (let b = 1; b <= m; b++) h(s.x, a + b, s.z, f);
   const y = r() < 0.5 ? -1 : 1,
@@ -232,7 +232,7 @@ function XG(n, e, t, i) {
       if (g <= $o + (y === "desert" ? 0 : 1) || g >= Kt - 29) continue;
       const b = Lp(e, m.x, m.z);
       (b &&
-        (![v.GRASS, v.SAVANNA_GRASS].includes(_k(b, m.x, m.z, g)) ||
+        (![BLOCK.GRASS, BLOCK.SAVANNA_GRASS].includes(_k(b, m.x, m.z, g)) ||
           g < Rk(b, m.x, m.z))) ||
         jG(n, e, t, i, m, y, g);
     }
@@ -270,38 +270,38 @@ const ZG = {
     autumn: 0.05,
   },
   JG = {
-    savanna: [v.FLOWER_YELLOW],
-    yellowstone: [v.FLOWER_YELLOW, v.FLOWER_WHITE],
+    savanna: [BLOCK.FLOWER_YELLOW],
+    yellowstone: [BLOCK.FLOWER_YELLOW, BLOCK.FLOWER_WHITE],
     volcanic: [],
-    alpine: [v.FLOWER_BLUE],
-    oasis: [v.FLOWER_WHITE],
-    islands: [v.FLOWER_PINK],
-    plains: [v.FLOWER_RED, v.FLOWER_YELLOW, v.FLOWER_WHITE, v.FLOWER_PINK],
-    forest: [v.FLOWER_BLUE, v.FLOWER_WHITE, v.FLOWER_PINK],
-    jungle: [v.FLOWER_PINK, v.FLOWER_RED, v.FLOWER_YELLOW],
-    winter: [v.FLOWER_WHITE, v.FLOWER_BLUE],
-    mountains: [v.FLOWER_BLUE, v.FLOWER_WHITE],
-    autumn: [v.FLOWER_YELLOW, v.FLOWER_WHITE],
+    alpine: [BLOCK.FLOWER_BLUE],
+    oasis: [BLOCK.FLOWER_WHITE],
+    islands: [BLOCK.FLOWER_PINK],
+    plains: [BLOCK.FLOWER_RED, BLOCK.FLOWER_YELLOW, BLOCK.FLOWER_WHITE, BLOCK.FLOWER_PINK],
+    forest: [BLOCK.FLOWER_BLUE, BLOCK.FLOWER_WHITE, BLOCK.FLOWER_PINK],
+    jungle: [BLOCK.FLOWER_PINK, BLOCK.FLOWER_RED, BLOCK.FLOWER_YELLOW],
+    winter: [BLOCK.FLOWER_WHITE, BLOCK.FLOWER_BLUE],
+    mountains: [BLOCK.FLOWER_BLUE, BLOCK.FLOWER_WHITE],
+    autumn: [BLOCK.FLOWER_YELLOW, BLOCK.FLOWER_WHITE],
     desert: [],
     ocean: [],
   },
   eW = {
     savanna: [],
-    yellowstone: [v.RASPBERRY_BUSH_RIPE, v.BLUEBERRY_BUSH_RIPE],
+    yellowstone: [BLOCK.RASPBERRY_BUSH_RIPE, BLOCK.BLUEBERRY_BUSH_RIPE],
     volcanic: [],
-    alpine: [v.BLUEBERRY_BUSH_RIPE],
+    alpine: [BLOCK.BLUEBERRY_BUSH_RIPE],
     oasis: [],
-    islands: [v.BLACKBERRY_BUSH_RIPE],
-    plains: [v.RASPBERRY_BUSH_RIPE, v.BLACKBERRY_BUSH_RIPE],
+    islands: [BLOCK.BLACKBERRY_BUSH_RIPE],
+    plains: [BLOCK.RASPBERRY_BUSH_RIPE, BLOCK.BLACKBERRY_BUSH_RIPE],
     forest: [
-      v.RASPBERRY_BUSH_RIPE,
-      v.BLUEBERRY_BUSH_RIPE,
-      v.BLACKBERRY_BUSH_RIPE,
+      BLOCK.RASPBERRY_BUSH_RIPE,
+      BLOCK.BLUEBERRY_BUSH_RIPE,
+      BLOCK.BLACKBERRY_BUSH_RIPE,
     ],
-    jungle: [v.BLACKBERRY_BUSH_RIPE, v.RASPBERRY_BUSH_RIPE],
-    winter: [v.BLUEBERRY_BUSH_RIPE],
-    mountains: [v.BLUEBERRY_BUSH_RIPE],
-    autumn: [v.BLACKBERRY_BUSH_RIPE, v.RASPBERRY_BUSH_RIPE],
+    jungle: [BLOCK.BLACKBERRY_BUSH_RIPE, BLOCK.RASPBERRY_BUSH_RIPE],
+    winter: [BLOCK.BLUEBERRY_BUSH_RIPE],
+    mountains: [BLOCK.BLUEBERRY_BUSH_RIPE],
+    autumn: [BLOCK.BLACKBERRY_BUSH_RIPE, BLOCK.RASPBERRY_BUSH_RIPE],
     desert: [],
     ocean: [],
   },

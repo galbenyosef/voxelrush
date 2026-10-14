@@ -88,10 +88,10 @@ function mY() {
     }),
     window.addEventListener("pagehide", L6));
 }
-const hd = (n) => n !== E.AXE || fw();
+const hd = (n) => n !== ITEM.AXE || fw();
 let Ot = gw(),
   P6 = "";
-const Zt = (n, e) => (z.language === "en" ? n : e),
+const Zt = (n, e) => (SETTINGS.language === "en" ? n : e),
   _e = Zt;
 function Ml(n = "store", e) {
   (qc ?? (qc = jL()),
@@ -136,8 +136,8 @@ function ls(n, e, t = "span") {
   const i = $e(t, n);
   return ((i.innerHTML = e), i);
 }
-const ts = (n) => Ho[n],
-  rl = (n) => _e(Ho[n].en, Ho[n].ru),
+const ts = (n) => RARITIES[n],
+  rl = (n) => _e(RARITIES[n].en, RARITIES[n].ru),
   ll = (n) => (n ? _e(n.name, n.ru) : _e("Factory Original", "Заводской вид")),
   O6 = {
     286: ["Helmets", "Шлемы"],

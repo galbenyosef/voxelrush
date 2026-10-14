@@ -6,17 +6,17 @@ class rse {
     w(this, "meta", new Map());
     for (let o = 0; o < s; o++)
       for (let a = 0; a < s; a++)
-        this.chunks.set(Gn(t + o, i + a), iW(e, t + o, i + a));
+        this.chunks.set(cellKey(t + o, i + a), iW(e, t + o, i + a));
   }
   chunk(e, t) {
     const i = Math.floor(e / Pe),
       s = Math.floor(t / Pe);
-    return { d: this.chunks.get(Gn(i, s)), lx: e - i * Pe, lz: t - s * Pe };
+    return { d: this.chunks.get(cellKey(i, s)), lx: e - i * Pe, lz: t - s * Pe };
   }
   getBlock(e, t, i) {
     if (t < 0 || t >= Kt) return 0;
     const { d: s, lx: o, lz: a } = this.chunk(e, i);
-    return s ? s[Ri(o, t, a)] : 0;
+    return s ? s[packColor(o, t, a)] : 0;
   }
   getMeta(e, t, i) {
     return this.meta.get(`${e},${t},${i}`) ?? 0;
@@ -26,7 +26,7 @@ class rse {
     !a ||
       t < 0 ||
       t >= Kt ||
-      ((a[Ri(r, t, l)] = s),
+      ((a[packColor(r, t, l)] = s),
       o
         ? this.meta.set(`${e},${t},${i}`, o)
         : this.meta.delete(`${e},${t},${i}`));
@@ -36,10 +36,10 @@ class rse {
       const s = this.getBlock(e, i, t);
       if (
         s &&
-        s !== v.TALL_GRASS &&
-        s !== v.LEAVES &&
-        s !== v.LOG &&
-        !(s >= v.FLOWER_RED && s <= v.FLOWER_YELLOW)
+        s !== BLOCK.TALL_GRASS &&
+        s !== BLOCK.LEAVES &&
+        s !== BLOCK.LOG &&
+        !(s >= BLOCK.FLOWER_RED && s <= BLOCK.FLOWER_YELLOW)
       )
         return i;
     }
@@ -54,12 +54,12 @@ class rse {
         if (l > s + 6) continue;
         for (let p = 1; p < Kt; p++) {
           const m = this.getBlock(c, p, h);
-          (m === v.LOG ||
-            m === v.LEAVES ||
-            m === v.PINE_LOG ||
-            m === v.PINE_LEAVES ||
-            m === v.TROPICAL_LOG ||
-            m === v.TROPICAL_LEAVES) &&
+          (m === BLOCK.LOG ||
+            m === BLOCK.LEAVES ||
+            m === BLOCK.PINE_LOG ||
+            m === BLOCK.PINE_LEAVES ||
+            m === BLOCK.TROPICAL_LOG ||
+            m === BLOCK.TROPICAL_LEAVES) &&
             this.set(c, p, h, 0);
         }
         const d = this.top(c, h),
@@ -68,12 +68,12 @@ class rse {
         for (let p = 1; p < Kt; p++) {
           const m = this.getBlock(c, p, h);
           p > f
-            ? m && m !== v.WATER && this.set(c, p, h, 0)
+            ? m && m !== BLOCK.WATER && this.set(c, p, h, 0)
             : p === f
-              ? this.set(c, p, h, v.GRASS)
+              ? this.set(c, p, h, BLOCK.GRASS)
               : p > f - 3
-                ? this.set(c, p, h, v.DIRT)
-                : m || this.set(c, p, h, v.STONE);
+                ? this.set(c, p, h, BLOCK.DIRT)
+                : m || this.set(c, p, h, BLOCK.STONE);
         }
       }
   }
@@ -298,22 +298,22 @@ function Ef(n) {
   });
 }
 const i3 = [
-  { x: 0, z: 0, yaw: 0, held: E.AK47, head: 0.08, pose: { pitch: -0.35 } },
-  { x: -1.4, z: -1, yaw: 0.22, held: E.AWP, head: 0.04, pose: { pitch: -0.5 } },
+  { x: 0, z: 0, yaw: 0, held: ITEM.AK47, head: 0.08, pose: { pitch: -0.35 } },
+  { x: -1.4, z: -1, yaw: 0.22, held: ITEM.AWP, head: 0.04, pose: { pitch: -0.5 } },
   {
     x: 1.4,
     z: -1,
     yaw: -0.22,
-    held: E.SHOTGUN,
+    held: ITEM.SHOTGUN,
     head: 0.1,
     pose: { pitch: -0.3 },
   },
-  { x: -2.75, z: -2, yaw: 0.35, held: E.RPG, head: 0.14, pose: { pitch: 0.1 } },
+  { x: -2.75, z: -2, yaw: 0.35, held: ITEM.RPG, head: 0.14, pose: { pitch: 0.1 } },
   {
     x: 2.75,
     z: -2,
     yaw: -0.4,
-    held: E.GLOCK,
+    held: ITEM.GLOCK,
     head: 0.12,
     pose: { pitch: -0.6, crouching: !0 },
   },

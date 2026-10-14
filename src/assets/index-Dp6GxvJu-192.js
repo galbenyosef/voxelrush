@@ -88,7 +88,7 @@ class Xee {
         (this.restoreHurt(i),
           this.carcasses.spawn(i.group, i.legs, i.head, {
             ...t,
-            aquatic: Mx(i.type),
+            aquatic: isWaterAnimal(i.type),
           }));
         return;
       }
@@ -161,16 +161,16 @@ class Xee {
       const y = h.group.position.distanceTo(h.target),
         g = f > e * 0.04 || (h.moving && y > 0.015);
       if (
-        ((h.biteT = Math.max(0, h.biteT - e)), this.applyHurt(h, e), Mx(h.type))
+        ((h.biteT = Math.max(0, h.biteT - e)), this.applyHurt(h, e), isWaterAnimal(h.type))
       ) {
         this.animateSwimmer(h, e, a, y, g);
         continue;
       }
-      if (h.type === Nt.WENDIGO) {
+      if (h.type === ANIMAL_KIND.WENDIGO) {
         this.animateWendigo(h, e, a, f, g);
         continue;
       }
-      const b = OH(h.type);
+      const b = isChickenKind(h.type);
       if (g) {
         const C = (b ? 0.38 : 0.85) * Ir(h.type, h.baby);
         h.walkT += (Math.min(f, e * 7) / C) * Math.PI * 2;
@@ -181,7 +181,7 @@ class Xee {
       if (
         (h.legs.forEach((C, R) => {
           const L =
-            h.type === Nt.CAMEL
+            h.type === ANIMAL_KIND.CAMEL
               ? R < 2
                 ? 1
                 : -1
@@ -305,7 +305,7 @@ class Xee {
         .multiply(zee);
   }
   animateSwimmer(e, t, i, s, o) {
-    const a = e.type === Nt.SHARK,
+    const a = e.type === ANIMAL_KIND.SHARK,
       r = i + e.phase,
       l = (o ? Math.min(2.4, 0.8 + s * 4) : 0.45) * (e.fleeing ? 1.7 : 1);
     e.walkT += t * (a ? 2.6 : 7.5) * l;
@@ -355,7 +355,7 @@ class Xee {
       const a = o.group.position,
         r = Ir(o.type, o.baby),
         l = oR(o.type),
-        c = (o.type === Nt.SHARK ? 2.4 : l.hw * 1.3) * r,
+        c = (o.type === ANIMAL_KIND.SHARK ? 2.4 : l.hw * 1.3) * r,
         h = Vp(
           e,
           t,
@@ -377,7 +377,7 @@ class Xee {
     let i = null,
       s = t;
     for (const o of this.animals.values()) {
-      if ((o.type !== Nt.COW && o.type !== Nt.CAMEL) || o.baby) continue;
+      if ((o.type !== ANIMAL_KIND.COW && o.type !== ANIMAL_KIND.CAMEL) || o.baby) continue;
       const a = o.group.position.distanceTo(e);
       a < s && ((s = a), (i = o));
     }
@@ -387,7 +387,7 @@ class Xee {
     let i = null,
       s = t;
     for (const o of this.animals.values()) {
-      if (o.type !== Nt.SHEEP || o.baby || o.sheared) continue;
+      if (o.type !== ANIMAL_KIND.SHEEP || o.baby || o.sheared) continue;
       const a = o.group.position.distanceTo(e);
       a < s && ((s = a), (i = o));
     }
@@ -397,9 +397,9 @@ class Xee {
     const i = this.animals.get(e);
     if (
       i &&
-      (t === Ra.EAT && (i.chewT = 1.9),
-      t === Ra.BITE && (i.biteT = i.type === Nt.WENDIGO ? 0.45 : 0.35),
-      t === Ra.SHEARED && !i.sheared)
+      (t === ANIMAL_PRODUCT.EAT && (i.chewT = 1.9),
+      t === ANIMAL_PRODUCT.BITE && (i.biteT = i.type === ANIMAL_KIND.WENDIGO ? 0.45 : 0.35),
+      t === ANIMAL_PRODUCT.SHEARED && !i.sheared)
     ) {
       const s = i.group.position;
       this.onSpawn(e, i.type, s.x, s.y, s.z, i.hp, i.baby, !0);
@@ -433,7 +433,7 @@ class Xee {
   wendigosNear(e, t) {
     const i = [];
     for (const s of this.animals.values()) {
-      if (s.type !== Nt.WENDIGO) continue;
+      if (s.type !== ANIMAL_KIND.WENDIGO) continue;
       const o = s.group.position.distanceTo(e);
       o <= t &&
         i.push({
@@ -456,7 +456,7 @@ class Xee {
     let i = null,
       s = t;
     for (const o of this.animals.values()) {
-      if (o.type !== Nt.CAMEL || o.baby || o.rider !== -1) continue;
+      if (o.type !== ANIMAL_KIND.CAMEL || o.baby || o.rider !== -1) continue;
       const a = o.group.position.distanceTo(e);
       a < s && ((s = a), (i = o));
     }

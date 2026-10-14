@@ -278,7 +278,7 @@ function aL(n, e, t, i = 1.2) {
     );
   for (const r of t) {
     if (r.id === n.id || (r.planet ?? 0) !== (n.planet ?? 0)) continue;
-    if (r.type === P.CARRIER && !r.bounds) {
+    if (r.type === VEHICLE_KIND.CARRIER && !r.bounds) {
       const h = (io[r.type] ?? []).map((d) => {
         const u = (d.min.x + d.max.x) / 2,
           f = (d.min.z + d.max.z) / 2;

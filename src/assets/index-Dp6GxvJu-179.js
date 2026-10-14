@@ -123,4 +123,4 @@ function jJ() {
     return n;
   }
 }
-const co = (n, e) => (z.language === "en" ? e : n);
+const co = (n, e) => (SETTINGS.language === "en" ? e : n);

@@ -29,7 +29,7 @@ class DJ {
         "width:100%;height:12px;accent-color:#88d9b2;margin:12px 0 4px"),
       this.bar.setAttribute(
         "aria-label",
-        z.language === "en" ? "Revive progress" : "Прогресс помощи",
+        SETTINGS.language === "en" ? "Revive progress" : "Прогресс помощи",
       ),
       (this.touch.type = "button"),
       (this.touch.id = "revive-touch"),
@@ -92,7 +92,7 @@ class DJ {
       (this.heldId = -1));
   }
   update(e, t, i, s, o, a, r, l, c) {
-    const h = z.language === "en",
+    const h = SETTINGS.language === "en",
       d = this.wounded.get(t);
     let u,
       f = OJ;
@@ -162,7 +162,7 @@ class DJ {
           : h
             ? "HELP THE WOUNDED"
             : "ПОМОЧЬ РАНЕНОМУ",
-        x = z.binds.use.replace("Key", "").replace("Digit", ""),
+        x = SETTINGS.binds.use.replace("Key", "").replace("Digit", ""),
         T = d
           ? S
             ? h

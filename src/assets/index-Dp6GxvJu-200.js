@@ -584,7 +584,7 @@ uniform float uGateBlockLight;
   }
   createGateVisual(e, t, i, s, o) {
     var _;
-    const a = ((_ = de[s]) == null ? void 0 : _.tex[1]) ?? 0,
+    const a = ((_ = BLOCKS[s]) == null ? void 0 : _.tex[1]) ?? 0,
       r = 16777215,
       l = 14606046,
       { post1: c, rail1: h, rail2: d, railsY: u, stile: f, gateBottom: p } = EC,
@@ -766,9 +766,9 @@ uniform float uGateBlockLight;
     (this.scene.remove(t.mesh),
       t.mesh.geometry.dispose(),
       this.doors.delete(e));
-    const i = this.doorsByChunk.get(Gn(t.cx, t.cz));
+    const i = this.doorsByChunk.get(cellKey(t.cx, t.cz));
     (i == null || i.delete(t),
-      i && !i.size && this.doorsByChunk.delete(Gn(t.cx, t.cz)));
+      i && !i.size && this.doorsByChunk.delete(cellKey(t.cx, t.cz)));
   }
   syncDoorAt(e, t, i, s, o) {
     const a = `${e},${t},${i}`,
@@ -784,7 +784,7 @@ uniform float uGateBlockLight;
     r && this.removeDoor(a);
     const l = this.createDoorVisual(e, t, i, s, o);
     this.doors.set(a, l);
-    const c = Gn(l.cx, l.cz);
+    const c = cellKey(l.cx, l.cz);
     let h = this.doorsByChunk.get(c);
     (h || this.doorsByChunk.set(c, (h = new Set())), h.add(l));
   }
@@ -803,11 +803,11 @@ uniform float uGateBlockLight;
         );
   }
   removeDoorChunk(e, t) {
-    for (const i of [...(this.doorsByChunk.get(Gn(e, t)) ?? [])])
+    for (const i of [...(this.doorsByChunk.get(cellKey(e, t)) ?? [])])
       this.removeDoor(i.key);
   }
   relightDoors(e, t) {
-    for (const i of this.doorsByChunk.get(Gn(e, t)) ?? []) {
+    for (const i of this.doorsByChunk.get(cellKey(e, t)) ?? []) {
       const [s, o, a] = i.key.split(",").map(Number),
         { light: r, sky: l } = this.doorLighting(s, o, a);
       if (Math.abs(r - i.light) < 0.001 && Math.abs(l - i.sky) < 0.001)
@@ -1053,7 +1053,7 @@ uniform float uGateBlockLight;
   }
   onChunkData(e, t, i) {
     var h, d;
-    const s = Gn(e, t);
+    const s = cellKey(e, t);
     if (
       (this.requested.delete(s),
       (h = this.requestedAt) == null || h.delete(s),
@@ -1115,14 +1115,14 @@ uniform float uGateBlockLight;
     ((this.chunks.get(s).surfaceColors = void 0), this.invalidateSurfMemo());
   }
   markDirty(e, t, i = 0) {
-    const s = this.chunks.get(Gn(e, t));
+    const s = this.chunks.get(cellKey(e, t));
     s &&
       ((!s.dirty || i < s.dirtyPri) && (s.dirtyPri = i),
       (s.dirty = !0),
       i === 0 && (s.revision = (s.revision ?? 0) + 1));
   }
   chunkFeatures(e, t) {
-    const i = this.chunks.get(Gn(e, t));
+    const i = this.chunks.get(cellKey(e, t));
     return i ? (i.features ?? (i.features = Ete(i.data))) : null;
   }
   readiness(e, t, i = 2) {
@@ -1134,13 +1134,13 @@ uniform float uGateBlockLight;
     for (let c = -i; c <= i; c++)
       for (let h = -i; h <= i; h++) {
         l++;
-        const d = this.chunks.get(Gn(s + c, o + h));
+        const d = this.chunks.get(cellKey(s + c, o + h));
         d && (a++, !d.dirty && !d.meshPending && r++);
       }
     return { received: a, built: r, total: l };
   }
   isLoaded(e, t) {
-    return this.chunks.has(Gn(Math.floor(e / Pe), Math.floor(t / Pe)));
+    return this.chunks.has(cellKey(Math.floor(e / Pe), Math.floor(t / Pe)));
   }
   getBlock(e, t, i) {
     var r;
@@ -1149,13 +1149,13 @@ uniform float uGateBlockLight;
       r.radius &&
       !D4(this.border, Math.floor(e) + 0.5, Math.floor(i) + 0.5)
     )
-      return v.BEDROCK;
+      return BLOCK.BEDROCK;
     if (t < 0 || t >= Kt) return 0;
     ((e = Math.floor(e)), (t = Math.floor(t)), (i = Math.floor(i)));
     const s = Math.floor(e / Pe),
       o = Math.floor(i / Pe),
-      a = this.chunks.get(Gn(s, o));
-    return a ? a.data[Ri(e - s * Pe, t, i - o * Pe)] : 0;
+      a = this.chunks.get(cellKey(s, o));
+    return a ? a.data[packColor(e - s * Pe, t, i - o * Pe)] : 0;
   }
   isSolidAt(e, t, i) {
     const s = this.getBlock(e, t, i);
@@ -1166,15 +1166,15 @@ uniform float uGateBlockLight;
   }
   isWaterAt(e, t, i) {
     const s = this.getBlock(e, t, i);
-    return (s > 0 && de[s].liquid) || oa(s, this.getMeta(e, t, i));
+    return (s > 0 && BLOCKS[s].liquid) || oa(s, this.getMeta(e, t, i));
   }
   getMeta(e, t, i) {
     if (t < 0 || t >= Kt) return 0;
     ((e = Math.floor(e)), (t = Math.floor(t)), (i = Math.floor(i)));
     const s = Math.floor(e / Pe),
       o = Math.floor(i / Pe),
-      a = this.chunks.get(Gn(s, o));
-    return a ? a.meta[Ri(e - s * Pe, t, i - o * Pe)] : 0;
+      a = this.chunks.get(cellKey(s, o));
+    return a ? a.meta[packColor(e - s * Pe, t, i - o * Pe)] : 0;
   }
   setBlock(e, t, i, s, o = 0) {
     if (t < 0 || t >= Kt) return;
@@ -1188,18 +1188,18 @@ uniform float uGateBlockLight;
       this.invalidateMapAt(e, i));
     const a = Math.floor(e / Pe),
       r = Math.floor(i / Pe),
-      l = this.chunks.get(Gn(a, r));
+      l = this.chunks.get(cellKey(a, r));
     if (!l) return;
     const c = e - a * Pe,
       h = i - r * Pe,
-      d = Ri(c, t, h);
+      d = packColor(c, t, h);
     if (l.data[d] === s && l.meta[d] === o) return;
     const u = new Set([l]);
     for (const [y, g] of [
       [c === 0 ? -1 : c === Pe - 1 ? 1 : 0, 0],
       [0, h === 0 ? -1 : h === Pe - 1 ? 1 : 0],
     ]) {
-      const b = this.chunks.get(Gn(a + y, r + g));
+      const b = this.chunks.get(cellKey(a + y, r + g));
       b && u.add(b);
     }
     if (u.size > 1 && l.mesh) {
@@ -1355,7 +1355,7 @@ uniform float uGateBlockLight;
     if (
       (s === this.surfChunkCx && o === this.surfChunkCz
         ? (a = this.surfChunkEntry)
-        : ((a = this.chunks.get(Gn(s, o)) ?? null),
+        : ((a = this.chunks.get(cellKey(s, o)) ?? null),
           (this.surfChunkCx = s),
           (this.surfChunkCz = o),
           (this.surfChunkEntry = a)),
@@ -1387,7 +1387,7 @@ uniform float uGateBlockLight;
       l = a.surfaceColors ?? (a.surfaceColors = new Uint32Array(Pe * Pe));
     if (l[r]) return l[r] - 1;
     let c = -1;
-    const h = Ri(e - s * Pe, 0, t - o * Pe);
+    const h = packColor(e - s * Pe, 0, t - o * Pe);
     for (let d = Kt - 1; d >= 0; d--) {
       const u = a.data[h | (d << 8)];
       if (u !== 0 && !Mte.has(u)) {
@@ -1402,7 +1402,7 @@ uniform float uGateBlockLight;
       o = Math.floor(t),
       a = Math.floor(s / Pe),
       r = Math.floor(o / Pe);
-    if (!this.chunks.has(Gn(a, r))) return Math.min(i, cu(this.seed, s, o) + 1);
+    if (!this.chunks.has(cellKey(a, r))) return Math.min(i, cu(this.seed, s, o) + 1);
     for (let l = Math.min(Math.floor(i), Kt - 1); l >= 0; l--)
       if (this.isSolidAt(s, l, o)) return l + 1;
     return -1 / 0;
@@ -1413,12 +1413,12 @@ uniform float uGateBlockLight;
       o = Math.floor(t);
     for (let r = Kt - 1; r >= Math.max(0, Math.floor(i)); r--) {
       const l = this.getBlock(s, r, o);
-      if (!(l === v.AIR || l === v.WATER || l === v.LAVA)) {
+      if (!(l === BLOCK.AIR || l === BLOCK.WATER || l === BLOCK.LAVA)) {
         if (Ss(l) || Do(l)) {
           if ((this.getMeta(s, r, o) & Qn) === 0) return r;
           continue;
         }
-        if ((a = de[l]) != null && a.solid) return r;
+        if ((a = BLOCKS[l]) != null && a.solid) return r;
       }
     }
     return -1;
@@ -1521,7 +1521,7 @@ uniform float uGateBlockLight;
               !lb(this.border, (a + F) * Pe, (r + X) * Pe, Pe))
           )
             continue;
-          const oe = Gn(a + F, r + X);
+          const oe = cellKey(a + F, r + X);
           if (this.chunks.has(oe) || this.requested.has(oe)) continue;
           const J = Math.abs(F) + Math.abs(X),
             re = F * N + X * D,
@@ -1600,7 +1600,7 @@ uniform float uGateBlockLight;
             F = O >= 0 ? this.seamGroups.splice(O, 1)[0] : new Set([N]);
           let X = !0;
           for (const Q of F)
-            if (Q.dirty && this.chunks.get(Gn(Q.cx, Q.cz)) === Q) {
+            if (Q.dirty && this.chunks.get(cellKey(Q.cx, Q.cz)) === Q) {
               if (
                 F.size === 1 &&
                 !(
@@ -1643,7 +1643,7 @@ uniform float uGateBlockLight;
     var a;
     const s = Math.floor(Math.floor(e) / Pe),
       o = Math.floor(Math.floor(i) / Pe);
-    return (a = this.chunks.get(Gn(s, o))) != null && a.skylight
+    return (a = this.chunks.get(cellKey(s, o))) != null && a.skylight
       ? this.sampleLight(e, t, i, !0)
       : 1;
   }
@@ -1653,9 +1653,9 @@ uniform float uGateBlockLight;
     if (t >= Kt) return s ? 1 : 0;
     const o = Math.floor(e / Pe),
       a = Math.floor(i / Pe),
-      r = this.chunks.get(Gn(o, a)),
+      r = this.chunks.get(cellKey(o, a)),
       l = s ? (r == null ? void 0 : r.skylight) : r == null ? void 0 : r.light;
-    return l ? l[Ri(e - o * Pe, t, i - a * Pe)] / 15 : 0;
+    return l ? l[packColor(e - o * Pe, t, i - a * Pe)] / 15 : 0;
   }
   disposeMeshes(e) {
     (e.mesh &&
@@ -1698,7 +1698,7 @@ uniform float uGateBlockLight;
       (this.lastPcz = 1 / 0));
   }
   computeLight(e, t) {
-    return this.lighting.compute(e, t, (i, s) => this.chunks.get(Gn(i, s)));
+    return this.lighting.compute(e, t, (i, s) => this.chunks.get(cellKey(i, s)));
   }
   queueFlightMesh(e) {
     if (e.meshPending) return !0;
@@ -1729,7 +1729,7 @@ uniform float uGateBlockLight;
     const t = [];
     for (let r = -1; r <= 1; r++)
       for (let l = -1; l <= 1; l++) {
-        const c = Gn(e.cx + r, e.cz + l),
+        const c = cellKey(e.cx + r, e.cz + l),
           h = this.chunks.get(c);
         t.push({
           key: c,
@@ -1768,7 +1768,7 @@ uniform float uGateBlockLight;
         if (
           ((i.busy = !1),
           (e.meshPending = !1),
-          this.chunks.get(Gn(e.cx, e.cz)) !== e ||
+          this.chunks.get(cellKey(e.cx, e.cz)) !== e ||
             t.some(
               (h) =>
                 h.chunk &&
@@ -1851,7 +1851,7 @@ uniform float uGateBlockLight;
     for (let a = 0; a < Pe; a++)
       for (let r = 0; r < Pe; r++)
         for (let l = 0; l < Kt; l++) {
-          const c = Ri(a, l, r),
+          const c = packColor(a, l, r),
             h = e.cx * Pe + a,
             d = e.cz * Pe + r;
           ((e.light[c] = t.at(h, l, d)), (e.skylight[c] = t.skyAt(h, l, d)));
@@ -1926,9 +1926,9 @@ uniform float uGateBlockLight;
   }
   blockHitBoxes(e, t, i = 0, s = 0, o = 0) {
     var l;
-    const a = (l = de[e]) == null ? void 0 : l.shape;
-    if (e === v.SIGN) return mk(t);
-    if (e === v.CACTUS) return hR;
+    const a = (l = BLOCKS[e]) == null ? void 0 : l.shape;
+    if (e === BLOCK.SIGN) return mk(t);
+    if (e === BLOCK.CACTUS) return hR;
     const r = Mg(
       e,
       t,
@@ -2057,30 +2057,30 @@ uniform float uGateBlockLight;
   }
   collisionBoxes(e, t, i = 0, s = 0, o = 0) {
     var a, r, l, c, h;
-    return e === v.RADIO_RELAY
+    return e === BLOCK.RADIO_RELAY
       ? Mg(e, t).map((d) => d.box)
-      : e === v.MINE_AP || e === v.MINE_AT
+      : e === BLOCK.MINE_AP || e === BLOCK.MINE_AT
         ? null
-        : e === v.CACTUS
+        : e === BLOCK.CACTUS
           ? hR
           : Hr(e)
             ? Tw(
                 e,
                 kp((d, u, f) => this.getBlock(d, u, f), i, s, o, t),
               )
-            : ((a = de[e]) == null ? void 0 : a.shape) === "furniture"
+            : ((a = BLOCKS[e]) == null ? void 0 : a.shape) === "furniture"
               ? ru(e, t).map((d) => d.box)
               : Ss(e)
                 ? t & Qn
                   ? null
                   : [Rf(t)]
-                : ((r = de[e]) == null ? void 0 : r.shape) === "fence"
+                : ((r = BLOCKS[e]) == null ? void 0 : r.shape) === "fence"
                   ? this.fenceBoxes(i, s, o, 1.5)
-                  : ((l = de[e]) == null ? void 0 : l.shape) === "composter"
+                  : ((l = BLOCKS[e]) == null ? void 0 : l.shape) === "composter"
                     ? [[0.07, 0, 0.07, 0.93, 0.98, 0.93]]
-                    : ((c = de[e]) == null ? void 0 : c.shape) === "bed"
+                    : ((c = BLOCKS[e]) == null ? void 0 : c.shape) === "bed"
                       ? Nx(t)
-                      : ((h = de[e]) == null ? void 0 : h.shape) === "stair"
+                      : ((h = BLOCKS[e]) == null ? void 0 : h.shape) === "stair"
                         ? this.blockHitBoxes(e, t)
                         : Do(e)
                           ? t & Qn
@@ -2167,7 +2167,7 @@ uniform float uGateBlockLight;
       if (p === g && m === b && y === S) break;
       const H = this.getBlock(p, m, y);
       if (!H) continue;
-      const G = de[H];
+      const G = BLOCKS[H];
       if (G != null && G.solid && (!G.transparent || $n(H))) return !1;
     }
     return !0;
@@ -2246,7 +2246,7 @@ uniform float uGateBlockLight;
       )
         return null;
       const C = r >= 0 && r < Kt ? this.getBlock(a, r, l) : 0;
-      if (C !== 0 && (s || !de[C].liquid)) {
+      if (C !== 0 && (s || !BLOCKS[C].liquid)) {
         const R = this.getMeta(a, r, l),
           L = Ss(C) && !o ? [Rf(R)] : this.blockHitBoxes(C, R, a, r, l);
         if (!L)

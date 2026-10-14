@@ -40,7 +40,7 @@ class tX {
     for (let s = 0; s < Uh; s++) {
       const o = this.armor[s],
         a = Nc[o.id];
-      !a || a.slot !== ir[s] ? ((o.id = 0), (o.count = 0)) : (o.count = 1);
+      !a || a.slot !== ARMOR_SLOTS[s] ? ((o.id = 0), (o.count = 0)) : (o.count = 1);
     }
     ((this.applyingServer = !0),
       (this.updatedAt = Math.max(0, Math.floor(t))),
@@ -238,7 +238,7 @@ class tX {
   equipArmor(e, t = np(e)) {
     const i = Nc[e];
     if (!i) return { ok: !1, previous: 0 };
-    const s = ir.indexOf(i.slot);
+    const s = ARMOR_SLOTS.indexOf(i.slot);
     if (s < 0) return { ok: !1, previous: 0 };
     const o = this.armor[s].id;
     return (
@@ -256,7 +256,7 @@ class tX {
     const e = this.hotbar[this.sel],
       t = Nc[e == null ? void 0 : e.id];
     if (!t || e.count !== 1) return !1;
-    const i = ir.indexOf(t.slot),
+    const i = ARMOR_SLOTS.indexOf(t.slot),
       s = { ...this.armor[i] };
     return (
       (this.armor[i] = { ...e }),
@@ -268,10 +268,10 @@ class tX {
   canEquipInSlot(e, t) {
     if (e === 0) return !0;
     const i = Nc[e];
-    return i ? i.slot === ir[t] : !1;
+    return i ? i.slot === ARMOR_SLOTS[t] : !1;
   }
   armorSlotKind(e) {
-    return ir[e] ?? "helmet";
+    return ARMOR_SLOTS[e] ?? "helmet";
   }
   deferChanges(e) {
     this.deferDepth++;

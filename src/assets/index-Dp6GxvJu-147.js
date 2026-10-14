@@ -70,7 +70,7 @@ class EZ {
     return this.en() ? e : t;
   }
   get classIds() {
-    return DS(this.mode);
+    return gamemodeKeys(this.mode);
   }
   get tdm() {
     return this.mode === "tdm";
@@ -95,9 +95,9 @@ class EZ {
       const e = localStorage.getItem(
         this.tdm ? "fc-tdm-class" : "fc-front-class",
       );
-      e && e in _l && _l[e].mode === this.mode && (this.chosenClass = e);
+      e && e in GAMEMODES && GAMEMODES[e].mode === this.mode && (this.chosenClass = e);
     } catch {}
-    _l[this.chosenClass].mode !== this.mode &&
+    GAMEMODES[this.chosenClass].mode !== this.mode &&
       (this.chosenClass = this.classIds[0]);
   }
   setMode(e) {
@@ -345,14 +345,14 @@ class EZ {
             : this.say("MATCH OVER", "МАТЧ ОКОНЧЕН")));
     const r = e.my.st ?? 0;
     this.lastStreak = r;
-    const l = Object.keys(a5)
+    const l = Object.keys(KILLSTREAK_TITLES)
         .map(Number)
         .filter((h) => h <= r)
         .pop(),
       c =
         r >= 2 && e.my.deployed
           ? l
-            ? `${a5[l][this.deps.lang()]} · ${r}`
+            ? `${KILLSTREAK_TITLES[l][this.deps.lang()]} · ${r}`
             : this.say(`${r} KILLS IN A ROW`, `УБИЙСТВ ПОДРЯД: ${r}`)
           : this.say(
               `${e.n[0] + e.n[1]} soldiers`,
@@ -548,7 +548,7 @@ class EZ {
     const o = mt("div", "fd-body"),
       a = mt("div", "fd-classes");
     this.classIds.forEach((p, m) => {
-      const y = _l[p],
+      const y = GAMEMODES[p],
         g = mt("button", "fd-class");
       ((g.type = "button"), (g.dataset.cls = p));
       const b = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -641,7 +641,7 @@ class EZ {
       document.documentElement.style.setProperty("--team-mine", Ud.mine),
       document.documentElement.style.setProperty("--team-enemy", Ud.enemy));
     for (const d of this.deployEl.querySelectorAll(".fd-class")) {
-      const u = _l[d.dataset.cls];
+      const u = GAMEMODES[d.dataset.cls];
       ((d.querySelector(".fd-cname").textContent = u.name[this.deps.lang()]),
         (d.querySelector(".fd-crole").textContent = u.role[this.deps.lang()]),
         d.classList.toggle("on", u.id === this.chosenClass));
@@ -968,7 +968,7 @@ class EZ {
   }
   tdmLabels() {
     var e;
-    return ((e = Yc(this.mapId)) == null ? void 0 : e.labels) ?? [];
+    return ((e = resolveMap(this.mapId)) == null ? void 0 : e.labels) ?? [];
   }
   drawTdmMap(e, t) {
     const i = this.state,
@@ -1135,7 +1135,7 @@ class EZ {
     else if (t.startsWith("streak:")) {
       const r = Number(t.slice(7));
       s =
-        ((a = a5[r]) == null ? void 0 : a[this.deps.lang()]) ??
+        ((a = KILLSTREAK_TITLES[r]) == null ? void 0 : a[this.deps.lang()]) ??
         this.say(`${r} KILL STREAK`, `СЕРИЯ: ${r}`);
     } else
       t.startsWith("neutralize")

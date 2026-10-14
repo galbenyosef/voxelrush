@@ -159,7 +159,7 @@ const Os = class Os {
     w(this, "tabQuery", "");
     w(this, "compassCtx", null);
     w(this, "compassSig", "");
-    w(this, "cosmeticOwner", () => (Me == null ? void 0 : Me.id) ?? z.nick);
+    w(this, "cosmeticOwner", () => (Me == null ? void 0 : Me.id) ?? SETTINGS.nick);
     w(this, "ammoKey", "");
     w(this, "ammoName", "");
     w(this, "ammoLength", 0);
@@ -181,13 +181,13 @@ const Os = class Os {
       aA(),
       this.initMobileButtons());
     const e = Mj(
-      (B, $) => ((z.nick = B), (z.server = $), qi(), this.beginPlay(B, $)),
+      (B, $) => ((SETTINGS.nick = B), (SETTINGS.server = $), qi(), this.beginPlay(B, $)),
       (B, $) => this.showLoading(B !== null, B ?? void 0, $),
     );
     ((j("playbtn").onclick = e),
       (j("solobtn").onclick = () => {
         var B, $;
-        ((z.nick = (Me == null ? void 0 : Me.username) || z.nick || "Player"),
+        ((SETTINGS.nick = (Me == null ? void 0 : Me.username) || SETTINGS.nick || "Player"),
           qi(),
           ($ = (B = navigator.storage) == null ? void 0 : B.persist) == null ||
             $.call(B),
@@ -281,10 +281,10 @@ const Os = class Os {
       F = j("brightness"),
       X = j("itemtooltipstoggle");
     ((F.oninput = () => {
-      ((z.brightness = Number(F.value)), qi(), Ce());
+      ((SETTINGS.brightness = Number(F.value)), qi(), Ce());
     }),
       (X.onchange = () => {
-        ((z.itemTooltips = X.checked), qi(), ar());
+        ((SETTINGS.itemTooltips = X.checked), qi(), ar());
       }));
     const Q = j("camerabobtoggle"),
       ee = document.querySelector('[data-settings-category="gameplay"]');
@@ -299,15 +299,15 @@ const Os = class Os {
       const fe = document.createElement("label");
       fe.className = "instrument-option";
       const be = document.createElement("input");
-      ((be.type = "checkbox"), (be.id = B), (be.checked = z[B]));
+      ((be.type = "checkbox"), (be.id = B), (be.checked = SETTINGS[B]));
       const Se = document.createElement("span");
       ((Se.dataset.labelRu = $),
         (Se.dataset.labelEn = he),
-        (Se.textContent = z.language === "en" ? he : $),
+        (Se.textContent = SETTINGS.language === "en" ? he : $),
         (be.onchange = () => {
-          ((z[B] = be.checked),
+          ((SETTINGS[B] = be.checked),
             qi(),
-            document.body.classList.toggle("cinematic-hud", z.cinematicHud));
+            document.body.classList.toggle("cinematic-hud", SETTINGS.cinematicHud));
         }),
         fe.append(be, Se),
         ee == null || ee.append(fe));
@@ -338,13 +338,13 @@ const Os = class Os {
       const be = document.createElement("label");
       be.className = "instrument-option";
       const Se = document.createElement("input");
-      ((Se.type = "checkbox"), (Se.id = `opt-${B}`), (Se.checked = z[B]));
+      ((Se.type = "checkbox"), (Se.id = `opt-${B}`), (Se.checked = SETTINGS[B]));
       const et = document.createElement("span");
       ((et.dataset.labelRu = $),
         (et.dataset.labelEn = he),
-        (et.textContent = z.language === "en" ? he : $),
+        (et.textContent = SETTINGS.language === "en" ? he : $),
         (Se.onchange = () => {
-          ((z[B] = Se.checked), qi(), this.onQualityChange());
+          ((SETTINGS[B] = Se.checked), qi(), this.onQualityChange());
         }),
         be.append(Se, et),
         fe === "graphics" && se
@@ -356,23 +356,23 @@ const Os = class Os {
       ((J.id = "exit-recording"),
       (J.textContent = "✕ HUD"),
       (J.onclick = () => {
-        ((z.cinematicHud = !1),
+        ((SETTINGS.cinematicHud = !1),
           qi(),
           document.body.classList.remove("cinematic-hud"),
           (j("cinematicHud").checked = !1));
       }),
       document.body.append(J),
-      document.body.classList.toggle("cinematic-hud", z.cinematicHud),
+      document.body.classList.toggle("cinematic-hud", SETTINGS.cinematicHud),
       window.addEventListener("keydown", (B) => {
         B.code === "F8" &&
           !B.repeat &&
           !(B.target instanceof HTMLInputElement) &&
           !(B.target instanceof HTMLTextAreaElement) &&
           (B.preventDefault(),
-          (z.cinematicHud = !z.cinematicHud),
+          (SETTINGS.cinematicHud = !SETTINGS.cinematicHud),
           qi(),
-          document.body.classList.toggle("cinematic-hud", z.cinematicHud),
-          (j("cinematicHud").checked = z.cinematicHud));
+          document.body.classList.toggle("cinematic-hud", SETTINGS.cinematicHud),
+          (j("cinematicHud").checked = SETTINGS.cinematicHud));
       }),
       ee)
     ) {
@@ -383,12 +383,12 @@ const Os = class Os {
     const re = () => {
       for (const B of document.querySelectorAll(".instrument-option span"))
         B.textContent =
-          z.language === "en" ? B.dataset.labelEn : B.dataset.labelRu;
+          SETTINGS.language === "en" ? B.dataset.labelEn : B.dataset.labelRu;
       (document.querySelectorAll(".settings-tab").forEach((B) => {
         const $ = B.querySelector(".settings-tab-label");
         $ &&
           ($.textContent =
-            z.language === "en"
+            SETTINGS.language === "en"
               ? (B.dataset.labelEn ?? "")
               : (B.dataset.labelRu ?? ""));
       }),
@@ -418,39 +418,39 @@ const Os = class Os {
     }),
       re());
     const Ce = () => {
-      ((i.value = String(z.aircraftSensitivity)),
-        (j("aircraftsensval").textContent = z.aircraftSensitivity.toFixed(1)),
-        (t.value = String(z.sensitivity)),
-        (s.value = String(z.fov)),
-        (j("sensval").textContent = z.sensitivity.toFixed(1)),
-        (j("fovval").textContent = String(z.fov)),
-        (o.value = String(Math.round(z.sfxVolume * 100))),
-        (a.value = String(Math.round(z.musicVolume * 100))),
-        (r.value = z.language),
-        (l.checked = z.aimAssist),
-        (c.value = String(Math.round(z.aimAssistStrength * 100))),
+      ((i.value = String(SETTINGS.aircraftSensitivity)),
+        (j("aircraftsensval").textContent = SETTINGS.aircraftSensitivity.toFixed(1)),
+        (t.value = String(SETTINGS.sensitivity)),
+        (s.value = String(SETTINGS.fov)),
+        (j("sensval").textContent = SETTINGS.sensitivity.toFixed(1)),
+        (j("fovval").textContent = String(SETTINGS.fov)),
+        (o.value = String(Math.round(SETTINGS.sfxVolume * 100))),
+        (a.value = String(Math.round(SETTINGS.musicVolume * 100))),
+        (r.value = SETTINGS.language),
+        (l.checked = SETTINGS.aimAssist),
+        (c.value = String(Math.round(SETTINGS.aimAssistStrength * 100))),
         (j("aimassiststrengthval").textContent =
-          `${Math.round(z.aimAssistStrength * 100)}%`),
-        (h.checked = z.haptics),
-        (d.checked = z.mobileLabels),
-        (u.checked = z.mobileChat),
-        (f.checked = z.autoJump),
-        (F.value = String(z.brightness)),
-        (j("brightnessval").textContent = `${Math.round(z.brightness * 100)}%`),
-        (X.checked = z.itemTooltips),
-        (Q.checked = z.cameraBob),
-        (m.value = String(z.minimapZoom)),
-        (j("minimapzoomval").textContent = `${z.minimapZoom}×`),
-        (p.value = String(z.chatScale)),
-        (j("chatsizeval").textContent = `${Math.round(z.chatScale * 100)}%`),
+          `${Math.round(SETTINGS.aimAssistStrength * 100)}%`),
+        (h.checked = SETTINGS.haptics),
+        (d.checked = SETTINGS.mobileLabels),
+        (u.checked = SETTINGS.mobileChat),
+        (f.checked = SETTINGS.autoJump),
+        (F.value = String(SETTINGS.brightness)),
+        (j("brightnessval").textContent = `${Math.round(SETTINGS.brightness * 100)}%`),
+        (X.checked = SETTINGS.itemTooltips),
+        (Q.checked = SETTINGS.cameraBob),
+        (m.value = String(SETTINGS.minimapZoom)),
+        (j("minimapzoomval").textContent = `${SETTINGS.minimapZoom}×`),
+        (p.value = String(SETTINGS.chatScale)),
+        (j("chatsizeval").textContent = `${Math.round(SETTINGS.chatScale * 100)}%`),
         document.documentElement.style.setProperty(
           "--chat-user-scale",
-          String(z.chatScale),
+          String(SETTINGS.chatScale),
         ),
-        (j("sfxvolval").textContent = `${Math.round(z.sfxVolume * 100)}%`),
-        (j("musicvolval").textContent = `${Math.round(z.musicVolume * 100)}%`),
+        (j("sfxvolval").textContent = `${Math.round(SETTINGS.sfxVolume * 100)}%`),
+        (j("musicvolval").textContent = `${Math.round(SETTINGS.musicVolume * 100)}%`),
         document.querySelectorAll(".qbtn").forEach(($) => {
-          $.classList.toggle("active", $.dataset.q === z.quality);
+          $.classList.toggle("active", $.dataset.q === SETTINGS.quality);
         }));
       const B = Ts();
       ((y.value = String(B.renderDist)),
@@ -468,9 +468,9 @@ const Os = class Os {
         (C.checked = B.chunkShadows),
         (R.value = String(B.textureSize)),
         (L.value = String(B.modelDetail)),
-        (N.value = String(z.militaryOptimizationThreshold)),
+        (N.value = String(SETTINGS.militaryOptimizationThreshold)),
         (j("gmilitarythresholdval").textContent = String(
-          z.militaryOptimizationThreshold,
+          SETTINGS.militaryOptimizationThreshold,
         )),
         (D.value = String(B.waterQuality)),
         (H.value = String(B.celestialDetail)),
@@ -480,35 +480,35 @@ const Os = class Os {
           B.sunShafts > 0
             ? `${Math.round(B.sunShafts * 100)}%`
             : U("offLabel")),
-        (O.value = String(z.shaders)));
+        (O.value = String(SETTINGS.shaders)));
     };
     (Ce(),
       (i.oninput = () => {
-        ((z.aircraftSensitivity = Number(i.value)), qi(), Ce());
+        ((SETTINGS.aircraftSensitivity = Number(i.value)), qi(), Ce());
       }),
       (t.oninput = () => {
-        ((z.sensitivity = Number(t.value)), qi(), Ce());
+        ((SETTINGS.sensitivity = Number(t.value)), qi(), Ce());
       }),
       (s.oninput = () => {
-        ((z.fov = Number(s.value)), qi(), Ce(), this.onQualityChange());
+        ((SETTINGS.fov = Number(s.value)), qi(), Ce(), this.onQualityChange());
       }),
       (o.oninput = () => {
-        ((z.sfxVolume = Number(o.value) / 100),
+        ((SETTINGS.sfxVolume = Number(o.value) / 100),
           qi(),
           Ce(),
-          this.onSfxVolumeChange(z.sfxVolume));
+          this.onSfxVolumeChange(SETTINGS.sfxVolume));
       }),
       (a.oninput = () => {
-        ((z.musicVolume = Number(a.value) / 100),
+        ((SETTINGS.musicVolume = Number(a.value) / 100),
           qi(),
           Ce(),
-          this.onMusicVolumeChange(z.musicVolume));
+          this.onMusicVolumeChange(SETTINGS.musicVolume));
       }),
       (r.onchange = () => {
-        ((z.language = r.value === "en" ? "en" : "ru"),
+        ((SETTINGS.language = r.value === "en" ? "en" : "ru"),
           qi(),
           aA(),
-          this.onLanguageChange(z.language));
+          this.onLanguageChange(SETTINGS.language));
       }),
       Vo(() => {
         (j("worlds").classList.contains("hidden") || this.renderWorldsList(),
@@ -531,126 +531,126 @@ const Os = class Os {
           this.furnaceOpen && this.renderFurnace());
       }),
       (l.onchange = () => {
-        ((z.aimAssist = l.checked), qi());
+        ((SETTINGS.aimAssist = l.checked), qi());
       }),
       (c.oninput = () => {
-        ((z.aimAssistStrength = Number(c.value) / 100), qi(), Ce());
+        ((SETTINGS.aimAssistStrength = Number(c.value) / 100), qi(), Ce());
       }),
       (h.onchange = () => {
-        ((z.haptics = h.checked), qi());
+        ((SETTINGS.haptics = h.checked), qi());
       }),
       (u.onchange = () => {
-        ((z.mobileChat = u.checked),
+        ((SETTINGS.mobileChat = u.checked),
           qi(),
-          document.body.classList.toggle("m-chat-off", !z.mobileChat));
+          document.body.classList.toggle("m-chat-off", !SETTINGS.mobileChat));
       }),
       (d.onchange = () => {
-        ((z.mobileLabels = d.checked),
+        ((SETTINGS.mobileLabels = d.checked),
           qi(),
-          document.body.classList.toggle("m-labels", z.mobileLabels),
+          document.body.classList.toggle("m-labels", SETTINGS.mobileLabels),
           zm(this.mobileVisible, !0));
       }),
       (f.onchange = () => {
-        ((z.autoJump = f.checked), qi());
+        ((SETTINGS.autoJump = f.checked), qi());
       }),
       (m.oninput = () => {
-        ((z.minimapZoom = Number(m.value)), qi(), Ce());
+        ((SETTINGS.minimapZoom = Number(m.value)), qi(), Ce());
       }),
       (p.oninput = () => {
-        ((z.chatScale = Number(p.value)), qi(), Ce());
+        ((SETTINGS.chatScale = Number(p.value)), qi(), Ce());
       }));
     const Re = (B) => {
       (sA(), B(), qi(), Ce(), this.onQualityChange());
     };
     ((y.oninput = () =>
       Re(() => {
-        z.graphics.renderDist = Number(y.value);
+        SETTINGS.graphics.renderDist = Number(y.value);
       })),
       (g.oninput = () =>
         Re(() => {
-          z.graphics.pixelRatio = Number(g.value) / 100;
+          SETTINGS.graphics.pixelRatio = Number(g.value) / 100;
         })),
       (b.oninput = () =>
         Re(() => {
-          z.graphics.particles = Number(b.value) / 100;
+          SETTINGS.graphics.particles = Number(b.value) / 100;
         })),
       (S.onchange = () =>
         Re(() => {
-          z.graphics.shadowSize = Number(S.value);
+          SETTINGS.graphics.shadowSize = Number(S.value);
         })),
       (M.onchange = () =>
         Re(() => {
-          z.graphics.clouds = M.checked;
+          SETTINGS.graphics.clouds = M.checked;
         })),
       (x.onchange = () =>
         Re(() => {
-          z.graphics.fancyLeaves = x.checked;
+          SETTINGS.graphics.fancyLeaves = x.checked;
         })),
       (T.onchange = () =>
         Re(() => {
-          z.graphics.smoothLighting = T.checked;
+          SETTINGS.graphics.smoothLighting = T.checked;
         })),
       (A.onchange = () =>
         Re(() => {
-          z.graphics.antialias = A.checked;
+          SETTINGS.graphics.antialias = A.checked;
         })),
       (_.onchange = () =>
         Re(() => {
-          z.graphics.fog = _.checked;
+          SETTINGS.graphics.fog = _.checked;
         })),
       (C.onchange = () =>
         Re(() => {
-          z.graphics.chunkShadows = C.checked;
+          SETTINGS.graphics.chunkShadows = C.checked;
         })),
       (R.onchange = () =>
         Re(() => {
-          z.graphics.textureSize = Xk(R.value);
+          SETTINGS.graphics.textureSize = Xk(R.value);
         })),
       (L.onchange = () =>
         Re(() => {
-          z.graphics.modelDetail = Number(L.value);
+          SETTINGS.graphics.modelDetail = Number(L.value);
         })),
       (N.oninput = () => {
-        ((z.militaryOptimizationThreshold = Number(N.value)), qi(), Ce());
+        ((SETTINGS.militaryOptimizationThreshold = Number(N.value)), qi(), Ce());
       }),
       (D.onchange = () =>
         Re(() => {
-          z.graphics.waterQuality = Number(D.value);
+          SETTINGS.graphics.waterQuality = Number(D.value);
         })),
       (H.onchange = () =>
         Re(() => {
-          z.graphics.celestialDetail = Number(H.value);
+          SETTINGS.graphics.celestialDetail = Number(H.value);
         })),
       (G.onchange = () =>
         Re(() => {
-          z.graphics.environmentDetail = Number(G.value);
+          SETTINGS.graphics.environmentDetail = Number(G.value);
         })),
       (I.oninput = () =>
         Re(() => {
-          z.graphics.sunShafts = Number(I.value) / 100;
+          SETTINGS.graphics.sunShafts = Number(I.value) / 100;
         })),
       (O.onchange = () => {
-        ((z.shaders = Jk(O.value)), qi(), Ce(), this.onQualityChange());
+        ((SETTINGS.shaders = Jk(O.value)), qi(), Ce(), this.onQualityChange());
       }),
       (Q.onchange = () => {
-        ((z.cameraBob = Q.checked), qi());
+        ((SETTINGS.cameraBob = Q.checked), qi());
       }),
       this.buildDebugToggles());
     const We = () => {
-      ((z.mobileLayoutEdit = !1),
+      ((SETTINGS.mobileLayoutEdit = !1),
         document.body.classList.remove("layout-edit"),
         qi());
     };
     ((j("layouteditbtn").onclick = () => {
-      ((z.mobileLayoutEdit = !0),
+      ((SETTINGS.mobileLayoutEdit = !0),
         document.body.classList.add("layout-edit"),
         this.hideSettings());
     }),
       (j("layoutsave").onclick = We),
       (j("layoutreset").onclick = () => {
         Yy() === "portrait"
-          ? (z.mobileLayoutPortrait = {})
-          : (z.mobileLayout = {});
+          ? (SETTINGS.mobileLayoutPortrait = {})
+          : (SETTINGS.mobileLayout = {});
         for (const B of document.querySelectorAll(
           "[data-mobile-action], #mobile-stick-zone",
         ))
@@ -665,12 +665,12 @@ const Os = class Os {
             B.style.removeProperty($);
         (qi(), zm(this.mobileVisible, !0));
       }),
-      (z.mobileLayoutEdit = !1),
+      (SETTINGS.mobileLayoutEdit = !1),
       document.body.classList.remove("layout-edit"),
       document.querySelectorAll(".qbtn").forEach((B) => {
         B.onclick = () => {
           const $ = B.dataset.q;
-          ($ === "custom" ? sA() : ((z.quality = $), (z.shaders = Qk[$])),
+          ($ === "custom" ? sA() : ((SETTINGS.quality = $), (SETTINGS.shaders = Qk[$])),
             qi(),
             Ce(),
             this.onQualityChange());
@@ -678,15 +678,15 @@ const Os = class Os {
       }));
     const it = j("fullscreentoggle"),
       ut = () => {
-        it.textContent = z.autoFullscreen ? U("onLabel") : U("offLabel");
+        it.textContent = SETTINGS.autoFullscreen ? U("onLabel") : U("offLabel");
       };
     (ut(),
       (it.onclick = () => {
         var B, $, he;
-        ((z.autoFullscreen = !z.autoFullscreen),
+        ((SETTINGS.autoFullscreen = !SETTINGS.autoFullscreen),
           qi(),
           ut(),
-          z.autoFullscreen
+          SETTINGS.autoFullscreen
             ? ($ = (B = document.documentElement).requestFullscreen) == null ||
               $.call(B).catch(() => {})
             : document.fullscreenElement &&
@@ -789,10 +789,10 @@ const Os = class Os {
     if (ge)
       for (let B = 0; B < Uh; B++) {
         const $ = Sa();
-        ($.el.classList.add("armor-slot"), ($.el.dataset.armor = ir[B]));
+        ($.el.classList.add("armor-slot"), ($.el.dataset.armor = ARMOR_SLOTS[B]));
         const he = document.createElement("div");
         ((he.className = "armor-label"),
-          (he.textContent = rA(ir[B])),
+          (he.textContent = rA(ARMOR_SLOTS[B])),
           $.el.appendChild(he),
           ge.appendChild($.el),
           ($.el.onclick = (fe) => {
@@ -1096,21 +1096,21 @@ const Os = class Os {
     const ke = () => {
       for (const B of W)
         ((B.hidden = !Qz()),
-          (B.dataset.channel = Go),
+          (B.dataset.channel = gamemode),
           (B.textContent =
-            Go === "squad"
-              ? z.language === "en"
+            gamemode === "squad"
+              ? SETTINGS.language === "en"
                 ? "Squad chat"
                 : "Чат отряда"
-              : Go === "team"
-                ? z.language === "en"
+              : gamemode === "team"
+                ? SETTINGS.language === "en"
                   ? "Team chat"
                   : "Командный чат"
-                : z.language === "en"
+                : SETTINGS.language === "en"
                   ? "Global chat"
                   : "Общий чат"),
           (B.title =
-            z.language === "en"
+            SETTINGS.language === "en"
               ? "Switch channel · Tab with empty input"
               : "Сменить канал · Tab в пустом поле"),
           B.setAttribute("aria-label", B.textContent + ". " + B.title));
@@ -1306,7 +1306,7 @@ const Os = class Os {
     }
     if (((e.innerHTML = ""), t.length === 0)) {
       const i = document.createElement("div");
-      ((i.className = "worlds-empty"), (i.innerHTML = Nn("world")));
+      ((i.className = "worlds-empty"), (i.innerHTML = svgIcon("world")));
       const s = document.createElement("p");
       ((s.textContent = U("noWorldsYet")), i.append(s), e.appendChild(i));
       return;
@@ -1323,7 +1323,7 @@ const Os = class Os {
         (r.textContent = U("worldSubline", {
           seed: i.seed,
           date: new Date(i.lastPlayedAt).toLocaleDateString(
-            z.language === "ru" ? "ru-RU" : "en-US",
+            SETTINGS.language === "ru" ? "ru-RU" : "en-US",
           ),
         })),
         o.append(a, r));
@@ -1333,7 +1333,7 @@ const Os = class Os {
         (l.onclick = () => this.playWorld(i)));
       const c = document.createElement("button");
       ((c.className = "btn small danger"),
-        (c.innerHTML = Nn("trash")),
+        (c.innerHTML = svgIcon("trash")),
         c.setAttribute("aria-label", U("deleteWorldTitle")),
         (c.title = U("deleteWorldTitle")),
         (c.onclick = async () => {
@@ -1348,7 +1348,7 @@ const Os = class Os {
         }));
       const h = document.createElement("span");
       ((h.className = "world-glyph"),
-        (h.innerHTML = Nn("world")),
+        (h.innerHTML = svgIcon("world")),
         s.append(h, o, l, c),
         e.appendChild(s));
     }
@@ -1357,7 +1357,7 @@ const Os = class Os {
     (gX(e.id),
       this.hideWorlds(),
       oM(e.name),
-      this.beginPlay(z.nick || U("defaultNick"), "local", {
+      this.beginPlay(SETTINGS.nick || U("defaultNick"), "local", {
         worldId: e.id,
         seed: e.seed,
       }));
@@ -1726,8 +1726,8 @@ const Os = class Os {
       return;
     }
     j("attachtitle").textContent = t
-      ? `${Ki(e)} · ${z.language === "en" ? "helmet module" : "модуль шлема"}`
-      : Ey(e, z.language);
+      ? `${Ki(e)} · ${SETTINGS.language === "en" ? "helmet module" : "модуль шлема"}`
+      : Ey(e, SETTINGS.language);
     const i = j("attachbg"),
       s = i.getContext("2d");
     (s.clearRect(0, 0, i.width, i.height),
@@ -1741,7 +1741,7 @@ const Os = class Os {
         cancelAnimationFrame(this.gunsmithFrame),
         (this.gunsmithKey = "")));
     const o = Ti(e);
-    for (const l of h0)
+    for (const l of WEAPON_ATTACHMENTS)
       j(`attachslot-${l}`).classList.toggle(
         "hidden",
         t ? l !== "scope" : !PC(o, l),
@@ -1759,7 +1759,7 @@ const Os = class Os {
       }
       const h = document.createElement("div");
       ((h.className = "attach-cat-label"),
-        (h.textContent = z.language === "en" ? "Helmet optic" : "Оптика шлема"),
+        (h.textContent = SETTINGS.language === "en" ? "Helmet optic" : "Оптика шлема"),
         l.appendChild(h),
         (l.onclick = () => {
           ((this.attachPickerCat =
@@ -1770,7 +1770,7 @@ const Os = class Os {
         this.renderAttachPicker());
       return;
     }
-    for (const l of h0) {
+    for (const l of WEAPON_ATTACHMENTS) {
       const c = j(`attachslot-${l}`);
       c.innerHTML = "";
       const h = Cd(e, l);
@@ -1796,11 +1796,11 @@ const Os = class Os {
   }
   renderGunsmith(e) {
     var p, m, y;
-    const t = z.language === "en",
+    const t = SETTINGS.language === "en",
       i = j("attachboard"),
       s = j("attach3d");
     i.classList.add("gunsmith");
-    for (const g of h0) {
+    for (const g of WEAPON_ATTACHMENTS) {
       const b = j(`attachslot-${g}`),
         S = Cd(e, g),
         M = document.createElement("div");
@@ -1975,7 +1975,7 @@ const Os = class Os {
       ((a.className = "attach-picker-title"),
       (a.textContent =
         t === "helmetModule"
-          ? z.language === "en"
+          ? SETTINGS.language === "en"
             ? "Helmet optic"
             : "Оптика шлема"
           : hA(t)),
@@ -2189,7 +2189,7 @@ const Os = class Os {
       (this.mapMarkers = s),
       (this.mapDrag = null),
       (j("maptitle").textContent = a
-        ? z.language === "en"
+        ? SETTINGS.language === "en"
           ? "Tank · precision strike"
           : "Танк · точный удар"
         : U(o ? "mapMortarTitle" : "mapHimarsTitle")),
@@ -2559,7 +2559,7 @@ const Os = class Os {
         t / (s * a),
         i / (s * a),
         this.worldBorder,
-        z.language === "en" ? "WORLD BOUNDARY" : "ГРАНИЦА МИРА",
+        SETTINGS.language === "en" ? "WORLD BOUNDARY" : "ГРАНИЦА МИРА",
       ));
   }
   renderEquipmentStatus(e, t) {
@@ -2571,13 +2571,13 @@ const Os = class Os {
         s.armor,
         o.map((h) => [h, s.countOf(h)]),
         t,
-        z.language,
+        SETTINGS.language,
       ]);
     if (a === this.equipmentKey) return;
     ((this.equipmentKey = a), i.replaceChildren());
     const r = document.createElement("div");
     r.className = "equipment-armor";
-    const l = [E.HELMET_1, E.VEST_1, E.PANTS_1, E.BOOTS_1];
+    const l = [ITEM.HELMET_1, ITEM.VEST_1, ITEM.PANTS_1, ITEM.BOOTS_1];
     (s.armor.forEach((h, d) => {
       const u = document.createElement("div");
       u.className = "equipment-row" + (h.id ? "" : " empty");
@@ -2590,7 +2590,7 @@ const Os = class Os {
         : "—"),
         (u.title = h.id
           ? Ki(h.id)
-          : z.language === "en"
+          : SETTINGS.language === "en"
             ? "Not equipped"
             : "Не надето"),
         u.classList.toggle("worn", !!h.id && yM(h.id, h.durability) < 0.25),
@@ -2622,7 +2622,7 @@ const Os = class Os {
       return;
     const o = document.createElement("strong");
     ((o.textContent =
-      z.language === "en" ? "Load ammunition" : "Зарядить патроны"),
+      SETTINGS.language === "en" ? "Load ammunition" : "Зарядить патроны"),
       s.append(o),
       e.forEach((r, l) => {
         var f, p, m, y;
@@ -2652,7 +2652,7 @@ const Os = class Os {
       }));
     const a = document.createElement("small");
     ((a.textContent =
-      z.language === "en"
+      SETTINGS.language === "en"
         ? "1 / 2 · Wheel + click · Tap to load"
         : "1 / 2 · Колесо + клик · Коснитесь для выбора"),
       s.append(a));
@@ -2667,7 +2667,7 @@ const Os = class Os {
     this.mapSample = e;
     const o = s.getContext("2d"),
       a = Math.ceil(Os.MINIMAP_CELLS * 1.5),
-      r = 2.2 / z.minimapZoom;
+      r = 2.2 / SETTINGS.minimapZoom;
     ((s.dataset.blocksPerCell = String(r)),
       this.drawMapBase(o, s.width, s.height, a, t, r));
     const l = s.width / a;
@@ -2789,9 +2789,9 @@ const Os = class Os {
           kind: "himars",
           vehicleType:
             this.mapMode === "tank"
-              ? P.TANK
+              ? VEHICLE_KIND.TANK
               : this.mapMode === "mortar"
-                ? P.MORTAR
+                ? VEHICLE_KIND.MORTAR
                 : void 0,
         },
         5.5,
@@ -2834,7 +2834,7 @@ const Os = class Os {
   setMobileActions(e) {
     var s;
     if (!document.body.classList.contains("mobile")) return;
-    if (z.mobileLayoutEdit) {
+    if (SETTINGS.mobileLayoutEdit) {
       for (const o of document.querySelectorAll("[data-mobile-action]"))
         o.classList.remove("hidden");
       ((this.mobileVisible = Object.keys(e)), zm(this.mobileVisible));
@@ -2877,8 +2877,8 @@ const Os = class Os {
       const s = kj[t];
       s && this.setMobileIcon(e.id, s);
     }
-    (document.body.classList.toggle("m-labels", z.mobileLabels),
-      document.body.classList.toggle("m-chat-off", !z.mobileChat),
+    (document.body.classList.toggle("m-labels", SETTINGS.mobileLabels),
+      document.body.classList.toggle("m-chat-off", !SETTINGS.mobileChat),
       Vo(() => {
         const e = [...this.mobileIconCache];
         this.mobileIconCache.clear();
@@ -2955,13 +2955,13 @@ const Os = class Os {
         const i = document.createElement("div");
         i.className = "bind-row";
         const s = document.createElement("div");
-        ((s.className = "bind-label"), (s.textContent = nA(t, z.language)));
+        ((s.className = "bind-label"), (s.textContent = nA(t, SETTINGS.language)));
         const o = document.createElement("button");
         ((o.type = "button"),
           (o.className =
             "bind-btn" + (this.listeningBind === t ? " listening" : "")),
           (o.textContent =
-            this.listeningBind === t ? "…" : gs(z.binds[t], z.language)),
+            this.listeningBind === t ? "…" : gs(SETTINGS.binds[t], SETTINGS.language)),
           (o.onclick = () => {
             ((this.listeningBind = t), this.buildBindList());
           }),
@@ -3003,7 +3003,7 @@ const Os = class Os {
       <div><b>Tab</b> — ${U("pbPlayerList")}</div>
       <div><b>1-9</b> — ${U("pbHotbar")}</div>
       <div><b>/</b> — ${U("pbCommand")}</div>
-      ${t.map((i) => `<div><b>${gs(z.binds[i], z.language) || "—"}</b> — ${nA(i, z.language).toLowerCase()}</div>`).join("")}
+      ${t.map((i) => `<div><b>${gs(SETTINGS.binds[i], SETTINGS.language) || "—"}</b> — ${nA(i, SETTINGS.language).toLowerCase()}</div>`).join("")}
     `;
   }
   showPause() {
@@ -3026,7 +3026,7 @@ const Os = class Os {
   showDeath(e, t = !1) {
     if (((this.deathOpen = e), j("death").classList.toggle("hidden", !e), !e))
       return;
-    const i = z.language === "en";
+    const i = SETTINGS.language === "en";
     ((j("death").querySelector(".sub").textContent = t
       ? i
         ? "Your gear stays with you on this server."
@@ -3039,7 +3039,7 @@ const Os = class Os {
   }
   setDeathCountdown(e) {
     const t = j("respawnbtn"),
-      i = z.language === "en",
+      i = SETTINGS.language === "en",
       s = Math.ceil(Math.max(0, e)),
       o =
         s > 0
@@ -3082,13 +3082,13 @@ const Os = class Os {
     i = j("mapcanvas").width,
     s = j("mapcanvas").height,
   ) {
-    const o = z.language === "en",
+    const o = SETTINGS.language === "en",
       a = [];
     this.spawnHub &&
       a.push({
         x: this.spawnHub.x,
         z: this.spawnHub.z,
-        text: Ns(this.spawnHub.name, z.language),
+        text: Ns(this.spawnHub.name, SETTINGS.language),
         kind: "spawn",
         radius: this.spawnHub.radius,
       });
@@ -3098,7 +3098,7 @@ const Os = class Os {
         a.push({
           x: r.x,
           z: r.z,
-          text: Ns(r.name, z.language),
+          text: Ns(r.name, SETTINGS.language),
           kind: Dj(this.siteKinds.get(r.id)),
           radius: r.radius,
           held: this.heldSites.has(r.id),
@@ -3186,7 +3186,7 @@ const Os = class Os {
       (h.textContent =
         e === 2
           ? U("questCompletedStage")
-          : `${o} ${z.language === "en" ? "soldiers" : "бойцов"} · ${a} ${z.language === "en" ? "vehicles" : "машин"}`);
+          : `${o} ${SETTINGS.language === "en" ? "soldiers" : "бойцов"} · ${a} ${SETTINGS.language === "en" ? "vehicles" : "машин"}`);
     const d = j("questreward");
     (d && (d.textContent = U("questRewardLine", { money: r, xp: l })),
       this.updateQuestTimer());
@@ -3272,7 +3272,7 @@ const Os = class Os {
     ((i.className = "lead-title"),
       (i.textContent = U("raidLeaders")),
       t.appendChild(i));
-    const s = z.language === "en";
+    const s = SETTINGS.language === "en";
     e.forEach((o, a) => {
       const r = document.createElement("div"),
         l =
@@ -3382,11 +3382,11 @@ const Os = class Os {
         .trim()
         .toLocaleLowerCase(),
       o = {
-        property: z.language === "en" ? "Territory" : "Территория",
-        casino: z.language === "en" ? "Slot machines" : "Игровые автоматы",
-        blueprint: z.language === "en" ? "Blueprints" : "Чертежи",
+        property: SETTINGS.language === "en" ? "Territory" : "Территория",
+        casino: SETTINGS.language === "en" ? "Slot machines" : "Игровые автоматы",
+        blueprint: SETTINGS.language === "en" ? "Blueprints" : "Чертежи",
         explosive:
-          z.language === "en"
+          SETTINGS.language === "en"
             ? "Explosives & detonators"
             : "Взрывчатка и детонаторы",
         all: U("catAll"),
@@ -3402,7 +3402,7 @@ const Os = class Os {
         nature: U("catNature"),
         food: U("catFood"),
       },
-      a = g4.filter((f) => f.buyable !== !1 && (f.id !== E.AXE || fw(!0))),
+      a = g4.filter((f) => f.buyable !== !1 && (f.id !== ITEM.AXE || fw(!0))),
       r = new Map();
     for (const f of a) r.set(f.category, (r.get(f.category) ?? 0) + 1);
     this.buildShopCategories(o, a, r);
@@ -3411,7 +3411,7 @@ const Os = class Os {
           (this.shopCategory === "all" || f.category === this.shopCategory) &&
           (!s || ad(f.id).toLocaleLowerCase().includes(s)),
       ),
-      c = Wj(l, j("shopsort").value, ad, z.language);
+      c = Wj(l, j("shopsort").value, ad, SETTINGS.language);
     if (
       ((j("shopresultcount").textContent = U("shopResultCount", {
         count: c.length,
@@ -3432,7 +3432,7 @@ const Os = class Os {
     ) {
       const f = document.createElement("div");
       f.className = "shop-broke";
-      const p = z.language === "en",
+      const p = SETTINGS.language === "en",
         m = lr(),
         y = document.createElement("b");
       y.textContent = p
@@ -3470,14 +3470,14 @@ const Os = class Os {
       S.className = "price";
       const M = ra(f.id),
         x = Zc(f.id),
-        T = z.language === "en",
+        T = SETTINGS.language === "en",
         A = document.createElement("div");
       A.className = "shop-item-facts";
       const _ = document.createElement("div");
       if (
         ((_.className = "shop-item-description"),
         (S.textContent = `$${f.price} · ${U("sale")} $${qh(f.id)}`),
-        f.id === v.OWNERSHIP_TOTEM &&
+        f.id === BLOCK.OWNERSHIP_TOTEM &&
           (p.classList.add("shop-property"),
           (A.textContent = T
             ? "65 × 65 · all heights · up to 10 claims"
@@ -3502,7 +3502,7 @@ const Os = class Os {
               ? "Single use. The plot is cleared and underpinned automatically."
               : "Одноразовый. Участок расчищается и подсыпается автоматически.")));
       } else
-        Tl(f.id)
+        slotGameByIndex(f.id)
           ? ((A.textContent = T
               ? "3D cabinet · live game screen"
               : "3D-автомат · живой экран игры"),
@@ -3518,14 +3518,14 @@ const Os = class Os {
                   : "")),
               (_.textContent = `${lA(M)} ${U("protects")}: ${cA(M)}.`))
             : m && (_.textContent = m);
-      (f.id === E.MILITARY_MEDKIT || f.id === E.MEDKIT || f.id === E.BANDAGE) &&
+      (f.id === ITEM.MILITARY_MEDKIT || f.id === ITEM.MEDKIT || f.id === ITEM.BANDAGE) &&
         ((A.textContent = l_(f.id)),
-        f.id === E.MILITARY_MEDKIT && p.classList.add("shop-premium"));
+        f.id === ITEM.MILITARY_MEDKIT && p.classList.add("shop-premium"));
       const C = aa(f.id);
       (C &&
         ((A.textContent = `R ${C.radius} m · ${C.delay} ${T ? "s" : "с"}`),
         (_.textContent = `${T ? C.descriptionEn : C.description} · ${T ? "Remote detonator required" : "Нужен детонатор"}`)),
-        f.id === E.ROCKET_GUIDED &&
+        f.id === ITEM.ROCKET_GUIDED &&
           (_.textContent = T
             ? "RPG · 2 s lock · Fires straight without a lock"
             : "РПГ · Захват 2 с · Без захвата летит прямо"),
@@ -3540,7 +3540,7 @@ const Os = class Os {
         (R.onclick = async () => {
           var G;
           const L = ia(f.id) > 1,
-            N = f.id === v.OWNERSHIP_TOTEM,
+            N = f.id === BLOCK.OWNERSHIP_TOTEM,
             D = N ? 10 : L ? 999 : 1,
             H = await this.openQtyModal({
               title: U("buyModalTitle", { name: ad(f.id), price: f.price }),
@@ -3609,7 +3609,7 @@ const Os = class Os {
         (l.title = e[r] ?? r));
       const c = document.createElement("canvas");
       ((c.className = "shop-category-icon"), (c.width = 40), (c.height = 40));
-      const h = r === "all" ? v.MILITARY_CHEST : wX[r];
+      const h = r === "all" ? BLOCK.MILITARY_CHEST : wX[r];
       xX(c.getContext("2d"), h, this.atlas);
       const d = document.createElement("span");
       ((d.className = "shop-category-label"), (d.textContent = e[r] ?? r));
@@ -4021,18 +4021,18 @@ const Os = class Os {
       this.onFurnaceClose());
   }
   furnaceTarget(e) {
-    return e === E.COAL || e === E.LAVA_BUCKET
+    return e === ITEM.COAL || e === ITEM.LAVA_BUCKET
       ? 1
-      : e === v.IRON_ORE ||
-          e === v.GOLD_ORE ||
-          e === v.DIAMOND_ORE ||
-          e === v.TITANIUM_ORE ||
-          e === E.RAW_PORK ||
-          e === E.RAW_CHICKEN ||
-          e === E.RAW_MUTTON ||
-          e === E.RAW_BEEF ||
-          e === E.RAW_CAMEL ||
-          e === E.RAW_FISH
+      : e === BLOCK.IRON_ORE ||
+          e === BLOCK.GOLD_ORE ||
+          e === BLOCK.DIAMOND_ORE ||
+          e === BLOCK.TITANIUM_ORE ||
+          e === ITEM.RAW_PORK ||
+          e === ITEM.RAW_CHICKEN ||
+          e === ITEM.RAW_MUTTON ||
+          e === ITEM.RAW_BEEF ||
+          e === ITEM.RAW_CAMEL ||
+          e === ITEM.RAW_FISH
         ? 0
         : -1;
   }
@@ -4140,18 +4140,18 @@ const Os = class Os {
   refreshChatValidation(e, t) {
     const i = e.value.trimStart().startsWith("/");
     e.maxLength = i ? tI : eI;
-    const s = rM(e.value, z.language) ?? aM(e.value, z.language);
+    const s = rM(e.value, SETTINGS.language) ?? aM(e.value, SETTINGS.language);
     e.setAttribute("aria-invalid", String(!!s));
     const o = i
       ? ""
-      : z.language === "ru"
+      : SETTINGS.language === "ru"
         ? "Буквы, цифры, пробелы и _ - . , : ! ? / * & % @"
         : "Letters, numbers, spaces and _ - . , : ! ? / * & % @";
     ((j(t).textContent = `${e.value.length}/${e.maxLength} · ${s || o}`),
       j(t).classList.toggle("invalid", !!s));
   }
   submitChat(e) {
-    const t = rM(e, z.language) ?? aM(e, z.language);
+    const t = rM(e, SETTINGS.language) ?? aM(e, SETTINGS.language);
     if (t) return (this.addChat(2, t), !1);
     const i = e.trim();
     if (i) {
@@ -4265,7 +4265,7 @@ const Os = class Os {
               m
                 .replace(/^\[(Owner|Admin|Moder)\] /, "")
                 .replace(/ \[[A-Za-z0-9_-]+\]$/, ""),
-            g = uw(y),
+            g = roleOf(y),
             b = document.createElement("span");
           ((b.textContent = g.baseLabel),
             (b.style.color = g.color),
@@ -4290,14 +4290,14 @@ const Os = class Os {
           if (((c = d.meta) == null ? void 0 : c.channel) === "squad") {
             const M = document.createElement("span");
             ((M.className = "chat-channel-label"),
-              (M.textContent = z.language === "en" ? "SQUAD" : "ОТРЯД"),
+              (M.textContent = SETTINGS.language === "en" ? "SQUAD" : "ОТРЯД"),
               (M.style.color = (S == null ? void 0 : S.color) ?? "#58dfc0"),
               u.prepend(M));
           }
           if (((h = d.meta) == null ? void 0 : h.channel) === "team") {
             const M = document.createElement("span");
             ((M.className = "chat-channel-label chat-team-label"),
-              (M.textContent = z.language === "en" ? "TEAM" : "КОМАНДА"),
+              (M.textContent = SETTINGS.language === "en" ? "TEAM" : "КОМАНДА"),
               u.prepend(M),
               u.classList.add("msg-team"));
           }
@@ -4352,11 +4352,11 @@ const Os = class Os {
     );
     j("tabcount").textContent = U("tabOnline", { count: e.length });
     const t = this.tabQuery.trim().toLocaleLowerCase(),
-      i = new Intl.NumberFormat(z.language === "en" ? "en-US" : "ru-RU"),
+      i = new Intl.NumberFormat(SETTINGS.language === "en" ? "en-US" : "ru-RU"),
       s = document.createDocumentFragment();
     if (
       (e.forEach((o, a) => {
-        const r = uw(o.name);
+        const r = roleOf(o.name);
         if (
           t &&
           !o.name.toLocaleLowerCase().includes(t) &&
@@ -4432,7 +4432,7 @@ const Os = class Os {
   setCompass(e, t, i) {
     const s = j("compasscoords");
     s.textContent !== t && (s.textContent = t);
-    let o = `${Math.round((e * 1800) / Math.PI)}|${z.language}|${devicePixelRatio}`;
+    let o = `${Math.round((e * 1800) / Math.PI)}|${SETTINGS.language}|${devicePixelRatio}`;
     for (const g of i)
       o += `|${Math.round(g.bearing * 2)}${g.color}${g.label ?? ""}`;
     if (o === this.compassSig) return;
@@ -4473,7 +4473,7 @@ const Os = class Os {
         r.stroke());
     }
     const m =
-      z.language === "en"
+      SETTINGS.language === "en"
         ? [
             [0, "N"],
             [45, "NE"],
@@ -4558,8 +4558,8 @@ const Os = class Os {
         : u.skin,
     );
     if (e && s) {
-      const m = z.language === "en" ? s.name : s.ru;
-      (e.endsWith(" | " + m) || (e += " | " + m), (i = Ho[s.rarity].color));
+      const m = SETTINGS.language === "en" ? s.name : s.ru;
+      (e.endsWith(" | " + m) || (e += " | " + m), (i = RARITIES[s.rarity].color));
     }
     _g();
     const o =
@@ -4599,9 +4599,9 @@ const Os = class Os {
         const i = document.createElement("label"),
           s = document.createElement("input");
         ((s.type = "checkbox"),
-          (s.checked = z.debug[t]),
+          (s.checked = SETTINGS.debug[t]),
           (s.onchange = () => {
-            ((z.debug[t] = s.checked), qi());
+            ((SETTINGS.debug[t] = s.checked), qi());
           }));
         const o = document.createElement("span");
         return (
@@ -4807,7 +4807,7 @@ const Os = class Os {
         e.flies,
         e.extra,
         i,
-        z.language,
+        SETTINGS.language,
         e.charge === void 0 ? -1 : Math.round(e.charge * 100),
       ]);
     if (o === this.vehicleHudKey) return;
@@ -4838,7 +4838,7 @@ const Os = class Os {
             speed: s,
             alt: e.alt,
           })));
-    const d = i ? "" : `${z.binds.camera}|${z.binds.use}|${z.language}`;
+    const d = i ? "" : `${SETTINGS.binds.camera}|${SETTINGS.binds.use}|${SETTINGS.language}`;
     if (
       c.dataset.hints !== d &&
       ((c.dataset.hints = d), c.replaceChildren(), !i)
@@ -4849,7 +4849,7 @@ const Os = class Os {
       ]) {
         const m = document.createElement("span"),
           y = document.createElement("kbd");
-        ((y.textContent = gs(z.binds[f], z.language)),
+        ((y.textContent = gs(SETTINGS.binds[f], SETTINGS.language)),
           m.append(y, ` ${U(p)}`),
           c.append(m));
       }
@@ -4881,8 +4881,8 @@ const Os = class Os {
     const o = t.id ? uo((x = t.cosmetic) == null ? void 0 : x.skin) : void 0;
     if (
       (e.el.classList.toggle("skin-slot", !!o),
-      e.el.style.setProperty("--skin-color", o ? Ho[o.rarity].color : ""),
-      (e.el.dataset.skinName = o ? (z.language === "en" ? o.name : o.ru) : ""),
+      e.el.style.setProperty("--skin-color", o ? RARITIES[o.rarity].color : ""),
+      (e.el.dataset.skinName = o ? (SETTINGS.language === "en" ? o.name : o.ru) : ""),
       o && ik(s, o.id),
       fo(t.id))
     ) {
@@ -4902,7 +4902,7 @@ const Os = class Os {
     (a > 0 &&
       ((s.fillStyle = "rgba(6,9,8,.9)"),
       s.fillRect(21, 24, 18, 12),
-      (s.fillStyle = a === E.THERMAL_GOGGLES ? "#ff7626" : "#73ee8b"),
+      (s.fillStyle = a === ITEM.THERMAL_GOGGLES ? "#ff7626" : "#73ee8b"),
       s.beginPath(),
       s.arc(26, 30, 3.5, 0, Math.PI * 2),
       s.arc(34, 30, 3.5, 0, Math.PI * 2),
@@ -4931,8 +4931,8 @@ const Os = class Os {
       ((e.el.dataset.itemSale =
         t.id > 0
           ? kA(t.id)
-            ? `${z.language === "en" ? "Sell" : "Продажа"}: $${y} / ${z.language === "en" ? "item" : "шт."}${t.count > 1 ? ` · $${y * t.count} ${z.language === "en" ? "stack" : "за стопку"}` : ""}`
-            : z.language === "en"
+            ? `${SETTINGS.language === "en" ? "Sell" : "Продажа"}: $${y} / ${SETTINGS.language === "en" ? "item" : "шт."}${t.count > 1 ? ` · $${y * t.count} ${SETTINGS.language === "en" ? "stack" : "за стопку"}` : ""}`
+            : SETTINGS.language === "en"
               ? "Cannot be sold"
               : "Не продаётся"
           : ""),
@@ -4942,18 +4942,18 @@ const Os = class Os {
       return;
     }
     if (t.id < 256) {
-      e.el.dataset.itemInfo = `${kd(de[t.id]) ?? ""}
-${z.language === "en" ? "Durability" : "Прочность"}: ${((T = de[t.id]) == null ? void 0 : T.hardness) ?? 0}${(A = de[t.id]) != null && A.light ? ` · ${z.language === "en" ? "Light" : "Свет"}: ${de[t.id].light}` : ""}`;
+      e.el.dataset.itemInfo = `${kd(BLOCKS[t.id]) ?? ""}
+${SETTINGS.language === "en" ? "Durability" : "Прочность"}: ${((T = BLOCKS[t.id]) == null ? void 0 : T.hardness) ?? 0}${(A = BLOCKS[t.id]) != null && A.light ? ` · ${SETTINGS.language === "en" ? "Light" : "Свет"}: ${BLOCKS[t.id].light}` : ""}`;
       return;
     }
-    if (t.id === E.MEDKIT || t.id === E.MILITARY_MEDKIT || t.id === E.BANDAGE) {
+    if (t.id === ITEM.MEDKIT || t.id === ITEM.MILITARY_MEDKIT || t.id === ITEM.BANDAGE) {
       e.el.dataset.itemInfo = `${Ki(t.id)}
 ${l_(t.id)}`;
       return;
     }
     const g = Zc(t.id);
     if (g) {
-      const _ = z.language === "en";
+      const _ = SETTINGS.language === "en";
       e.el.dataset.itemInfo = `${Ki(t.id)}
 ${g.width} × ${g.depth} × ${g.height}
 ${_ ? g.descriptionEn : g.description}
@@ -4989,7 +4989,7 @@ ${U("durabilityTooltip", { current: c, max: l })}`
           ? `
 ${U(u > 0 ? "helmetModuleDurabilityTooltip" : "suppressorDurabilityTooltip", { current: m, max: p })}`
           : "";
-    e.el.dataset.itemInfo = `${AX(t.id)}${o ? " | " + (z.language === "en" ? o.name : o.ru) : ""}${S}${M}${
+    e.el.dataset.itemInfo = `${AX(t.id)}${o ? " | " + (SETTINGS.language === "en" ? o.name : o.ru) : ""}${S}${M}${
       o != null && o.tracking && t.cosmetic
         ? `
 ` +
@@ -5023,7 +5023,7 @@ ${U(u > 0 ? "helmetModuleDurabilityTooltip" : "suppressorDurabilityTooltip", { c
       (this.picked = null),
       this.updateGhost(0, 0),
       j("inventory").classList.remove("hidden"));
-    const t = gs(z.binds.skills, z.language);
+    const t = gs(SETTINGS.binds.skills, SETTINGS.language);
     ((j("invskillskey").textContent = t),
       (j("invskillskey").hidden = !t),
       e && this.preparePointerForUi(),
@@ -5132,7 +5132,7 @@ ${U(u > 0 ? "helmetModuleDurabilityTooltip" : "suppressorDurabilityTooltip", { c
       if (((l.el.style.display = r < t ? "" : "none"), !(r >= t))) {
         if (e.creative) {
           const c = fd[r] ?? 0;
-          if (c === E.AXE && !fw(!0)) {
+          if (c === ITEM.AXE && !fw(!0)) {
             l.el.style.display = "none";
             continue;
           }
@@ -5178,8 +5178,8 @@ ${U(u > 0 ? "helmetModuleDurabilityTooltip" : "suppressorDurabilityTooltip", { c
   }
   renderRankProgress() {
     const e = Np(this.currentXp),
-      t = Qc.findIndex((a) => a.name === e.name),
-      i = t >= 0 ? Qc[t + 1] : void 0,
+      t = RANKS.findIndex((a) => a.name === e.name),
+      i = t >= 0 ? RANKS[t + 1] : void 0,
       s = e.minXp,
       o = i
         ? Math.max(0, Math.min(1, (this.currentXp - s) / (i.minXp - s)))
@@ -5232,7 +5232,7 @@ ${U(u > 0 ? "helmetModuleDurabilityTooltip" : "suppressorDurabilityTooltip", { c
     )
       return !1;
     const a = ra(o),
-      r = ir.indexOf(a.slot);
+      r = ARMOR_SLOTS.indexOf(a.slot);
     if (r < 0) return !1;
     const l = i.armor[r],
       c = { ...l };
@@ -5428,7 +5428,7 @@ ${U(u > 0 ? "helmetModuleDurabilityTooltip" : "suppressorDurabilityTooltip", { c
       max: t,
       initial: t,
       presets: [
-        { label: z.language === "en" ? "1 item" : "1 шт", value: 1 },
+        { label: SETTINGS.language === "en" ? "1 item" : "1 шт", value: 1 },
         { label: "25%", value: s(0.25) },
         { label: "50%", value: s(0.5) },
         { label: "75%", value: s(0.75) },

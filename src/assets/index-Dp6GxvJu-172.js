@@ -49,7 +49,7 @@ class RJ {
       ((e.open = !1), t.replaceChildren(), (this.missionMenuSignature = ""));
       return;
     }
-    const o = z.language === "en",
+    const o = SETTINGS.language === "en",
       a = (y, g) => (o ? g : y),
       r = JSON.stringify([
         o,
@@ -104,7 +104,7 @@ class RJ {
           !!this.states.get(y.channel) &&
           !((p = this.states.get(y.channel)) != null && p.outcome),
         M = !!(this.availability & y.bit);
-      ((b.innerHTML = Nn(y.icon)),
+      ((b.innerHTML = svgIcon(y.icon)),
         b.append(
           document.createTextNode(
             `${y.title} · ${S ? a("идёт", "active") : this.availability < 0 ? "…" : M ? a("включён", "enabled") : a("выключен", "disabled")}`,
@@ -229,7 +229,7 @@ class RJ {
       const d = i.querySelector(c);
       d.textContent !== h && (d.textContent = h);
     };
-    ((t = mM(t, z.language)),
+    ((t = mM(t, SETTINGS.language)),
       s(".op-title", t.title),
       s(".op-phase", t.phase),
       s(".op-objective", t.objective),
@@ -243,7 +243,7 @@ class RJ {
       s(
         ".op-reward",
         t.reward
-          ? `$${t.reward.toLocaleString(z.language === "en" ? "en-US" : "ru-RU")}`
+          ? `$${t.reward.toLocaleString(SETTINGS.language === "en" ? "en-US" : "ru-RU")}`
           : "",
       ),
       (i.querySelector(".op-progress i").style.width =
@@ -295,8 +295,8 @@ class RJ {
   }
   renderChatChoices() {
     const e = kb(this.states.values()),
-      t = z.language === "en",
-      i = gs(z.binds.chat);
+      t = SETTINGS.language === "en",
+      i = gs(SETTINGS.binds.chat);
     for (const [s, o] of this.cards) {
       const a = o.querySelector(".op-chat-choices"),
         r = e.filter((h) => h.channel === s),
@@ -443,7 +443,7 @@ class RJ {
       e.has(s) || (this.dispose(o), this.groups.delete(s));
     const t = (i = this.states.get("evac")) == null ? void 0 : i.transport;
     if (t && !this.helicopter) {
-      ((this.helicopter = Hp(P.HELI, 0, 730)),
+      ((this.helicopter = Hp(VEHICLE_KIND.HELI, 0, 730)),
         this.helicopter.traverse((o) => {
           o instanceof le &&
             ((o.geometry = o.geometry.clone()),
@@ -492,7 +492,7 @@ class RJ {
             ? void 0
             : e.querySelector(".op-distance"),
         a = s
-          ? `${s.label} · ${Math.round(Math.hypot(s.x - this.position.x, s.z - this.position.z))} ${z.language === "en" ? "m" : "м"}`
+          ? `${s.label} · ${Math.round(Math.hypot(s.x - this.position.x, s.z - this.position.z))} ${SETTINGS.language === "en" ? "m" : "м"}`
           : "";
       o && o.textContent !== a && (o.textContent = a);
     }

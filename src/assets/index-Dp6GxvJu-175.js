@@ -20,7 +20,7 @@ class HJ {
     ((this.canvas.id = "tactical-hud"),
       this.canvas.setAttribute(
         "aria-label",
-        z.language === "en"
+        SETTINGS.language === "en"
           ? "Vehicle instruments and targeting"
           : "Приборы техники и захват цели",
       ),
@@ -30,12 +30,12 @@ class HJ {
   update(e, t, i, s, o, a = []) {
     var L, N;
     const r = t.mine,
-      l = !!r && t.mineSeat === 0 && z.vehicleInstruments,
-      c = !!r && t.mineSeat === 0 && r.type === P.FIGHTER_JET,
-      h = i.held === E.GRENADE_LAUNCHER && !r,
-      d = i.held === E.RPG && i.loadedAmmo() === E.ROCKET_GUIDED,
+      l = !!r && t.mineSeat === 0 && SETTINGS.vehicleInstruments,
+      c = !!r && t.mineSeat === 0 && r.type === VEHICLE_KIND.FIGHTER_JET,
+      h = i.held === ITEM.GRENADE_LAUNCHER && !r,
+      d = i.held === ITEM.RPG && i.loadedAmmo() === ITEM.ROCKET_GUIDED,
       u = r && !t.remoteView ? t.seatSight() : null,
-      f = o && !z.cinematicHud && (l || c || d || h || !!u);
+      f = o && !SETTINGS.cinematicHud && (l || c || d || h || !!u);
     if (
       ((this.canvas.hidden = !f),
       document.body.classList.toggle(
@@ -70,7 +70,7 @@ class HJ {
       (b.fillStyle = "#dcf1e4"),
       (b.shadowColor = "#071713"),
       (b.shadowBlur = 2));
-    const _ = z.language === "en",
+    const _ = SETTINGS.language === "en",
       C = (D, H, G, I = "#dcf1e4") => {
         ((b.fillStyle = I), b.fillText(D, H, G));
       },
@@ -216,7 +216,7 @@ class HJ {
             )
           : C(_ ? "GUN CANNOT BEAR" : "ВНЕ СЕКТОРА ПУЛЕМЁТА", T, A - 34 * O, D),
         (b.textAlign = "left"),
-        !S && z.vehicleInstruments)
+        !S && SETTINGS.vehicleInstruments)
       ) {
         const se = T - Math.min(m * 0.3, 280),
           oe = T + Math.min(m * 0.3, 280) - 110 * x,
@@ -245,7 +245,7 @@ class HJ {
                 ? _
                   ? "HMG 12.7"
                   : "ПУЛЕМЁТ 12,7"
-                : r.type === P.HELI
+                : r.type === VEHICLE_KIND.HELI
                   ? _
                     ? "DOOR GUN 7.62"
                     : "БОРТОВОЙ 7,62"
@@ -306,7 +306,7 @@ class HJ {
           (this.agl = s.isLoaded(r.pos.x, r.pos.z)
             ? Math.max(0, r.pos.y - s.groundAt(r.pos.x, r.pos.z, r.pos.y))
             : void 0)),
-        r.type === P.FIGHTER_JET)
+        r.type === VEHICLE_KIND.FIGHTER_JET)
       ) {
         ((b.textAlign = "center"),
           C(
@@ -375,7 +375,7 @@ class HJ {
           );
         ((b.textAlign = "center"),
           C(
-            `${_ ? "SENSORS" : "ОБЗОР"} ${Vd} m · ${J} · NV ${M ? "●" : gs(z.binds.vision)}`,
+            `${_ ? "SENSORS" : "ОБЗОР"} ${Vd} m · ${J} · NV ${M ? "●" : gs(SETTINGS.binds.vision)}`,
             T,
             M ? A + 90 : 100,
             "#8ff1ca",
@@ -425,13 +425,13 @@ class HJ {
             T,
             A + 35,
           ),
-          (r.type === P.PLANE || r.type === P.SPACE_ROCKET) &&
+          (r.type === VEHICLE_KIND.PLANE || r.type === VEHICLE_KIND.SPACE_ROCKET) &&
             C(
               `${_ ? "THR" : "ТЯГА"} ${Math.round(r.throttle * 100)}%`,
               T,
               A - 47,
             ),
-          r.type === P.FIGHTER_JET &&
+          r.type === VEHICLE_KIND.FIGHTER_JET &&
             C(
               `AGL ${this.agl === void 0 ? "—" : Math.round(this.agl)} m · ${_ ? "ROCKET" : "РАКЕТА"} ${r.fireCd2 > 0 ? r.fireCd2.toFixed(1) + " s" : "●"}`,
               T,
@@ -444,7 +444,7 @@ class HJ {
         G = T + Math.min(m * 0.3, 280) - 110 * x,
         I =
           Math.abs(
-            r.type === P.HELI || r.type === P.DRONE ? r.vel.length() : r.speed,
+            r.type === VEHICLE_KIND.HELI || r.type === VEHICLE_KIND.DRONE ? r.vel.length() : r.speed,
           ) * 3.6,
         O = this.range;
       (C(_ ? "SPD / km/h" : "СКОР / км/ч", H, A - 40),
@@ -474,33 +474,33 @@ class HJ {
           b.lineTo(T, A + 6),
           b.stroke()));
       const X = [
-          P.FIGHTER_JET,
-          P.PLANE,
-          P.HELI,
-          P.DRONE,
-          P.SPACE_ROCKET,
+          VEHICLE_KIND.FIGHTER_JET,
+          VEHICLE_KIND.PLANE,
+          VEHICLE_KIND.HELI,
+          VEHICLE_KIND.DRONE,
+          VEHICLE_KIND.SPACE_ROCKET,
         ].includes(r.type),
-        Q = [P.BOAT, P.CARRIER, P.SUBMARINE].includes(r.type),
+        Q = [VEHICLE_KIND.BOAT, VEHICLE_KIND.CARRIER, VEHICLE_KIND.SUBMARINE].includes(r.type),
         ee = [];
       if (
         (X
           ? (ee.push(
               `${_ ? "ALT" : "ВЫС"} ${r.pos.y.toFixed(0)} m`,
-              `${_ ? "V/S" : "ВЕРТ"} ${(r.type === P.FIGHTER_JET || r.type === P.PLANE ? r.vel.y : r.vel.y || r.vy).toFixed(1)} m/s`,
+              `${_ ? "V/S" : "ВЕРТ"} ${(r.type === VEHICLE_KIND.FIGHTER_JET || r.type === VEHICLE_KIND.PLANE ? r.vel.y : r.vel.y || r.vy).toFixed(1)} m/s`,
               `${_ ? "PITCH" : "ТАНГ"} ${((r.pitch * 180) / Math.PI).toFixed(0)}°`,
             ),
-            (r.type === P.FIGHTER_JET ||
-              r.type === P.PLANE ||
-              r.type === P.SPACE_ROCKET) &&
+            (r.type === VEHICLE_KIND.FIGHTER_JET ||
+              r.type === VEHICLE_KIND.PLANE ||
+              r.type === VEHICLE_KIND.SPACE_ROCKET) &&
               ee.push(`${_ ? "THR" : "ТЯГА"} ${Math.round(r.throttle * 100)}%`),
-            r.type === P.FIGHTER_JET &&
+            r.type === VEHICLE_KIND.FIGHTER_JET &&
               ee.push(
                 `AGL ${this.agl === void 0 ? "—" : Math.round(this.agl)} m`,
                 `${_ ? "ROCKET" : "РАКЕТА"} ${r.fireCd2 > 0 ? r.fireCd2.toFixed(1) + " s" : _ ? "READY" : "ГОТОВА"}`,
               ),
-            r.type === P.SPACE_ROCKET &&
+            r.type === VEHICLE_KIND.SPACE_ROCKET &&
               ee.push(`${_ ? "TRANSFER" : "ПЕРЕХОД"} 1000 m`),
-            r.type !== P.FIGHTER_JET &&
+            r.type !== VEHICLE_KIND.FIGHTER_JET &&
               (b.save(),
               b.translate(T, A - 90),
               b.rotate(-r.roll),
@@ -513,7 +513,7 @@ class HJ {
               b.restore()))
           : Q
             ? (ee.push(`${_ ? "SPEED" : "ХОД"} ${(I / 1.852).toFixed(1)} kn`),
-              r.type === P.SUBMARINE
+              r.type === VEHICLE_KIND.SUBMARINE
                 ? ee.push(
                     `${_ ? "DEPTH SET" : "ГЛУБ. ЗАД"} ${r.subDepth.toFixed(1)} m`,
                   )
@@ -522,9 +522,9 @@ class HJ {
                 `${_ ? "TURRET" : "БАШНЯ"} ${(((r.aux1 * 180) / Math.PI) % 360).toFixed(0)}°`,
                 `${_ ? "GUN" : "СТВОЛ"} ${(((r.aux2 * 180) / Math.PI) % 360).toFixed(0)}°`,
               ),
-        r.type === P.MORTAR &&
+        r.type === VEHICLE_KIND.MORTAR &&
           ee.push(`R ${Hd} m`, _ ? "SINGLE ROCKET" : "ОДНА РАКЕТА"),
-        r.type === P.HIMARS)
+        r.type === VEHICLE_KIND.HIMARS)
       ) {
         const oe = Math.max(
           0,
@@ -541,9 +541,9 @@ class HJ {
               : "ЗАЛП ГОТОВ",
         );
       }
-      (r.type === P.PATRIOT && ee.push(_ ? "RADAR / AUTO" : "РАДАР / АВТО"),
-        (r.type === P.CARRIER || r.type === P.SUBMARINE) &&
-          ee.push(`R ${r.type === P.CARRIER ? Af : Qh} m`));
+      (r.type === VEHICLE_KIND.PATRIOT && ee.push(_ ? "RADAR / AUTO" : "РАДАР / АВТО"),
+        (r.type === VEHICLE_KIND.CARRIER || r.type === VEHICLE_KIND.SUBMARINE) &&
+          ee.push(`R ${r.type === VEHICLE_KIND.CARRIER ? Af : Qh} m`));
       const se = Math.max(r.fireCd, (r.carrierReadyAt - Date.now()) / 1e3, 0);
       (ee.push(
         se > 0.15
@@ -624,7 +624,7 @@ class HJ {
           A + 114,
         ),
         C(
-          `${_ ? "GUIDED RPG" : "РПГ / САМОНАВЕДЕНИЕ"} · ${_ ? "Hold" : "Удержать"} ${S ? (_ ? "Reload" : "Перезарядка") : gs(z.binds.reload)} — ${_ ? "ammunition" : "боеприпасы"}`,
+          `${_ ? "GUIDED RPG" : "РПГ / САМОНАВЕДЕНИЕ"} · ${_ ? "Hold" : "Удержать"} ${S ? (_ ? "Reload" : "Перезарядка") : gs(SETTINGS.binds.reload)} — ${_ ? "ammunition" : "боеприпасы"}`,
           T,
           y - 175,
         ),

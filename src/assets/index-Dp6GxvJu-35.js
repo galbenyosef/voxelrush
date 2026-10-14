@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 35 — map
+// index-Dp6GxvJu 35 — item
 // Lines 38988-39432 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const gk = [
     Pi(
@@ -262,7 +262,7 @@ const gk = [
       HF(),
     ),
     Pi(
-      E.BLUEPRINT_HELI_BUNKER,
+      ITEM.BLUEPRINT_HELI_BUNKER,
       "helicopter-bunker",
       "Вертолётный бункер",
       "Helicopter bunker",
@@ -282,7 +282,7 @@ const gk = [
       zF(),
     ),
     Pi(
-      E.BLUEPRINT_RUNWAY,
+      ITEM.BLUEPRINT_RUNWAY,
       "runway",
       "Взлётная полоса",
       "Runway",
@@ -292,7 +292,7 @@ const gk = [
       xT(!1),
     ),
     Pi(
-      E.BLUEPRINT_RUNWAY_ARMORED,
+      ITEM.BLUEPRINT_RUNWAY_ARMORED,
       "runway-armored",
       "Армированная взлётная полоса",
       "Reinforced runway",
@@ -302,7 +302,7 @@ const gk = [
       xT(!0),
     ),
     Pi(
-      E.BLUEPRINT_HANGAR,
+      ITEM.BLUEPRINT_HANGAR,
       "aircraft-hangar",
       "Авиационный ангар",
       "Aircraft hangar",
@@ -312,7 +312,7 @@ const gk = [
       TT(!1),
     ),
     Pi(
-      E.BLUEPRINT_HANGAR_ARMORED,
+      ITEM.BLUEPRINT_HANGAR_ARMORED,
       "aircraft-hangar-armored",
       "Армированный авиационный ангар",
       "Reinforced aircraft hangar",

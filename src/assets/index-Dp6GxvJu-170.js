@@ -21,13 +21,13 @@ class wJ {
   }
   update(e, t, i) {
     const s = t && !e.remoteView ? e.mine : null;
-    if (((this.el.hidden = !s || z.cinematicHud), !s)) {
+    if (((this.el.hidden = !s || SETTINGS.cinematicHud), !s)) {
       ((this.key = ""), document.body.classList.remove("crew-under"));
       return;
     }
     if (performance.now() < this.nextUpdate) return;
     this.nextUpdate = performance.now() + 100;
-    const o = z.language === "en",
+    const o = SETTINGS.language === "en",
       a = _f[s.type] ?? 0,
       r = Array.from({ length: a + 1 }, (b, S) => {
         var M;
@@ -118,7 +118,7 @@ class wJ {
       ((C.textContent = String(b + 1)), _.append(C));
       let R = 60,
         L = a === 0 ? 74 : b === 0 ? 47 : 101;
-      (s.type === P.HELI
+      (s.type === VEHICLE_KIND.HELI
         ? ((R = b === 0 ? 60 : b === 1 ? 30 : 90), (L = b === 0 ? 35 : 90))
         : a > 1 &&
           a <= 4 &&

@@ -107,7 +107,7 @@ class E$ {
   sync(e, t, i, s) {
     const o = `${e},${t},${i}`,
       a = this.beacons.get(o);
-    if (s !== v.AVIATION_LIGHT) {
+    if (s !== BLOCK.AVIATION_LIGHT) {
       a && this.remove(a);
       return;
     }
@@ -147,11 +147,11 @@ class E$ {
       a = e * Pe,
       r = t * Pe;
     for (let l = 0; l < i.length; l++) {
-      if (i[l] !== v.AVIATION_LIGHT) continue;
+      if (i[l] !== BLOCK.AVIATION_LIGHT) continue;
       const c = a + (l & 15),
         h = l >> 8,
         d = r + ((l >> 4) & 15);
-      (o.add(`${c},${h},${d}`), this.sync(c, h, d, v.AVIATION_LIGHT));
+      (o.add(`${c},${h},${d}`), this.sync(c, h, d, BLOCK.AVIATION_LIGHT));
     }
     for (const l of [...(this.byChunk.get(s) ?? [])])
       o.has(l.key) || this.remove(l);

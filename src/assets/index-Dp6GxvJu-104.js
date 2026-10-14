@@ -417,7 +417,7 @@ function jL() {
   function We(B, $, he) {
     const fe = $e("aside", "ar-rail");
     fe.setAttribute("aria-label", _e("Weapons", "Оружие"));
-    for (const be of jx) {
+    for (const be of WEAPON_CATEGORIES) {
       fe.append($e("h4", "", _e(be.en, be.ru)));
       for (const Se of be.items.filter(hd)) {
         const et = $i("ar-rail-item" + (Se === B ? " active" : ""), "", () =>
@@ -582,7 +582,7 @@ function jL() {
       (Ae && te.style.setProperty("--r", ts(Ae).color), Ze.append(te));
     };
     ct("", _e("All", "Все"));
-    for (const Ae of Object.keys(Ho)) Ae !== "common" && ct(Ae, rl(Ae));
+    for (const Ae of Object.keys(RARITIES)) Ae !== "common" && ct(Ae, rl(Ae));
     const ae = $e("div", "ar-grid");
     ($.append(he, Ze, ae), B.append($, Y(o)));
     function qe() {
@@ -731,8 +731,8 @@ function jL() {
       const qe = $e("div", "ar-wear");
       qe.append($e("small", "", _e("Condition preview", "Износ (превью)")));
       const Ae = $e("div", "ar-wear-row");
-      for (const [K, [te, me, xe]] of Xx.entries()) {
-        const nt = K === 0 ? 0.02 : (Xx[K - 1][0] + Math.min(te, 0.9)) / 2,
+      for (const [K, [te, me, xe]] of WEAR_TIERS.entries()) {
+        const nt = K === 0 ? 0.02 : (WEAR_TIERS[K - 1][0] + Math.min(te, 0.9)) / 2,
           ne = $i(
             "ar-wear-btn" + (Math.abs(f - nt) < 0.001 ? " active" : ""),
             ["FN", "MW", "FT", "WW", "BS"][K],
@@ -1052,7 +1052,7 @@ function jL() {
                 w: (() => {
                   const Tt = (
                     _s[B].weapons ?? [257, 258, 256, 398, 376, 375]
-                  ).filter((Yt) => Yt !== E.AXE);
+                  ).filter((Yt) => Yt !== ITEM.AXE);
                   return Tt[Math.floor(Math.random() * Tt.length)];
                 })(),
               },
@@ -1381,7 +1381,7 @@ function jL() {
         "div",
       ),
     );
-    for (const Ze of jx) {
+    for (const Ze of WEAPON_CATEGORIES) {
       $.append($e("h4", "", _e(Ze.en, Ze.ru)));
       const ct = $e("div", "ar-slots");
       for (const ae of Ze.items.filter(hd)) {

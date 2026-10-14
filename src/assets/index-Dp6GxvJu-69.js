@@ -2,12 +2,12 @@
 // Lines 49534-49869 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function d4(n, e, t = 0.3) {
   var l;
-  if (e === v.CHAIN) {
+  if (e === BLOCK.CHAIN) {
     const c = [],
       h = [],
       d = [],
       u = [],
-      f = de[v.CHAIN].tex[1],
+      f = BLOCKS[BLOCK.CHAIN].tex[1],
       p = f % mi,
       m = Math.floor(f / mi);
     for (const g of wk(1)) {
@@ -31,13 +31,13 @@ function d4(n, e, t = 0.3) {
       new le(y, new gi({ map: n }))
     );
   }
-  if (e === v.TORCH || e === v.RTORCH) return UV(e, t);
-  if (e === v.MINE_AP || e === v.MINE_AT) {
+  if (e === BLOCK.TORCH || e === BLOCK.RTORCH) return UV(e, t);
+  if (e === BLOCK.MINE_AP || e === BLOCK.MINE_AT) {
     const c = new pe();
     for (const h of ru(e)) {
       const [d, u, f, p, m, y] = h.box,
         g =
-          ((l = de.find((b) => b.tex[0] === h.tile)) == null
+          ((l = BLOCKS.find((b) => b.tex[0] === h.tile)) == null
             ? void 0
             : l.color) ?? 6648140;
       c.add(
@@ -54,8 +54,8 @@ function d4(n, e, t = 0.3) {
     }
     return c;
   }
-  const i = de[e];
-  if (i && (i.shape !== "cube" || e === v.CACTUS) && !i.liquid) {
+  const i = BLOCKS[e];
+  if (i && (i.shape !== "cube" || e === BLOCK.CACTUS) && !i.liquid) {
     const c =
         i.shape === "furniture" ||
         i.shape === "stair" ||
@@ -85,7 +85,7 @@ function d4(n, e, t = 0.3) {
     a = i
       ? [i.tex[1], i.tex[1], i.tex[0], i.tex[2], i.tex[1], i.tex[1]]
       : [0, 0, 0, 0, 0, 0];
-  if (e === v.FURNACE)
+  if (e === BLOCK.FURNACE)
     for (let c = 0; c < 6; c++) {
       const h = [
         [1, 0, 0],
@@ -228,8 +228,8 @@ function QT(n) {
   return (a.position.set(0, 0.02, -0.625), e.add(a), qn(e, a, o, null));
 }
 function VV(n) {
-  const e = n === E.AMMO_9MM,
-    t = n === E.AMMO_338,
+  const e = n === ITEM.AMMO_9MM,
+    t = n === ITEM.AMMO_338,
     i = t ? 0.035 : e ? 0.033 : 0.029,
     s = e ? 0.13 : t ? 0.26 : 0.205,
     o = e ? 0.065 : t ? 0.125 : 0.1,
@@ -312,7 +312,7 @@ function VV(n) {
 }
 function $V(n) {
   const e = new pe(),
-    t = n === E.AMMO_SHELL;
+    t = n === ITEM.AMMO_SHELL;
   for (let s = 0; s < 3; s++) {
     const o = (s - 1) * 0.075,
       a = (s % 2) * 0.04;
@@ -328,7 +328,7 @@ function $V(n) {
             Il(0.014, 0.06, 14842952, o, 0, a - 0.143),
           ));
   }
-  n === E.AMMO_338_HE && (e.scale.z = 1.28);
+  n === ITEM.AMMO_338_HE && (e.scale.z = 1.28);
   const i = new $t();
   return (e.add(i), qn(e, i, null, null));
 }

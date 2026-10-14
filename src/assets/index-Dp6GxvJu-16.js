@@ -1,6 +1,6 @@
 // index-Dp6GxvJu 16 — price
 // Lines 31007-32332 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-const Ho = {
+const RARITIES = {
     common: { color: "#b0c3d9", en: "Standard", ru: "Стандарт", tier: 0 },
     uncommon: {
       color: "#5e98d9",

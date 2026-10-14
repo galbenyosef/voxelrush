@@ -4,7 +4,7 @@ function ah(n) {
   let e = AA.get(n);
   if (e) return e;
   const t = ms(n),
-    i = n === P.TANK || n === P.BTR_TURRET,
+    i = n === VEHICLE_KIND.TANK || n === VEHICLE_KIND.BTR_TURRET,
     s = io[n] ?? [];
   return (
     (e = {

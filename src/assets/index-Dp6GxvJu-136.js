@@ -4,7 +4,7 @@
 let MM = Os;
 function SM(n, e, t, i, s) {
   const o = Math.max(0.72, s / 5),
-    a = i.vehicleType ?? (i.kind === "himars" ? P.HIMARS : -1),
+    a = i.vehicleType ?? (i.kind === "himars" ? VEHICLE_KIND.HIMARS : -1),
     r = "rgba(255,255,255,0.45)",
     l = "rgba(12,8,8,0.92)";
   (n.save(),
@@ -40,7 +40,7 @@ function SM(n, e, t, i, s) {
         (n.strokeStyle = l));
     };
   switch (a) {
-    case P.TANK:
+    case VEHICLE_KIND.TANK:
       (h(-5, -2.1, 10, 4.2),
         (n.fillStyle = i.color),
         h(-3.2, -3.4, 6.4, 2.7),
@@ -48,7 +48,7 @@ function SM(n, e, t, i, s) {
         u(0, -2.8, 0, -5),
         u(-4, -1.05, 4, -1.05, r));
       break;
-    case P.FIGHTER_JET:
+    case VEHICLE_KIND.FIGHTER_JET:
       (c(() => {
         (n.moveTo(0, -6.8),
           n.lineTo(1.2, -1),
@@ -65,7 +65,7 @@ function SM(n, e, t, i, s) {
       }),
         u(0, -4.5, 0, 2, r));
       break;
-    case P.PLANE:
+    case VEHICLE_KIND.PLANE:
       (c(() => {
         (n.moveTo(0, -5.5),
           n.lineTo(1.15, -1.2),
@@ -79,7 +79,7 @@ function SM(n, e, t, i, s) {
       }),
         u(0, -4.3, 0, 3.8, r));
       break;
-    case P.DRONE:
+    case VEHICLE_KIND.DRONE:
       (u(-4.2, -4.2, 4.2, 4.2),
         u(4.2, -4.2, -4.2, 4.2),
         (n.fillStyle = i.color),
@@ -89,7 +89,7 @@ function SM(n, e, t, i, s) {
         d(4.2, 4.2, 1.05),
         d(0, 0, 1.8));
       break;
-    case P.BOAT:
+    case VEHICLE_KIND.BOAT:
       (c(() => {
         (n.moveTo(0, -5.2),
           n.lineTo(4.6, 2.4),
@@ -100,7 +100,7 @@ function SM(n, e, t, i, s) {
         h(-1.3, -1.8, 2.6, 3.2),
         u(-3, 3, 3, 3, r));
       break;
-    case P.CARRIER:
+    case VEHICLE_KIND.CARRIER:
       (c(() => {
         (n.moveTo(-3.2, -5.2),
           n.lineTo(3.2, -5.2),
@@ -112,7 +112,7 @@ function SM(n, e, t, i, s) {
         h(-1.2, -3.5, 2.4, 3.1),
         u(-3, 1.2, 3, 1.2, r));
       break;
-    case P.SUBMARINE:
+    case VEHICLE_KIND.SUBMARINE:
       (n.beginPath(),
         n.ellipse(0, 0.8, 4.9, 2.8, 0, 0, Math.PI * 2),
         n.fill(),
@@ -121,7 +121,7 @@ function SM(n, e, t, i, s) {
         u(0, -4.7, 0, -3.2),
         u(-3.2, 1, 3.2, 1, r));
       break;
-    case P.HELI:
+    case VEHICLE_KIND.HELI:
       (u(-5, -4.1, 5, -4.1),
         u(0, -4.1, 0, -2.3),
         c(() => {
@@ -134,7 +134,7 @@ function SM(n, e, t, i, s) {
         u(2.4, 0.2, 5.1, 2.4),
         u(4.3, 1.9, 5.6, 1.3, r));
       break;
-    case P.MORTAR:
+    case VEHICLE_KIND.MORTAR:
       (n.beginPath(),
         n.ellipse(0, 3.2, 5.2, 1.5, 0, 0, Math.PI * 2),
         n.stroke(),
@@ -143,7 +143,7 @@ function SM(n, e, t, i, s) {
         u(-0.8, 2, 2.2, -5),
         u(-3, -1.7, -0.7, -1.7));
       break;
-    case P.HIMARS:
+    case VEHICLE_KIND.HIMARS:
       (h(-5, -2.2, 10, 4.4),
         h(-4.3, -3.7, 3.3, 2.2),
         u(-0.1, -1.7, 3.8, -5),
@@ -151,7 +151,7 @@ function SM(n, e, t, i, s) {
         d(-3.3, 2.35, 1),
         d(3.2, 2.35, 1));
       break;
-    case P.PATRIOT:
+    case VEHICLE_KIND.PATRIOT:
       (h(-5, -2.1, 10, 4.2),
         h(-3.8, -3.5, 2.8, 2.1),
         n.beginPath(),
@@ -161,10 +161,10 @@ function SM(n, e, t, i, s) {
         d(-3.2, 2.3, 1),
         d(3.1, 2.3, 1));
       break;
-    case P.TURRET:
+    case VEHICLE_KIND.TURRET:
       (h(-4.2, 1.2, 8.4, 2.4), d(0, 0, 2.8), u(0, 0, 0, -5), u(-2, 0, 2, 0, r));
       break;
-    case P.BTR_TURRET:
+    case VEHICLE_KIND.BTR_TURRET:
       (c(() => {
         (n.moveTo(-4.4, -2.8),
           n.lineTo(3.6, -2.8),
@@ -178,7 +178,7 @@ function SM(n, e, t, i, s) {
         d(-3, 2.9, 0.9),
         d(3, 2.9, 0.9));
       break;
-    case P.SPACE_ROCKET:
+    case VEHICLE_KIND.SPACE_ROCKET:
       (c(() => {
         (n.moveTo(0, -6),
           n.quadraticCurveTo(3, -3, 2, 3),

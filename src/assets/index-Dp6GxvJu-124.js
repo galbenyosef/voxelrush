@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 124 — math
+// index-Dp6GxvJu 124 — item
 // Lines 74959-75154 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 let ud;
 function jj(n) {
@@ -6,7 +6,7 @@ function jj(n) {
     ((ud = document.createElement("canvas")), (ud.width = ud.height = 40));
     const e = ud.getContext("2d"),
       t = ["black_clay", "polished_stone", "yellow_clay", "cyan_clay"].map(
-        (l) => de.find((c) => c.name === l),
+        (l) => BLOCKS.find((c) => c.name === l),
       ),
       i = new Map(t.map((l) => [l.tex[0], l.color])),
       s = t[3].tex[0],
@@ -25,7 +25,7 @@ function jj(n) {
     for (const {
       box: [l, c, h, d, u, f],
       tile: p,
-    } of ru(v.OWNERSHIP_TOTEM))
+    } of ru(BLOCK.OWNERSHIP_TOTEM))
       (r(
         [
           [d, c, h],
@@ -74,7 +74,7 @@ function ar() {
   (clearTimeout(uI), Ys && ((Ys.hidden = !0), Ys.classList.add("hidden")));
 }
 function Fm(n, e, t) {
-  if (!z.itemTooltips || !n.dataset.itemInfo || !n.isConnected) {
+  if (!SETTINGS.itemTooltips || !n.dataset.itemInfo || !n.isConnected) {
     ar();
     return;
   }
@@ -163,20 +163,20 @@ function lb(n, e, t, i) {
 }
 const fI = 16384,
   B4 = (n) =>
-    n === E.AMMO_762_HE || n === E.AMMO_338_HE || n === E.AMMO_SHELL_HE,
-  pI = (n) => n === E.ROCKET_GUIDED || B4(n) || Object.values(v0).includes(n);
+    n === ITEM.AMMO_762_HE || n === ITEM.AMMO_338_HE || n === ITEM.AMMO_SHELL_HE,
+  pI = (n) => n === ITEM.ROCKET_GUIDED || B4(n) || Object.values(TOOL_ITEM_BY_BLOCK).includes(n);
 function Hc(n) {
   const e = Ti(n) || n;
-  return e === E.RPG
-    ? [E.ROCKET, E.ROCKET_GUIDED]
-    : e === E.AK47
-      ? [E.AMMO_762, E.AMMO_762_HE]
-      : e === E.AWP
-        ? [E.AMMO_338, E.AMMO_338_HE]
-        : e === E.SHOTGUN
-          ? [E.AMMO_SHELL, E.AMMO_SHELL_HE]
-          : v0[n]
-            ? [v0[n]]
+  return e === ITEM.RPG
+    ? [ITEM.ROCKET, ITEM.ROCKET_GUIDED]
+    : e === ITEM.AK47
+      ? [ITEM.AMMO_762, ITEM.AMMO_762_HE]
+      : e === ITEM.AWP
+        ? [ITEM.AMMO_338, ITEM.AMMO_338_HE]
+        : e === ITEM.SHOTGUN
+          ? [ITEM.AMMO_SHELL, ITEM.AMMO_SHELL_HE]
+          : TOOL_ITEM_BY_BLOCK[n]
+            ? [TOOL_ITEM_BY_BLOCK[n]]
             : [];
 }
 function sp(n, e) {
@@ -189,7 +189,7 @@ function Ug(n, e) {
 function jd(n, e) {
   return (
     Math.max(0, Math.min(16383, Math.floor(n))) |
-    (B4(e) || e === E.ROCKET_GUIDED ? fI : 0)
+    (B4(e) || e === ITEM.ROCKET_GUIDED ? fI : 0)
   );
 }
 function s_(n, e, t) {

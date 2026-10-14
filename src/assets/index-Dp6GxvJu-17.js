@@ -27,7 +27,7 @@ function pU(n) {
 }
 for (const n of Object.keys(_s))
   _s[n].price = Math.max(_s[n].price, Math.ceil(pU(n) / 0.65 / 10) * 10);
-const jx = [
+const WEAPON_CATEGORIES = [
   { id: "rifles", en: "Rifles", ru: "Винтовки", items: [257, 258, 376, 375] },
   { id: "pistols", en: "Sidearms", ru: "Пистолеты", items: [256] },
   { id: "heavy", en: "Heavy", ru: "Тяжёлое", items: [259, 395] },
@@ -51,7 +51,7 @@ function mU(n) {
     s = n === "preview" ? 0.02 : Math.min(0.99, Math.pow(t, 1.7) * 0.92);
   return { wear: s, seed: Math.floor(i * 1e3), float: s };
 }
-const Xx = [
+const WEAR_TIERS = [
     [0.07, "Factory New", "Прямо с завода"],
     [0.15, "Minimal Wear", "Немного поношенное"],
     [0.38, "Field-Tested", "После полевых испытаний"],

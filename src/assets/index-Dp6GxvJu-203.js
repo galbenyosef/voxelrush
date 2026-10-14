@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 203 — sun
+// index-Dp6GxvJu 203 — lerp
 // Lines 110935-111368 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 class Xg {
   constructor(e, t, i = 2) {
@@ -273,8 +273,8 @@ class Xg {
     const s = Math.PI * (e / (Qa / 2)),
       o = new k(Math.cos(s), Math.sin(s), 0.3).normalize(),
       a = o.y,
-      r = Ne((a + 0.08) / 0.3, 0, 1),
-      l = Ne(1 - Math.abs(a) / 0.3, 0, 1) * Ne(r * 2, 0, 1),
+      r = clamp((a + 0.08) / 0.3, 0, 1),
+      l = clamp(1 - Math.abs(a) / 0.3, 0, 1) * clamp(r * 2, 0, 1),
       c = this.lunar ? new ze(66055) : Rte.clone().lerp(gR, r),
       h = this.lunar
         ? new ze(461072)
@@ -287,7 +287,7 @@ class Xg {
         c.lerp(this.haze.color, this.haze.dome * b));
     }
     if (this.overcast > 0.01) {
-      const b = kte.clone().multiplyScalar(Qi(0.34, 1, r)),
+      const b = kte.clone().multiplyScalar(lerp(0.34, 1, r)),
         S = this.overcast * 0.82;
       (c.lerp(b, S), h.lerp(b.clone().multiplyScalar(1.12), S * 0.9));
     }
@@ -299,8 +299,8 @@ class Xg {
       this.domeMat.uniforms.uSunDir.value.copy(o),
       this.domeMat.uniforms.uSunColor.value.setRGB(
         1,
-        Qi(0.5, 0.92, r),
-        Qi(0.25, 0.72, r),
+        lerp(0.5, 0.92, r),
+        lerp(0.25, 0.72, r),
       ));
     const u = this.scene.fog;
     (u && u.color.copy(h),
@@ -311,12 +311,12 @@ class Xg {
       (this.stars.rotation.z = e * 3e-5),
       this.group.position.copy(t));
     {
-      const b = Qi(0.16, 1, r),
+      const b = lerp(0.16, 1, r),
         S = 1 - this.overcast * 0.42;
       (this.cloudTop
         .copy(h)
-        .lerp(bR, Qi(0.35, 0.86, r))
-        .multiplyScalar(b * S * Qi(1, 1.08, r)),
+        .lerp(bR, lerp(0.35, 0.86, r))
+        .multiplyScalar(b * S * lerp(1, 1.08, r)),
         this.cloudTop.lerp(vR, l * 0.3),
         this.cloudSide
           .copy(this.cloudTop)
@@ -326,7 +326,7 @@ class Xg {
           .copy(c)
           .lerp(h, 0.35)
           .lerp(this.cloudTop, 0.4)
-          .multiplyScalar(Qi(0.7, 0.8, r) * S));
+          .multiplyScalar(lerp(0.7, 0.8, r) * S));
       const M =
         this.cloudsOn &&
         !this.lunar &&
@@ -354,8 +354,8 @@ class Xg {
       this.sunSprite.lookAt(t),
       this.moonSprite.position.copy(o).multiplyScalar(-390),
       this.moonSprite.lookAt(t),
-      (this.sunSprite.material.opacity = Ne(a * 6 + 0.6, 0, 1)),
-      (this.moonSprite.material.opacity = Ne(-a * 6 + 0.6, 0, 1)),
+      (this.sunSprite.material.opacity = clamp(a * 6 + 0.6, 0, 1)),
+      (this.moonSprite.material.opacity = clamp(-a * 6 + 0.6, 0, 1)),
       this.lunar &&
         (this.earthSprite.position.set(-210, 235, -285),
         this.earthSprite.lookAt(t),
@@ -366,7 +366,7 @@ class Xg {
         (this.moonShader.uniforms.uPhase.value = this.moonPhaseEnabled
           ? (this.dayCount / 8) % 1
           : 0.5));
-    const f = Ne(a * 5, 0, 1) * (1 - Ne((a - 0.35) / 0.5, 0, 1) * 0.55),
+    const f = clamp(a * 5, 0, 1) * (1 - clamp((a - 0.35) / 0.5, 0, 1) * 0.55),
       p = Math.min(1, f * this.shaftStrength * 0.75);
     if (
       ((this.shafts.visible = !this.lunar && p > 0.004), this.shafts.visible)
@@ -376,30 +376,30 @@ class Xg {
         this.shafts.rotateZ(e * 8e-5));
       const b = this.shafts.material;
       ((b.opacity = p),
-        b.color.setRGB(1, Qi(0.72, 0.95, r), Qi(0.44, 0.82, r)));
+        b.color.setRGB(1, lerp(0.72, 0.95, r), lerp(0.44, 0.82, r)));
     }
     const m = a > -0.04,
       y = m ? o : o.clone().negate();
     (this.sun.position.copy(t).addScaledVector(y, 140),
       this.target.position.copy(t));
-    const g = Ne(a * 2.6, 0, 1);
+    const g = clamp(a * 2.6, 0, 1);
     if (
       ((this.sun.intensity = m
         ? 0.12 + Math.pow(g, 0.65) * 1.35
-        : Ne(-a * 3, 0, 1) * 0.3),
+        : clamp(-a * 3, 0, 1) * 0.3),
       m
-        ? this.sun.color.setRGB(1, Qi(0.48, 0.98, g), Qi(0.2, 0.92, g * g))
+        ? this.sun.color.setRGB(1, lerp(0.48, 0.98, g), lerp(0.2, 0.92, g * g))
         : (this.sun.color.setRGB(0.62, 0.72, 1),
           d > 0.005 && this.sun.color.lerp(zte, d * 0.85)),
       (this.hemi.intensity = 0.46 + 0.44 * r + l * 0.26),
       this.hemi.color
         .copy(c)
         .lerp(h, 0.45 + l * 0.25)
-        .lerp(bR, Qi(0.36, 0.22, r)),
+        .lerp(bR, lerp(0.36, 0.22, r)),
       this.hemi.groundColor.setRGB(
-        Qi(0.15, 0.36, r),
-        Qi(0.16, 0.3, r),
-        Qi(0.21, 0.2, r),
+        lerp(0.15, 0.36, r),
+        lerp(0.16, 0.3, r),
+        lerp(0.21, 0.2, r),
       ),
       this.physical &&
         !this.lunar &&
@@ -418,7 +418,7 @@ class Xg {
       this.sunDir.copy(y),
       this.sunColor
         .copy(this.sun.color)
-        .multiplyScalar(Ne(this.sun.intensity, 0, 1.2)),
+        .multiplyScalar(clamp(this.sun.intensity, 0, 1.2)),
       this.skyColor.copy(c).lerp(h, 0.35),
       this.celestialSunDir.copy(o),
       this.topColor.copy(c),

@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 28 — math
+// index-Dp6GxvJu 28 — block
 // Lines 37093-37380 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function SF(n, e, t, i, s = 0) {
   const o = n.getObjectByName("mouth");
@@ -95,19 +95,19 @@ const No = (n) => {
   var e, t;
   return (
     n > 0 &&
-    !!((e = de[n]) != null && e.solid) &&
-    !((t = de[n]) != null && t.liquid)
+    !!((e = BLOCKS[n]) != null && e.solid) &&
+    !((t = BLOCKS[n]) != null && t.liquid)
   );
 };
 function AF(n, e, t, i, s, o, a = 7) {
   var d;
-  if (((d = de[n]) == null ? void 0 : d.shape) !== "lantern") return [];
+  if (((d = BLOCKS[n]) == null ? void 0 : d.shape) !== "lantern") return [];
   const [r, l, c] = Oo[e & 7] ?? Oo[0],
     h = o(t + r, i + l, s + c);
-  if (No(h) || h === v.CHAIN) return [];
+  if (No(h) || h === BLOCK.CHAIN) return [];
   for (let u = 1; u <= a; u++) {
     const f = o(t, i + u, s);
-    if (No(f) || f === v.CHAIN) {
+    if (No(f) || f === BLOCK.CHAIN) {
       const p = [];
       for (let m = 1; m < u; m++) p.push({ x: t, y: i + m, z: s });
       return p;
@@ -124,7 +124,7 @@ const td = [
 ];
 function _F(n, e, t, i, s, o) {
   var h;
-  if (n === v.WALL_LIGHT) {
+  if (n === BLOCK.WALL_LIGHT) {
     const d = (u) =>
       No(o(t + td[u][0], i, s + td[u][1])) &&
       !No(o(t - td[u][0], i, s - td[u][1]));
@@ -134,14 +134,14 @@ function _F(n, e, t, i, s, o) {
       if (No(o(t + td[u][0], i, s + td[u][1]))) return (e & -4) | u;
     return e;
   }
-  const a = (h = de[n]) == null ? void 0 : h.shape;
+  const a = (h = BLOCKS[n]) == null ? void 0 : h.shape;
   if (a !== "lantern" && a !== "torch" && a !== "ladder") return e;
   const r = (d) => {
       const [u, f, p] = Oo[d],
         m = o(t + u, i + f, s + p);
       return (
-        (No(m) && !(a === "ladder" && m === v.LADDER)) ||
-        (m === v.CHAIN &&
+        (No(m) && !(a === "ladder" && m === BLOCK.LADDER)) ||
+        (m === BLOCK.CHAIN &&
           ((d === 5 && a === "lantern") || (d === 0 && a !== "ladder")))
       );
     },
@@ -166,7 +166,7 @@ const ET = [
   Wa = (n) => !No(n);
 function RF(n, e, t) {
   const i = new Map(),
-    s = (l, c, h) => e(l, c, h) === v.LADDER;
+    s = (l, c, h) => e(l, c, h) === BLOCK.LADDER;
   for (const l of n) s(l.x, l.y + 1, l.z) || i.set(`${l.x},${l.y},${l.z}`, l);
   let o = 0;
   const a = (l, c, h, d, u) => {
@@ -189,12 +189,12 @@ function RF(n, e, t) {
       p = (l.meta & 7) >= 1 && (l.meta & 7) <= 4 ? l.meta : (l.meta & -8) | 4,
       m = (g, b, S) =>
         No(e(g, S - 1, b)) &&
-        e(g, S - 1, b) !== v.LADDER &&
+        e(g, S - 1, b) !== BLOCK.LADDER &&
         Wa(e(g, S, b)) &&
         Wa(e(g, S + 1, b)),
       y = (g) =>
         [g, g + 1].some((b) =>
-          Wa(e(h, b, d)) || e(h, b, d) === v.LADDER
+          Wa(e(h, b, d)) || e(h, b, d) === BLOCK.LADDER
             ? r.some(
                 ([S, M]) =>
                   m(h + S, d + M, b) &&
@@ -210,7 +210,7 @@ function RF(n, e, t) {
       if (No(b) && No(e(h + u, c + 1, d + f))) {
         const M = No(e(h, c + 2, d)) ? 2 : 1;
         if (M === 1 || !No(e(h, c + 3, d))) {
-          for (let x = 1; x <= M; x++) a(h, c + x, d, v.LADDER, p);
+          for (let x = 1; x <= M; x++) a(h, c + x, d, BLOCK.LADDER, p);
           c += M;
           continue;
         }
@@ -224,34 +224,34 @@ function RF(n, e, t) {
           Wa(e(h + M, c, d + x)) &&
           Wa(e(h + M, c + 1, d + x)) &&
           Wa(e(h + M, c + 2, d + x)) &&
-          e(h + M, c, d + x) !== v.LADDER,
+          e(h + M, c, d + x) !== BLOCK.LADDER,
       );
       if (S) {
-        const M = No(e(h + u, c, d + f)) ? e(h + u, c, d + f) : v.STONE;
+        const M = No(e(h + u, c, d + f)) ? e(h + u, c, d + f) : BLOCK.STONE;
         if ((a(h + S[0], c, d + S[1], M, 0), y(c))) break;
       }
       if (!Wa(e(h, c + 1, d)) || !No(e(h + u, c + 1, d + f))) break;
-      (a(h, c + 1, d, v.LADDER, p), c++);
+      (a(h, c + 1, d, BLOCK.LADDER, p), c++);
     }
   }
   return o;
 }
 class In {
   constructor() {
-    w(this, "foundation", v.STONE);
+    w(this, "foundation", BLOCK.STONE);
     w(this, "cells", new Map());
   }
   put(e, t, i, s, o = 0) {
     this.cells.set(`${e},${t},${i}`, { x: e, y: t, z: i, id: s, meta: o });
   }
   sign(e, t, i, s, o = 0) {
-    (this.put(e, t, i, v.SIGN, o), (this.cells.get(`${e},${t},${i}`).text = s));
+    (this.put(e, t, i, BLOCK.SIGN, o), (this.cells.get(`${e},${t},${i}`).text = s));
   }
   lift(e, t, i) {
     for (const s of i)
       for (let o = 0; o < 2; o++)
-        (this.fill(e + o, s - 1, t, e + o, s - 1, t + 1, v.POLISHED_STONE),
-          this.fill(e + o, s, t, e + o, s + 1, t + 1, v.AIR),
+        (this.fill(e + o, s - 1, t, e + o, s - 1, t + 1, BLOCK.POLISHED_STONE),
+          this.fill(e + o, s, t, e + o, s + 1, t + 1, BLOCK.AIR),
           this.sign(
             e + o,
             s,
@@ -267,17 +267,17 @@ class In {
   }
   room(e, t, i, s, o, a, r, l) {
     (this.fill(e, t, i, s, t + o, a, r),
-      this.fill(e + 1, t + 1, i + 1, s - 1, t + o - 1, a - 1, v.AIR),
+      this.fill(e + 1, t + 1, i + 1, s - 1, t + o - 1, a - 1, BLOCK.AIR),
       this.fill(e, t, i, s, t, a, l));
   }
-  door(e, t, i, s = v.DOOR, o = 2) {
+  door(e, t, i, s = BLOCK.DOOR, o = 2) {
     (this.put(e, t, i, s, o), this.put(e, t + 1, i, s, o | Na));
   }
   bed(e, t, i, s = 0) {
     const [o, a] = xo[s];
-    (this.put(e, t, i, v.BED, s), this.put(e + o, t, i + a, v.BED, s | Sp));
+    (this.put(e, t, i, BLOCK.BED, s), this.put(e + o, t, i + a, BLOCK.BED, s | Sp));
   }
-  window(e, t, i, s, o, a = v.GLASS) {
+  window(e, t, i, s, o, a = BLOCK.GLASS) {
     this.fill(e, t, i, s, t + 1, o, a);
   }
   gable(e, t, i, s, o) {
@@ -285,6 +285,6 @@ class In {
       this.fill(a, s + e - Math.abs(a), t, a, s + e - Math.abs(a), i, o);
     for (const a of [t + 1, i - 1])
       for (let r = -e + 1; r < e; r++)
-        this.fill(r, s, a, r, s + e - Math.abs(r) - 1, a, v.PLANKS);
+        this.fill(r, s, a, r, s + e - Math.abs(r) - 1, a, BLOCK.PLANKS);
   }
 }

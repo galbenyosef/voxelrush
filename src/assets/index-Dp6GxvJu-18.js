@@ -2,7 +2,7 @@
 // Lines 32579-32875 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const YC = [
     {
-      id: E.DYNAMITE_SMALL,
+      id: ITEM.DYNAMITE_SMALL,
       radius: 2,
       damage: 45,
       terrain: 1.6,
@@ -14,7 +14,7 @@ const YC = [
       descriptionEn: "Compact precision blast",
     },
     {
-      id: E.DYNAMITE_BUNDLE,
+      id: ITEM.DYNAMITE_BUNDLE,
       radius: 3.5,
       damage: 110,
       terrain: 2.8,
@@ -26,7 +26,7 @@ const YC = [
       descriptionEn: "Seven-stick demolition bundle",
     },
     {
-      id: E.BREACH_CHARGE,
+      id: ITEM.BREACH_CHARGE,
       radius: 4.5,
       damage: 420,
       terrain: 3.8,
@@ -38,7 +38,7 @@ const YC = [
       descriptionEn: "Contact charge for fortifications",
     },
     {
-      id: E.FRAG_BOMB,
+      id: ITEM.FRAG_BOMB,
       radius: 7,
       damage: 160,
       terrain: 2.5,
@@ -50,7 +50,7 @@ const YC = [
       descriptionEn: "Wide damage area, small crater",
     },
     {
-      id: E.INCENDIARY_BOMB,
+      id: ITEM.INCENDIARY_BOMB,
       radius: 9,
       damage: 230,
       terrain: 3.2,
@@ -62,7 +62,7 @@ const YC = [
       descriptionEn: "Fire eruption and dense smoke",
     },
     {
-      id: E.HEAVY_BOMB,
+      id: ITEM.HEAVY_BOMB,
       radius: 14,
       damage: 650,
       terrain: 10,
@@ -74,7 +74,7 @@ const YC = [
       descriptionEn: "Heavy blast and deep crater",
     },
     {
-      id: E.THERMOBARIC_BOMB,
+      id: ITEM.THERMOBARIC_BOMB,
       radius: 24,
       damage: 1e3,
       terrain: 12,
@@ -86,7 +86,7 @@ const YC = [
       descriptionEn: "Fire dome and pressure wave",
     },
     {
-      id: E.NUCLEAR_CHARGE,
+      id: ITEM.NUCLEAR_CHARGE,
       radius: 80,
       damage: 2200,
       terrain: 24,
@@ -100,7 +100,7 @@ const YC = [
   ],
   jC = new Map(YC.map((n) => [n.id, n])),
   aa = (n) => jC.get(n),
-  xa = (n) => n === E.C4 || jC.has(n),
+  xa = (n) => n === ITEM.C4 || jC.has(n),
   yU = 512,
   we = yU,
   bn = (n) => {
@@ -183,7 +183,7 @@ function vw() {
   const n = document.createElement("canvas");
   return ((n.width = n.height = we), n);
 }
-function zn(n, e, t, i = 1) {
+function makeCanvas(n, e, t, i = 1) {
   const s = document.createElement("canvas"),
     o = document.createElement("canvas");
   s.width = s.height = o.width = o.height = e;

@@ -9,9 +9,9 @@ function o$(n, e) {
 }
 function U(n, e) {
   var s;
-  const t = _5[z.language] ?? _5.en,
+  const t = _5[SETTINGS.language] ?? _5.en,
     i =
-      (lr() ? ((s = n$[z.language]) == null ? void 0 : s[n]) : void 0) ??
+      (lr() ? ((s = n$[SETTINGS.language]) == null ? void 0 : s[n]) : void 0) ??
       t[n] ??
       _5.en[n] ??
       n;
@@ -22,7 +22,7 @@ function Vo(n) {
   tL.add(n);
 }
 function aA() {
-  ((document.documentElement.lang = z.language),
+  ((document.documentElement.lang = SETTINGS.language),
     document.querySelectorAll("[data-i18n]").forEach((n) => {
       n.textContent = U(n.dataset.i18n ?? "");
     }),
@@ -36,61 +36,61 @@ function aA() {
       n.setAttribute("aria-label", U(n.dataset.i18nAria ?? ""));
     }),
     document.querySelectorAll("[data-icon]").forEach((n) => {
-      n.innerHTML = Nn(n.dataset.icon);
+      n.innerHTML = svgIcon(n.dataset.icon);
     }));
   for (const n of tL) n();
 }
 function Ki(n) {
   const e = Zc(n);
   return e
-    ? z.language === "en"
+    ? SETTINGS.language === "en"
       ? e.labelEn
       : e.label
-    : ((z.language === "en" ? l0 : Gc)[n] ?? "");
+    : ((SETTINGS.language === "en" ? BLOCK_NAMES_EN : BLOCK_NAMES_RU)[n] ?? "");
 }
 function kd(n) {
-  return n ? (z.language === "en" ? n.labelEn : n.label) : "";
+  return n ? (SETTINGS.language === "en" ? n.labelEn : n.label) : "";
 }
 function Zs(n) {
   return (
-    (z.language === "en" ? xS : ES)[n] ??
-    (z.language === "en" ? "Vehicle" : "Техника")
+    (SETTINGS.language === "en" ? VEHICLE_NAMES_EN : VEHICLE_NAMES_RU)[n] ??
+    (SETTINGS.language === "en" ? "Vehicle" : "Техника")
   );
 }
 function rA(n) {
-  return (z.language === "en" ? BH : DH)[n];
+  return (SETTINGS.language === "en" ? ARMOR_SLOTS_EN : ARMOR_SLOTS_RU)[n];
 }
 function lA(n) {
-  return z.language === "en" ? n.descriptionEn : n.description;
+  return SETTINGS.language === "en" ? n.descriptionEn : n.description;
 }
 function cA(n) {
-  return z.language === "en" ? n.protectsEn : n.protects;
+  return SETTINGS.language === "en" ? n.protectsEn : n.protects;
 }
 function hA(n) {
-  return (z.language === "en" ? Lz : kz)[n];
+  return (SETTINGS.language === "en" ? Lz : kz)[n];
 }
 function a$(n) {
-  return (z.language === "en" ? Fz : Uz)[n];
+  return (SETTINGS.language === "en" ? Fz : Uz)[n];
 }
 function ad(n) {
-  return n < 256 ? kd(de[n]) : Ki(n) || Ey(n, z.language);
+  return n < 256 ? kd(BLOCKS[n]) : Ki(n) || Ey(n, SETTINGS.language);
 }
 function Iw(n) {
-  return z.language === "en" ? n.nameEn : n.name;
+  return SETTINGS.language === "en" ? n.nameEn : n.name;
 }
 function r$(n) {
   return Iw(Np(n));
 }
 const Py = {
-    [E.NIGHT_VISION_GOGGLES]: {
-      id: E.NIGHT_VISION_GOGGLES,
+    [ITEM.NIGHT_VISION_GOGGLES]: {
+      id: ITEM.NIGHT_VISION_GOGGLES,
       kind: "nightVision",
       maxDurability: 1800,
       label: "Очки ночного зрения",
       labelEn: "Night vision goggles",
     },
-    [E.THERMAL_GOGGLES]: {
-      id: E.THERMAL_GOGGLES,
+    [ITEM.THERMAL_GOGGLES]: {
+      id: ITEM.THERMAL_GOGGLES,
       kind: "thermal",
       maxDurability: 1200,
       label: "Очки с тепловизором",
@@ -112,14 +112,14 @@ function sr(n) {
       : 0;
 }
 const c$ = {
-    [P.TANK]: new k(1.25, 1.25, 1.65),
-    [P.PLANE]: new k(1.5, 1.25, 1.65),
-    [P.HELI]: new k(1.6, 1.4, 1.6),
-    [P.HIMARS]: new k(1.12, 1.12, 1.3),
-    [P.PATRIOT]: new k(1.12, 1.12, 1.3),
-    [P.BTR_TURRET]: new k(1.12, 1.2, 1.4),
-    [P.BOAT]: new k(1.15, 1.15, 1.4),
-    [P.SUBMARINE]: new k(1.2, 1.2, 2),
+    [VEHICLE_KIND.TANK]: new k(1.25, 1.25, 1.65),
+    [VEHICLE_KIND.PLANE]: new k(1.5, 1.25, 1.65),
+    [VEHICLE_KIND.HELI]: new k(1.6, 1.4, 1.6),
+    [VEHICLE_KIND.HIMARS]: new k(1.12, 1.12, 1.3),
+    [VEHICLE_KIND.PATRIOT]: new k(1.12, 1.12, 1.3),
+    [VEHICLE_KIND.BTR_TURRET]: new k(1.12, 1.2, 1.4),
+    [VEHICLE_KIND.BOAT]: new k(1.15, 1.15, 1.4),
+    [VEHICLE_KIND.SUBMARINE]: new k(1.2, 1.2, 2),
   },
   h$ = new k(1, 1, 1),
   ms = (n) => c$[n] ?? h$,
@@ -127,7 +127,7 @@ const c$ = {
   d$ = new gn(new k(3.6, 3.4, 0.9), new k(6, 7.8, 7.1)),
   zi = (n, e, t, i, s, o) => new gn(new k(n, e, t), new k(i, s, o)),
   Qf = {
-    [P.FIGHTER_JET]: [
+    [VEHICLE_KIND.FIGHTER_JET]: [
       zi(-0.7, 0.75, -6.5, 0.7, 2.15, 6.2),
       zi(-0.6, 1.9, -3.9, 0.6, 2.7, -0.9),
       zi(-2.8, 1.55, 4, 2.8, 1.85, 5.8),
@@ -138,18 +138,18 @@ const c$ = {
       zi(-5.2, 1.35, 1.2, -3.8, 1.6, 2.3),
       zi(3.8, 1.35, 1.2, 5.2, 1.6, 2.3),
     ],
-    [P.TANK]: [
+    [VEHICLE_KIND.TANK]: [
       zi(-1.28, 0, -1.9, 1.28, 1.2, 1.9),
       zi(-0.78, 1.2, -0.72, 0.78, 1.83, 0.92),
     ],
-    [P.PLANE]: [
+    [VEHICLE_KIND.PLANE]: [
       zi(-0.5, 0.48, -2.15, 0.5, 1.5, 2.25),
       zi(-3.55, 1.05, -1.2, 3.55, 1.32, 0.5),
     ],
-    [P.DRONE]: [zi(-0.46, 0, -0.46, 0.46, 0.55, 0.46)],
-    [P.BOAT]: [zi(-1.28, -0.42, -3.25, 1.28, 1.04, 3.25)],
-    [P.CARRIER]: [iL, d$],
-    [P.HELI]: [
+    [VEHICLE_KIND.DRONE]: [zi(-0.46, 0, -0.46, 0.46, 0.55, 0.46)],
+    [VEHICLE_KIND.BOAT]: [zi(-1.28, -0.42, -3.25, 1.28, 1.04, 3.25)],
+    [VEHICLE_KIND.CARRIER]: [iL, d$],
+    [VEHICLE_KIND.HELI]: [
       zi(-0.72, 0.78, -1.2, 0.72, 2.02, 1.2),
       zi(-0.53, 1.225, -1.95, 0.53, 2.175, -1.15),
       zi(-0.45, 1.05, 1.2, 0.45, 1.9, 1.6),
@@ -162,38 +162,38 @@ const c$ = {
       zi(0.94, 0.99, -0.85, 1.36, 1.41, 0.45),
       zi(-0.55, 1.85, -0.1, 0.55, 2.45, 1.3),
     ],
-    [P.HIMARS]: [
+    [VEHICLE_KIND.HIMARS]: [
       zi(-1.28, 0, -2.72, 1.28, 1.28, 2.72),
       zi(-0.95, 1.28, -1.15, 0.95, 2.25, 1.7),
     ],
-    [P.PATRIOT]: [
+    [VEHICLE_KIND.PATRIOT]: [
       zi(-1.28, 0, -2.75, 1.28, 1.28, 2.75),
       zi(-1, 1.28, -1.2, 1, 2.5, 1.9),
     ],
-    [P.MORTAR]: [
+    [VEHICLE_KIND.MORTAR]: [
       zi(-0.85, 0, -0.85, 0.85, 0.4, 0.85),
       zi(-0.38, 0.4, -0.8, 0.38, 2.35, 0.4),
     ],
-    [P.TURRET]: [zi(-0.72, 0, -0.72, 0.72, 1.72, 0.72)],
-    [P.BTR_TURRET]: [
+    [VEHICLE_KIND.TURRET]: [zi(-0.72, 0, -0.72, 0.72, 1.72, 0.72)],
+    [VEHICLE_KIND.BTR_TURRET]: [
       zi(-1.3, 0, -2.62, 1.3, 1.26, 2.62),
       zi(-0.68, 1.26, -0.7, 0.68, 1.95, 0.82),
     ],
-    [P.SUBMARINE]: [
+    [VEHICLE_KIND.SUBMARINE]: [
       zi(-2.15, -1.35, -5.6, 2.15, 1.35, 5.6),
       zi(-1.05, 1.2, -0.35, 1.05, 2.6, 1.5),
     ],
-    [P.SPACE_ROCKET]: [zi(-2.2, 0, -2.2, 2.2, 11.8, 2.2)],
+    [VEHICLE_KIND.SPACE_ROCKET]: [zi(-2.2, 0, -2.2, 2.2, 11.8, 2.2)],
   },
   io = {
     ...Qf,
-    [P.PLANE]: [
-      ...Qf[P.PLANE],
+    [VEHICLE_KIND.PLANE]: [
+      ...Qf[VEHICLE_KIND.PLANE],
       zi(-3.55, 1.05, -1.2, 3.55, 1.32, 0.5),
       zi(-1.3, 1.2, 1.55, 1.3, 1.48, 2.45),
     ],
-    [P.HELI]: [
-      ...Qf[P.HELI],
+    [VEHICLE_KIND.HELI]: [
+      ...Qf[VEHICLE_KIND.HELI],
       zi(-3.1, 2.42, -3.1, 3.1, 2.55, 3.1),
       zi(0.255, 1.75, 3.45, 0.305, 3.05, 4.75),
     ],

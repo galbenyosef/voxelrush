@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 122 — beginpath
+// index-Dp6GxvJu 122 — item
 // Lines 74185-74574 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function Kj(n, e) {
   if (!qj.has(e)) return !1;
@@ -98,9 +98,9 @@ function Kj(n, e) {
         c(10, 29, 34, 25, "#b1c6c7"));
     };
   if (
-    (h(20, 35, 17, 2, "rgba(0,0,0,.24)"), e === E.TANK || e === E.BTR_TURRET)
+    (h(20, 35, 17, 2, "rgba(0,0,0,.24)"), e === ITEM.TANK || e === ITEM.BTR_TURRET)
   ) {
-    const y = e === E.TANK;
+    const y = e === ITEM.TANK;
     if (y) {
       d(3, 24, 30, 9, "#24383a", 4);
       for (let g = 7; g <= 29; g += 5) p(g, 29, 3);
@@ -148,7 +148,7 @@ function Kj(n, e) {
           r,
         ),
         c(7, 25, 10, 25, "#d3d9b4")));
-  } else if (e === E.HIMARS || e === E.PATRIOT) {
+  } else if (e === ITEM.HIMARS || e === ITEM.PATRIOT) {
     for (const y of [8, 23, 31]) p(y, 31, 3.2);
     (f(3, 24, 31, 5, 3, "#97a477", "#425949"),
       f(3, 18, 9, 8, 3, "#859b73", "#496350"),
@@ -165,7 +165,7 @@ function Kj(n, e) {
       d(4, 25, 2, 1.4, "#ffe0a0"),
       n.save(),
       n.translate(17, 22),
-      n.rotate(e === E.PATRIOT ? -0.65 : -0.35),
+      n.rotate(e === ITEM.PATRIOT ? -0.65 : -0.35),
       f(0, -9, 17, 9, 3, "#a4ad84", "#526b50"));
     for (const y of [-7, -3])
       for (const g of [13, 16])
@@ -173,7 +173,7 @@ function Kj(n, e) {
           h(g - 0.25, y - 0.2, 0.55, 0.45, "#92a9a0"));
     for (const y of [3, 7]) c(y, -8, y, -1, "#c2cbae", 0.7);
     (n.restore(),
-      e === E.PATRIOT &&
+      e === ITEM.PATRIOT &&
         (c(7, 17, 7, 7, "#9fae91", 1.3),
         l(
           [
@@ -185,7 +185,7 @@ function Kj(n, e) {
           "#547f82",
         ),
         c(3, 8, 9, 6, r)));
-  } else if (e === E.HELI)
+  } else if (e === ITEM.HELI)
     (c(10, 31, 26, 31, i, 2),
       c(13, 25, 13, 30, s),
       c(23, 25, 23, 30, s),
@@ -233,7 +233,7 @@ function Kj(n, e) {
       h(17, 9, 2, 1.5, "#d2d8b7"),
       d(19, 20, 4, 2, "#314b42"),
       d(8, 26, 2, 1, "#f0ce7b"));
-  else if (e === E.DRONE) {
+  else if (e === ITEM.DRONE) {
     for (const [y, g] of [
       [8, 10],
       [31, 12],
@@ -251,8 +251,8 @@ function Kj(n, e) {
       h(19, 26, 1.6, 1.6, r),
       h(18.6, 25.5, 0.5, 0.5, "#edf6ea"),
       c(24, 15, 27, 8, "#9db5ae"));
-  } else if (e === E.BOAT || e === E.CARRIER) {
-    if ((m(), e === E.BOAT))
+  } else if (e === ITEM.BOAT || e === ITEM.CARRIER) {
+    if ((m(), e === ITEM.BOAT))
       (f(17, 18, 10, 7, 3, "#a2b8b7", "#476773"),
         d(18, 19, 8, 3, r),
         c(22, 17, 22, 9, "#b7caca"),
@@ -270,7 +270,7 @@ function Kj(n, e) {
         c(28, 5, 32, 10, "#6f939f", 0.7));
     }
     (c(8, 35, 18, 36, "#74b4c8", 0.8), c(24, 33, 33, 32, "#74b4c8", 0.8));
-  } else if (e === E.SUBMARINE) {
+  } else if (e === ITEM.SUBMARINE) {
     (n.save(),
       n.translate(20, 22),
       n.rotate(-0.22),
@@ -299,8 +299,8 @@ function Kj(n, e) {
       c(19, -4, 19, 4, "#ae9870", 2));
     for (const y of [-8, -4, 0, 4, 8]) c(y, -1, y + 1, -1, "#8aa5a9", 0.8);
     n.restore();
-  } else if (e === E.TURRET || e === E.MORTAR) {
-    const y = e === E.MORTAR;
+  } else if (e === ITEM.TURRET || e === ITEM.MORTAR) {
+    const y = e === ITEM.MORTAR;
     if (
       (h(20, 32, 13, 4, "#354f4d"),
       h(20, 31, 12, 3, "#8ea185"),
@@ -325,7 +325,7 @@ function Kj(n, e) {
       d(8, 20, 3, 2, r),
       y || (c(14, 14, 12, 7, "#a8c4b3"), h(12, 6, 1.1, 1.1, "#ecbd6a")));
   } else
-    e === E.SPACE_ROCKET &&
+    e === ITEM.SPACE_ROCKET &&
       (n.save(),
       n.translate(20, 21),
       n.rotate(0.3),

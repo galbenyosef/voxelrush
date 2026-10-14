@@ -1,9 +1,9 @@
-// index-Dp6GxvJu 121 — count
+// index-Dp6GxvJu 121 — item
 // Lines 73877-74184 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-for (const [n, e] of Object.entries(l0)) d1.push([e, Gc[Number(n)]]);
-for (const [n, e] of Object.entries(xS)) d1.push([e, ES[Number(n)]]);
-for (const n of de) n.labelEn && n.label && d1.push([n.labelEn, n.label]);
-for (const n of Qc) d1.push([n.nameEn, n.name]);
+for (const [n, e] of Object.entries(BLOCK_NAMES_EN)) d1.push([e, BLOCK_NAMES_RU[Number(n)]]);
+for (const [n, e] of Object.entries(VEHICLE_NAMES_EN)) d1.push([e, VEHICLE_NAMES_RU[Number(n)]]);
+for (const n of BLOCKS) n.labelEn && n.label && d1.push([n.labelEn, n.label]);
+for (const n of RANKS) d1.push([n.nameEn, n.name]);
 for (const [n, e] of d1.sort(
   (t, i) =>
     Math.max(i[0].length, i[1].length) - Math.max(t[0].length, t[1].length),
@@ -90,44 +90,44 @@ function mM(n, e, t = "") {
         : n;
 }
 const Fj = {
-    [E.GLOCK]: 1250,
-    [E.AK47]: 1950,
-    [E.MINIGUN]: 1200,
-    [E.SHOTGUN]: 850,
-    [E.AWP]: 640,
-    [E.RPG]: 320,
-    [E.GRENADE_LAUNCHER]: 380,
-    [E.AXE]: 1100,
-    [E.WELDER]: 1250,
-    [E.DRILL_METAL]: 700,
-    [E.DRILL_DIAMOND]: 1800,
-    [E.DRILL_TITANIUM]: 3600,
-    [E.DRILL_COMPOSITE]: 7e3,
-    [E.DRILL_LASER]: 14e3,
-    [E.LUNAR_DRILL]: 24e3,
-    [E.SHEARS]: 300,
-    [E.COMBAT_KNIFE]: 160,
-    [E.FISHING_ROD]: 320,
-    [E.CHAINSAW_BASIC]: 630,
-    [E.CHAINSAW_PRO]: 1260,
-    [E.CHAINSAW_INDUSTRIAL]: 2240,
-    [E.HELMET_1]: 240,
-    [E.HELMET_2]: 480,
-    [E.HELMET_3]: 840,
-    [E.HELMET_4]: 1500,
-    [E.VEST_4]: 3200,
-    [E.PANTS_4]: 2150,
-    [E.BOOTS_4]: 1600,
-    [E.SPACE_HELMET]: 1800,
-    [E.VEST_1]: 500,
-    [E.VEST_2]: 1e3,
-    [E.VEST_3]: 1800,
-    [E.PANTS_1]: 360,
-    [E.PANTS_2]: 720,
-    [E.PANTS_3]: 1200,
-    [E.BOOTS_1]: 260,
-    [E.BOOTS_2]: 520,
-    [E.BOOTS_3]: 900,
+    [ITEM.GLOCK]: 1250,
+    [ITEM.AK47]: 1950,
+    [ITEM.MINIGUN]: 1200,
+    [ITEM.SHOTGUN]: 850,
+    [ITEM.AWP]: 640,
+    [ITEM.RPG]: 320,
+    [ITEM.GRENADE_LAUNCHER]: 380,
+    [ITEM.AXE]: 1100,
+    [ITEM.WELDER]: 1250,
+    [ITEM.DRILL_METAL]: 700,
+    [ITEM.DRILL_DIAMOND]: 1800,
+    [ITEM.DRILL_TITANIUM]: 3600,
+    [ITEM.DRILL_COMPOSITE]: 7e3,
+    [ITEM.DRILL_LASER]: 14e3,
+    [ITEM.LUNAR_DRILL]: 24e3,
+    [ITEM.SHEARS]: 300,
+    [ITEM.COMBAT_KNIFE]: 160,
+    [ITEM.FISHING_ROD]: 320,
+    [ITEM.CHAINSAW_BASIC]: 630,
+    [ITEM.CHAINSAW_PRO]: 1260,
+    [ITEM.CHAINSAW_INDUSTRIAL]: 2240,
+    [ITEM.HELMET_1]: 240,
+    [ITEM.HELMET_2]: 480,
+    [ITEM.HELMET_3]: 840,
+    [ITEM.HELMET_4]: 1500,
+    [ITEM.VEST_4]: 3200,
+    [ITEM.PANTS_4]: 2150,
+    [ITEM.BOOTS_4]: 1600,
+    [ITEM.SPACE_HELMET]: 1800,
+    [ITEM.VEST_1]: 500,
+    [ITEM.VEST_2]: 1e3,
+    [ITEM.VEST_3]: 1800,
+    [ITEM.PANTS_1]: 360,
+    [ITEM.PANTS_2]: 720,
+    [ITEM.PANTS_3]: 1200,
+    [ITEM.BOOTS_1]: 260,
+    [ITEM.BOOTS_2]: 520,
+    [ITEM.BOOTS_3]: 900,
   },
   gM = 650;
 function or(n) {
@@ -153,7 +153,7 @@ function Gj(n, e) {
       const o = Ti(i.id) || i.id;
       if (
         i.count <= 0 ||
-        (e === 0 ? s < 36 || s >= 40 || !Fc(i.id) : s >= 36 || !v0[o])
+        (e === 0 ? s < 36 || s >= 40 || !Fc(i.id) : s >= 36 || !TOOL_ITEM_BY_BLOCK[o])
       )
         return;
       const a = or(i.id);
@@ -165,7 +165,7 @@ function Gj(n, e) {
       const h = Math.max(
         1,
         Math.ceil(
-          sC * ((Jl(o) * r) / a + (l ? (Jl(E.SUPPRESSOR) * c) / l : 0)),
+          sC * ((Jl(o) * r) / a + (l ? (Jl(ITEM.SUPPRESSOR) * c) / l : 0)),
         ),
       );
       t.push({
@@ -195,28 +195,28 @@ const vM = [
     "unit",
   ],
   i_ = [
-    [E.AXE, E.WELDER, E.SHEARS, E.FISHING_ROD],
-    [E.BUCKET, E.WATER_BUCKET, E.LAVA_BUCKET],
+    [ITEM.AXE, ITEM.WELDER, ITEM.SHEARS, ITEM.FISHING_ROD],
+    [ITEM.BUCKET, ITEM.WATER_BUCKET, ITEM.LAVA_BUCKET],
     [
-      E.DRILL_METAL,
-      E.DRILL_DIAMOND,
-      E.DRILL_TITANIUM,
-      E.DRILL_COMPOSITE,
-      E.DRILL_LASER,
-      E.LUNAR_DRILL,
+      ITEM.DRILL_METAL,
+      ITEM.DRILL_DIAMOND,
+      ITEM.DRILL_TITANIUM,
+      ITEM.DRILL_COMPOSITE,
+      ITEM.DRILL_LASER,
+      ITEM.LUNAR_DRILL,
     ],
-    [E.CHAINSAW_BASIC, E.CHAINSAW_PRO, E.CHAINSAW_INDUSTRIAL],
+    [ITEM.CHAINSAW_BASIC, ITEM.CHAINSAW_PRO, ITEM.CHAINSAW_INDUSTRIAL],
   ];
 function n_(n) {
   const { id: e, category: t } = n;
   if (t === "armor") {
-    if (e === E.SPACE_HELMET) return ir.length;
+    if (e === ITEM.SPACE_HELMET) return ARMOR_SLOTS.length;
     const i = ra(e);
-    return i ? ir.indexOf(i.slot) : ir.length + 1;
+    return i ? ARMOR_SLOTS.indexOf(i.slot) : ARMOR_SLOTS.length + 1;
   }
   if (t === "weapon") {
     const i = n1[e];
-    return i ? 1 + h0.indexOf(i) : 0;
+    return i ? 1 + WEAPON_ATTACHMENTS.indexOf(i) : 0;
   }
   if (t === "tool") {
     const i = i_.findIndex((s) => s.includes(e));
@@ -295,16 +295,16 @@ function $j(n, e, t) {
   return i;
 }
 const qj = new Set([
-  E.TANK,
-  E.DRONE,
-  E.HELI,
-  E.BOAT,
-  E.CARRIER,
-  E.SUBMARINE,
-  E.HIMARS,
-  E.PATRIOT,
-  E.BTR_TURRET,
-  E.TURRET,
-  E.MORTAR,
-  E.SPACE_ROCKET,
+  ITEM.TANK,
+  ITEM.DRONE,
+  ITEM.HELI,
+  ITEM.BOAT,
+  ITEM.CARRIER,
+  ITEM.SUBMARINE,
+  ITEM.HIMARS,
+  ITEM.PATRIOT,
+  ITEM.BTR_TURRET,
+  ITEM.TURRET,
+  ITEM.MORTAR,
+  ITEM.SPACE_ROCKET,
 ]);

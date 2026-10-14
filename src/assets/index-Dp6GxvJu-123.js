@@ -1,16 +1,16 @@
-// index-Dp6GxvJu 123 — beginpath
+// index-Dp6GxvJu 123 — item
 // Lines 74575-74958 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function Yj(n, e) {
   if (
     ![
-      E.GLOCK,
-      E.AK47,
-      E.AWP,
-      E.SHOTGUN,
-      E.MINIGUN,
-      E.RPG,
-      E.GRENADE_LAUNCHER,
-      E.GRENADE,
+      ITEM.GLOCK,
+      ITEM.AK47,
+      ITEM.AWP,
+      ITEM.SHOTGUN,
+      ITEM.MINIGUN,
+      ITEM.RPG,
+      ITEM.GRENADE_LAUNCHER,
+      ITEM.GRENADE,
     ].includes(e)
   )
     return !1;
@@ -55,7 +55,7 @@ function Yj(n, e) {
     n.beginPath(),
     n.ellipse(20, 35, 16, 2, 0, 0, Math.PI * 2),
     n.fill(),
-    e === E.GLOCK)
+    e === ITEM.GLOCK)
   ) {
     const f = n.createLinearGradient(0, 11, 0, 20);
     (f.addColorStop(0, "#8c979c"),
@@ -138,7 +138,7 @@ function Yj(n, e) {
         d(m - (p - 24) * 0.12, p, 0.35, "#5d6e6b");
     (c(5.6, 33.3, 7.8, 1.7, "#161d1f", 0.5),
       h(5, 20.2, 14, 20.4, "#55625f", 0.6));
-  } else if (e === E.AK47)
+  } else if (e === ITEM.AK47)
     (l(
       [
         [2, 17],
@@ -195,7 +195,7 @@ function Yj(n, e) {
       h(10, 31, 13, 32, "#bc9060", 0.8),
       c(10, 14, 2, 2, t),
       c(24, 14, 2, 2, t));
-  else if (e === E.AWP)
+  else if (e === ITEM.AWP)
     (l(
       [
         [2, 20],
@@ -244,7 +244,7 @@ function Yj(n, e) {
       h(22, 22, 24, 19, i, 1.2),
       d(24, 18, 1.1, r),
       c(24, 22, 5, 2, "#b7b697"));
-  else if (e === E.SHOTGUN) {
+  else if (e === ITEM.SHOTGUN) {
     (l(
       [
         [2, 21],
@@ -272,7 +272,7 @@ function Yj(n, e) {
     );
     for (const f of [15, 18, 21])
       (c(f, 17, 2, 2, "#a93e32"), c(f, 17, 2, 0.7, "#e0ad76"));
-  } else if (e === E.MINIGUN) {
+  } else if (e === ITEM.MINIGUN) {
     (l(
       [
         [2, 18],
@@ -302,7 +302,7 @@ function Yj(n, e) {
     for (let f = 0; f < 5; f++)
       (c(19 + f * 2, 28 + f * 0.6, 2, 3, "#b79754"),
         h(19 + f * 2, 28 + f * 0.6, 21 + f * 2, 28 + f * 0.6, "#e0c879", 0.5));
-  } else if (e === E.RPG)
+  } else if (e === ITEM.RPG)
     (l(
       [
         [2, 19],
@@ -339,7 +339,7 @@ function Yj(n, e) {
       c(26, 13, 6, 2, t),
       c(28, 9, 2, 4, s),
       h(7, 18, 14, 18, r, 0.8));
-  else if (e === E.GRENADE_LAUNCHER) {
+  else if (e === ITEM.GRENADE_LAUNCHER) {
     (l(
       [
         [2, 19],

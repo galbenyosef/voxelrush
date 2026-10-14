@@ -2,18 +2,18 @@
 // Lines 120270-120595 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const CR = 22050,
   Gb = {
-    [Nt.COW]: 70,
-    [Nt.SHEEP]: 55,
-    [Nt.PIG]: 45,
-    [Nt.CHICKEN]: 36,
-    [Nt.CAMEL]: 60,
+    [ANIMAL_KIND.COW]: 70,
+    [ANIMAL_KIND.SHEEP]: 55,
+    [ANIMAL_KIND.PIG]: 45,
+    [ANIMAL_KIND.CHICKEN]: 36,
+    [ANIMAL_KIND.CAMEL]: 60,
   },
   pie = {
-    [Nt.COW]: 0.55,
-    [Nt.SHEEP]: 0.45,
-    [Nt.PIG]: 0.5,
-    [Nt.CHICKEN]: 0.36,
-    [Nt.CAMEL]: 0.55,
+    [ANIMAL_KIND.COW]: 0.55,
+    [ANIMAL_KIND.SHEEP]: 0.45,
+    [ANIMAL_KIND.PIG]: 0.5,
+    [ANIMAL_KIND.CHICKEN]: 0.36,
+    [ANIMAL_KIND.CAMEL]: 0.55,
   };
 function mie(n, e) {
   const i = new Float32Array(40),

@@ -107,7 +107,7 @@ class Gte {
     e.add(this.mesh);
   }
   add(e, t = 1) {
-    const i = de[e.block];
+    const i = BLOCKS[e.block];
     if (!i || !i.solid || i.transparent || i.shape !== "cube") return !1;
     const s = this.next;
     if (
@@ -169,7 +169,7 @@ class Gte {
   }
 }
 const Wte = {
-  [P.TANK]: {
+  [VEHICLE_KIND.TANK]: {
     root: 43,
     range: 110,
     gain: 0.48,
@@ -177,7 +177,7 @@ const Wte = {
     pulse: 12,
     texture: 0.2,
   },
-  [P.HIMARS]: {
+  [VEHICLE_KIND.HIMARS]: {
     root: 52,
     range: 85,
     gain: 0.32,
@@ -185,7 +185,7 @@ const Wte = {
     pulse: 17,
     texture: 0.1,
   },
-  [P.PATRIOT]: {
+  [VEHICLE_KIND.PATRIOT]: {
     root: 48,
     range: 85,
     gain: 0.3,
@@ -193,7 +193,7 @@ const Wte = {
     pulse: 16,
     texture: 0.1,
   },
-  [P.BTR_TURRET]: {
+  [VEHICLE_KIND.BTR_TURRET]: {
     root: 58,
     range: 85,
     gain: 0.32,
@@ -201,7 +201,7 @@ const Wte = {
     pulse: 18,
     texture: 0.14,
   },
-  [P.HELI]: {
+  [VEHICLE_KIND.HELI]: {
     root: 62,
     range: 180,
     gain: 0.52,
@@ -209,7 +209,7 @@ const Wte = {
     pulse: 14,
     texture: 0.28,
   },
-  [P.FIGHTER_JET]: {
+  [VEHICLE_KIND.FIGHTER_JET]: {
     root: 175,
     range: 290,
     gain: 0.5,
@@ -217,7 +217,7 @@ const Wte = {
     pulse: 75,
     texture: 1.1,
   },
-  [P.PLANE]: {
+  [VEHICLE_KIND.PLANE]: {
     root: 95,
     range: 210,
     gain: 0.46,
@@ -225,7 +225,7 @@ const Wte = {
     pulse: 32,
     texture: 0.4,
   },
-  [P.DRONE]: {
+  [VEHICLE_KIND.DRONE]: {
     root: 165,
     range: 44,
     gain: 0.17,
@@ -233,7 +233,7 @@ const Wte = {
     pulse: 55,
     texture: 0.04,
   },
-  [P.BOAT]: {
+  [VEHICLE_KIND.BOAT]: {
     root: 55,
     range: 100,
     gain: 0.34,
@@ -241,7 +241,7 @@ const Wte = {
     pulse: 20,
     texture: 0.24,
   },
-  [P.CARRIER]: {
+  [VEHICLE_KIND.CARRIER]: {
     root: 31,
     range: 170,
     gain: 0.4,
@@ -249,7 +249,7 @@ const Wte = {
     pulse: 9,
     texture: 0.18,
   },
-  [P.SUBMARINE]: {
+  [VEHICLE_KIND.SUBMARINE]: {
     root: 35,
     range: 75,
     gain: 0.25,
@@ -257,7 +257,7 @@ const Wte = {
     pulse: 7,
     texture: 0.1,
   },
-  [P.SPACE_ROCKET]: {
+  [VEHICLE_KIND.SPACE_ROCKET]: {
     root: 38,
     range: 240,
     gain: 0.55,

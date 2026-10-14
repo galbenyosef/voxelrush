@@ -108,7 +108,7 @@ const bl = 10,
       )
       .join("");
 let Ks = { squad: null, incoming: [], outgoing: [] };
-const Vt = (n, e) => (z.language === "en" ? n : e),
+const Vt = (n, e) => (SETTINGS.language === "en" ? n : e),
   $6 = {
     shield: ["Shield", "Щит"],
     falcon: ["Falcon", "Сокол"],

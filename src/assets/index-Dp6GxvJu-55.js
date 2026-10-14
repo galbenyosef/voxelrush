@@ -11,8 +11,8 @@ function kW(n, e, t, i, s, o) {
     ),
     h = Qp,
     d = [
-      ((M = de[v.COBBLE]) == null ? void 0 : M.tex[1]) ?? 4,
-      ((x = de[v.STONE]) == null ? void 0 : x.tex[1]) ?? 3,
+      ((M = BLOCKS[BLOCK.COBBLE]) == null ? void 0 : M.tex[1]) ?? 4,
+      ((x = BLOCKS[BLOCK.STONE]) == null ? void 0 : x.tex[1]) ?? 3,
     ],
     u = 9,
     f = c() * Math.PI * 2;
@@ -98,7 +98,7 @@ function kW(n, e, t, i, s, o) {
     (nd(n, _, R, L, 6, s, 7, o, N, 0, !0, !1),
       nd(n, R, C, L * 0.94, 6, h, 7, 1, N, 0, !1, !0));
   }
-  const y = de[v.FIRE].tex[1];
+  const y = BLOCKS[BLOCK.FIRE].tex[1];
   n.animMode = 1;
   const g = t + 0.05,
     b = 0.74 + c() * 0.08,

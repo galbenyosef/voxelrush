@@ -248,7 +248,7 @@ class VJ {
     (window.addEventListener("keydown", (c) => {
       var h, d;
       if (
-        !(c.code !== z.binds.voice || c.repeat || !this.active) &&
+        !(c.code !== SETTINGS.binds.voice || c.repeat || !this.active) &&
         !(
           ((h = c.target) != null &&
             h.closest('input,textarea,select,[contenteditable="true"]')) ||
@@ -271,7 +271,7 @@ class VJ {
       }
     }),
       window.addEventListener("keyup", (c) => {
-        c.code === z.binds.voice && ((this.keyboardHeld = !1), this.release());
+        c.code === SETTINGS.binds.voice && ((this.keyboardHeld = !1), this.release());
       }),
       window.addEventListener("blur", () => {
         ((this.keyboardHeld = !1), this.release());
@@ -390,7 +390,7 @@ class VJ {
       ));
     for (const l of document.querySelectorAll("[data-voice-channel]")) {
       const c = l.dataset.voiceChannel === "squad";
-      l.innerHTML = Nn("mic");
+      l.innerHTML = svgIcon("mic");
       const h = document.createElement("span");
       ((h.textContent = c
         ? ni("Голос · отряд", "Voice · squad")
@@ -444,8 +444,8 @@ class VJ {
           "Hold the microphone button to talk. Tap a player to mute them.",
         )
       : ni(
-          `Удерживайте ${gs(z.binds.voice, z.language)}, чтобы говорить. Нажмите имя, чтобы заглушить игрока.`,
-          `Hold ${gs(z.binds.voice, z.language)} to talk. Select a player to mute them.`,
+          `Удерживайте ${gs(SETTINGS.binds.voice, SETTINGS.language)}, чтобы говорить. Нажмите имя, чтобы заглушить игрока.`,
+          `Hold ${gs(SETTINGS.binds.voice, SETTINGS.language)} to talk. Select a player to mute them.`,
         )),
       this.available ||
         this.message(
@@ -464,19 +464,19 @@ class VJ {
               ? o
                 ? ni("Удерживать для разговора", "Hold to talk")
                 : ni(
-                    `Удерживать · ${gs(z.binds.voice, z.language)}`,
-                    `Hold · ${gs(z.binds.voice, z.language)}`,
+                    `Удерживать · ${gs(SETTINGS.binds.voice, SETTINGS.language)}`,
+                    `Hold · ${gs(SETTINGS.binds.voice, SETTINGS.language)}`,
                   )
               : ni("Авто · нажать: выкл.", "Auto · tap to mute")
           : o
             ? ni("Включить микрофон", "Enable microphone")
             : ni(
-                `Нажать ${gs(z.binds.voice, z.language)} для микрофона`,
-                `Press ${gs(z.binds.voice, z.language)} for microphone`,
+                `Нажать ${gs(SETTINGS.binds.voice, SETTINGS.language)} для микрофона`,
+                `Press ${gs(SETTINGS.binds.voice, SETTINGS.language)} for microphone`,
               )),
       (this.talk.title = this.talk.textContent),
       this.talk.setAttribute("aria-label", this.talk.textContent),
-      (this.talk.innerHTML = Nn(this.muted ? "muted" : "mic")));
+      (this.talk.innerHTML = svgIcon(this.muted ? "muted" : "mic")));
     const a = document.createElement("span");
     ((a.textContent = this.pending
       ? "…"
@@ -484,7 +484,7 @@ class VJ {
         ? this.muted
           ? ni("Выкл.", "Off")
           : this.preferences.mode === "ptt"
-            ? gs(z.binds.voice, z.language)
+            ? gs(SETTINGS.binds.voice, SETTINGS.language)
             : "Auto"
         : ni("Микр.", "Mic")),
       this.talk.append(a));
@@ -748,7 +748,7 @@ class VJ {
         f = l.muted ? "muted" : l.far ? "far" : h ? "audio" : "user";
       l.row.dataset.state !== `${f}:${u}` &&
         ((l.row.dataset.state = `${f}:${u}`),
-        (l.row.innerHTML = Nn(f)),
+        (l.row.innerHTML = svgIcon(f)),
         l.row.append(document.createTextNode(` ${u}`)));
     }
     const a = String(this.peers.size + 1);
@@ -756,7 +756,7 @@ class VJ {
       (this.roster.classList.toggle("speaking", s > 0),
       this.roster.dataset.count !== a)
     ) {
-      ((this.roster.dataset.count = a), (this.roster.innerHTML = Nn("user")));
+      ((this.roster.dataset.count = a), (this.roster.innerHTML = svgIcon("user")));
       const l = document.createElement("span");
       ((l.textContent = a), this.roster.append(l));
     }

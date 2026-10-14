@@ -98,7 +98,7 @@ function eZ(n) {
   return JX[Math.max(0, Math.min(3, n - 1))];
 }
 function tZ(n) {
-  const e = n === E.THERMAL_GOGGLES,
+  const e = n === ITEM.THERMAL_GOGGLES,
     t = new pe();
   t.name = "helmet-optic";
   const i = 1712163,

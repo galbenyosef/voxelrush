@@ -20,9 +20,9 @@ class Vte {
         if (!d || h.hp <= 0 || h.planet !== s) continue;
         const u = Math.hypot(h.vel.x, h.vel.y, h.vel.z);
         if (
-          !(h.type === P.FIGHTER_JET
+          !(h.type === VEHICLE_KIND.FIGHTER_JET
             ? (h.aux1 ?? 0) > 0.03
-            : u > 0.2 || h.driver !== -1 || h.ownerName === Mo)
+            : u > 0.2 || h.driver !== -1 || h.ownerName === RAID_LABEL)
         )
           continue;
         const p = Math.hypot(h.pos.x - t.x, h.pos.y - t.y, h.pos.z - t.z);
@@ -54,10 +54,10 @@ class Vte {
         ((m = this.create(h.type, d)), this.engines.set(h.id, m));
       }
       const y =
-          h.type === P.FIGHTER_JET
-            ? Ne(h.aux1 ?? 0, 0, 1)
-            : Ne(
-                f / (h.type === P.PLANE ? 40 : h.type === P.HELI ? 18 : 12),
+          h.type === VEHICLE_KIND.FIGHTER_JET
+            ? clamp(h.aux1 ?? 0, 0, 1)
+            : clamp(
+                f / (h.type === VEHICLE_KIND.PLANE ? 40 : h.type === VEHICLE_KIND.HELI ? 18 : 12),
                 0,
                 1,
               ),
@@ -66,8 +66,8 @@ class Vte {
             (h.pos.y - t.y) * h.vel.y +
             (h.pos.z - t.z) * h.vel.z) /
           Math.max(1, u),
-        b = h.type === P.FIGHTER_JET,
-        S = Ne(343 / (343 + g), b ? 0.7 : 0.82, b ? 1.38 : 1.2),
+        b = h.type === VEHICLE_KIND.FIGHTER_JET,
+        S = clamp(343 / (343 + g), b ? 0.7 : 0.82, b ? 1.38 : 1.2),
         M = d.root * (1 + y * 0.65) * S;
       (m.tone.frequency.setTargetAtTime(M, a, 0.18),
         m.body.frequency.setTargetAtTime(M * 0.5, a, 0.18),
@@ -82,10 +82,10 @@ class Vte {
         ((h.pos.x - t.x) * Math.cos(i) - (h.pos.z - t.z) * Math.sin(i)) /
         Math.max(3, u);
       if (
-        (m.pan.pan.setTargetAtTime(Ne(x, -0.92, 0.92), a, 0.12),
+        (m.pan.pan.setTargetAtTime(clamp(x, -0.92, 0.92), a, 0.12),
         m.whine && m.whine2 && m.whineGain && m.roarFilter && m.roarGain)
       ) {
-        const A = Ne(-g / 60, -1, 1),
+        const A = clamp(-g / 60, -1, 1),
           _ = (2300 + y * 1900) * S;
         (m.whine.frequency.setTargetAtTime(_, a, 0.15),
           m.whine2.frequency.setTargetAtTime(_ * 1.52, a, 0.15),
@@ -95,7 +95,7 @@ class Vte {
             0.15,
           ),
           m.roarFilter.frequency.setTargetAtTime(
-            Ne(((650 + y * 1700) * S) / (1 + u * 0.005), 120, 6e3),
+            clamp(((650 + y * 1700) * S) / (1 + u * 0.005), 120, 6e3),
             a,
             0.15,
           ),
@@ -106,8 +106,8 @@ class Vte {
           ));
       }
       const T =
-        h.type === P.HELI
-          ? Math.max(h.ownerName === Mo ? 1 : 0, h.rotorPower ?? 1)
+        h.type === VEHICLE_KIND.HELI
+          ? Math.max(h.ownerName === RAID_LABEL ? 1 : 0, h.rotorPower ?? 1)
           : 1;
       (m.gain.gain.cancelScheduledValues(a),
         m.gain.gain.setTargetAtTime(p * (0.65 + y * 0.35) * T, a, 0.18),
@@ -130,11 +130,11 @@ class Vte {
       h = i.createGain(),
       d = i.createGain();
     ((r.type =
-      e === P.FIGHTER_JET ? "sine" : e === P.PLANE ? "sawtooth" : "triangle"),
+      e === VEHICLE_KIND.FIGHTER_JET ? "sine" : e === VEHICLE_KIND.PLANE ? "sawtooth" : "triangle"),
       (r.frequency.value = t.root),
       (l.frequency.value = t.root * 0.5),
-      (d.gain.value = e === P.FIGHTER_JET ? 0.22 : 0.58),
-      (h.gain.value = e === P.FIGHTER_JET ? 0.025 : e === P.HELI ? 0.36 : 0.12),
+      (d.gain.value = e === VEHICLE_KIND.FIGHTER_JET ? 0.22 : 0.58),
+      (h.gain.value = e === VEHICLE_KIND.FIGHTER_JET ? 0.025 : e === VEHICLE_KIND.HELI ? 0.36 : 0.12),
       (c.frequency.value = t.pulse),
       c.connect(h).connect(d.gain),
       r.connect(d),
@@ -163,13 +163,13 @@ class Vte {
       texture: f,
       nodes: [s, o, a, r, l, c, u, f, h, d],
     };
-    if (e === P.HELI) {
+    if (e === VEHICLE_KIND.HELI) {
       const m = i.createGain();
       ((m.gain.value = t.texture * 0.9),
         c.connect(m).connect(f.gain),
         p.nodes.push(m));
     }
-    if (e === P.FIGHTER_JET) {
+    if (e === VEHICLE_KIND.FIGHTER_JET) {
       const m = i.createOscillator(),
         y = i.createOscillator(),
         g = i.createGain(),

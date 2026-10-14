@@ -60,8 +60,8 @@ function Zne() {
   );
 }
 function Qne(n) {
-  if (n === E.RAW_FISH) {
-    const t = VI(Nt.FISH, !1, 1 + Math.floor(Math.random() * 7));
+  if (n === ITEM.RAW_FISH) {
+    const t = VI(ANIMAL_KIND.FISH, !1, 1 + Math.floor(Math.random() * 7));
     t.group.scale.multiplyScalar(0.62);
     const i = new pe();
     return (

@@ -206,7 +206,7 @@ class hee {
           ((p.id = this.world.getBlock(p.x, p.y, p.z)), this.specials.push(p));
           const m = Math.hypot(p.x - e.x, p.z - e.z);
           (Z_.has(p.id) && m < 34 && this.graves++,
-            p.id === v.CAULDRON && (this.cauldrons.push(p), m < 30 && s++));
+            p.id === BLOCK.CAULDRON && (this.cauldrons.push(p), m < 30 && s++));
         }
       }
     ((this.haunted = Math.min(1, this.graves / 6 + s * 0.6)),
@@ -239,23 +239,23 @@ class hee {
       if (
         Math.hypot(d.x - t.pos.x, d.z - t.pos.z) > 34 ||
         !$n(this.world.getBlock(d.x, d.y, d.z)) ||
-        this.world.getBlock(d.x, d.y - 1, d.z) !== v.AIR
+        this.world.getBlock(d.x, d.y - 1, d.z) !== BLOCK.AIR
       )
         continue;
       let u = d.y - 1;
       for (; u > Math.max(0, d.y - 48); u--) {
         const x = this.world.getBlock(d.x, u, d.z);
         if (
-          x !== v.AIR &&
-          (((a = de[x]) != null && a.solid) ||
-            ((r = de[x]) != null && r.liquid))
+          x !== BLOCK.AIR &&
+          (((a = BLOCKS[x]) != null && a.solid) ||
+            ((r = BLOCKS[x]) != null && r.liquid))
         )
           break;
       }
       const f = Math.min(
           Kt,
           u +
-            ((l = de[this.world.getBlock(d.x, u, d.z)]) != null && l.liquid
+            ((l = BLOCKS[this.world.getBlock(d.x, u, d.z)]) != null && l.liquid
               ? 0.88
               : 1),
         ),
@@ -265,7 +265,7 @@ class hee {
         y = d.z + Math.random(),
         g = d.y - 0.02,
         b = (g - f) / 0.95,
-        S = d.id === v.SAKURA_LEAVES;
+        S = d.id === BLOCK.SAKURA_LEAVES;
       (this.leafSpawn.setXYZW(p, m, g, y, this.clock),
         this.leafInfo.setXYZW(
           p,
@@ -274,7 +274,7 @@ class hee {
           b + 4 + Math.random() * 6,
           S ? 0.12 : 0.17 + Math.random() * 0.08,
         ));
-      const M = j_[d.id] ?? j_[v.LEAVES];
+      const M = j_[d.id] ?? j_[BLOCK.LEAVES];
       (this.color.setHex(M[Math.floor(Math.random() * M.length)]),
         this.leafColor.setXYZ(p, this.color.r, this.color.g, this.color.b),
         (o = !0));
@@ -641,12 +641,12 @@ class hee {
       (this.right.set(Math.cos(s), 0, -Math.sin(s)),
       (a =
         ((t.x - o.x) * this.right.x + (t.z - o.z) * this.right.z) / (i || 1))),
-      e === Ra.ROAR
+      e === ANIMAL_PRODUCT.ROAR
         ? (this.sfx.wendigoRoar(i, a),
           i < 30 && this.shake(0.35 * (1 - i / 30)))
-        : e === Ra.SCREECH
+        : e === ANIMAL_PRODUCT.SCREECH
           ? this.sfx.wendigoScreech(i, a)
-          : e === Ra.BITE &&
+          : e === ANIMAL_PRODUCT.BITE &&
             (this.sfx.wendigoRoar(Math.max(i, 12), a),
             i < 6 && this.shake(0.5)));
   }

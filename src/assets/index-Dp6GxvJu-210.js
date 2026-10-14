@@ -119,9 +119,9 @@ totalEmissiveRadiance += diffuseColor.rgb * vDebrisLight.y * vec3(1.0,0.88,0.62)
         (this.shape[a] = e.shape === "blade" ? 1 : 0),
         this.tmpColor.set(i[Math.floor(Math.random() * i.length)]));
       const h = (e.colorJitter ?? 0.15) * (Math.random() - 0.5);
-      ((this.col[a * 3] = Ne(this.tmpColor.r + h, 0, 1)),
-        (this.col[a * 3 + 1] = Ne(this.tmpColor.g + h, 0, 1)),
-        (this.col[a * 3 + 2] = Ne(this.tmpColor.b + h, 0, 1)),
+      ((this.col[a * 3] = clamp(this.tmpColor.r + h, 0, 1)),
+        (this.col[a * 3 + 1] = clamp(this.tmpColor.g + h, 0, 1)),
+        (this.col[a * 3 + 2] = clamp(this.tmpColor.b + h, 0, 1)),
         (this.lightValid[a] = 0),
         (this.colorDirty[a] = 1));
     }

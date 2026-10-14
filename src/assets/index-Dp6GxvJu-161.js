@@ -163,7 +163,7 @@ class FQ {
   }
   buildSite(e) {
     const t = [],
-      i = Mu,
+      i = SLOT_GAMES,
       s = CI(i),
       o = new x_(),
       a = new x_(),
@@ -424,7 +424,7 @@ class FQ {
     return i
       ? this.open || this.requestPending
         ? !0
-        : this.hooks.held() === E.WELDER
+        : this.hooks.held() === ITEM.WELDER
           ? (this.hooks.send({ action: "pickup", machine: i.id }), !0)
           : ((this.requestPending = !0),
             (this.pendingAt = performance.now()),

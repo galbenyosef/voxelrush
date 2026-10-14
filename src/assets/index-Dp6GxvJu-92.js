@@ -165,27 +165,27 @@ function lK() {
   );
 }
 const z2 = {
-  [P.TANK]: [[0, 1.69, 0.72]],
-  [P.PLANE]: [[0, 1.12, 0.62]],
-  [P.FIGHTER_JET]: [[0, 1.48, -1.35]],
-  [P.BOAT]: [
+  [VEHICLE_KIND.TANK]: [[0, 1.69, 0.72]],
+  [VEHICLE_KIND.PLANE]: [[0, 1.12, 0.62]],
+  [VEHICLE_KIND.FIGHTER_JET]: [[0, 1.48, -1.35]],
+  [VEHICLE_KIND.BOAT]: [
     [-0.7, 1.05, 0.4],
     [0.7, 1.05, 0.4],
     [0, 1.05, 2.75],
   ],
-  [P.HELI]: [
+  [VEHICLE_KIND.HELI]: [
     [-0.86, 0.48, 0.65],
     [0.86, 0.48, 0.65],
   ],
-  [P.HIMARS]: [[0.45, 1.3, -1.7]],
-  [P.PATRIOT]: [[0.45, 1.3, -1.7]],
-  [P.TURRET]: [[0, 1.75, 0]],
-  [P.BTR_TURRET]: [
+  [VEHICLE_KIND.HIMARS]: [[0.45, 1.3, -1.7]],
+  [VEHICLE_KIND.PATRIOT]: [[0.45, 1.3, -1.7]],
+  [VEHICLE_KIND.TURRET]: [[0, 1.75, 0]],
+  [VEHICLE_KIND.BTR_TURRET]: [
     [0, 1.78, 0.8],
     [-0.62, 1.78, 1.7],
     [0.62, 1.78, 1.7],
   ],
-  [P.SUBMARINE]: [
+  [VEHICLE_KIND.SUBMARINE]: [
     [-0.7, 1.35, 0.2],
     [0.7, 1.35, 0.2],
     [-0.7, 1.35, 1.2],
@@ -224,30 +224,30 @@ const cK = {
     label: "Door gun",
   };
 function vl(n, e) {
-  return e === 1 && n === P.TANK
+  return e === 1 && n === VEHICLE_KIND.TANK
     ? cK
-    : e === 1 && n === P.BTR_TURRET
+    : e === 1 && n === VEHICLE_KIND.BTR_TURRET
       ? hK
-      : (e === 1 || e === 2) && n === P.HELI
+      : (e === 1 || e === 2) && n === VEHICLE_KIND.HELI
         ? dK
         : null;
 }
 function uK(n, e, t) {
-  return n === P.HELI
+  return n === VEHICLE_KIND.HELI
     ? (e === 1 ? -t.x : t.x) > 0.18 && t.y > -0.8 && t.y < 0.6
     : t.y > -0.75;
 }
 function r6(n) {
-  return n === P.HELI
+  return n === VEHICLE_KIND.HELI
     ? { swing: 1.2, down: -0.68, up: 0.5 }
     : { swing: Math.PI, down: -0.6, up: 1.1 };
 }
 function l6(n, e, t) {
   return e <= 0 || vl(n, e)
     ? !1
-    : n === P.PLANE || n === P.FIGHTER_JET
+    : n === VEHICLE_KIND.PLANE || n === VEHICLE_KIND.FIGHTER_JET
       ? t.y >= 0.04
-      : n === P.BOAT;
+      : n === VEHICLE_KIND.BOAT;
 }
 const c6 = new Map();
 function fK(n) {

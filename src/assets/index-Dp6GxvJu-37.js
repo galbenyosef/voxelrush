@@ -173,7 +173,7 @@ function Sk(n, e) {
       i.lineTo(29, 9),
       i.lineTo(36, 9),
       i.fill());
-    const o = e.blocks.filter((m) => m.id !== v.AIR && m.y >= 0),
+    const o = e.blocks.filter((m) => m.id !== BLOCK.AIR && m.y >= 0),
       a = new Set(o.map((m) => `${m.x},${m.y},${m.z}`)),
       r = o.filter(
         (m) =>
@@ -203,7 +203,7 @@ function Sk(n, e) {
             (i.fillStyle = S),
             i.fill());
         },
-        g = m.id === v.SANDSTONE_SMOOTH || m.id === v.GLOWSTONE;
+        g = m.id === BLOCK.SANDSTONE_SMOOTH || m.id === BLOCK.GLOWSTONE;
       (y(
         [
           [1, 0, 0],
@@ -270,8 +270,8 @@ function IT(n) {
   var i;
   const e = new Set();
   for (const s of n)
-    s.id !== v.AIR &&
-      (i = de[s.id]) != null &&
+    s.id !== BLOCK.AIR &&
+      (i = BLOCKS[s.id]) != null &&
       i.solid &&
       e.add(`${s.x},${s.y},${s.z}`);
   const t = [];

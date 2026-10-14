@@ -206,7 +206,7 @@ Be[Wc + 2] = (n, e, t) => {
   const i = Math.sin(n * 2.1 + e * 1.9) * 7;
   return ie(214 + i, 166 + i, 118 + i, 12)(n, e, t);
 };
-Be[qo] = (n, e, t) => {
+Be[BLOCK_ID_SEAWEED] = (n, e, t) => {
   const i = Math.sin(e * 0.3) * 1.3 + Math.sin(e * 0.14 + 1.3) * 0.9,
     s = n - (7.5 + i),
     o = 3.1 + Math.sin(e * 0.55) * 0.6;
@@ -215,7 +215,7 @@ Be[qo] = (n, e, t) => {
     r = Math.abs(s) > o - 1 ? 16 : 0;
   return ie(38 + a + r, 116 + a * 0.6 + r, 66 + a + r * 0.4, 10)(n, e, t);
 };
-Be[qo + 1] = (n, e, t) => {
+Be[BLOCK_ID_SEAWEED + 1] = (n, e, t) => {
   for (const [i, s, o] of [
     [4, -1.9, 3],
     [7.5, 0.4, 1],
@@ -245,9 +245,9 @@ const JS = (n) => (e, t, i) => {
     if (Math.hypot(e - o, t - a) < 2.2) return s(1.22, e, t, i);
   return [0, 0, 0, 0];
 };
-Be[qo + 2] = JS([228, 98, 155]);
-Be[qo + 3] = JS([63, 127, 224]);
-Be[qo + 4] = JS([240, 194, 71]);
+Be[BLOCK_ID_SEAWEED + 2] = JS([228, 98, 155]);
+Be[BLOCK_ID_SEAWEED + 3] = JS([63, 127, 224]);
+Be[BLOCK_ID_SEAWEED + 4] = JS([240, 194, 71]);
 Be[_n] = (n, e, t) => {
   const i = e === 0 || e === 15 || n === 0 || n === 15,
     s = (n * 11 + e * 7) % 47 === 2;

@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 148 — canvas
+// index-Dp6GxvJu 148 — block
 // Lines 90487-90810 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function xZ(n, e) {
   const t = n[5] === "1",
@@ -128,7 +128,7 @@ class AZ {
   }
   show(e, t, i, s, o = {}) {
     ((this.visible = !0), this.resize());
-    const a = z.language === "en",
+    const a = SETTINGS.language === "en",
       r =
         e.character === "custom"
           ? a
@@ -172,40 +172,40 @@ class AZ {
 }
 const cs = { DEFAULT: 0, SINGLE: 1, TREE: 2, VEIN: 3 };
 function AI(n, e, t = !1) {
-  return !!Nr[n] && (e === cs.TREE || (e === cs.DEFAULT && !t));
+  return !!BLOCK_DROPS[n] && (e === cs.TREE || (e === cs.DEFAULT && !t));
 }
 const _Z = new Set([
-  v.COAL_ORE,
-  v.IRON_ORE,
-  v.GOLD_ORE,
-  v.DIAMOND_ORE,
-  v.TITANIUM_ORE,
-  v.LUNAR_ORE,
+  BLOCK.COAL_ORE,
+  BLOCK.IRON_ORE,
+  BLOCK.GOLD_ORE,
+  BLOCK.DIAMOND_ORE,
+  BLOCK.TITANIUM_ORE,
+  BLOCK.LUNAR_ORE,
 ]);
 function CM(n, e, t) {
-  return !!b0[n] && t === cs.VEIN && _Z.has(e);
+  return !!DRILL_YIELD[n] && t === cs.VEIN && _Z.has(e);
 }
 function RZ(n, e, t = 1, i = 1, s = !1, o = cs.DEFAULT) {
   var d, u;
-  const a = Math.max(1, ((d = de[n]) == null ? void 0 : d.hardness) ?? 30),
-    r = b0[e] ?? 0,
-    l = Nr[e] ?? 0;
+  const a = Math.max(1, ((d = BLOCKS[n]) == null ? void 0 : d.hardness) ?? 30),
+    r = DRILL_YIELD[e] ?? 0,
+    l = BLOCK_DROPS[e] ?? 0;
   if (
     [
-      v.CACTUS,
-      v.TALL_GRASS,
-      v.DESERT_GRASS,
-      v.FLOWER_RED,
-      v.FLOWER_WHITE,
-      v.FLOWER_BLUE,
-      v.FLOWER_PINK,
-      v.FLOWER_YELLOW,
+      BLOCK.CACTUS,
+      BLOCK.TALL_GRASS,
+      BLOCK.DESERT_GRASS,
+      BLOCK.FLOWER_RED,
+      BLOCK.FLOWER_WHITE,
+      BLOCK.FLOWER_BLUE,
+      BLOCK.FLOWER_PINK,
+      BLOCK.FLOWER_YELLOW,
     ].includes(n)
   )
     return 0.12;
-  if (e === E.SHEARS && ($n(n) || Bo(n))) return Ne(a / 240, 0.06, 0.4);
+  if (e === ITEM.SHEARS && ($n(n) || Bo(n))) return clamp(a / 240, 0.06, 0.4);
   if (l && ca(n) === "wood")
-    return Ne(
+    return clamp(
       ((a / (l === 3 ? 620 : l === 2 ? 410 : 260)) *
         (t1(n) && AI(e, o, s) ? 4.7 : 1)) /
         i,
@@ -215,9 +215,9 @@ function RZ(n, e, t = 1, i = 1, s = !1, o = cs.DEFAULT) {
   const c = [23, 95, 160, 230, 340, 500, 650][r] ?? 23,
     h = ca(n) === "wood" ? i : $n(n) || Bo(n) ? 1 : t;
   return (
-    Ne(
+    clamp(
       ((a / c) *
-        (((u = de[n]) == null ? void 0 : u.shape) === "cube" ? 1 : 0.55)) /
+        (((u = BLOCKS[n]) == null ? void 0 : u.shape) === "cube" ? 1 : 0.55)) /
         h,
       (r >= 5 ? 0.16 : r > 0 ? 0.25 : 0.55) / h,
       r > 0 ? 2.8 : 6.5,
@@ -238,14 +238,14 @@ class CZ {
     } catch {}
   }
   supports(e) {
-    return !!(Nr[e] || b0[e]);
+    return !!(BLOCK_DROPS[e] || DRILL_YIELD[e]);
   }
   mode(e) {
-    return Nr[e] ? this.saw : b0[e] ? this.drill : cs.DEFAULT;
+    return BLOCK_DROPS[e] ? this.saw : DRILL_YIELD[e] ? this.drill : cs.DEFAULT;
   }
   label(e) {
     const t = this.mode(e),
-      i = z.language === "en";
+      i = SETTINGS.language === "en";
     return t === cs.TREE
       ? i
         ? "Whole tree"
@@ -259,12 +259,12 @@ class CZ {
           : "Один блок";
   }
   hint(e, t) {
-    const i = z.language === "en";
+    const i = SETTINGS.language === "en";
     return `${this.label(e)} · ${t ? (i ? "Mode button" : "Кнопка режима") : i ? "RMB: switch" : "ПКМ: сменить"}`;
   }
   toggle(e) {
     if (!this.supports(e)) return;
-    Nr[e]
+    BLOCK_DROPS[e]
       ? (this.saw = this.saw === cs.TREE ? cs.SINGLE : cs.TREE)
       : (this.drill = this.drill === cs.SINGLE ? cs.VEIN : cs.SINGLE);
     try {
@@ -274,8 +274,8 @@ class CZ {
       );
     } catch {}
     const t = document.getElementById("tool-mode-toast"),
-      i = z.language === "en",
-      s = !!Nr[e];
+      i = SETTINGS.language === "en",
+      s = !!BLOCK_DROPS[e];
     ((t.querySelector(".tool-mode-caption").textContent = i
       ? `${s ? "Chainsaw" : "Drill"} mode selected`
       : `${s ? "Пила" : "Бур"} · выбран режим`),
@@ -309,12 +309,12 @@ class CZ {
       this.updateButton(e));
   }
   updateButton(e) {
-    const t = `${e}:${this.mode(e)}:${z.language}`;
+    const t = `${e}:${this.mode(e)}:${SETTINGS.language}`;
     if (t === this.buttonKey) return;
     this.buttonKey = t;
     const i = document.getElementById("mobtoolmode"),
       s = this.label(e),
-      o = z.language === "en";
+      o = SETTINGS.language === "en";
     ((i.querySelector(".tool-mode-label").textContent = s),
       i.setAttribute(
         "aria-label",

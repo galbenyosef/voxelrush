@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 188 — math
+// index-Dp6GxvJu 188 — animal_kind
 // Lines 104813-104910 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function Ye(n, e, t, i, s, o, a, r = "plain") {
   const l = new le(
@@ -73,28 +73,28 @@ function p0(n) {
   }
 }
 const Hee = {
-    [Nt.CHICKEN]: 0.5,
-    [Nt.PIG]: 0.88,
-    [Nt.SHEEP]: 0.94,
-    [Nt.COW]: 1,
-    [Nt.CAMEL]: 1.16,
-    [Nt.FISH]: 1.35,
-    [Nt.SHARK]: 1,
-    [Nt.WENDIGO]: 1,
+    [ANIMAL_KIND.CHICKEN]: 0.5,
+    [ANIMAL_KIND.PIG]: 0.88,
+    [ANIMAL_KIND.SHEEP]: 0.94,
+    [ANIMAL_KIND.COW]: 1,
+    [ANIMAL_KIND.CAMEL]: 1.16,
+    [ANIMAL_KIND.FISH]: 1.35,
+    [ANIMAL_KIND.SHARK]: 1,
+    [ANIMAL_KIND.WENDIGO]: 1,
   },
   zee = new ze(14677759),
   Ir = (n, e) => (Hee[n] ?? 1) * (e ? 0.62 : 1),
   Uee = {
-    [Nt.PIG]: -0.62,
-    [Nt.SHEEP]: -0.9,
-    [Nt.COW]: -0.85,
-    [Nt.CAMEL]: -1.7,
+    [ANIMAL_KIND.PIG]: -0.62,
+    [ANIMAL_KIND.SHEEP]: -0.9,
+    [ANIMAL_KIND.COW]: -0.85,
+    [ANIMAL_KIND.CAMEL]: -1.7,
   },
   Fee = (n) => Uee[n] ?? 1,
   Gee = {
-    [Nt.FISH]: { hw: 0.32, h: 0.5 },
-    [Nt.SHARK]: { hw: 1, h: 1.35 },
-    [Nt.WENDIGO]: { hw: 0.62, h: 3.5 },
+    [ANIMAL_KIND.FISH]: { hw: 0.32, h: 0.5 },
+    [ANIMAL_KIND.SHARK]: { hw: 1, h: 1.35 },
+    [ANIMAL_KIND.WENDIGO]: { hw: 0.62, h: 3.5 },
   },
   Wee = { hw: 0.62, h: 1.8 },
   oR = (n) => Gee[n] ?? Wee;

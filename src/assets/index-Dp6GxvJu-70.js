@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 70 — add
+// index-Dp6GxvJu 70 — item
 // Lines 49870-50169 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function qV(n) {
   if (aa(n)) {
@@ -18,29 +18,29 @@ function qV(n) {
   if (t) {
     const i = So(n);
     switch (t) {
-      case E.AK47:
+      case ITEM.AK47:
         return KT(i);
-      case E.GLOCK:
+      case ITEM.GLOCK:
         return YT(i);
-      case E.AWP:
+      case ITEM.AWP:
         return jT(i);
-      case E.SHOTGUN:
+      case ITEM.SHOTGUN:
         return QT(i);
     }
   }
   switch (n) {
-    case E.MILITARY_MEDKIT: {
+    case ITEM.MILITARY_MEDKIT: {
       const i = new pe(),
         s = vk(n);
       (s.scale.setScalar(0.7), s.rotation.set(0.12, -0.35, -0.08), i.add(s));
       const o = new $t();
       return (i.add(o), qn(i, o, null, null));
     }
-    case E.AMMO_9MM:
-    case E.AMMO_762:
-    case E.AMMO_338:
+    case ITEM.AMMO_9MM:
+    case ITEM.AMMO_762:
+    case ITEM.AMMO_338:
       return VV(n);
-    case E.FLASHLIGHT: {
+    case ITEM.FLASHLIGHT: {
       const i = new pe(),
         s = c1(0, 0, -0.08);
       (s.scale.setScalar(1.9),
@@ -51,42 +51,42 @@ function qV(n) {
       const o = new $t();
       return (o.position.set(0, 0, -0.18), i.add(o), qn(i, o, null, null));
     }
-    case E.MINIGUN:
+    case ITEM.MINIGUN:
       return WV();
-    case E.SHOTGUN:
+    case ITEM.SHOTGUN:
       return QT();
-    case E.AMMO_762_HE:
-    case E.AMMO_338_HE:
-    case E.AMMO_SHELL:
-    case E.AMMO_SHELL_HE:
+    case ITEM.AMMO_762_HE:
+    case ITEM.AMMO_338_HE:
+    case ITEM.AMMO_SHELL:
+    case ITEM.AMMO_SHELL_HE:
       return $V(n);
-    case E.AK47:
+    case ITEM.AK47:
       return KT();
-    case E.GLOCK:
+    case ITEM.GLOCK:
       return YT();
-    case E.AWP:
+    case ITEM.AWP:
       return jT();
-    case E.RPG:
+    case ITEM.RPG:
       return AV();
-    case E.GRENADE_LAUNCHER:
+    case ITEM.GRENADE_LAUNCHER:
       return xV();
-    case E.AMMO_40MM:
+    case ITEM.AMMO_40MM:
       return TV();
-    case E.C4:
-    case E.DETONATOR: {
+    case ITEM.C4:
+    case ITEM.DETONATOR: {
       const i = new pe(),
-        s = qS(n === E.DETONATOR);
+        s = qS(n === ITEM.DETONATOR);
       (s.scale.setScalar(0.65), i.add(s));
       const o = new $t();
       return (i.add(o), qn(i, o, null, null));
     }
-    case E.GRENADE:
+    case ITEM.GRENADE:
       return _V();
-    case E.AXE:
+    case ITEM.AXE:
       return XT();
-    case E.COMBAT_KNIFE:
+    case ITEM.COMBAT_KNIFE:
       return RV();
-    case E.RADIO_MODULE: {
+    case ITEM.RADIO_MODULE: {
       const i = new pe();
       i.scale.setScalar(0.75);
       const s = (a, r, l, c, h, d, u) => {
@@ -101,33 +101,33 @@ function qV(n) {
       const o = new $t();
       return (i.add(o), qn(i, o, null, null));
     }
-    case E.WELDER:
+    case ITEM.WELDER:
       return kV();
-    case E.DRILL_METAL:
+    case ITEM.DRILL_METAL:
       return od(0);
-    case E.DRILL_DIAMOND:
+    case ITEM.DRILL_DIAMOND:
       return od(1);
-    case E.DRILL_TITANIUM:
+    case ITEM.DRILL_TITANIUM:
       return od(2);
-    case E.DRILL_COMPOSITE:
+    case ITEM.DRILL_COMPOSITE:
       return od(3);
-    case E.DRILL_LASER:
+    case ITEM.DRILL_LASER:
       return od(4);
-    case E.LUNAR_DRILL:
+    case ITEM.LUNAR_DRILL:
       return od(5);
-    case E.SPACE_ROCKET:
+    case ITEM.SPACE_ROCKET:
       return zV();
-    case E.CHAINSAW_BASIC:
+    case ITEM.CHAINSAW_BASIC:
       return T5(0);
-    case E.CHAINSAW_PRO:
+    case ITEM.CHAINSAW_PRO:
       return T5(1);
-    case E.CHAINSAW_INDUSTRIAL:
+    case ITEM.CHAINSAW_INDUSTRIAL:
       return T5(2);
-    case E.WHEAT_SEEDS:
+    case ITEM.WHEAT_SEEDS:
       return IV();
-    case E.FERTILIZER:
+    case ITEM.FERTILIZER:
       return PV();
-    case E.FISHING_ROD:
+    case ITEM.FISHING_ROD:
       return DV();
     default:
       return XT();

@@ -46,8 +46,8 @@ function Lo(n, e, t) {
       n.restore());
     return;
   }
-  if (e === E.ROCKET_GUIDED) {
-    (Lo(n, E.ROCKET, t),
+  if (e === ITEM.ROCKET_GUIDED) {
+    (Lo(n, ITEM.ROCKET, t),
       (n.strokeStyle = "#7eeaca"),
       (n.lineWidth = 2),
       n.strokeRect(24, 3, 12, 12),
@@ -55,7 +55,7 @@ function Lo(n, e, t) {
       n.fillRect(29, 7, 3, 3));
     return;
   }
-  if ((n.clearRect(0, 0, 40, 40), e === E.COMPUTER)) {
+  if ((n.clearRect(0, 0, 40, 40), e === ITEM.COMPUTER)) {
     const d = (u, f, p, m, y) => {
       ((n.fillStyle = y), n.fillRect(u, f, p, m));
     };
@@ -78,12 +78,12 @@ function Lo(n, e, t) {
     d(15, 29, 10, 1, "#4a5464");
     return;
   }
-  if (e === v.OWNERSHIP_TOTEM) {
+  if (e === BLOCK.OWNERSHIP_TOTEM) {
     jj(n);
     return;
   }
   if (SX(n, e) || Kj(n, e)) return;
-  const s = Tl(e);
+  const s = slotGameByIndex(e);
   if (s) {
     n.save();
     const d = "#" + s.color.toString(16).padStart(6, "0");
@@ -122,7 +122,7 @@ function Lo(n, e, t) {
       n.lineTo(f, p),
       n.stroke());
   };
-  if (e === v.AVIATION_LIGHT) {
+  if (e === BLOCK.AVIATION_LIGHT) {
     n.save();
     const d = n.createRadialGradient(20, 13, 1, 20, 13, 17);
     (d.addColorStop(0, "#ff6a4ccc"),
@@ -156,15 +156,15 @@ function Lo(n, e, t) {
   }
   if (
     [
-      v.KITCHEN_COUNTER,
-      v.SINK,
-      v.STORAGE_SHELF,
-      v.SOFA,
-      v.WALL_LIGHT,
-      v.POTTED_PLANT,
+      BLOCK.KITCHEN_COUNTER,
+      BLOCK.SINK,
+      BLOCK.STORAGE_SHELF,
+      BLOCK.SOFA,
+      BLOCK.WALL_LIGHT,
+      BLOCK.POTTED_PLANT,
     ].includes(e)
   ) {
-    if ((n.save(), e === v.POTTED_PLANT)) {
+    if ((n.save(), e === BLOCK.POTTED_PLANT)) {
       ((n.fillStyle = "#9d573d"),
         n.beginPath(),
         n.moveTo(12, 24),
@@ -185,7 +185,7 @@ function Lo(n, e, t) {
           n.ellipse(d, u, 7, 3, f, 0, 7),
           n.fill());
       a(12, 25, 28, 25, 2, "#d39466");
-    } else if (e === v.WALL_LIGHT) {
+    } else if (e === BLOCK.WALL_LIGHT) {
       const d = n.createRadialGradient(20, 20, 2, 20, 20, 18);
       (d.addColorStop(0, "#fff4bb"),
         d.addColorStop(1, "#ffd67700"),
@@ -196,7 +196,7 @@ function Lo(n, e, t) {
         (n.fillStyle = "#ffe6a4"),
         n.fillRect(14, 10, 12, 21),
         a(12, 8, 28, 8, 2, "#a1b0ae"));
-    } else if (e === v.SOFA)
+    } else if (e === BLOCK.SOFA)
       ((n.fillStyle = "#293f43"),
         n.beginPath(),
         n.roundRect(5, 10, 30, 22, 4),
@@ -214,7 +214,7 @@ function Lo(n, e, t) {
         (n.fillStyle = "#b0a080"),
         n.fillRect(7, 33, 3, 3),
         n.fillRect(30, 33, 3, 3));
-    else if (e === v.STORAGE_SHELF) {
+    else if (e === BLOCK.STORAGE_SHELF) {
       ((n.fillStyle = "#45565b"),
         n.fillRect(5, 5, 3, 32),
         n.fillRect(32, 5, 3, 32));
@@ -241,7 +241,7 @@ function Lo(n, e, t) {
         a(23, 23, 25, 23, 2, "#d0d8cb"),
         (n.fillStyle = "#d0d4c5"),
         n.fillRect(3, 10, 34, 6),
-        e === v.SINK &&
+        e === BLOCK.SINK &&
           ((n.fillStyle = "#5c777f"),
           n.beginPath(),
           n.ellipse(20, 13, 9, 3, 0, 0, 7),
@@ -256,7 +256,7 @@ function Lo(n, e, t) {
     n.restore();
     return;
   }
-  if (e === v.BOOKSHELF) {
+  if (e === BLOCK.BOOKSHELF) {
     ((n.fillStyle = "#80552f"),
       n.fillRect(5, 5, 30, 30),
       (n.fillStyle = "#4f321d"),
@@ -268,7 +268,7 @@ function Lo(n, e, t) {
           n.fillRect(8 + f * 4, 7 + u * 15, 3, 10 + ((f + u) & 1)));
     return;
   }
-  if (e === v.LANTERN) {
+  if (e === BLOCK.LANTERN) {
     ((n.fillStyle = "#343b3e"),
       n.fillRect(12, 8, 16, 3),
       n.fillRect(10, 31, 20, 3),
@@ -290,7 +290,7 @@ function Lo(n, e, t) {
       a(24, 12, 24, 30, 2, "#394145"));
     return;
   }
-  if (e === v.CHAIN) {
+  if (e === BLOCK.CHAIN) {
     ((n.strokeStyle = "#929ca3"), (n.lineWidth = 3));
     for (let d = 0; d < 3; d++)
       (n.beginPath(),
@@ -300,7 +300,7 @@ function Lo(n, e, t) {
         n.stroke());
     return;
   }
-  if (e === v.MILITARY_CHEST) {
+  if (e === BLOCK.MILITARY_CHEST) {
     ((n.fillStyle = "#526b38"),
       n.fillRect(5, 12, 30, 23),
       (n.fillStyle = "#344528"),
@@ -313,7 +313,7 @@ function Lo(n, e, t) {
       n.strokeRect(5, 12, 30, 23));
     return;
   }
-  if (e === v.HAY_BALE) {
+  if (e === BLOCK.HAY_BALE) {
     ((n.fillStyle = "#d2a72a"),
       n.fillRect(6, 7, 28, 28),
       (n.strokeStyle = "#f0cf4a"),
@@ -322,7 +322,7 @@ function Lo(n, e, t) {
     (a(12, 7, 12, 35, 3, "#966b1d"), a(28, 7, 28, 35, 3, "#966b1d"));
     return;
   }
-  if (e === v.BARREL) {
+  if (e === BLOCK.BARREL) {
     ((n.fillStyle = "#855b32"),
       n.beginPath(),
       n.roundRect(8, 5, 24, 31, 7),
@@ -331,7 +331,7 @@ function Lo(n, e, t) {
     (a(15, 6, 15, 35, 1, "#b78349"), a(25, 6, 25, 35, 1, "#b78349"));
     return;
   }
-  if (e === v.SIGN) {
+  if (e === BLOCK.SIGN) {
     ((n.fillStyle = "#735135"),
       n.fillRect(18, 25, 4, 13),
       (n.fillStyle = "#bc925d"),
@@ -340,7 +340,7 @@ function Lo(n, e, t) {
     for (const d of [11, 16, 21]) n.fillRect(8, d, 24, 2);
     return;
   }
-  const r = Mg(e, e === v.PISTON || e === v.SPISTON ? 1 : 0);
+  const r = Mg(e, e === BLOCK.PISTON || e === BLOCK.SPISTON ? 1 : 0);
   if (r) {
     const d = {
         169: "#99291d",
@@ -404,7 +404,7 @@ function Lo(n, e, t) {
     }
     return;
   }
-  if (e === v.BED) {
+  if (e === BLOCK.BED) {
     (n.save(),
       (n.lineJoin = "round"),
       (n.fillStyle = "#4b2f1d"),
@@ -455,7 +455,7 @@ function Lo(n, e, t) {
     return;
   }
   if (w0(e) || Do(e)) {
-    const d = de[e].color,
+    const d = BLOCKS[e].color,
       u = (m) =>
         "#" +
         [16, 8, 0]
@@ -484,7 +484,7 @@ function Lo(n, e, t) {
       n.fillRect(17, 17, 6, 10));
     return;
   }
-  if (e === v.BARBED_WIRE) {
+  if (e === BLOCK.BARBED_WIRE) {
     ((n.strokeStyle = "#92999d"), (n.lineWidth = 2));
     for (let d = 0; d < 3; d++)
       (n.beginPath(),
@@ -494,28 +494,28 @@ function Lo(n, e, t) {
       (a(d, 8, d + 3, 3, 1.5, "#c2c7c9"), a(d, 34, d - 3, 38, 1.5, "#c2c7c9"));
     return;
   }
-  if (e === v.TORCH || e === v.RTORCH) {
+  if (e === BLOCK.TORCH || e === BLOCK.RTORCH) {
     ((n.fillStyle = "#8a5a2b"),
       n.fillRect(17, 18, 6, 18),
-      (n.fillStyle = e === v.RTORCH ? "#d0432a" : "#ffcc55"),
+      (n.fillStyle = e === BLOCK.RTORCH ? "#d0432a" : "#ffcc55"),
       n.beginPath(),
       n.moveTo(20, 6),
       n.quadraticCurveTo(27, 14, 20, 20),
       n.quadraticCurveTo(13, 14, 20, 6),
       n.fill(),
-      (n.fillStyle = e === v.RTORCH ? "#ff8a6a" : "#fff2b0"),
+      (n.fillStyle = e === BLOCK.RTORCH ? "#ff8a6a" : "#fff2b0"),
       n.beginPath(),
       n.ellipse(20, 14, 2.4, 4, 0, 0, 7),
       n.fill());
     return;
   }
   if (
-    e === v.WOOD_TABLE ||
-    e === v.WOOD_CHAIR ||
-    e === v.WOOD_BENCH ||
-    e === v.MAP_TABLE
+    e === BLOCK.WOOD_TABLE ||
+    e === BLOCK.WOOD_CHAIR ||
+    e === BLOCK.WOOD_BENCH ||
+    e === BLOCK.MAP_TABLE
   ) {
-    const d = e === v.WOOD_TABLE || e === v.MAP_TABLE;
+    const d = e === BLOCK.WOOD_TABLE || e === BLOCK.MAP_TABLE;
     n.fillStyle = "#694529";
     for (const u of [9, 27]) n.fillRect(u, d ? 18 : 23, 4, d ? 16 : 11);
     (d ||
@@ -524,18 +524,18 @@ function Lo(n, e, t) {
       (n.fillStyle = "#b58450"),
       n.fillRect(8, 7, 24, 5),
       n.fillRect(8, 15, 24, 4)),
-      (n.fillStyle = e === v.WOOD_CHAIR ? "#b7433c" : "#bd905e"),
+      (n.fillStyle = e === BLOCK.WOOD_CHAIR ? "#b7433c" : "#bd905e"),
       n.fillRect(6, d ? 14 : 22, 28, 6),
       (n.fillStyle = "#e2ba7c"),
       n.fillRect(6, d ? 14 : 22, 28, 2),
-      e === v.MAP_TABLE &&
+      e === BLOCK.MAP_TABLE &&
         ((n.fillStyle = "#658450"),
         n.fillRect(8, 14, 24, 4),
         (n.fillStyle = "#558ca8"),
         n.fillRect(16, 14, 4, 4)));
     return;
   }
-  if (e === v.REMOTE_STATION) {
+  if (e === BLOCK.REMOTE_STATION) {
     ((n.fillStyle = "#3e554a"),
       n.fillRect(4, 9, 31, 21),
       n.fillRect(2, 30, 35, 6),
@@ -550,7 +550,7 @@ function Lo(n, e, t) {
     for (let d = 0; d < 8; d++) n.fillRect(6 + d * 3, 32, 2, 1);
     return;
   }
-  if (e === v.CAMPFIRE) {
+  if (e === BLOCK.CAMPFIRE) {
     const d = n.createRadialGradient(20, 24, 1, 20, 24, 15);
     (d.addColorStop(0, "rgba(255,214,120,0.95)"),
       d.addColorStop(0.5, "rgba(255,140,36,0.45)"),
@@ -577,7 +577,7 @@ function Lo(n, e, t) {
       n.fill());
     return;
   }
-  if (e === v.COMPOSTER) {
+  if (e === BLOCK.COMPOSTER) {
     ((n.fillStyle = "#9b6639"),
       n.fillRect(6, 7, 28, 28),
       (n.fillStyle = "#684323"),
@@ -597,7 +597,7 @@ function Lo(n, e, t) {
     return;
   }
   if (OS(e) && t) {
-    const d = de[e].tex[1];
+    const d = BLOCKS[e].tex[1];
     (n.save(),
       n.beginPath(),
       n.rect(6, 22, 30, 14),
@@ -607,8 +607,8 @@ function Lo(n, e, t) {
       n.restore());
     return;
   }
-  if (e === v.MINE_AP || e === v.MINE_AT) {
-    const d = e === v.MINE_AT,
+  if (e === BLOCK.MINE_AP || e === BLOCK.MINE_AT) {
+    const d = e === BLOCK.MINE_AT,
       u = d ? 17 : 13;
     ((n.fillStyle = "#252b25"),
       n.beginPath(),
@@ -636,13 +636,13 @@ function Lo(n, e, t) {
     if (MX(n, e)) return;
     t &&
       t.drawTile(
-        e === v.FURNACE
+        e === BLOCK.FURNACE
           ? uy
-          : e === v.JACK_O_LANTERN
+          : e === BLOCK.JACK_O_LANTERN
             ? LS
-            : e === v.LED_SCREEN
+            : e === BLOCK.LED_SCREEN
               ? gC
-              : (((h = de[e]) == null ? void 0 : h.tex[1]) ?? 0),
+              : (((h = BLOCKS[e]) == null ? void 0 : h.tex[1]) ?? 0),
         n,
         4,
         4,
@@ -658,7 +658,7 @@ function Lo(n, e, t) {
     return;
   }
   switch (c || e) {
-    case E.MINIGUN:
+    case ITEM.MINIGUN:
       ((n.fillStyle = "#242d33"),
         l(9, 13, 13, 13),
         l(6, 9, 14, 3),
@@ -673,7 +673,7 @@ function Lo(n, e, t) {
         (n.fillStyle = "#d4b16a"),
         l(23, 26, 3, 6));
       break;
-    case E.SHOTGUN:
+    case ITEM.SHOTGUN:
       ((n.fillStyle = "#815637"),
         l(2, 20, 10, 7),
         l(10, 19, 5, 5),
@@ -687,9 +687,9 @@ function Lo(n, e, t) {
       for (const d of [24, 27, 30]) l(d, 20, 1, 3);
       l(8, 20, 2, 4);
       break;
-    case E.AMMO_762_HE:
-    case E.AMMO_338_HE: {
-      const d = e === E.AMMO_762_HE,
+    case ITEM.AMMO_762_HE:
+    case ITEM.AMMO_338_HE: {
+      const d = e === ITEM.AMMO_762_HE,
         u = d ? 3 : 2,
         f = d ? 5 : 8;
       for (let p = 0; p < u; p++) {
@@ -722,12 +722,12 @@ function Lo(n, e, t) {
         : ((n.fillStyle = "#b43e2f"), l(8, 35, 23, 2));
       break;
     }
-    case E.AMMO_SHELL:
-    case E.AMMO_SHELL_HE:
+    case ITEM.AMMO_SHELL:
+    case ITEM.AMMO_SHELL_HE:
       for (let d = 0; d < 3; d++) {
         const u = 6 + d * 10,
           f = 12 - (d % 2) * 4,
-          p = e === E.AMMO_SHELL || e === E.AMMO_SHELL_HE,
+          p = e === ITEM.AMMO_SHELL || e === ITEM.AMMO_SHELL_HE,
           m = n.createLinearGradient(u, 0, u + 7, 0);
         (m.addColorStop(0, "#80602d"),
           m.addColorStop(0.45, "#ffe1a0"),
@@ -747,7 +747,7 @@ function Lo(n, e, t) {
             n.lineTo(u + 3.5, f - 3),
             n.lineTo(u + 7, f + 2),
             n.fill()),
-          e === E.AMMO_SHELL_HE &&
+          e === ITEM.AMMO_SHELL_HE &&
             ((n.fillStyle = "#f08a1e"),
             l(u, f + 6, 7, 3),
             l(u, f + 13, 7, 3),
@@ -757,10 +757,10 @@ function Lo(n, e, t) {
             l(u + 2.5, f + 8, 2, 4)));
       }
       break;
-    case E.GLOCK:
+    case ITEM.GLOCK:
       (l(8, 14, 22, 6), l(20, 20, 7, 12));
       break;
-    case E.AK47:
+    case ITEM.AK47:
       (l(2, 16, 32, 4),
         l(34, 15, 4, 6),
         (n.fillStyle = "#a97b46"),
@@ -768,7 +768,7 @@ function Lo(n, e, t) {
         l(14, 20, 5, 9),
         l(22, 20, 4, 6));
       break;
-    case E.AWP:
+    case ITEM.AWP:
       ((n.fillStyle = "#7d9b62"),
         l(2, 18, 34, 4),
         l(30, 17, 8, 5),
@@ -777,7 +777,7 @@ function Lo(n, e, t) {
         l(16, 13, 4, 5),
         l(18, 22, 4, 7));
       break;
-    case E.GRENADE_LAUNCHER:
+    case ITEM.GRENADE_LAUNCHER:
       ((n.fillStyle = "#687655"),
         l(3, 17, 27, 9),
         l(29, 19, 8, 7),
@@ -789,7 +789,7 @@ function Lo(n, e, t) {
       for (let d = 0; d < 5; d++) l(5 + d * 2.5, 16, 1, 11);
       (l(18, 9, 2, 8), l(24, 9, 2, 8), l(18, 9, 8, 1), l(18, 12, 8, 1));
       break;
-    case E.AMMO_40MM:
+    case ITEM.AMMO_40MM:
       for (const d of [7, 22])
         ((n.fillStyle = "#b9944c"),
           l(d, 16, 11, 17),
@@ -801,7 +801,7 @@ function Lo(n, e, t) {
           (n.fillStyle = "#dfcc7b"),
           l(d, 17, 11, 2));
       break;
-    case E.RPG:
+    case ITEM.RPG:
       ((n.fillStyle = "#9aa07c"),
         l(6, 16, 26, 6),
         (n.fillStyle = "#6b7355"),
@@ -813,7 +813,7 @@ function Lo(n, e, t) {
         n.fill(),
         l(32, 14, 6, 10));
       break;
-    case E.C4:
+    case ITEM.C4:
       ((n.fillStyle = "#aa9b6d"),
         l(5, 10, 30, 24),
         (n.fillStyle = "#3d4638"),
@@ -828,7 +828,7 @@ function Lo(n, e, t) {
         l(25, 6, 2, 10),
         l(20, 6, 7, 2));
       break;
-    case E.GRENADE:
+    case ITEM.GRENADE:
       ((n.fillStyle = "#5b7a4e"),
         n.beginPath(),
         n.arc(20, 22, 9, 0, 7),
@@ -837,7 +837,7 @@ function Lo(n, e, t) {
         l(17, 8, 6, 6),
         l(24, 9, 6, 3));
       break;
-    case E.AXE: {
+    case ITEM.AXE: {
       (n.save(),
         n.translate(20, 21),
         n.rotate(0.55),
@@ -881,7 +881,7 @@ function Lo(n, e, t) {
         n.restore());
       break;
     }
-    case E.MOBILE_REMOTE: {
+    case ITEM.MOBILE_REMOTE: {
       const d = n.createLinearGradient(4, 8, 36, 35);
       (d.addColorStop(0, "#748879"),
         d.addColorStop(0.5, "#344b47"),
@@ -923,7 +923,7 @@ function Lo(n, e, t) {
         l(16, 32, 8, 1));
       break;
     }
-    case E.RADIO_MODULE:
+    case ITEM.RADIO_MODULE:
       ((n.fillStyle = "#4c6152"),
         l(9, 15, 23, 19),
         (n.fillStyle = "#192c29"),
@@ -935,7 +935,7 @@ function Lo(n, e, t) {
         l(27, 3, 2, 13),
         l(8, 29, 2, 5));
       break;
-    case E.WELDER: {
+    case ITEM.WELDER: {
       const d = n.createLinearGradient(8, 12, 28, 30);
       (d.addColorStop(0, "#ffa04a"),
         d.addColorStop(0.55, "#e0701c"),
@@ -1001,7 +1001,7 @@ function Lo(n, e, t) {
           n.stroke());
       break;
     }
-    case E.FIGHTER_JET: {
+    case ITEM.FIGHTER_JET: {
       (n.save(),
         n.translate(20, 20),
         n.rotate(-0.42),
@@ -1051,7 +1051,7 @@ function Lo(n, e, t) {
         n.restore());
       break;
     }
-    case E.PLANE: {
+    case ITEM.PLANE: {
       (n.save(),
         n.translate(20, 20),
         n.rotate(-0.42),
@@ -1087,7 +1087,7 @@ function Lo(n, e, t) {
         n.restore());
       break;
     }
-    case E.SPACE_HELMET:
+    case ITEM.SPACE_HELMET:
       ((n.fillStyle = "#aeb9c0"),
         n.beginPath(),
         n.roundRect(6, 8, 27, 25, 10),
@@ -1145,7 +1145,7 @@ function Lo(n, e, t) {
       ])
         (n.beginPath(), n.arc(d, u, 0.9, 0, Math.PI * 2), n.fill());
       break;
-    case E.MILITARY_MEDKIT: {
+    case ITEM.MILITARY_MEDKIT: {
       ((n.fillStyle = "#192a24"),
         n.beginPath(),
         n.roundRect(5, 10, 31, 25, 4),
@@ -1181,14 +1181,14 @@ function Lo(n, e, t) {
         l(14, 31, 10, 1));
       break;
     }
-    case E.MEDKIT:
+    case ITEM.MEDKIT:
       ((n.fillStyle = "#e8ecef"),
         l(6, 12, 28, 18),
         (n.fillStyle = "#d43a2a"),
         l(17, 15, 6, 12),
         l(14, 18, 12, 6));
       break;
-    case E.BANDAGE:
+    case ITEM.BANDAGE:
       ((n.fillStyle = "#f2ede0"),
         n.beginPath(),
         n.ellipse(12, 20, 8, 8, 0, 0, 7),
@@ -1203,7 +1203,7 @@ function Lo(n, e, t) {
         l(24, 15, 4, 10),
         l(20, 18, 12, 4));
       break;
-    case E.DETONATOR: {
+    case ITEM.DETONATOR: {
       ((n.fillStyle = "#1b2023"),
         n.beginPath(),
         n.roundRect(10, 12, 20, 25, 3),
@@ -1237,9 +1237,9 @@ function Lo(n, e, t) {
         l(24.5, 2, 3, 2));
       break;
     }
-    case E.PUMPKIN_SEEDS:
-    case E.ROASTED_PUMPKIN_SEEDS: {
-      const d = e === E.ROASTED_PUMPKIN_SEEDS;
+    case ITEM.PUMPKIN_SEEDS:
+    case ITEM.ROASTED_PUMPKIN_SEEDS: {
+      const d = e === ITEM.ROASTED_PUMPKIN_SEEDS;
       for (const [u, f, p] of [
         [12, 15, -0.5],
         [22, 11, 0.2],
@@ -1261,7 +1261,7 @@ function Lo(n, e, t) {
           n.restore());
       break;
     }
-    case E.PUMPKIN_PIE: {
+    case ITEM.PUMPKIN_PIE: {
       ((n.fillStyle = "#b8793a"),
         n.beginPath(),
         n.ellipse(20, 24, 16, 9, 0, 0, 7),
@@ -1285,7 +1285,7 @@ function Lo(n, e, t) {
         n.fill());
       break;
     }
-    case E.CANDY: {
+    case ITEM.CANDY: {
       for (const [d, u, f] of [
         [13, 16, "#e8423a"],
         [26, 20, "#8a4ad8"],
@@ -1309,7 +1309,7 @@ function Lo(n, e, t) {
           n.fillRect(d - 3, u - 3, 2, 3));
       break;
     }
-    case E.CARAMEL_APPLE: {
+    case ITEM.CARAMEL_APPLE: {
       (a(20, 16, 22, 3, 2.5, "#d8b98a"),
         (n.fillStyle = "#c0322a"),
         n.beginPath(),
@@ -1325,7 +1325,7 @@ function Lo(n, e, t) {
         n.fillRect(13, 16, 3, 3));
       break;
     }
-    case E.WITCH_BREW: {
+    case ITEM.WITCH_BREW: {
       ((n.fillStyle = "#6fe04a"),
         n.beginPath(),
         n.arc(20, 26, 10, 0, 7),
@@ -1349,7 +1349,7 @@ function Lo(n, e, t) {
         (n.beginPath(), n.arc(d, u, 1.6, 0, 7), n.fill());
       break;
     }
-    case E.WENDIGO_ANTLER: {
+    case ITEM.WENDIGO_ANTLER: {
       (a(10, 35, 18, 14, 4, "#4a3b2f"),
         a(18, 14, 30, 4, 3, "#4a3b2f"),
         a(15, 22, 6, 12, 2.5, "#4a3b2f"),
@@ -1362,23 +1362,23 @@ function Lo(n, e, t) {
         n.fill());
       break;
     }
-    case E.APPLE:
-    case E.ORANGE:
-    case E.COCONUT:
-    case E.CHERRY: {
+    case ITEM.APPLE:
+    case ITEM.ORANGE:
+    case ITEM.COCONUT:
+    case ITEM.CHERRY: {
       const d =
-        e === E.APPLE
+        e === ITEM.APPLE
           ? "#d94b3f"
-          : e === E.ORANGE
+          : e === ITEM.ORANGE
             ? "#ed922c"
-            : e === E.COCONUT
+            : e === ITEM.COCONUT
               ? "#8a5a32"
               : "#c92d53";
       ((n.fillStyle = d),
         n.beginPath(),
-        n.arc(20, 22, e === E.CHERRY ? 7 : 11, 0, Math.PI * 2),
+        n.arc(20, 22, e === ITEM.CHERRY ? 7 : 11, 0, Math.PI * 2),
         n.fill(),
-        e === E.CHERRY &&
+        e === ITEM.CHERRY &&
           (n.beginPath(), n.arc(29, 25, 6, 0, Math.PI * 2), n.fill()),
         (n.strokeStyle = "#54823a"),
         (n.lineWidth = 3),
@@ -1388,7 +1388,7 @@ function Lo(n, e, t) {
         n.stroke());
       break;
     }
-    case E.WHEAT:
+    case ITEM.WHEAT:
       for (const [d, u, f] of [
         [12, 12, -0.32],
         [21, 7, 0.05],
@@ -1424,7 +1424,7 @@ function Lo(n, e, t) {
         n.lineTo(27, 29),
         n.stroke());
       break;
-    case E.WHEAT_SEEDS:
+    case ITEM.WHEAT_SEEDS:
       n.fillStyle = "#b78b3d";
       for (const [d, u, f] of [
         [11, 15, -0.5],
@@ -1441,7 +1441,7 @@ function Lo(n, e, t) {
           n.fill(),
           n.restore());
       break;
-    case E.FERTILIZER:
+    case ITEM.FERTILIZER:
       ((n.fillStyle = "#d8c28c"),
         n.beginPath(),
         n.moveTo(9, 10),
@@ -1467,23 +1467,23 @@ function Lo(n, e, t) {
       ])
         (n.beginPath(), n.arc(d, u, 1.3, 0, Math.PI * 2), n.fill());
       break;
-    case E.RAW_PORK:
-    case E.RAW_CHICKEN:
-    case E.RAW_MUTTON:
-    case E.RAW_BEEF:
-    case E.RAW_CAMEL:
-    case E.COOKED_PORK:
-    case E.COOKED_CHICKEN:
-    case E.COOKED_MUTTON:
-    case E.COOKED_BEEF:
-    case E.COOKED_CAMEL:
+    case ITEM.RAW_PORK:
+    case ITEM.RAW_CHICKEN:
+    case ITEM.RAW_MUTTON:
+    case ITEM.RAW_BEEF:
+    case ITEM.RAW_CAMEL:
+    case ITEM.COOKED_PORK:
+    case ITEM.COOKED_CHICKEN:
+    case ITEM.COOKED_MUTTON:
+    case ITEM.COOKED_BEEF:
+    case ITEM.COOKED_CAMEL:
       EX(n, e);
       break;
-    case E.BUCKET:
-    case E.WATER_BUCKET:
-    case E.LAVA_BUCKET:
-    case E.MILK_BUCKET:
-    case E.CAMEL_MILK_BUCKET: {
+    case ITEM.BUCKET:
+    case ITEM.WATER_BUCKET:
+    case ITEM.LAVA_BUCKET:
+    case ITEM.MILK_BUCKET:
+    case ITEM.CAMEL_MILK_BUCKET: {
       ((n.strokeStyle = "#8d99a3"),
         (n.lineWidth = 3),
         n.beginPath(),
@@ -1501,31 +1501,31 @@ function Lo(n, e, t) {
         l(10, 15, 20, 4),
         (n.fillStyle = "#59636b"),
         l(12, 31, 16, 4),
-        e !== E.BUCKET &&
+        e !== ITEM.BUCKET &&
           ((n.fillStyle =
-            e === E.WATER_BUCKET
+            e === ITEM.WATER_BUCKET
               ? "#3f86dc"
-              : e === E.MILK_BUCKET
+              : e === ITEM.MILK_BUCKET
                 ? "#f4f1e6"
-                : e === E.CAMEL_MILK_BUCKET
+                : e === ITEM.CAMEL_MILK_BUCKET
                   ? "#efe6d0"
                   : "#ff6a1c"),
           n.beginPath(),
           n.ellipse(20, 19, 9.5, 3.5, 0, 0, Math.PI * 2),
           n.fill(),
-          e === E.CAMEL_MILK_BUCKET &&
+          e === ITEM.CAMEL_MILK_BUCKET &&
             ((n.strokeStyle = "#c8a061"),
             (n.lineWidth = 1.6),
             n.beginPath(),
             n.ellipse(20, 19, 9.5, 3.5, 0, 0, Math.PI * 2),
             n.stroke()),
-          e === E.LAVA_BUCKET &&
+          e === ITEM.LAVA_BUCKET &&
             ((n.fillStyle = "#ffd45a"), l(15, 18, 4, 2), l(22, 20, 5, 2))));
       break;
     }
-    case E.POTATO:
-    case E.BAKED_POTATO: {
-      const d = e === E.BAKED_POTATO;
+    case ITEM.POTATO:
+    case ITEM.BAKED_POTATO: {
+      const d = e === ITEM.BAKED_POTATO;
       ((n.fillStyle = d ? "#a9752f" : "#c9a768"),
         n.beginPath(),
         n.ellipse(20, 21, 13, 10, 0.3, 0, Math.PI * 2),
@@ -1543,7 +1543,7 @@ function Lo(n, e, t) {
       d && ((n.fillStyle = "#ffe6a8"), l(15, 19, 11, 3));
       break;
     }
-    case E.CARROT: {
+    case ITEM.CARROT: {
       ((n.fillStyle = "#e07b28"),
         n.beginPath(),
         n.moveTo(16, 12),
@@ -1565,9 +1565,9 @@ function Lo(n, e, t) {
           n.restore());
       break;
     }
-    case E.POTATO_SEEDS:
-    case E.CARROT_SEEDS: {
-      const d = e === E.CARROT_SEEDS;
+    case ITEM.POTATO_SEEDS:
+    case ITEM.CARROT_SEEDS: {
+      const d = e === ITEM.CARROT_SEEDS;
       n.fillStyle = d ? "#d8853f" : "#b99a63";
       for (const [u, f, p] of [
         [12, 16, -0.4],
@@ -1585,20 +1585,20 @@ function Lo(n, e, t) {
           n.restore());
       break;
     }
-    case E.RASPBERRY:
-    case E.BLUEBERRY:
-    case E.BLACKBERRY: {
-      const d = e !== E.BLUEBERRY,
+    case ITEM.RASPBERRY:
+    case ITEM.BLUEBERRY:
+    case ITEM.BLACKBERRY: {
+      const d = e !== ITEM.BLUEBERRY,
         u =
-          e === E.RASPBERRY
+          e === ITEM.RASPBERRY
             ? "#c0304f"
-            : e === E.BLACKBERRY
+            : e === ITEM.BLACKBERRY
               ? "#3a2740"
               : "#4a5aa8",
         f =
-          e === E.RASPBERRY
+          e === ITEM.RASPBERRY
             ? "#e4627c"
-            : e === E.BLACKBERRY
+            : e === ITEM.BLACKBERRY
               ? "#5e4568"
               : "#7c8ad4";
       ((n.strokeStyle = "#4d7a3c"),
@@ -1671,7 +1671,7 @@ function Lo(n, e, t) {
         }
       break;
     }
-    case E.EGG: {
+    case ITEM.EGG: {
       ((n.fillStyle = "#f2e8d8"),
         n.beginPath(),
         n.ellipse(20, 21, 9.5, 12, 0, 0, Math.PI * 2),
@@ -1688,7 +1688,7 @@ function Lo(n, e, t) {
         (n.globalAlpha = 1));
       break;
     }
-    case E.WOOL: {
+    case ITEM.WOOL: {
       n.fillStyle = "#efece2";
       for (const [d, u, f] of [
         [15, 18, 8],
@@ -1708,7 +1708,7 @@ function Lo(n, e, t) {
         n.stroke());
       break;
     }
-    case E.COMBAT_KNIFE: {
+    case ITEM.COMBAT_KNIFE: {
       (n.save(),
         n.translate(20, 20),
         n.rotate(-Math.PI / 4),
@@ -1806,7 +1806,7 @@ function Lo(n, e, t) {
         n.restore());
       break;
     }
-    case E.SHEARS: {
+    case ITEM.SHEARS: {
       ((n.strokeStyle = "#aeb8c0"),
         (n.lineWidth = 3.4),
         (n.lineCap = "round"),
@@ -1833,7 +1833,7 @@ function Lo(n, e, t) {
         (n.lineCap = "butt"));
       break;
     }
-    case E.FISHING_ROD: {
+    case ITEM.FISHING_ROD: {
       (a(7, 33, 30, 9, 3.2, "#2f3338"),
         (n.fillStyle = "#c7a06a"),
         n.save(),
@@ -1860,9 +1860,9 @@ function Lo(n, e, t) {
         n.fill());
       break;
     }
-    case E.RAW_FISH:
-    case E.COOKED_FISH: {
-      const d = e === E.COOKED_FISH,
+    case ITEM.RAW_FISH:
+    case ITEM.COOKED_FISH: {
+      const d = e === ITEM.COOKED_FISH,
         u = d ? "#c98b45" : "#7fb4d4",
         f = d ? "#e8c07a" : "#dfeef6";
       if (
@@ -1900,7 +1900,7 @@ function Lo(n, e, t) {
       }
       break;
     }
-    case E.SHARK_TOOTH:
+    case ITEM.SHARK_TOOTH:
       ((n.fillStyle = "#f4f2ec"),
         n.beginPath(),
         n.moveTo(20, 6),
@@ -1923,7 +1923,7 @@ function Lo(n, e, t) {
         n.lineTo(27, 28),
         n.stroke());
       break;
-    case E.INTEL_TABLET:
+    case ITEM.INTEL_TABLET:
       ((n.fillStyle = "#3c4436"),
         l(7, 8, 26, 26),
         (n.fillStyle = "#182420"),
@@ -1940,7 +1940,7 @@ function Lo(n, e, t) {
         (n.fillStyle = "#5a6552"),
         l(17, 30, 6, 2));
       break;
-    case E.MILITARY_BOT:
+    case ITEM.MILITARY_BOT:
       ((n.fillStyle = "#d8a577"),
         l(16, 6, 8, 8),
         (n.fillStyle = "#566744"),
@@ -1953,11 +1953,11 @@ function Lo(n, e, t) {
         (n.fillStyle = "#222"),
         l(20, 19, 17, 3));
       break;
-    case E.AMMO_9MM:
-    case E.AMMO_762:
-    case E.AMMO_338: {
-      const d = e === E.AMMO_9MM,
-        u = e === E.AMMO_338,
+    case ITEM.AMMO_9MM:
+    case ITEM.AMMO_762:
+    case ITEM.AMMO_338: {
+      const d = e === ITEM.AMMO_9MM,
+        u = e === ITEM.AMMO_338,
         f = u ? 2 : 3,
         p = u ? 9 : 7,
         m = 35,
@@ -2016,7 +2016,7 @@ function Lo(n, e, t) {
       }
       break;
     }
-    case E.ROCKET:
+    case ITEM.ROCKET:
       ((n.fillStyle = "#6b7355"),
         l(8, 17, 22, 6),
         (n.fillStyle = "#4a5540"),
@@ -2029,22 +2029,22 @@ function Lo(n, e, t) {
         (n.fillStyle = "#9aa07c"),
         l(3, 15, 7, 10));
       break;
-    case E.DRILL_METAL:
-    case E.DRILL_DIAMOND:
-    case E.DRILL_TITANIUM:
-    case E.DRILL_COMPOSITE:
-    case E.DRILL_LASER:
-    case E.LUNAR_DRILL: {
+    case ITEM.DRILL_METAL:
+    case ITEM.DRILL_DIAMOND:
+    case ITEM.DRILL_TITANIUM:
+    case ITEM.DRILL_COMPOSITE:
+    case ITEM.DRILL_LASER:
+    case ITEM.LUNAR_DRILL: {
       const d =
-          e === E.DRILL_METAL
+          e === ITEM.DRILL_METAL
             ? 0
-            : e === E.DRILL_DIAMOND
+            : e === ITEM.DRILL_DIAMOND
               ? 1
-              : e === E.DRILL_TITANIUM
+              : e === ITEM.DRILL_TITANIUM
                 ? 2
-                : e === E.DRILL_COMPOSITE
+                : e === ITEM.DRILL_COMPOSITE
                   ? 3
-                  : e === E.DRILL_LASER
+                  : e === ITEM.DRILL_LASER
                     ? 4
                     : 5,
         u = kw[d],
@@ -2084,10 +2084,10 @@ function Lo(n, e, t) {
       n.restore();
       break;
     }
-    case E.CHAINSAW_BASIC:
-    case E.CHAINSAW_PRO:
-    case E.CHAINSAW_INDUSTRIAL: {
-      const d = Cw[e === E.CHAINSAW_BASIC ? 0 : e === E.CHAINSAW_PRO ? 1 : 2],
+    case ITEM.CHAINSAW_BASIC:
+    case ITEM.CHAINSAW_PRO:
+    case ITEM.CHAINSAW_INDUSTRIAL: {
+      const d = Cw[e === ITEM.CHAINSAW_BASIC ? 0 : e === ITEM.CHAINSAW_PRO ? 1 : 2],
         u = (f) => "#" + f.toString(16).padStart(6, "0");
       (n.save(),
         n.translate(20, 21),
@@ -2129,7 +2129,7 @@ function Lo(n, e, t) {
         n.restore());
       break;
     }
-    case E.MONEY:
+    case ITEM.MONEY:
       ((n.fillStyle = "#e6c94a"),
         n.beginPath(),
         n.arc(20, 20, 13, 0, 7),
@@ -2143,7 +2143,7 @@ function Lo(n, e, t) {
         (n.textBaseline = "middle"),
         n.fillText("$", 20, 21));
       break;
-    case E.COAL:
+    case ITEM.COAL:
       ((n.fillStyle = "#2f3438"),
         n.beginPath(),
         n.moveTo(7, 28),
@@ -2158,16 +2158,16 @@ function Lo(n, e, t) {
         l(13, 13, 7, 4),
         l(22, 21, 6, 4));
       break;
-    case E.IRON_INGOT:
-    case E.GOLD_INGOT:
-    case E.DIAMOND_INGOT:
-    case E.TITANIUM_INGOT: {
+    case ITEM.IRON_INGOT:
+    case ITEM.GOLD_INGOT:
+    case ITEM.DIAMOND_INGOT:
+    case ITEM.TITANIUM_INGOT: {
       const d =
-        e === E.IRON_INGOT
+        e === ITEM.IRON_INGOT
           ? "#bdc5cc"
-          : e === E.GOLD_INGOT
+          : e === ITEM.GOLD_INGOT
             ? "#e6c34f"
-            : e === E.DIAMOND_INGOT
+            : e === ITEM.DIAMOND_INGOT
               ? "#55dce9"
               : "#8798aa";
       ((n.fillStyle = d),
@@ -2184,12 +2184,12 @@ function Lo(n, e, t) {
         l(14, 15, 12, 3));
       break;
     }
-    case E.SUPPRESSOR:
+    case ITEM.SUPPRESSOR:
       ((n.fillStyle = "#24272c"), l(4, 16, 30, 8), (n.fillStyle = "#121417"));
       for (let d = 0; d < 4; d++) l(9 + d * 6, 17, 2, 6);
       ((n.fillStyle = "#3a3e44"), l(32, 15, 4, 10));
       break;
-    case E.FLASHLIGHT: {
+    case ITEM.FLASHLIGHT: {
       const d = n.createRadialGradient(31, 20, 1, 31, 20, 13);
       (d.addColorStop(0, "rgba(255,246,198,0.95)"),
         d.addColorStop(0.45, "rgba(255,232,150,0.35)"),
@@ -2216,7 +2216,7 @@ function Lo(n, e, t) {
         n.strokeRect(24.5, 13.5, 5, 14));
       break;
     }
-    case E.LASER_SIGHT:
+    case ITEM.LASER_SIGHT:
       ((n.fillStyle = "#2b2f36"),
         l(5, 16, 11, 9),
         (n.fillStyle = "#171a1f"),
@@ -2232,16 +2232,16 @@ function Lo(n, e, t) {
         n.arc(36, 20, 2.2, 0, 7),
         n.fill());
       break;
-    case E.SCOPE_X2:
-    case E.SCOPE_X4:
-    case E.SCOPE_X8:
-    case E.SCOPE_X16: {
+    case ITEM.SCOPE_X2:
+    case ITEM.SCOPE_X4:
+    case ITEM.SCOPE_X8:
+    case ITEM.SCOPE_X16: {
       const d =
-        e === E.SCOPE_X2 ? 2 : e === E.SCOPE_X4 ? 4 : e === E.SCOPE_X8 ? 8 : 16;
+        e === ITEM.SCOPE_X2 ? 2 : e === ITEM.SCOPE_X4 ? 4 : e === ITEM.SCOPE_X8 ? 8 : 16;
       TX(n, d);
       break;
     }
-    case E.SCOPE_HOLO:
+    case ITEM.SCOPE_HOLO:
       ((n.fillStyle = "#2b2f36"),
         l(8, 11, 24, 17),
         (n.fillStyle = "rgba(120,200,255,0.16)"),
@@ -2256,9 +2256,9 @@ function Lo(n, e, t) {
         (n.fillStyle = "#1c1f24"),
         l(6, 28, 28, 4));
       break;
-    case E.NIGHT_VISION_GOGGLES:
-    case E.THERMAL_GOGGLES: {
-      const d = e === E.THERMAL_GOGGLES;
+    case ITEM.NIGHT_VISION_GOGGLES:
+    case ITEM.THERMAL_GOGGLES: {
+      const d = e === ITEM.THERMAL_GOGGLES;
       ((n.fillStyle = "#20262b"),
         l(7, 15, 26, 8),
         l(18, 8, 4, 9),
@@ -2275,7 +2275,7 @@ function Lo(n, e, t) {
         l(25, 20, 3, 2));
       break;
     }
-    case E.EXT_MAG:
+    case ITEM.EXT_MAG:
       ((n.fillStyle = "#4a4f38"),
         n.beginPath(),
         n.moveTo(15, 6),
@@ -2300,17 +2300,17 @@ function Lo(n, e, t) {
         n.lineTo(32, 10),
         n.stroke());
       break;
-    case E.DYE_GREEN:
-    case E.DYE_URBAN:
-    case E.DYE_WOODLAND:
-    case E.DYE_DESERT:
-    case E.DYE_ARCTIC: {
+    case ITEM.DYE_GREEN:
+    case ITEM.DYE_URBAN:
+    case ITEM.DYE_WOODLAND:
+    case ITEM.DYE_DESERT:
+    case ITEM.DYE_ARCTIC: {
       const u = {
-        [E.DYE_GREEN]: ["#526b31", "#394d25", "#718846"],
-        [E.DYE_URBAN]: ["#737980", "#343a40", "#a4a8aa"],
-        [E.DYE_WOODLAND]: ["#52653a", "#283a24", "#76583a"],
-        [E.DYE_DESERT]: ["#c8ab72", "#8f7045", "#e0c992"],
-        [E.DYE_ARCTIC]: ["#e7ecee", "#aebbc3", "#687883"],
+        [ITEM.DYE_GREEN]: ["#526b31", "#394d25", "#718846"],
+        [ITEM.DYE_URBAN]: ["#737980", "#343a40", "#a4a8aa"],
+        [ITEM.DYE_WOODLAND]: ["#52653a", "#283a24", "#76583a"],
+        [ITEM.DYE_DESERT]: ["#c8ab72", "#8f7045", "#e0c992"],
+        [ITEM.DYE_ARCTIC]: ["#e7ecee", "#aebbc3", "#687883"],
       }[e];
       ((n.fillStyle = u[0]),
         l(7, 7, 26, 27),

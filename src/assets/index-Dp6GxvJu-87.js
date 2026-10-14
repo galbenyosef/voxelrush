@@ -156,13 +156,13 @@ class Wq {
         Math.floor(t),
       ),
       a =
-        o === v.SAND || o === v.SANDSTONE
+        o === BLOCK.SAND || o === BLOCK.SANDSTONE
           ? 7560768
-          : o === v.SNOW || o === v.SNOW_LAYER
+          : o === BLOCK.SNOW || o === BLOCK.SNOW_LAYER
             ? 6452091
-            : o === v.GRASS || o === v.SAVANNA_GRASS
+            : o === BLOCK.GRASS || o === BLOCK.SAVANNA_GRASS
               ? 2504487
-              : o === v.DIRT || o === v.GRAVEL
+              : o === BLOCK.DIRT || o === BLOCK.GRAVEL
                 ? 4799024
                 : 0;
     return a ? { y: s + 0.028, color: a } : null;
@@ -189,7 +189,7 @@ class Wq {
   }
   emit(e, t) {
     if (
-      ![P.TANK, P.BTR_TURRET, P.HIMARS, P.PATRIOT].includes(e.type) ||
+      ![VEHICLE_KIND.TANK, VEHICLE_KIND.BTR_TURRET, VEHICLE_KIND.HIMARS, VEHICLE_KIND.PATRIOT].includes(e.type) ||
       e.planet !== 0 ||
       Math.abs(e.speed) < 1.2 ||
       (t && Math.hypot(e.x - t.x, e.z - t.z) > 85)
@@ -218,7 +218,7 @@ class Wq {
         d = e.z - Math.sin(e.yaw) * o * r,
         u = this.surface(h, d, e.y);
       u &&
-        this.add(l, c, h, d, u.y, e.type === P.TANK ? 0.39 : 0.25, u.color, a);
+        this.add(l, c, h, d, u.y, e.type === VEHICLE_KIND.TANK ? 0.39 : 0.25, u.color, a);
     }
   }
   update() {

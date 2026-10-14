@@ -641,7 +641,7 @@ const Tc = class Tc {
     });
   }
   runOver(e, t, i, s, o, a, r = 6126138) {
-    const l = Ne((s - 2) / 8, 0.25, 1.4) * (o ? 1.25 : 1),
+    const l = clamp((s - 2) / 8, 0.25, 1.4) * (o ? 1.25 : 1),
       c = this.tmpSpawn.set(e.x, e.y + 1.05, e.z);
     (this.pool.spawn({
       pos: c,
@@ -957,7 +957,7 @@ const Tc = class Tc {
     });
   }
   exhaust(e, t, i) {
-    const s = Ne(i, 0, 1);
+    const s = clamp(i, 0, 1);
     this.pool.spawn({
       pos: e,
       count: this.n(1),
@@ -994,7 +994,7 @@ const Tc = class Tc {
         }));
   }
   vehicleDamageSmoke(e, t, i) {
-    const s = Ne(t, 0, 1),
+    const s = clamp(t, 0, 1),
       o = i
         ? this.tmpVel.copy(i).multiplyScalar(0.12)
         : this.tmpVel.set(0, 0, 0);
@@ -1058,7 +1058,7 @@ const Tc = class Tc {
     });
   }
   splash(e, t) {
-    const i = Ne(t / 12, 0.25, 1.6);
+    const i = clamp(t / 12, 0.25, 1.6);
     (this.pool.spawn({
       pos: e,
       count: this.n(Math.round(14 * i)),
@@ -1106,7 +1106,7 @@ const Tc = class Tc {
   }
   rocketExhaust(e, t) {
     this.exhaustTime += t;
-    const i = 0.035 / Ne(this._particleScale, 0.4, 1),
+    const i = 0.035 / clamp(this._particleScale, 0.4, 1),
       s = Math.min(3, Math.floor(this.exhaustTime / i), this.trailBudget);
     if (((this.exhaustTime %= i), this._particleScale <= 0 || s === 0)) return;
     const o = this.trailSpawn;
@@ -1122,12 +1122,12 @@ const Tc = class Tc {
       h = i.length();
     if (c < 1e-4 || h < 0.01) return o;
     if (c > 40) return 0;
-    const d = s === pt.NUCLEAR,
-      u = s === pt.TOMAHAWK,
-      f = s === pt.MISSILE,
+    const d = s === PROJECTILE_KIND.NUCLEAR,
+      u = s === PROJECTILE_KIND.TOMAHAWK,
+      f = s === PROJECTILE_KIND.MISSILE,
       p = d ? 2.8 : u ? 2.15 : f ? 1.8 : 1.5,
       m = l > 25600 ? 2 : l > 6400 ? 1.4 : 1,
-      y = (p * 0.3 * m) / Ne(r, 0.4, 1);
+      y = (p * 0.3 * m) / clamp(r, 0.4, 1);
     o = Math.min(o, y);
     const g = c + o,
       b = Math.floor(g / y),
@@ -1162,7 +1162,7 @@ const Tc = class Tc {
       this.flashes.push({ sprite: o, life: 0.85, max: 0.85 }));
   }
   addTrauma(e) {
-    this.trauma = Ne(this.trauma + e, 0, 1.3);
+    this.trauma = clamp(this.trauma + e, 0, 1.3);
   }
   getShake(e) {
     const t = this.trauma * this.trauma;

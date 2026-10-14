@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 59 — tex
+// index-Dp6GxvJu 59 — block
 // Lines 46301-46796 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
   var m, y, g;
@@ -16,12 +16,12 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
       for (let T = 0; T < Kt; T++) {
         const A = n.getBlock(d + b, T, u + S);
         if (A === 0) continue;
-        const _ = de[A];
+        const _ = BLOCKS[A];
         l.tint =
-          A === v.GRASS ||
-          A === v.SAVANNA_GRASS ||
-          A === v.TALL_GRASS ||
-          A === v.DESERT_GRASS
+          A === BLOCK.GRASS ||
+          A === BLOCK.SAVANNA_GRASS ||
+          A === BLOCK.TALL_GRASS ||
+          A === BLOCK.DESERT_GRASS
             ? M
             : x;
         const C = d + b,
@@ -29,10 +29,10 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
           L = i.skyAt ? i.skyAt(C, T, R) / 15 : 1;
         l.sky = c.sky = h.sky = L;
         const N =
-          _.liquid || A === v.LAMP || A === v.FURNACE || A === v.JACK_O_LANTERN
+          _.liquid || A === BLOCK.LAMP || A === BLOCK.FURNACE || A === BLOCK.JACK_O_LANTERN
             ? n.getMeta(C, T, R)
             : 0;
-        if (A === v.CACTUS) {
+        if (A === BLOCK.CACTUS) {
           const G =
             Math.max(
               i.at(C, T, R),
@@ -56,14 +56,14 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
               C,
               T,
               R,
-              n.getBlock(C, T + 1, R) === v.CACTUS,
-              n.getBlock(C, T - 1, R) === v.CACTUS,
+              n.getBlock(C, T + 1, R) === BLOCK.CACTUS,
+              n.getBlock(C, T - 1, R) === BLOCK.CACTUS,
               _.tex,
               G,
             ));
           continue;
         }
-        if (_.shape !== "cube" || A === v.PISTON || A === v.SPISTON) {
+        if (_.shape !== "cube" || A === BLOCK.PISTON || A === BLOCK.SPISTON) {
           const G = n.getMeta(C, T, R),
             I =
               Math.max(
@@ -75,7 +75,7 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
                 i.at(C, T, R - 1),
                 hg(A, G),
               ) / 15;
-          (Ss(A) || A === v.PISTON || A === v.SPISTON) &&
+          (Ss(A) || A === BLOCK.PISTON || A === BLOCK.SPISTON) &&
             i.skyAt &&
             (l.sky =
               Math.max(
@@ -86,7 +86,7 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
               ) / 15);
           const O = oa(A, G),
             F = uc(A, G);
-          if (A === v.SIGN) {
+          if (A === BLOCK.SIGN) {
             mk(G).forEach(([Q, ee, se, oe, J, re], Ce) => {
               Ce === 0
                 ? l.box(
@@ -147,8 +147,8 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
           }
           if (_.shape === "stair") {
             (AW(l, C, T, R, G, _.tex[1], I),
-              O && mr(c, n, i, C, T, R, v.WATER, oa),
-              F && mr(h, n, i, C, T, R, v.LAVA, uc));
+              O && mr(c, n, i, C, T, R, BLOCK.WATER, oa),
+              F && mr(h, n, i, C, T, R, BLOCK.LAVA, uc));
             continue;
           }
           if (_.shape === "snow") {
@@ -156,11 +156,11 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
             continue;
           }
           if (_.shape === "plant") {
-            (A === v.FIRE
+            (A === BLOCK.FIRE
               ? FW(l, C, T, R, _.tex[1], I)
               : oa(A)
                 ? NW(l, n, C, T, R, A, _.tex[1], I)
-                : A === v.PUMPKIN_CROP
+                : A === BLOCK.PUMPKIN_CROP
                   ? UW(l, C, T, R, I)
                   : (MW.has(A) || (l.animMode = t4),
                     zk(
@@ -170,21 +170,21 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
                       R,
                       _.tex[1],
                       I,
-                      A === v.WHEAT_SPROUT
+                      A === BLOCK.WHEAT_SPROUT
                         ? 0.34
-                        : A === v.WHEAT_YOUNG
+                        : A === BLOCK.WHEAT_YOUNG
                           ? 0.58
-                          : A === v.FLY_AGARIC || A === v.MUSHROOM
+                          : A === BLOCK.FLY_AGARIC || A === BLOCK.MUSHROOM
                             ? 0.52
-                            : A === v.PUMPKIN_SPROUT
+                            : A === BLOCK.PUMPKIN_SPROUT
                               ? 0.36
-                              : A === v.PUMPKIN_YOUNG
+                              : A === BLOCK.PUMPKIN_YOUNG
                                 ? 0.5
                                 : 0.8,
                     ),
                     (l.animMode = 0)),
-              O && mr(c, n, i, C, T, R, v.WATER, oa),
-              F && mr(h, n, i, C, T, R, v.LAVA, uc));
+              O && mr(c, n, i, C, T, R, BLOCK.WATER, oa),
+              F && mr(h, n, i, C, T, R, BLOCK.LAVA, uc));
             continue;
           }
           if (_.shape === "bush") {
@@ -299,16 +299,16 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
             continue;
           }
           if (_.shape === "fence") {
-            (A === v.IRON_FENCE
+            (A === BLOCK.IRON_FENCE
               ? $W(l, n, C, T, R, _.tex[1], I)
               : VW(l, n, C, T, R, _.tex[1], I),
-              O && mr(c, n, i, C, T, R, v.WATER, oa),
-              F && mr(h, n, i, C, T, R, v.LAVA, uc));
+              O && mr(c, n, i, C, T, R, BLOCK.WATER, oa),
+              F && mr(h, n, i, C, T, R, BLOCK.LAVA, uc));
             continue;
           }
           if (_.shape === "gate") {
-            (O && mr(c, n, i, C, T, R, v.WATER, oa),
-              F && mr(h, n, i, C, T, R, v.LAVA, uc));
+            (O && mr(c, n, i, C, T, R, BLOCK.WATER, oa),
+              F && mr(h, n, i, C, T, R, BLOCK.LAVA, uc));
             continue;
           }
           if (_.shape === "wire") {
@@ -316,30 +316,30 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
             continue;
           }
           switch (A) {
-            case v.LIGHTNING_ROD:
+            case BLOCK.LIGHTNING_ROD:
               IW(l, C, T, R, _.tex[1], I);
               break;
-            case v.TORCH:
+            case BLOCK.TORCH:
               FT(l, C, T, R, G, _.tex[1], I);
               break;
-            case v.RTORCH:
+            case BLOCK.RTORCH:
               FT(l, C, T, R, G, G & Qn ? 28 : 27, I);
               break;
-            case v.LADDER:
+            case BLOCK.LADDER:
               EW(l, C, T, R, G, _.tex[1], I);
               break;
-            case v.BED:
+            case BLOCK.BED:
               TW(l, C, T, R, G, I);
               break;
-            case v.DOOR:
-            case v.METAL_DOOR:
-            case v.ARMORED_DOOR:
+            case BLOCK.DOOR:
+            case BLOCK.METAL_DOOR:
+            case BLOCK.ARMORED_DOOR:
               r && XW(l, C, T, R, A, G, I);
               break;
           }
           if (Ss(A)) continue;
-          (O && mr(c, n, i, C, T, R, v.WATER, oa),
-            F && mr(h, n, i, C, T, R, v.LAVA, uc));
+          (O && mr(c, n, i, C, T, R, BLOCK.WATER, oa),
+            F && mr(h, n, i, C, T, R, BLOCK.LAVA, uc));
           continue;
         }
         $n(A) && o && (l.animMode = 3);
@@ -348,9 +348,9 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
         if (_.liquid) {
           const G = n.getBlock(C, T + 1, R),
             I = n.getMeta(C, T + 1, R);
-          (G === A || (A === v.WATER ? oa(G, I) : uc(G, I))) && (H = 0);
+          (G === A || (A === BLOCK.WATER ? oa(G, I) : uc(G, I))) && (H = 0);
         }
-        for (const G of Eg) {
+        for (const G of EMOTE_PACK) {
           const I = C + G.dir[0],
             O = T + G.dir[1],
             F = R + G.dir[2];
@@ -375,13 +375,13 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
                   T + (Y.pos[1] === 1 ? it : ut),
                   R + Y.pos[2],
                 ]);
-              (A === v.LAVA ? h : c).rawQuad(
+              (A === BLOCK.LAVA ? h : c).rawQuad(
                 ve,
                 G.dir,
                 _.tex[1],
                 gt,
                 !1,
-                A === v.WATER,
+                A === BLOCK.WATER,
               );
             }
             continue;
@@ -389,23 +389,23 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
           let ee;
           if (_.liquid) {
             const it =
-              A === v.WATER
+              A === BLOCK.WATER
                 ? oa(X, n.getMeta(I, O, F))
                 : uc(X, n.getMeta(I, O, F));
-            ee = X !== A && !it && (X === 0 || !de[X].solid || de[X].liquid);
+            ee = X !== A && !it && (X === 0 || !BLOCKS[X].solid || BLOCKS[X].liquid);
           } else
             ee =
               !p(X) &&
               !(_.transparent && X === A && !(o && $n(A))) &&
-              !(_.liquid && (g = de[X]) != null && g.liquid);
+              !(_.liquid && (g = BLOCKS[X]) != null && g.liquid);
           if (!ee) continue;
           let se = _.tex[G.dir[1] === 1 ? 0 : G.dir[1] === -1 ? 2 : 1];
-          (A === v.LAMP && N & Qn && (se = 31),
-            A === v.FURNACE
+          (A === BLOCK.LAMP && N & Qn && (se = 31),
+            A === BLOCK.FURNACE
               ? (se = uC(N, ...G.dir))
-              : A === v.JACK_O_LANTERN
+              : A === BLOCK.JACK_O_LANTERN
                 ? (se = rz(N, ...G.dir))
-                : A === v.LED_SCREEN && (se = cz(N, ...G.dir)));
+                : A === BLOCK.LED_SCREEN && (se = cz(N, ...G.dir)));
           let oe = f,
             J;
           if (!_.liquid) {
@@ -457,7 +457,7 @@ function i4(n, e, t, i, s = !1, o = !0, a = 1337, r = !1) {
                 _.light,
               ) / 15;
           re && J && J.fill(Re);
-          const We = _.liquid ? (A === v.LAVA ? h : c) : l;
+          const We = _.liquid ? (A === BLOCK.LAVA ? h : c) : l;
           if (
             ((We.sky = i.skyAt
               ? (re ? Ce(i.skyAt) : Q ? i.skyAt(I, O, F) : 15) / 15

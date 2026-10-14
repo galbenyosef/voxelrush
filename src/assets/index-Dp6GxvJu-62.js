@@ -144,7 +144,7 @@ function wV(n, e, t) {
     i
   );
 }
-const Op = { [E.GLOCK]: 0.105, [E.AK47]: 0.1, [E.AWP]: 0.11 },
+const Op = { [ITEM.GLOCK]: 0.105, [ITEM.AK47]: 0.1, [ITEM.AWP]: 0.11 },
   sd = 1777186,
   Ju = 2830390,
   vm = 855568;

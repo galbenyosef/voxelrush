@@ -84,7 +84,7 @@ const Ar = class Ar {
           Math.floor(i),
         );
         return (
-          s === v.LAVA ||
+          s === BLOCK.LAVA ||
           w0(s) ||
           (Do(s) &&
             !(
@@ -145,7 +145,7 @@ const Ar = class Ar {
           const l = this.world.groundAt(a.x, a.z, i.groundY + 3);
           Number.isFinite(l) && (i.groundY = l);
         }
-        const r = Ne((s - 1.4) / 1.8, 0, 1);
+        const r = clamp((s - 1.4) / 1.8, 0, 1);
         a.y = i.groundY - i.sinkDepth * r * r * (3 - 2 * r);
       }
       ((i.smoke -= e),
@@ -162,7 +162,7 @@ const Ar = class Ar {
     let i = 0;
     const s = t * t;
     for (const o of this.vehicles.values())
-      o.ownerName !== Mo ||
+      o.ownerName !== RAID_LABEL ||
         o.hp <= 0 ||
         o.planet !== this.currentPlanet ||
         (o.pos.distanceToSquared(e) <= s && i++);
@@ -177,7 +177,7 @@ const Ar = class Ar {
   get jetSensors() {
     var e;
     return (
-      ((e = this.mine) == null ? void 0 : e.type) === P.FIGHTER_JET &&
+      ((e = this.mine) == null ? void 0 : e.type) === VEHICLE_KIND.FIGHTER_JET &&
       this.mineSeat === 0
     );
   }
@@ -202,7 +202,7 @@ const Ar = class Ar {
       ((s.serverAuto = !!(t & 2)),
       (s.radioActive = !!(t & 8)),
       (s.himarsBusy = !!(t & 4)),
-      s.type === P.HIMARS &&
+      s.type === VEHICLE_KIND.HIMARS &&
         (i !== void 0
           ? (s.himarsServerReadyAt = Date.now() + i)
           : s.himarsBusy || (s.himarsServerReadyAt = 0)),
@@ -233,7 +233,7 @@ const Ar = class Ar {
   setPlanet(e) {
     (this.currentPlanet !== e && this.tracks.clear(),
       (this.currentPlanet = e),
-      (this.gravityScale = e === Si.MOON ? wp : 1));
+      (this.gravityScale = e === CELESTIAL.MOON ? wp : 1));
     for (const t of this.vehicles.values())
       ((t.group.visible = t.planet === e),
         t.lod && (t.lod.visible = !1),
@@ -252,10 +252,10 @@ const Ar = class Ar {
     return e * this.gravityScale;
   }
   airDensity() {
-    return this.currentPlanet === Si.MOON ? 0.18 : 1;
+    return this.currentPlanet === CELESTIAL.MOON ? 0.18 : 1;
   }
   surfaceTraction() {
-    return this.currentPlanet === Si.MOON ? 0.55 : 1;
+    return this.currentPlanet === CELESTIAL.MOON ? 0.55 : 1;
   }
   onHeliCargo(e, t) {
     const i = this.heliCargo.get(e);
@@ -279,7 +279,7 @@ const Ar = class Ar {
         s.passengers.size > 0 ||
         s.planet !== e.planet ||
         s.serverAuto ||
-        s.ownerName === Mo ||
+        s.ownerName === RAID_LABEL ||
         this.cargoCarriers.has(s.id) ||
         this.heliCargo.has(s.id)
       )
@@ -296,12 +296,12 @@ const Ar = class Ar {
     return (
       !!this.mine &&
       this.mineSeat === 0 &&
-      this.mine.type === P.HELI &&
+      this.mine.type === VEHICLE_KIND.HELI &&
       (this.heliCargo.has(this.mine.id) || !!this.cargoCandidate(this.mine))
     );
   }
   toggleCargo() {
-    if (!this.mine || this.mineSeat !== 0 || this.mine.type !== P.HELI) return;
+    if (!this.mine || this.mineSeat !== 0 || this.mine.type !== VEHICLE_KIND.HELI) return;
     const e = this.heliCargo.get(this.mine.id),
       t = e === void 0 ? this.cargoCandidate(this.mine) : null;
     (e !== void 0 || t) &&
@@ -309,9 +309,9 @@ const Ar = class Ar {
   }
   onSpawn(e, t, i, s, o, a, r, l, c, h = 0, d = 0, u = 0, f = 0, p = 0) {
     var _, C;
-    if (!(t in lC) || this.vehicles.has(e)) return;
+    if (!(t in VEHICLE_ARMOR) || this.vehicles.has(e)) return;
     const m = $w(t),
-      y = c === Mo,
+      y = c === RAID_LABEL,
       g =
         ((C = (_ = this.hooks).battleSide) == null ? void 0 : C.call(_, p)) ??
         null,
@@ -400,18 +400,18 @@ const Ar = class Ar {
       prevYaw: null,
     };
     (y && of(T),
-      t === P.SPACE_ROCKET && (T.throttle = Ne(h, 0, 1)),
+      t === VEHICLE_KIND.SPACE_ROCKET && (T.throttle = clamp(h, 0, 1)),
       T.turret &&
-        (t === P.TURRET
+        (t === VEHICLE_KIND.TURRET
           ? (T.turret.rotation.y = d || h)
-          : (t === P.PATRIOT ||
-              t === P.TANK ||
-              t === P.HIMARS ||
-              t === P.BTR_TURRET) &&
+          : (t === VEHICLE_KIND.PATRIOT ||
+              t === VEHICLE_KIND.TANK ||
+              t === VEHICLE_KIND.HIMARS ||
+              t === VEHICLE_KIND.BTR_TURRET) &&
             (T.turret.rotation.y = h)),
-      t === P.TURRET && T.props[0] && (T.props[0].rotation.y = h),
+      t === VEHICLE_KIND.TURRET && T.props[0] && (T.props[0].rotation.y = h),
       T.barrel &&
-        (t === P.TANK || t === P.HIMARS || t === P.BTR_TURRET) &&
+        (t === VEHICLE_KIND.TANK || t === VEHICLE_KIND.HIMARS || t === VEHICLE_KIND.BTR_TURRET) &&
         (T.barrel.rotation.x = d),
       this.vehicles.set(e, T));
     const A = this.pendingEnters.get(e);
@@ -533,12 +533,12 @@ const Ar = class Ar {
         (e.fpvHide = i.fpvHide ?? []),
         this.setHeadlights(e, t),
         e.turret &&
-          (e.turret.rotation.y = (e.type === P.TURRET && e.aux2) || e.aux1),
-        e.type === P.TURRET && e.props[0] && (e.props[0].rotation.y = e.aux1),
+          (e.turret.rotation.y = (e.type === VEHICLE_KIND.TURRET && e.aux2) || e.aux1),
+        e.type === VEHICLE_KIND.TURRET && e.props[0] && (e.props[0].rotation.y = e.aux1),
         e.barrel &&
-          (e.type === P.TANK ||
-            e.type === P.HIMARS ||
-            e.type === P.BTR_TURRET) &&
+          (e.type === VEHICLE_KIND.TANK ||
+            e.type === VEHICLE_KIND.HIMARS ||
+            e.type === VEHICLE_KIND.BTR_TURRET) &&
           (e.barrel.rotation.x = e.aux2),
         (e.armorKit = []),
         this.attachArmor(e),
@@ -552,15 +552,15 @@ const Ar = class Ar {
     (c && r !== void 0 && (c.planet = r),
       !(
         !c ||
-        (c === this.mine && this.mineSeat === 0 && c.type !== P.MORTAR)
+        (c === this.mine && this.mineSeat === 0 && c.type !== VEHICLE_KIND.MORTAR)
       ) &&
         (c.target.pos.copy(t),
         c.target.quat.copy(i).normalize(),
-        c.motion.push(t, i, c.type === P.TURRET ? new k() : s, l),
+        c.motion.push(t, i, c.type === VEHICLE_KIND.TURRET ? new k() : s, l),
         c.vel.copy(s),
         (c.aux1 = o),
         (c.aux2 = a),
-        c.type === P.TURRET &&
+        c.type === VEHICLE_KIND.TURRET &&
           (c.turret && (c.turret.rotation.y = a),
           c.barrel && (c.barrel.rotation.x = s.y),
           c.props[0] && (c.props[0].rotation.y = o))));
@@ -604,7 +604,7 @@ const Ar = class Ar {
         ((this.passengerHullYaw = al(e.quat)),
           (this.camYaw =
             Math.atan2(-s.x, -s.z) +
-            (e.type === P.HELI ? (t === 1 ? Math.PI / 2 : -Math.PI / 2) : 0)),
+            (e.type === VEHICLE_KIND.HELI ? (t === 1 ? Math.PI / 2 : -Math.PI / 2) : 0)),
           (this.camPitch = As(e.type) ? 0.12 : 0));
         return;
       }
@@ -623,18 +623,18 @@ const Ar = class Ar {
           (e.ride = void 0),
           (e.speed = e.vel.dot(s)),
           (e.throttle = As(e.type)
-            ? Ne(e.speed / Pw[e.type], 0, 1)
-            : e.type === P.SPACE_ROCKET
-              ? Ne(e.aux1, 0, 1)
+            ? clamp(e.speed / Pw[e.type], 0, 1)
+            : e.type === VEHICLE_KIND.SPACE_ROCKET
+              ? clamp(e.aux1, 0, 1)
               : 0),
           (e.vy = e.vel.y),
           (i = e.angularVelocity) == null || i.set(0, 0, 0),
           e.motion.reset());
         const a = this.world.groundAt(e.pos.x, e.pos.z, e.pos.y + 0.3);
         ((e.grounded = a === -1 / 0 ? !1 : e.pos.y - a < 0.6),
-          (this.camYaw = e.type === P.TURRET ? e.aux1 : e.yaw),
+          (this.camYaw = e.type === VEHICLE_KIND.TURRET ? e.aux1 : e.yaw),
           (this.camPitch = 0),
-          (this.camMode = e.type === P.DRONE ? 0 : 1));
+          (this.camMode = e.type === VEHICLE_KIND.DRONE ? 0 : 1));
       }
     }
   }
@@ -664,7 +664,7 @@ const Ar = class Ar {
         (r.target.pos.copy(r.pos),
         r.target.quat.copy(r.quat),
         r.vel.set(0, 0, 0));
-      const l = r.type === P.DRONE ? null : this.computeExitPos(r);
+      const l = r.type === VEHICLE_KIND.DRONE ? null : this.computeExitPos(r);
       for (const c of r.fpvHide) ol(c, !1);
       (r.barrel && ol(r.barrel, !1),
         (this.gunZoom = 1),
@@ -690,7 +690,7 @@ const Ar = class Ar {
       d < 70 &&
         (this.effects.vehicleBreak(
           s,
-          ((c = de[i]) == null ? void 0 : c.color) ?? 8947848,
+          ((c = BLOCKS[i]) == null ? void 0 : c.color) ?? 8947848,
           i,
           Math.abs(t),
           o,
@@ -716,13 +716,13 @@ const Ar = class Ar {
     if (i) {
       if (!e.headlights) {
         if (!t) return;
-        e.headlights = (e.type === P.HELI ? [0] : [1, -1]).map((s) => {
+        e.headlights = (e.type === VEHICLE_KIND.HELI ? [0] : [1, -1]).map((s) => {
           const o = new S4(e.group, {
             range: i.range * 2.5,
             angle: i.angle,
             intensity: 57,
             priority: e === this.mine ? 1 : 0,
-            color: e.type === P.SUBMARINE ? 13625599 : 16773844,
+            color: e.type === VEHICLE_KIND.SUBMARINE ? 13625599 : 16773844,
           });
           return (
             o.root.position.set(i.x * s, i.y, i.z),
@@ -813,7 +813,7 @@ const Ar = class Ar {
         ((this.mine = null),
         (this.mineSeat = 0),
         this.hooks.onControlReleased(
-          i.type === P.DRONE ? null : this.computeExitPos(i),
+          i.type === VEHICLE_KIND.DRONE ? null : this.computeExitPos(i),
         )));
   }
   computeExitPos(e) {
@@ -838,7 +838,7 @@ const Ar = class Ar {
   requestSpawn(e, t, i, s = 0) {
     if (this.spawnCd > 0) return !1;
     const o = (l) => !vA(e, l, (c, h, d) => this.world.isSolidAt(c, h, d));
-    if (e !== P.CARRIER && e !== P.SUBMARINE)
+    if (e !== VEHICLE_KIND.CARRIER && e !== VEHICLE_KIND.SUBMARINE)
       for (let l = 3; l < 40; l += 0.5) {
         const c = t.x + i.x * l,
           h = t.y + i.y * l,
@@ -846,28 +846,28 @@ const Ar = class Ar {
         if (this.world.isSolidAt(c, h, d)) break;
         const u = this.deckInfo(new k(c, h, d));
         if (u) {
-          const f = new k(c, u.y + (e === P.DRONE ? 0.35 : 0.05), d);
+          const f = new k(c, u.y + (e === VEHICLE_KIND.DRONE ? 0.35 : 0.05), d);
           return o(f)
             ? (this.hooks.sendSpawn(e, f, s), (this.spawnCd = 3), !0)
             : !1;
         }
       }
-    if (e === P.BOAT || e === P.CARRIER || e === P.SUBMARINE) {
-      const l = e === P.CARRIER ? 40 : 24;
+    if (e === VEHICLE_KIND.BOAT || e === VEHICLE_KIND.CARRIER || e === VEHICLE_KIND.SUBMARINE) {
+      const l = e === VEHICLE_KIND.CARRIER ? 40 : 24;
       for (let c = 3; c < l; c += 0.5) {
         const h = t.x + i.x * c,
           d = t.y + i.y * c,
           u = t.z + i.z * c;
         if (this.world.isSolidAt(h, d, u)) return !1;
         const f =
-            e === P.SUBMARINE
+            e === VEHICLE_KIND.SUBMARINE
               ? this.waterColumnAt(Math.floor(h), Math.floor(u))
               : null,
           p = f ? f.surface : this.waterYAt(Math.floor(h), Math.floor(u), d);
         if (p !== null && d <= p + 4) {
           const m = new k(
             h,
-            p - (e === P.BOAT ? 0.25 : e === P.SUBMARINE ? 1.45 : 1.2),
+            p - (e === VEHICLE_KIND.BOAT ? 0.25 : e === VEHICLE_KIND.SUBMARINE ? 1.45 : 1.2),
             u,
           );
           return o(m)
@@ -881,7 +881,7 @@ const Ar = class Ar {
     if (!a) return !1;
     const r = new k(a.bx + 0.5, a.by + 1, a.bz + 0.5);
     return (
-      e === P.DRONE && (r.y += 0.3),
+      e === VEHICLE_KIND.DRONE && (r.y += 0.3),
       o(r) ? (this.hooks.sendSpawn(e, r, s), (this.spawnCd = 3), !0) : !1
     );
   }
@@ -903,7 +903,7 @@ const Ar = class Ar {
   hostile(e) {
     var t, i;
     return (
-      e.ownerName === Mo ||
+      e.ownerName === RAID_LABEL ||
       ((i = (t = this.hooks).battleSide) == null
         ? void 0
         : i.call(t, e.army)) === "enemy"
@@ -928,10 +928,10 @@ const Ar = class Ar {
       ? !1
       : this.mineSeat > 0
         ? this.passengerCanShoot() || !!this.mySeatGun()
-        : e.type === P.TANK ||
-          e.type === P.BTR_TURRET ||
-          e.type === P.TURRET ||
-          e.type === P.BOAT;
+        : e.type === VEHICLE_KIND.TANK ||
+          e.type === VEHICLE_KIND.BTR_TURRET ||
+          e.type === VEHICLE_KIND.TURRET ||
+          e.type === VEHICLE_KIND.BOAT;
   }
   hidePlates() {
     for (const e of this.vehicles.values()) e.hpBar.visible = !1;
@@ -949,7 +949,7 @@ const Ar = class Ar {
       for (const i of this.vehicles.values()) {
         if (
           i.planet !== this.currentPlanet ||
-          i.type !== P.CARRIER ||
+          i.type !== VEHICLE_KIND.CARRIER ||
           i.driver !== -1
         )
           continue;
@@ -1027,7 +1027,7 @@ const Ar = class Ar {
       ? (this.seatPos(i, this.mineSeat, e),
         e.add(
           this.tmpSeatForward
-            .set(0, i.type === P.HELI ? 1.55 : 0.85, 0)
+            .set(0, i.type === VEHICLE_KIND.HELI ? 1.55 : 0.85, 0)
             .applyQuaternion(i.quat),
         ),
         !0)
@@ -1053,7 +1053,7 @@ const Ar = class Ar {
   }
   detonateDrone() {
     this.mine &&
-      this.mine.type === P.DRONE &&
+      this.mine.type === VEHICLE_KIND.DRONE &&
       this.hooks.sendHit(this.mine.id, 9999);
   }
   driving() {
@@ -1164,10 +1164,10 @@ const Ar = class Ar {
             );
       if (
         (((_ && A < 8100) || m) && this.poseSeatGuns(p, e),
-        _ && p.type === P.FIGHTER_JET)
+        _ && p.type === VEHICLE_KIND.FIGHTER_JET)
       ) {
         const X = m && this.mineSeat === 0 && !this.remoteView,
-          Q = X ? p.throttle : Ne(p.vel.length() / Pw[p.type], 0, 1);
+          Q = X ? p.throttle : clamp(p.vel.length() / Pw[p.type], 0, 1);
         (C$(
           p.motionParts,
           e,
@@ -1199,19 +1199,19 @@ const Ar = class Ar {
         ));
       const R = p.hp / Math.max(1, p.maxHp);
       if (b && _ && R <= 0.3) {
-        const X = Ne((0.3 - R) / 0.3, 0, 1);
+        const X = clamp((0.3 - R) / 0.3, 0, 1);
         if (((p.smokeT -= e), p.smokeT <= 0)) {
           const ee = (SK[p.type] ?? new k(0, 1, 0))
             .clone()
             .applyQuaternion(p.quat)
             .add(p.pos);
           (this.effects.vehicleDamageSmoke(ee, X, p.vel),
-            (p.smokeT = Qi(0.72, 0.09, X)));
+            (p.smokeT = lerp(0.72, 0.09, X)));
         }
       } else p.smokeT = Math.min(p.smokeT, 0.15);
       if (
         (p.armorGlow > 0 && this.coolArmor(p, e, b && A < 8100),
-        p.type === P.TANK && p.barrel)
+        p.type === VEHICLE_KIND.TANK && p.barrel)
       ) {
         p.cannonRecoil = Math.max(0, (p.cannonRecoil ?? 0) - e);
         const X =
@@ -1220,7 +1220,7 @@ const Ar = class Ar {
         p.barrel.position.z =
           X + Math.sin(((p.cannonRecoil ?? 0) / 0.45) * Math.PI) * 0.32;
       }
-      if (p.type === P.MORTAR && p.barrel) {
+      if (p.type === VEHICLE_KIND.MORTAR && p.barrel) {
         p.mortarRecoil = Math.max(0, (p.mortarRecoil ?? 0) - e);
         const X =
           Math.sin(Math.min(1, (p.mortarRecoil ?? 0) / 0.32) * Math.PI) * 0.19;
@@ -1252,25 +1252,25 @@ const Ar = class Ar {
         p.lod && (p.lod.visible = b && D),
         p.turret)
       ) {
-        let Q = (p.type === P.TURRET ? p.aux2 : p.aux1) - p.turret.rotation.y;
+        let Q = (p.type === VEHICLE_KIND.TURRET ? p.aux2 : p.aux1) - p.turret.rotation.y;
         if (
           ((Q = Math.atan2(Math.sin(Q), Math.cos(Q))),
           (p.turret.rotation.y += Q * L),
           p.barrel)
         ) {
           const ee =
-            p.type === P.MORTAR ? 0 : p.type === P.TURRET ? p.vel.y : p.aux2;
+            p.type === VEHICLE_KIND.MORTAR ? 0 : p.type === VEHICLE_KIND.TURRET ? p.vel.y : p.aux2;
           p.barrel.rotation.x += (ee - p.barrel.rotation.x) * L;
         }
       }
-      (p.type === P.TURRET &&
+      (p.type === VEHICLE_KIND.TURRET &&
         p.props[0] &&
         ((p.props[0].rotation.y = p.aux1),
         (p.props[0].visible = b && p.driver === this.myId)),
         (_ || (b && D)) && this.spinProps(p, e, p.vel.length()),
         b && D && p.lod && p.lod.sync());
       const H = !s || p.pos.distanceTo(s) <= 50,
-        G = p.ownerName === Mo || M === "enemy";
+        G = p.ownerName === RAID_LABEL || M === "enemy";
       p.hpBar.visible =
         p.planet === this.currentPlanet &&
         (x
@@ -1284,7 +1284,7 @@ const Ar = class Ar {
       const F = M ?? (x ? "ally" : G || p.ownerName ? "enemy" : "neutral");
       (p.hpBar.userData.relation !== F &&
         ((p.hpBar.userData.relation = F), of(p)),
-        p.type === P.PATRIOT &&
+        p.type === VEHICLE_KIND.PATRIOT &&
           !p.serverAuto &&
           p.driver === -1 &&
           p.owner === this.myId &&
@@ -1300,7 +1300,7 @@ const Ar = class Ar {
       if (
         (i && (this.camYaw -= (t.mdx * 0.0022) / y),
         i &&
-          (this.camPitch = Ne(
+          (this.camPitch = clamp(
             this.camPitch - (t.mdy * 0.0022) / y,
             -1.35,
             1.45,
@@ -1310,12 +1310,12 @@ const Ar = class Ar {
       ) {
         const g = r6(c.type);
         if (
-          ((this.camPitch = Ne(this.camPitch, g.down, g.up)), g.swing < Math.PI)
+          ((this.camPitch = clamp(this.camPitch, g.down, g.up)), g.swing < Math.PI)
         ) {
           const b = p + (this.mineSeat === 1 ? Math.PI / 2 : -Math.PI / 2),
             S = this.camYaw - b;
           this.camYaw =
-            b + Ne(Math.atan2(Math.sin(S), Math.cos(S)), -g.swing, g.swing);
+            b + clamp(Math.atan2(Math.sin(S), Math.cos(S)), -g.swing, g.swing);
         }
       }
       (t.actionPressed("camera") && (this.camMode = 1 - this.camMode),
@@ -1326,26 +1326,26 @@ const Ar = class Ar {
       const p = e / Xt.vehicleReload(c.type);
       ((c.fireCd = Math.max(As(c.type) ? -e : 0, c.fireCd - p)),
         (c.fireCd2 =
-          (c.type === P.CARRIER || c.type === P.MORTAR) && c.carrierReadyAt > 0
+          (c.type === VEHICLE_KIND.CARRIER || c.type === VEHICLE_KIND.MORTAR) && c.carrierReadyAt > 0
             ? Math.max(0, (c.carrierReadyAt - Date.now()) / 1e3)
             : Math.max(As(c.type) ? -e : 0, c.fireCd2 - p)),
         (this.fireCdBefore = c.fireCd),
         (this.fireCd2Before = c.fireCd2),
         this.updateSightZoom(c, e, t, i),
         t.actionPressed("camera") && (this.camMode = 1 - this.camMode),
-        c.type === P.TANK
+        c.type === VEHICLE_KIND.TANK
           ? this.driveTank(c, e, t, i)
           : As(c.type)
             ? this.drivePlane(c, e, t, i)
-            : c.type === P.BOAT || c.type === P.CARRIER
+            : c.type === VEHICLE_KIND.BOAT || c.type === VEHICLE_KIND.CARRIER
               ? this.driveShip(c, e, t, i)
-              : c.type === P.SUBMARINE
+              : c.type === VEHICLE_KIND.SUBMARINE
                 ? this.driveShip(c, e, t, i)
-                : c.type === P.HELI
+                : c.type === VEHICLE_KIND.HELI
                   ? this.driveHelicopter(c, e, t, i)
-                  : c.type === P.MORTAR
+                  : c.type === VEHICLE_KIND.MORTAR
                     ? ((this.camYaw -= t.mdx * 0.0022),
-                      (this.camPitch = Ne(
+                      (this.camPitch = clamp(
                         this.camPitch - t.mdy * 0.0022,
                         -0.35,
                         1.1,
@@ -1355,15 +1355,15 @@ const Ar = class Ar {
                       i &&
                         (t.clickL || t.clickR) &&
                         this.hooks.openMap("himars"))
-                    : c.type === P.HIMARS
+                    : c.type === VEHICLE_KIND.HIMARS
                       ? this.driveHimars(c, e, t, i)
-                      : c.type === P.PATRIOT
+                      : c.type === VEHICLE_KIND.PATRIOT
                         ? this.drivePatriot(c, e, t, i)
-                        : c.type === P.TURRET
+                        : c.type === VEHICLE_KIND.TURRET
                           ? this.driveTurret(c, e, t, i)
-                          : c.type === P.BTR_TURRET
+                          : c.type === VEHICLE_KIND.BTR_TURRET
                             ? this.driveBtrTurret(c, e, t, i)
-                            : c.type === P.SPACE_ROCKET
+                            : c.type === VEHICLE_KIND.SPACE_ROCKET
                               ? this.driveRocket(c, e, t, i)
                               : this.driveDrone(c, e, t, i),
         this.practice(c, e, i),
@@ -1419,7 +1419,7 @@ const Ar = class Ar {
         if (p.prevYaw !== null) {
           let y = m - p.prevYaw;
           ((y = Math.atan2(Math.sin(y), Math.cos(y))),
-            (p.yawRate = Qi(p.yawRate, y / e, 1 - Math.exp(-16 * e))));
+            (p.yawRate = lerp(p.yawRate, y / e, 1 - Math.exp(-16 * e))));
         }
         p.prevYaw = m;
       }
@@ -1444,7 +1444,7 @@ const Ar = class Ar {
     var i, s;
     const t = this.mine;
     !t ||
-      t.type !== P.TANK ||
+      t.type !== VEHICLE_KIND.TANK ||
       this.mineSeat > 0 ||
       t.fireCd > 0 ||
       t.tankAim ||
@@ -1493,7 +1493,7 @@ const Ar = class Ar {
   mortarStrike(e) {
     const t = this.mine;
     !t ||
-      t.type !== P.MORTAR ||
+      t.type !== VEHICLE_KIND.MORTAR ||
       this.mineSeat > 0 ||
       Date.now() < t.carrierReadyAt ||
       Math.hypot(e.x - t.pos.x, e.z - t.pos.z) > Hd ||
@@ -1502,7 +1502,7 @@ const Ar = class Ar {
       (t.carrierReadyAt = Date.now() + Ax * 1e3),
       (t.fireCd2 = Ax),
       this.projectiles.spawn(
-        pt.MISSILE,
+        PROJECTILE_KIND.MISSILE,
         t.pos.clone().add(new k(0, 3.5, 0)),
         new k(0, 48, 0),
         !0,
@@ -1521,7 +1521,7 @@ const Ar = class Ar {
   himarsStrike(e) {
     var s, o, a, r;
     const t = this.mine;
-    if (!t || t.type !== P.HIMARS) return;
+    if (!t || t.type !== VEHICLE_KIND.HIMARS) return;
     const i =
       Math.max(t.himarsPendingUntil ?? 0, t.himarsServerReadyAt ?? 0) -
       Date.now();
@@ -1529,7 +1529,7 @@ const Ar = class Ar {
       (o = (s = this.hooks).message) == null ||
         o.call(
           s,
-          z.language === "en"
+          SETTINGS.language === "en"
             ? i > 0
               ? `HIMARS: reloading ${Math.ceil(i / 1e3)} s.`
               : "HIMARS: firing salvo."
@@ -1543,7 +1543,7 @@ const Ar = class Ar {
       (r = (a = this.hooks).message) == null ||
         r.call(
           a,
-          z.language === "en"
+          SETTINGS.language === "en"
             ? `HIMARS: target beyond ${nr} m.`
             : `HIMARS: цель вне радиуса ${nr} м.`,
         );
@@ -1570,7 +1570,7 @@ const Ar = class Ar {
           44 + l * 0.8,
           (Math.random() - 0.5) * 5,
         );
-        (this.projectiles.spawn(pt.MISSILE, h, m, !0, {
+        (this.projectiles.spawn(PROJECTILE_KIND.MISSILE, h, m, !0, {
           guide: d,
           speed: 48,
           ignoreVehicle: c.id,
@@ -1581,14 +1581,14 @@ const Ar = class Ar {
   }
   carrierStrike(e) {
     const t = this.mine;
-    if (!t || t.type !== P.CARRIER || t.fireCd2 > 0) return;
+    if (!t || t.type !== VEHICLE_KIND.CARRIER || t.fireCd2 > 0) return;
     ((t.fireCd2 = qv), (t.carrierReadyAt = Date.now() + qv * 1e3));
     const i = new k(-3.9, 16, 10.5).applyQuaternion(t.quat).add(t.pos),
       s = e.clone(),
       o = this.world.groundAt(s.x, s.z, 120);
     s.y = o === -1 / 0 ? e.y : o + 0.5;
     const a = new k(0, GH, 0).applyQuaternion(t.quat);
-    (this.projectiles.spawn(pt.TOMAHAWK, i, a, !0, {
+    (this.projectiles.spawn(PROJECTILE_KIND.TOMAHAWK, i, a, !0, {
       guide: s,
       speed: oC,
       ignoreVehicle: t.id,
@@ -1603,14 +1603,14 @@ const Ar = class Ar {
   }
   nuclearStrike(e) {
     const t = this.mine;
-    if (!t || t.type !== P.SUBMARINE || t.fireCd2 > 0) return;
+    if (!t || t.type !== VEHICLE_KIND.SUBMARINE || t.fireCd2 > 0) return;
     ((t.fireCd2 = _x), (t.carrierReadyAt = Date.now() + _x * 1e3));
     const i = new k(0, 2.65, 2.75).applyQuaternion(t.quat).add(t.pos),
       s = e.clone(),
       o = this.world.groundAt(s.x, s.z, 120);
     s.y = o === -1 / 0 ? e.y : o + 0.5;
     const a = new k(0, XH, 0).applyQuaternion(t.quat);
-    (this.projectiles.spawn(pt.NUCLEAR, i, a, !0, {
+    (this.projectiles.spawn(PROJECTILE_KIND.NUCLEAR, i, a, !0, {
       guide: s,
       speed: rC,
       ignoreVehicle: t.id,
@@ -1654,23 +1654,23 @@ const Ar = class Ar {
     return { surface: o + 0.86, floor: a };
   }
   driveShip(e, t, i, s) {
-    if (e.type === P.SUBMARINE) {
+    if (e.type === VEHICLE_KIND.SUBMARINE) {
       this.driveSubmarine(e, t, i, s);
       return;
     }
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -0.3, 1.25)));
-    const o = e.type === P.BOAT;
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -0.3, 1.25)));
+    const o = e.type === VEHICLE_KIND.BOAT;
     !o && s && i.clickR && e.fireCd2 <= 0 && this.hooks.openMap("carrier");
     const a = (o ? 14 : 5) * this.speedMul(e),
       r = s ? (i.action("forward") ? 1 : 0) - (i.action("back") ? 1 : 0) : 0,
       l = s ? (i.action("left") ? 1 : 0) - (i.action("right") ? 1 : 0) : 0;
-    ((e.speed += Ne(
+    ((e.speed += clamp(
       r * (r > 0 ? a : a * 0.4) - e.speed,
       -(o ? 5 : 1.2) * t,
       (o ? 5 : 1.2) * t,
     )),
-      (e.yaw += l * t * (o ? 0.9 : 0.14) * Ne(Math.abs(e.speed) / 3, 0.15, 1)));
+      (e.yaw += l * t * (o ? 0.9 : 0.14) * clamp(Math.abs(e.speed) / 3, 0.15, 1)));
     const c = -Math.sin(e.yaw),
       h = -Math.cos(e.yaw),
       d = e.pos.x + c * e.speed * t,
@@ -1686,10 +1686,10 @@ const Ar = class Ar {
     const m = this.waterYAt(Math.floor(e.pos.x), Math.floor(e.pos.z), e.pos.y);
     if (
       (m !== null &&
-        (e.pos.y = Qi(e.pos.y, m - (o ? 0.25 : 1.2), Math.min(1, 4 * t))),
-      (e.roll = Qi(
+        (e.pos.y = lerp(e.pos.y, m - (o ? 0.25 : 1.2), Math.min(1, 4 * t))),
+      (e.roll = lerp(
         e.roll,
-        -l * 0.06 * Ne(Math.abs(e.speed) / a, 0, 1),
+        -l * 0.06 * clamp(Math.abs(e.speed) / a, 0, 1),
         Math.min(1, 4 * t),
       )),
       e.quat.setFromEuler(new hi(0, e.yaw, e.roll, "YXZ")),
@@ -1703,9 +1703,9 @@ const Ar = class Ar {
         ) - e.turret.rotation.y;
       if (
         ((g = Math.atan2(Math.sin(g), Math.cos(g))),
-        (e.turret.rotation.y += Ne(g, -3.5 * t, 3.5 * t)),
+        (e.turret.rotation.y += clamp(g, -3.5 * t, 3.5 * t)),
         (e.aux1 = e.turret.rotation.y),
-        (e.aux2 = Ne(this.camPitch * 0.7, -0.2, 0.7)),
+        (e.aux2 = clamp(this.camPitch * 0.7, -0.2, 0.7)),
         e.barrel && (e.barrel.rotation.x = e.aux2),
         s && i.mouseL && e.fireCd <= 0)
       ) {
@@ -1733,15 +1733,15 @@ const Ar = class Ar {
   }
   driveSubmarine(e, t, i, s) {
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -0.55, 1.2)),
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -0.55, 1.2)),
       s && i.clickR && e.fireCd2 <= 0 && this.hooks.openMap("nuclear"));
     const o = s
         ? (i.action("forward") ? 1 : 0) - (i.action("back") ? 1 : 0)
         : 0,
       a = s ? (i.action("left") ? 1 : 0) - (i.action("right") ? 1 : 0) : 0,
       r = 8.2;
-    ((e.speed += Ne(o * (o > 0 ? r : r * 0.45) - e.speed, -3.4 * t, 3.4 * t)),
-      (e.yaw += a * t * 0.58 * Ne(Math.abs(e.speed) / 2.5, 0.18, 1)));
+    ((e.speed += clamp(o * (o > 0 ? r : r * 0.45) - e.speed, -3.4 * t, 3.4 * t)),
+      (e.yaw += a * t * 0.58 * clamp(Math.abs(e.speed) / 2.5, 0.18, 1)));
     const l = s ? (i.action("jump") ? 1 : 0) - (i.action("crouch") ? 1 : 0) : 0,
       c = -Math.sin(e.yaw),
       h = -Math.cos(e.yaw),
@@ -1765,9 +1765,9 @@ const Ar = class Ar {
     else {
       const x = Math.max(1.05, f.surface - (f.floor + 2.25));
       (e.subDepthReady ||
-        ((e.subDepth = Ne(f.surface - e.pos.y, 1.05, x)),
+        ((e.subDepth = clamp(f.surface - e.pos.y, 1.05, x)),
         (e.subDepthReady = !0)),
-        (e.subDepth = Ne(e.subDepth - l * 3.1 * t, 1.05, x)));
+        (e.subDepth = clamp(e.subDepth - l * 3.1 * t, 1.05, x)));
       const T = S.every((F) => !!F),
         A = T
           ? Math.max(f.floor + 2.25, ...S.map((F) => F.floor + 2.25))
@@ -1784,8 +1784,8 @@ const Ar = class Ar {
         N = L.floor + 2.25,
         D = L.surface - 0.82,
         H = C ? A : N,
-        G = Ne(Math.max(L.surface - e.subDepth, H), N, D),
-        I = Ne((G - e.pos.y) * 5, -4.8, 4.8);
+        G = clamp(Math.max(L.surface - e.subDepth, H), N, D),
+        I = clamp((G - e.pos.y) * 5, -4.8, 4.8);
       e.vy += (I - e.vy) * Math.min(1, 5.5 * t);
       let O = e.pos.y + e.vy * t;
       (O < N
@@ -1796,14 +1796,14 @@ const Ar = class Ar {
           O <= D + 0.002 && (e.vy = Math.min(0, e.vy))),
         (e.pos.y = O));
     }
-    ((e.roll = Qi(
+    ((e.roll = lerp(
       e.roll,
-      -a * 0.12 * Ne(Math.abs(e.speed) / r, 0, 1),
+      -a * 0.12 * clamp(Math.abs(e.speed) / r, 0, 1),
       Math.min(1, 3 * t),
     )),
-      (e.pitch = Qi(
+      (e.pitch = lerp(
         e.pitch,
-        Ne(-e.vy * 0.035, -0.18, 0.18),
+        clamp(-e.vy * 0.035, -0.18, 0.18),
         Math.min(1, 3.4 * t),
       )),
       e.quat.setFromEuler(new hi(e.pitch, e.yaw, e.roll, "YXZ")),
@@ -1820,7 +1820,7 @@ const Ar = class Ar {
     for (const t of Qf[e.type] ?? [])
       if (
         e.turret &&
-        (e.type === P.TANK || e.type === P.BTR_TURRET) &&
+        (e.type === VEHICLE_KIND.TANK || e.type === VEHICLE_KIND.BTR_TURRET) &&
         t.min.y >= 1.2
       ) {
         const i = e.turret.position.clone().multiply(ms(e.type));
@@ -1865,7 +1865,7 @@ const Ar = class Ar {
   }
   deckInfo(e) {
     for (const t of this.vehicles.values()) {
-      if (t.type !== P.CARRIER) continue;
+      if (t.type !== VEHICLE_KIND.CARRIER) continue;
       const i = e.clone().sub(t.pos).applyQuaternion(t.quat.clone().invert());
       if (
         Math.abs(i.x) <= 6 &&
@@ -1889,10 +1889,10 @@ const Ar = class Ar {
     return t && Math.abs(e.pos.y - t.y) < 0.8 ? t : null;
   }
   applyDeckGlue(e) {
-    if (e.driver !== -1 || e.type === P.CARRIER)
+    if (e.driver !== -1 || e.type === VEHICLE_KIND.CARRIER)
       return (this.deckGlue.delete(e.id), !1);
     for (const t of this.vehicles.values()) {
-      if (t.type !== P.CARRIER) continue;
+      if (t.type !== VEHICLE_KIND.CARRIER) continue;
       const i = t === this.mine && this.mineSeat === 0,
         s = i ? t.pos : t.target.pos,
         o = i ? t.quat : t.target.quat,
@@ -1929,7 +1929,7 @@ const Ar = class Ar {
       : this.mine !== null &&
           this.mineSeat > 0 &&
           !vl(this.mine.type, this.mineSeat) &&
-          (this.mine.type === P.BOAT || As(this.mine.type));
+          (this.mine.type === VEHICLE_KIND.BOAT || As(this.mine.type));
   }
   mySeatGun() {
     return this.mine && !this.remoteView && this.mineSeat > 0
@@ -2006,7 +2006,7 @@ const Ar = class Ar {
       }
       const p = r6(e.type);
       let m = c.rest,
-        y = e.type === P.HELI ? -0.25 : 0;
+        y = e.type === VEHICLE_KIND.HELI ? -0.25 : 0;
       if (h && c.yaw.parent) {
         s || (e.group.updateMatrixWorld(!0), (s = !0));
         const b = c.yaw.parent
@@ -2015,11 +2015,11 @@ const Ar = class Ar {
           .divide(c.yaw.scale);
         ((b.y -= c.pitch.position.y),
           (m = Math.atan2(-b.x, -b.z)),
-          (y = Ne(Math.atan2(b.y, Math.hypot(b.x, b.z)), p.down, p.up)),
+          (y = clamp(Math.atan2(b.y, Math.hypot(b.x, b.z)), p.down, p.up)),
           p.swing < Math.PI &&
             (m =
               c.rest +
-              Ne(
+              clamp(
                 Math.atan2(Math.sin(m - c.rest), Math.cos(m - c.rest)),
                 -p.swing,
                 p.swing,
@@ -2066,7 +2066,7 @@ const Ar = class Ar {
       (o.figure &&
         (!s || o.figure.parent !== i) &&
         (o.figure.removeFromParent(), (o.figure = void 0)),
-      !s || o.figure || e.type !== P.HELI)
+      !s || o.figure || e.type !== VEHICLE_KIND.HELI)
     )
       return;
     const a = (c = (l = this.hooks).seatFigure) == null ? void 0 : c.call(l);
@@ -2260,7 +2260,7 @@ const Ar = class Ar {
     return z2[e] !== void 0;
   }
   seatPos(e, t, i) {
-    const s = z2[e.type] ?? z2[P.BOAT];
+    const s = z2[e.type] ?? z2[VEHICLE_KIND.BOAT];
     let o = s[(t - 1) % s.length];
     return (i.set(o[0], o[1], o[2]).applyQuaternion(e.quat).add(e.pos), i);
   }
@@ -2294,8 +2294,8 @@ const Ar = class Ar {
     }
     if (
       (this.seatPos(o, t, i),
-      o.type !== P.HELI && i.add(new k(0, -0.55, 0).applyQuaternion(o.quat)),
-      o.type === P.HELI)
+      o.type !== VEHICLE_KIND.HELI && i.add(new k(0, -0.55, 0).applyQuaternion(o.quat)),
+      o.type === VEHICLE_KIND.HELI)
     ) {
       const l =
         ((r = this.seatGunsOf(o).get(t)) == null ? void 0 : r.yaw.rotation.y) ??
@@ -2311,8 +2311,8 @@ const Ar = class Ar {
     return Math.atan2(-a.x, -a.z);
   }
   spinProps(e, t, i) {
-    if (e.type !== P.TURRET) {
-      if (e.type === P.CARRIER) {
+    if (e.type !== VEHICLE_KIND.TURRET) {
+      if (e.type === VEHICLE_KIND.CARRIER) {
         if (e.props[0]) {
           const s =
             e.carrierReadyAt > Date.now() &&
@@ -2322,13 +2322,13 @@ const Ar = class Ar {
         }
         return;
       }
-      if (e.type === P.HELI) {
+      if (e.type === VEHICLE_KIND.HELI) {
         const s =
           e.driver !== -1 ||
           !!e.serverAuto ||
           !!e.radioActive ||
           (e === this.mine && this.mineSeat === 0 && this.remoteView);
-        e.rotorPower = Ne(
+        e.rotorPower = clamp(
           (e.rotorPower ?? (e.vel.length() > 2 ? 1 : 0)) + (s ? t / 2 : -t / 3),
           0,
           1,
@@ -2337,16 +2337,16 @@ const Ar = class Ar {
       for (const s of e.props) {
         const o = s.userData.axis ?? "y",
           a =
-            e.type === P.SUBMARINE
+            e.type === VEHICLE_KIND.SUBMARINE
               ? i * 3
               : e.driver !== -1 ||
                   e.serverAuto ||
                   e.radioActive ||
                   (e === this.mine && this.mineSeat === 0) ||
                   i > 0.2
-                ? e.type === P.HELI
+                ? e.type === VEHICLE_KIND.HELI
                   ? (o === "x" ? 105 : 35) * (e.rotorPower ?? 0)
-                  : e.type === P.PLANE
+                  : e.type === VEHICLE_KIND.PLANE
                     ? 35 + Math.abs(i) * 2
                     : 85
                 : 0;
@@ -2378,21 +2378,21 @@ const Ar = class Ar {
     const r = Math.min(t, 1 / 30),
       l = (i - a.speed) / r;
     ((a.speed = i),
-      (a.accel += (Ne(l, -12, 12) - a.accel) * (1 - Math.exp(-6 * r))));
+      (a.accel += (clamp(l, -12, 12) - a.accel) * (1 - Math.exp(-6 * r))));
     let c = 0,
       h = 0;
-    const d = e.type === P.BOAT;
+    const d = e.type === VEHICLE_KIND.BOAT;
     if (d)
       ((a.bob += r),
         (c =
-          Ne(Math.abs(i) / 9, 0, 1) * 0.07 +
+          clamp(Math.abs(i) / 9, 0, 1) * 0.07 +
           Math.sin(a.bob * 1.3) * 0.018 +
           a.accel * 0.004),
         (h = Math.sin(a.bob * 0.9 + 1.7) * 0.025));
     else {
-      const y = e.type === P.TANK;
-      ((c = Ne(a.accel * (y ? 0.006 : 0.01), -0.05, 0.05)),
-        (h = Ne(
+      const y = e.type === VEHICLE_KIND.TANK;
+      ((c = clamp(a.accel * (y ? 0.006 : 0.01), -0.05, 0.05)),
+        (h = clamp(
           -e.yawRate * Math.abs(i) * (y ? 0.008 : 0.014),
           -0.045,
           0.045,
@@ -2408,11 +2408,11 @@ const Ar = class Ar {
       !d)
     ) {
       const y = (e.pos.y - a.lastY) / r,
-        g = Ne((y - a.climb) / r, -40, 40);
+        g = clamp((y - a.climb) / r, -40, 40);
       ((a.lastY = e.pos.y),
         (a.climb = y),
         (a.vh += (-g * 0.55 - a.heave * 190 - a.vh * 13) * r),
-        (a.heave = Ne(a.heave + a.vh * r, -0.11, 0.07)));
+        (a.heave = clamp(a.heave + a.vh * r, -0.11, 0.07)));
     }
     if (
       (e.sprung &&
@@ -2421,7 +2421,7 @@ const Ar = class Ar {
       e.launcher)
     ) {
       let y = 0;
-      e.type === P.HIMARS
+      e.type === VEHICLE_KIND.HIMARS
         ? (y =
             Date.now() <
             Math.max(e.himarsPendingUntil ?? 0, e.himarsServerReadyAt ?? 0)
@@ -2433,15 +2433,15 @@ const Ar = class Ar {
               ? 1
               : 0.12);
       const g =
-          e.launcher.userData.elevation ?? (e.type === P.PATRIOT ? 0.12 : 0),
-        b = g + Ne(y - g, -0.6 * r, 0.6 * r);
+          e.launcher.userData.elevation ?? (e.type === VEHICLE_KIND.PATRIOT ? 0.12 : 0),
+        b = g + clamp(y - g, -0.6 * r, 0.6 * r);
       ((e.launcher.userData.elevation = b),
-        (e.launcher.rotation.x = e.type === P.HIMARS ? -b : b));
+        (e.launcher.rotation.x = e.type === VEHICLE_KIND.HIMARS ? -b : b));
     }
     const p = HK[e.type],
       m = e.driver !== -1 || !!e.serverAuto || Math.abs(i) > 0.3;
     if (p && m && !o && yt(1) && s < 1600) {
-      const y = Ne(Math.abs(a.accel) / 4 + Math.abs(i) / 12, 0, 1);
+      const y = clamp(Math.abs(a.accel) / 4 + Math.abs(i) / 12, 0, 1);
       if (((a.exhaust -= r * (1.5 + y * 7)), a.exhaust <= 0)) {
         a.exhaust = 1;
         const g = this.tmpExhaust
@@ -2521,7 +2521,7 @@ const Ar = class Ar {
                 h,
                 e.yaw,
                 e.speed >= 0 ? 1 : -1,
-              ).some((b) => Bo(b.id) || b.id === v.CACTUS) &&
+              ).some((b) => Bo(b.id) || b.id === BLOCK.CACTUS) &&
               this.requestRam(e, c, h, e.speed)),
         (e.pos.x = d.x),
         (e.pos.z = d.z));
@@ -2618,13 +2618,13 @@ const Ar = class Ar {
   static zoomLevels(e, t = 0) {
     return t > 0
       ? vl(e, t)
-        ? e === P.HELI
+        ? e === VEHICLE_KIND.HELI
           ? [1, 2, 3]
           : [1, 2, 4]
         : [1]
-      : e === P.TANK
+      : e === VEHICLE_KIND.TANK
         ? [1, 2, 4, 8]
-        : e === P.BTR_TURRET
+        : e === VEHICLE_KIND.BTR_TURRET
           ? [1, 2.5, 5]
           : [1];
   }
@@ -2642,10 +2642,10 @@ const Ar = class Ar {
     }
     (s &&
       i.wheel &&
-      (this.zoomIdx = Ne(this.zoomIdx - Math.sign(i.wheel), 0, a.length - 1)),
+      (this.zoomIdx = clamp(this.zoomIdx - Math.sign(i.wheel), 0, a.length - 1)),
       s && i.aimTap && (this.zoomIdx = (this.zoomIdx + 1) % a.length));
     const l =
-        s && !i.mobile && (o > 0 || e.type === P.BTR_TURRET) && i.mouseR
+        s && !i.mobile && (o > 0 || e.type === VEHICLE_KIND.BTR_TURRET) && i.mouseR
           ? 1
           : 0,
       c = o > 0 && this.camMode !== 0 ? 1 : a[Math.max(this.zoomIdx, l)];
@@ -2665,14 +2665,14 @@ const Ar = class Ar {
       !!e &&
       this.mineSeat === 0 &&
       !this.remoteView &&
-      (e.type === P.TANK || e.type === P.BTR_TURRET) &&
+      (e.type === VEHICLE_KIND.TANK || e.type === VEHICLE_KIND.BTR_TURRET) &&
       (this.camMode === 0 || this.gunZoom > 1.05)
     );
   }
   tankBore(e, t, i) {
     if (!e.barrel) return !1;
     e.group.updateMatrixWorld(!0);
-    const s = e.type === P.TANK ? -2.4 : y6,
+    const s = e.type === VEHICLE_KIND.TANK ? -2.4 : y6,
       o = e.barrel.localToWorld(this.tmpBoreA.set(0, 0, 0));
     return (
       e.barrel.localToWorld(t.set(0, 0, s)),
@@ -2727,7 +2727,7 @@ const Ar = class Ar {
     if (!t || !t.barrel) return !1;
     const i = this.tmpBallistic,
       s = new k();
-    if ((this.tankBore(t, i, s), t.type !== P.TANK)) {
+    if ((this.tankBore(t, i, s), t.type !== VEHICLE_KIND.TANK)) {
       const c = this.world.raycast(i, s, 400);
       return (e.copy(i).addScaledVector(s, c ? c.dist : 400), !0);
     }
@@ -2762,7 +2762,7 @@ const Ar = class Ar {
         hot: t.hot,
       };
     if (!e || !this.inGunnerSight()) return null;
-    if (e.type === P.TANK)
+    if (e.type === VEHICLE_KIND.TANK)
       return {
         kind: "tank",
         zoom: this.gunZoom,
@@ -2801,18 +2801,18 @@ const Ar = class Ar {
   driveTank(e, t, i, s) {
     const o = 0.0022 / this.gunZoom;
     (s && (this.camYaw -= i.mdx * o),
-      s && (this.camPitch = Ne(this.camPitch - i.mdy * o, -0.55, 1.25)));
+      s && (this.camPitch = clamp(this.camPitch - i.mdy * o, -0.55, 1.25)));
     const a = s
         ? (i.action("forward") ? 1 : 0) - (i.action("back") ? 1 : 0)
         : 0,
       r = s ? (i.action("left") ? 1 : 0) - (i.action("right") ? 1 : 0) : 0,
       l = this.surfaceTraction(),
-      c = Ne(Math.abs(e.speed) / 2.5, 0.5, 1) * l,
+      c = clamp(Math.abs(e.speed) / 2.5, 0.5, 1) * l,
       h = e.yaw;
     e.yaw += r * t * 1.3 * c * (e.speed < -0.15 ? -1 : 1);
     const d = a * (a > 0 ? 5.8 : 3.1) * $v * this.speedMul(e),
       u = (a === 0 ? 3.2 : 4.4) * l;
-    ((e.speed += Ne(d - e.speed, -u * t, u * t)),
+    ((e.speed += clamp(d - e.speed, -u * t, u * t)),
       r !== 0 &&
         (e.speed *= Math.max(
           0,
@@ -2840,13 +2840,13 @@ const Ar = class Ar {
       let b = ((g == null ? void 0 : g.yaw) ?? y) - e.turret.rotation.y;
       b = Math.atan2(Math.sin(b), Math.cos(b));
       const S = Math.min(2.4, Math.abs(b) * 9 + 0.12) * t;
-      ((e.turret.rotation.y += Ne(b, -S, S)), (e.aux1 = e.turret.rotation.y));
+      ((e.turret.rotation.y += clamp(b, -S, S)), (e.aux1 = e.turret.rotation.y));
       const x =
           ((m == null ? void 0 : m.pitch) ??
-            Ne((g == null ? void 0 : g.pitch) ?? this.camPitch, QH, JH)) -
+            clamp((g == null ? void 0 : g.pitch) ?? this.camPitch, QH, JH)) -
           e.aux2,
         T = Math.min(1.3, Math.abs(x) * 9 + 0.06) * t;
-      ((e.aux2 += Ne(x, -T, T)), e.barrel && (e.barrel.rotation.x = e.aux2));
+      ((e.aux2 += clamp(x, -T, T)), e.barrel && (e.barrel.rotation.x = e.aux2));
     }
     if (p && m) {
       p.remaining -= t;
@@ -2856,7 +2856,7 @@ const Ar = class Ar {
         Math.abs(e.aux2 - m.pitch) < 0.025 &&
         ((e.fireCd = 2.2),
         this.projectiles.spawn(
-          pt.SHELL,
+          PROJECTILE_KIND.SHELL,
           e.pos.clone().add(new k(0, 1.75, 0)),
           new k(m.vx, m.vy, m.vz),
           !0,
@@ -2869,7 +2869,7 @@ const Ar = class Ar {
       const b = new k(),
         S = new k();
       (this.tankBore(e, b, S),
-        this.projectiles.spawn(pt.SHELL, b, S.clone().multiplyScalar(em), !0),
+        this.projectiles.spawn(PROJECTILE_KIND.SHELL, b, S.clone().multiplyScalar(em), !0),
         (e.cannonRecoil = 0.45),
         this.kickHull(e, e.aux1, 0.55),
         this.sfx.shot("tank"),
@@ -2883,8 +2883,8 @@ const Ar = class Ar {
     const o = e.quat.clone(),
       a = e.pos.clone(),
       r = e.grounded;
-    (s && i.action("forward") && (e.throttle = Ne(e.throttle + t * 0.5, 0, 1)),
-      s && i.action("back") && (e.throttle = Ne(e.throttle - t * 0.7, 0, 1)));
+    (s && i.action("forward") && (e.throttle = clamp(e.throttle + t * 0.5, 0, 1)),
+      s && i.action("back") && (e.throttle = clamp(e.throttle - t * 0.7, 0, 1)));
     let l = e.grounded
       ? gA(e.type, e.pos, e.quat, (A, _, C) => this.world.groundAt(A, _, C))
       : this.world.groundAt(e.pos.x, e.pos.z, e.pos.y + 0.3);
@@ -2892,7 +2892,7 @@ const Ar = class Ar {
     c && (l = Math.max(l === -1 / 0 ? -1 / 0 : l, c.y));
     const h =
       s &&
-      (e.type === P.FIGHTER_JET ? i.keys.has("KeyZ") : i.mouseR) &&
+      (e.type === VEHICLE_KIND.FIGHTER_JET ? i.keys.has("KeyZ") : i.mouseR) &&
       !e.grounded;
     (h &&
       !this.planeFreeLook &&
@@ -2901,12 +2901,12 @@ const Ar = class Ar {
       (this.planeFreeLook = h),
       h &&
         ((this.camYaw -= i.mdx * 0.0022),
-        (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -1.55, 1.55))));
-    const d = e.type === P.FIGHTER_JET,
+        (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -1.55, 1.55))));
+    const d = e.type === VEHICLE_KIND.FIGHTER_JET,
       u =
         s && !h
-          ? Ne(
-              -i.mdx * 0.045 * z.aircraftSensitivity +
+          ? clamp(
+              -i.mdx * 0.045 * SETTINGS.aircraftSensitivity +
                 (i.action("left") ? 1 : 0) -
                 (i.action("right") ? 1 : 0),
               -1,
@@ -2916,8 +2916,8 @@ const Ar = class Ar {
       f = d ? 0.048 : 0.04,
       p =
         s && !h
-          ? Ne(
-              -i.mdy * f * z.aircraftSensitivity +
+          ? clamp(
+              -i.mdy * f * SETTINGS.aircraftSensitivity +
                 (i.action("crouch") ? 1 : 0) -
                 (i.action("sprint") ? 1 : 0),
               -1,
@@ -2926,9 +2926,9 @@ const Ar = class Ar {
           : 0,
       m = s ? (i.keys.has("KeyQ") ? 1 : 0) - (i.keys.has("KeyE") ? 1 : 0) : 0;
     if (e.grounded) {
-      e.yaw += u * t * Ne(e.vel.length() / 5, 0, 1);
+      e.yaw += u * t * clamp(e.vel.length() / 5, 0, 1);
       const A = new hi().setFromQuaternion(e.quat, "YXZ");
-      e.quat.setFromEuler(new hi(Ne(A.x, 0, 0.35), e.yaw, 0, "YXZ"));
+      e.quat.setFromEuler(new hi(clamp(A.x, 0, 0.35), e.yaw, 0, "YXZ"));
     }
     (w$(
       e,
@@ -3068,7 +3068,7 @@ const Ar = class Ar {
         .clone()
         .add(new k(0, 0.3, 0).multiply(ms(e.type)).applyQuaternion(e.quat));
       this.projectiles.spawn(
-        pt.BOMB,
+        PROJECTILE_KIND.BOMB,
         A,
         e.vel.clone().multiplyScalar(0.92),
         !0,
@@ -3080,7 +3080,7 @@ const Ar = class Ar {
       const A = new k(),
         _ = new k();
       (oL(e, e.rocketSide, A, _),
-        this.projectiles.spawn(pt.ROCKET, A, _, !0, {
+        this.projectiles.spawn(PROJECTILE_KIND.ROCKET, A, _, !0, {
           ignoreVehicle: e.id,
           serverDriven: !0,
         }),
@@ -3091,7 +3091,7 @@ const Ar = class Ar {
   }
   driveDrone(e, t, i, s) {
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -1.3, 1.3)),
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -1.3, 1.3)),
       (e.yaw = this.camYaw));
     const o = Math.cos(this.camYaw),
       a = Math.sin(this.camYaw),
@@ -3111,7 +3111,7 @@ const Ar = class Ar {
       f = this.speedMul(e);
     (u && d.normalize().multiplyScalar(45 * f),
       e.vel.addScaledVector(d, t),
-      this.currentPlanet === Si.MOON && (e.vel.y -= this.gravity(9.81) * t));
+      this.currentPlanet === CELESTIAL.MOON && (e.vel.y -= this.gravity(9.81) * t));
     const p = this.airDensity();
     (e.vel.multiplyScalar(
       Math.max(0, 1 - (u ? 2.4 * p + 0.35 : 5 * p + 0.5) * t),
@@ -3138,8 +3138,8 @@ const Ar = class Ar {
       (e.vel.multiplyScalar(-0.1), e.pos.copy(y));
     } else e.pos.copy(g);
     e.pos.y < 0.5 && (e.pos.y = 0.5);
-    const b = Ne(-e.vel.dot(c) * 0.022, -0.45, 0.45),
-      S = Ne(-e.vel.dot(h) * 0.022, -0.45, 0.45);
+    const b = clamp(-e.vel.dot(c) * 0.022, -0.45, 0.45),
+      S = clamp(-e.vel.dot(h) * 0.022, -0.45, 0.45);
     ((e.pitch = b),
       (e.roll = S),
       e.quat.setFromEuler(new hi(b, e.yaw, S, "YXZ")),
@@ -3166,7 +3166,7 @@ const Ar = class Ar {
   }
   driveHelicopter(e, t, i, s) {
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -Math.PI / 2, 1.25)),
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -Math.PI / 2, 1.25)),
       (e.aux1 = this.camYaw),
       (e.aux2 = this.camPitch));
     const o = (e.rotorPower ?? 0) >= 1,
@@ -3193,7 +3193,7 @@ const Ar = class Ar {
       f = this.speedMul(e);
     (d.lengthSq() > 0 && d.normalize().multiplyScalar((u ? 13 : 24) * f),
       e.vel.addScaledVector(d, t),
-      this.currentPlanet === Si.MOON && (e.vel.y -= this.gravity(9.81) * t));
+      this.currentPlanet === CELESTIAL.MOON && (e.vel.y -= this.gravity(9.81) * t));
     const p = this.airDensity();
     ((e.vel.x *= Math.max(0, 1 - (1.4 * p + 0.18) * t)),
       (e.vel.z *= Math.max(0, 1 - (1.4 * p + 0.18) * t)),
@@ -3201,7 +3201,7 @@ const Ar = class Ar {
     const m = Math.hypot(e.vel.x, e.vel.z),
       y = (u ? 9.2 : 20.2) * f;
     (m > y && ((e.vel.x *= y / m), (e.vel.z *= y / m)),
-      (e.vel.y = Ne(e.vel.y, u ? -8 : -14, u ? 8 : 14)));
+      (e.vel.y = clamp(e.vel.y, u ? -8 : -14, u ? 8 : 14)));
     const g = e.pos.clone(),
       b = e.pos.clone().addScaledVector(e.vel, t);
     if (
@@ -3231,11 +3231,11 @@ const Ar = class Ar {
       const A = this.deckUnder(e);
       A && ((e.pos.x += A.vx * t), (e.pos.z += A.vz * t));
     }
-    const x = Ne(-e.vel.dot(c) * 0.02, -0.35, 0.35),
-      T = Ne(-e.vel.dot(h) * 0.02, -0.35, 0.35);
+    const x = clamp(-e.vel.dot(c) * 0.02, -0.35, 0.35),
+      T = clamp(-e.vel.dot(h) * 0.02, -0.35, 0.35);
     if (
-      ((e.pitch = Qi(e.pitch, x, Math.min(1, 6 * t))),
-      (e.roll = Qi(e.roll, T, Math.min(1, 6 * t))),
+      ((e.pitch = lerp(e.pitch, x, Math.min(1, 6 * t))),
+      (e.roll = lerp(e.roll, T, Math.min(1, 6 * t))),
       e.quat.setFromEuler(new hi(e.pitch, e.yaw, e.roll, "YXZ")),
       this.spinProps(e, t, 24),
       s && i.mouseL && e.fireCd <= 0)
@@ -3280,10 +3280,10 @@ const Ar = class Ar {
   }
   driveRocket(e, t, i, s) {
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -0.55, 1.25)));
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -0.55, 1.25)));
     const o = s && (i.action("forward") || i.action("jump")),
       a = s && (i.action("back") || i.action("crouch"));
-    e.throttle = Ne(e.throttle + (o ? 0.42 : a ? -0.56 : -0.035) * t, 0, 1);
+    e.throttle = clamp(e.throttle + (o ? 0.42 : a ? -0.56 : -0.035) * t, 0, 1);
     const r = 9.81 * this.gravityScale,
       l = r / 31.5,
       c = this.world.groundAt(e.pos.x, e.pos.z, 126),
@@ -3293,15 +3293,15 @@ const Ar = class Ar {
     if (d) {
       const M = h > 42 ? -7 : h > 16 ? -4.2 : h > 5 ? -2.2 : -0.8,
         x = Math.max(0, M - e.vel.y) * 0.048;
-      e.throttle = Math.max(e.throttle, Ne(l + x, 0, 0.92));
+      e.throttle = Math.max(e.throttle, clamp(l + x, 0, 0.92));
     }
     const u = s ? (i.action("left") ? 1 : 0) - (i.action("right") ? 1 : 0) : 0;
     e.yaw += u * t * (0.35 + e.throttle * 0.35);
     const f = e.grounded || (d && h < 30),
-      p = s && !f ? Ne(-i.mdy * 0.0035, -0.23, 0.23) : 0,
-      m = s && !f ? Ne(i.mdx * 0.0035, -0.23, 0.23) : 0;
-    ((e.pitch = Qi(e.pitch, p, 1 - Math.exp(-(f ? 6.5 : 3.2) * t))),
-      (e.roll = Qi(e.roll, m, 1 - Math.exp(-(f ? 6.5 : 3.2) * t))),
+      p = s && !f ? clamp(-i.mdy * 0.0035, -0.23, 0.23) : 0,
+      m = s && !f ? clamp(i.mdx * 0.0035, -0.23, 0.23) : 0;
+    ((e.pitch = lerp(e.pitch, p, 1 - Math.exp(-(f ? 6.5 : 3.2) * t))),
+      (e.roll = lerp(e.roll, m, 1 - Math.exp(-(f ? 6.5 : 3.2) * t))),
       e.quat.setFromEuler(new hi(e.pitch, e.yaw, e.roll, "YXZ")));
     const y = new k(0, 1, 0).applyQuaternion(e.quat),
       g = 31.5 * e.throttle;
@@ -3346,7 +3346,7 @@ const Ar = class Ar {
   }
   driveHimars(e, t, i, s) {
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -0.35, 1.1)),
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -0.35, 1.1)),
       s && (i.clickR || i.clickL) && this.hooks.openMap("himars"));
     const o = s
         ? (i.action("forward") ? 1 : 0) - (i.action("back") ? 1 : 0)
@@ -3357,10 +3357,10 @@ const Ar = class Ar {
       a *
       t *
       0.72 *
-      Ne(Math.abs(e.speed) / 2.5 + 0.2, 0.2, 1) *
+      clamp(Math.abs(e.speed) / 2.5 + 0.2, 0.2, 1) *
       (e.speed < -0.2 ? -1 : 1);
     const l = o * (o > 0 ? 7.2 : 4) * $v * this.speedMul(e);
-    ((e.speed += Ne(
+    ((e.speed += clamp(
       l - e.speed,
       -(o === 0 ? 3 : 4.8) * t,
       (o === 0 ? 3 : 4.8) * t,
@@ -3382,10 +3382,10 @@ const Ar = class Ar {
       t *
       0.72 *
       c *
-      Ne(Math.abs(e.speed) / 2.5 + 0.2, 0.2, 1) *
+      clamp(Math.abs(e.speed) / 2.5 + 0.2, 0.2, 1) *
       (e.speed < -0.2 ? -1 : 1);
     const d = r * (r > 0 ? o : a) * $v * this.speedMul(e);
-    ((e.speed += Ne(
+    ((e.speed += clamp(
       d - e.speed,
       -(r === 0 ? 3 : 4.8) * c * t,
       (r === 0 ? 3 : 4.8) * c * t,
@@ -3397,7 +3397,7 @@ const Ar = class Ar {
   }
   drivePatriot(e, t, i, s) {
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -0.35, 1.1)),
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -0.35, 1.1)),
       this.driveGround(e, t, i, s, 6, 4),
       this.updatePatriotDefense(e, t));
   }
@@ -3415,7 +3415,7 @@ const Ar = class Ar {
       e.group.position.copy(e.pos),
       e.group.quaternion.copy(e.quat),
       e.group.updateMatrixWorld(!0),
-      e.type === P.BTR_TURRET && e.barrel)
+      e.type === VEHICLE_KIND.BTR_TURRET && e.barrel)
     ) {
       this.fireCannon(e, s.spread);
       return;
@@ -3479,7 +3479,7 @@ const Ar = class Ar {
   }
   driveTurret(e, t, i, s) {
     ((this.camYaw -= i.mdx * 0.0022),
-      (this.camPitch = Ne(this.camPitch - i.mdy * 0.0022, -0.55, 0.95)),
+      (this.camPitch = clamp(this.camPitch - i.mdy * 0.0022, -0.55, 0.95)),
       s &&
         ((e.aux1 = this.camYaw),
         (e.aux2 = this.camYaw),
@@ -3502,7 +3502,7 @@ const Ar = class Ar {
   driveBtrTurret(e, t, i, s) {
     const o = 0.0022 / this.gunZoom;
     (s && (this.camYaw -= i.mdx * o),
-      s && (this.camPitch = Ne(this.camPitch - i.mdy * o, -0.45, 0.9)));
+      s && (this.camPitch = clamp(this.camPitch - i.mdy * o, -0.45, 0.9)));
     const a = e.yaw;
     if (
       (this.driveGround(e, t, i, s, 8.2, 4.5),
@@ -3521,10 +3521,10 @@ const Ar = class Ar {
           Math.cos(c - e.turret.rotation.y),
         ),
         d = this.camMode === 0 ? 6.5 : 4.4;
-      ((e.turret.rotation.y += Ne(h * Math.min(1, t * 14), -d * t, d * t)),
+      ((e.turret.rotation.y += clamp(h * Math.min(1, t * 14), -d * t, d * t)),
         (e.aux1 = e.turret.rotation.y));
-      const u = Ne((l == null ? void 0 : l.pitch) ?? this.camPitch, EK, xK);
-      ((e.aux2 += Ne((u - e.aux2) * Math.min(1, t * 16), -3.2 * t, 3.2 * t)),
+      const u = clamp((l == null ? void 0 : l.pitch) ?? this.camPitch, EK, xK);
+      ((e.aux2 += clamp((u - e.aux2) * Math.min(1, t * 16), -3.2 * t, 3.2 * t)),
         e.barrel && (e.barrel.rotation.x = e.aux2));
     }
     ((e.gunKick = Math.max(0, (e.gunKick ?? 0) - t * 9)),
@@ -3535,7 +3535,7 @@ const Ar = class Ar {
         ((e.gunKick = 1),
         this.effects.addTrauma(this.camMode === 0 ? 0.05 : 0.024),
         this.camMode === 0 &&
-          (this.camPitch = Ne(
+          (this.camPitch = clamp(
             this.camPitch + 0.0035 / this.gunZoom,
             -0.45,
             0.9,
@@ -3552,7 +3552,7 @@ const Ar = class Ar {
           Math.sin(s - e.turret.rotation.y),
           Math.cos(s - e.turret.rotation.y),
         );
-      ((e.turret.rotation.y += Ne(o, -2.5 * t, 2.5 * t)),
+      ((e.turret.rotation.y += clamp(o, -2.5 * t, 2.5 * t)),
         (e.aux1 = e.turret.rotation.y));
     }
     i && e.fireCd <= 0 && (this.fireInterceptor(e, i), (e.fireCd = qH));
@@ -3572,7 +3572,7 @@ const Ar = class Ar {
       o(1, a.id, a.owner, a.pos, a.vel);
     for (const a of this.vehicles.values())
       a !== e &&
-        ((!As(a.type) && a.type !== P.HELI && a.type !== P.DRONE) ||
+        ((!As(a.type) && a.type !== VEHICLE_KIND.HELI && a.type !== VEHICLE_KIND.DRONE) ||
           (a.ownerName &&
             (a.ownerName === e.ownerName ||
               this.hooks.isFriendlyName(a.ownerName))) ||
@@ -3590,7 +3590,7 @@ const Ar = class Ar {
         .normalize()
         .multiplyScalar(s * 0.55)
         .add(new k(0, 22, 0));
-    (this.projectiles.spawn(pt.MISSILE, i, l, !0, {
+    (this.projectiles.spawn(PROJECTILE_KIND.MISSILE, i, l, !0, {
       guide: a,
       speed: s,
       serverDriven: !0,
@@ -3613,15 +3613,15 @@ const Ar = class Ar {
       const f =
         this.camMode === 0 &&
         (this.mineSeat === 0 ||
-          !(i.type === P.HELI || As(i.type) || this.mySeatGun()));
+          !(i.type === VEHICLE_KIND.HELI || As(i.type) || this.mySeatGun()));
       for (const p of i.fpvHide) ol(p, f);
     }
     if (
-      (i.type === P.TANK &&
+      (i.type === VEHICLE_KIND.TANK &&
         i.barrel &&
         ol(i.barrel, this.mineSeat === 0 && this.gunZoom > 2.2),
       this.mineSeat === 0 &&
-        i.type === P.TANK &&
+        i.type === VEHICLE_KIND.TANK &&
         i.barrel &&
         this.gunZoom > 1.05)
     ) {
@@ -3637,7 +3637,7 @@ const Ar = class Ar {
     }
     if (
       this.camMode === 0 ||
-      (this.mineSeat === 0 && i.type === P.BTR_TURRET && this.gunZoom > 1.05)
+      (this.mineSeat === 0 && i.type === VEHICLE_KIND.BTR_TURRET && this.gunZoom > 1.05)
     ) {
       const f =
         this.mineSeat > 0 && this.mySeatGun()
@@ -3650,14 +3650,14 @@ const Ar = class Ar {
       else if (this.mineSeat > 0)
         (this.seatPos(i, this.mineSeat, e.pos),
           e.pos.add(
-            new k(0, i.type === P.HELI ? 1.55 : 0.85, 0).applyQuaternion(
+            new k(0, i.type === VEHICLE_KIND.HELI ? 1.55 : 0.85, 0).applyQuaternion(
               i.quat,
             ),
           ),
           e.quat.setFromEuler(new hi(this.camPitch, this.camYaw, 0, "YXZ")));
       else if (As(i.type)) {
         const p = (
-          i.type === P.FIGHTER_JET
+          i.type === VEHICLE_KIND.FIGHTER_JET
             ? new k(0, 2.32, -2.75)
             : new k(0, 1.62, -0.35).multiply(ms(i.type))
         ).applyQuaternion(i.quat);
@@ -3665,12 +3665,12 @@ const Ar = class Ar {
           this.planeFreeLook
             ? e.quat.setFromEuler(new hi(this.camPitch, this.camYaw, 0, "YXZ"))
             : e.quat.copy(i.quat));
-      } else if (i.type === P.BTR_TURRET && i.turret)
+      } else if (i.type === VEHICLE_KIND.BTR_TURRET && i.turret)
         (i.group.updateMatrixWorld(!0),
           e.pos.copy(i.turret.localToWorld(new k(-0.38, 0.3, -0.34))),
           e.quat.setFromEuler(new hi(this.camPitch, this.camYaw, 0, "YXZ")),
           i.barrel && ol(i.barrel, this.gunZoom > 3));
-      else if (i.type === P.HIMARS || i.type === P.PATRIOT)
+      else if (i.type === VEHICLE_KIND.HIMARS || i.type === VEHICLE_KIND.PATRIOT)
         (e.pos
           .copy(i.pos)
           .add(
@@ -3679,17 +3679,17 @@ const Ar = class Ar {
               .applyQuaternion(i.quat),
           ),
           e.quat.setFromEuler(new hi(this.camPitch, this.camYaw, 0, "YXZ")));
-      else if (i.type === P.TURRET && i.barrel)
+      else if (i.type === VEHICLE_KIND.TURRET && i.barrel)
         (i.group.updateMatrixWorld(!0),
           e.pos.copy(i.barrel.localToWorld(new k(0, 0.72, 0.75))),
           e.quat.setFromEuler(new hi(this.camPitch, this.camYaw, 0, "YXZ")));
-      else if (i.type === P.DRONE) {
+      else if (i.type === VEHICLE_KIND.DRONE) {
         const p = new k(0, 0.28, -0.1).applyQuaternion(i.quat);
         (e.pos.copy(i.pos).add(p),
           e.quat.setFromEuler(
             new hi(this.camPitch, this.camYaw, i.roll * 0.6, "YXZ"),
           ));
-      } else if (i.type === P.HELI) {
+      } else if (i.type === VEHICLE_KIND.HELI) {
         const p = new k(0, 1.55, -1.75)
           .multiply(ms(i.type))
           .applyQuaternion(i.quat);
@@ -3722,7 +3722,7 @@ const Ar = class Ar {
       return ((this.smoothCamInit = !1), this.storeAim(e), !0);
     }
     let o, a;
-    if (!As(i.type) && i.type !== P.DRONE) {
+    if (!As(i.type) && i.type !== VEHICLE_KIND.DRONE) {
       const f = {
           0: -9,
           3: -13,
@@ -3755,7 +3755,7 @@ const Ar = class Ar {
       const m = Math.cos(this.camPitch),
         y = Math.sin(this.camPitch),
         g = new k(-Math.sin(this.camYaw) * m, y, -Math.cos(this.camYaw) * m),
-        b = i.type === P.SUBMARINE ? 2.2 + y * 2.5 : 1 + y * 4;
+        b = i.type === VEHICLE_KIND.SUBMARINE ? 2.2 + y * 2.5 : 1 + y * 4;
       a = o
         .clone()
         .addScaledVector(g, (f[i.type] ?? -9) * ms(i.type).z)
@@ -3776,7 +3776,7 @@ const Ar = class Ar {
           (o = i.pos.clone().addScaledVector(s, 1.8).addScaledVector(f, 7)),
           (a = i.pos
             .clone()
-            .addScaledVector(f, i.type === P.FIGHTER_JET ? -23 : -19)
+            .addScaledVector(f, i.type === VEHICLE_KIND.FIGHTER_JET ? -23 : -19)
             .addScaledVector(s, 5.5)));
       }
     else {
@@ -3838,7 +3838,7 @@ const Ar = class Ar {
   hudInfo(e = !1) {
     const t = this.mine;
     if (!t) return null;
-    const i = (s) => gs(z.binds[s], z.language);
+    const i = (s) => gs(SETTINGS.binds[s], SETTINGS.language);
     return {
       name:
         Zs(t.type) +
@@ -3848,50 +3848,50 @@ const Ar = class Ar {
       hp: t.hp,
       maxHp: t.maxHp,
       speed:
-        this.mineSeat > 0 || t.type === P.DRONE || t.type === P.HELI
+        this.mineSeat > 0 || t.type === VEHICLE_KIND.DRONE || t.type === VEHICLE_KIND.HELI
           ? t.vel.length()
           : Math.abs(t.speed),
       alt: Math.round(t.pos.y),
       flies:
         As(t.type) ||
-        t.type === P.HELI ||
-        t.type === P.DRONE ||
-        t.type === P.SPACE_ROCKET,
+        t.type === VEHICLE_KIND.HELI ||
+        t.type === VEHICLE_KIND.DRONE ||
+        t.type === VEHICLE_KIND.SPACE_ROCKET,
       extra:
         this.mineSeat > 0
           ? this.mySeatGun()
             ? U(e ? "vehSeatGunTouch" : "vehSeatGun")
             : this.canTakeDriver()
-              ? z.language === "en"
+              ? SETTINGS.language === "en"
                 ? `${e ? "Steering wheel" : i("driver")} · Take controls`
                 : `${e ? "Кнопка руля" : i("driver")} · За руль`
               : this.passengerCanShoot()
                 ? U("vehPassengerCanShoot")
                 : U("vehPassengerViewOnly")
           : e && As(t.type)
-            ? z.language === "en"
+            ? SETTINGS.language === "en"
               ? "Stick: throttle/roll · drag: pitch/roll · ↑/↓: pitch · gun / ordnance"
               : "Джойстик: тяга/крен · свайп: тангаж/крен · ↑/↓: нос · пулемёт / боеприпас"
             : e
               ? t.fireCd2 > 0
                 ? U("vehTouchReload", { sec: Math.ceil(t.fireCd2) })
                 : U(
-                    [P.HELI, P.DRONE, P.SUBMARINE, P.SPACE_ROCKET].includes(
+                    [VEHICLE_KIND.HELI, VEHICLE_KIND.DRONE, VEHICLE_KIND.SUBMARINE, VEHICLE_KIND.SPACE_ROCKET].includes(
                       t.type,
                     )
                       ? "vehTouchFly"
                       : "vehTouchDrive",
                   )
-              : t.type === P.TANK
+              : t.type === VEHICLE_KIND.TANK
                 ? U("vehTankInfo")
-                : t.type === P.BOAT
+                : t.type === VEHICLE_KIND.BOAT
                   ? U("vehBoatInfo", {
                       fwd: i("forward"),
                       back: i("back"),
                       left: i("left"),
                       right: i("right"),
                     })
-                  : t.type === P.SUBMARINE
+                  : t.type === VEHICLE_KIND.SUBMARINE
                     ? U("vehSubmarineInfo", {
                         fwd: i("forward"),
                         back: i("back"),
@@ -3906,7 +3906,7 @@ const Ar = class Ar {
                               })
                             : "",
                       })
-                    : t.type === P.CARRIER
+                    : t.type === VEHICLE_KIND.CARRIER
                       ? U("vehCarrierInfo", {
                           fwd: i("forward"),
                           back: i("back"),
@@ -3919,9 +3919,9 @@ const Ar = class Ar {
                                 })
                               : "",
                         })
-                      : t.type === P.HELI
+                      : t.type === VEHICLE_KIND.HELI
                         ? ((t.rotorPower ?? 0) < 1
-                            ? `${z.language === "en" ? "Rotor spin-up" : "Раскрутка винтов"} ${Math.ceil((1 - (t.rotorPower ?? 0)) * 2)}${z.language === "en" ? "s" : "с"} · `
+                            ? `${SETTINGS.language === "en" ? "Rotor spin-up" : "Раскрутка винтов"} ${Math.ceil((1 - (t.rotorPower ?? 0)) * 2)}${SETTINGS.language === "en" ? "s" : "с"} · `
                             : "") +
                           U("vehHeliInfo", {
                             fwd: i("forward"),
@@ -3936,7 +3936,7 @@ const Ar = class Ar {
                                 ? U("vehHeliCargoAttach", { use: i("cargo") })
                                 : "",
                           })
-                        : t.type === P.MORTAR
+                        : t.type === VEHICLE_KIND.MORTAR
                           ? U("vehMortarInfo", {
                               seconds: Math.ceil(
                                 Math.max(
@@ -3945,7 +3945,7 @@ const Ar = class Ar {
                                 ),
                               ),
                             })
-                          : t.type === P.HIMARS
+                          : t.type === VEHICLE_KIND.HIMARS
                             ? U("vehHimarsInfo", {
                                 fwd: i("forward"),
                                 back: i("back"),
@@ -3953,23 +3953,23 @@ const Ar = class Ar {
                                 right: i("right"),
                                 range: nr,
                               })
-                            : t.type === P.PATRIOT
+                            : t.type === VEHICLE_KIND.PATRIOT
                               ? U("vehPatriotInfo", {
                                   fwd: i("forward"),
                                   back: i("back"),
                                   left: i("left"),
                                   right: i("right"),
                                 })
-                              : t.type === P.TURRET
+                              : t.type === VEHICLE_KIND.TURRET
                                 ? U("vehTurretInfo")
-                                : t.type === P.BTR_TURRET
+                                : t.type === VEHICLE_KIND.BTR_TURRET
                                   ? U("vehBtrInfo", {
                                       fwd: i("forward"),
                                       back: i("back"),
                                       left: i("left"),
                                       right: i("right"),
                                     })
-                                  : t.type === P.SPACE_ROCKET
+                                  : t.type === VEHICLE_KIND.SPACE_ROCKET
                                     ? U(
                                         e
                                           ? "vehRocketTouchInfo"
@@ -3986,8 +3986,8 @@ const Ar = class Ar {
                                           ),
                                         },
                                       )
-                                    : t.type === P.FIGHTER_JET
-                                      ? z.language === "en"
+                                    : t.type === VEHICLE_KIND.FIGHTER_JET
+                                      ? SETTINGS.language === "en"
                                         ? `${i("forward")}/${i("back")} throttle · ${i("left")}/${i("right")} roll · mouse pitch/roll · Q/E rudder · Alt/Shift pitch · LMB gun · hold RMB missiles · Z free look`
                                         : e
                                           ? "Джойстик: тяга/крен · свайп: тангаж/крен · ↑: нос вверх · пулемёт / ракета"

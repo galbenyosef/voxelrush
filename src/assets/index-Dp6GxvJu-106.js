@@ -193,7 +193,7 @@ class xY {
     this.root.classList.toggle("hidden", !t);
     const a =
       ((s == null ? void 0 : s.id) ?? "done") +
-      z.language +
+      SETTINGS.language +
       (s ? s.detail(e) : "") +
       e.mobile;
     if (a === this.shownStep) return;

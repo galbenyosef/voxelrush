@@ -21,8 +21,8 @@ function bs(n = 20, e = "") {
 const U2 = 1e3,
   Kw = 2e4,
   E6 = 3,
-  E4 = ["likes", "replies", "retweets", "quotes", "bookmarks"],
-  Yw = { likes: 5, replies: 10, retweets: 25, quotes: 30, bookmarks: 10 },
+  SOCIAL_METRICS = ["likes", "replies", "retweets", "quotes", "bookmarks"],
+  SOCIAL_SCORES = { likes: 5, replies: 10, retweets: 25, quotes: 30, bookmarks: 10 },
   x4 = {
     likes: ["Likes", "Лайки"],
     replies: ["Replies", "Комментарии"],
@@ -76,21 +76,21 @@ const Bg = [
   q5 = 280,
   jK = (n) => [...n.trim()].length + 1 + 23;
 function XK(n) {
-  return E4.filter((e) => n[e] > 0).map((e) => ({
+  return SOCIAL_METRICS.filter((e) => n[e] > 0).map((e) => ({
     metric: e,
     count: n[e],
-    rate: Yw[e],
-    gold: n[e] * Yw[e],
+    rate: SOCIAL_SCORES[e],
+    gold: n[e] * SOCIAL_SCORES[e],
   }));
 }
-const x6 = {
+const SOCIAL_RULES = {
     code: ["No personal link in the post", "В посте нет твоей личной ссылки"],
     missing: ["Post not found or deleted", "Пост не найден или удалён"],
     private: ["The post is private", "Пост скрыт"],
     timeout: ["X did not answer for too long", "X слишком долго не отвечал"],
   },
   Dy = () => document.documentElement.lang === "ru",
-  Ht = (n, e) => (Dy() ? e : n),
+  localized = (n, e) => (Dy() ? e : n),
   Xs = (n) =>
     Math.max(0, Math.floor(n)).toLocaleString(Dy() ? "ru-RU" : "en-US"),
   Yh = (n) =>
@@ -114,9 +114,9 @@ const x6 = {
       '<path d="M6 17c-1.5-1-2-2.6-2-4.5C4 9 6 7 9 6M15 17c-1.5-1-2-2.6-2-4.5C13 9 15 7 18 6"/>',
     bookmarks: '<path d="M6 3h12v18l-6-4-6 4z"/>',
   },
-  Io = (n, e = "") =>
+  wrapSvgIcon = (n, e = "") =>
     `<svg class="sr-ico ${e}" viewBox="0 0 24 24" aria-hidden="true">${n}</svg>`,
-  ep =
+  X_LOGO_SVG =
     '<svg class="sr-x" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>',
   Ta = {
     close: '<path d="m6 6 12 12M6 18 18 6"/>',
@@ -137,10 +137,10 @@ let zt = null,
   jw = 0,
   Xw = 0,
   Y5 = !1;
-const BL = "vr-social-posts",
+const SOCIAL_POSTS_KEY = "vr-social-posts",
   HL = () => {
     try {
-      Ei != null && Ei.posts.length && localStorage.setItem(BL, "1");
+      Ei != null && Ei.posts.length && localStorage.setItem(SOCIAL_POSTS_KEY, "1");
     } catch {}
   };
 let xd = null;
@@ -164,7 +164,7 @@ const A4 = (n) =>
     n instanceof Error &&
     !["TimeoutError", "AbortError", "TypeError"].includes(n.name)
       ? n.message
-      : Ht(
+      : localized(
           "X is not responding right now. Please try again later",
           "X сейчас не отвечает. Попробуйте позже",
         ),
@@ -188,11 +188,11 @@ function Om(n) {
     : `${i}:${String(s).padStart(2, "0")}`;
 }
 function Nm(n) {
-  if (!n) return Ht("not checked yet", "ещё не проверялся");
+  if (!n) return localized("not checked yet", "ещё не проверялся");
   const e = Math.round((Date.now() - Date.parse(n)) / 1e3),
     t = new Intl.RelativeTimeFormat(Dy() ? "ru" : "en", { numeric: "auto" });
   return e < 60
-    ? Ht("just now", "только что")
+    ? localized("just now", "только что")
     : e < 3600
       ? t.format(-Math.round(e / 60), "minute")
       : e < 86400
@@ -204,7 +204,7 @@ async function Hy() {
     (xd = document.activeElement),
     zt.open || zt.showModal(),
     th(),
-    Oa(Ht("Loading…", "Загрузка…")));
+    Oa(localized("Loading…", "Загрузка…")));
   let n = "";
   try {
     (Me || (await _p()), (Ei = await tn("/me/social")), By(Ei.gold), HL());
@@ -221,7 +221,7 @@ async function Hy() {
 let j5 = !1;
 async function T6() {
   try {
-    if (localStorage.getItem(BL) !== "1") return;
+    if (localStorage.getItem(SOCIAL_POSTS_KEY) !== "1") return;
   } catch {
     return;
   }
@@ -260,7 +260,7 @@ function zy() {
                   e &&
                     !n.queued &&
                     Oa(
-                      Ht(
+                      localized(
                         "Checked: no new reactions yet. We keep counting automatically.",
                         "Проверили: новых реакций пока нет. Мы продолжаем считать автоматически.",
                       ),

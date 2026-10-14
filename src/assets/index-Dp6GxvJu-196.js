@@ -94,7 +94,7 @@ class ote {
             return Ns(
               ((g = y.reason) == null ? void 0 : g.trim()) ||
                 U("netConnectionClosed", { url: e }),
-              z.language,
+              SETTINGS.language,
             );
           };
         ((d.onopen = () => {
@@ -106,7 +106,7 @@ class ote {
             this.send(
               new Xe(ue.C_HELLO)
                 .str(t)
-                .str(z.language)
+                .str(SETTINGS.language)
                 .str(this.sessionToken)
                 .str(s),
             ),
@@ -283,7 +283,7 @@ class ote {
               else if (g.type === "ready")
                 ((a = "welcome"),
                   (this.connected = !0),
-                  this.send(new Xe(ue.C_HELLO).str(e).str(z.language)));
+                  this.send(new Xe(ue.C_HELLO).str(e).str(SETTINGS.language)));
               else if (g.type === "packet" && g.data) {
                 const x = new q_(g.data),
                   T = x.u8();

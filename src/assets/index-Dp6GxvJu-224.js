@@ -322,7 +322,7 @@ class Lne {
       this.onSwing());
   }
   knifeStrike() {
-    if (this.held !== E.COMBAT_KNIFE) return;
+    if (this.held !== ITEM.COMBAT_KNIFE) return;
     const e = [rne, lne, cne][this.knifeCombo++ % 3];
     ((this.knifeAnim = {
       keys: e,
@@ -335,7 +335,7 @@ class Lne {
       this.onSwing());
   }
   knifeWindup(e) {
-    this.held === E.COMBAT_KNIFE &&
+    this.held === ITEM.COMBAT_KNIFE &&
       ((this.knifeAnim = { keys: hne, t: 0, dur: e, hold: !0 }),
       (this.swingT = 0));
   }
@@ -412,7 +412,7 @@ class Lne {
     if (this.reloadT >= 0) return "▮▮▮";
     if (this.hooks.isCreative())
       return e.mag === 0 ? "∞" : `${this.rounds(e)} / ∞`;
-    const t = this.held === E.GRENADE ? E.GRENADE : this.loadedAmmo(),
+    const t = this.held === ITEM.GRENADE ? ITEM.GRENADE : this.loadedAmmo(),
       i = t ? this.hooks.countItem(t) : 0;
     return e.mag === 0
       ? String(i)
@@ -423,15 +423,15 @@ class Lne {
   weaponColor() {
     var t;
     const e = uo((t = this.cosmetic) == null ? void 0 : t.skin);
-    return e ? Ho[e.rarity].color : "";
+    return e ? RARITIES[e.rarity].color : "";
   }
   weaponName() {
     var i;
     if (!au.includes(ou(Ti(this.held) || this.held)) || ho(this.held))
       return "";
-    const e = Ti(this.held) ? Ey(this.held, z.language) : Ki(this.held),
+    const e = Ti(this.held) ? Ey(this.held, SETTINGS.language) : Ki(this.held),
       t = uo((i = this.cosmetic) == null ? void 0 : i.skin);
-    return e + (t ? " | " + (z.language === "en" ? t.name : t.ru) : "");
+    return e + (t ? " | " + (SETTINGS.language === "en" ? t.name : t.ru) : "");
   }
   update(e, t, i) {
     var u, f, p, m, y, g, b, S;
@@ -453,14 +453,14 @@ class Lne {
     const s = Cn[this.held],
       o = i.allowFire || !!i.allowReload,
       a = !!s && s.kind !== "grenade" && t.mouseR && this.reloadT < 0 && o;
-    this.adsT = Ne(
+    this.adsT = clamp(
       this.adsT +
         (a ? e / ((s == null ? void 0 : s.adsTime) ?? ha[0]) : -e / 0.11),
       0,
       1,
     );
     const r = !!(s != null && s.zoomFov) && this.adsT > 0.6,
-      l = this.held === E.RPG && this.loadedAmmo() === E.ROCKET_GUIDED;
+      l = this.held === ITEM.RPG && this.loadedAmmo() === ITEM.ROCKET_GUIDED;
     this.lockTarget =
       l && a && !this.ammoPickerOpen
         ? (((f = (u = this.hooks).guidedTarget) == null ? void 0 : f.call(u)) ??
@@ -521,7 +521,7 @@ class Lne {
       }
     } else ((this.reloadHold = 0), this.closeAmmoPicker());
     const h =
-      this.held === E.MINIGUN &&
+      this.held === ITEM.MINIGUN &&
       t.mouseL &&
       i.allowFire &&
       !this.ammoPickerOpen &&
@@ -547,7 +547,7 @@ class Lne {
           (s.auto ? t.mouseL : t.clickL) &&
           (s.mag > 0 && this.rounds(s) <= 0
             ? this.startReload(s)
-            : (this.held !== E.MINIGUN || this.minigunSpinup >= Gv) &&
+            : (this.held !== ITEM.MINIGUN || this.minigunSpinup >= Gv) &&
               this.fire(s)),
       !s &&
         i.allowSwing &&
@@ -598,7 +598,7 @@ class Lne {
           (A.rotation.x += T.rx),
           (A.rotation.y += T.ry),
           (A.rotation.z += T.rz),
-          this.held === E.COMBAT_KNIFE &&
+          this.held === ITEM.COMBAT_KNIFE &&
             (this.current.group.quaternion.slerp(this.inspectKnifeQ, x),
             (this.current.group.position.x -= 0.05 * x),
             (this.current.group.position.y += 0.07 * x)));
@@ -608,10 +608,10 @@ class Lne {
     return {
       fovScale: r
         ? d
-        : Qi(1, s && this.adsT > 0 ? (s.adsZoom ?? YR) : 1, this.adsT),
+        : lerp(1, s && this.adsT > 0 ? (s.adsZoom ?? YR) : 1, this.adsT),
       sensScale: r
         ? d * 1.4
-        : Qi(1, ((s == null ? void 0 : s.adsZoom) ?? YR) * 0.92, this.adsT),
+        : lerp(1, ((s == null ? void 0 : s.adsZoom) ?? YR) * 0.92, this.adsT),
       scoped: r,
       pitchKick: this.framePitchKick,
       adsT: this.adsT,
@@ -805,13 +805,13 @@ class Lne {
     if (!((i = this.current) != null && i.spin)) return;
     this.current.spin.rotation.z += e;
     const t =
-      this.held === E.FISHING_ROD
+      this.held === ITEM.FISHING_ROD
         ? this.current.group.getObjectByName("reel-rotor")
         : null;
     t && (t.rotation.z -= e * 5.2);
   }
   rodCast(e) {
-    if (this.held !== E.FISHING_ROD || !this.current) {
+    if (this.held !== ITEM.FISHING_ROD || !this.current) {
       e();
       return;
     }
@@ -819,7 +819,7 @@ class Lne {
       ((this.rod.castT = 0), (this.rod.release = e), (this.rod.strikeT = -1));
   }
   rodStrike() {
-    this.held === E.FISHING_ROD && (this.rod.strikeT = 0);
+    this.held === ITEM.FISHING_ROD && (this.rod.strikeT = 0);
   }
   rodBusy() {
     return this.rod.castT >= 0;
@@ -836,8 +836,8 @@ class Lne {
   fireEdit(e) {
     var p, m, y, g, b, S, M, x, T, A, _;
     const t =
-        e.item === E.RPG &&
-        this.loadedAmmo() === E.ROCKET_GUIDED &&
+        e.item === ITEM.RPG &&
+        this.loadedAmmo() === ITEM.ROCKET_GUIDED &&
         !!this.lockTarget &&
         this.targetLock.seconds >= S0 &&
         this.lockConfirmed,
@@ -859,7 +859,7 @@ class Lne {
       r = this.prone ? yne : this.crouching ? gne : 1,
       l = Ti(e.item) || e.item,
       c = Xt.weaponSpread(l),
-      h = Qi(e.spread, e.adsSpread, this.adsT) * r * c;
+      h = lerp(e.spread, e.adsSpread, this.adsT) * r * c;
     if (
       ((o.x += (Math.random() - 0.5) * 2 * h),
       (o.y += (Math.random() - 0.5) * 2 * h),
@@ -871,10 +871,10 @@ class Lne {
     )
       return;
     if (!this.hooks.isCreative() && e.mag === 0) {
-      const C = e.item === E.GRENADE ? E.GRENADE : v0[e.item];
+      const C = e.item === ITEM.GRENADE ? ITEM.GRENADE : TOOL_ITEM_BY_BLOCK[e.item];
       if (
         !C ||
-        (e.item === E.GRENADE
+        (e.item === ITEM.GRENADE
           ? this.hooks.countItem(C) < 1
           : !this.hooks.consumeItem(C, 1))
       )
@@ -882,7 +882,7 @@ class Lne {
     }
     ((this.cooldown = 60 / e.rpm),
       e.mag > 0 && this.setMag(e.item, this.rounds(e) - 1),
-      this.hooks.wearHeld(e.item === E.MINIGUN || e.kind === "rocket" ? 2 : 1));
+      this.hooks.wearHeld(e.item === ITEM.MINIGUN || e.kind === "rocket" ? 2 : 1));
     const d =
         (x = (M = this.hooks).personalVehicle) == null ? void 0 : x.call(M),
       u =
@@ -894,7 +894,7 @@ class Lne {
             : this.muzzleWorld(new k()),
       f =
         e.recoil *
-        Qi(1, 0.6, this.adsT) *
+        lerp(1, 0.6, this.adsT) *
         c *
         (this.prone ? bne : this.crouching ? vne : 1) *
         (xne ? wne : 1);
@@ -941,17 +941,17 @@ class Lne {
           ((this.current.flash.visible = !0),
           (this.current.flash.rotation.z = Math.random() * Math.PI * 2)),
         this.effects.flash(u, 2.2, 0.06),
-        e.item === E.GLOCK && (this.slideT = 0.09),
+        e.item === ITEM.GLOCK && (this.slideT = 0.09),
         (this.kickT = 0));
       const L = Ti(e.item) || e.item;
-      L !== E.AWP &&
-        L !== E.SHOTGUN &&
+      L !== ITEM.AWP &&
+        L !== ITEM.SHOTGUN &&
         d === void 0 &&
         !i &&
-        this.ejectCasing(L === E.MINIGUN);
+        this.ejectCasing(L === ITEM.MINIGUN);
     } else if (e.kind === "launcher")
       (this.projectiles.spawn(
-        pt.GRENADE_40MM,
+        PROJECTILE_KIND.GRENADE_40MM,
         u,
         o.clone().multiplyScalar(42),
         !0,
@@ -963,7 +963,7 @@ class Lne {
         this.effects.muzzleSmoke(u, o),
         this.rounds(e) === 0 && this.startReload(e));
     else if (e.kind === "rocket")
-      (this.projectiles.spawn(pt.ROCKET, u, o.clone().multiplyScalar(38), !0, {
+      (this.projectiles.spawn(PROJECTILE_KIND.ROCKET, u, o.clone().multiplyScalar(38), !0, {
         ignoreVehicle: d,
         ...(t && this.lockTarget
           ? {
@@ -982,13 +982,13 @@ class Lne {
     else {
       const C = new k(...V_(o.x, o.y, o.z, this.throwPower));
       (this.projectiles.spawn(
-        pt.GRENADE,
+        PROJECTILE_KIND.GRENADE,
         s.clone().addScaledVector(o, 0.5),
         C,
         !0,
         { ignoreVehicle: d },
       ),
-        this.hooks.isCreative() || this.hooks.consumeItem(E.GRENADE, 1),
+        this.hooks.isCreative() || this.hooks.consumeItem(ITEM.GRENADE, 1),
         (this.swingT = this.swingDur = 0.2 + 0.08 * this.throwPower),
         (this.grenadeHideT = 0.45));
     }
@@ -999,7 +999,7 @@ class Lne {
       s &&
       !this.ammoPickerOpen &&
       this.cooldown <= 0 &&
-      (this.hooks.isCreative() || this.hooks.countItem(E.GRENADE) > 0);
+      (this.hooks.isCreative() || this.hooks.countItem(ITEM.GRENADE) > 0);
     (!t.mouseL && !t.clickL && (this.throwLatch = !1),
       this.throwHold < 0 &&
         o &&
@@ -1091,7 +1091,7 @@ class Lne {
     const a = this.world.raycastBullet(t, i, e.range, e.punch);
     for (const M of a.torn)
       (this.hooks.onHitBlock(M.bx, M.by, M.bz, tP, M.block, M.point, t),
-        this.effects.bulletImpact(M.point, de[M.block].color));
+        this.effects.bulletImpact(M.point, BLOCKS[M.block].color));
     const r = a.hit,
       l = r ? r.dist : e.range,
       c = this.remotes.raycastHit(t, i, l),
@@ -1126,11 +1126,11 @@ class Lne {
     ) {
       m = p.pos;
       const M =
-        p.type === pt.NUCLEAR
-          ? e.item === E.RPG
+        p.type === PROJECTILE_KIND.NUCLEAR
+          ? e.item === ITEM.RPG
             ? KH
             : 1
-          : e.item === E.RPG
+          : e.item === ITEM.RPG
             ? 3
             : 1;
       (this.hooks.onHitProjectile(p.id, p.pos, M),
@@ -1142,7 +1142,7 @@ class Lne {
       (!d || f.dist < d.dist)
     ) {
       m = t.clone().addScaledVector(i, f.dist);
-      const M = Math.round(e.vehDmg * (f.type === P.DRONE ? 4 : 1));
+      const M = Math.round(e.vehDmg * (f.type === VEHICLE_KIND.DRONE ? 4 : 1));
       (this.hooks.onHitVehicle(f.id, Math.max(1, M), m, o ? 5 : 1, t),
         Xt.weaponHit(Ti(e.item) || e.item, e.pellets),
         this.effects.bulletImpact(m, 16764006));
@@ -1182,16 +1182,16 @@ class Lne {
                       r.point,
                       t,
                     ),
-                    this.effects.bulletImpact(m, de[r.block].color),
+                    this.effects.bulletImpact(m, BLOCKS[r.block].color),
                     (S = (b = this.hooks).onBulletHole) == null ||
                       S.call(b, r)))
               : (m = t.clone().addScaledVector(i, e.range));
     if (o && (p || f || d || h || c || r) && !y) {
       const M = Ti(e.item) || e.item,
-        x = M === E.SHOTGUN;
+        x = M === ITEM.SHOTGUN;
       this.hooks.impactExplosion(
         m.clone().addScaledVector(i, -0.04),
-        x ? 0.5 : M === E.AWP ? 1.2 : 0.8,
+        x ? 0.5 : M === ITEM.AWP ? 1.2 : 0.8,
         x ? 4 : 12,
       );
     }
@@ -1208,7 +1208,7 @@ class Lne {
           display: t.getObjectByName("weld-display"),
         });
     if (
-      ((this.weldHeat = Ne(
+      ((this.weldHeat = clamp(
         this.weldHeat + (this.weldActive ? e / 0.12 : -e / 0.9),
         0,
         1,
@@ -1256,15 +1256,15 @@ class Lne {
         (this.current.slide &&
           !this.rig &&
           (this.current.slide.position.z =
-            -0.06 + Math.sin(Ne(this.slideT / 0.09, 0, 1) * Math.PI) * 0.045),
+            -0.06 + Math.sin(clamp(this.slideT / 0.09, 0, 1) * Math.PI) * 0.045),
         this.current.spin)
       ) {
         const I =
-          this.held === E.MINIGUN
+          this.held === ITEM.MINIGUN
             ? this.minigunSpinup > 0
               ? 15 + (70 * this.minigunSpinup) / Gv
               : 0
-            : this.held === E.WELDER
+            : this.held === ITEM.WELDER
               ? this.weldActive
                 ? 9
                 : 0
@@ -1275,12 +1275,12 @@ class Lne {
           (this.current.spin.rotation.z -= this.spinVel * e));
       }
     }
-    this.held === E.WELDER && this.current && this.animateWelder(e);
+    this.held === ITEM.WELDER && this.current && this.animateWelder(e);
     const l = 1 - Math.exp(-14 * e);
     ((this.swayX += (-t.mdx * 0.0016 - this.swayX) * l),
       (this.swayY += (-t.mdy * 0.0016 - this.swayY) * l),
-      (this.swayX = Ne(this.swayX, -0.06, 0.06)),
-      (this.swayY = Ne(this.swayY, -0.06, 0.06)),
+      (this.swayX = clamp(this.swayX, -0.06, 0.06)),
+      (this.swayY = clamp(this.swayY, -0.06, 0.06)),
       (this.recoilZ *= Math.exp(-9 * e)),
       (this.recoilRX *= Math.exp(-9 * e)),
       (this.strideBlend +=
@@ -1295,18 +1295,18 @@ class Lne {
       h =
         this.strideBlend * (0.012 + 0.008 * this.sprintBlend) * (1 - c * 0.85),
       d =
-        this.held === E.CHAINSAW_BASIC ||
-        this.held === E.CHAINSAW_PRO ||
-        this.held === E.CHAINSAW_INDUSTRIAL,
+        this.held === ITEM.CHAINSAW_BASIC ||
+        this.held === ITEM.CHAINSAW_PRO ||
+        this.held === ITEM.CHAINSAW_INDUSTRIAL,
       u = s ? s.hipPos : this.hold ? this.hold.hip : qR(this.held),
       f = s ? s.adsPos : u;
-    let p = Qi(u[0], f[0], c) + Math.cos(this.bobT) * h + this.swayX * 0.4,
+    let p = lerp(u[0], f[0], c) + Math.cos(this.bobT) * h + this.swayX * 0.4,
       m =
-        Qi(u[1], f[1], c) +
+        lerp(u[1], f[1], c) +
         (1 - Math.cos(this.bobT * 2)) * h * 0.4 +
         Math.sin(this.breathTime * 2.2) * 0.0025 * (1 - c) +
         this.swayY * 0.4,
-      y = Qi(u[2], f[2], c) + this.recoilZ,
+      y = lerp(u[2], f[2], c) + this.recoilZ,
       g = this.swayY + this.recoilRX,
       b = this.swayX,
       S = 0;
@@ -1319,7 +1319,7 @@ class Lne {
         d &&
           ((g -= 0.13 + this.miningProgress * 0.1), (b -= 0.08), (S += 0.16)));
     }
-    if (this.held === E.WELDER && this.weldHeat > 0) {
+    if (this.held === ITEM.WELDER && this.weldHeat > 0) {
       const I = this.weldHeat;
       ((g -= 0.16 * I),
         (y -= 0.035 * I),
@@ -1367,7 +1367,7 @@ class Lne {
         (S += O[5]),
         I.t >= 1 && !I.hold && (this.knifeAnim = null));
     }
-    if (this.held === E.FISHING_ROD && this.current) {
+    if (this.held === ITEM.FISHING_ROD && this.current) {
       const I = this.rod;
       let O = 0;
       if (
@@ -1450,11 +1450,11 @@ class Lne {
     const C = this.medical;
     if (
       C &&
-      (this.held === E.BANDAGE ||
-        this.held === E.MEDKIT ||
-        this.held === E.MILITARY_MEDKIT)
+      (this.held === ITEM.BANDAGE ||
+        this.held === ITEM.MEDKIT ||
+        this.held === ITEM.MILITARY_MEDKIT)
     ) {
-      const I = QM(Ne(C.p / 0.16, 0, 1));
+      const I = QM(clamp(C.p / 0.16, 0, 1));
       if (C.kind === "bandage") {
         const O = C.p * Math.PI * 2 * 2.6;
         ((p -= 0.15 * I),
@@ -1488,9 +1488,9 @@ class Lne {
       (b += 0.18 * this.sprintBlend),
       (S += Math.sin(this.bobT) * h * 0.7),
       ((s == null ? void 0 : s.kind) === "launcher" ||
-        this.held === E.MILITARY_MEDKIT) &&
+        this.held === ITEM.MILITARY_MEDKIT) &&
         this.camera.aspect < 1 &&
-        (p *= Qi(Math.max(0.35, this.camera.aspect), 1, c)),
+        (p *= lerp(Math.max(0.35, this.camera.aspect), 1, c)),
       a.position.set(p, m, y),
       a.rotation.set(g, b, S),
       this.rig ||
@@ -1508,10 +1508,10 @@ class Lne {
       const I = 60 / s.rpm,
         O = this.rig.base,
         F =
-          this.cooldown > 0 && (O === E.AWP || O === E.SHOTGUN) && !M
-            ? Ne(
-                (1 - this.cooldown / I - (O === E.AWP ? 0.12 : 0.15)) /
-                  (O === E.AWP ? 0.72 : 0.6),
+          this.cooldown > 0 && (O === ITEM.AWP || O === ITEM.SHOTGUN) && !M
+            ? clamp(
+                (1 - this.cooldown / I - (O === ITEM.AWP ? 0.12 : 0.15)) /
+                  (O === ITEM.AWP ? 0.72 : 0.6),
                 0,
                 1,
               )
@@ -1524,7 +1524,7 @@ class Lne {
         cycle: F > 0 && F < 1 ? F : -1,
         kick: this.kickT,
       }),
-        this.rig.ejectNow && this.ejectCasing(!1, O === E.SHOTGUN));
+        this.rig.ejectNow && this.ejectCasing(!1, O === ITEM.SHOTGUN));
     }
     const R =
       this.popT > 0 && !this.hold

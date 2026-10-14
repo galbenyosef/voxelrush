@@ -15,7 +15,7 @@ function QW(n, e, t, i) {
       c[p] = -1;
       for (let m = Kt - 1; m >= 0; m--) {
         const y = n.getBlock(r + u, m, l + f),
-          g = de[y];
+          g = BLOCKS[y];
         if (!(!g || (!g.solid && !g.liquid))) {
           ((h[p] = y),
             (c[p] = m + (g.liquid ? Ul(n.getMeta(r + u, m, l + f)) : 1)));
@@ -28,14 +28,14 @@ function QW(n, e, t, i) {
       const p = d(u, f),
         m = c[p],
         y = h[p],
-        g = de[y];
+        g = BLOCKS[y];
       if (m < 0 || !g) continue;
       const b = r + u,
         S = l + f,
-        M = g.liquid ? (y === v.LAVA ? a : o) : s,
+        M = g.liquid ? (y === BLOCK.LAVA ? a : o) : s,
         x = g.light / 15;
       ((M.tint =
-        y === v.GRASS || y === v.SAVANNA_GRASS ? kk(i, b, S) : [1, 1, 1]),
+        y === BLOCK.GRASS || y === BLOCK.SAVANNA_GRASS ? kk(i, b, S) : [1, 1, 1]),
         M.rawQuad(
           [
             [b, m, S + 1],
@@ -288,7 +288,7 @@ function sV() {
     e = new Set(),
     t = new Map(),
     i = new Set();
-  for (const c of de)
+  for (const c of BLOCKS)
     if (!(!c || c.id === 0 || c.liquid))
       for (const h of c.tex)
         h < 0 ||

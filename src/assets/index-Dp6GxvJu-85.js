@@ -47,22 +47,22 @@ function Tq(n, e, t) {
       (d.userData.radius = u.geometry.parameters.radiusTop),
       (d.userData.bindQuaternion = d.quaternion.toArray()));
   }),
-    n === P.HELI && e.props.length > 1 && (e.props[1].userData.axis = "x"));
+    n === VEHICLE_KIND.HELI && e.props.length > 1 && (e.props[1].userData.axis = "x"));
   for (const d of e.props) {
     if (
-      n === P.CARRIER ||
-      n === P.TURRET ||
+      n === VEHICLE_KIND.CARRIER ||
+      n === VEHICLE_KIND.TURRET ||
       ((h = d.userData).axis ??
-        (h.axis = n === P.PLANE || n === P.SUBMARINE ? "z" : "y"),
-      !yt(1) || n === P.SUBMARINE)
+        (h.axis = n === VEHICLE_KIND.PLANE || n === VEHICLE_KIND.SUBMARINE ? "z" : "y"),
+      !yt(1) || n === VEHICLE_KIND.SUBMARINE)
     )
       continue;
     const u =
-        n === P.HELI
+        n === VEHICLE_KIND.HELI
           ? d.userData.axis === "x"
             ? 0.65
             : 3.1
-          : n === P.PLANE
+          : n === VEHICLE_KIND.PLANE
             ? 1
             : 0.23,
       f = new le(
@@ -91,8 +91,8 @@ function Tq(n, e, t) {
       for (const y of [-m / 2, m / 2])
         d.add(t(0.035, 0.22, 0.035, r, u, f - 0.1, p + y));
     };
-  if (n !== P.TANK) {
-    if (n === P.PLANE) {
+  if (n !== VEHICLE_KIND.TANK) {
+    if (n === VEHICLE_KIND.PLANE) {
       for (const f of [...i.children])
         f instanceof le &&
           f.geometry instanceof Ct &&
@@ -130,7 +130,7 @@ function Tq(n, e, t) {
         const p = t(0.035, 0.32, 0.6, 2437946, f * 0.354, 1.62, -0.4);
         (i.add(p), (e.fpvHide ?? (e.fpvHide = [])).push(p));
       }
-    } else if (n === P.CARRIER) {
+    } else if (n === VEHICLE_KIND.CARRIER) {
       for (const f of [-1, 1])
         for (let p = -16; p <= 16; p += 4) c(i, f * 5.7, 3.65, p, 3.5);
       {
@@ -139,16 +139,16 @@ function Tq(n, e, t) {
         for (let f = 1.6; f < 5.8; f += 0.75)
           i.add(t(0.04, 0.65, 0.58, 2437946, 5.915, 6.65, f));
       }
-    } else if (n === P.SUBMARINE) {
+    } else if (n === VEHICLE_KIND.SUBMARINE) {
       for (let d = -3.8; d < 4; d += 0.65)
         for (const u of [-1, 1])
           i.add(t(0.025, 0.055, 0.28, a, u * 2.2, 0.64, d));
       (c(i, -0.7, 1.55, -1.2, 1.4), c(i, 0.7, 1.55, -1.2, 1.4));
-    } else if (n === P.DRONE) {
+    } else if (n === VEHICLE_KIND.DRONE) {
       for (const d of [-1, 1])
         i.add(t(0.025, 0.02, 0.28, 12634834, d * 0.1, 0.293, 0));
       i.add(t(0.05, 0.06, 0.06, 2437946, 0, 0.2, -0.253));
-    } else if (n === P.SPACE_ROCKET) {
+    } else if (n === VEHICLE_KIND.SPACE_ROCKET) {
       for (let d = 0; d < 12; d++) {
         const u = (d * Math.PI) / 6,
           f = t(
@@ -212,8 +212,8 @@ function Aq(n, e, t, i, s, o) {
   }
 }
 function _q(n, e, t) {
-  if (n === P.DRONE) return e.clone();
-  const i = n === P.CARRIER,
+  if (n === VEHICLE_KIND.DRONE) return e.clone();
+  const i = n === VEHICLE_KIND.CARRIER,
     s = new k(i ? 0 : 1, 0, i ? -1 : 0).applyQuaternion(t);
   ((s.y = 0), s.lengthSq() < 0.01 && s.set(i ? 0 : 1, 0, i ? -1 : 0));
   const o = e.clone().addScaledVector(s.normalize(), i || As(n) ? 3 : 2.4);
@@ -311,7 +311,7 @@ function _L(n) {
       dr: (s * 2) / (a - 1),
       df: l,
       ext: Math.floor(H2 / l),
-      stiffness: n === P.TANK ? 8.5 : 10,
+      stiffness: n === VEHICLE_KIND.TANK ? 8.5 : 10,
     }),
     jA.set(n, e),
     e

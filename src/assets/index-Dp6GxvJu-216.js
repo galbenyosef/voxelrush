@@ -243,7 +243,7 @@ class Sie {
     this.requested = e;
   }
   setVolume(e) {
-    ((this.volume = Ne(e, 0, 1)),
+    ((this.volume = clamp(e, 0, 1)),
       this.out &&
         this.ctx &&
         this.out.gain.setTargetAtTime(

@@ -5,22 +5,22 @@ function GL(n, e) {
     i = [
       ...(n.bonus
         ? [
-            `<li><span>${ep}${Ht("Post published", "Публикация")}</span><b>+${Xs(n.bonus)}</b></li>`,
+            `<li><span>${X_LOGO_SVG}${localized("Post published", "Публикация")}</span><b>+${Xs(n.bonus)}</b></li>`,
           ]
         : []),
       ...XK(n.gained).map(
         (d) =>
-          `<li><span>${Io(T4[d.metric])}${Ht(...x4[d.metric])} <em>${Xs(d.count)} × ${d.rate}</em></span><b>+${Xs(d.gold)}</b></li>`,
+          `<li><span>${wrapSvgIcon(T4[d.metric])}${localized(...x4[d.metric])} <em>${Xs(d.count)} × ${d.rate}</em></span><b>+${Xs(d.gold)}</b></li>`,
       ),
     ];
   e === "claim" &&
     !n.bonus &&
     i.unshift(
-      `<li class="muted"><span>${Io(Ta.clock)}${Ht("Post bonus: next one in 24 h", "Бонус за пост — снова через 24 ч")}</span><b>0</b></li>`,
+      `<li class="muted"><span>${wrapSvgIcon(Ta.clock)}${localized("Post bonus: next one in 24 h", "Бонус за пост — снова через 24 ч")}</span><b>0</b></li>`,
     );
   const s = zL("div", "sr-reward");
   (s.setAttribute("role", "alertdialog"),
-    s.setAttribute("aria-label", Ht("Reward", "Награда")));
+    s.setAttribute("aria-label", localized("Reward", "Награда")));
   const o = Array.from({ length: 18 }, (d, u) => {
     const f = (u / 18) * Math.PI * 2 + Math.random() * 0.3,
       p = 120 + Math.random() * 90;
@@ -28,13 +28,13 @@ function GL(n, e) {
   }).join("");
   ((s.innerHTML = `<div class="sr-reward-card">
     <div class="sr-burst"><div class="sr-rays"></div><div class="sr-coins">${o}</div><div class="sr-big-coin">${bs(108)}</div></div>
-    <small>${e === "claim" || n.bonus ? Ht("THANK YOU FOR THE SUPPORT!", "СПАСИБО ЗА ПОДДЕРЖКУ!") : Ht("YOUR POSTS EARNED", "ТВОИ ПОСТЫ ПРИНЕСЛИ")}</small>
+    <small>${e === "claim" || n.bonus ? localized("THANK YOU FOR THE SUPPORT!", "СПАСИБО ЗА ПОДДЕРЖКУ!") : localized("YOUR POSTS EARNED", "ТВОИ ПОСТЫ ПРИНЕСЛИ")}</small>
     <b class="sr-amount">+0</b>
-    <span class="sr-amount-label">${Ht("gold coins", "золотых монет")}</span>
+    <span class="sr-amount-label">${localized("gold coins", "золотых монет")}</span>
     <ul class="sr-lines">${i.join("")}</ul>
-    ${n.capped ? `<p class="sr-capped">${Ht("Part of the reward hit a limit.", "Часть награды упёрлась в лимит.")}</p>` : ""}
-    <p class="sr-balance">${Ht("Balance", "Баланс")}: ${bs(16)}<b>${Xs(t)}</b></p>
-    <button type="button" class="sr-primary sr-collect">${Ht("Collect", "Забрать")}</button>
+    ${n.capped ? `<p class="sr-capped">${localized("Part of the reward hit a limit.", "Часть награды упёрлась в лимит.")}</p>` : ""}
+    <p class="sr-balance">${localized("Balance", "Баланс")}: ${bs(16)}<b>${Xs(t)}</b></p>
+    <button type="button" class="sr-primary sr-collect">${localized("Collect", "Забрать")}</button>
   </div>`),
     zt.append(s),
     s.addEventListener("click", (d) => {
@@ -62,8 +62,8 @@ function WL() {
 window.addEventListener("cosmetics-changed", WL);
 const _4 = "mv5sawna-jtl2ka";
 typeof window < "u" && (window.vrBuild = _4);
-const Up = "vr-rejoin",
-  _6 = "vr-update-attempt";
+const REJOIN_KEY = "vr-rejoin",
+  UPDATE_ATTEMPT_KEY = "vr-update-attempt";
 let Jw = "",
   X5 = null;
 function VL() {
@@ -95,29 +95,29 @@ async function R4() {
 }
 function $L(n) {
   try {
-    const e = JSON.parse(sessionStorage.getItem(_6) || "null");
+    const e = JSON.parse(sessionStorage.getItem(UPDATE_ATTEMPT_KEY) || "null");
     if ((e == null ? void 0 : e.build) === Jw && Date.now() - e.at < 12e4)
       return !1;
-    (sessionStorage.setItem(_6, JSON.stringify({ build: Jw, at: Date.now() })),
+    (sessionStorage.setItem(UPDATE_ATTEMPT_KEY, JSON.stringify({ build: Jw, at: Date.now() })),
       n &&
-        sessionStorage.setItem(Up, JSON.stringify({ ...n, at: Date.now() })));
+        sessionStorage.setItem(REJOIN_KEY, JSON.stringify({ ...n, at: Date.now() })));
   } catch {}
   return (location.reload(), !0);
 }
 function nY(n) {
   try {
-    sessionStorage.setItem(Up, JSON.stringify({ ...n, at: Date.now() }));
+    sessionStorage.setItem(REJOIN_KEY, JSON.stringify({ ...n, at: Date.now() }));
   } catch {}
 }
 function sY() {
   try {
-    sessionStorage.removeItem(Up);
+    sessionStorage.removeItem(REJOIN_KEY);
   } catch {}
 }
 function oY() {
   try {
-    const n = sessionStorage.getItem(Up);
-    sessionStorage.removeItem(Up);
+    const n = sessionStorage.getItem(REJOIN_KEY);
+    sessionStorage.removeItem(REJOIN_KEY);
     const e = n ? JSON.parse(n) : null;
     return !e ||
       typeof e.address != "string" ||

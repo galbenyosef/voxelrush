@@ -293,7 +293,7 @@ function zV() {
 }
 function UV(n, e = 0.3) {
   const t = new pe(),
-    i = n === v.RTORCH ? 13648682 : 16763989,
+    i = n === BLOCK.RTORCH ? 13648682 : 16763989,
     s = new le(
       new Ct(e * 0.14, e * 0.95, e * 0.14),
       new gi({ color: 9067051 }),

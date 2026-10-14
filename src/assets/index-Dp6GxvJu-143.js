@@ -433,7 +433,7 @@ class pZ {
   }
   buildFigure(e) {
     var c;
-    const t = _l[e.cls] ?? _l.assault,
+    const t = GAMEMODES[e.cls] ?? GAMEMODES.assault,
       i = ec(e.bot ? (e.ally ? 5662532 : 7022112) : 4809806);
     (e.bot || Wl(i.group, e.character || "ranger", e.custom),
       ih(

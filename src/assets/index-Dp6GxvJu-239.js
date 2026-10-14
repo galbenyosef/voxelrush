@@ -133,7 +133,7 @@ class Zse {
     w(this, "vmLight");
     w(this, "vmKeyLight");
     w(this, "myId", 0);
-    w(this, "currentPlanet", Si.EARTH);
+    w(this, "currentPlanet", CELESTIAL.EARTH);
     w(this, "raidActive", !1);
     w(this, "operations");
     w(this, "raidZone", null);
@@ -163,7 +163,7 @@ class Zse {
     w(this, "minedThisFrame", !1);
     w(this, "medkitCd", 0);
     w(this, "militaryMedkitCd", 0);
-    w(this, "medkitChannelItem", E.MEDKIT);
+    w(this, "medkitChannelItem", ITEM.MEDKIT);
     w(this, "eatCd", 0);
     w(this, "animalVoiceT", 3);
     w(this, "ambienceT", 8);
@@ -180,7 +180,7 @@ class Zse {
     w(this, "deathTimer", 0);
     w(this, "deathCamRoll", 1.2);
     w(this, "reviveUI", new DJ());
-    w(this, "healHud", new CJ(() => z.language === "en"));
+    w(this, "healHud", new CJ(() => SETTINGS.language === "en"));
     w(this, "throwGauge", new kJ());
     w(this, "grenadeWarning", new LJ());
     w(this, "healChannelWas", 0);
@@ -349,7 +349,7 @@ class Zse {
         creative: () => this.inventory.creative,
         me: () => this.sessionName,
         repairTick: (e) => {
-          this.inventory.held() === E.WELDER &&
+          this.inventory.held() === ITEM.WELDER &&
             (this.net.send(new Xe(ue.C_VEH_REPAIR).u16(e)),
             this.weapons.hooks.wearHeld(1));
         },
@@ -433,11 +433,11 @@ class Zse {
           !this.loadingShown &&
             this.player.alive &&
             !V.anyOpen() &&
-            !z.cinematicHud,
+            !SETTINGS.cinematicHud,
         )));
   }
   updateJoinScreen(e) {
-    const t = z.language === "en",
+    const t = SETTINGS.language === "en",
       {
         received: i,
         built: s,
@@ -473,7 +473,7 @@ class Zse {
     const r = o ? Math.min(1, s / 5.5) * (i.sprinting ? 1.25 : 1) : 0;
     if (
       ((this.bobAmp += (r - this.bobAmp) * (1 - Math.exp(-9 * e))),
-      !z.cameraBob)
+      !SETTINGS.cameraBob)
     )
       return;
     const l = (t ? 0.25 : 1) * (i.prone ? 0.35 : i.crouching ? 0.6 : 1),
@@ -531,7 +531,7 @@ class Zse {
       )),
       Lf(this.scene),
       (this.scene.fog = new fp(13625599, 60, 180)),
-      (this.camera = new Cs(z.fov, innerWidth / innerHeight, 0.08, 1500)),
+      (this.camera = new Cs(SETTINGS.fov, innerWidth / innerHeight, 0.08, 1500)),
       (this.camera.rotation.order = "YXZ"),
       this.scene.add(this.camera),
       (this.vision = new sse(this.renderer, this.scene, this.camera)),
@@ -547,7 +547,7 @@ class Zse {
     (i.position.set(0, -0.1, -1),
       this.camera.add(i, this.vmKeyLight),
       (this.vmKeyLight.target = i));
-    const s = z.quality !== "custom" && n8;
+    const s = SETTINGS.quality !== "custom" && n8;
     (VT(s ? Math.min(Ts().modelDetail, 1) : Ts().modelDetail),
       (this.atlas = Bk(s ? Math.min(Ts().textureSize, 64) : Ts().textureSize)),
       (V.atlas = this.atlas),
@@ -556,8 +556,8 @@ class Zse {
       (this.borderVisual = new BZ(this.scene)),
       (this.claimsUI = new DZ(
         this.scene,
-        () => z.nick,
-        () => z.language === "en",
+        () => SETTINGS.nick,
+        () => SETTINGS.language === "en",
       )),
       (this.world.onChestSlam = (a, r, l, c, h) =>
         this.chestSound(a, r, l, !1, h / 3)),
@@ -573,7 +573,7 @@ class Zse {
           h = Math.floor(l);
         for (let d = Math.floor(r); d >= Math.floor(r) - 6 && d >= 0; d--) {
           const u = this.world.getBlock(c, d, h);
-          if (u > 0 && de[u].solid) return d + 1;
+          if (u > 0 && BLOCKS[u].solid) return d + 1;
         }
         return null;
       }),
@@ -593,7 +593,7 @@ class Zse {
         lock: () => {
           V.anyOpen() || this.input.lock();
         },
-        language: () => z.language,
+        language: () => SETTINGS.language,
         balance: () => V.getBalance(),
         connected: () => this.net.connected,
         notify: (a) => V.addChat(1, a),
@@ -614,7 +614,7 @@ class Zse {
         },
       })),
       (this.computer = new JQ(this.scene, {
-        canUse: () => Ap(Ca, su, "computer.use"),
+        canUse: () => Ap(localRole, ownerPermissions, "computer.use"),
         send: (a) =>
           this.net.send(new Xe(ue.C_COMPUTER).str(JSON.stringify(a))),
         unlock: () => {
@@ -626,7 +626,7 @@ class Zse {
         lock: () => {
           V.anyOpen() || this.input.lock();
         },
-        language: () => z.language,
+        language: () => SETTINGS.language,
         notify: (a) => V.addChat(1, a),
         held: () => this.inventory.held(),
         raycast: (a, r, l) => this.world.raycast(a, r, l),
@@ -640,7 +640,7 @@ class Zse {
       (this.front = new EZ({
         send: (a) => this.net.send(new Xe(ue.C_FRONT).str(JSON.stringify(a))),
         scene: this.scene,
-        lang: () => z.language,
+        lang: () => SETTINGS.language,
         mobile: this.input.mobile,
         lockInput: () => {
           V.anyOpen() || this.input.lock();
@@ -779,7 +779,7 @@ class Zse {
           const d = this.tmpCrush.set(a.x, h - 0.55, a.z),
             u =
               (f =
-                de[
+                BLOCKS[
                   this.world.getBlock(
                     Math.floor(a.x),
                     Math.floor(h) - 1,
@@ -810,8 +810,8 @@ class Zse {
       (this.drops = new Pie(this.scene, this.atlas.texture, this.world)),
       (this.drops.onTake = (a) => this.net.send(new Xe(ue.C_DROP_TAKE).u16(a))),
       (this.backpacks = new Nie(this.scene, this.world)),
-      this.sfx.setVolume(z.sfxVolume),
-      this.music.setVolume(z.musicVolume),
+      this.sfx.setVolume(SETTINGS.sfxVolume),
+      this.music.setVolume(SETTINGS.musicVolume),
       this.applyQuality(),
       this.wireHooks(),
       this.wireUI(),
@@ -838,13 +838,13 @@ class Zse {
             !this.player.downed &&
             (!this.remote.open || !!this.vehicles.mine)
           ) ||
-          z.mobileLayoutEdit ||
+          SETTINGS.mobileLayoutEdit ||
           this.vehicles.driving()
         )
           return;
         const l = this.inventory.held();
         l <= 0 ||
-          (l >= 256 && l !== E.COMPUTER && !wo(l) && !Tl(l)) ||
+          (l >= 256 && l !== ITEM.COMPUTER && !wo(l) && !slotGameByIndex(l)) ||
           this.placeHeld(
             this.player.eyePos(this.tmpV),
             this.player.lookDir(this.tmpV2),
@@ -860,7 +860,7 @@ class Zse {
           !this.remote.blocking &&
           !this.input.locked &&
           (this.input.mobile || this.input.lock(),
-          z.autoFullscreen &&
+          SETTINGS.autoFullscreen &&
             !document.fullscreenElement &&
             ((r = (a = document.documentElement).requestFullscreen) == null ||
               r.call(a).catch(() => {})));
@@ -901,7 +901,7 @@ class Zse {
         var a, r;
         this.running &&
           !this.input.mobile &&
-          z.autoFullscreen &&
+          SETTINGS.autoFullscreen &&
           !document.fullscreenElement &&
           ((r = (a = document.documentElement).requestFullscreen) == null ||
             r.call(a).catch(() => {}));
@@ -968,9 +968,9 @@ class Zse {
           (a.preventDefault(), V.showPause());
           return;
         }
-        const r = z.binds.inventory,
-          l = z.binds.shop,
-          c = z.binds.map;
+        const r = SETTINGS.binds.inventory,
+          l = SETTINGS.binds.shop,
+          c = SETTINGS.binds.map;
         if (
           (V.invOpen &&
             (a.code === r || a.code === "Escape") &&
@@ -1023,7 +1023,7 @@ class Zse {
       Xt.reset(),
       (Xt.send = (h) => this.net.send(new Xe(ue.C_SKILLS).str(h))),
       (Xt.onLevelUp = (h, d) => {
-        const u = z.language === "en",
+        const u = SETTINGS.language === "en",
           f = Xt.label(h),
           p = Xt.effect(h, d);
         (V.addChat(
@@ -1042,7 +1042,7 @@ class Zse {
         ? this.loadSessionStorage(t, i)
         : (this.initialize(t, i), (this.initialized = !0)),
       this.wireNet());
-    const s = z.language === "en",
+    const s = SETTINGS.language === "en",
       o =
         G2 ||
         (t === "local"
@@ -1142,7 +1142,7 @@ class Zse {
   async followServerRestart() {
     if (this.followingRestart) return;
     ((this.followingRestart = !0), ml.hide());
-    const e = G2 || z.server.replace(/^wss?:\/\//, "");
+    const e = G2 || SETTINGS.server.replace(/^wss?:\/\//, "");
     (V.showLoading(!0, U("updateServerUpdating"), e),
       V.loading.setProgress(0.15),
       V.loading.creep(0.8),
@@ -1152,14 +1152,14 @@ class Zse {
         this.running &&
         (V.loading.setProgress(0.35, U("updateLoadingVersion")),
         this.sendInventory(),
-        $L({ address: z.server, name: e }))
+        $L({ address: SETTINGS.server, name: e }))
       ) && V.loading.setProgress(0.35, U("updateReconnecting")));
   }
   offerUpdate() {
     ml.updateReady(() => {
       (!this.localSinglePlayer &&
-        z.server &&
-        nY({ address: z.server, name: G2 || z.server }),
+        SETTINGS.server &&
+        nY({ address: SETTINGS.server, name: G2 || SETTINGS.server }),
         this.end());
     });
   }
@@ -1179,7 +1179,7 @@ class Zse {
         (this.blockFxCount++,
         this.effects.blockBreak(
           new k(e + 0.5, t + 0.5, i + 0.5),
-          ((a = de[s]) == null ? void 0 : a.color) ?? 8947848,
+          ((a = BLOCKS[s]) == null ? void 0 : a.color) ?? 8947848,
           s,
         )));
   }
@@ -1252,17 +1252,17 @@ class Zse {
           this.player.pos.set(i.f32(), i.f32(), i.f32()),
           (this.timeOfDay = i.u32()),
           (this.world.seed = i.u32()),
-          (this.currentPlanet = i.remaining() > 0 ? i.u8() : Si.EARTH),
+          (this.currentPlanet = i.remaining() > 0 ? i.u8() : CELESTIAL.EARTH),
           V.setWaypointPlanet(this.currentPlanet),
-          (this.player.gravityScale = this.currentPlanet === Si.MOON ? wp : 1),
-          this.sky.setLunar(this.currentPlanet === Si.MOON),
+          (this.player.gravityScale = this.currentPlanet === CELESTIAL.MOON ? wp : 1),
+          this.sky.setLunar(this.currentPlanet === CELESTIAL.MOON),
           this.vehicles.setPlanet(this.currentPlanet),
           this.projectiles.setPlanet(this.currentPlanet),
           this.drops.setPlanet(this.currentPlanet),
           this.backpacks.setPlanet(this.currentPlanet),
           this.bots.setEnabled(!0),
-          this.animals.setEnabled(this.currentPlanet === Si.EARTH),
-          this.worldSites.setEnabled(this.currentPlanet === Si.EARTH),
+          this.animals.setEnabled(this.currentPlanet === CELESTIAL.EARTH),
+          this.worldSites.setEnabled(this.currentPlanet === CELESTIAL.EARTH),
           (s = this.weather) == null || s.dispose(),
           (this.weather = new ese(
             this.scene,
@@ -1345,21 +1345,21 @@ class Zse {
       }),
       e.on(ue.S_SQUAD, (i) => {
         var o, a;
-        const s = (o = Po(z.nick)) == null ? void 0 : o.id;
+        const s = (o = Po(SETTINGS.nick)) == null ? void 0 : o.id;
         (jz(JSON.parse(i.str())),
           this.remotes.refreshRoles(),
           this.renderTab(),
           V.refreshMap(),
           (this.invDirty = !0),
           (this.compassRefreshAt = 0),
-          s !== ((a = Po(z.nick)) == null ? void 0 : a.id) &&
+          s !== ((a = Po(SETTINGS.nick)) == null ? void 0 : a.id) &&
             this.shareWaypoint());
       }),
       e.on(ue.S_FRIENDS, (i) => {
         var s;
         this.friends.clear();
         for (let o = 0, a = i.u8(); o < a; o++) this.friends.add(i.str());
-        (Kz(z.nick, this.friends),
+        (Kz(SETTINGS.nick, this.friends),
           this.remotes.refreshRoles(),
           (s = this.claimsUI) == null || s.updateFriends([...this.friends]),
           this.renderTab(),
@@ -1384,7 +1384,7 @@ class Zse {
             d = i.f32(),
             u = i.u16(),
             f = i.u8(),
-            p = i.remaining() > 0 ? i.u8() : Si.EARTH,
+            p = i.remaining() > 0 ? i.u8() : CELESTIAL.EARTH,
             m = i.remaining() > 0 ? i.u8() : 0;
           if (a !== this.myId)
             (this.remotes.setState(a, r, l, c, h, d, u, f, p, m),
@@ -1549,7 +1549,7 @@ class Zse {
         var o, a;
         const s = i.u8();
         ((o = this.weather) == null ||
-          o.setMode(this.currentPlanet === Si.MOON ? 0 : s),
+          o.setMode(this.currentPlanet === CELESTIAL.MOON ? 0 : s),
           i.u16(),
           i.remaining() >= 8 &&
             ((this.windX = i.f32()),
@@ -1569,7 +1569,7 @@ class Zse {
             (l = this.autumn) == null || l.setBloodMoon(o > 0.5));
           return;
         }
-        this.currentPlanet === Si.EARTH &&
+        this.currentPlanet === CELESTIAL.EARTH &&
           ((c = this.autumn) == null || c.fx(s, o, a, r, this.player.pos));
       }),
       e.on(ue.S_LIGHTNING, (i) => {
@@ -1577,7 +1577,7 @@ class Zse {
         const s = i.f32(),
           o = i.f32(),
           a = i.f32();
-        if (this.currentPlanet === Si.MOON) return;
+        if (this.currentPlanet === CELESTIAL.MOON) return;
         (c = this.weather) == null || c.strike(s, o, a);
         const r = new k(s, o, a),
           l = this.effectExposure(r);
@@ -1585,7 +1585,7 @@ class Zse {
           this.sfx.explosion(r.distanceTo(this.player.pos), l));
       }),
       e.on(ue.S_CONCUSSION, (i) => {
-        const s = Ne(i.f32(), 0, 1),
+        const s = clamp(i.f32(), 0, 1),
           o = i.u16();
         (this.effects.addTrauma(0.25 + s * 0.75),
           this.sfx.concussion(s, o),
@@ -1755,7 +1755,7 @@ class Zse {
           f = i.f32(),
           p = i.u8(),
           m = W$(p),
-          y = i.remaining() > 0 ? i.u8() : Si.EARTH;
+          y = i.remaining() > 0 ? i.u8() : CELESTIAL.EARTH;
         if (
           (this.vehicles.onSpawn(
             s,
@@ -1763,7 +1763,7 @@ class Zse {
             a,
             r,
             l,
-            lC[o],
+            VEHICLE_ARMOR[o],
             c === 65535 ? -1 : c,
             h === 65535 ? -1 : h,
             d,
@@ -1897,7 +1897,7 @@ class Zse {
           m = Number.isFinite(p) && p <= o.y + 0.6 ? p : o.y,
           y =
             (S =
-              de[
+              BLOCKS[
                 this.world.getBlock(
                   Math.floor(o.x),
                   Math.floor(m) - 1,
@@ -1942,7 +1942,7 @@ class Zse {
           r = new k(i.f32(), i.f32(), i.f32()),
           l = new k(i.f32(), i.f32(), i.f32()),
           c =
-            a === E.PLANE
+            a === ITEM.PLANE
               ? s
                 ? this.vehicles.remoteSeatShot(s, r)
                 : this.vehicles.botSeatShot(r)
@@ -1975,8 +1975,8 @@ class Zse {
           ? c.heavy
             ? "hmg"
             : "mg"
-          : a === E.PLANE
-            ? this.vehicles.typeNear(r, 3.2) === P.BTR_TURRET
+          : a === ITEM.PLANE
+            ? this.vehicles.typeNear(r, 3.2) === VEHICLE_KIND.BTR_TURRET
               ? "autocannon"
               : "mg"
             : (((A = Cn[a]) == null ? void 0 : A.sfx) ?? "ak");
@@ -1998,23 +1998,23 @@ class Zse {
           l = new k(i.f32(), i.f32(), i.f32()),
           c = new k(i.f32(), i.f32(), i.f32()),
           h = r & 1 ? new k(i.f32(), i.f32(), i.f32()) : null,
-          d = i.remaining() > 0 ? i.u8() : Si.EARTH,
+          d = i.remaining() > 0 ? i.u8() : CELESTIAL.EARTH,
           u = i.remaining() >= 2 ? i.u16() : 65535,
           f = i.remaining() >= 4 ? i.f32() : void 0,
           p = i.remaining() ? i.u8() : 0;
         if (d !== this.currentPlanet) return;
         const m =
-            a === pt.TOMAHAWK || a === pt.NUCLEAR || a === pt.MISSILE
+            a === PROJECTILE_KIND.TOMAHAWK || a === PROJECTILE_KIND.NUCLEAR || a === PROJECTILE_KIND.MISSILE
               ? [...this.vehicles.vehicles.values()].find(
                   (T) =>
                     T.driver === s &&
-                    (T.type === P.CARRIER ||
-                      T.type === P.SUBMARINE ||
-                      T.type === P.HIMARS ||
-                      T.type === P.PATRIOT),
+                    (T.type === VEHICLE_KIND.CARRIER ||
+                      T.type === VEHICLE_KIND.SUBMARINE ||
+                      T.type === VEHICLE_KIND.HIMARS ||
+                      T.type === VEHICLE_KIND.PATRIOT),
                 )
               : void 0,
-          y = a === pt.TOMAHAWK ? oC : a === pt.NUCLEAR ? rC : void 0,
+          y = a === PROJECTILE_KIND.TOMAHAWK ? oC : a === PROJECTILE_KIND.NUCLEAR ? rC : void 0,
           g = this.projectiles.spawn(a, l, c, !1, {
             id: o,
             owner: s,
@@ -2030,23 +2030,23 @@ class Zse {
         if (
           (g &&
             ((b = this.vehicles.vehicles.get(u)) == null ? void 0 : b.type) ===
-              P.TANK &&
+              VEHICLE_KIND.TANK &&
             this.vehicles.tankLaunch(u, l, this.camera.position),
           g &&
             ((S = this.vehicles.vehicles.get(u)) == null ? void 0 : S.type) ===
-              P.MORTAR &&
+              VEHICLE_KIND.MORTAR &&
             this.vehicles.mortarLaunch(u, l, this.camera.position),
           g &&
-            a === pt.SHELL &&
+            a === PROJECTILE_KIND.SHELL &&
             ((M = this.vehicles.vehicles.get(u)) == null ? void 0 : M.type) !==
-              P.TANK)
+              VEHICLE_KIND.TANK)
         ) {
           const T = l.distanceTo(this.camera.position);
           T < 240 &&
             this.sfx.shot(
               ((x = this.vehicles.vehicles.get(u)) == null
                 ? void 0
-                : x.type) === P.PLANE
+                : x.type) === VEHICLE_KIND.PLANE
                 ? "mg"
                 : "tank",
               T,
@@ -2054,15 +2054,15 @@ class Zse {
               0.7,
             );
         }
-        if (g && s !== this.myId && (a === pt.MISSILE || a === pt.ROCKET)) {
+        if (g && s !== this.myId && (a === PROJECTILE_KIND.MISSILE || a === PROJECTILE_KIND.ROCKET)) {
           const T = l.distanceTo(this.camera.position);
           T < 150 && this.sfx.shot("rpg", T, !1, this.effectExposure(l));
         }
         (g &&
-          a === pt.TOMAHAWK &&
+          a === PROJECTILE_KIND.TOMAHAWK &&
           this.sfx.tomahawkLaunch(l.distanceTo(this.camera.position)),
           g &&
-            a === pt.NUCLEAR &&
+            a === PROJECTILE_KIND.NUCLEAR &&
             this.sfx.nuclearLaunch(l.distanceTo(this.camera.position)));
       }),
       e.on(ue.S_TANK_AIM, (i) => {
@@ -2320,7 +2320,7 @@ class Zse {
           if (h === "frontline" || h === "tdm") {
             this.front.activate(h === "tdm" ? "tdm" : "conquest");
             const d = l.frontMap,
-              u = (r = Yc(d)) == null ? void 0 : r.haze;
+              u = (r = resolveMap(d)) == null ? void 0 : r.haze;
             (this.sky.setHaze(
               (u == null ? void 0 : u.color) ?? null,
               u == null ? void 0 : u.horizon,
@@ -2468,23 +2468,23 @@ class Zse {
         this.animals.onEvent(s, o);
         const a = this.animals.positionOf(s),
           r = a ? a.distanceTo(this.player.pos) : 999;
-        if (this.animals.typeOf(s) === Nt.WENDIGO) {
+        if (this.animals.typeOf(s) === ANIMAL_KIND.WENDIGO) {
           (l = this.autumn) == null ||
             l.wendigoEvent(o, a, r, this.player.yaw, this.player.pos);
           return;
         }
         r > 30 ||
-          (o === Ra.EGG
+          (o === ANIMAL_PRODUCT.EGG
             ? this.sfx.eggLaid()
-            : o === Ra.SHEARED
+            : o === ANIMAL_PRODUCT.SHEARED
               ? this.sfx.shear()
-              : o === Ra.MILKED
+              : o === ANIMAL_PRODUCT.MILKED
                 ? this.sfx.milk()
-                : o === Ra.EAT
+                : o === ANIMAL_PRODUCT.EAT
                   ? this.sfx.graze(r)
-                  : o === Ra.DRANK
+                  : o === ANIMAL_PRODUCT.DRANK
                     ? this.sfx.graze(r)
-                    : o === Ra.BITE &&
+                    : o === ANIMAL_PRODUCT.BITE &&
                       (this.sfx.sharkBite(r),
                       a &&
                         (this.effects.bloodHit(a), this.effects.splash(a, 6))));
@@ -2515,7 +2515,7 @@ class Zse {
           a = i.f32(),
           r = i.f32(),
           l = i.f32(),
-          c = i.remaining() > 0 ? i.u8() : Si.EARTH,
+          c = i.remaining() > 0 ? i.u8() : CELESTIAL.EARTH,
           h = i.remaining() >= 2 ? i.u16() : 0;
         if (c !== this.currentPlanet) return;
         const d = (m = this.fishing.positionOf(s)) == null ? void 0 : m.clone(),
@@ -2552,7 +2552,7 @@ class Zse {
         ((o = this.operations) == null ||
           o.receive(
             s.channel,
-            this.currentPlanet === Si.EARTH ? s.state : null,
+            this.currentPlanet === CELESTIAL.EARTH ? s.state : null,
           ),
           V.setOperationPoints(
             ((a = this.operations) == null ? void 0 : a.points()) ?? [],
@@ -2781,7 +2781,7 @@ class Zse {
             !this.world.chestLids.isOpen(s, o, a) &&
             this.chestSound(s, o, a, !0),
           c || this.world.chestLids.setOpen(s, o, a, !0),
-          V.openChest(l, kd(de[this.world.getBlock(s, o, a)])),
+          V.openChest(l, kd(BLOCKS[this.world.getBlock(s, o, a)])),
           c || this.input.unlock());
       }),
       e.on(ue.S_CHEST_LID, (i) => {
@@ -2805,7 +2805,7 @@ class Zse {
           a = i.f32(),
           r = i.f32(),
           l = i.f32(),
-          c = i.remaining() > 0 ? i.u8() : Si.EARTH;
+          c = i.remaining() > 0 ? i.u8() : CELESTIAL.EARTH;
         this.backpacks.onSpawn(s, o, a, r, l, c);
       }),
       e.on(ue.S_BACKPACK_REMOVE, (i) => {
@@ -2856,7 +2856,7 @@ class Zse {
           d = i.remaining() >= 2 ? i.u16() : 0,
           u = i.remaining() >= 2 ? i.u16() : 0,
           f = i.remaining() >= 2 ? i.u16() : void 0,
-          p = i.remaining() > 0 ? i.u8() : Si.EARTH,
+          p = i.remaining() > 0 ? i.u8() : CELESTIAL.EARTH,
           m = i.remaining() >= 2 ? JSON.parse(i.str()) : void 0;
         this.drops.onSpawn(s, o, a, r, l, c, h, d, u, f, p, m);
       }),
@@ -2937,7 +2937,7 @@ class Zse {
       (this.compassRefreshAt = 0),
       (this.minimapLastZoom = 0),
       V.refreshMap(),
-      wH(e, t, z.language === "en" ? "en" : "ru", () => {
+      wH(e, t, SETTINGS.language === "en" ? "en" : "ru", () => {
         const i = this.world.readiness(
           this.player.pos.x,
           this.player.pos.z,
@@ -2947,8 +2947,8 @@ class Zse {
       }));
   }
   beginPlanetTransition(e, t, i, s, o) {
-    const a = e === Si.MOON,
-      r = (h, d) => (z.language === "ru" ? d : h),
+    const a = e === CELESTIAL.MOON,
+      r = (h, d) => (SETTINGS.language === "ru" ? d : h),
       l = document.createElement("div");
     ((l.id = "planet-transition"),
       (l.innerHTML = `<div class="orbit-lines"></div><div class="planet-disc ${a ? "moon" : "earth"}"></div>
@@ -2979,7 +2979,7 @@ class Zse {
           this.animals.clear(),
           this.worldSites.clear(),
           this.nuclearStrikes.clear(),
-          (this.currentPlanet = a ? Si.MOON : Si.EARTH),
+          (this.currentPlanet = a ? CELESTIAL.MOON : CELESTIAL.EARTH),
           V.setWaypointPlanet(this.currentPlanet),
           (this.compassRefreshAt = 0),
           this.world.clearDimension(),
@@ -3038,7 +3038,7 @@ class Zse {
               .map((d) => ({
                 kind: 2,
                 id: d.id,
-                name: z.language === "en" ? "Soldier" : "Боец",
+                name: SETTINGS.language === "en" ? "Soldier" : "Боец",
                 pos: d.pos.clone().add(new k(0, 1.1, 0)),
               })),
             ...this.remotes
@@ -3119,7 +3119,7 @@ class Zse {
         this.combatUntil = performance.now() + r3;
         const r = new Xe(ue.C_HIT_PLAYER)
           .u16(e)
-          .u8(Ne(t, 0, 255))
+          .u8(clamp(t, 0, 255))
           .u16(i)
           .u8(s)
           .u32(this.playerEpochs.get(e) ?? 0);
@@ -3141,7 +3141,7 @@ class Zse {
         this.combatUntil = performance.now() + r3;
         const r = new Xe(ue.C_HIT_BOT)
           .u16(e)
-          .u8(Ne(t, 0, 255))
+          .u8(clamp(t, 0, 255))
           .u16(i)
           .u8(s);
         (o && a && r.f32(o.x).f32(o.y).f32(o.z).f32(a.x).f32(a.y).f32(a.z),
@@ -3150,7 +3150,7 @@ class Zse {
           this.sfx.hitmark());
       },
       onHitAnimal: (e, t) => {
-        (this.net.send(new Xe(ue.C_HIT_ANIMAL).u16(e).u8(Ne(t, 0, 255))),
+        (this.net.send(new Xe(ue.C_HIT_ANIMAL).u16(e).u8(clamp(t, 0, 255))),
           V.hitmark(),
           this.sfx.hitmark());
       },
@@ -3215,7 +3215,7 @@ class Zse {
       consumeItem: (e, t) => {
         if (this.front.endlessAmmo(e)) return !0;
         const i =
-          e === E.GRENADE && t === 1 && this.inventory.held() === e
+          e === ITEM.GRENADE && t === 1 && this.inventory.held() === e
             ? this.inventory.consumeHeld()
             : this.inventory.consumeItem(e, t);
         return (
@@ -3226,7 +3226,7 @@ class Zse {
       wearHeld: (e = 1) => {
         this.inventory.creative ||
           this.net.send(
-            new Xe(ue.C_ITEM_WEAR).u8(this.inventory.sel).u8(Ne(e, 1, 255)),
+            new Xe(ue.C_ITEM_WEAR).u8(this.inventory.sel).u8(clamp(e, 1, 255)),
           );
       },
     }),
@@ -3251,7 +3251,7 @@ class Zse {
           const l = new Xe(ue.C_PROJECTILE)
             .u32(e)
             .u8(t)
-            .u8((o ? 1 : 0) | (a ? (t === pt.ROCKET ? 4 : 8) : 0))
+            .u8((o ? 1 : 0) | (a ? (t === PROJECTILE_KIND.ROCKET ? 4 : 8) : 0))
             .f32(i.x)
             .f32(i.y)
             .f32(i.z)
@@ -3259,7 +3259,7 @@ class Zse {
             .f32(s.y)
             .f32(s.z);
           (o && l.f32(o.x).f32(o.y).f32(o.z),
-            a && (l.u8(a), t === pt.ROCKET ? l.u16(r ?? 0) : l.u32(r ?? 0)),
+            a && (l.u8(a), t === PROJECTILE_KIND.ROCKET ? l.u16(r ?? 0) : l.u32(r ?? 0)),
             this.net.send(l));
         },
         vehicleImpact: (e, t) => this.vehicles.projHit(e, t),
@@ -3324,7 +3324,7 @@ class Zse {
           (this.planeMg(e, t, i), this.input.mobile && vo("light", 65));
         },
         lookOf: (e) => this.remotes.lookOf(e),
-        seatGunBusy: () => this.inventory.held() === E.WELDER,
+        seatGunBusy: () => this.inventory.held() === ITEM.WELDER,
         seatGunOverheat: (e) => {
           (this.sfx.barrelHiss(),
             this.effects.exhaust(e, this.tmpV.set(0, 0.6, 0), 1),
@@ -3347,7 +3347,7 @@ class Zse {
         launchRocket: (e, t) => {
           var i;
           (this.projectiles.spawn(
-            pt.ROCKET,
+            PROJECTILE_KIND.ROCKET,
             e,
             t.clone().multiplyScalar(42),
             !0,
@@ -3379,7 +3379,7 @@ class Zse {
           e === this.myId ||
           this.friends.has(this.remotes.getName(e)) ||
           Xa(this.remotes.getName(e)),
-        isFriendlyName: (e) => e === z.nick || this.friends.has(e) || Xa(e),
+        isFriendlyName: (e) => e === SETTINGS.nick || this.friends.has(e) || Xa(e),
         battleSide: (e) => {
           var t;
           return !((t = this.front) != null && t.active) ||
@@ -3427,7 +3427,7 @@ class Zse {
       }),
       (V.onChatSend = (e) => {
         var r;
-        const t = rM(e, z.language) ?? aM(e, z.language);
+        const t = rM(e, SETTINGS.language) ?? aM(e, SETTINGS.language);
         if (t) {
           V.addChat(2, t);
           return;
@@ -3435,7 +3435,7 @@ class Zse {
         if (e.startsWith("/") && !Ja(e)) {
           V.addChat(
             2,
-            Ns("You do not have permission to use this command", z.language),
+            Ns("You do not have permission to use this command", SETTINGS.language),
           );
           return;
         }
@@ -3444,7 +3444,7 @@ class Zse {
           i === "invalid" &&
             V.addChat(
               2,
-              z.language === "en"
+              SETTINGS.language === "en"
                 ? "This choice is unavailable. Open chat again and use a number shown in the mission panel."
                 : "Этот вариант недоступен. Откройте чат снова и введите номер из панели миссии.",
             );
@@ -3480,11 +3480,11 @@ class Zse {
               ? this.effects.timeScale < 1
                 ? 1
                 : 0.25
-              : Ne(Number(a[1]) || 1, 0.05, 1);
+              : clamp(Number(a[1]) || 1, 0.05, 1);
           ((this.effects.timeScale = l),
             V.addChat(
               1,
-              z.language === "en"
+              SETTINGS.language === "en"
                 ? l < 1
                   ? `Slow motion ×${l} · /slowmo off`
                   : "Slow motion off"
@@ -3503,14 +3503,14 @@ class Zse {
           !e.startsWith("/") &&
           !/^help$/i.test(e.trim())
         ) {
-          const l = this.chatRate.wait(Go);
-          if (l > 0) return (V.addChat(2, _Y(l, z.language)), !1);
-          this.chatRate.record(Go);
+          const l = this.chatRate.wait(gamemode);
+          if (l > 0) return (V.addChat(2, _Y(l, SETTINGS.language)), !1);
+          this.chatRate.record(gamemode);
         }
         this.net.send(
           new Xe(ue.C_CHAT)
             .str(e)
-            .u8(Go === "squad" ? 1 : Go === "team" ? 2 : 0),
+            .u8(gamemode === "squad" ? 1 : gamemode === "team" ? 2 : 0),
         );
       }),
       (V.onUiOpen = () => this.input.unlockForUi()),
@@ -3603,7 +3603,7 @@ class Zse {
         return (
           ((e = this.ownAppearance) == null ? void 0 : e.owner) ??
           (Me == null ? void 0 : Me.id) ??
-          z.nick
+          SETTINGS.nick
         );
       }),
       (V.onInventoryPreview = (e) => {
@@ -3616,7 +3616,7 @@ class Zse {
         const t = this.ownAppearance ?? {
           character: Ot.character,
           custom: Ot.custom,
-          owner: (Me == null ? void 0 : Me.id) ?? z.nick,
+          owner: (Me == null ? void 0 : Me.id) ?? SETTINGS.nick,
         };
         this.inventoryPreview.show(
           t,
@@ -3825,13 +3825,13 @@ class Zse {
         Rg((S = this.vehicles.mine) == null ? void 0 : S.type),
       o =
         !i &&
-        ((M = this.vehicles.mine) == null ? void 0 : M.type) === P.BTR_TURRET,
+        ((M = this.vehicles.mine) == null ? void 0 : M.type) === VEHICLE_KIND.BTR_TURRET,
       a = (i == null ? void 0 : i.soldier) ?? (o ? 14 : 8),
       r = (i == null ? void 0 : i.hull) ?? (o ? 9 : 5),
       l = this.world.raycastBullet(e, t, s, 2);
     for (const x of l.torn)
       (this.weapons.hooks.onHitBlock(x.bx, x.by, x.bz, tP, x.block, x.point, e),
-        this.effects.bulletImpact(x.point, de[x.block].color));
+        this.effects.bulletImpact(x.point, BLOCKS[x.block].color));
     const c = l.hit,
       h = c ? c.dist : s,
       d = this.remotes.raycastHit(e, t, h),
@@ -3863,7 +3863,7 @@ class Zse {
         ? ((b = e.clone().addScaledVector(t, m.dist)),
           this.weapons.hooks.onHitVehicle(
             m.id,
-            m.type === P.DRONE ? 20 : r,
+            m.type === VEHICLE_KIND.DRONE ? 20 : r,
             e.clone().addScaledVector(t, m.dist),
             1,
             e,
@@ -3875,11 +3875,11 @@ class Zse {
             this.effects.bloodHit(b))
           : g(u, d)
             ? ((b = u.point),
-              this.weapons.hooks.onHitBot(u.id, a, E.PLANE, u.region),
+              this.weapons.hooks.onHitBot(u.id, a, ITEM.PLANE, u.region),
               this.effects.bloodHit(b))
             : d
               ? ((b = d.point),
-                this.weapons.hooks.onHitPlayer(d.id, a, E.PLANE, d.region),
+                this.weapons.hooks.onHitPlayer(d.id, a, ITEM.PLANE, d.region),
                 this.effects.bloodHit(b))
               : c
                 ? ((b = c.point),
@@ -3894,13 +3894,13 @@ class Zse {
                         c.point,
                         e,
                       ),
-                      this.effects.bulletImpact(b, de[c.block].color)))
+                      this.effects.bulletImpact(b, BLOCKS[c.block].color)))
                 : (b = e.clone().addScaledVector(t, s)),
       this.effects.tracer(e, b),
       this.sfx.shot(o ? "autocannon" : i != null && i.heavy ? "hmg" : "mg"),
       this.net.send(
         new Xe(ue.C_SHOT)
-          .u16(E.PLANE)
+          .u16(ITEM.PLANE)
           .f32(e.x)
           .f32(e.y)
           .f32(e.z)
@@ -3908,7 +3908,7 @@ class Zse {
           .f32(t.y)
           .f32(t.z),
       ),
-      this.noteShot(E.PLANE));
+      this.noteShot(ITEM.PLANE));
   }
   noteShot(e) {
     (this.shotsSent++,
@@ -3932,7 +3932,7 @@ class Zse {
     if (t.splashImpact > 0) {
       const r = Math.floor(t.pos.y + 0.6) + 1;
       (this.effects.splash(this.tmpV.set(t.pos.x, r, t.pos.z), t.splashImpact),
-        this.sfx.splash(Ne(t.splashImpact / 12, 0.3, 1.4)),
+        this.sfx.splash(clamp(t.splashImpact / 12, 0.3, 1.4)),
         (t.splashImpact = 0));
     }
     const i = this.camera.position,
@@ -3941,7 +3941,7 @@ class Zse {
           Math.floor(i.x),
           Math.floor(i.y),
           Math.floor(i.z),
-        ) === v.LAVA,
+        ) === BLOCK.LAVA,
       o = this.world.isWaterAt(i.x, i.y, i.z);
     if (((this.inLava = s), o)) {
       let r = Math.floor(i.y);
@@ -3974,8 +3974,8 @@ class Zse {
       const c = r.fog && !this.vehicles.airborneFixedWing,
         h = c ? l * o8(l) : 9999,
         d = c ? l * s8 : 1e4;
-      ((a.near = Qi(h, 0.1, this.underwaterMix)),
-        (a.far = Qi(d, s ? 3 : 26, this.underwaterMix)),
+      ((a.near = lerp(h, 0.1, this.underwaterMix)),
+        (a.far = lerp(d, s ? 3 : 26, this.underwaterMix)),
         this.underwaterMix > 0.001 &&
           a.color.lerp(s ? Vse : $se, this.underwaterMix));
     }
@@ -3994,7 +3994,7 @@ class Zse {
     if (!s.length) {
       V.addChat(
         1,
-        `/fx <${i.join("|")}|all> [${z.language === "en" ? "distance" : "дистанция"}] · /slowmo 0.3 · /bombtest`,
+        `/fx <${i.join("|")}|all> [${SETTINGS.language === "en" ? "distance" : "дистанция"}] · /slowmo 0.3 · /bombtest`,
       );
       return;
     }
@@ -4009,7 +4009,7 @@ class Zse {
             ? d.point.clone().addScaledVector(new k(d.nx, d.ny, d.nz), 0.3)
             : o.clone().addScaledVector(a, t || Math.max(14, c.radius * 3.2)),
           f = d ? new k(d.nx, d.ny, d.nz) : new k(0, 1, 0);
-        s.length > 1 && V.addChat(1, z.language === "en" ? c.en : c.ru);
+        s.length > 1 && V.addChat(1, SETTINGS.language === "en" ? c.en : c.ru);
         const p = this.effectExposure(u);
         (this.effects.explosion(u, c.radius, this.camera.position, p, c.fx, f),
           this.sfx.blast(
@@ -4041,11 +4041,11 @@ class Zse {
         (this.viewBeforeDisguise = this.thirdPerson),
       (this.thirdPerson = !0),
       (this.frontView = !1),
-      V.setHint(U("disguiseHint", { what: dG(e, z.language === "en") })));
+      V.setHint(U("disguiseHint", { what: dG(e, SETTINGS.language === "en") })));
   }
   chestSound(e, t, i, s, o = 1) {
     const a = this.world.getBlock(e, t, i),
-      r = a === v.MILITARY_CHEST,
+      r = a === BLOCK.MILITARY_CHEST,
       l = this.camera.position,
       c = e + 0.5 - l.x,
       h = i + 0.5 - l.z,
@@ -4123,20 +4123,20 @@ class Zse {
     ((this.frameIntervalMs = e ? 1e3 / 60 - 1.5 : 0),
       (this.reviveUI.noFilter = e));
     const s =
-        z.quality !== "custom" &&
+        SETTINGS.quality !== "custom" &&
         this.input.mobile &&
         Math.min(innerWidth, innerHeight) <= 700,
       o = s
         ? Math.min(
             i.renderDist,
-            z.quality === "ultra" ? 9 : z.quality === "high" ? 8 : 6,
+            SETTINGS.quality === "ultra" ? 9 : SETTINGS.quality === "high" ? 8 : 6,
           )
         : i.renderDist,
       a = s ? Math.min(i.pixelRatio, 1.15) : i.pixelRatio,
       r = s ? Math.min(i.shadowSize, 1024) : i.shadowSize,
-      l = z.quality !== "custom" && this.input.mobile ? !1 : i.chunkShadows,
-      c = z.quality !== "custom" && this.input.mobile ? !1 : i.smoothLighting,
-      h = z.quality !== "custom" && this.input.mobile,
+      l = SETTINGS.quality !== "custom" && this.input.mobile ? !1 : i.chunkShadows,
+      c = SETTINGS.quality !== "custom" && this.input.mobile ? !1 : i.smoothLighting,
+      h = SETTINGS.quality !== "custom" && this.input.mobile,
       d = h ? Math.min(i.textureSize, 64) : i.textureSize,
       u = h ? Math.min(i.modelDetail, 1) : i.modelDetail,
       f = h ? Math.min(i.environmentDetail, 1) : i.environmentDetail;
@@ -4169,7 +4169,7 @@ class Zse {
       this.sky.setSunShafts(i.sunShafts),
       this.sky.setClouds(i.clouds),
       this.sky.setCloudRange(o * 16 + 112),
-      this.shaders.configure(e ? 0 : z.shaders, {
+      this.shaders.configure(e ? 0 : SETTINGS.shaders, {
         msaa: i.antialias,
         clouds: i.clouds,
       }),
@@ -4190,11 +4190,11 @@ class Zse {
       (S = this.weather) == null || S.setParticleScale(i.particles),
       this.worldSites.setQuality(f),
       this.world.setEnvironmentDetail(f),
-      this.world.setWindSway(z.windSway),
+      this.world.setWindSway(SETTINGS.windSway),
       (M = this.autumn) == null ||
         M.setOptions({
-          fallingLeaves: z.fallingLeaves,
-          screamers: z.screamers,
+          fallingLeaves: SETTINGS.fallingLeaves,
+          screamers: SETTINGS.screamers,
           particles: i.particles,
         }),
       (x = this.autumn) == null ||
@@ -4265,7 +4265,7 @@ class Zse {
           : o.cosmetic,
         ((a = this.ownAppearance) == null ? void 0 : a.owner) ??
           (Me == null ? void 0 : Me.id) ??
-          z.nick,
+          SETTINGS.nick,
       ),
       this.inventoryReady &&
         (e || this.lastCosmeticSlot !== this.inventory.sel) &&
@@ -4377,7 +4377,7 @@ class Zse {
         )));
   }
   shareWaypoint() {
-    if (!this.running || !Po(z.nick)) return;
+    if (!this.running || !Po(SETTINGS.nick)) return;
     const e = V.getWaypoint();
     this.net.send(
       new Xe(ue.C_SQUAD).str(
@@ -4421,12 +4421,12 @@ class Zse {
     const e = Date.now();
     for (const [u, f] of this.nuclearStrikes)
       f.expiresAt <= e && this.nuclearStrikes.delete(u);
-    const t = this.currentPlanet === Si.EARTH,
+    const t = this.currentPlanet === CELESTIAL.EARTH,
       i =
-        (l = Po(z.nick)) == null
+        (l = Po(SETTINGS.nick)) == null
           ? void 0
           : l.members.find(
-              (u) => u.username.toLowerCase() === z.nick.toLowerCase(),
+              (u) => u.username.toLowerCase() === SETTINGS.nick.toLowerCase(),
             ),
       s = [
         {
@@ -4435,7 +4435,7 @@ class Zse {
           color: i ? W2(i.slot) : "#f3f7ff",
           kind: "player",
           heading: this.viewHeading(),
-          label: i ? z.nick : void 0,
+          label: i ? SETTINGS.nick : void 0,
         },
       ];
     t &&
@@ -4447,7 +4447,7 @@ class Zse {
         kind: "home",
       });
     const o = V.getWaypoint();
-    o && !Po(z.nick) && s.push({ x: o.x, z: o.z, color: h_, kind: "waypoint" });
+    o && !Po(SETTINGS.nick) && s.push({ x: o.x, z: o.z, color: h_, kind: "waypoint" });
     for (const u of pg)
       u.planet === this.currentPlanet &&
         s.push({ ...u, kind: "waypoint", label: u.username });
@@ -4542,7 +4542,7 @@ class Zse {
       const f = !u.hostile && Xa(u.ownerName),
         p =
           !u.hostile &&
-          (u.ownerName === z.nick || this.friends.has(u.ownerName) || f),
+          (u.ownerName === SETTINGS.nick || this.friends.has(u.ownerName) || f),
         m = f
           ? (h = Po(u.ownerName)) == null
             ? void 0
@@ -4585,7 +4585,7 @@ class Zse {
       const f =
           !!((d = this.claimsUI) != null && d.ownerAllows(u.ownerName)) ||
           Xa(u.ownerName),
-        p = u.ownerName === Mo;
+        p = u.ownerName === RAID_LABEL;
       s.push({
         x: u.x,
         z: u.z,
@@ -4617,8 +4617,8 @@ class Zse {
   openHimarsMap() {
     const e = this.vehicles.mine;
     if (!e || V.mapOpen) return;
-    const t = e.type === P.MORTAR,
-      i = e.type === P.TANK;
+    const t = e.type === VEHICLE_KIND.MORTAR,
+      i = e.type === VEHICLE_KIND.TANK;
     if (t && e.carrierReadyAt > Date.now()) {
       V.addChat(
         2,
@@ -4671,7 +4671,7 @@ class Zse {
   openNuclearMap() {
     const e = this.vehicles.mine;
     !e ||
-      e.type !== P.SUBMARINE ||
+      e.type !== VEHICLE_KIND.SUBMARINE ||
       V.mapOpen ||
       (V.openNuclearMap(
         (t, i, s) => this.world.surfaceColor(t, i, s),
@@ -4813,7 +4813,7 @@ class Zse {
     (r || (this.medkitChannel = 0),
       this.player.downed && (this.weapons.reloadT = -1),
       a &&
-        (this.player.look(this.input.mdx, this.input.mdy, z.sensitivity),
+        (this.player.look(this.input.mdx, this.input.mdy, SETTINGS.sensitivity),
         (this.medkitChannel = 0),
         (this.bandageChannel = 0),
         (this.mining = null)));
@@ -4837,7 +4837,7 @@ class Zse {
               )
                 ? this.world.getBlock(Ke, ot, q)
                 : -1,
-            z.language === "en",
+            SETTINGS.language === "en",
           ))
         : (ve = this.blueprintPreview) == null || ve.hide(),
       (this.world.previewChunks =
@@ -4856,7 +4856,7 @@ class Zse {
         !s &&
         (this.input.locked || this.input.mobile) &&
         ((this.soldierYaw -= this.input.mdx * 0.0022),
-        (this.soldierPitch = Ne(
+        (this.soldierPitch = clamp(
           this.soldierPitch - this.input.mdy * 0.0022,
           -1.55,
           1.55,
@@ -4910,8 +4910,8 @@ class Zse {
           Te ||
           ft ||
           !!He ||
-          !!(Ie && (Qe = de[Ie.block]) != null && Qe.interactive),
-        Rt = P,
+          !!(Ie && (Qe = BLOCKS[Ie.block]) != null && Qe.interactive),
+        Rt = VEHICLE_KIND,
         Wt = this.vehicles.mine,
         ei = Wt == null ? void 0 : Wt.type,
         ti = l && this.vehicles.mineSeat > 0;
@@ -4928,7 +4928,7 @@ class Zse {
         Ws = !1;
       const ic = !l || this.vehicles.passengerCanShoot();
       if (ti) {
-        const sc = this.vehicles.passengerCanRepair() && Ke === E.WELDER;
+        const sc = this.vehicles.passengerCanRepair() && Ke === ITEM.WELDER;
         ((Ni =
           this.vehicles.passengerCanShoot() ||
           sc ||
@@ -4995,7 +4995,7 @@ class Zse {
       else
         (ot
           ? (Zn = "bullet")
-          : Ie && ((Je = de[Ie.block]) == null ? void 0 : Je.hardness) >= 0
+          : Ie && ((Je = BLOCKS[Ie.block]) == null ? void 0 : Je.hardness) >= 0
             ? (Zn = "pickaxe")
             : (Zn = "fist"),
           (un =
@@ -5011,15 +5011,15 @@ class Zse {
         !this.player.seated &&
         !this.mounted &&
         ((Yo = !0),
-        Ke === E.FISHING_ROD
+        Ke === ITEM.FISHING_ROD
           ? ((vn = "cast"), (Yo = !1))
           : this.spawnNotice.kioskAt(this.player.pos, this.currentPlanet)
             ? (vn = "teleport")
             : Pt
               ? (vn = "hand")
-              : He || (Ie && (Bx(Ie.block) || Ie.block === v.FURNACE))
+              : He || (Ie && (Bx(Ie.block) || Ie.block === BLOCK.FURNACE))
                 ? (vn = "open")
-                : Ie && (Z = de[Ie.block]) != null && Z.interactive
+                : Ie && (Z = BLOCKS[Ie.block]) != null && Z.interactive
                   ? (vn = "hand")
                   : (W = this.worldSites.nearestFlag(this.player.pos, 6)) !=
                         null && W.supplyReady
@@ -5031,16 +5031,16 @@ class Zse {
                         : ((Yo = !1),
                           (vn =
                             (Ke > 0 && Ke < 256) ||
-                            Ke === E.COMPUTER ||
+                            Ke === ITEM.COMPUTER ||
                             wo(Ke) ||
-                            Tl(Ke) ||
+                            slotGameByIndex(Ke) ||
                             xa(Ke)
                               ? "place"
                               : j0[Ke]
                                 ? "eat"
-                                : Ke === E.MEDKIT ||
-                                    Ke === E.MILITARY_MEDKIT ||
-                                    Ke === E.BANDAGE
+                                : Ke === ITEM.MEDKIT ||
+                                    Ke === ITEM.MILITARY_MEDKIT ||
+                                    Ke === ITEM.BANDAGE
                                   ? "heal"
                                   : Fc(Ke)
                                     ? "equip"
@@ -5135,7 +5135,7 @@ class Zse {
       }),
         V.setMobileLightState(
           "flashlight",
-          !!z.lightOn[this.flashlightKey(Ke)],
+          !!SETTINGS.lightOn[this.flashlightKey(Ke)],
         ),
         V.setMobileLightState(
           "headlights",
@@ -5143,8 +5143,8 @@ class Zse {
         ),
         V.setMobileIcon("mobfire", Zn),
         V.setMobileIcon("mobaim", Ws ? "bomb-view" : "aim"));
-      const q4 = Ke === E.MOBILE_REMOTE && (!l || ti) && !this.remote.open,
-        K4 = Ke === E.WELDER && !l;
+      const q4 = Ke === ITEM.MOBILE_REMOTE && (!l || ti) && !this.remote.open,
+        K4 = Ke === ITEM.WELDER && !l;
       (V.setMobileIcon("mobuse", q4 ? "station" : K4 ? "welder" : vn),
         V.setMobileCue("mobuse", { ready: Yo && !q4 && !K4 }));
       const rP =
@@ -5183,7 +5183,7 @@ class Zse {
       }),
         V.setMobileIcon(
           "mobvision",
-          !this.vehicles.jetSensors && Vs === E.THERMAL_GOGGLES
+          !this.vehicles.jetSensors && Vs === ITEM.THERMAL_GOGGLES
             ? "thermal"
             : "night-vision",
         ),
@@ -5198,7 +5198,7 @@ class Zse {
         (tv.classList.toggle("active", this.vision.mode !== "off"),
         tv.classList.toggle(
           "thermal",
-          !this.vehicles.jetSensors && Vs === E.THERMAL_GOGGLES,
+          !this.vehicles.jetSensors && Vs === ITEM.THERMAL_GOGGLES,
         ));
     }
     if (
@@ -5255,13 +5255,13 @@ class Zse {
       else if (this.input.actionPressed("map")) {
         const ot = this.vehicles.mine;
         (l &&
-        ((ot == null ? void 0 : ot.type) === P.TANK ||
-          (ot == null ? void 0 : ot.type) === P.HIMARS ||
-          (ot == null ? void 0 : ot.type) === P.MORTAR)
+        ((ot == null ? void 0 : ot.type) === VEHICLE_KIND.TANK ||
+          (ot == null ? void 0 : ot.type) === VEHICLE_KIND.HIMARS ||
+          (ot == null ? void 0 : ot.type) === VEHICLE_KIND.MORTAR)
           ? this.openHimarsMap()
-          : l && (ot == null ? void 0 : ot.type) === P.CARRIER
+          : l && (ot == null ? void 0 : ot.type) === VEHICLE_KIND.CARRIER
             ? this.openCarrierMap()
-            : l && (ot == null ? void 0 : ot.type) === P.SUBMARINE
+            : l && (ot == null ? void 0 : ot.type) === VEHICLE_KIND.SUBMARINE
               ? this.openNuclearMap()
               : this.openWorldMap(),
           this.input.unlock());
@@ -5269,10 +5269,10 @@ class Zse {
       else if (this.input.actionPressed("skills")) this.openSkills();
       else if (this.input.actionPressed("use")) {
         if (this.remote.viewing >= 0) this.net.send(new Xe(ue.C_REMOTE).u8(8));
-        else if (this.inventory.held() === E.MOBILE_REMOTE)
+        else if (this.inventory.held() === ITEM.MOBILE_REMOTE)
           this.openMobileStation();
         else if (!(
-          this.inventory.held() === E.RADIO_MODULE && this.installRadio()
+          this.inventory.held() === ITEM.RADIO_MODULE && this.installRadio()
         ))
           if (l) this.vehicles.requestExit();
           else if (this.player.seated) this.requestChairExit();
@@ -5284,7 +5284,7 @@ class Zse {
               ye = this.animals.nearestRideable(this.player.pos, 4.2);
             if (
               xa(this.inventory.held()) ||
-              this.inventory.held() === E.DETONATOR
+              this.inventory.held() === ITEM.DETONATOR
             )
               this.input.clickR = !0;
             else if (!(
@@ -5296,7 +5296,7 @@ class Zse {
                 if (ye) this.net.send(new Xe(ue.C_ANIMAL_RIDE).u16(ye.id));
                 else if (!this.tryInteract(ot, q)) {
                   const Ie = this.inventory.held();
-                  Wv[Ie] !== void 0 || Ie === E.FISHING_ROD
+                  BIOME_BY_DYE[Ie] !== void 0 || Ie === ITEM.FISHING_ROD
                     ? (this.input.clickR = !0)
                     : !this.vehicles.tryEnter(this.player.pos) &&
                       !Cn[Ie] &&
@@ -5363,11 +5363,11 @@ class Zse {
       (this.player.look(
         this.input.mdx,
         this.input.mdy,
-        z.sensitivity * this.sensScale,
+        SETTINGS.sensitivity * this.sensScale,
       ),
       f &&
         ((this.player.yaw += f.yaw),
-        (this.player.pitch = Ne(this.player.pitch + f.pitch, -1.55, 1.55)))),
+        (this.player.pitch = clamp(this.player.pitch + f.pitch, -1.55, 1.55)))),
       r &&
         !l &&
         this.player.seated &&
@@ -5403,7 +5403,7 @@ class Zse {
     if (
       (l &&
         p &&
-        p.type !== P.DRONE &&
+        p.type !== VEHICLE_KIND.DRONE &&
         !this.remote.open &&
         (this.vehicles.mineSeat > 0 && Ea.hasOpenSeats(p.type)
           ? this.vehicles.seatPos(p, this.vehicles.mineSeat, this.player.pos)
@@ -5438,7 +5438,7 @@ class Zse {
       _$(performance.now() / 1e3, this.sky.dayness));
     const g = this.bots.visibleHostileCount(u),
       b = this.vehicles.visibleRaidCount(u),
-      S = this.raidActive && g + b >= z.militaryOptimizationThreshold;
+      S = this.raidActive && g + b >= SETTINGS.militaryOptimizationThreshold;
     if (
       (r && this.input.actionPressed("driver") && this.vehicles.takeDriver(),
       r && this.input.actionPressed("seat") && this.vehicles.cycleSeat(),
@@ -5457,7 +5457,7 @@ class Zse {
       l &&
         !this.remote.open &&
         this.vehicles.mine &&
-        this.vehicles.mine.type !== P.DRONE &&
+        this.vehicles.mine.type !== VEHICLE_KIND.DRONE &&
         (this.vehicles.mineSeat > 0 && Ea.hasOpenSeats(this.vehicles.mine.type)
           ? this.vehicles.seatPos(
               this.vehicles.mine,
@@ -5514,12 +5514,12 @@ class Zse {
         e,
         this.world.seed,
         u,
-        this.currentPlanet === Si.EARTH,
-        z.language === "en",
+        this.currentPlanet === CELESTIAL.EARTH,
+        SETTINGS.language === "en",
       )),
       (V.mapSeed =
-        this.currentPlanet === Si.EARTH && !M ? this.world.seed : null));
-    const x = M && !!((Se = Yc(this.front.mapId)) != null && Se.petals);
+        this.currentPlanet === CELESTIAL.EARTH && !M ? this.world.seed : null));
+    const x = M && !!((Se = resolveMap(this.front.mapId)) != null && Se.petals);
     ((!M || x) &&
       (this.autumn ||
         ((this.autumn = new hee(
@@ -5531,8 +5531,8 @@ class Zse {
           (Ke) => this.effects.addTrauma(Ke),
         )),
         this.autumn.setOptions({
-          fallingLeaves: z.fallingLeaves,
-          screamers: z.screamers,
+          fallingLeaves: SETTINGS.fallingLeaves,
+          screamers: SETTINGS.screamers,
           particles: Ts().particles,
         }),
         this.autumn.setPixelScale(this.renderer.domElement.height)),
@@ -5541,7 +5541,7 @@ class Zse {
         camera: this.camera,
         yaw: this.player.yaw,
         dayness: this.sky.dayness,
-        earth: this.currentPlanet === Si.EARTH,
+        earth: this.currentPlanet === CELESTIAL.EARTH,
         raining:
           (((et = this.weather) == null ? void 0 : et.rainAt(u.x, u.z)) ?? 0) >
           0,
@@ -5611,7 +5611,7 @@ class Zse {
         moving: ot > 0.6,
         onGround: this.player.onGround,
         sprint: this.player.sprinting,
-        baseFov: z.fov,
+        baseFov: SETTINGS.fov,
         allowFire:
           r &&
           !this.remote.open &&
@@ -5627,12 +5627,12 @@ class Zse {
           !this.remote.open &&
           !!Cn[Ke] &&
           (!l || this.vehicles.passengerAimClear()),
-        onBlockedFire: () => this.spawnNotice.deny("fire", z.language === "en"),
+        onBlockedFire: () => this.spawnNotice.deny("fire", SETTINGS.language === "en"),
         allowSwing: r && !this.remote.open && !l,
         crouching: this.player.crouching,
         prone: this.player.prone,
       })),
-        (this.player.pitch = Ne(this.player.pitch + A.pitchKick, -1.55, 1.55)),
+        (this.player.pitch = clamp(this.player.pitch + A.pitchKick, -1.55, 1.55)),
         l &&
           this.vehicles.mySeatGun() &&
           ((A.fovScale = 1), (A.sensScale = 1), (A.scoped = !1), (A.adsT = 0)),
@@ -5697,7 +5697,7 @@ class Zse {
         this.sfx.drillStop(),
         this.weapons.setMining(!1)),
       (this.minedThisFrame = !1),
-      (this.player.downed || o || z.cinematicHud) && this.weapons.hideHeld(),
+      (this.player.downed || o || SETTINGS.cinematicHud) && this.weapons.hideHeld(),
       (this.downedBlend +=
         ((this.player.downed ? 1 : 0) - this.downedBlend) *
         (1 - Math.exp(-e * 4))),
@@ -5764,9 +5764,9 @@ class Zse {
       this.camera.rotateZ((Math.random() - 0.5) * R));
     const L = this.player.sprinting && !l ? 1.05 : 1,
       N = l ? this.vehicles.sightZoom() : 1,
-      D = (z.fov * A.fovScale * L) / N;
+      D = (SETTINGS.fov * A.fovScale * L) / N;
     (Math.abs(this.camera.fov - D) > 0.05 &&
-      ((this.camera.fov = Qi(this.camera.fov, D, 1 - Math.exp(-14 * e))),
+      ((this.camera.fov = lerp(this.camera.fov, D, 1 - Math.exp(-14 * e))),
       this.camera.updateProjectionMatrix()),
       V.setScope(A.scoped));
     const H = l ? this.vehicles.sightInfo() : null;
@@ -5775,7 +5775,7 @@ class Zse {
       I =
         l &&
         this.vehicles.mineSeat === 0 &&
-        (G === P.TANK || G === P.BTR_TURRET) &&
+        (G === VEHICLE_KIND.TANK || G === VEHICLE_KIND.BTR_TURRET) &&
         !this.vehicles.remoteView,
       O = l && !this.vehicles.remoteView && !!this.vehicles.mySeatGun(),
       F =
@@ -5836,12 +5836,12 @@ class Zse {
           return (
             ot > 0 &&
             ((q = this.vehicles.vehicles.get(Ke)) == null ? void 0 : q.type) ===
-              P.HELI
+              VEHICLE_KIND.HELI
           );
         },
         (Ke) => {
           var ot;
-          return [P.TANK, P.BTR_TURRET].includes(
+          return [VEHICLE_KIND.TANK, VEHICLE_KIND.BTR_TURRET].includes(
             ((ot = this.vehicles.vehicles.get(Ke)) == null
               ? void 0
               : ot.type) ?? -1,
@@ -5849,7 +5849,7 @@ class Zse {
         },
       ),
       this.applyBattleSight(t),
-      z.cinematicHud &&
+      SETTINGS.cinematicHud &&
         (this.bots.hideLabelsUnless(() => !1),
         this.remotes.hideTagsUnless(() => !1),
         this.vehicles.hidePlates()),
@@ -5860,7 +5860,7 @@ class Zse {
       this.localFire.visible && AM(this.localFire, t / 1e3),
       this.weapons.updateLaser(
         this.player.alive &&
-          !z.cinematicHud &&
+          !SETTINGS.cinematicHud &&
           !((K = this.casino) != null && K.blackjack.open) &&
           !this.remote.open &&
           !this.vehicles.remoteView &&
@@ -5876,7 +5876,7 @@ class Zse {
       ),
       this.running &&
         this.player.alive &&
-        !z.cinematicHud &&
+        !SETTINGS.cinematicHud &&
         this.updateCompass(),
       this.tacticalHud.update(
         this.camera,
@@ -5957,7 +5957,7 @@ class Zse {
     ),
       this.backpacks.update(e, (Ke, ot) => this.world.isLoaded(Ke, ot), y));
     const se =
-        ((me = this.vehicles.mine) == null ? void 0 : me.type) === P.DRONE,
+        ((me = this.vehicles.mine) == null ? void 0 : me.type) === VEHICLE_KIND.DRONE,
       oe = this.player.parachute && this.parachuteTPV,
       J = this.vehicles.aboard,
       re = this.vehicles.aboardSeat,
@@ -6001,7 +6001,7 @@ class Zse {
           (se || oe || Ce) &&
           this.player.alive &&
           !Re &&
-          ![P.TANK, P.BTR_TURRET].includes(
+          ![VEHICLE_KIND.TANK, VEHICLE_KIND.BTR_TURRET].includes(
             ((xe = this.vehicles.mine) == null ? void 0 : xe.type) ?? -1,
           )),
         this.selfBody.group.visible)
@@ -6051,7 +6051,7 @@ class Zse {
               : nt.cosmetic,
             ((ne = this.ownAppearance) == null ? void 0 : ne.owner) ??
               (Me == null ? void 0 : Me.id) ??
-              z.nick,
+              SETTINGS.nick,
           );
         if (((this.selfLightT += e), this.selfLightT >= Vr)) {
           this.selfLightT = 0;
@@ -6069,7 +6069,7 @@ class Zse {
           prone: this.player.prone,
           airborne: !J && !this.player.onGround,
           parachute: oe,
-          seated: this.player.seated || (!!J && !(J.type === P.HELI && re > 0)),
+          seated: this.player.seated || (!!J && !(J.type === VEHICLE_KIND.HELI && re > 0)),
           inspect: this.weapons.inspectTime,
           emote: this.emote,
           emoteTime: t / 1e3 - this.emoteStart,
@@ -6091,7 +6091,7 @@ class Zse {
       );
       this.chuteYaw = this.player.yaw;
       const ot = this.player.parachute
-        ? Ne(Ke / Math.max(0.001, e), -2.2, 2.2)
+        ? clamp(Ke / Math.max(0.001, e), -2.2, 2.2)
         : 0;
       this.chuteBank += (ot - this.chuteBank) * (1 - Math.exp(-4 * e));
     }
@@ -6184,7 +6184,7 @@ class Zse {
       (this.renderer.info.autoReset = !1),
       this.renderer.info.reset(),
       this.camera.layers.set(0),
-      (this.renderer.toneMappingExposure = 1.15 * z.brightness),
+      (this.renderer.toneMappingExposure = 1.15 * SETTINGS.brightness),
       this.shaders.active && this.shaders.prepare(this.buildShaderFrame(i)),
       (at = this.weather) == null ||
         at.setShaderLighting(
@@ -6194,7 +6194,7 @@ class Zse {
       (st = this.borderVisual) == null ||
         st.update(
           this.camera.position,
-          z.language === "en",
+          SETTINGS.language === "en",
           this.player.alive && !V.anyOpen(),
         ),
       (Ut = this.claimsUI) == null ||
@@ -6207,13 +6207,13 @@ class Zse {
       this.spawnNotice.update(
         this.player.pos,
         this.currentPlanet,
-        z.language === "en",
+        SETTINGS.language === "en",
         this.player.alive && !V.anyOpen(),
         this.input.mobile,
       ),
       this.updateTraining(e),
       (xi = this.casino) == null ||
-        xi.setEnabled(this.currentPlanet === Si.EARTH),
+        xi.setEnabled(this.currentPlanet === CELESTIAL.EARTH),
       (ri = this.casino) != null &&
         ri.open &&
         (!this.player.alive || this.player.downed) &&
@@ -6230,7 +6230,7 @@ class Zse {
           this.player.pos,
           this.camera,
           this.net.connected,
-          this.currentPlanet === Si.EARTH,
+          this.currentPlanet === CELESTIAL.EARTH,
         ),
       (Yt = this.screens) == null || Yt.update(e, this.camera.position),
       this.world.renderWaterReflection(this.renderer, this.camera),
@@ -6322,7 +6322,7 @@ class Zse {
   }
   adaptResolution(e, t) {
     if (
-      !z.adaptiveResolution ||
+      !SETTINGS.adaptiveResolution ||
       document.hidden ||
       this.loadingShown ||
       e > 0.25 ||
@@ -6548,7 +6548,7 @@ class Zse {
     const t = this.animals.nearbyForVoice(this.player.pos, 30);
     if (t.length === 0) return;
     const i = t[Math.floor(Math.random() * t.length)];
-    i.type !== Nt.WENDIGO &&
+    i.type !== ANIMAL_KIND.WENDIGO &&
       this.sfx.animalVoice(
         i.type,
         i.dist,
@@ -6565,7 +6565,7 @@ class Zse {
   }
   animalCry(e, t) {
     const i = this.animals.voiceInfo(e);
-    if (!i || i.type === Nt.WENDIGO) return;
+    if (!i || i.type === ANIMAL_KIND.WENDIGO) return;
     const s = i.at.distanceTo(this.player.pos);
     if (s > 60) return;
     const o = performance.now();
@@ -6634,12 +6634,12 @@ class Zse {
       (this.sfx.pyramidEntrance(), (this.ambienceT = 1.5)),
       (this.insidePyramid = o));
     const a =
-        this.currentPlanet === Si.EARTH &&
+        this.currentPlanet === CELESTIAL.EARTH &&
         !!this.raidZone &&
         Math.hypot(t.x - this.raidZone.x, t.z - this.raidZone.z) <
           this.raidZone.radius,
       r =
-        this.currentPlanet === Si.EARTH &&
+        this.currentPlanet === CELESTIAL.EARTH &&
         this.worldSites
           .list()
           .some(
@@ -6656,7 +6656,7 @@ class Zse {
     else if (performance.now() < this.combatUntil) l = "combat";
     else if (this.hostileNearby(t, 34))
       ((this.combatUntil = performance.now() + r3), (l = "combat"));
-    else if (this.currentPlanet === Si.MOON) l = "moon";
+    else if (this.currentPlanet === CELESTIAL.MOON) l = "moon";
     else if (o) l = "pyramid";
     else if (s) l = "cave";
     else {
@@ -6726,7 +6726,7 @@ class Zse {
     }
     for (const s of this.vehicles.vehicles.values())
       if (
-        !(s.ownerName !== Mo || s.planet !== this.currentPlanet || s.hp <= 0) &&
+        !(s.ownerName !== RAID_LABEL || s.planet !== this.currentPlanet || s.hp <= 0) &&
         s.pos.distanceToSquared(e) < i
       )
         return !0;
@@ -6740,7 +6740,7 @@ class Zse {
       const s = this.compassPoints;
       ((s.length = 0),
         this.homePos &&
-          this.currentPlanet === Si.EARTH &&
+          this.currentPlanet === CELESTIAL.EARTH &&
           s.push({ x: this.homePos.x, z: this.homePos.z, color: "#4aa8ff" }),
         this.lastDeathPos &&
           s.push({
@@ -6749,7 +6749,7 @@ class Zse {
             color: "#ff4a4a",
           }));
       const o = V.getWaypoint();
-      o && !Po(z.nick) && s.push({ ...o, color: h_ });
+      o && !Po(SETTINGS.nick) && s.push({ ...o, color: h_ });
       for (const a of pg)
         a.planet === this.currentPlanet && s.push({ ...a, label: a.username });
       for (const a of this.mapMarkers())
@@ -6784,9 +6784,9 @@ class Zse {
     const o = this.input.mobile ? 0.35 : 0.12,
       a = Math.max(1, Math.round(1 / o));
     (!s &&
-      this.minimapLastZoom === z.minimapZoom &&
+      this.minimapLastZoom === SETTINGS.minimapZoom &&
       this.minimapSkipTicks < a) ||
-      ((this.minimapLastZoom = z.minimapZoom),
+      ((this.minimapLastZoom = SETTINGS.minimapZoom),
       (this.minimapSkipTicks = 0),
       (this.minimapLastX = e.x),
       (this.minimapLastZ = e.z),
@@ -6798,7 +6798,7 @@ class Zse {
   }
   debugLines() {
     var i;
-    const e = z.debug,
+    const e = SETTINGS.debug,
       t = [];
     if (e.fps) {
       const s = this.fpsVal > 0 ? (1e3 / this.fpsVal).toFixed(1) : "--";
@@ -6854,7 +6854,7 @@ class Zse {
     }
     if (performance.now() < this.propertyUpdateAt) return;
     this.propertyUpdateAt = performance.now() + 200;
-    const e = z.language === "en",
+    const e = SETTINGS.language === "en",
       t = this.player.eyePos(this.tmpV),
       i = this.player.lookDir(this.tmpV2),
       s = this.vehicles.rayHit(t, i, 24),
@@ -6874,12 +6874,12 @@ ${c ? (e ? "Access granted" : "Доступ разрешён") : e ? "Owner and 
       return;
     }
     const a = this.world.raycast(t, i, 6);
-    if ((a == null ? void 0 : a.block) === v.OWNERSHIP_TOTEM) {
+    if ((a == null ? void 0 : a.block) === BLOCK.OWNERSHIP_TOTEM) {
       const l = this.claimsUI.index.totem(this.currentPlanet, a.bx, a.by, a.bz);
       if (l) {
         this.claimsUI
           .showProperty(`${e ? "Ownership totem" : "Тотем владения"} · ${l.owner}
-${l.owner === z.nick ? (e ? "Use — territory menu" : "Использовать — меню привата") : e ? "Only the owner can remove it" : "Снять может только владелец"}`);
+${l.owner === SETTINGS.nick ? (e ? "Use — territory menu" : "Использовать — меню привата") : e ? "Only the owner can remove it" : "Снять может только владелец"}`);
         return;
       }
     }
@@ -6894,7 +6894,7 @@ ${l.owner === z.nick ? (e ? "Use — territory menu" : "Использовать
       );
     if (r) {
       const l = this.baseCaptures.get(r.id);
-      this.claimsUI.showProperty(`${Ns(r.name, z.language)}
+      this.claimsUI.showProperty(`${Ns(r.name, SETTINGS.language)}
 ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не захвачена")}${l ? ` · ${e ? "Capture" : "Захват"}: ${l.attacker} · ${Math.max(0, Math.ceil((l.until - Date.now()) / 1e3))}${e ? "s" : "с"}` : ""}`);
       return;
     }
@@ -6905,44 +6905,44 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     const t =
         this.worldSites.nearestCommand(this.player.pos, 5.5) ??
         this.worldSites.nearestFlag(this.player.pos, 6),
-      i = e ? U("useAction") : gs(z.binds.use);
+      i = e ? U("useAction") : gs(SETTINGS.binds.use);
     if (!t) {
       const h = this.worldSites.nearestVillage(this.player.pos, 5.5);
       return h
-        ? z.language === "en"
+        ? SETTINGS.language === "en"
           ? `${i} — town hall board of ${h.name}`
           : `${i} — табло ратуши «${h.name}»: задачи, склад, торговля`
         : null;
     }
     if (t.state !== 2 || !t.owner)
       return U(t.state === 1 ? "baseFlagReady" : "baseFlagNeutral", {
-        name: Ns(t.name, z.language),
+        name: Ns(t.name, SETTINGS.language),
         action: i,
       });
     const s = this.baseCaptures.get(t.id),
-      o = z.language === "en",
+      o = SETTINGS.language === "en",
       a =
-        t.owner === z.nick ||
+        t.owner === SETTINGS.nick ||
         !!((c = this.claimsUI) != null && c.ownerAllows(t.owner));
     if (s) {
       const h = Math.max(0, Math.ceil((s.until - Date.now()) / 1e3)),
         d = `${Math.floor(h / 60)}:${String(h % 60).padStart(2, "0")}`;
-      return `${Ns(t.name, z.language)} · ${o ? "Owner" : "Владелец"}: ${t.owner} · ${s.attacker} ${d} · ${t.owner === z.nick ? (o ? `${i} — cancel capture at flag` : `${i} — отменить захват у флага`) : o ? "Capture in progress" : "Идёт перезахват"}`;
+      return `${Ns(t.name, SETTINGS.language)} · ${o ? "Owner" : "Владелец"}: ${t.owner} · ${s.attacker} ${d} · ${t.owner === SETTINGS.nick ? (o ? `${i} — cancel capture at flag` : `${i} — отменить захват у флага`) : o ? "Capture in progress" : "Идёт перезахват"}`;
     }
     if (!a)
-      return `${Ns(t.name, z.language)} · ${o ? "Owner" : "Владелец"}: ${t.owner} · ${i} — ${o ? "capture" : "захватить"} (${Math.ceil(this.baseCaptureSeconds / 60)} ${o ? "min" : "мин"})`;
+      return `${Ns(t.name, SETTINGS.language)} · ${o ? "Owner" : "Владелец"}: ${t.owner} · ${i} — ${o ? "capture" : "захватить"} (${Math.ceil(this.baseCaptureSeconds / 60)} ${o ? "min" : "мин"})`;
     if (t.supplyReady)
       return U("baseFlagSupplyReady", {
-        name: Ns(t.name, z.language),
+        name: Ns(t.name, SETTINGS.language),
         action: i,
       });
     const r = Math.max(0, t.supplySeconds),
       l = `${Math.floor(r / 60)}:${String(r % 60).padStart(2, "0")}`;
-    return U("baseFlagSupplyWait", { name: Ns(t.name, z.language), time: l });
+    return U("baseFlagSupplyWait", { name: Ns(t.name, SETTINGS.language), time: l });
   }
   updateCropProgress() {
     if (
-      this.currentPlanet !== Si.EARTH ||
+      this.currentPlanet !== CELESTIAL.EARTH ||
       !this.world ||
       !this.camera ||
       !this.net.connected ||
@@ -6978,7 +6978,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
             )
           : 0,
       d = a ? h * 100 : r >= 2 ? 100 : ((c + h) / 2) * 100,
-      u = kd(de[s.block]) ?? Ki(s.block) ?? "";
+      u = kd(BLOCKS[s.block]) ?? Ki(s.block) ?? "";
     V.setCropProgress({
       label:
         r >= 2
@@ -6988,10 +6988,10 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       boosted: !!(l != null && l.boosted),
       details: a
         ? h >= 1
-          ? z.language === "en"
+          ? SETTINGS.language === "en"
             ? "Waiting for space above the sapling"
             : "Ожидание свободного места над саженцем"
-          : `${z.language === "en" ? "Growth" : "Рост"} · ${Math.ceil(((1 - h) * ((l == null ? void 0 : l.stageMs) ?? 6e4)) / 1e3)} ${z.language === "en" ? "s" : "с"}`
+          : `${SETTINGS.language === "en" ? "Growth" : "Рост"} · ${Math.ceil(((1 - h) * ((l == null ? void 0 : l.stageMs) ?? 6e4)) / 1e3)} ${SETTINGS.language === "en" ? "s" : "с"}`
         : U("cropEnvironment", {
             light: (l == null ? void 0 : l.light) ?? "—",
             speed: l ? l.speed.toFixed(2).replace(/\.00$/, "") : "—",
@@ -7010,14 +7010,14 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       ));
     const i = this.vehicles.hudInfo(this.input.mobile),
       s = this.vehicles.mine;
-    if (i && (s == null ? void 0 : s.type) === P.DRONE && this.front.active) {
+    if (i && (s == null ? void 0 : s.type) === VEHICLE_KIND.DRONE && this.front.active) {
       ((h = this.droneFlight) == null ? void 0 : h.id) !== s.id &&
         (this.droneFlight = { id: s.id, since: performance.now() });
       const g = Math.max(
         0,
         Wx.battery - (performance.now() - this.droneFlight.since) / 1e3,
       );
-      ((i.name = `${i.name} · ${Math.ceil(g)} ${z.language === "en" ? "s" : "с"}`),
+      ((i.name = `${i.name} · ${Math.ceil(g)} ${SETTINGS.language === "en" ? "s" : "с"}`),
         (i.charge = g / Wx.battery));
     }
     if (
@@ -7028,7 +7028,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
           this.player.alive &&
           !this.remote.open &&
           !this.input.uiOpen,
-        (g) => (g === this.myId ? z.nick : this.remotes.getName(g)),
+        (g) => (g === this.myId ? SETTINGS.nick : this.remotes.getName(g)),
       ),
       this.updateCropProgress(),
       e)
@@ -7040,17 +7040,17 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         const b = Zc(g);
         V.setAmmo(
           Ki(g),
-          `${b.width}×${b.depth}×${b.height} · ${U(t ? "useAction" : "rmbAction")} — ${z.language === "en" ? "Build" : "Построить"}`,
+          `${b.width}×${b.depth}×${b.height} · ${U(t ? "useAction" : "rmbAction")} — ${SETTINGS.language === "en" ? "Build" : "Построить"}`,
         );
-      } else if (g === E.COMPUTER)
+      } else if (g === ITEM.COMPUTER)
         V.setAmmo(
           Ki(g),
-          `${U(t ? "useAction" : "rmbAction")} — ${z.language === "en" ? "Place computer" : "установить компьютер"}`,
+          `${U(t ? "useAction" : "rmbAction")} — ${SETTINGS.language === "en" ? "Place computer" : "установить компьютер"}`,
         );
-      else if (Tl(g))
+      else if (slotGameByIndex(g))
         V.setAmmo(
           Ki(g),
-          `${U(t ? "useAction" : "rmbAction")} — ${z.language === "en" ? "Place cabinet" : "поставить автомат"}`,
+          `${U(t ? "useAction" : "rmbAction")} — ${SETTINGS.language === "en" ? "Place cabinet" : "поставить автомат"}`,
         );
       else if (Cn[g])
         V.setAmmo(
@@ -7060,36 +7060,36 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         );
       else if (g > 0 && g < 256)
         V.setAmmo(
-          kd(de[g]) ?? "",
-          `${this.inventory.countOf(g)}${this.front.active && Vx(g) ? (g === v.MINE_AT ? (z.language === "en" ? " · enemy armour only" : " · только техника врага") : z.language === "en" ? " · enemy soldiers only" : " · только солдаты врага") : g === v.MINE_AP ? (z.language === "en" ? " · detonates on release" : " · срабатывает при сходе") : g === v.MINE_AT ? (z.language === "en" ? " · vehicle pressure" : " · срабатывает от техники") : ""}`,
+          kd(BLOCKS[g]) ?? "",
+          `${this.inventory.countOf(g)}${this.front.active && Vx(g) ? (g === BLOCK.MINE_AT ? (SETTINGS.language === "en" ? " · enemy armour only" : " · только техника врага") : SETTINGS.language === "en" ? " · enemy soldiers only" : " · только солдаты врага") : g === BLOCK.MINE_AP ? (SETTINGS.language === "en" ? " · detonates on release" : " · срабатывает при сходе") : g === BLOCK.MINE_AT ? (SETTINGS.language === "en" ? " · vehicle pressure" : " · срабатывает от техники") : ""}`,
         );
       else if (g === 0)
         V.setAmmo(U("handLabel"), U(t ? "handTouchHint" : "handHint"));
       else if (Fc(g))
         V.setAmmo(
           Ki(g),
-          `${U(t ? "useAction" : "rmbAction")} — ${z.language === "en" ? "Equip armor" : "Надеть броню"}`,
+          `${U(t ? "useAction" : "rmbAction")} — ${SETTINGS.language === "en" ? "Equip armor" : "Надеть броню"}`,
         );
-      else if (g === E.MEDKIT || g === E.MILITARY_MEDKIT) {
+      else if (g === ITEM.MEDKIT || g === ITEM.MILITARY_MEDKIT) {
         const b =
           this.medkitChannel > 0
             ? U("bandagingEllipsis")
-            : (g === E.MILITARY_MEDKIT
+            : (g === ITEM.MILITARY_MEDKIT
                   ? this.militaryMedkitCd
                   : this.medkitCd) > 0
               ? U("reloadingSeconds", {
                   sec: Math.ceil(
-                    g === E.MILITARY_MEDKIT
+                    g === ITEM.MILITARY_MEDKIT
                       ? this.militaryMedkitCd
                       : this.medkitCd,
                   ),
                 })
               : U("medkitHealHint", {
                   action: U(t ? "useAction" : "rmbAction"),
-                  heal: g === E.MILITARY_MEDKIT ? this.player.maxHp : S2,
+                  heal: g === ITEM.MILITARY_MEDKIT ? this.player.maxHp : S2,
                 });
         V.setAmmo(Ki(g) ?? U("medkitLabel"), b);
-      } else if (g === E.BANDAGE) {
+      } else if (g === ITEM.BANDAGE) {
         const b =
           this.bandageChannel > 0
             ? U("bandagingEllipsis")
@@ -7101,11 +7101,11 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
                 });
         V.setAmmo(U("bandageLabel"), b);
       } else if (pI(g)) V.setAmmo(Ki(g), String(this.inventory.countOf(g)));
-      else if (xa(g) || g === E.DETONATOR) {
+      else if (xa(g) || g === ITEM.DETONATOR) {
         const b = [
             ...(((d = this.c4) == null ? void 0 : d.charges.values()) ?? []),
           ].filter((T) => T.owner === this.sessionName).length,
-          S = z.language === "en",
+          S = SETTINGS.language === "en",
           M = t
             ? S
               ? "Use / Fire"
@@ -7125,12 +7125,12 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
             Ki(g),
             `${S ? "DETONATION" : "ДЕТОНАЦИЯ"} · ${Math.min(...x.map((T) => T.remaining)).toFixed(1)} s · ${x.length} ${S ? "charges" : "зарядов"}`,
           );
-      } else if (g === E.EGG)
+      } else if (g === ITEM.EGG)
         V.setAmmo(
           Ki(g),
-          `${U(t ? "useAction" : "rmbAction")} · ${z.language === "en" ? "Throw · 1 HP · 30% chick" : "Бросить · 1 HP · 30% цыплёнок"}`,
+          `${U(t ? "useAction" : "rmbAction")} · ${SETTINGS.language === "en" ? "Throw · 1 HP · 30% chick" : "Бросить · 1 HP · 30% цыплёнок"}`,
         );
-      else if (g === E.FERTILIZER)
+      else if (g === ITEM.FERTILIZER)
         V.setAmmo(
           Ki(g),
           U("fertilizerHint", { action: U(t ? "useAction" : "rmbAction") }),
@@ -7151,7 +7151,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
             heal: j0[g],
           }),
         );
-      else if (g === E.WHEAT)
+      else if (g === ITEM.WHEAT)
         V.setAmmo(
           Ki(g),
           U("wheatBreedHint", { action: U(t ? "useAction" : "rmbAction") }),
@@ -7161,27 +7161,27 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
           Ki(g),
           U("wheatSeedsHint", { action: U(t ? "useAction" : "rmbAction") }),
         );
-      else if (Nr[g] || b0[g]) V.setAmmo(Ki(g), this.toolModes.hint(g, t));
-      else if (g === E.COMBAT_KNIFE)
+      else if (BLOCK_DROPS[g] || DRILL_YIELD[g]) V.setAmmo(Ki(g), this.toolModes.hint(g, t));
+      else if (g === ITEM.COMBAT_KNIFE)
         V.setAmmo(
           this.weapons.weaponName(),
           U(t ? "knifeTouchHint" : "knifeHint"),
           this.weapons.weaponColor(),
         );
-      else if (g === E.BUCKET)
+      else if (g === ITEM.BUCKET)
         V.setAmmo(
           Ki(g),
           U("bucketFillHint", { action: U(t ? "useAction" : "rmbAction") }),
         );
-      else if (g === E.WATER_BUCKET || g === E.LAVA_BUCKET)
+      else if (g === ITEM.WATER_BUCKET || g === ITEM.LAVA_BUCKET)
         V.setAmmo(
           Ki(g),
           U("bucketPourHint", { action: U(t ? "useAction" : "rmbAction") }),
         );
-      else if (g === E.WELDER)
+      else if (g === ITEM.WELDER)
         V.setAmmo(
           U("hammerLabel"),
-          z.language === "en"
+          SETTINGS.language === "en"
             ? t
               ? "Fire: weld · Use: welder menu"
               : "LMB: weld · RMB: welder menu"
@@ -7189,15 +7189,15 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
               ? "Огонь: варить · Использовать: меню сварщика"
               : "ЛКМ: варить · ПКМ: меню сварщика",
         );
-      else if (g === E.FLASHLIGHT)
+      else if (g === ITEM.FLASHLIGHT)
         V.setAmmo(
           Ki(g),
           U("flashlightHint", {
-            key: gs(z.binds.flashlight) || "—",
-            state: z.lightOn[0] ? U("flashlightOn") : U("flashlightOff"),
+            key: gs(SETTINGS.binds.flashlight) || "—",
+            state: SETTINGS.lightOn[0] ? U("flashlightOn") : U("flashlightOff"),
           }),
         );
-      else if (g === E.FISHING_ROD) {
+      else if (g === ITEM.FISHING_ROD) {
         const b = U(t ? "useAction" : "rmbAction");
         V.setAmmo(
           Ki(g),
@@ -7208,10 +7208,10 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       } else
         V.setAmmo(
           Ki(g) ?? "",
-          g === E.AXE
+          g === ITEM.AXE
             ? U(t ? "axeTouchHint" : "axeHint")
-            : g === E.MOBILE_REMOTE
-              ? `${U(t ? "useAction" : "rmbAction")} — ${z.language === "en" ? "command station · 8,000 blocks" : "станция · 8 000 блоков"}`
+            : g === ITEM.MOBILE_REMOTE
+              ? `${U(t ? "useAction" : "rmbAction")} — ${SETTINGS.language === "en" ? "command station · 8,000 blocks" : "станция · 8 000 блоков"}`
               : U(t ? "placeTouchHint" : "placeHint"),
         );
     }
@@ -7253,20 +7253,20 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     if ((this.clickToPlay.set(c), c)) V.setHint("");
     else if (a)
       V.setHint(
-        `${z.language === "en" ? "Computer" : "Компьютер"} · ${U(t ? "useAction" : "rmbAction")} — ${this.inventory.held() === E.WELDER ? (z.language === "en" ? "Pack up" : "упаковать") : z.language === "en" ? "Open browser" : "открыть браузер"}`,
+        `${SETTINGS.language === "en" ? "Computer" : "Компьютер"} · ${U(t ? "useAction" : "rmbAction")} — ${this.inventory.held() === ITEM.WELDER ? (SETTINGS.language === "en" ? "Pack up" : "упаковать") : SETTINGS.language === "en" ? "Open browser" : "открыть браузер"}`,
       );
     else if (r)
       V.setHint(
-        `${r.kind === "blackjack" ? "BLACKJACK · " : ""}${U(t ? "useAction" : "rmbAction")} — ${z.language === "en" ? "Sit down" : "сесть"}`,
+        `${r.kind === "blackjack" ? "BLACKJACK · " : ""}${U(t ? "useAction" : "rmbAction")} — ${SETTINGS.language === "en" ? "Sit down" : "сесть"}`,
       );
     else if (o)
       V.setHint(
-        `${o.game.title} · ${U(t ? "useAction" : "rmbAction")} — ${this.inventory.held() === E.WELDER ? (z.language === "en" ? "Pack up" : "упаковать") : z.language === "en" ? "Play" : "играть"}`,
+        `${o.game.title} · ${U(t ? "useAction" : "rmbAction")} — ${this.inventory.held() === ITEM.WELDER ? (SETTINGS.language === "en" ? "Pack up" : "упаковать") : SETTINGS.language === "en" ? "Play" : "играть"}`,
       );
     else if (!e && wo(this.inventory.held()))
       V.setHint(
         ((y = this.blueprintPreview) == null ? void 0 : y.message) ||
-          (z.language === "en"
+          (SETTINGS.language === "en"
             ? "Aim at the ground to site the building"
             : "Наведите на землю, чтобы разместить постройку"),
       );
@@ -7289,9 +7289,9 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       !e &&
       this.spawnNotice.kioskAt(this.player.pos, this.currentPlanet)
     ) {
-      const g = t ? U("useAction") : gs(z.binds.use);
+      const g = t ? U("useAction") : gs(SETTINGS.binds.use);
       V.setHint(
-        z.language === "en"
+        SETTINGS.language === "en"
           ? `${g} — teleport to the wild, where you can build`
           : `${g} — телепорт туда, где можно строить`,
       );
@@ -7307,7 +7307,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       V.setHint(U(t ? "backpackTouchHint" : "backpackHint"));
     else if (
       (!e || this.vehicles.passengerCanRepair()) &&
-      this.inventory.held() === E.WELDER
+      this.inventory.held() === ITEM.WELDER
     ) {
       const g = this.player.eyePos(this.tmpV),
         b = this.camera.getWorldDirection(this.tmpV2),
@@ -7315,7 +7315,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       if (S) {
         const M = this.vehicles.vehicles.get(S.id);
         if (M)
-          if (M.ownerName === Mo) V.setHint(U("raidVehicleNoRepair"));
+          if (M.ownerName === RAID_LABEL) V.setHint(U("raidVehicleNoRepair"));
           else if (M.hp >= M.maxHp)
             V.setHint(
               U("vehicleFullHp", {
@@ -7344,8 +7344,8 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
             );
           }
         else V.setHint("");
-        if (M && M.ownerName !== Mo) {
-          const x = z.language === "en";
+        if (M && M.ownerName !== RAID_LABEL) {
+          const x = SETTINGS.language === "en";
           V.setHint(
             `${V.currentHint()} · ${t ? (x ? "Use" : "Кнопка «Использовать»") : x ? "RMB" : "ПКМ"}: ${x ? "welder menu — armour, repair, packing" : "меню сварщика — броня, ремонт, упаковка"}`,
           );
@@ -7355,10 +7355,10 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       V.setHint(
         t
           ? U("chairExitTouchHint")
-          : U("chairExitHint", { action: gs(z.binds.use) }),
+          : U("chairExitHint", { action: gs(SETTINGS.binds.use) }),
       );
     else if (!e && this.vehicles.nearestFree(this.player.pos, 5))
-      V.setHint(t ? "" : U("enterVehicleHint", { action: gs(z.binds.use) }));
+      V.setHint(t ? "" : U("enterVehicleHint", { action: gs(SETTINGS.binds.use) }));
     else if (this.player.flying && !e)
       V.setHint(U(t ? "flyTouchHint" : "flyHint"));
     else if (e) V.setHint("");
@@ -7372,7 +7372,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         ? V.setHint(
             t
               ? U("chairSitTouchHint")
-              : U("chairSitHint", { action: gs(z.binds.use) }),
+              : U("chairSitHint", { action: gs(SETTINGS.binds.use) }),
           )
         : V.setHint("");
     }
@@ -7387,7 +7387,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     for (let h = 0; h < 12 && l < r; h++) {
       const d = this.world.raycast(this.tmpAimLosOrigin, a, r - l);
       if (!d || l + d.dist >= r) return !0;
-      if ((c = de[d.block]) != null && c.solid) return !1;
+      if ((c = BLOCKS[d.block]) != null && c.solid) return !1;
       const u = d.dist + 0.05;
       ((l += u), this.tmpAimLosOrigin.addScaledVector(a, u));
     }
@@ -7424,7 +7424,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
           x: (i.min.x + i.max.x) / 2,
           y: (i.min.y + i.max.y) / 2,
           z: (i.min.z + i.max.z) / 2,
-          r: Ne(Math.min(i.max.x - i.min.x, i.max.z - i.min.z) / 2, 1, 3.5),
+          r: clamp(Math.min(i.max.x - i.min.x, i.max.z - i.min.z) / 2, 1, 3.5),
         }),
         this.aimHulls.set(e, t));
     }
@@ -7435,7 +7435,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     const i = this.inventory.held(),
       s = t && this.vehicles.aimsWithCamera(),
       o = s && this.vehicles.mineSeat === 0;
-    if (!z.aimAssist || (t ? !s : !Cn[i]) || (s && !o && !Cn[i]))
+    if (!SETTINGS.aimAssist || (t ? !s : !Cn[i]) || (s && !o && !Cn[i]))
       return (this.aimAssist.reset(), null);
     const a = this.aimFrame,
       r = this.tmpAimEye;
@@ -7445,7 +7445,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       if (!p) return (this.aimAssist.reset(), null);
       (r.copy(p.pos),
         (a.yaw = Math.atan2(-p.dir.x, -p.dir.z)),
-        (a.pitch = Math.asin(Ne(p.dir.y, -1, 1))),
+        (a.pitch = Math.asin(clamp(p.dir.y, -1, 1))),
         (a.zoom = o ? this.vehicles.gunZoom : 1),
         (l = 0.0022 / a.zoom),
         (a.ads = o && a.zoom > 1.05));
@@ -7453,8 +7453,8 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       (this.player.eyePos(r),
         (a.yaw = this.player.yaw),
         (a.pitch = this.player.pitch),
-        (a.zoom = Ne(1 / Math.max(0.05, this.sensScale), 1, 8)),
-        (l = 0.0022 * z.sensitivity * this.sensScale),
+        (a.zoom = clamp(1 / Math.max(0.05, this.sensScale), 1, 8)),
+        (l = 0.0022 * SETTINGS.sensitivity * this.sensScale),
         (a.ads = this.input.mouseR && !!Cn[i]));
     ((a.dt = e),
       (a.eyeX = r.x),
@@ -7469,15 +7469,15 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         this.input.action("left") ||
         this.input.action("right")),
       (a.deliberate = !!o),
-      (a.strength = z.aimAssistStrength),
+      (a.strength = SETTINGS.aimAssistStrength),
       (a.preferVehicles =
         (!!o &&
-          ((f = this.vehicles.mine) == null ? void 0 : f.type) === P.TANK) ||
-        i === E.RPG ||
-        i === E.GRENADE_LAUNCHER));
+          ((f = this.vehicles.mine) == null ? void 0 : f.type) === VEHICLE_KIND.TANK) ||
+        i === ITEM.RPG ||
+        i === ITEM.GRENADE_LAUNCHER));
     const c = this.aimList;
     c.length = 0;
-    const h = z.nick,
+    const h = SETTINGS.nick,
       d = this.front.active && !!this.front.team;
     for (const p of this.remotes.list())
       p.name === h ||
@@ -7580,7 +7580,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
   }
   updateDroneSignalAndRange() {
     const e = this.vehicles.mine;
-    if (!e || e.type !== P.DRONE || this.remote.open) {
+    if (!e || e.type !== VEHICLE_KIND.DRONE || this.remote.open) {
       V.setDroneSignal(0);
       return;
     }
@@ -7614,7 +7614,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     )
       return !0;
     if (
-      this.inventory.held() === E.WELDER &&
+      this.inventory.held() === ITEM.WELDER &&
       (!this.vehicles.mine || this.vehicles.passengerCanRepair())
     ) {
       const h = this.vehicles.rayHit(
@@ -7634,16 +7634,16 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       );
     this.sendPlayerState();
     const s = this.world.raycast(e, t, 5.5),
-      o = s && this.inventory.held() === E.FERTILIZER && yh(s.block),
+      o = s && this.inventory.held() === ITEM.FERTILIZER && yh(s.block),
       a =
         s &&
-        s.block === v.PUMPKIN &&
-        (this.inventory.held() === v.TORCH ||
-          this.inventory.held() === v.CANDLE);
+        s.block === BLOCK.PUMPKIN &&
+        (this.inventory.held() === BLOCK.TORCH ||
+          this.inventory.held() === BLOCK.CANDLE);
     if (
       s &&
-      s.block === v.LED_SCREEN &&
-      this.currentPlanet === Si.EARTH &&
+      s.block === BLOCK.LED_SCREEN &&
+      this.currentPlanet === CELESTIAL.EARTH &&
       this.screens
     ) {
       const h = this.screens.at(s.bx, s.by, s.bz);
@@ -7658,7 +7658,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
           return (
             V.addChat(
               2,
-              z.language === "en"
+              SETTINGS.language === "en"
                 ? "Protected territory · access denied."
                 : "Приват территории · нет доступа.",
             ),
@@ -7681,11 +7681,11 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         );
       }
     }
-    if (s && (((c = de[s.block]) != null && c.interactive) || o || a))
+    if (s && (((c = BLOCKS[s.block]) != null && c.interactive) || o || a))
       return (
         this.net.send(new Xe(ue.C_USE_BLOCK).i32(s.bx).u8(s.by).i32(s.bz)),
         this.weapons.swing(),
-        s.block === v.BED &&
+        s.block === BLOCK.BED &&
           ((this.homePos = new k(s.bx + 0.5, s.by, s.bz + 0.5)),
           this.homeKey &&
             localStorage.setItem(
@@ -7760,7 +7760,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       ((this.knifeThrowCd = Math.max(0, this.knifeThrowCd - e)),
       this.knifeThrowAt > 0)
     ) {
-      t !== E.COMBAT_KNIFE || this.vehicles.driving() || !this.player.alive
+      t !== ITEM.COMBAT_KNIFE || this.vehicles.driving() || !this.player.alive
         ? ((this.knifeThrowAt = 0), this.weapons.knifeCancel())
         : performance.now() >= this.knifeThrowAt &&
           ((this.knifeThrowAt = 0), this.releaseKnife(i, s));
@@ -7835,7 +7835,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     const i = this.inventory.sel;
     if (
       ((o = this.inventory.hotbar[i]) == null ? void 0 : o.id) !==
-      E.COMBAT_KNIFE
+      ITEM.COMBAT_KNIFE
     ) {
       this.weapons.knifeCancel();
       return;
@@ -7887,7 +7887,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       !!o &&
       o.ny === 1 &&
       zx(s)(o.block) &&
-      this.world.getBlock(o.bx, o.by + 1, o.bz) === v.AIR
+      this.world.getBlock(o.bx, o.by + 1, o.bz) === BLOCK.AIR
     );
   }
   toggleHeadlights() {
@@ -7897,7 +7897,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       return;
     }
     const t = !this.vehicles.headlightsOn(e);
-    ((z.headlightsOn[String(e.type)] = t),
+    ((SETTINGS.headlightsOn[String(e.type)] = t),
       qi(),
       this.vehicles.setHeadlights(e, t),
       this.sfx.pickup(),
@@ -7906,16 +7906,16 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
   syncHeadlights() {
     const e = this.vehicles.mine;
     if (e && Lm(e.type)) {
-      const t = !!z.headlightsOn[String(e.type)];
+      const t = !!SETTINGS.headlightsOn[String(e.type)];
       t !== this.vehicles.headlightsOn(e) && this.vehicles.setHeadlights(e, t);
     }
     for (const t of this.vehicles.vehicles.values()) {
       if (
         (t !== e &&
-          t.ownerName === Mo &&
+          t.ownerName === RAID_LABEL &&
           Lm(t.type) &&
           this.vehicles.setHeadlights(t, this.sky.dayness < 0.3),
-        t.type === P.HELI && t.headlights)
+        t.type === VEHICLE_KIND.HELI && t.headlights)
       ) {
         const i =
           t === e
@@ -7931,10 +7931,10 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     }
   }
   flashlightKey(e) {
-    return String(e === E.FLASHLIGHT ? 0 : Ti(e));
+    return String(e === ITEM.FLASHLIGHT ? 0 : Ti(e));
   }
   hasFlashlight(e) {
-    return e === E.FLASHLIGHT || So(e).light;
+    return e === ITEM.FLASHLIGHT || So(e).light;
   }
   toggleFlashlight() {
     const e = this.inventory.held();
@@ -7943,8 +7943,8 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       return;
     }
     const t = this.flashlightKey(e),
-      i = !z.lightOn[t];
-    ((z.lightOn[t] = i),
+      i = !SETTINGS.lightOn[t];
+    ((SETTINGS.lightOn[t] = i),
       qi(),
       this.sfx.pickup(),
       V.setHint(U(i ? "flashlightOn" : "flashlightOff")));
@@ -7959,7 +7959,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         !this.vehicles.remoteView &&
         (!this.vehicles.driving() || this.vehicles.passengerCanShoot()) &&
         this.hasFlashlight(e) &&
-        !!z.lightOn[this.flashlightKey(e)];
+        !!SETTINGS.lightOn[this.flashlightKey(e)];
     if (
       (t &&
         !this.flashlight &&
@@ -8001,7 +8001,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
   }
   placeHeldEdit(e, t) {
     const i = this.inventory.held();
-    if (i <= 0 || (i >= 256 && i !== E.COMPUTER && !wo(i) && !Tl(i))) return !1;
+    if (i <= 0 || (i >= 256 && i !== ITEM.COMPUTER && !wo(i) && !slotGameByIndex(i))) return !1;
     if (wo(i)) {
       const o = this.blueprintSite(e, t);
       return (o && this.tryPlace(i, o), !!o);
@@ -8066,7 +8066,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       (this.toolModes.toggle(e),
       (this.mining = null),
       this.sfx.drillStop(),
-      this.sfx.toolModeSwitch(!!Nr[e], this.toolModes.mode(e) !== cs.SINGLE),
+      this.sfx.toolModeSwitch(!!BLOCK_DROPS[e], this.toolModes.mode(e) !== cs.SINGLE),
       vo("light", 90));
   }
   updateHealHud() {
@@ -8074,7 +8074,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       t = this.medkitChannel > 0,
       i = this.bandageChannel > 0,
       s = t
-        ? this.medkitChannelItem === E.MILITARY_MEDKIT
+        ? this.medkitChannelItem === ITEM.MILITARY_MEDKIT
           ? "military"
           : "medkit"
         : i
@@ -8091,11 +8091,11 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       : this.healChannelWas && !l && this.healHud.cancel(),
       (this.healChannelWas = l));
     const c = this.player.alive
-      ? e === E.BANDAGE
+      ? e === ITEM.BANDAGE
         ? { left: this.bandageCd, total: nw }
-        : e === E.MEDKIT
+        : e === ITEM.MEDKIT
           ? { left: this.medkitCd, total: iw }
-          : e === E.MILITARY_MEDKIT
+          : e === ITEM.MILITARY_MEDKIT
             ? { left: this.militaryMedkitCd, total: tw }
             : null
       : null;
@@ -8103,11 +8103,11 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       s,
       r,
       c,
-      e === E.BANDAGE
+      e === ITEM.BANDAGE
         ? "bandage"
-        : e === E.MILITARY_MEDKIT
+        : e === ITEM.MILITARY_MEDKIT
           ? "military"
-          : e === E.MEDKIT
+          : e === ITEM.MEDKIT
             ? "medkit"
             : null,
     ),
@@ -8133,7 +8133,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       this.toggleToolMode();
       return;
     }
-    if (i === E.EGG) {
+    if (i === ITEM.EGG) {
       this.input.clickR &&
         performance.now() >= this.eggThrowAt &&
         ((this.eggThrowAt = performance.now() + 350),
@@ -8148,15 +8148,15 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         ));
       return;
     }
-    if (this.input.clickR && i === E.MOBILE_REMOTE) {
+    if (this.input.clickR && i === ITEM.MOBILE_REMOTE) {
       this.openMobileStation();
       return;
     }
-    if (this.input.clickR && i === E.RADIO_MODULE) {
+    if (this.input.clickR && i === ITEM.RADIO_MODULE) {
       if (this.installRadio()) return;
       const c = this.world.raycast(s, o, 7);
       if (!c) return;
-      if ((this.sendInventory(), c.block === v.SIGN))
+      if ((this.sendInventory(), c.block === BLOCK.SIGN))
         this.net.send(new Xe(ue.C_REMOTE).u8(18).i32(c.bx).u8(c.by).i32(c.bz));
       else {
         const h = c.bx + c.nx,
@@ -8169,10 +8169,10 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       this.weapons.swing();
       return;
     }
-    if (this.input.clickR && Wv[i] !== void 0) {
+    if (this.input.clickR && BIOME_BY_DYE[i] !== void 0) {
       const c = this.vehicles.rayHit(s, o, 8);
       if (c) {
-        const h = Wv[i];
+        const h = BIOME_BY_DYE[i];
         (this.vehicles.setCamo(c.id, h),
           this.sendInventory(),
           this.net.send(
@@ -8184,7 +8184,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
           V.renderHotbar(),
           this.syncHeld(),
           V.setHint(
-            z.language === "en"
+            SETTINGS.language === "en"
               ? "Vehicle camouflage changed"
               : "Камуфляж техники изменён",
           ));
@@ -8199,15 +8199,15 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
             this.medkitChannel <= 0 &&
               this.inventory.deferChanges(() => {
                 this.inventory.consumeHeld() &&
-                  (i === E.MILITARY_MEDKIT
+                  (i === ITEM.MILITARY_MEDKIT
                     ? (this.militaryMedkitCd = tw)
                     : (this.medkitCd = iw),
                   this.net.send(
-                    new Xe(ue.C_HEAL).u8(i === E.MILITARY_MEDKIT ? zH : S2),
+                    new Xe(ue.C_HEAL).u8(i === ITEM.MILITARY_MEDKIT ? zH : S2),
                   ),
                   this.sfx.healDone(),
                   (this.healLanded =
-                    i === E.MILITARY_MEDKIT
+                    i === ITEM.MILITARY_MEDKIT
                       ? Math.max(
                           1,
                           Math.round(this.player.maxHp - this.player.hp),
@@ -8216,7 +8216,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
                   V.renderHotbar());
               }))),
       this.bandageChannel > 0 &&
-        (i !== E.BANDAGE
+        (i !== ITEM.BANDAGE
           ? (this.bandageChannel = 0)
           : ((this.bandageChannel -= t),
             this.bandageChannel <= 0 &&
@@ -8241,14 +8241,14 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         this.handleMeleeAndMining(e, i, 0, s, o));
       return;
     }
-    if (i === E.COMBAT_KNIFE || this.knifeThrowAt > 0) {
+    if (i === ITEM.COMBAT_KNIFE || this.knifeThrowAt > 0) {
       this.handleKnife(e, i, s, o);
       return;
     }
-    if (i === E.MEDKIT || i === E.MILITARY_MEDKIT) {
+    if (i === ITEM.MEDKIT || i === ITEM.MILITARY_MEDKIT) {
       (this.input.clickR &&
         this.medkitChannel <= 0 &&
-        (i === E.MILITARY_MEDKIT ? this.militaryMedkitCd : this.medkitCd) <=
+        (i === ITEM.MILITARY_MEDKIT ? this.militaryMedkitCd : this.medkitCd) <=
           0 &&
         this.player.hp < this.player.maxHp &&
         ((this.medkitChannelItem = i),
@@ -8257,7 +8257,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         this.handleMeleeAndMining(e, i, 0, s, o));
       return;
     }
-    if (i === E.BANDAGE) {
+    if (i === ITEM.BANDAGE) {
       (this.input.clickR &&
         this.bandageChannel <= 0 &&
         this.bandageCd <= 0 &&
@@ -8266,7 +8266,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         this.handleMeleeAndMining(e, i, 0, s, o));
       return;
     }
-    if (i === E.FISHING_ROD) {
+    if (i === ITEM.FISHING_ROD) {
       if (this.input.clickR) {
         const c = this.fishing.localState(this.myId) !== ta.GONE,
           h = (d) => {
@@ -8290,7 +8290,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
           const d = this.inventory.sel;
           this.weapons.rodCast(() => {
             this.inventory.sel === d &&
-              this.inventory.held() === E.FISHING_ROD &&
+              this.inventory.held() === ITEM.FISHING_ROD &&
               h(0);
           });
         }
@@ -8299,8 +8299,8 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       return;
     }
     if (
-      i === E.SHEARS ||
-      (i === E.BUCKET && this.animals.nearestMilkable(this.player.pos, 4.5))
+      i === ITEM.SHEARS ||
+      (i === ITEM.BUCKET && this.animals.nearestMilkable(this.player.pos, 4.5))
     ) {
       (this.input.clickR &&
         (this.sendInventory(),
@@ -8310,7 +8310,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       return;
     }
     if (
-      (j0[i] || i === E.WHEAT) &&
+      (j0[i] || i === ITEM.WHEAT) &&
       !(this.input.clickR && this.canSowHeld(i, s, o))
     ) {
       (this.input.clickR &&
@@ -8341,13 +8341,13 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
             for (let m = -8; m <= 8 && !f; m++)
               if (!(p * p + m * m > 64)) {
                 for (let y = -2; y <= 2; y++)
-                  if (this.world.getBlock(h + p, c.by + y, u + m) === v.WATER) {
+                  if (this.world.getBlock(h + p, c.by + y, u + m) === BLOCK.WATER) {
                     f = !0;
                     break;
                   }
               }
           f &&
-          this.world.getBlock(h, d, u) === v.AIR &&
+          this.world.getBlock(h, d, u) === BLOCK.AIR &&
           this.inventory.consumeHeld()
             ? (this.world.setBlock(h, d, u, a, 0),
               this.net.send(
@@ -8368,13 +8368,13 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       this.handleMeleeAndMining(e, i, 0, s, o);
       return;
     }
-    if (i === E.BUCKET || i === E.WATER_BUCKET || i === E.LAVA_BUCKET) {
+    if (i === ITEM.BUCKET || i === ITEM.WATER_BUCKET || i === ITEM.LAVA_BUCKET) {
       if (this.input.clickR) {
         let c = null;
-        if (i === E.BUCKET) {
+        if (i === ITEM.BUCKET) {
           const h = this.world.raycast(s, o, 5.5, !0);
           h &&
-            (h.block === v.WATER || h.block === v.LAVA) &&
+            (h.block === BLOCK.WATER || h.block === BLOCK.LAVA) &&
             (this.world.getMeta(h.bx, h.by, h.bz) & 15) === 0 &&
             (c = h);
         } else {
@@ -8399,7 +8399,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       this.handleMeleeAndMining(e, i, 0, s, o);
       return;
     }
-    if (i === E.AXE) {
+    if (i === ITEM.AXE) {
       if (this.input.clickL || this.input.clickR) {
         const c = this.world.raycast(s, o, 80);
         c &&
@@ -8409,7 +8409,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       }
       return;
     }
-    if (i === E.WELDER) {
+    if (i === ITEM.WELDER) {
       const c = this.vehicles.rayHit(
           s,
           o,
@@ -8420,7 +8420,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       if (this.input.mouseL && c && h) {
         const d = s.clone().addScaledVector(o, c.dist - 0.04);
         if ((this.weldFrame(d, o), this.hammerCd <= 0))
-          if (((this.hammerCd = 0.45), h.ownerName === Mo))
+          if (((this.hammerCd = 0.45), h.ownerName === RAID_LABEL))
             V.setHint(U("raidVehicleNoRepair"));
           else if (h.hp >= h.maxHp)
             V.setHint(U("vehicleAlreadyFullHp", { vehicle: Zs(h.type) }));
@@ -8437,7 +8437,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
           ((this.hammerCd = 0.5), this.sfx.weldTick(4));
       return;
     }
-    if (xa(i) || i === E.DETONATOR) {
+    if (xa(i) || i === ITEM.DETONATOR) {
       if (
         xa(i) &&
         this.spawnNotice.contains(
@@ -8447,7 +8447,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         )
       ) {
         (this.input.clickL || this.input.clickR) &&
-          this.spawnNotice.deny("explosive", z.language === "en");
+          this.spawnNotice.deny("explosive", SETTINGS.language === "en");
         return;
       }
       (this.input.clickL || this.input.clickR) &&
@@ -8470,7 +8470,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         xa(i) ? this.sfx.c4Throw() : this.sfx.detonatorClick());
       return;
     }
-    if (i === E.MILITARY_BOT) {
+    if (i === ITEM.MILITARY_BOT) {
       if (this.input.clickR) {
         const c = this.world.raycast(s, o, 5.5);
         if (c) {
@@ -8501,13 +8501,13 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       return;
     }
     if (l3[i] !== void 0) {
-      const c = i === E.DRONE && this.front.active;
+      const c = i === ITEM.DRONE && this.front.active;
       if (this.input.clickR || (c && this.input.clickL)) {
         const h = this.allocateVehicleSpawnRequestId();
         (
           c
-            ? this.vehicles.launchFromHand(P.DRONE, s, o, h) ||
-              this.vehicles.requestSpawn(P.DRONE, s, o, h)
+            ? this.vehicles.launchFromHand(VEHICLE_KIND.DRONE, s, o, h) ||
+              this.vehicles.requestSpawn(VEHICLE_KIND.DRONE, s, o, h)
             : this.vehicles.requestSpawn(l3[i], s, o, h)
         )
           ? (this.pendingVehicleSpawns.set(h, {
@@ -8525,8 +8525,8 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       return;
     }
     this.input.clickR && this.placeHeld(s, o);
-    const r = b0[i] ?? 0;
-    this.handleMeleeAndMining(e, i, r, s, o, Nr[i] ?? 0);
+    const r = DRILL_YIELD[i] ?? 0;
+    this.handleMeleeAndMining(e, i, r, s, o, BLOCK_DROPS[i] ?? 0);
   }
   handleMeleeAndMining(e, t, i, s, o, a = 0) {
     if (i > 0 && this.input.mouseL && this.drillHitCd <= 0) {
@@ -8605,13 +8605,13 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       !(this.front.active && !this.inventory.creative)
     ) {
       const l = this.world.raycast(s, o, 5.5);
-      if (l && de[l.block].hardness >= 0) {
+      if (l && BLOCKS[l.block].hardness >= 0) {
         if (
-          Ca !== "owner" &&
+          localRole !== "owner" &&
           this.spawnNotice.protectedBlock(l.bx, l.bz, this.currentPlanet)
         ) {
           ((this.input.clickL || !this.mining) &&
-            this.spawnNotice.deny("break", z.language === "en"),
+            this.spawnNotice.deny("break", SETTINGS.language === "en"),
             (this.mining = {
               x: l.bx,
               y: l.by,
@@ -8624,17 +8624,17 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         }
         if (
           !this.inventory.creative &&
-          this.currentPlanet === Si.MOON &&
+          this.currentPlanet === CELESTIAL.MOON &&
           hz.has(l.block) &&
-          t !== E.LUNAR_DRILL
+          t !== ITEM.LUNAR_DRILL
         ) {
           (V.setHint(
-            Ns("Lunar blocks require a white lunar drill", z.language),
+            Ns("Lunar blocks require a white lunar drill", SETTINGS.language),
           ),
             (this.mining = null));
           return;
         }
-        if (!this.inventory.creative && l.block === v.RSTONE && i < 2) {
+        if (!this.inventory.creative && l.block === BLOCK.RSTONE && i < 2) {
           (V.setHint(U("rstoneNeedsDiamondDrill")), (this.mining = null));
           return;
         }
@@ -8664,7 +8664,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
             (this.chipT -= e),
             this.chipT <= 0 &&
               ((this.chipT = 0.07),
-              this.effects.mineChips(l.point, de[l.block].color, h),
+              this.effects.mineChips(l.point, BLOCKS[l.block].color, h),
               i === 0 && this.sfx.mineHit(h, l.block)),
             this.mining.t >= this.mining.need &&
               (this.finishBreak(l.bx, l.by, l.bz, l.block),
@@ -8695,38 +8695,38 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
   finishBreak(e, t, i, s) {
     var h, d;
     if (
-      Ca !== "owner" &&
+      localRole !== "owner" &&
       this.spawnNotice.protectedBlock(e, i, this.currentPlanet)
     ) {
-      this.spawnNotice.deny("break", z.language === "en");
+      this.spawnNotice.deny("break", SETTINGS.language === "en");
       return;
     }
     if (
-      Ca !== "owner" &&
+      localRole !== "owner" &&
       this.claimsUI &&
       !this.claimsUI.canBreak(this.currentPlanet, e, t, i)
     ) {
       V.setHint(
-        z.language === "en"
+        SETTINGS.language === "en"
           ? "Protected territory · access denied"
           : "Приват территории · нет доступа",
       );
       return;
     }
     if (
-      Ca !== "owner" &&
-      this.currentPlanet === Si.EARTH &&
+      localRole !== "owner" &&
+      this.currentPlanet === CELESTIAL.EARTH &&
       (h = this.casino) != null &&
       h.hallAt(e, t, i)
     ) {
       V.setHint(
-        z.language === "en"
+        SETTINGS.language === "en"
           ? "Olympus Casino is private property"
           : "Казино «Олимп» — частная территория",
       );
       return;
     }
-    if (s === v.OWNERSHIP_TOTEM) {
+    if (s === BLOCK.OWNERSHIP_TOTEM) {
       (this.net.send(new Xe(ue.C_SET_BLOCK).i32(e).u8(t).i32(i).u8(0).u8(0)),
         this.weapons.breakPop());
       return;
@@ -8744,44 +8744,44 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         vo("light", 90));
       return;
     }
-    const a = s === v.CAKE && this.world.getMeta(e, t, i) === 0;
+    const a = s === BLOCK.CAKE && this.world.getMeta(e, t, i) === 0;
     (this.world.setBlock(e, t, i, 0),
       this.net.send(
         new Xe(ue.C_SET_BLOCK).i32(e).u8(t).i32(i).u8(0).u8(0).u8(o),
       ),
       this.trainingMined++);
     const r =
-        s === v.RADIO_RELAY
-          ? E.RADIO_MODULE
-          : s === v.COAL_ORE
-            ? E.COAL
-            : s === v.GRASS || s === v.SAVANNA_GRASS
-              ? v.DIRT
+        s === BLOCK.RADIO_RELAY
+          ? ITEM.RADIO_MODULE
+          : s === BLOCK.COAL_ORE
+            ? ITEM.COAL
+            : s === BLOCK.GRASS || s === BLOCK.SAVANNA_GRASS
+              ? BLOCK.DIRT
               : s,
       l =
         !$n(s) &&
         !yh(s) &&
-        s !== v.FIRE &&
-        s !== v.TALL_GRASS &&
-        s !== v.DESERT_GRASS &&
-        (s !== v.CAKE || a),
+        s !== BLOCK.FIRE &&
+        s !== BLOCK.TALL_GRASS &&
+        s !== BLOCK.DESERT_GRASS &&
+        (s !== BLOCK.CAKE || a),
       c = l ? this.inventory.addItem(r) : 0;
     (!$n(s) &&
       !Bo(s) &&
       !yh(s) &&
-      s !== v.FIRE &&
-      (((d = de[s]) == null ? void 0 : d.hardness) ?? 0) > 2 &&
+      s !== BLOCK.FIRE &&
+      (((d = BLOCKS[s]) == null ? void 0 : d.hardness) ?? 0) > 2 &&
       (ca(s) === "wood"
         ? (Xt.add("wood", 1), Xt.stat("logs", 1))
         : (Xt.add("mine", ca(s) === "ore" ? 2 : 1), Xt.stat("blocks", 1))),
-      this.effects.blockBreak(new k(e + 0.5, t + 0.5, i + 0.5), de[s].color, s),
+      this.effects.blockBreak(new k(e + 0.5, t + 0.5, i + 0.5), BLOCKS[s].color, s),
       this.sfx.breakBlock(s),
       vo("light", 90),
       this.effects.addTrauma(0.09),
       this.weapons.breakPop(),
       yh(s)
-        ? V.showMineGain(Ki(Gse[s] ?? E.WHEAT_SEEDS))
-        : l && c > 0 && V.showMineGain(r >= 256 ? Ki(r) : kd(de[r])),
+        ? V.showMineGain(Ki(Gse[s] ?? ITEM.WHEAT_SEEDS))
+        : l && c > 0 && V.showMineGain(r >= 256 ? Ki(r) : kd(BLOCKS[r])),
       V.renderHotbar());
   }
   updateMiningVisual() {
@@ -8831,7 +8831,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         (this.miningVisualBlock = this.mining.block),
         (this.miningStage = -1),
         this.scene.add(this.miningMesh)));
-    const t = Ne(this.mining.t / this.mining.need, 0, 1);
+    const t = clamp(this.mining.t / this.mining.need, 0, 1);
     ((this.miningMesh.visible = !0),
       this.miningMesh.position.set(
         this.mining.x + 0.5,
@@ -8860,7 +8860,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         const p = new le(new Ct(l, c, h), t);
         (p.position.set(d, u, f), (p.renderOrder = Gi.marker), s.add(p));
       },
-      a = ((r = de[e]) == null ? void 0 : r.shape) ?? "cube";
+      a = ((r = BLOCKS[e]) == null ? void 0 : r.shape) ?? "cube";
     if (Hr(e))
       for (const [l, c, h, d, u, f] of Tw(e, i & 3))
         o(
@@ -8931,7 +8931,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     if (!Bo(i.block)) return null;
     for (let o = i.by; o > i.by - 4 && o > 0; o--) {
       const a = this.world.getBlock(i.bx, o - 1, i.bz);
-      if (a !== v.AIR && !Bo(a) && (s = de[a]) != null && s.solid)
+      if (a !== BLOCK.AIR && !Bo(a) && (s = BLOCKS[a]) != null && s.solid)
         return { ...i, by: o - 1, ny: 1 };
     }
     return null;
@@ -8943,7 +8943,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
   }
   layBattleMine(e, t) {
     var d;
-    const i = z.language === "en",
+    const i = SETTINGS.language === "en",
       s = Bo(this.world.getBlock(t.bx, t.by, t.bz)),
       o = t.bx + (s ? 0 : t.nx),
       a = t.by + (s ? 0 : t.ny),
@@ -8952,8 +8952,8 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       c = this.world.getBlock(o, a - 1, r),
       h =
         (!s && t.ny !== 1) ||
-        (l !== v.AIR && !Bo(l)) ||
-        !((d = de[c]) != null && d.solid)
+        (l !== BLOCK.AIR && !Bo(l)) ||
+        !((d = BLOCKS[c]) != null && d.solid)
           ? i
             ? "A mine goes on firm, open ground"
             : "Мина ставится на твёрдую открытую землю"
@@ -8980,24 +8980,24 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       s = t.by + t.ny,
       o = t.bz + t.nz;
     if (this.spawnNotice.protectedBlock(i, o, this.currentPlanet)) {
-      this.spawnNotice.deny("build", z.language === "en");
+      this.spawnNotice.deny("build", SETTINGS.language === "en");
       return;
     }
     if (
-      this.currentPlanet === Si.EARTH &&
+      this.currentPlanet === CELESTIAL.EARTH &&
       (p = this.casino) != null &&
       p.hallAt(i, s, o)
     ) {
       V.setHint(
-        z.language === "en"
+        SETTINGS.language === "en"
           ? "Casino grounds · building is not allowed"
           : "Территория казино · строительство запрещено",
       );
       return;
     }
-    if (e === E.COMPUTER) {
+    if (e === ITEM.COMPUTER) {
       if (
-        !Ap(Ca, su, "computer.use") ||
+        !Ap(localRole, ownerPermissions, "computer.use") ||
         t.ny !== 1 ||
         performance.now() < this.blueprintActionAt
       )
@@ -9018,7 +9018,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         this.weapons.swing());
       return;
     }
-    if (Tl(e)) {
+    if (slotGameByIndex(e)) {
       if (t.ny !== 1 || performance.now() < this.blueprintActionAt) return;
       ((this.blueprintActionAt = performance.now() + 700),
         this.sendInventory(),
@@ -9057,25 +9057,25 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       l = t.bz + t.nz;
     if (this.claimsUI && !this.claimsUI.allowed(this.currentPlanet, a, l)) {
       V.setHint(
-        z.language === "en"
+        SETTINGS.language === "en"
           ? "Protected territory · access denied"
           : "Приват территории · нет доступа",
       );
       return;
     }
     if (
-      this.currentPlanet === Si.EARTH &&
+      this.currentPlanet === CELESTIAL.EARTH &&
       (m = this.casino) != null &&
       m.hallAt(a, r, l)
     ) {
       V.setHint(
-        z.language === "en"
+        SETTINGS.language === "en"
           ? "Olympus Casino is private property"
           : "Казино «Олимп» — частная территория",
       );
       return;
     }
-    if (e === v.OWNERSHIP_TOTEM) {
+    if (e === BLOCK.OWNERSHIP_TOTEM) {
       if (performance.now() < this.blueprintActionAt) return;
       ((this.blueprintActionAt = performance.now() + 500),
         this.sendInventory(),
@@ -9085,25 +9085,25 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
     }
     const c = (g, b, S) => {
         const M = this.world.getBlock(g, b, S);
-        return M === v.AIR || M === v.WATER || M === v.LAVA;
+        return M === BLOCK.AIR || M === BLOCK.WATER || M === BLOCK.LAVA;
       },
-      h = de[e];
+      h = BLOCKS[e];
     if (
       r < 0 ||
       r >= 127 ||
       !c(a, r, l) ||
       (h.solid && this.intersectsPlayer(a, r, l)) ||
-      ([v.REDSTONE, v.LEVER, v.BUTTON, v.PLATE, v.REPEATER, v.SIGN].includes(
+      ([BLOCK.REDSTONE, BLOCK.LEVER, BLOCK.BUTTON, BLOCK.PLATE, BLOCK.REPEATER, BLOCK.SIGN].includes(
         e,
       ) &&
-        !((y = de[this.world.getBlock(t.bx, t.by, t.bz)]) != null && y.solid))
+        !((y = BLOCKS[this.world.getBlock(t.bx, t.by, t.bz)]) != null && y.solid))
     )
       return;
     let d = 0;
     const u = (g) =>
       t.ny === 1 && g
         ? 0
-        : t.ny === -1 && [v.REDSTONE, v.LEVER, v.BUTTON].includes(e)
+        : t.ny === -1 && [BLOCK.REDSTONE, BLOCK.LEVER, BLOCK.BUTTON].includes(e)
           ? Mp
           : t.nx === 1
             ? 1
@@ -9114,12 +9114,12 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
                 : t.nz === -1
                   ? 4
                   : null;
-    if (e === v.SIGN)
+    if (e === BLOCK.SIGN)
       if (t.ny === 1) d = (4 - this.yawFacing()) & 3;
       else if (t.ny === 0)
         d = 4 | (t.nx === 1 ? 1 : t.nx === -1 ? 3 : t.nz === 1 ? 0 : 2);
       else return;
-    else if (e === v.LANTERN)
+    else if (e === BLOCK.LANTERN)
       if (t.ny === -1) d = Mp;
       else {
         const g = u(!0);
@@ -9128,34 +9128,34 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       }
     else if (
       h.shape === "torch" ||
-      e === v.LADDER ||
-      e === v.REDSTONE ||
-      e === v.LEVER ||
-      e === v.BUTTON
+      e === BLOCK.LADDER ||
+      e === BLOCK.REDSTONE ||
+      e === BLOCK.LEVER ||
+      e === BLOCK.BUTTON
     ) {
-      const g = u(e !== v.LADDER);
+      const g = u(e !== BLOCK.LADDER);
       if (g === null) return;
       d = g;
-    } else if (e === v.CANDLE) {
+    } else if (e === BLOCK.CANDLE) {
       if (t.ny !== 1) return;
-    } else if (e === v.HANGING_HERBS) {
+    } else if (e === BLOCK.HANGING_HERBS) {
       if (t.ny !== -1) return;
-    } else if (e === v.PUMPKIN || e === v.JACK_O_LANTERN)
+    } else if (e === BLOCK.PUMPKIN || e === BLOCK.JACK_O_LANTERN)
       d = Yv(this.player.pos.x, this.player.pos.z, a, l);
-    else if (e === v.PLATE || e === v.REPEATER) {
+    else if (e === BLOCK.PLATE || e === BLOCK.REPEATER) {
       if (t.ny !== 1) return;
-      d = e === v.REPEATER ? this.yawFacing() : 0;
-    } else if (e === v.PISTON || e === v.SPISTON)
+      d = e === BLOCK.REPEATER ? this.yawFacing() : 0;
+    } else if (e === BLOCK.PISTON || e === BLOCK.SPISTON)
       this.player.pitch > 1
         ? (d = 0)
         : this.player.pitch < -1
           ? (d = 1)
           : (d = [5, 2, 4, 3][this.yawFacing()]);
-    else if (e === v.FURNACE)
+    else if (e === BLOCK.FURNACE)
       d = Yv(this.player.pos.x, this.player.pos.z, a, l);
-    else if (e === v.LED_SCREEN) {
+    else if (e === BLOCK.LED_SCREEN) {
       const g =
-          this.world.getBlock(t.bx, t.by, t.bz) === v.LED_SCREEN
+          this.world.getBlock(t.bx, t.by, t.bz) === BLOCK.LED_SCREEN
             ? this.world.getMeta(t.bx, t.by, t.bz) & 3
             : -1,
         [b, S] = g >= 0 ? xo[g] : [0, 0];
@@ -9163,7 +9163,7 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
         g >= 0 && t.nx * b + t.nz * S === 0
           ? g
           : Yv(this.player.pos.x, this.player.pos.z, a, l);
-    } else if (e === v.BED) {
+    } else if (e === BLOCK.BED) {
       d = this.yawFacing();
       const [g, b] = xo[d],
         S = a + g,
@@ -9178,10 +9178,10 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
       )
         return;
       d = this.yawFacing();
-    } else if (de[e].shape === "gate") d = this.yawFacing();
-    else if (de[e].shape === "stair") d = this.yawFacing();
+    } else if (BLOCKS[e].shape === "gate") d = this.yawFacing();
+    else if (BLOCKS[e].shape === "stair") d = this.yawFacing();
     else if (Hr(e)) d = ((this.yawFacing() + 2) & 3) | Ek;
-    else if (de[e].shape === "furniture") {
+    else if (BLOCKS[e].shape === "furniture") {
       const g =
         t.ny === 0
           ? t.nz === -1
@@ -9192,38 +9192,38 @@ ${e ? "Owner" : "Владелец"}: ${r.owner || (e ? "Unclaimed" : "Не за�
                 ? 2
                 : 3
           : -1;
-      if (e === v.WALL_LIGHT && g < 0) return;
-      d = e === v.WALL_LIGHT && g >= 0 ? g : (this.yawFacing() + 2) & 3;
+      if (e === BLOCK.WALL_LIGHT && g < 0) return;
+      d = e === BLOCK.WALL_LIGHT && g >= 0 ? g : (this.yawFacing() + 2) & 3;
     } else if (Bo(e)) {
       const g = this.world.getBlock(a, r - 1, l),
         b =
-          e === v.FIRE
-            ? g > 0 && de[g].solid
-            : e === v.DESERT_SAPLING
-              ? g === v.GRASS || g === v.SAVANNA_GRASS || g === v.SAND
-              : g === v.GRASS ||
-                g === v.SAVANNA_GRASS ||
-                g === v.DIRT ||
-                (e === v.PINE_SAPLING && g === v.SNOW);
+          e === BLOCK.FIRE
+            ? g > 0 && BLOCKS[g].solid
+            : e === BLOCK.DESERT_SAPLING
+              ? g === BLOCK.GRASS || g === BLOCK.SAVANNA_GRASS || g === BLOCK.SAND
+              : g === BLOCK.GRASS ||
+                g === BLOCK.SAVANNA_GRASS ||
+                g === BLOCK.DIRT ||
+                (e === BLOCK.PINE_SAPLING && g === BLOCK.SNOW);
       if (t.ny !== 1 || !b) return;
-    } else if (e === v.CACTUS) {
+    } else if (e === BLOCK.CACTUS) {
       const g = this.world.getBlock(a, r - 1, l);
-      if (t.ny !== 1 || (g !== v.SAND && g !== v.CACTUS)) return;
+      if (t.ny !== 1 || (g !== BLOCK.SAND && g !== BLOCK.CACTUS)) return;
     }
     const f = this.world.getBlock(a, r, l);
-    if ((f === v.WATER || f === v.LAVA) && qse.has(e)) {
+    if ((f === BLOCK.WATER || f === BLOCK.LAVA) && qse.has(e)) {
       (this.effects.blockBreak(new k(a + 0.5, r + 0.5, l + 0.5), h.color, e),
         this.sfx.breakBlock(e),
-        V.setHint(Ns("This block goes out and breaks in liquid", z.language)));
+        V.setHint(Ns("This block goes out and breaks in liquid", SETTINGS.language)));
       return;
     }
     if (
       ((d &= -193),
-      f === v.WATER && cg(e) && (d |= cC),
-      f === v.LAVA && cg(e) && (d |= hC),
+      f === BLOCK.WATER && cg(e) && (d |= cC),
+      f === BLOCK.LAVA && cg(e) && (d |= hC),
       !!this.inventory.consumeHeld())
     ) {
-      if (e === v.BED) {
+      if (e === BLOCK.BED) {
         const [g, b] = xo[d];
         (this.world.setBlock(a, r, l, e, d),
           this.world.setBlock(a + g, r, l + b, e, d | 4));

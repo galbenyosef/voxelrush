@@ -41,7 +41,7 @@ class fF {
       e.group.traverse((o) => {
         o.name && this.anchors.set(o.name, o);
       }));
-    const s = eF(t === E.GLOCK);
+    const s = eF(t === ITEM.GLOCK);
     ((this.right = this.anchors.has("grip-r") ? s.right : null),
       (this.left = i && this.anchors.has("grip-l") ? s.left : null));
     for (const o of [this.right, this.left])
@@ -164,7 +164,7 @@ class fF {
             : (i - t.boltCycle[0]) / (t.boltCycle[1] - t.boltCycle[0])),
       this.bolt)
     )
-      if (this.base === E.AWP) {
+      if (this.base === ITEM.AWP) {
         const a = s >= 0 ? cF(s) : { lift: 0, back: 0 };
         ((this.bolt.rotation.z = a.lift * 1.05),
           (this.bolt.position.z = this.boltRest.z + a.back * 0.1),
@@ -209,7 +209,7 @@ class fF {
       const a =
           i >= 0
             ? t.right
-            : s >= 0 && this.base === E.AWP
+            : s >= 0 && this.base === ITEM.AWP
               ? [
                   [0, "grip-r"],
                   [0.12, "bolt-knob"],
@@ -242,25 +242,25 @@ const Ku = 0.325,
     twoHand: !0,
   },
   ck = {
-    [E.AK47]: rm,
-    [E.AWP]: { ...rm, aim: [0.2, 1.48, -0.22] },
-    [E.SHOTGUN]: rm,
-    [E.GLOCK]: {
+    [ITEM.AK47]: rm,
+    [ITEM.AWP]: { ...rm, aim: [0.2, 1.48, -0.22] },
+    [ITEM.SHOTGUN]: rm,
+    [ITEM.GLOCK]: {
       aim: [0.05, 1.5, -0.62],
       ready: [0.1, 1.2, -0.36],
       drop: 0.75,
       pivot: [0.1, 1.5, 0],
       twoHand: !0,
     },
-    [E.RPG]: {
+    [ITEM.RPG]: {
       aim: [0.32, 1.62, -0.24],
       ready: [0.32, 1.58, -0.2],
       drop: 0.12,
       pivot: [0.32, 1.6, 0],
       twoHand: !0,
     },
-    [E.GRENADE_LAUNCHER]: rm,
-    [E.MINIGUN]: {
+    [ITEM.GRENADE_LAUNCHER]: rm,
+    [ITEM.MINIGUN]: {
       aim: [0.2, 1.14, -0.24],
       ready: [0.2, 1.1, -0.22],
       drop: 0.12,

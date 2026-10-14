@@ -65,7 +65,7 @@ u4(() => {
 });
 function Mee() {
   var e;
-  HM ?? (HM = R0(E.COMBAT_KNIFE).group);
+  HM ?? (HM = R0(ITEM.COMBAT_KNIFE).group);
   const n = HM.clone();
   return (
     n.traverse((t) => {
@@ -166,7 +166,7 @@ class Eee {
         continue;
       }
       if (((i.model.visible = i.planet === t), !i.stuck)) {
-        const s = gee * (i.planet === Si.MOON ? wp : 1);
+        const s = gee * (i.planet === CELESTIAL.MOON ? wp : 1);
         ((i.vel.y -= s * e), this.next.copy(i.pos).addScaledVector(i.vel, e));
         const o = this.next.distanceTo(i.pos),
           a =
@@ -201,7 +201,7 @@ class Eee {
     for (const e of [...this.knives]) this.remove(e);
   }
 }
-const eR = (n) => n === E.DYNAMITE_SMALL || n === E.DYNAMITE_BUNDLE;
+const eR = (n) => n === ITEM.DYNAMITE_SMALL || n === ITEM.DYNAMITE_BUNDLE;
 let t2 = null;
 function xee() {
   if (t2) return t2;

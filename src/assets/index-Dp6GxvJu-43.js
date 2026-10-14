@@ -77,8 +77,8 @@ function VG(n, e, t, i) {
 function $G(n, e, t, i, s) {
   const o = (r, l, c) => {
     if (r < 0 || r >= Pe || c < 0 || c >= Pe || l >= Kt) return;
-    const h = Ri(r, l, c);
-    n[h] === v.AIR && (n[h] = v.TROPICAL_LEAVES);
+    const h = packColor(r, l, c);
+    n[h] === BLOCK.AIR && (n[h] = BLOCK.TROPICAL_LEAVES);
   };
   o(e, t + 1, i);
   const a = [
@@ -171,7 +171,7 @@ function YG(n, e, t) {
     },
     s = Fs(n + 931, e.x * 0.0022, e.z * 0.0022, 3),
     o = Fs(n + 937, e.x * 0.0055, e.z * 0.0055, 2);
-  let a = i[t] * Ne(0.7 + s * 0.82 + o * 0.28, 0.08, 1.15);
+  let a = i[t] * clamp(0.7 + s * 0.82 + o * 0.28, 0.08, 1.15);
   if (
     (t === "plains" && (s < -0.16 || o < -0.34) && (a *= 0.06),
     (t === "forest" || t === "jungle" || t === "autumn") &&

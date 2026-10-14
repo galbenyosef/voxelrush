@@ -165,7 +165,7 @@ function Nne(n) {
   c.position.set(0.265, 0.27, -0.02);
   const h = ul(0.015, 0.22, 0.015, 14211288);
   (h.position.set(0.27, 0.12, 0.02), n.head.add(a, r, l, c, h));
-  const d = R0(E.GLOCK).group.clone(!0);
+  const d = R0(ITEM.GLOCK).group.clone(!0);
   (d.rotation.set(-Math.PI / 2, 0, 0),
     d.position.set(0.04, -0.04, 0),
     d.scale.setScalar(1.1),

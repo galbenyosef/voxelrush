@@ -5,7 +5,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(11, 4, 4),
       r = ki(19, 3, 3);
-    zn(n, 256, (l, c) => {
+    makeCanvas(n, 256, (l, c) => {
       const h = a(l, c),
         d = r(l, c),
         u = Math.sin((l * 6 + h * 2.2) * Math.PI * 2) * 0.5 + 0.5;
@@ -143,7 +143,7 @@ const eT = {
     for (let f = 0; f < l; f++)
       for (let p = 0; p < r; p++)
         u.push([(p + (f % 2) * 0.5) * c, f * h, f * r + p]);
-    (zn(n, we, (f, p) => {
+    (makeCanvas(n, we, (f, p) => {
       const m = f * we,
         y = p * we;
       let g = 1e9,
@@ -202,7 +202,7 @@ const eT = {
         }
       return { id: g, d1: m, d2: y };
     };
-    zn(n, we, (d, u) => {
+    makeCanvas(n, we, (d, u) => {
       const { id: f, d1: p, d2: m } = h(d, u),
         [y, g] = c[f],
         b = r(y, g),
@@ -220,7 +220,7 @@ const eT = {
   topo(n, e) {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(71, 3, 5);
-    zn(n, we, (l, c) => {
+    makeCanvas(n, we, (l, c) => {
       const h = a(l, c),
         d = Math.floor(h * 14),
         u = h * 14 - d;
@@ -256,7 +256,7 @@ const eT = {
       i = t.slice(1),
       s = En(91),
       o = ki(93, 16, 3);
-    zn(n, 256, (r, l) => ({
+    makeCanvas(n, 256, (r, l) => ({
       c: Hn([150, 150, 158], 0.78 + o(r, l) * 0.4),
       m: 0.15,
     }));
@@ -408,7 +408,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(81, 4, 3),
       r = ki(83, 6, 2);
-    zn(n, 256, (h, d) => {
+    makeCanvas(n, 256, (h, d) => {
       const u = a(h, d),
         f = Math.pow(
           1 - Math.abs(Math.sin(r(h + u * 0.2, d) * 6 * Math.PI)),
@@ -514,7 +514,7 @@ const eT = {
       a = ki(101, 3, 5),
       r = ki(103, 5, 3),
       l = ki(107, 8, 2);
-    (zn(n, 256, (c, h) => {
+    (makeCanvas(n, 256, (c, h) => {
       const d = a(c, h) * 0.8 + r(c, h) * 0.35 + (l(c, h) - 0.5) * 0.15,
         u = Ga(
           [
@@ -537,7 +537,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(111, 4, 4),
       r = ki(113, 6, 3);
-    zn(n, we, (l, c) => {
+    makeCanvas(n, we, (l, c) => {
       const h = a(l, c),
         d = r(l, c),
         f =
@@ -555,7 +555,7 @@ const eT = {
   },
   toxic(n, e) {
     const [t, i, s, o] = e.colors.map(bn);
-    zn(n, we, (h, d) => ({ c: ((h + d) * 8) % 1 < 0.5 ? i : t, m: 0.25 }));
+    makeCanvas(n, we, (h, d) => ({ c: ((h + d) * 8) % 1 < 0.5 ? i : t, m: 0.25 }));
     const a = ki(121, 4, 4),
       r = ki(127, 16, 2),
       l = n.a.getImageData(0, 0, we, we),
@@ -589,7 +589,7 @@ const eT = {
   frost(n, e) {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(131, 4, 4);
-    zn(n, 256, (c, h) => ({
+    makeCanvas(n, 256, (c, h) => ({
       c: _i(t, o, a(c, h) * 0.9),
       m: 0.7,
       s: a(c, h) * 0.3,
@@ -646,7 +646,7 @@ const eT = {
       l = we / r;
     Zx(n, At(t), Vi(0.45));
     const c = ki(143, 32, 2);
-    zn(
+    makeCanvas(
       n,
       256,
       (u, f) => ({ c: Hn(_i(t, i, 0.35), 0.8 + c(u, f) * 0.45), m: 0.45 }),
@@ -731,7 +731,7 @@ const eT = {
       a = ki(151, 3, 4),
       r = ki(153, 48, 2),
       l = ki(157, 2, 3);
-    zn(n, we, (h, d) => {
+    makeCanvas(n, we, (h, d) => {
       let u = 0;
       for (const [m, y] of [
         [1, 0],
@@ -808,7 +808,7 @@ const eT = {
       r = Array.from({ length: 34 }, () => [a(), a()]),
       l = r.map(() => a()),
       c = Qx(r);
-    zn(n, we, (h, d) => {
+    makeCanvas(n, we, (h, d) => {
       const { id: u, d1: f, d2: p } = c(h, d),
         m = p - f,
         y = l[u],
@@ -826,7 +826,7 @@ const eT = {
   },
   synth(n, e) {
     const [t, i, s, o] = e.colors.map(bn);
-    zn(n, we, (r, l) => {
+    makeCanvas(n, we, (r, l) => {
       if (l < 0.55) {
         let y = Ga([t, Hn(i, 0.6), s], Zo(0, 0.55, l));
         const g = Math.abs(((r + 0.5) % 1) - 0.5) * 2.2,
@@ -857,7 +857,7 @@ const eT = {
   storm(n, e) {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(191, 3, 5);
-    zn(n, 256, (c, h) => {
+    makeCanvas(n, 256, (c, h) => {
       const d = a(c, h);
       return {
         c: Ga([t, i, Hn(i, 1.6), [150, 170, 220]], Zo(0.25, 0.85, d)),
@@ -916,7 +916,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(201, 3, 3),
       r = En(203);
-    zn(n, 256, (c, h) => ({ c: _i(t, i, a(c, h) * 0.7), m: 0.65, s: 0 }));
+    makeCanvas(n, 256, (c, h) => ({ c: _i(t, i, a(c, h) * 0.7), m: 0.65, s: 0 }));
     const l = (c, h, d, u, f, p) => {
       const m = [[c, h]];
       let y = c,
@@ -980,7 +980,7 @@ const eT = {
   },
   fade(n, e) {
     const t = e.colors.map(bn);
-    (zn(n, 256, (i, s) => {
+    (makeCanvas(n, 256, (i, s) => {
       const o = 0.5 - 0.5 * Math.cos((i * 0.5 + s * 0.5) * Math.PI * 2);
       return { c: Ga(t, o), m: 0.95, s: 0.4 + o * 0.4 };
     }),
@@ -990,7 +990,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(211, 3, 5),
       r = ki(213, 5, 4);
-    zn(n, 256, (h, d) => {
+    makeCanvas(n, 256, (h, d) => {
       const u = a(h, d),
         f = Math.abs(Math.sin((h * 3 + u * 4 + r(h, d)) * Math.PI)),
         p = _i(_i(t, i, u * 0.9), o, Math.pow(1 - f, 14) * 0.8);
@@ -1076,7 +1076,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(221, 4, 5),
       r = ki(223, 2, 3);
-    zn(n, we, (l, c) => {
+    makeCanvas(n, we, (l, c) => {
       const h = a(l, c),
         d =
           Math.sin(
@@ -1100,7 +1100,7 @@ const eT = {
   web(n, e) {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(231, 4, 4);
-    zn(n, 256, (l, c) => ({ c: _i(t, i, a(l, c) * 0.8), m: 0.5 }));
+    makeCanvas(n, 256, (l, c) => ({ c: _i(t, i, a(l, c) * 0.8), m: 0.5 }));
     const r = En(233);
     for (let l = 0; l < 4; l++) {
       const c = r() * we,
@@ -1162,7 +1162,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(241, 3, 3),
       r = En(243);
-    zn(n, 256, (h, d) => ({ c: _i(t, i, a(h, d) * 0.9), m: 0.7 }));
+    makeCanvas(n, 256, (h, d) => ({ c: _i(t, i, a(h, d) * 0.9), m: 0.7 }));
     for (const [h, d, u] of [
       [150, 190, 120],
       [400, 400, 70],
@@ -1241,7 +1241,7 @@ const eT = {
       r = Array.from({ length: 46 }, () => [a(), a()]),
       l = Qx(r),
       c = ki(253, 8, 3);
-    zn(n, we, (h, d) => {
+    makeCanvas(n, we, (h, d) => {
       const { d1: u, d2: f, id: p } = l(h, d),
         m = f - u,
         y = c(h, d),
@@ -1260,7 +1260,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(261, 2, 5),
       r = ki(263, 3, 4);
-    zn(n, 256, (c, h) => {
+    makeCanvas(n, 256, (c, h) => {
       const d = a(c, h),
         u = r(c + d * 0.3, h + d * 0.3),
         f = Math.sin((u * 3 + d) * Math.PI * 2) * 0.5 + 0.5,
@@ -1286,7 +1286,7 @@ const eT = {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(271, 2, 5),
       r = ki(273, 4, 4);
-    zn(n, 256, (c, h) => {
+    makeCanvas(n, 256, (c, h) => {
       const d = a(c, h),
         u = r(c + d * 0.2, h),
         f = Zo(0.35, 0.65, d),
@@ -1351,7 +1351,7 @@ const eT = {
       a = ki(311, 5, 4),
       r = ki(313, 3, 3),
       l = En(317);
-    zn(n, 256, (h, d) => {
+    makeCanvas(n, 256, (h, d) => {
       const u = a(h, d),
         f = r(h + u * 0.2, d),
         p = Math.pow(1 - Math.abs(u - 0.5) * 2, 14);
@@ -1496,7 +1496,7 @@ const eT = {
       a = ki(331, 4, 4),
       r = En(337),
       l = ki(333, 2, 5);
-    (zn(n, 256, (d, u) => {
+    (makeCanvas(n, 256, (d, u) => {
       const f = a(d, u),
         p = l(d + f * 0.3, u),
         m = Zo(0.45, 0.8, p);
@@ -1627,7 +1627,7 @@ const eT = {
   filigree(n, e) {
     const [t, i, s, o] = e.colors.map(bn),
       a = ki(281, 4, 3);
-    zn(n, 256, (c, h) => ({
+    makeCanvas(n, 256, (c, h) => ({
       c: Ga([i, t, o], 0.4 + a(c, h) * 0.5),
       m: 1,
       s: 0.3,

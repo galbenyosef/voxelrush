@@ -25,11 +25,11 @@ function J8(n, e) {
 function eC(n, e) {
   n.matrixWorldAutoUpdate = e;
 }
-const hH = ["river", "kavir", "frost", "city", "cosmo"],
-  dH = (n) => typeof n == "string" && hH.includes(n),
-  uH = ["sirocco", "junction", "hanami"],
-  fH = (n) => typeof n == "string" && uH.includes(n),
-  pH = {
+const ARENA_MAP_IDS = ["river", "kavir", "frost", "city", "cosmo"],
+  isMapId = (n) => typeof n == "string" && ARENA_MAP_IDS.includes(n),
+  SMALL_MAP_IDS = ["sirocco", "junction", "hanami"],
+  isSmallMapId = (n) => typeof n == "string" && SMALL_MAP_IDS.includes(n),
+  MAPS = {
     river: {
       id: "river",
       name: { en: "River Crossing", ru: "Переправа" },
@@ -98,7 +98,7 @@ const hH = ["river", "kavir", "frost", "city", "cosmo"],
       added: "2026-10-11",
     },
   },
-  mH = {
+  SMALL_MAPS = {
     sirocco: {
       id: "sirocco",
       name: { en: "Sirocco", ru: "Сирокко" },
@@ -153,22 +153,22 @@ const hH = ["river", "kavir", "frost", "city", "cosmo"],
       ],
     },
   },
-  Yc = (n) => (dH(n) ? pH[n] : fH(n) ? mH[n] : null),
+  resolveMap = (n) => (isMapId(n) ? MAPS[n] : isSmallMapId(n) ? SMALL_MAPS[n] : null),
   gH = 21,
   yH = (n, e = Date.now()) => {
     var i;
-    const t = (i = Yc(n)) == null ? void 0 : i.added;
+    const t = (i = resolveMap(n)) == null ? void 0 : i.added;
     return !!t && e - Date.parse(t) < gH * 864e5 && e >= Date.parse(t) - 864e5;
   },
   vH = 4,
   bH = (n, e) => {
     var t;
-    return ((t = Yc(n)) == null ? void 0 : t.name[e]) ?? n;
+    return ((t = resolveMap(n)) == null ? void 0 : t.name[e]) ?? n;
   };
 function wH(n, e, t, i) {
   var y;
   (y = document.getElementById("front-map-veil")) == null || y.remove();
-  const s = Yc(n),
+  const s = resolveMap(n),
     o = document.createElement("div");
   ((o.id = "front-map-veil"),
     o.style.setProperty(
@@ -287,7 +287,7 @@ function AH(n) {
   return e;
 }
 const bx = !1,
-  Mu = [
+  SLOT_GAMES = [
     ["olympus1000", "Gates of Olympus 1000", "goo1000", 12162047, "Ω"],
     ["olympus", "Gates of Olympus", "gatesoo", 10781940, "Ω"],
     ["olympus-ss", "Gates of Olympus Super Scatter", "gooss", 16434514, "Ω"],
@@ -334,8 +334,8 @@ const bx = !1,
   })),
   dy = 600,
   iC = 2500,
-  Tl = (n) => (Number.isInteger(n) ? Mu[n - dy] : void 0),
-  _H = (n) => Mu.find((e) => e.id === n),
+  slotGameByIndex = (n) => (Number.isInteger(n) ? SLOT_GAMES[n - dy] : void 0),
+  findSlotGame = (n) => SLOT_GAMES.find((e) => e.id === n),
   J1 = (n) =>
     typeof n == "number" &&
     Number.isFinite(n) &&

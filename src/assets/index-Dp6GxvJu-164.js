@@ -260,7 +260,7 @@ class JQ {
     return i
       ? (this.open ||
           this.pending ||
-          (this.hooks.held() === E.WELDER
+          (this.hooks.held() === ITEM.WELDER
             ? this.hooks.send({ action: "pickup", id: i.id })
             : ((this.pending = { id: i.id, at: performance.now() }),
               this.hooks.send({ action: "open", id: i.id }))),

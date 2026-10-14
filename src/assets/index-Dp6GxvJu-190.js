@@ -85,7 +85,7 @@ function Vee(n, e) {
   return (
     p0(t),
     p0(s),
-    t.scale.setScalar(Ir(Nt.FISH, n)),
+    t.scale.setScalar(Ir(ANIMAL_KIND.FISH, n)),
     { group: t, legs: [], head: null, tail: s, flaps: i, spine: [], jaw: null }
   );
 }
@@ -163,7 +163,7 @@ function $ee(n, e) {
   for (const m of i) m.userData.animated = !0;
   return (
     p0(t),
-    t.scale.setScalar(Ir(Nt.SHARK, n)),
+    t.scale.setScalar(Ir(ANIMAL_KIND.SHARK, n)),
     { group: t, legs: [], head: null, tail: p, flaps: i, spine: s, jaw: o }
   );
 }

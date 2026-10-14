@@ -57,7 +57,7 @@ const Zg = class Zg {
   }
   look(e, t, i) {
     ((this.yaw -= e * 0.0022 * i),
-      (this.pitch = Ne(this.pitch - t * 0.0022 * i, -1.55, 1.55)));
+      (this.pitch = clamp(this.pitch - t * 0.0022 * i, -1.55, 1.55)));
   }
   eyePos(e) {
     return e.set(
@@ -212,23 +212,23 @@ const Zg = class Zg {
           Math.floor(this.pos.x),
           Math.floor(this.pos.y + 0.35),
           Math.floor(this.pos.z),
-        ) === v.BARBED_WIRE ||
+        ) === BLOCK.BARBED_WIRE ||
         i.getBlock(
           Math.floor(this.pos.x),
           Math.floor(this.pos.y + 1.1),
           Math.floor(this.pos.z),
-        ) === v.BARBED_WIRE,
+        ) === BLOCK.BARBED_WIRE,
       p =
         i.getBlock(
           Math.floor(this.pos.x),
           Math.floor(this.pos.y + 0.35),
           Math.floor(this.pos.z),
-        ) === v.COBWEB ||
+        ) === BLOCK.COBWEB ||
         i.getBlock(
           Math.floor(this.pos.x),
           Math.floor(this.pos.y + 1.2),
           Math.floor(this.pos.z),
-        ) === v.COBWEB;
+        ) === BLOCK.COBWEB;
     p &&
       !this.flying &&
       ((this.vel.y = Math.max(this.vel.y, -1.2)),
@@ -268,7 +268,7 @@ const Zg = class Zg {
         const F = Math.floor(this.pos.x),
           X = Math.floor(O),
           Q = Math.floor(this.pos.z);
-        if (i.getBlock(F, X, Q) !== v.LADDER) return null;
+        if (i.getBlock(F, X, Q) !== BLOCK.LADDER) return null;
         const ee = i.getMeta(F, X, Q) & 7,
           se = this.pos.x - F,
           oe = this.pos.z - Q;
@@ -333,7 +333,7 @@ const Zg = class Zg {
             s &&
             (t.action("crouch") || (t.action("sprint") && !this.sprinting)) &&
             (this.vel.y = Math.max(this.vel.y - 30 * e, -4.2)),
-        (this.vel.y = Ne(this.vel.y, -5, 5)));
+        (this.vel.y = clamp(this.vel.y, -5, 5)));
       const [Q, ee, se] = Az(
         i,
         Math.floor(this.pos.x),
@@ -439,7 +439,7 @@ const Zg = class Zg {
       G.stepUp > 0 && (this.stepLag = Math.max(-1.1, this.stepLag - G.stepUp)),
       (this.stepLag *= Math.exp(-16 * e)),
       this.stepLag > -0.002 && (this.stepLag = 0),
-      z.autoJump &&
+      SETTINGS.autoJump &&
         s &&
         this.onGround &&
         G.hitHoriz &&

@@ -31,7 +31,7 @@ class wQ {
           i.closest("input,textarea,select,[contenteditable]"))
       )
         return;
-      if (e.code === z.binds.chat || e.code === "Enter" || e.code === "Slash") {
+      if (e.code === SETTINGS.binds.chat || e.code === "Enter" || e.code === "Slash") {
         (e.preventDefault(),
           e.stopImmediatePropagation(),
           this.hooks.openChat(e.code === "Slash" ? "/" : ""));

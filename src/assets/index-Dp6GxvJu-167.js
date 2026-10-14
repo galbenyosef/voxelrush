@@ -58,7 +58,7 @@ class dJ {
       this.hide();
       return;
     }
-    const r = z.language === "en";
+    const r = SETTINGS.language === "en";
     (this.kind !== e.kind && this.build(e.kind),
       this.root.classList.add("on"),
       this.root.classList.remove("marker-only"),
@@ -79,7 +79,7 @@ class dJ {
         ),
         c.classList.toggle("hot", !!e.hot),
         (this.reloadBar.firstElementChild.style.width = `${Math.round(d * 100)}%`),
-        (c.style.display = z.vehicleInstruments ? "none" : ""));
+        (c.style.display = SETTINGS.vehicleInstruments ? "none" : ""));
     } else {
       this.zoomText !== l && (this.zoomEl.innerHTML = this.zoomText = l);
       const d = e.reload > 0.05,

@@ -66,10 +66,10 @@ class aq {
     return N5(this.level("wood"));
   }
   knifeDamage() {
-    return BA(this.level(Tr(E.COMBAT_KNIFE)));
+    return BA(this.level(Tr(ITEM.COMBAT_KNIFE)));
   }
   knifeCooldown() {
-    return HA(this.level(Tr(E.COMBAT_KNIFE)));
+    return HA(this.level(Tr(ITEM.COMBAT_KNIFE)));
   }
   fistMul() {
     return D5(this.level("fight"));
@@ -100,21 +100,21 @@ class aq {
     const t = B5();
     if (e.startsWith("w:")) {
       const s = +e.slice(2);
-      return (t ? l0[s] : Gc[s]) ?? e;
+      return (t ? BLOCK_NAMES_EN[s] : BLOCK_NAMES_RU[s]) ?? e;
     }
     if (e.startsWith("v:")) {
       const s = +e.slice(2);
-      return (t ? xS[s] : ES[s]) ?? e;
+      return (t ? VEHICLE_NAMES_EN[s] : VEHICLE_NAMES_RU[s]) ?? e;
     }
-    const i = oq[e];
+    const i = STAT_LABELS[e];
     return i ? i[t ? 1 : 0] : e;
   }
   icon(e) {
     return e.startsWith("w:")
-      ? Nn("target")
+      ? svgIcon("target")
       : e.startsWith("v:")
-        ? Nn("settings")
-        : Nn(
+        ? svgIcon("settings")
+        : svgIcon(
             e === "fight"
               ? "shield"
               : e === "mine" || e === "wood"
@@ -126,7 +126,7 @@ class aq {
   }
   effect(e, t = this.level(e)) {
     const i = B5();
-    if (e === Tr(E.COMBAT_KNIFE)) {
+    if (e === Tr(ITEM.COMBAT_KNIFE)) {
       const s = BA(t),
         o = 1 / HA(t);
       return i
@@ -185,7 +185,7 @@ class aq {
   howTo(e) {
     var s;
     const t = B5();
-    return e === Tr(E.COMBAT_KNIFE)
+    return e === Tr(ITEM.COMBAT_KNIFE)
       ? t
         ? "Land knife hits on enemies"
         : "Попадайте ножом по противникам"
@@ -226,7 +226,7 @@ class aq {
     return t >= hr ? 0 : Lg(e, t + 1);
   }
   basicKeys() {
-    return [...hL];
+    return [...STAT_KEYS];
   }
 }
 const Xt = new aq(),

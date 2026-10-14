@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 50 — math
+// index-Dp6GxvJu 50 — tile_kind
 // Lines 43775-44122 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const Pk = (n, e) => (t, i, s) => {
   if (i >= 9 && i <= 15 && t >= 6 && t <= 9)
@@ -64,7 +64,7 @@ const uW = {
     cloth: { fx: 10, fy: 10, oct: 2, relief: 0.12, tone: 0.08 },
     smooth: { fx: 4, fy: 4, oct: 2, relief: 0.04, tone: 0.03 },
   },
-  ui = {
+  TILE_KIND = {
     0: "organic",
     1: "organic",
     2: "dirt",
@@ -118,12 +118,12 @@ const uW = {
     [my]: "metal",
   };
 AS.forEach((n, e) => {
-  ui[TS + e] = "stone";
+  TILE_KIND[TS + e] = "stone";
 });
-for (let n = 0; n < 5; n++) ui[to + n] = "rock";
+for (let n = 0; n < 5; n++) TILE_KIND[to + n] = "rock";
 ["sand", "sand", "sand", "stone", "stone", "stone", "organic"].forEach(
   (n, e) => {
-    ui[Bn + e] = n;
+    TILE_KIND[Bn + e] = n;
   },
 );
 [
@@ -141,60 +141,60 @@ for (let n = 0; n < 5; n++) ui[to + n] = "rock";
   "organic",
   "organic",
 ].forEach((n, e) => {
-  ui[Hi + e] = n;
+  TILE_KIND[Hi + e] = n;
 });
 ["wood", "stone", "stone", "stone", "sand"].forEach((n, e) => {
-  ui[nn + e] = n;
+  TILE_KIND[nn + e] = n;
 });
 for (let n = 0; n < 4; n++)
-  ((ui[Bt + n * 3] = "wood"),
-    (ui[Bt + n * 3 + 1] = "bark"),
-    (ui[Bt + n * 3 + 2] = "organic"));
-for (let n = 12; n <= 16; n++) ui[Bt + n] = "organic";
-ui[Bt + 17] = "liquid";
-ui[Bt + 18] = "glow";
-ui[Bt + 19] = "organic";
-ui[Bt + 20] = "organic";
-ui[Bt + 21] = "organic";
-ui[Yf] = "cloth";
-ui[as] = "organic";
-ui[as + 1] = "dirt";
-ui[as + 2] = "dirt";
-for (let n = 3; n <= 8; n++) ui[as + n] = "organic";
-for (let n = 0; n < tc.length * 3; n++) ui[lg + n] = "organic";
-for (let n = 0; n < tc.length * 3; n++) ui[kS + n] = "organic";
-for (let n = 0; n < 3; n++) ui[Wc + n] = "cloth";
-ui[zd] = "bark";
-ui[Qp] = "glow";
-ui[qo] = "organic";
-ui[qo + 1] = "organic";
-for (let n = 2; n <= 4; n++) ui[qo + n] = "rock";
-ui[_n] = "sand";
-ui[_n + 1] = "sand";
-ui[_n + 2] = "metal";
-ui[_n + 3] = "rock";
-ui[_n + 4] = "sand";
-ui[_n + 5] = "sand";
-ui[_n + 6] = "metal";
-ui[Wi] = "sand";
-ui[Wi + 1] = "rock";
-ui[Wi + 2] = "rock";
-ui[Wi + 3] = "glass";
-ui[Wi + 4] = "rock";
-ui[Wi + 5] = "metal";
-ui[Wi + 6] = "glass";
-ui[_c] = "cloth";
-ui[zl] = "metal";
-ui[jc] = "glow";
-ui[gy] = "metal";
-ui[Xc] = "organic";
-ui[Xc + 1] = "dirt";
-ui[rg] = "wood";
-ui[Jp] = "organic";
+  ((TILE_KIND[Bt + n * 3] = "wood"),
+    (TILE_KIND[Bt + n * 3 + 1] = "bark"),
+    (TILE_KIND[Bt + n * 3 + 2] = "organic"));
+for (let n = 12; n <= 16; n++) TILE_KIND[Bt + n] = "organic";
+TILE_KIND[Bt + 17] = "liquid";
+TILE_KIND[Bt + 18] = "glow";
+TILE_KIND[Bt + 19] = "organic";
+TILE_KIND[Bt + 20] = "organic";
+TILE_KIND[Bt + 21] = "organic";
+TILE_KIND[Yf] = "cloth";
+TILE_KIND[as] = "organic";
+TILE_KIND[as + 1] = "dirt";
+TILE_KIND[as + 2] = "dirt";
+for (let n = 3; n <= 8; n++) TILE_KIND[as + n] = "organic";
+for (let n = 0; n < tc.length * 3; n++) TILE_KIND[lg + n] = "organic";
+for (let n = 0; n < tc.length * 3; n++) TILE_KIND[kS + n] = "organic";
+for (let n = 0; n < 3; n++) TILE_KIND[Wc + n] = "cloth";
+TILE_KIND[zd] = "bark";
+TILE_KIND[Qp] = "glow";
+TILE_KIND[BLOCK_ID_SEAWEED] = "organic";
+TILE_KIND[BLOCK_ID_SEAWEED + 1] = "organic";
+for (let n = 2; n <= 4; n++) TILE_KIND[BLOCK_ID_SEAWEED + n] = "rock";
+TILE_KIND[_n] = "sand";
+TILE_KIND[_n + 1] = "sand";
+TILE_KIND[_n + 2] = "metal";
+TILE_KIND[_n + 3] = "rock";
+TILE_KIND[_n + 4] = "sand";
+TILE_KIND[_n + 5] = "sand";
+TILE_KIND[_n + 6] = "metal";
+TILE_KIND[Wi] = "sand";
+TILE_KIND[Wi + 1] = "rock";
+TILE_KIND[Wi + 2] = "rock";
+TILE_KIND[Wi + 3] = "glass";
+TILE_KIND[Wi + 4] = "rock";
+TILE_KIND[Wi + 5] = "metal";
+TILE_KIND[Wi + 6] = "glass";
+TILE_KIND[_c] = "cloth";
+TILE_KIND[zl] = "metal";
+TILE_KIND[jc] = "glow";
+TILE_KIND[gy] = "metal";
+TILE_KIND[Xc] = "organic";
+TILE_KIND[Xc + 1] = "dirt";
+TILE_KIND[rg] = "wood";
+TILE_KIND[Jp] = "organic";
 [201, 202, 203].forEach((n) => {
-  ui[n] = "organic";
+  TILE_KIND[n] = "organic";
 });
-Object.assign(ui, {
+Object.assign(TILE_KIND, {
   204: "wood",
   205: "bark",
   206: "organic",
@@ -286,7 +286,7 @@ Be[238] = (n, e, t) => {
         ? i
         : ie(80, 95, 50, 5)(n, e, t);
 };
-Object.assign(ui, {
+Object.assign(TILE_KIND, {
   231: "wood",
   232: "wood",
   233: "wood",

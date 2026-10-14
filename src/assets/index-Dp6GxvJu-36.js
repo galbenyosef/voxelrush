@@ -1,15 +1,15 @@
-// index-Dp6GxvJu 36 — math
+// index-Dp6GxvJu 36 — item
 // Lines 39433-39772 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function ZF(n) {
   const e = new Map();
   for (const t of n.blocks) {
     if (
-      t.id === v.AIR ||
-      (t.id === v.BED && t.meta & Sp) ||
+      t.id === BLOCK.AIR ||
+      (t.id === BLOCK.BED && t.meta & Sp) ||
       (Ss(t.id) && t.meta & Na)
     )
       continue;
-    const i = t.id === v.WATER ? E.WATER_BUCKET : t.id;
+    const i = t.id === BLOCK.WATER ? ITEM.WATER_BUCKET : t.id;
     e.set(i, (e.get(i) ?? 0) + 1);
   }
   return e;
@@ -25,7 +25,7 @@ function JF(n, e, t, i, s) {
   return n.blocks.map((o) => {
     const [a, r] = QF(o.x, o.z, s);
     let l =
-        o.id === v.SIGN
+        o.id === BLOCK.SIGN
           ? (o.meta & -4) | ((o.meta - s + 4) & 3)
           : fz(o.id, o.meta, s),
       c = o.text;
@@ -49,13 +49,13 @@ function eG(n, e, t, i = () => !1) {
     const a = t(o.x, o.y, o.z);
     if (a < 0) return "unloaded";
     if (
-      a === v.CHEST ||
-      a === v.MILITARY_CHEST ||
-      a === v.BARREL ||
-      a === v.FURNACE
+      a === BLOCK.CHEST ||
+      a === BLOCK.MILITARY_CHEST ||
+      a === BLOCK.BARREL ||
+      a === BLOCK.FURNACE
     )
       return "occupied";
-    if (o.id !== v.AIR && (s = de[o.id]) != null && s.solid && i(o))
+    if (o.id !== BLOCK.AIR && (s = BLOCKS[o.id]) != null && s.solid && i(o))
       return "entity";
   }
   return null;
@@ -78,22 +78,22 @@ const vs = { TORSO: 0, HEAD: 1, ARM: 2, LEG: 3 },
   sG = (n) => nG.has(n),
   zo = { NONE: 0, BLOCK: 1, ITEM: 2, ANIMAL: 3 },
   oG = {
-    pig: Nt.PIG,
-    chicken: Nt.CHICKEN,
-    sheep: Nt.SHEEP,
-    cow: Nt.COW,
-    camel: Nt.CAMEL,
-    fish: Nt.FISH,
-    shark: Nt.SHARK,
-    wendigo: Nt.WENDIGO,
-    свинья: Nt.PIG,
-    курица: Nt.CHICKEN,
-    овца: Nt.SHEEP,
-    корова: Nt.COW,
-    верблюд: Nt.CAMEL,
-    рыба: Nt.FISH,
-    акула: Nt.SHARK,
-    вендиго: Nt.WENDIGO,
+    pig: ANIMAL_KIND.PIG,
+    chicken: ANIMAL_KIND.CHICKEN,
+    sheep: ANIMAL_KIND.SHEEP,
+    cow: ANIMAL_KIND.COW,
+    camel: ANIMAL_KIND.CAMEL,
+    fish: ANIMAL_KIND.FISH,
+    shark: ANIMAL_KIND.SHARK,
+    wendigo: ANIMAL_KIND.WENDIGO,
+    свинья: ANIMAL_KIND.PIG,
+    курица: ANIMAL_KIND.CHICKEN,
+    овца: ANIMAL_KIND.SHEEP,
+    корова: ANIMAL_KIND.COW,
+    верблюд: ANIMAL_KIND.CAMEL,
+    рыба: ANIMAL_KIND.FISH,
+    акула: ANIMAL_KIND.SHARK,
+    вендиго: ANIMAL_KIND.WENDIGO,
   },
   aG = [
     "Свинья",
@@ -125,7 +125,7 @@ const vs = { TORSO: 0, HEAD: 1, ARM: 2, LEG: 3 },
     "",
     "Wendigo",
   ],
-  lG = new Set([v.AIR, v.WATER, v.LAVA, iG]);
+  lG = new Set([BLOCK.AIR, BLOCK.WATER, BLOCK.LAVA, iG]);
 [
   "grass",
   "dirt",
@@ -156,7 +156,7 @@ const vs = { TORSO: 0, HEAD: 1, ARM: 2, LEG: 3 },
 ]
   .map((n) => {
     var e;
-    return (e = de.find((t) => t.name === n)) == null ? void 0 : e.id;
+    return (e = BLOCKS.find((t) => t.name === n)) == null ? void 0 : e.id;
   })
   .filter((n) => n !== void 0 && n > 0);
 const cG = (n) =>
@@ -166,21 +166,21 @@ const cG = (n) =>
       .replace(/ё/g, "е")
       .replace(/[\s-]+/g, "_"),
   hG = new Map();
-for (const [n, e] of Object.entries(E)) hG.set(cG(n), e);
+for (const [n, e] of Object.entries(ITEM)) hG.set(cG(n), e);
 function dG(n, e = !1) {
   var t, i, s;
   return n.kind === zo.BLOCK
     ? ((e
-        ? (t = de[n.id]) == null
+        ? (t = BLOCKS[n.id]) == null
           ? void 0
           : t.labelEn
-        : (i = de[n.id]) == null
+        : (i = BLOCKS[n.id]) == null
           ? void 0
           : i.label) ??
-        ((s = de[n.id]) == null ? void 0 : s.name) ??
+        ((s = BLOCKS[n.id]) == null ? void 0 : s.name) ??
         "?")
     : n.kind === zo.ITEM
-      ? ((e ? l0[n.id] : Gc[n.id]) ?? Gc[n.id] ?? String(n.id))
+      ? ((e ? BLOCK_NAMES_EN[n.id] : BLOCK_NAMES_RU[n.id]) ?? BLOCK_NAMES_RU[n.id] ?? String(n.id))
       : n.kind === zo.ANIMAL
         ? ((e ? rG : aG)[n.id] ?? "?")
         : e
@@ -189,8 +189,8 @@ function dG(n, e = !1) {
 }
 function uG() {
   const n = Object.keys(oG).filter((i) => /^[a-z]/.test(i)),
-    e = de.filter((i) => i.id > 0 && !lG.has(i.id)).map((i) => i.name),
-    t = Object.keys(E).map((i) => i.toLowerCase());
+    e = BLOCKS.filter((i) => i.id > 0 && !lG.has(i.id)).map((i) => i.name),
+    t = Object.keys(ITEM).map((i) => i.toLowerCase());
   return ["random", "off", ...n, ...e, ...t];
 }
 function vk(n) {
@@ -204,28 +204,28 @@ function vk(n) {
       (l.setAttribute("color", new oi(p, 3)), e.push(l));
     },
     i = new Map([
-      [E.APPLE, 12399664],
-      [E.ORANGE, 15898146],
-      [E.COCONUT, 7819574],
-      [E.POTATO, 12096857],
-      [E.BAKED_POTATO, 9527358],
-      [E.EGG, 15655365],
+      [ITEM.APPLE, 12399664],
+      [ITEM.ORANGE, 15898146],
+      [ITEM.COCONUT, 7819574],
+      [ITEM.POTATO, 12096857],
+      [ITEM.BAKED_POTATO, 9527358],
+      [ITEM.EGG, 15655365],
     ]),
     s = new Map([
-      [E.IRON_INGOT, 11385026],
-      [E.GOLD_INGOT, 15316035],
-      [E.DIAMOND_INGOT, 6739684],
-      [E.TITANIUM_INGOT, 9673913],
+      [ITEM.IRON_INGOT, 11385026],
+      [ITEM.GOLD_INGOT, 15316035],
+      [ITEM.DIAMOND_INGOT, 6739684],
+      [ITEM.TITANIUM_INGOT, 9673913],
     ]),
     o = new Map([
-      [E.BUCKET, 3423555],
-      [E.WATER_BUCKET, 3640761],
-      [E.LAVA_BUCKET, 16283938],
-      [E.MILK_BUCKET, 15788760],
-      [E.CAMEL_MILK_BUCKET, 15195068],
+      [ITEM.BUCKET, 3423555],
+      [ITEM.WATER_BUCKET, 3640761],
+      [ITEM.LAVA_BUCKET, 16283938],
+      [ITEM.MILK_BUCKET, 15788760],
+      [ITEM.CAMEL_MILK_BUCKET, 15195068],
     ]);
   let a = !1;
-  if (n === E.MILITARY_MEDKIT) {
+  if (n === ITEM.MILITARY_MEDKIT) {
     const l = (c, h, d, u, f = 0, p = 0, m = 0) =>
       t(new Ct(c, h, d), u, f, p, m);
     (l(0.42, 0.28, 0.24, 5136963), l(0.43, 0.055, 0.25, 7570010, 0, 0.12));
@@ -247,11 +247,11 @@ function vk(n) {
     if (
       (l.scale(
         1,
-        n === E.EGG ? 1.3 : 0.9,
-        n === E.POTATO || n === E.BAKED_POTATO ? 0.75 : 1,
+        n === ITEM.EGG ? 1.3 : 0.9,
+        n === ITEM.POTATO || n === ITEM.BAKED_POTATO ? 0.75 : 1,
       ),
       t(l, i.get(n)),
-      n === E.APPLE || n === E.ORANGE)
+      n === ITEM.APPLE || n === ITEM.ORANGE)
     ) {
       t(new xt(0.013, 0.017, 0.065, 6), 6574131, 0, 0.17);
       const c = new mn(0.045, 6, 4);
@@ -275,7 +275,7 @@ function vk(n) {
     const l = new xs(0.15, 0.012, 4, 12);
     (l.rotateX(Math.PI / 2),
       t(l, 13884642, 0, 0.135),
-      n !== E.BUCKET && t(new xt(0.137, 0.137, 0.008, 12), o.get(n), 0, 0.108));
+      n !== ITEM.BUCKET && t(new xt(0.137, 0.137, 0.008, 12), o.get(n), 0, 0.108));
     const c = new xs(0.157, 0.009, 4, 12, Math.PI);
     (t(c, 5858669, 0, 0.12), (a = !0));
   } else return null;
@@ -297,9 +297,9 @@ function vk(n) {
 function bk(n, e, t, i) {
   const s = [];
   return (
-    (n(e - 1, t, i) === v.CHAIN || n(e + 1, t, i) === v.CHAIN) && s.push(0),
-    (n(e, t - 1, i) === v.CHAIN || n(e, t + 1, i) === v.CHAIN) && s.push(1),
-    (n(e, t, i - 1) === v.CHAIN || n(e, t, i + 1) === v.CHAIN) && s.push(2),
+    (n(e - 1, t, i) === BLOCK.CHAIN || n(e + 1, t, i) === BLOCK.CHAIN) && s.push(0),
+    (n(e, t - 1, i) === BLOCK.CHAIN || n(e, t + 1, i) === BLOCK.CHAIN) && s.push(1),
+    (n(e, t, i - 1) === BLOCK.CHAIN || n(e, t, i + 1) === BLOCK.CHAIN) && s.push(2),
     s.length ? s : [1]
   );
 }

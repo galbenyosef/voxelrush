@@ -174,7 +174,7 @@ class Qee {
     };
     (o == null ||
       o.addEventListener("pointerdown", (C) => {
-        if ((o.setPointerCapture(C.pointerId), z.mobileLayoutEdit)) {
+        if ((o.setPointerCapture(C.pointerId), SETTINGS.mobileLayoutEdit)) {
           p = C.pointerId;
           return;
         }
@@ -297,7 +297,7 @@ class Qee {
             try {
               C.setPointerCapture(G.pointerId);
             } catch {}
-            if (z.mobileLayoutEdit) {
+            if (SETTINGS.mobileLayoutEdit) {
               L = { id: G.pointerId, moved: !1 };
               return;
             }
@@ -396,7 +396,7 @@ class Qee {
             C.addEventListener("click", (G) => {
               var I, O;
               (G.preventDefault(),
-                !z.mobileLayoutEdit &&
+                !SETTINGS.mobileLayoutEdit &&
                   (R === "settings"
                     ? (I = this.onMobileSettings) == null || I.call(this)
                     : R === "tab"
@@ -450,11 +450,11 @@ class Qee {
       t ? this.virtual.add(e) : this.virtual.delete(e));
   }
   action(e) {
-    const t = z.binds[e];
+    const t = SETTINGS.binds[e];
     return (!!t && this.keys.has(t)) || this.virtual.has(e);
   }
   actionPressed(e) {
-    const t = z.binds[e];
+    const t = SETTINGS.binds[e];
     return (!!t && this.pressed.has(t)) || this.virtualPressed.has(e);
   }
   lock() {

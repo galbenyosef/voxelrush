@@ -42,7 +42,7 @@ function PW(n, e, t, i, s, o, a) {
     ),
       (n.animMode = 1));
     const S = t + c + 0.19,
-      M = de[v.FIRE].tex[1];
+      M = BLOCKS[BLOCK.FIRE].tex[1];
     (n.rawQuad(
       [
         [g - 0.05, S + 0.12, b],
@@ -157,7 +157,7 @@ function NW(n, e, t, i, s, o, a, r) {
       !0,
     );
   };
-  if (o !== v.SEAWEED && o !== v.SEAGRASS) {
+  if (o !== BLOCK.SEAWEED && o !== BLOCK.SEAGRASS) {
     for (const g of [0, Math.PI / 3, (2 * Math.PI) / 3]) {
       const b = Math.cos(g) * 0.42,
         S = Math.sin(g) * 0.42;
@@ -175,9 +175,9 @@ function NW(n, e, t, i, s, o, a, r) {
     }
     return;
   }
-  const c = o === v.SEAWEED,
+  const c = o === BLOCK.SEAWEED,
     h = c ? 1 : 0.62,
-    d = c && e.getBlock(t, i + 1, s) !== v.SEAWEED,
+    d = c && e.getBlock(t, i + 1, s) !== BLOCK.SEAWEED,
     u = 0.13,
     f = 0.87,
     p = d ? 0.36 : u,
@@ -189,12 +189,12 @@ function NW(n, e, t, i, s, o, a, r) {
 }
 function mr(n, e, t, i, s, o, a, r) {
   var f;
-  const l = de[a],
+  const l = BLOCKS[a],
     c = Ul(0),
     h = e.getBlock(i, s + 1, o),
     d = e.getMeta(i, s + 1, o),
     u = h === a || r(h, d) ? 0 : 1 - c;
-  for (const p of Eg) {
+  for (const p of EMOTE_PACK) {
     const m = i + p.dir[0],
       y = s + p.dir[1],
       g = o + p.dir[2],
@@ -220,7 +220,7 @@ function mr(n, e, t, i, s, o, a, r) {
       }
       continue;
     }
-    if (M || !(b === 0 || !de[b].solid || de[b].liquid)) continue;
+    if (M || !(b === 0 || !BLOCKS[b].solid || BLOCKS[b].liquid)) continue;
     const x = l.tex[p.dir[1] === 1 ? 0 : p.dir[1] === -1 ? 2 : 1],
       T = Math.max(t.at(m, y, g), l.light) / 15;
     n.quad(p, i, s, o, x, [3, 3, 3, 3], !0, T, p.dir[1] === 0 ? u : 1 - c);

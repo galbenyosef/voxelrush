@@ -1,16 +1,16 @@
-// index-Dp6GxvJu 39 — box
+// index-Dp6GxvJu 39 — block
 // Lines 40365-40710 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function ru(n, e = 0) {
   if (Hr(n)) return KS(n, e & 3);
   const t = [],
     i = (l, c = !1) => t.push({ box: l, fabric: c }),
-    s = (l) => de.find((c) => c.name === l).tex[0],
+    s = (l) => BLOCKS.find((c) => c.name === l).tex[0],
     o = (l, c = 10) => t.push({ box: l, tile: c }),
     a = s("gray_clay"),
     r = s("white_clay");
-  if (n === v.OWNERSHIP_TOTEM) {
+  if (n === BLOCK.OWNERSHIP_TOTEM) {
     const l = s("black_clay"),
-      c = de[v.POLISHED_STONE].tex[0],
+      c = BLOCKS[BLOCK.POLISHED_STONE].tex[0],
       h = s("yellow_clay"),
       d = s("cyan_clay");
     (o([0.08, 0, 0.08, 0.92, 0.09, 0.92], l),
@@ -33,13 +33,13 @@ function ru(n, e = 0) {
       o([0.39, 0.89, 0.39, 0.61, 0.93, 0.61], h),
       o([0.46, 0.93, 0.46, 0.54, 0.99, 0.54], d));
     for (const u of [0.18, 0.76]) o([u, 0.22, 0.13, u + 0.06, 0.32, 0.2], h);
-  } else if (n === v.KITCHEN_COUNTER || n === v.SINK) {
+  } else if (n === BLOCK.KITCHEN_COUNTER || n === BLOCK.SINK) {
     (o([0.06, 0, 0.08, 0.94, 0.09, 0.92], a),
       o([0.02, 0.09, 0.08, 0.98, 0.82, 0.96]));
     for (const l of [0.055, 0.515])
       (o([l, 0.16, 0.035, l + 0.43, 0.73, 0.08]),
         o([l + 0.32, 0.52, 0.012, l + 0.365, 0.62, 0.035], a));
-    n === v.KITCHEN_COUNTER
+    n === BLOCK.KITCHEN_COUNTER
       ? (o([0, 0.82, 0, 1, 0.9, 1], r),
         o([0.035, 0.74, 0.025, 0.965, 0.81, 0.08], a))
       : (o([0, 0.82, 0, 1, 0.91, 0.17], r),
@@ -51,7 +51,7 @@ function ru(n, e = 0) {
         o([0.66, 0.91, 0.85, 0.72, 1, 0.91], a),
         o([0.5, 0.965, 0.6, 0.72, 1, 0.91], a),
         o([0.49, 0.935, 0.59, 0.55, 1, 0.65], a));
-  } else if (n === v.STORAGE_SHELF) {
+  } else if (n === BLOCK.STORAGE_SHELF) {
     for (const l of [0.04, 0.91])
       for (const c of [0.1, 0.84]) o([l, 0, c, l + 0.05, 1, c + 0.05], a);
     for (const l of [0.06, 0.48, 0.94])
@@ -67,7 +67,7 @@ function ru(n, e = 0) {
           [l + d * 0.35, c + u * 0.3, h - 0.004, l + d * 0.65, c + u * 0.66, h],
           r,
         ));
-  } else if (n === v.SOFA) {
+  } else if (n === BLOCK.SOFA) {
     for (const l of [0.09, 0.81])
       for (const c of [0.15, 0.75]) o([l, 0, c, l + 0.1, 0.13, c + 0.1]);
     (o([0.02, 0.13, 0.12, 0.98, 0.4, 0.94]),
@@ -75,13 +75,13 @@ function ru(n, e = 0) {
       o([0.035, 0.4, 0.77, 0.965, 0.95, 0.97], _c),
       o([0.08, 0.59, 0.75, 0.47, 0.88, 0.8], _c),
       o([0.53, 0.59, 0.75, 0.92, 0.88, 0.8], _c));
-  } else if (n === v.WALL_LIGHT) {
+  } else if (n === BLOCK.WALL_LIGHT) {
     (o([0.27, 0.18, 0.91, 0.73, 0.84, 1], a),
-      o([0.31, 0.23, 0.77, 0.69, 0.79, 0.91], de[v.GLOWSTONE].tex[0]));
+      o([0.31, 0.23, 0.77, 0.69, 0.79, 0.91], BLOCKS[BLOCK.GLOWSTONE].tex[0]));
     for (const l of [0.2, 0.43, 0.76])
       o([0.26, l, 0.75, 0.74, l + 0.035, 0.94], a);
     for (const l of [0.27, 0.695]) o([l, 0.2, 0.75, l + 0.035, 0.8, 0.94], a);
-  } else if (n === v.AVIATION_LIGHT) {
+  } else if (n === BLOCK.AVIATION_LIGHT) {
     const l = s("black_clay"),
       c = s("red_clay"),
       h = s("yellow_clay");
@@ -99,13 +99,13 @@ function ru(n, e = 0) {
       o([0.41, 0.24, 0.41, 0.59, 0.4, 0.59], c),
       o([0.43, 0.4, 0.43, 0.57, 0.45, 0.57], c),
       o([0.475, 0.45, 0.475, 0.525, 0.48, 0.525], l));
-  } else if (n === v.POTTED_PLANT) {
+  } else if (n === BLOCK.POTTED_PLANT) {
     const l = s("brown_clay"),
       c = s("green_clay");
     (o([0.3, 0, 0.3, 0.7, 0.07, 0.7], l),
       o([0.25, 0.07, 0.25, 0.75, 0.34, 0.75], l),
       o([0.22, 0.31, 0.22, 0.78, 0.39, 0.78], l),
-      o([0.27, 0.39, 0.27, 0.73, 0.4, 0.73], de[v.DIRT].tex[0]),
+      o([0.27, 0.39, 0.27, 0.73, 0.4, 0.73], BLOCKS[BLOCK.DIRT].tex[0]),
       o([0.47, 0.4, 0.47, 0.53, 0.88, 0.53], c));
     for (const [h, d, u, f, p, m] of [
       [0.2, 0.53, 0.39, 0.49, 0.61, 0.52],
@@ -114,12 +114,12 @@ function ru(n, e = 0) {
       [0.46, 0.85, 0.49, 0.67, 0.96, 0.63],
     ])
       o([h, d, u, f, p, m], c);
-  } else if (n === v.MINE_AP || n === v.MINE_AT) {
-    const l = n === v.MINE_AT,
+  } else if (n === BLOCK.MINE_AP || n === BLOCK.MINE_AT) {
+    const l = n === BLOCK.MINE_AT,
       c = l ? 0.44 : 0.3,
-      h = de.find((p) => p.name === (l ? "brown_clay" : "green_clay")).tex[0],
-      d = de.find((p) => p.name === "gray_clay").tex[0],
-      u = de.find((p) => p.name === "yellow_clay").tex[0],
+      h = BLOCKS.find((p) => p.name === (l ? "brown_clay" : "green_clay")).tex[0],
+      d = BLOCKS.find((p) => p.name === "gray_clay").tex[0],
+      u = BLOCKS.find((p) => p.name === "yellow_clay").tex[0],
       f = (p, m, y, g) => {
         for (let S = 0; S < 10; S++) {
           const M = -p + (2 * p * S) / 10,
@@ -149,7 +149,7 @@ function ru(n, e = 0) {
     if ((t.push({ box: [0.46, 0.175, 0.46, 0.54, 0.19, 0.54], tile: d }), l))
       for (const p of [0.08, 0.85])
         t.push({ box: [p, 0.055, 0.39, p + 0.07, 0.11, 0.61], tile: d });
-  } else if (n === v.REMOTE_STATION) {
+  } else if (n === BLOCK.REMOTE_STATION) {
     const l = zl,
       c = jc,
       h = (d, u = l) => t.push({ box: d, tile: u });
@@ -179,17 +179,17 @@ function ru(n, e = 0) {
       h([0.89, 0.78, 0.75, 0.96, 0.81, 0.82]),
       h([0.025, 0.27, 0.62, 0.07, 0.6, 0.76]),
       h([0.93, 0.27, 0.62, 0.975, 0.6, 0.76]));
-  } else if (n === v.WOOD_TABLE || n === v.MAP_TABLE) {
-    i([0, 0.86, 0, 1, n === v.MAP_TABLE ? 0.97 : 1, 1]);
+  } else if (n === BLOCK.WOOD_TABLE || n === BLOCK.MAP_TABLE) {
+    i([0, 0.86, 0, 1, n === BLOCK.MAP_TABLE ? 0.97 : 1, 1]);
     for (const l of [0.08, 0.78])
       for (const c of [0.08, 0.78]) i([l, 0, c, l + 0.14, 0.86, c + 0.14]);
     (i([0.08, 0.68, 0.08, 0.92, 0.86, 0.2]),
       i([0.08, 0.68, 0.8, 0.92, 0.86, 0.92]));
-  } else if (n === v.WOOD_CHAIR || n === v.WOOD_BENCH) {
-    const l = n === v.WOOD_BENCH ? 0.03 : 0.14,
+  } else if (n === BLOCK.WOOD_CHAIR || n === BLOCK.WOOD_BENCH) {
+    const l = n === BLOCK.WOOD_BENCH ? 0.03 : 0.14,
       c = 1 - l;
     (i([l, 0.42, 0.16, c, 0.54, 0.84]),
-      n === v.WOOD_CHAIR &&
+      n === BLOCK.WOOD_CHAIR &&
         t.push({
           box: [l + 0.04, 0.54, 0.2, c - 0.04, 0.6, 0.76],
           fabric: !0,
@@ -200,20 +200,20 @@ function ru(n, e = 0) {
     for (const h of [l, c - 0.12]) i([h, 0.54, 0.72, h + 0.12, 1, 0.84]);
     (i([l, 0.73, 0.72, c, 0.85, 0.84]), i([l, 0.9, 0.72, c, 1, 0.84]));
   }
-  if (n === v.GRAVESTONE) {
-    const l = de[v.DIRT].tex[0];
+  if (n === BLOCK.GRAVESTONE) {
+    const l = BLOCKS[BLOCK.DIRT].tex[0];
     (o([0.08, 0, 0.32, 0.92, 0.12, 0.68], Jh),
       o([0.14, 0.12, 0.4, 0.86, 0.78, 0.6], Jh),
       o([0.2, 0.78, 0.4, 0.8, 0.86, 0.6], Jh),
       o([0.32, 0.86, 0.4, 0.68, 0.92, 0.6], Jh),
       o([0.18, 0, 0.03, 0.82, 0.09, 0.3], l));
-  } else if (n === v.GRAVE_CROSS) {
-    const l = de[v.DIRT].tex[0];
+  } else if (n === BLOCK.GRAVE_CROSS) {
+    const l = BLOCKS[BLOCK.DIRT].tex[0];
     (o([0.44, 0, 0.45, 0.56, 1, 0.57], c0),
       o([0.18, 0.62, 0.45, 0.82, 0.73, 0.57], c0),
       o([0.4, 0.6, 0.43, 0.6, 0.75, 0.45], _r),
       o([0.2, 0, 0.04, 0.8, 0.08, 0.36], l));
-  } else if (n === v.SKULL) {
+  } else if (n === BLOCK.SKULL) {
     const l = s("black_clay");
     (o([0.3, 0.07, 0.34, 0.7, 0.42, 0.72], _r),
       o([0.33, 0.02, 0.3, 0.67, 0.14, 0.52], _r),
@@ -221,7 +221,7 @@ function ru(n, e = 0) {
       o([0.35, 0.19, 0.325, 0.46, 0.3, 0.34], l),
       o([0.54, 0.19, 0.325, 0.65, 0.3, 0.34], l),
       o([0.47, 0.13, 0.325, 0.53, 0.18, 0.34], l));
-  } else if (n === v.CAULDRON) {
+  } else if (n === BLOCK.CAULDRON) {
     for (const l of [0.12, 0.76])
       for (const c of [0.12, 0.76]) o([l, 0, c, l + 0.12, 0.12, c + 0.12], sa);
     (o([0.12, 0.1, 0.12, 0.88, 0.2, 0.88], sa),
@@ -234,7 +234,7 @@ function ru(n, e = 0) {
       o([0.02, 0.76, 0.1, 0.1, 0.84, 0.9], sa),
       o([0.9, 0.76, 0.1, 0.98, 0.84, 0.9], sa),
       o([0.16, 0.64, 0.16, 0.84, 0.68, 0.84], nz));
-  } else if (n === v.SCARECROW) {
+  } else if (n === BLOCK.SCARECROW) {
     const l = Hi + 4,
       c = s("red_clay"),
       h = s("blue_clay"),
@@ -273,7 +273,7 @@ function ru(n, e = 0) {
         tile: s("black_clay"),
         fit: !0,
       }));
-  } else if (n === v.COFFIN) {
+  } else if (n === BLOCK.COFFIN) {
     (o([0.2, 0, 0.05, 0.8, 0.34, 0.95], Rs),
       o([0.26, 0, 0, 0.74, 0.3, 0.05], Rs),
       o([0.26, 0, 0.95, 0.74, 0.3, 1], Rs),
@@ -283,7 +283,7 @@ function ru(n, e = 0) {
     for (const l of [0.12, 0.84])
       for (const c of [0.18, 0.78])
         o([c, 0.14, l, c + 0.04, 0.2, l + 0.04], s("yellow_clay"));
-  } else if (n === v.POTION_SHELF) {
+  } else if (n === BLOCK.POTION_SHELF) {
     for (const d of [0.04, 0.9])
       for (const u of [0.06, 0.82]) o([d, 0, u, d + 0.06, 1, u + 0.12], Rs);
     for (const d of [0.04, 0.48, 0.92])
@@ -296,7 +296,7 @@ function ru(n, e = 0) {
         s("cyan_clay"),
         s("orange_clay"),
       ],
-      c = de[v.PLANKS].tex[0];
+      c = BLOCKS[BLOCK.PLANKS].tex[0];
     ([
       [0.12, 0.09, 0.3, 0.2],
       [0.33, 0.09, 0.24, 0.28],
@@ -328,14 +328,14 @@ function ru(n, e = 0) {
     }),
       o([0.1, 0.97, 0.3, 0.3, 1, 0.6], _r));
   }
-  n === v.MAP_TABLE &&
+  n === BLOCK.MAP_TABLE &&
     (t.push({
       box: [0.06, 0.97, 0.06, 0.94, 0.98, 0.94],
-      tile: de[v.MAP_TABLE].tex[0],
+      tile: BLOCKS[BLOCK.MAP_TABLE].tex[0],
     }),
     t.push({
       box: [0.36, 0.98, 0.1, 0.5, 0.985, 0.9],
-      tile: de[v.WATER].tex[0],
+      tile: BLOCKS[BLOCK.WATER].tex[0],
     }),
     t.push({ box: [0.08, 0.985, 0.44, 0.92, 0.99, 0.49], tile: 10 }),
     t.push({ box: [0.67, 0.985, 0.08, 0.71, 0.99, 0.92], tile: 10 }));

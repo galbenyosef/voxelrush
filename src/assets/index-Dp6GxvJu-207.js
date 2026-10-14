@@ -383,7 +383,7 @@ class Qte {
     const o = () => {
       if (e.dist >= i) return;
       const a = 1 - e.dist / i;
-      this.api.addTrauma(Ne(t * a * a * Ne(e.exposure, 0, 1), 0, 1.3));
+      this.api.addTrauma(clamp(t * a * a * clamp(e.exposure, 0, 1), 0, 1.3));
     };
     s > 0 && e.dist > 20 ? this.after(e.dist / s, o) : o();
   }
@@ -391,7 +391,7 @@ class Qte {
     if (e.exposure < 0.3 || e.dist > o || !this.camera) return;
     const a = Mr.set(0, 0, -1).applyQuaternion(this.camera.quaternion),
       r = Oi.copy(e.p).sub(this.camera.position).normalize(),
-      l = Ne((a.dot(r) + 0.2) / 1.2, 0, 1),
+      l = clamp((a.dot(r) + 0.2) / 1.2, 0, 1),
       c = e.dist < e.r * 1.5 ? 1 : l;
     this.screenFlash(t * c * (1 - e.dist / o) * e.exposure, i, s);
   }

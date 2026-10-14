@@ -158,9 +158,9 @@ function Bm() {
   n.className = "account-rank";
   const e = Fp.xp,
     t = Np(e),
-    i = Qc.indexOf(t),
-    s = Qc[i + 1],
-    o = z.language === "en",
+    i = RANKS.indexOf(t),
+    s = RANKS[i + 1],
+    o = SETTINGS.language === "en",
     a = document.createElement("span");
   ((a.className = "rank-emblem"),
     (a.textContent = i >= 8 ? "★" : "❯"),

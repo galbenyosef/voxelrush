@@ -345,6 +345,15 @@ function walk(node, parent) {
       return;
     }
     case "LabeledStatement":
+      // the label identifier is a name position (isName) and must not be walked,
+      // but the labeled STATEMENT BODY must be — returning here left every
+      // identifier inside a labeled loop unmarked, so a program-scope name used
+      // there was renamed at some references and not others (found live on the
+      // voxelrush entry chunk: `e: for (...) { ... v.FURNACE ... }` kept `v`
+      // while its declaration became BLOCK — caught by verify-rename's reference
+      // drift). Fix: walk the body, skip the label (proposal (ai)).
+      walk(node.body, node);
+      return;
     case "BreakStatement":
     case "ContinueStatement":
       return;

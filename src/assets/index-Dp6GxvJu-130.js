@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 130 — fillstyle
+// index-Dp6GxvJu 130 — item
 // Lines 76459-76658 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 async function vX(n) {
   const e = await f1(),
@@ -28,39 +28,39 @@ async function vX(n) {
 const j = (n) => document.getElementById(n),
   bX = "#ffd44a";
 function l_(n) {
-  const e = z.language === "en",
+  const e = SETTINGS.language === "en",
     t =
-      n === E.MILITARY_MEDKIT
+      n === ITEM.MILITARY_MEDKIT
         ? e
           ? "100% health with armor HP"
           : "100% здоровья с бонусом брони"
-        : `+${n === E.MEDKIT ? S2 : E2} HP`,
-    i = n === E.MILITARY_MEDKIT ? tw : n === E.MEDKIT ? iw : nw;
+        : `+${n === ITEM.MEDKIT ? S2 : E2} HP`,
+    i = n === ITEM.MILITARY_MEDKIT ? tw : n === ITEM.MEDKIT ? iw : nw;
   return `${t} · ${e ? "Cooldown" : "Перезарядка"} ${i} ${e ? "s" : "с"}`;
 }
 const wX = {
-  property: v.OWNERSHIP_TOTEM,
+  property: BLOCK.OWNERSHIP_TOTEM,
   casino: dy,
-  explosive: E.DYNAMITE_BUNDLE,
-  blueprint: E.BLUEPRINT_CABIN,
-  block: v.STONE_BRICKS,
-  nature: v.GRASS,
-  food: E.APPLE,
-  resource: E.IRON_INGOT,
-  weapon: E.AK47,
-  ammo: E.AMMO_762,
-  tool: E.DRILL_METAL,
-  medical: E.MEDKIT,
-  armor: E.HELMET_2,
-  vehicle: E.TANK,
-  unit: E.MILITARY_BOT,
+  explosive: ITEM.DYNAMITE_BUNDLE,
+  blueprint: ITEM.BLUEPRINT_CABIN,
+  block: BLOCK.STONE_BRICKS,
+  nature: BLOCK.GRASS,
+  food: ITEM.APPLE,
+  resource: ITEM.IRON_INGOT,
+  weapon: ITEM.AK47,
+  ammo: ITEM.AMMO_762,
+  tool: ITEM.DRILL_METAL,
+  medical: ITEM.MEDKIT,
+  armor: ITEM.HELMET_2,
+  vehicle: ITEM.TANK,
+  unit: ITEM.MILITARY_BOT,
 };
 function MX(n, e) {
   const t = (i, s, o, a, r) => {
     ((n.fillStyle = r), n.fillRect(i, s, o, a));
   };
   switch (e) {
-    case v.CANDLE:
+    case BLOCK.CANDLE:
       for (const [i, s] of [
         [9, 20],
         [18, 26],
@@ -78,7 +78,7 @@ function MX(n, e) {
           n.ellipse(i + 3.5, 30 - s, 1.2, 2.2, 0, 0, 7),
           n.fill());
       return !0;
-    case v.CAULDRON:
+    case BLOCK.CAULDRON:
       (t(7, 30, 4, 6, "#2b2e32"),
         t(29, 30, 4, 6, "#2b2e32"),
         (n.fillStyle = "#34383c"),
@@ -98,7 +98,7 @@ function MX(n, e) {
       ])
         (n.beginPath(), n.arc(i, s, 2, 0, 7), n.fill());
       return !0;
-    case v.GRAVESTONE:
+    case BLOCK.GRAVESTONE:
       return (
         t(6, 32, 28, 5, "#6b5237"),
         (n.fillStyle = "#9a9c9e"),
@@ -114,7 +114,7 @@ function MX(n, e) {
         t(13, 29, 15, 2, "#6f7275"),
         !0
       );
-    case v.GRAVE_CROSS:
+    case BLOCK.GRAVE_CROSS:
       return (
         t(8, 33, 24, 4, "#6b5237"),
         t(17, 4, 6, 30, "#5d544b"),
@@ -122,7 +122,7 @@ function MX(n, e) {
         t(16, 13, 8, 4, "#d9d0b8"),
         !0
       );
-    case v.SKULL:
+    case BLOCK.SKULL:
       ((n.fillStyle = "#e8e0c8"),
         n.beginPath(),
         n.ellipse(20, 17, 13, 12, 0, 0, 7),
@@ -134,7 +134,7 @@ function MX(n, e) {
       t(19, 23, 2, 3, "#17120f");
       for (let i = 14; i < 27; i += 3) t(i, 29, 2, 4, "#17120f");
       return !0;
-    case v.SCARECROW:
+    case BLOCK.SCARECROW:
       return (
         t(19, 14, 2, 24, "#6b5a47"),
         t(4, 16, 32, 4, "#b8342c"),
@@ -154,7 +154,7 @@ function MX(n, e) {
         t(17, 11, 7, 1.5, "#ffe07a"),
         !0
       );
-    case v.COFFIN:
+    case BLOCK.COFFIN:
       return (
         (n.fillStyle = "#4a3326"),
         n.beginPath(),
@@ -169,7 +169,7 @@ function MX(n, e) {
         t(15, 13, 10, 2, "#d9d0b8"),
         !0
       );
-    case v.POTION_SHELF:
+    case BLOCK.POTION_SHELF:
       (t(4, 4, 32, 32, "#3f2c20"),
         t(6, 6, 28, 13, "#26190f"),
         t(6, 21, 28, 13, "#26190f"),
@@ -186,7 +186,7 @@ function MX(n, e) {
         (t(i, s, 5, s < 20 ? 17 - s : 33 - s, o),
           t(i + 1, s - 2, 3, 2, "#a07850"));
       return !0;
-    case v.IRON_FENCE:
+    case BLOCK.IRON_FENCE:
       for (const i of [7, 19, 31])
         (t(i - 1, 8, 3, 28, "#2e3036"),
           (n.fillStyle = "#2e3036"),

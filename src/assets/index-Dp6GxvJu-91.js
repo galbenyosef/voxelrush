@@ -41,7 +41,7 @@ function sK() {
       M.add(ce(0.3, 0.45, 1.5, 3749421, x * 0.5, 1.05, 0.45));
   }
   (n.add(s), e.push(s));
-  const o = ms(P.HELI);
+  const o = ms(VEHICLE_KIND.HELI);
   for (const M of [-1, 1]) {
     const x = M4(M < 0 ? 1 : 2, M * 1.13, 0.98, 0.65, !1, 0.46);
     if (

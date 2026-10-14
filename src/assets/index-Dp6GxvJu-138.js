@@ -1,4 +1,4 @@
-// index-Dp6GxvJu 138 — beginpath
+// index-Dp6GxvJu 138 — item
 // Lines 85586-85908 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const EM = `
 float fcHash(vec2 p) {
@@ -54,41 +54,41 @@ vec3 lavaCells(vec2 p, float t) {
     3832789, 13979450, 3855723, 14006330, 10173141, 3852757, 13974168, 8359754,
   ],
   $X = new Set([
-    E.RADIO_MODULE,
-    E.FISHING_ROD,
-    E.FERTILIZER,
-    E.WHEAT_SEEDS,
-    E.GRENADE_LAUNCHER,
-    E.AMMO_40MM,
-    E.AMMO_9MM,
-    E.AMMO_762,
-    E.AMMO_338,
-    E.MINIGUN,
-    E.SHOTGUN,
-    E.AMMO_762_HE,
-    E.AMMO_338_HE,
-    E.AMMO_SHELL,
-    E.AMMO_SHELL_HE,
-    E.AK47,
-    E.GLOCK,
-    E.AWP,
-    E.RPG,
-    E.GRENADE,
-    E.C4,
-    E.DETONATOR,
-    E.AXE,
-    E.COMBAT_KNIFE,
-    E.WELDER,
-    E.LUNAR_DRILL,
-    E.SPACE_ROCKET,
-    E.CHAINSAW_BASIC,
-    E.CHAINSAW_PRO,
-    E.CHAINSAW_INDUSTRIAL,
-    E.DRILL_METAL,
-    E.DRILL_DIAMOND,
-    E.DRILL_TITANIUM,
-    E.DRILL_COMPOSITE,
-    E.DRILL_LASER,
+    ITEM.RADIO_MODULE,
+    ITEM.FISHING_ROD,
+    ITEM.FERTILIZER,
+    ITEM.WHEAT_SEEDS,
+    ITEM.GRENADE_LAUNCHER,
+    ITEM.AMMO_40MM,
+    ITEM.AMMO_9MM,
+    ITEM.AMMO_762,
+    ITEM.AMMO_338,
+    ITEM.MINIGUN,
+    ITEM.SHOTGUN,
+    ITEM.AMMO_762_HE,
+    ITEM.AMMO_338_HE,
+    ITEM.AMMO_SHELL,
+    ITEM.AMMO_SHELL_HE,
+    ITEM.AK47,
+    ITEM.GLOCK,
+    ITEM.AWP,
+    ITEM.RPG,
+    ITEM.GRENADE,
+    ITEM.C4,
+    ITEM.DETONATOR,
+    ITEM.AXE,
+    ITEM.COMBAT_KNIFE,
+    ITEM.WELDER,
+    ITEM.LUNAR_DRILL,
+    ITEM.SPACE_ROCKET,
+    ITEM.CHAINSAW_BASIC,
+    ITEM.CHAINSAW_PRO,
+    ITEM.CHAINSAW_INDUSTRIAL,
+    ITEM.DRILL_METAL,
+    ITEM.DRILL_DIAMOND,
+    ITEM.DRILL_TITANIUM,
+    ITEM.DRILL_COMPOSITE,
+    ITEM.DRILL_LASER,
   ]),
   xM = new Map();
 u4(() => xM.clear());
@@ -99,7 +99,7 @@ function qX(n) {
   return (
     e ||
       ((e = R0(n).group),
-      n === E.COMBAT_KNIFE &&
+      n === ITEM.COMBAT_KNIFE &&
         ((t = e.children[0]) == null || t.rotation.set(0, 0, 0)),
       xM.set(n, e)),
     e
@@ -123,7 +123,7 @@ function bI(n, e) {
 }
 function wI(n, e) {
   if (n <= 0) return null;
-  if (n < 256 && de[n]) {
+  if (n < 256 && BLOCKS[n]) {
     const s = d4(e, n, 0.28);
     return (
       s.position.set(0.02, -0.08, -0.06),
@@ -137,24 +137,24 @@ function wI(n, e) {
     (s.rotation.set(-Math.PI / 2, 0, 0), s.position.set(0.04, -0.04, 0));
     const o = Ti(n) || n,
       a =
-        o === E.GLOCK || o === E.GRENADE
+        o === ITEM.GLOCK || o === ITEM.GRENADE
           ? 1.05
-          : o === E.AWP ||
-              o === E.RPG ||
-              o === E.AXE ||
-              o === E.WELDER ||
-              o === E.DRILL_METAL ||
-              o === E.DRILL_DIAMOND ||
-              o === E.DRILL_TITANIUM ||
-              o === E.DRILL_COMPOSITE ||
-              o === E.DRILL_LASER
+          : o === ITEM.AWP ||
+              o === ITEM.RPG ||
+              o === ITEM.AXE ||
+              o === ITEM.WELDER ||
+              o === ITEM.DRILL_METAL ||
+              o === ITEM.DRILL_DIAMOND ||
+              o === ITEM.DRILL_TITANIUM ||
+              o === ITEM.DRILL_COMPOSITE ||
+              o === ITEM.DRILL_LASER
             ? 0.95
             : 1.05;
     return (
       s.scale.setScalar(a),
-      o === E.COMBAT_KNIFE &&
+      o === ITEM.COMBAT_KNIFE &&
         (s.scale.setScalar(1.6), s.position.set(0.04, -0.13, 0)),
-      o === E.FISHING_ROD &&
+      o === ITEM.FISHING_ROD &&
         (s.rotation.set(-Math.PI / 2 + 1.05, 0, 0),
         s.position.set(0.04, -0.06, 0.02)),
       s.traverse((r) => {
@@ -192,7 +192,7 @@ function KX(n) {
 function yb(n) {
   const e = (Lr == null ? void 0 : Lr(n)) ?? null;
   if (e) return Id(n, { tone: e.side });
-  const t = uw(n);
+  const t = roleOf(n);
   return Id(t.baseLabel, {
     tone: "neutral",
     color: t.color,

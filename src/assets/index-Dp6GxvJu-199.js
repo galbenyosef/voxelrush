@@ -1,28 +1,28 @@
-// index-Dp6GxvJu 199 — push
+// index-Dp6GxvJu 199 — block
 // Lines 107911-107974 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const wf = Pe * Pe * Kt,
   Mte = vte,
   GM = new Set([
-    v.SCARECROW,
-    v.GRAVESTONE,
-    v.GRAVE_CROSS,
-    v.CAULDRON,
-    v.COFFIN,
-    v.SKULL,
-    v.JACK_O_LANTERN,
-    v.DEAD_LOG,
+    BLOCK.SCARECROW,
+    BLOCK.GRAVESTONE,
+    BLOCK.GRAVE_CROSS,
+    BLOCK.CAULDRON,
+    BLOCK.COFFIN,
+    BLOCK.SKULL,
+    BLOCK.JACK_O_LANTERN,
+    BLOCK.DEAD_LOG,
   ]),
   Ste = new Set([
-    v.TALL_GRASS,
-    v.FLOWER_RED,
-    v.FLOWER_WHITE,
-    v.FLOWER_BLUE,
-    v.FLOWER_PINK,
-    v.FLOWER_YELLOW,
-    v.LEAF_LITTER,
-    v.SAVANNA_GRASS,
-    v.DESERT_GRASS,
-    v.PUMPKIN,
+    BLOCK.TALL_GRASS,
+    BLOCK.FLOWER_RED,
+    BLOCK.FLOWER_WHITE,
+    BLOCK.FLOWER_BLUE,
+    BLOCK.FLOWER_PINK,
+    BLOCK.FLOWER_YELLOW,
+    BLOCK.LEAF_LITTER,
+    BLOCK.SAVANNA_GRASS,
+    BLOCK.DESERT_GRASS,
+    BLOCK.PUMPKIN,
   ]);
 function Ete(n) {
   const e = [],
@@ -46,7 +46,7 @@ function Ete(n) {
       }
       $n(r) &&
         n[a - 256] === 0 &&
-        r !== v.PINE_LEAVES &&
+        r !== BLOCK.PINE_LEAVES &&
         (s++,
         e.length < 64
           ? e.push(a)

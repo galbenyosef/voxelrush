@@ -146,7 +146,7 @@ Be[182] = (n, e) => {
 };
 Be[183] = (n, e, t) =>
   e % 4 === 1 && n > 2 && n < 13 ? yi(18, 19, 24) : ie(46, 48, 56, 4)(n, e, t);
-Object.assign(ui, {
+Object.assign(TILE_KIND, {
   182: "glass",
   183: "metal",
   239: "cloth",
@@ -218,7 +218,7 @@ function Bk(n = aW) {
     const p = Be[h];
     if (!p) return;
     const m = Ll / u,
-      y = uW[ui[h] ?? "stone"],
+      y = uW[TILE_KIND[h] ?? "stone"],
       g = Math.max(1, Math.min(y.oct + Math.round(Math.log2(u / 16)), 6));
     yW(f, u, y, g, 1e3 + h * 77);
     const b = (y.relief * u) / (g * Math.max(1, (y.fx + y.fy) / 2)),

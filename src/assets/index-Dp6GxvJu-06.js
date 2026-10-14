@@ -1,16 +1,16 @@
-// index-Dp6GxvJu 06 — push
+// index-Dp6GxvJu 06 — blockdef
 // Lines 27793-28135 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 AS.forEach(([n, e, t, i], s) => {
   const o = TS + s;
-  de.push(Fe(ow + s, n, e, 25, [o, o, o], t, {}, i));
+  BLOCKS.push(blockDef(ow + s, n, e, 25, [o, o, o], t, {}, i));
 });
 const _S = 54,
   qf = 55,
   RS = 171,
   CS = 172;
-de.push(
-  Fe(
-    v.DYNAMITE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.DYNAMITE,
     "dynamite",
     "Динамит",
     5,
@@ -20,9 +20,9 @@ de.push(
     "Dynamite",
   ),
 );
-de.push(
-  Fe(
-    v.DETONATOR,
+BLOCKS.push(
+  blockDef(
+    BLOCK.DETONATOR,
     "detonator",
     "Детонатор",
     5,
@@ -34,9 +34,9 @@ de.push(
 );
 const Kf = 56,
   to = 57;
-de.push(
-  Fe(
-    v.CHEST,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CHEST,
     "chest",
     "Сундук",
     45,
@@ -46,9 +46,9 @@ de.push(
     "Chest",
   ),
 );
-de.push(
-  Fe(
-    v.COAL_ORE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.COAL_ORE,
     "coal_ore",
     "Угольная руда",
     100,
@@ -58,9 +58,9 @@ de.push(
     "Coal ore",
   ),
 );
-de.push(
-  Fe(
-    v.IRON_ORE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.IRON_ORE,
     "iron_ore",
     "Железная руда",
     110,
@@ -70,9 +70,9 @@ de.push(
     "Iron ore",
   ),
 );
-de.push(
-  Fe(
-    v.GOLD_ORE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.GOLD_ORE,
     "gold_ore",
     "Золотая руда",
     120,
@@ -82,9 +82,9 @@ de.push(
     "Gold ore",
   ),
 );
-de.push(
-  Fe(
-    v.DIAMOND_ORE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.DIAMOND_ORE,
     "diamond_ore",
     "Алмазная руда",
     130,
@@ -94,9 +94,9 @@ de.push(
     "Diamond ore",
   ),
 );
-de.push(
-  Fe(
-    v.TITANIUM_ORE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.TITANIUM_ORE,
     "titanium_ore",
     "Титановая руда",
     145,
@@ -107,9 +107,9 @@ de.push(
   ),
 );
 const Bn = 62;
-de.push(
-  Fe(
-    v.SANDSTONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SANDSTONE,
     "sandstone",
     "Песчаник",
     110,
@@ -119,9 +119,9 @@ de.push(
     "Sandstone",
   ),
 );
-de.push(
-  Fe(
-    v.SANDSTONE_SMOOTH,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SANDSTONE_SMOOTH,
     "smooth_sandstone",
     "Гладкий песчаник",
     110,
@@ -131,9 +131,9 @@ de.push(
     "Smooth sandstone",
   ),
 );
-de.push(
-  Fe(
-    v.SANDSTONE_CHISELED,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SANDSTONE_CHISELED,
     "chiseled_sandstone",
     "Резной песчаник",
     110,
@@ -143,9 +143,9 @@ de.push(
     "Chiseled sandstone",
   ),
 );
-de.push(
-  Fe(
-    v.STONE_BRICKS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STONE_BRICKS,
     "stone_bricks",
     "Каменный кирпич",
     120,
@@ -155,9 +155,9 @@ de.push(
     "Stone bricks",
   ),
 );
-de.push(
-  Fe(
-    v.MOSSY_STONE_BRICKS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MOSSY_STONE_BRICKS,
     "mossy_stone_bricks",
     "Замшелый каменный кирпич",
     120,
@@ -167,9 +167,9 @@ de.push(
     "Mossy stone bricks",
   ),
 );
-de.push(
-  Fe(
-    v.POLISHED_STONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.POLISHED_STONE,
     "polished_stone",
     "Полированный камень",
     120,
@@ -179,9 +179,9 @@ de.push(
     "Polished stone",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_WOOD,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_WOOD,
     "wood_stairs",
     "Деревянная ступенька",
     50,
@@ -191,9 +191,9 @@ de.push(
     "Wooden stair",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_STONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_STONE,
     "stone_stairs",
     "Каменная ступенька",
     90,
@@ -203,9 +203,9 @@ de.push(
     "Stone stair",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_SANDSTONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_SANDSTONE,
     "sandstone_stairs",
     "Ступенька из песчаника",
     110,
@@ -215,9 +215,9 @@ de.push(
     "Sandstone stair",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_COBBLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_COBBLE,
     "cobble_stairs",
     "Булыжная ступенька",
     80,
@@ -227,9 +227,9 @@ de.push(
     "Cobblestone stair",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_BRICK,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_BRICK,
     "brick_stairs",
     "Кирпичная ступенька",
     100,
@@ -239,9 +239,9 @@ de.push(
     "Brick stair",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_STONE_BRICKS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_STONE_BRICKS,
     "stone_brick_stairs",
     "Ступенька из каменного кирпича",
     120,
@@ -251,9 +251,9 @@ de.push(
     "Stone brick stair",
   ),
 );
-de.push(
-  Fe(
-    v.STAIR_SAND,
+BLOCKS.push(
+  blockDef(
+    BLOCK.STAIR_SAND,
     "sand_stairs",
     "Ступенька из песка",
     25,
@@ -264,9 +264,9 @@ de.push(
   ),
 );
 const Kv = Bn + 6;
-de.push(
-  Fe(
-    v.SAPLING,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SAPLING,
     "sapling",
     "Саженец дерева",
     1,
@@ -293,9 +293,9 @@ function uC(n, e, t, i) {
   const [s, o] = xo[n & 3];
   return e === s && i === o ? (n & Qn ? fy : uy) : gy;
 }
-de.push(
-  Fe(
-    v.METAL_DOOR,
+BLOCKS.push(
+  blockDef(
+    BLOCK.METAL_DOOR,
     "metal_door",
     "Металлическая дверь",
     90,
@@ -305,9 +305,9 @@ de.push(
     "Metal door",
   ),
 );
-de.push(
-  Fe(
-    v.ARMORED_DOOR,
+BLOCKS.push(
+  blockDef(
+    BLOCK.ARMORED_DOOR,
     "armored_door",
     "Армированная дверь",
     360,
@@ -317,9 +317,9 @@ de.push(
     "Armored door",
   ),
 );
-de.push(
-  Fe(
-    v.FURNACE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FURNACE,
     "furnace",
     "Печка",
     100,
@@ -331,9 +331,9 @@ de.push(
 );
 const Hi = 75,
   nn = 88;
-de.push(
-  Fe(
-    v.BOOKSHELF,
+BLOCKS.push(
+  blockDef(
+    BLOCK.BOOKSHELF,
     "bookshelf",
     "Книжный блок",
     45,

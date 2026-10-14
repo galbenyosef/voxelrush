@@ -77,7 +77,7 @@ const El = (n) =>
 function gJ(n, e, t, i) {
   var a;
   (HI(), (a = document.getElementById("skill-toast")) == null || a.remove());
-  const s = z.language === "en",
+  const s = SETTINGS.language === "en",
     o = document.createElement("div");
   ((o.id = "skill-toast"),
     o.setAttribute("role", "status"),
@@ -92,7 +92,7 @@ class yJ {
     w(this, "renderedAt", 0);
     w(this, "onKey", (e) => {
       if (!this.root) return;
-      if (e.code === "Escape" || e.code === z.binds.skills) {
+      if (e.code === "Escape" || e.code === SETTINGS.binds.skills) {
         (e.preventDefault(), e.stopPropagation(), this.close());
         return;
       }
@@ -144,7 +144,7 @@ class yJ {
     const e = this.root;
     if (!e) return;
     this.renderedAt = performance.now();
-    const t = z.language === "en",
+    const t = SETTINGS.language === "en",
       i = [...Xt.basicKeys(), ...Uw.map(Tr), ...Fw.map($d)],
       s = i.reduce((h, d) => h + Xt.level(d), 0),
       o = Np(this.host.rankXp()),
@@ -212,7 +212,7 @@ class yJ {
       c = Math.round(t.shots ?? 0),
       h = Math.round(t.hits ?? 0),
       d = Np(this.host.rankXp()),
-      u = Qc.find((m) => m.minXp > this.host.rankXp()),
+      u = RANKS.find((m) => m.minXp > this.host.rankXp()),
       f = (m, y, g = "") =>
         `<div class="sk-tile"><span>${m}</span><b>${y}</b>${g ? `<small>${g}</small>` : ""}</div>`,
       p = (m) => Math.round(m).toLocaleString("ru-RU");
@@ -254,23 +254,23 @@ class yJ {
   }
 }
 const vJ = {
-    [P.PLANE]:
+    [VEHICLE_KIND.PLANE]:
       "M80 7 Q70 22 72 53 L12 72 V86 L72 76 V124 L48 139 V146 L80 139 L112 146 V139 L88 124 V76 L148 86 V72 L88 53 Q90 22 80 7Z",
-    [P.FIGHTER_JET]:
+    [VEHICLE_KIND.FIGHTER_JET]:
       "M80 5 L70 36 L68 66 L18 107 V119 L68 101 L70 123 L52 141 V148 L80 137 L108 148 V141 L90 123 L92 101 L142 119 V107 L92 66 L90 36Z",
-    [P.HELI]:
+    [VEHICLE_KIND.HELI]:
       "M80 13 Q59 18 58 48 V82 Q62 99 74 102 L74 140 L55 140 V147 H105 V140 H86 L86 102 Q98 99 102 82 V48 Q101 18 80 13Z M22 26 L138 118 M138 26 L22 118 M48 48 V101 M112 48 V101",
-    [P.TANK]:
+    [VEHICLE_KIND.TANK]:
       "M46 37 H114 V132 H46Z M32 34 H46 V136 H32Z M114 34 H128 V136 H114Z M66 61 H94 V99 H66Z M77 61 V9 H83 V61",
-    [P.BOAT]:
+    [VEHICLE_KIND.BOAT]:
       "M80 9 Q39 45 39 85 L45 142 H115 L121 85 Q121 45 80 9Z M59 64 H101 V109 H59Z",
-    [P.SUBMARINE]:
+    [VEHICLE_KIND.SUBMARINE]:
       "M80 9 Q61 9 61 36 V122 Q61 148 80 150 Q99 148 99 122 V36 Q99 9 80 9Z M35 51 H125 M48 127 H112 M73 60 H87 V89 H73Z",
-    [P.CARRIER]:
+    [VEHICLE_KIND.CARRIER]:
       "M52 9 H102 L122 44 V145 H38 V44Z M53 26 V131 M95 58 H113 V110 H95Z",
-    [P.SPACE_ROCKET]:
+    [VEHICLE_KIND.SPACE_ROCKET]:
       "M80 7 Q60 29 60 51 V119 L40 144 H62 L80 130 L98 144 H120 L100 119 V51 Q100 29 80 7Z",
-    [P.DRONE]:
+    [VEHICLE_KIND.DRONE]:
       "M68 64 H92 V89 H68Z M36 33 L124 121 M124 33 L36 121 M20 33 H52 M108 33 H140 M20 121 H52 M108 121 H140",
   },
   bJ =

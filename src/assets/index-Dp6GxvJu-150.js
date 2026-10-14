@@ -138,7 +138,7 @@ ${a ? (l ? "Your territory" : "Ваша территория") : r ? (l ? "Frien
     const a = this.index.get(e);
     if (!a || a.owner !== this.name()) return;
     ((ee = this.closeMenu) == null || ee.call(this, !1), (this.menuClaim = e));
-    const r = Ca === "owner" || Ca === "admin",
+    const r = localRole === "owner" || localRole === "admin",
       l = this.english(),
       c = document.createElement("div");
     ((c.className = "fc-modal claim-modal"),

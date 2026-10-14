@@ -1,8 +1,8 @@
-// index-Dp6GxvJu 07 — push
+// index-Dp6GxvJu 07 — block
 // Lines 28136-28481 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-de.push(
-  Fe(
-    v.LANTERN,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LANTERN,
     "lantern",
     "Фонарь",
     8,
@@ -12,9 +12,9 @@ de.push(
     "Lantern",
   ),
 );
-de.push(
-  Fe(
-    v.CHAIN,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CHAIN,
     "chain",
     "Цепь",
     35,
@@ -24,9 +24,9 @@ de.push(
     "Chain",
   ),
 );
-de.push(
-  Fe(
-    v.MILITARY_CHEST,
+BLOCKS.push(
+  blockDef(
+    BLOCK.MILITARY_CHEST,
     "military_chest",
     "Военный сундук",
     70,
@@ -36,9 +36,9 @@ de.push(
     "Military chest",
   ),
 );
-de.push(
-  Fe(
-    v.HAY_BALE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.HAY_BALE,
     "hay_bale",
     "Стог сена",
     22,
@@ -48,9 +48,9 @@ de.push(
     "Hay bale",
   ),
 );
-de.push(
-  Fe(
-    v.BARREL,
+BLOCKS.push(
+  blockDef(
+    BLOCK.BARREL,
     "barrel",
     "Бочка",
     45,
@@ -60,9 +60,9 @@ de.push(
     "Barrel",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_WOOD,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_WOOD,
     "wood_fence",
     "Деревянный забор",
     45,
@@ -72,9 +72,9 @@ de.push(
     "Wooden fence",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_COBBLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_COBBLE,
     "cobble_fence",
     "Булыжный забор",
     85,
@@ -84,9 +84,9 @@ de.push(
     "Cobblestone fence",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_STONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_STONE,
     "stone_fence",
     "Каменный забор",
     95,
@@ -96,9 +96,9 @@ de.push(
     "Stone fence",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_STONE_BRICKS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_STONE_BRICKS,
     "stone_brick_fence",
     "Забор из каменного кирпича",
     120,
@@ -108,9 +108,9 @@ de.push(
     "Stone brick fence",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_SANDSTONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_SANDSTONE,
     "sandstone_fence",
     "Забор из песчаника",
     105,
@@ -120,9 +120,9 @@ de.push(
     "Sandstone fence",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_GATE_WOOD,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_GATE_WOOD,
     "wood_fence_gate",
     "Деревянная калитка",
     45,
@@ -132,9 +132,9 @@ de.push(
     "Wooden fence gate",
   ),
 );
-de.push(
-  Fe(
-    v.BARBED_WIRE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.BARBED_WIRE,
     "barbed_wire",
     "Колючая проволока",
     32,
@@ -144,9 +144,9 @@ de.push(
     "Barbed wire",
   ),
 );
-const wn = (n, e, t, i, s, o) =>
-  de.push(
-    Fe(
+const defineBlock = (n, e, t, i, s, o) =>
+  BLOCKS.push(
+    blockDef(
       n,
       e,
       t,
@@ -157,50 +157,50 @@ const wn = (n, e, t, i, s, o) =>
       i,
     ),
   );
-wn(v.TALL_GRASS, "tall_grass", "Высокая трава", "Tall grass", Hi + 7, 4025648);
-wn(
-  v.FLOWER_RED,
+defineBlock(BLOCK.TALL_GRASS, "tall_grass", "Высокая трава", "Tall grass", Hi + 7, 4025648);
+defineBlock(
+  BLOCK.FLOWER_RED,
   "red_flower",
   "Красный цветок",
   "Red flower",
   Hi + 8,
   14171442,
 );
-wn(
-  v.FLOWER_WHITE,
+defineBlock(
+  BLOCK.FLOWER_WHITE,
   "white_flower",
   "Белый цветок",
   "White flower",
   Hi + 9,
   15789797,
 );
-wn(
-  v.FLOWER_BLUE,
+defineBlock(
+  BLOCK.FLOWER_BLUE,
   "blue_flower",
   "Синий цветок",
   "Blue flower",
   Hi + 10,
   3895256,
 );
-wn(
-  v.FLOWER_PINK,
+defineBlock(
+  BLOCK.FLOWER_PINK,
   "pink_flower",
   "Розовый цветок",
   "Pink flower",
   Hi + 11,
   15238829,
 );
-wn(
-  v.FLOWER_YELLOW,
+defineBlock(
+  BLOCK.FLOWER_YELLOW,
   "yellow_flower",
   "Жёлтый цветок",
   "Yellow flower",
   Hi + 12,
   15847224,
 );
-de.push(
-  Fe(
-    v.FENCE_GATE_COBBLE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_GATE_COBBLE,
     "cobble_fence_gate",
     "Булыжная калитка",
     85,
@@ -210,9 +210,9 @@ de.push(
     "Cobblestone fence gate",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_GATE_STONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_GATE_STONE,
     "stone_fence_gate",
     "Каменная калитка",
     95,
@@ -222,9 +222,9 @@ de.push(
     "Stone fence gate",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_GATE_STONE_BRICKS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_GATE_STONE_BRICKS,
     "stone_brick_fence_gate",
     "Калитка из каменного кирпича",
     120,
@@ -234,9 +234,9 @@ de.push(
     "Stone brick fence gate",
   ),
 );
-de.push(
-  Fe(
-    v.FENCE_GATE_SANDSTONE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FENCE_GATE_SANDSTONE,
     "sandstone_fence_gate",
     "Калитка из песчаника",
     105,
@@ -250,9 +250,9 @@ const Bt = 95,
   aw = 184,
   T2 = 185,
   ez = [0.0625, 0, 0.0625, 0.9375, 1, 0.9375];
-de.push(
-  Fe(
-    v.TROPICAL_LOG,
+BLOCKS.push(
+  blockDef(
+    BLOCK.TROPICAL_LOG,
     "tropical_log",
     "Тропическое бревно",
     60,
@@ -262,9 +262,9 @@ de.push(
     "Tropical log",
   ),
 );
-de.push(
-  Fe(
-    v.TROPICAL_LEAVES,
+BLOCKS.push(
+  blockDef(
+    BLOCK.TROPICAL_LEAVES,
     "tropical_leaves",
     "Тропическая листва",
     8,
@@ -274,9 +274,9 @@ de.push(
     "Tropical leaves",
   ),
 );
-de.push(
-  Fe(
-    v.DESERT_LOG,
+BLOCKS.push(
+  blockDef(
+    BLOCK.DESERT_LOG,
     "desert_log",
     "Пустынное бревно",
     60,
@@ -286,9 +286,9 @@ de.push(
     "Desert log",
   ),
 );
-de.push(
-  Fe(
-    v.DESERT_LEAVES,
+BLOCKS.push(
+  blockDef(
+    BLOCK.DESERT_LEAVES,
     "desert_leaves",
     "Пустынная листва",
     8,
@@ -298,9 +298,9 @@ de.push(
     "Desert leaves",
   ),
 );
-de.push(
-  Fe(
-    v.PINE_LOG,
+BLOCKS.push(
+  blockDef(
+    BLOCK.PINE_LOG,
     "pine_log",
     "Хвойное бревно",
     65,
@@ -310,9 +310,9 @@ de.push(
     "Pine log",
   ),
 );
-de.push(
-  Fe(
-    v.PINE_LEAVES,
+BLOCKS.push(
+  blockDef(
+    BLOCK.PINE_LEAVES,
     "pine_leaves",
     "Хвоя",
     9,
@@ -322,9 +322,9 @@ de.push(
     "Pine needles",
   ),
 );
-de.push(
-  Fe(
-    v.SAKURA_LOG,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SAKURA_LOG,
     "sakura_log",
     "Бревно сакуры",
     58,
@@ -334,9 +334,9 @@ de.push(
     "Sakura log",
   ),
 );
-de.push(
-  Fe(
-    v.SAKURA_LEAVES,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SAKURA_LEAVES,
     "sakura_leaves",
     "Листва сакуры",
     8,

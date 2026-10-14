@@ -284,7 +284,7 @@ function Mj(n, e) {
     } else if (me && Me != null && Me.is_guest) {
       const vt = Me.username,
         rt = dt("div", "", "guest-link-intro guest-link-rename");
-      rt.innerHTML = Nn("user");
+      rt.innerHTML = svgIcon("user");
       const Tt = dt("div", "", "link-names"),
         Yt = dt("strong", "", "link-to");
       (Tt.append(dt("s", vt, "link-from"), dt("i", "→", "link-arrow"), Yt),
@@ -956,7 +956,7 @@ function Mj(n, e) {
     ) {
       const xe = dt("div", "", "browser-empty");
       if (
-        ((xe.innerHTML = Nn(u === "saved" ? "star" : "servers")),
+        ((xe.innerHTML = svgIcon(u === "saved" ? "star" : "servers")),
         xe.append(
           dt(
             "p",
@@ -1068,7 +1068,7 @@ function Mj(n, e) {
       he());
   }
   function B() {
-    h.innerHTML = `<div class="lobby-shell lm-shell"><header class="browser-head"><div class="lobby-heading"><small>${Zt("PLAY ONLINE", "ИГРАТЬ ОНЛАЙН")}</small><h1>${Zt("Choose your battle", "Выберите бой")}</h1></div><div class="lm-head-actions"><button class="lobby-button quiet" id="lobby-list-open">${Nn("servers")}<span>${Zt("Server list", "Список серверов")}</span></button><button class="lobby-button quiet" id="lobby-close">${Nn("back")}<span>${U("backButton")}</span></button></div></header><div class="lm-grid" role="list"></div><p id="lobby-message" class="lobby-feedback" role="status" aria-live="polite"></p></div>`;
+    h.innerHTML = `<div class="lobby-shell lm-shell"><header class="browser-head"><div class="lobby-heading"><small>${Zt("PLAY ONLINE", "ИГРАТЬ ОНЛАЙН")}</small><h1>${Zt("Choose your battle", "Выберите бой")}</h1></div><div class="lm-head-actions"><button class="lobby-button quiet" id="lobby-list-open">${svgIcon("servers")}<span>${Zt("Server list", "Список серверов")}</span></button><button class="lobby-button quiet" id="lobby-close">${svgIcon("back")}<span>${U("backButton")}</span></button></div></header><div class="lm-grid" role="list"></div><p id="lobby-message" class="lobby-feedback" role="status" aria-live="polite"></p></div>`;
     const K = h.querySelector(".lm-grid");
     for (const te of pM) {
       const me = Hm[te],
@@ -1101,7 +1101,7 @@ function Mj(n, e) {
         st,
       );
       const Ut = dt("span", "", "lm-cta");
-      ((Ut.innerHTML = Nn("play")),
+      ((Ut.innerHTML = svgIcon("play")),
         Ut.append(dt("span", Zt("Play", "Играть"))),
         xe.append(nt, Ee, at, Ut),
         (xe.onclick = () => void Ue(te)),
@@ -1257,12 +1257,12 @@ function Mj(n, e) {
       B();
       return;
     }
-    ((h.innerHTML = `<div class="lobby-shell"><header class="browser-head"><div class="lobby-heading"><small>${Zt("PLAY ONLINE", "ИГРАТЬ ОНЛАЙН")}</small><h1>${U("multiplayerButton")}</h1></div><div class="lobby-tabs" role="tablist" aria-label="${U("multiplayerButton")}"><button id="lobby-public" class="lobby-button quiet" role="tab" aria-selected="${u === "public"}">${Nn("servers")}${U("publicServers")}</button><button id="lobby-saved" class="lobby-button quiet" role="tab" aria-selected="${u === "saved"}">${Nn("star")}${U("favoriteServers")}</button></div><div class="lm-head-actions lm-list-actions"><button class="lobby-button quiet" id="lobby-modes-open">${Nn("back")}<span>${Zt("Modes", "Режимы")}</span></button><button class="lobby-button quiet" id="lobby-close">${Nn("close")}<span>${Zt("Menu", "Меню")}</span></button></div></header>
+    ((h.innerHTML = `<div class="lobby-shell"><header class="browser-head"><div class="lobby-heading"><small>${Zt("PLAY ONLINE", "ИГРАТЬ ОНЛАЙН")}</small><h1>${U("multiplayerButton")}</h1></div><div class="lobby-tabs" role="tablist" aria-label="${U("multiplayerButton")}"><button id="lobby-public" class="lobby-button quiet" role="tab" aria-selected="${u === "public"}">${svgIcon("servers")}${U("publicServers")}</button><button id="lobby-saved" class="lobby-button quiet" role="tab" aria-selected="${u === "saved"}">${svgIcon("star")}${U("favoriteServers")}</button></div><div class="lm-head-actions lm-list-actions"><button class="lobby-button quiet" id="lobby-modes-open">${svgIcon("back")}<span>${Zt("Modes", "Режимы")}</span></button><button class="lobby-button quiet" id="lobby-close">${svgIcon("close")}<span>${Zt("Menu", "Меню")}</span></button></div></header>
     <div class="lobby-modes-filter" role="group" aria-label="${Zt("Game mode", "Режим игры")}"></div>
     <div class="lobby-main"><section class="lobby-list"><div class="browser-toolbar"><input id="lobby-search" type="search" aria-label="${U("searchServers")}" placeholder="${U("searchServers")}"><div class="lobby-filters" role="group" aria-label="${Zt("Filter", "Фильтр")}"></div><select id="lobby-sort" aria-label="${Zt("Sort", "Сортировка")}"><option value="players">${Zt("Most players", "Больше игроков")}</option><option value="ping">${Zt("Lowest ping", "Меньший пинг")}</option><option value="name">${Zt("Name", "По названию")}</option></select></div>
     <div class="lobby-columns" aria-hidden="true"><span>${Zt("Ping", "Пинг")}</span><span>${Zt("Server", "Сервер")}</span><span>${Zt("Players", "Игроки")}</span><span class="lobby-count"></span></div>
     <div id="lobby-servers" role="list" aria-label="${U("multiplayerButton")}"></div></section>
-    <aside class="lobby-details"><div class="lobby-details-body"></div><p id="lobby-message" class="lobby-feedback" role="status" aria-live="polite"></p><button id="lobby-join" class="lobby-button">${Nn("play")}${U("joinServer")}</button><div class="lobby-secondary"><button id="lobby-add-open" class="lobby-button quiet">${Nn("plus")}${U("addServer")}</button><button id="lobby-refresh" class="lobby-button quiet">${Nn("refresh")}${U("refreshServers")}</button></div></aside></div></div>`),
+    <aside class="lobby-details"><div class="lobby-details-body"></div><p id="lobby-message" class="lobby-feedback" role="status" aria-live="polite"></p><button id="lobby-join" class="lobby-button">${svgIcon("play")}${U("joinServer")}</button><div class="lobby-secondary"><button id="lobby-add-open" class="lobby-button quiet">${svgIcon("plus")}${U("addServer")}</button><button id="lobby-refresh" class="lobby-button quiet">${svgIcon("refresh")}${U("refreshServers")}</button></div></aside></div></div>`),
       (Q6("lobby-search").value = y));
     const K = h.querySelector(".lobby-filters");
     for (const [xe, nt] of [
@@ -1402,7 +1402,7 @@ function Mj(n, e) {
     const K = Mi("menu-featured");
     K.replaceChildren();
     const te = uo("royal"),
-      me = Ho[te.rarity],
+      me = RARITIES[te.rarity],
       xe = _s.mythos,
       nt = dt("button", "", "mm-featured");
     ((nt.type = "button"), nt.style.setProperty("--r", me.color));

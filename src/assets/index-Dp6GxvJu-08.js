@@ -1,40 +1,40 @@
-// index-Dp6GxvJu 08 — push
+// index-Dp6GxvJu 08 — block
 // Lines 28482-28830 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-wn(
-  v.TROPICAL_SAPLING,
+defineBlock(
+  BLOCK.TROPICAL_SAPLING,
   "tropical_sapling",
   "Росток тропического дерева",
   "Tropical sapling",
   Bt + 12,
   3054671,
 );
-wn(
-  v.DESERT_SAPLING,
+defineBlock(
+  BLOCK.DESERT_SAPLING,
   "desert_sapling",
   "Росток пустынного дерева",
   "Desert sapling",
   Bt + 13,
   8492870,
 );
-wn(
-  v.PINE_SAPLING,
+defineBlock(
+  BLOCK.PINE_SAPLING,
   "pine_sapling",
   "Росток хвойного дерева",
   "Pine sapling",
   Bt + 14,
   3238991,
 );
-wn(
-  v.SAKURA_SAPLING,
+defineBlock(
+  BLOCK.SAKURA_SAPLING,
   "sakura_sapling",
   "Росток сакуры",
   "Sakura sapling",
   Bt + 15,
   14186920,
 );
-de.push(
-  Fe(
-    v.CACTUS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CACTUS,
     "cactus",
     "Кактус",
     28,
@@ -44,9 +44,9 @@ de.push(
     "Cactus",
   ),
 );
-de.push(
-  Fe(
-    v.LAVA,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LAVA,
     "lava",
     "Лава",
     -1,
@@ -56,12 +56,12 @@ de.push(
     "Lava",
   ),
 );
-wn(v.FIRE, "fire", "Огонь", "Fire", Bt + 18, 16747042);
-de[v.FIRE].light = 15;
-wn(v.WHEAT_CROP, "wheat_crop", "Пшеница", "Wheat crop", Bt + 19, 14201148);
-de.push(
-  Fe(
-    v.SNOW_LAYER,
+defineBlock(BLOCK.FIRE, "fire", "Огонь", "Fire", Bt + 18, 16747042);
+BLOCKS[BLOCK.FIRE].light = 15;
+defineBlock(BLOCK.WHEAT_CROP, "wheat_crop", "Пшеница", "Wheat crop", Bt + 19, 14201148);
+BLOCKS.push(
+  blockDef(
+    BLOCK.SNOW_LAYER,
     "snow_layer",
     "Снежный покров",
     4,
@@ -71,16 +71,16 @@ de.push(
     "Snow layer",
   ),
 );
-wn(
-  v.WHEAT_SPROUT,
+defineBlock(
+  BLOCK.WHEAT_SPROUT,
   "wheat_sprout",
   "Ростки пшеницы",
   "Wheat sprouts",
   Bt + 20,
   7972930,
 );
-wn(
-  v.WHEAT_YOUNG,
+defineBlock(
+  BLOCK.WHEAT_YOUNG,
   "young_wheat",
   "Молодая пшеница",
   "Young wheat",
@@ -88,9 +88,9 @@ wn(
   11057229,
 );
 const Yf = Bt + 22;
-de.push(
-  Fe(
-    v.TARGET,
+BLOCKS.push(
+  blockDef(
+    BLOCK.TARGET,
     "target",
     "Мишень",
     90,
@@ -101,17 +101,17 @@ de.push(
   ),
 );
 const as = Bt + 23;
-wn(
-  v.DESERT_GRASS,
+defineBlock(
+  BLOCK.DESERT_GRASS,
   "desert_grass",
   "Пустынная трава",
   "Desert grass",
   as,
   12100700,
 );
-de.push(
-  Fe(
-    v.FARMLAND,
+BLOCKS.push(
+  blockDef(
+    BLOCK.FARMLAND,
     "farmland",
     "Удобренная земля",
     34,
@@ -121,45 +121,45 @@ de.push(
     "Fertilised soil",
   ),
 );
-wn(
-  v.POTATO_SPROUT,
+defineBlock(
+  BLOCK.POTATO_SPROUT,
   "potato_sprout",
   "Ростки картофеля",
   "Potato sprouts",
   as + 3,
   7313989,
 );
-wn(
-  v.POTATO_YOUNG,
+defineBlock(
+  BLOCK.POTATO_YOUNG,
   "young_potato",
   "Молодой картофель",
   "Young potato",
   as + 4,
   6263872,
 );
-wn(v.POTATO_CROP, "potato_crop", "Картофель", "Potato crop", as + 5, 5212730);
-wn(
-  v.CARROT_SPROUT,
+defineBlock(BLOCK.POTATO_CROP, "potato_crop", "Картофель", "Potato crop", as + 5, 5212730);
+defineBlock(
+  BLOCK.CARROT_SPROUT,
   "carrot_sprout",
   "Ростки моркови",
   "Carrot sprouts",
   as + 6,
   7840330,
 );
-wn(
-  v.CARROT_YOUNG,
+defineBlock(
+  BLOCK.CARROT_YOUNG,
   "young_carrot",
   "Молодая морковь",
   "Young carrot",
   as + 7,
   6922303,
 );
-wn(v.CARROT_CROP, "carrot_crop", "Морковь", "Carrot crop", as + 8, 14711592);
+defineBlock(BLOCK.CARROT_CROP, "carrot_crop", "Морковь", "Carrot crop", as + 8, 14711592);
 const Wc = as + 9,
   Cx = 7;
-de.push(
-  Fe(
-    v.CAKE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CAKE,
     "cake",
     "Торт",
     10,
@@ -169,9 +169,9 @@ de.push(
     "Cake",
   ),
 );
-de.push(
-  Fe(
-    v.LIGHTNING_ROD,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LIGHTNING_ROD,
     "lightning_rod",
     "Громоотвод",
     40,
@@ -183,9 +183,9 @@ de.push(
 );
 const zd = Wc + 3,
   Qp = zd + 1;
-de.push(
-  Fe(
-    v.CAMPFIRE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.CAMPFIRE,
     "campfire",
     "Костёр",
     20,
@@ -195,30 +195,30 @@ de.push(
     "Campfire",
   ),
 );
-const qo = Qp + 1;
-wn(v.SEAWEED, "seaweed", "Водоросли", "Seaweed", qo, 3111498);
-wn(v.SEAGRASS, "seagrass", "Морская трава", "Seagrass", qo + 1, 4168284);
-wn(
-  v.CORAL_PINK,
+const BLOCK_ID_SEAWEED = Qp + 1;
+defineBlock(BLOCK.SEAWEED, "seaweed", "Водоросли", "Seaweed", BLOCK_ID_SEAWEED, 3111498);
+defineBlock(BLOCK.SEAGRASS, "seagrass", "Морская трава", "Seagrass", BLOCK_ID_SEAWEED + 1, 4168284);
+defineBlock(
+  BLOCK.CORAL_PINK,
   "pink_coral",
   "Розовый коралл",
   "Pink coral",
-  qo + 2,
+  BLOCK_ID_SEAWEED + 2,
   14967451,
 );
-wn(v.CORAL_BLUE, "blue_coral", "Синий коралл", "Blue coral", qo + 3, 4161504);
-wn(
-  v.CORAL_YELLOW,
+defineBlock(BLOCK.CORAL_BLUE, "blue_coral", "Синий коралл", "Blue coral", BLOCK_ID_SEAWEED + 3, 4161504);
+defineBlock(
+  BLOCK.CORAL_YELLOW,
   "yellow_coral",
   "Жёлтый коралл",
   "Yellow coral",
-  qo + 4,
+  BLOCK_ID_SEAWEED + 4,
   15778375,
 );
-const _n = qo + 5;
-de.push(
-  Fe(
-    v.HIEROGLYPH_SANDSTONE,
+const _n = BLOCK_ID_SEAWEED + 5;
+BLOCKS.push(
+  blockDef(
+    BLOCK.HIEROGLYPH_SANDSTONE,
     "hieroglyph_sandstone",
     "Песчаник с иероглифами",
     135,
@@ -228,9 +228,9 @@ de.push(
     "Hieroglyph sandstone",
   ),
 );
-de.push(
-  Fe(
-    v.GOLD_INLAY,
+BLOCKS.push(
+  blockDef(
+    BLOCK.GOLD_INLAY,
     "gold_inlay",
     "Золотая инкрустация",
     150,
@@ -240,9 +240,9 @@ de.push(
     "Gold inlay",
   ),
 );
-de.push(
-  Fe(
-    v.LAPIS_INLAY,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LAPIS_INLAY,
     "lapis_inlay",
     "Лазуритовая инкрустация",
     125,
@@ -252,9 +252,9 @@ de.push(
     "Lapis inlay",
   ),
 );
-de.push(
-  Fe(
-    v.EGYPTIAN_PILLAR,
+BLOCKS.push(
+  blockDef(
+    BLOCK.EGYPTIAN_PILLAR,
     "egyptian_pillar",
     "Египетская колонна",
     140,
@@ -264,9 +264,9 @@ de.push(
     "Egyptian pillar",
   ),
 );
-de.push(
-  Fe(
-    v.SARCOPHAGUS,
+BLOCKS.push(
+  blockDef(
+    BLOCK.SARCOPHAGUS,
     "sarcophagus",
     "Саркофаг",
     175,
@@ -277,9 +277,9 @@ de.push(
   ),
 );
 const Wi = _n + 7;
-de.push(
-  Fe(
-    v.LUNAR_REGOLITH,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LUNAR_REGOLITH,
     "lunar_regolith",
     "Лунный реголит",
     105,
@@ -289,9 +289,9 @@ de.push(
     "Lunar regolith",
   ),
 );
-de.push(
-  Fe(
-    v.LUNAR_ROCK,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LUNAR_ROCK,
     "lunar_rock",
     "Лунная порода",
     180,
@@ -301,9 +301,9 @@ de.push(
     "Lunar rock",
   ),
 );
-de.push(
-  Fe(
-    v.LUNAR_BASALT,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LUNAR_BASALT,
     "lunar_basalt",
     "Лунный базальт",
     230,
@@ -313,9 +313,9 @@ de.push(
     "Lunar basalt",
   ),
 );
-de.push(
-  Fe(
-    v.LUNAR_ICE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LUNAR_ICE,
     "lunar_ice",
     "Лунный лёд",
     150,
@@ -325,9 +325,9 @@ de.push(
     "Lunar ice",
   ),
 );
-de.push(
-  Fe(
-    v.LUNAR_ORE,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LUNAR_ORE,
     "lunar_ore",
     "Гелий-3 руда",
     320,
@@ -337,9 +337,9 @@ de.push(
     "Helium-3 ore",
   ),
 );
-de.push(
-  Fe(
-    v.LUNAR_PANEL,
+BLOCKS.push(
+  blockDef(
+    BLOCK.LUNAR_PANEL,
     "lunar_panel",
     "Панель лунной базы",
     12001,

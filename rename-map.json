@@ -1,0 +1,2621 @@
+{
+  "note": "Semantic rename map for src/, recovered mechanically by anchor alignment from the committed slices (tools/recover-scoped-map.mjs): the token streams of a slice and its readable range must be identical in every non-identifier position, so every differing identifier pair is a proven rename, not a guess. `files` is a word-boundary map, used only where a name means the same thing everywhere in the slice and is never a property or object key; `scoped` addresses the rest by exact token index as { name: [[i, target], …] }. tools/derive.mjs re-applies this map when it re-cuts src/ (index-validated), tools/verify-rename.mjs and tools/audit.js re-prove every slice from it, and tools/check-chunk.mjs proves cross-slice references still resolve. Regenerate with `node tools/recover-scoped-map.mjs` after any rename batch.",
+  "files": {
+    "assets/index-Dp6GxvJu-01.js": {
+      "Mu": "SLOT_GAMES",
+      "Tl": "slotGameByIndex",
+      "Yc": "resolveMap",
+      "_H": "findSlotGame",
+      "dH": "isMapId",
+      "fH": "isSmallMapId",
+      "hH": "ARENA_MAP_IDS",
+      "mH": "SMALL_MAPS",
+      "pH": "MAPS",
+      "uH": "SMALL_MAP_IDS"
+    },
+    "assets/index-Dp6GxvJu-02.js": {
+      "_H": "findSlotGame"
+    },
+    "assets/index-Dp6GxvJu-03.js": {
+      "BH": "ARMOR_SLOTS_EN",
+      "DH": "ARMOR_SLOTS_RU",
+      "E": "ITEM",
+      "LH": "PET_FOOD_ITEMS",
+      "Mx": "isWaterAnimal",
+      "Nt": "ANIMAL_KIND",
+      "OH": "isChickenKind",
+      "PH": "WATER_ANIMALS",
+      "Ra": "ANIMAL_PRODUCT",
+      "Si": "CELESTIAL",
+      "Uu": "BIOME",
+      "Wv": "BIOME_BY_DYE",
+      "ir": "ARMOR_SLOTS"
+    },
+    "assets/index-Dp6GxvJu-05.js": {
+      "E": "ITEM",
+      "ES": "VEHICLE_NAMES_RU",
+      "Fe": "blockDef",
+      "Fu": "EXPLOSION_RADIUS",
+      "Gc": "BLOCK_NAMES_RU",
+      "Gn": "cellKey",
+      "Gu": "cubeRootScale",
+      "Mo": "RAID_LABEL",
+      "Mu": "SLOT_GAMES",
+      "Ne": "clamp",
+      "Nr": "BLOCK_DROPS",
+      "P": "VEHICLE_KIND",
+      "Qi": "lerp",
+      "Ri": "packColor",
+      "X0": "NUKE_PROJECTILES",
+      "b0": "DRILL_YIELD",
+      "de": "BLOCKS",
+      "l0": "BLOCK_NAMES_EN",
+      "lC": "VEHICLE_ARMOR",
+      "pt": "PROJECTILE_KIND",
+      "v": "BLOCK",
+      "v0": "TOOL_ITEM_BY_BLOCK",
+      "xS": "VEHICLE_NAMES_EN"
+    },
+    "assets/index-Dp6GxvJu-06.js": {
+      "Fe": "blockDef",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-07.js": {
+      "Fe": "blockDef",
+      "de": "BLOCKS",
+      "v": "BLOCK",
+      "wn": "defineBlock"
+    },
+    "assets/index-Dp6GxvJu-08.js": {
+      "Fe": "blockDef",
+      "de": "BLOCKS",
+      "qo": "BLOCK_ID_SEAWEED",
+      "v": "BLOCK",
+      "wn": "defineBlock"
+    },
+    "assets/index-Dp6GxvJu-09.js": {
+      "Fe": "blockDef",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-10.js": {
+      "Fe": "blockDef",
+      "de": "BLOCKS",
+      "v": "BLOCK",
+      "wn": "defineBlock"
+    },
+    "assets/index-Dp6GxvJu-100.js": {
+      "BL": "SOCIAL_POSTS_KEY",
+      "E4": "SOCIAL_METRICS",
+      "Ht": "localized",
+      "Io": "wrapSvgIcon",
+      "Yw": "SOCIAL_SCORES",
+      "ep": "X_LOGO_SVG",
+      "x6": "SOCIAL_RULES"
+    },
+    "assets/index-Dp6GxvJu-101.js": {
+      "E4": "SOCIAL_METRICS",
+      "Ht": "localized",
+      "Io": "wrapSvgIcon",
+      "Yw": "SOCIAL_SCORES",
+      "ep": "X_LOGO_SVG",
+      "x6": "SOCIAL_RULES"
+    },
+    "assets/index-Dp6GxvJu-102.js": {
+      "Ht": "localized",
+      "Io": "wrapSvgIcon",
+      "Up": "REJOIN_KEY",
+      "_6": "UPDATE_ATTEMPT_KEY",
+      "ep": "X_LOGO_SVG"
+    },
+    "assets/index-Dp6GxvJu-103.js": {
+      "E": "ITEM",
+      "Ho": "RARITIES",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-104.js": {
+      "E": "ITEM",
+      "Ho": "RARITIES",
+      "Xx": "WEAR_TIERS",
+      "jx": "WEAPON_CATEGORIES"
+    },
+    "assets/index-Dp6GxvJu-105.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-106.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-107.js": {
+      "Qc": "RANKS",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-11.js": {
+      "Fe": "blockDef",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-110.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-112.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-115.js": {
+      "E": "ITEM",
+      "Nn": "svgIcon",
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-116.js": {
+      "Ho": "RARITIES",
+      "Nn": "svgIcon"
+    },
+    "assets/index-Dp6GxvJu-117.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-118.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-12.js": {
+      "E": "ITEM",
+      "Fl": "HOTBAR_SLOT_SIZE",
+      "Iz": "ATTACHMENTS_BY_WEAPON",
+      "M0": "HOTBAR_WEAPONS",
+      "de": "BLOCKS",
+      "h0": "WEAPON_ATTACHMENTS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-121.js": {
+      "E": "ITEM",
+      "ES": "VEHICLE_NAMES_RU",
+      "Gc": "BLOCK_NAMES_RU",
+      "Qc": "RANKS",
+      "de": "BLOCKS",
+      "h0": "WEAPON_ATTACHMENTS",
+      "ir": "ARMOR_SLOTS",
+      "l0": "BLOCK_NAMES_EN",
+      "v0": "TOOL_ITEM_BY_BLOCK",
+      "xS": "VEHICLE_NAMES_EN"
+    },
+    "assets/index-Dp6GxvJu-122.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-123.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-124.js": {
+      "E": "ITEM",
+      "de": "BLOCKS",
+      "v": "BLOCK",
+      "v0": "TOOL_ITEM_BY_BLOCK",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-125.js": {
+      "E": "ITEM",
+      "LH": "PET_FOOD_ITEMS",
+      "Nr": "BLOCK_DROPS",
+      "b0": "DRILL_YIELD"
+    },
+    "assets/index-Dp6GxvJu-126.js": {
+      "ir": "ARMOR_SLOTS"
+    },
+    "assets/index-Dp6GxvJu-127.js": {
+      "pt": "PROJECTILE_KIND"
+    },
+    "assets/index-Dp6GxvJu-128.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-129.js": {
+      "de": "BLOCKS",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-13.js": {
+      "E": "ITEM",
+      "Fl": "HOTBAR_SLOT_SIZE",
+      "Gc": "BLOCK_NAMES_RU",
+      "M0": "HOTBAR_WEAPONS",
+      "h0": "WEAPON_ATTACHMENTS",
+      "l0": "BLOCK_NAMES_EN",
+      "v0": "TOOL_ITEM_BY_BLOCK"
+    },
+    "assets/index-Dp6GxvJu-130.js": {
+      "E": "ITEM",
+      "v": "BLOCK",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-131.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-132.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-133.js": {
+      "E": "ITEM",
+      "Tl": "slotGameByIndex",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-134.js": {
+      "de": "BLOCKS",
+      "h0": "WEAPON_ATTACHMENTS",
+      "v": "BLOCK",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-135.js": {
+      "E": "ITEM",
+      "Ho": "RARITIES",
+      "Nn": "svgIcon",
+      "P": "VEHICLE_KIND",
+      "Qc": "RANKS",
+      "Tl": "slotGameByIndex",
+      "de": "BLOCKS",
+      "h0": "WEAPON_ATTACHMENTS",
+      "ir": "ARMOR_SLOTS",
+      "uw": "roleOf",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-136.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-137.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-138.js": {
+      "E": "ITEM",
+      "de": "BLOCKS",
+      "uw": "roleOf"
+    },
+    "assets/index-Dp6GxvJu-139.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-14.js": {
+      "DS": "gamemodeKeys",
+      "E": "ITEM",
+      "Go": "gamemode",
+      "_l": "GAMEMODES",
+      "a5": "KILLSTREAK_TITLES",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-141.js": {
+      "E": "ITEM",
+      "Si": "CELESTIAL"
+    },
+    "assets/index-Dp6GxvJu-142.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-143.js": {
+      "_l": "GAMEMODES"
+    },
+    "assets/index-Dp6GxvJu-144.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-145.js": {
+      "Ho": "RARITIES",
+      "Yc": "resolveMap"
+    },
+    "assets/index-Dp6GxvJu-147.js": {
+      "DS": "gamemodeKeys",
+      "Yc": "resolveMap",
+      "_l": "GAMEMODES",
+      "a5": "KILLSTREAK_TITLES"
+    },
+    "assets/index-Dp6GxvJu-148.js": {
+      "E": "ITEM",
+      "Ne": "clamp",
+      "Nr": "BLOCK_DROPS",
+      "b0": "DRILL_YIELD",
+      "de": "BLOCKS",
+      "v": "BLOCK",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-15.js": {
+      "Ca": "localRole",
+      "HS": "EMBED_TOKEN_KEY",
+      "eU": "roleStyle",
+      "iU": "SITE_URL",
+      "su": "ownerPermissions",
+      "uw": "roleOf",
+      "yg": "roleMap"
+    },
+    "assets/index-Dp6GxvJu-150.js": {
+      "Ca": "localRole"
+    },
+    "assets/index-Dp6GxvJu-152.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-156.js": {
+      "de": "BLOCKS"
+    },
+    "assets/index-Dp6GxvJu-159.js": {
+      "Mu": "SLOT_GAMES"
+    },
+    "assets/index-Dp6GxvJu-16.js": {
+      "Ho": "RARITIES"
+    },
+    "assets/index-Dp6GxvJu-161.js": {
+      "E": "ITEM",
+      "Mu": "SLOT_GAMES"
+    },
+    "assets/index-Dp6GxvJu-164.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-168.js": {
+      "Mo": "RAID_LABEL",
+      "Nn": "svgIcon"
+    },
+    "assets/index-Dp6GxvJu-169.js": {
+      "P": "VEHICLE_KIND",
+      "Qc": "RANKS",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-17.js": {
+      "Xx": "WEAR_TIERS",
+      "jx": "WEAPON_CATEGORIES"
+    },
+    "assets/index-Dp6GxvJu-170.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-171.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-172.js": {
+      "Nn": "svgIcon",
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-174.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-175.js": {
+      "E": "ITEM",
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-177.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-178.js": {
+      "Nn": "svgIcon"
+    },
+    "assets/index-Dp6GxvJu-179.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-18.js": {
+      "E": "ITEM",
+      "zn": "makeCanvas"
+    },
+    "assets/index-Dp6GxvJu-181.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-183.js": {
+      "Ra": "ANIMAL_PRODUCT",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-184.js": {
+      "E": "ITEM",
+      "Si": "CELESTIAL"
+    },
+    "assets/index-Dp6GxvJu-185.js": {
+      "E": "ITEM",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-186.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-188.js": {
+      "Nt": "ANIMAL_KIND"
+    },
+    "assets/index-Dp6GxvJu-189.js": {
+      "Nt": "ANIMAL_KIND"
+    },
+    "assets/index-Dp6GxvJu-19.js": {
+      "zn": "makeCanvas"
+    },
+    "assets/index-Dp6GxvJu-190.js": {
+      "Nt": "ANIMAL_KIND"
+    },
+    "assets/index-Dp6GxvJu-192.js": {
+      "Mx": "isWaterAnimal",
+      "Nt": "ANIMAL_KIND",
+      "OH": "isChickenKind",
+      "Ra": "ANIMAL_PRODUCT"
+    },
+    "assets/index-Dp6GxvJu-194.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-196.js": {
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-197.js": {
+      "Gn": "cellKey",
+      "Ri": "packColor",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-198.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-199.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-200.js": {
+      "Gn": "cellKey",
+      "Ri": "packColor",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-203.js": {
+      "Ne": "clamp",
+      "Qi": "lerp"
+    },
+    "assets/index-Dp6GxvJu-204.js": {
+      "P": "VEHICLE_KIND",
+      "de": "BLOCKS"
+    },
+    "assets/index-Dp6GxvJu-205.js": {
+      "Mo": "RAID_LABEL",
+      "Ne": "clamp",
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-207.js": {
+      "Ne": "clamp"
+    },
+    "assets/index-Dp6GxvJu-210.js": {
+      "Ne": "clamp"
+    },
+    "assets/index-Dp6GxvJu-211.js": {
+      "Ne": "clamp"
+    },
+    "assets/index-Dp6GxvJu-212.js": {
+      "Ne": "clamp",
+      "pt": "PROJECTILE_KIND"
+    },
+    "assets/index-Dp6GxvJu-214.js": {
+      "Ne": "clamp",
+      "Nt": "ANIMAL_KIND",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-215.js": {
+      "Nt": "ANIMAL_KIND"
+    },
+    "assets/index-Dp6GxvJu-216.js": {
+      "Ne": "clamp"
+    },
+    "assets/index-Dp6GxvJu-218.js": {
+      "Ne": "clamp",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-219.js": {
+      "E": "ITEM",
+      "Si": "CELESTIAL",
+      "pt": "PROJECTILE_KIND"
+    },
+    "assets/index-Dp6GxvJu-22.js": {
+      "GU": "EMOTES"
+    },
+    "assets/index-Dp6GxvJu-221.js": {
+      "E": "ITEM",
+      "Ne": "clamp",
+      "de": "BLOCKS"
+    },
+    "assets/index-Dp6GxvJu-222.js": {
+      "E": "ITEM",
+      "Fu": "EXPLOSION_RADIUS",
+      "Gu": "cubeRootScale",
+      "pt": "PROJECTILE_KIND"
+    },
+    "assets/index-Dp6GxvJu-223.js": {
+      "Si": "CELESTIAL",
+      "X0": "NUKE_PROJECTILES",
+      "pt": "PROJECTILE_KIND"
+    },
+    "assets/index-Dp6GxvJu-224.js": {
+      "E": "ITEM",
+      "Ho": "RARITIES",
+      "Ne": "clamp",
+      "P": "VEHICLE_KIND",
+      "Qi": "lerp",
+      "de": "BLOCKS",
+      "pt": "PROJECTILE_KIND",
+      "v0": "TOOL_ITEM_BY_BLOCK"
+    },
+    "assets/index-Dp6GxvJu-225.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-226.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-228.js": {
+      "E": "ITEM",
+      "Nt": "ANIMAL_KIND"
+    },
+    "assets/index-Dp6GxvJu-230.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-231.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-232.js": {
+      "E": "ITEM",
+      "Gn": "cellKey",
+      "Ri": "packColor",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-233.js": {
+      "E": "ITEM",
+      "P": "VEHICLE_KIND",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-238.js": {
+      "E": "ITEM",
+      "Ne": "clamp",
+      "P": "VEHICLE_KIND",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-239.js": {
+      "Ca": "localRole",
+      "E": "ITEM",
+      "Go": "gamemode",
+      "Mo": "RAID_LABEL",
+      "Ne": "clamp",
+      "Nr": "BLOCK_DROPS",
+      "Nt": "ANIMAL_KIND",
+      "P": "VEHICLE_KIND",
+      "Qi": "lerp",
+      "Ra": "ANIMAL_PRODUCT",
+      "Si": "CELESTIAL",
+      "Tl": "slotGameByIndex",
+      "Wv": "BIOME_BY_DYE",
+      "Yc": "resolveMap",
+      "b0": "DRILL_YIELD",
+      "de": "BLOCKS",
+      "lC": "VEHICLE_ARMOR",
+      "pt": "PROJECTILE_KIND",
+      "su": "ownerPermissions",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-24.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-25.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-26.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-28.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-29.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-30.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-31.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-32.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-33.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-34.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-35.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-36.js": {
+      "E": "ITEM",
+      "Gc": "BLOCK_NAMES_RU",
+      "Nt": "ANIMAL_KIND",
+      "de": "BLOCKS",
+      "l0": "BLOCK_NAMES_EN",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-37.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-38.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-39.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-40.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-41.js": {
+      "Ri": "packColor",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-42.js": {
+      "Ne": "clamp",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-43.js": {
+      "Ne": "clamp",
+      "Ri": "packColor",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-44.js": {
+      "Ri": "packColor",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-45.js": {
+      "Ne": "clamp",
+      "Ri": "packColor",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-48.js": {
+      "qo": "BLOCK_ID_SEAWEED"
+    },
+    "assets/index-Dp6GxvJu-50.js": {
+      "qo": "BLOCK_ID_SEAWEED",
+      "ui": "TILE_KIND"
+    },
+    "assets/index-Dp6GxvJu-51.js": {
+      "ui": "TILE_KIND"
+    },
+    "assets/index-Dp6GxvJu-52.js": {
+      "Eg": "EMOTE_PACK",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-55.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-56.js": {
+      "Eg": "EMOTE_PACK",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-57.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-58.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-59.js": {
+      "Eg": "EMOTE_PACK",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-60.js": {
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-62.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-63.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-64.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-68.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-69.js": {
+      "E": "ITEM",
+      "de": "BLOCKS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-70.js": {
+      "E": "ITEM"
+    },
+    "assets/index-Dp6GxvJu-71.js": {
+      "eL": "SETTINGS_KEY",
+      "f4": "QUALITY_PRESETS"
+    },
+    "assets/index-Dp6GxvJu-72.js": {
+      "eL": "SETTINGS_KEY",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-73.js": {
+      "Nn": "svgIcon",
+      "Qc": "RANKS"
+    },
+    "assets/index-Dp6GxvJu-75.js": {
+      "DH": "ARMOR_SLOTS_RU",
+      "E": "ITEM",
+      "ES": "VEHICLE_NAMES_RU",
+      "Gc": "BLOCK_NAMES_RU",
+      "Nn": "svgIcon",
+      "P": "VEHICLE_KIND",
+      "de": "BLOCKS"
+    },
+    "assets/index-Dp6GxvJu-76.js": {
+      "Ne": "clamp",
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-77.js": {
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-78.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-79.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-80.js": {
+      "E": "ITEM",
+      "P": "VEHICLE_KIND",
+      "Tl": "slotGameByIndex",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-81.js": {
+      "E": "ITEM",
+      "P": "VEHICLE_KIND",
+      "de": "BLOCKS",
+      "hL": "STAT_KEYS",
+      "nq": "STAT_ORDER",
+      "oq": "STAT_LABELS",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-82.js": {
+      "E": "ITEM",
+      "ES": "VEHICLE_NAMES_RU",
+      "Gc": "BLOCK_NAMES_RU",
+      "Nn": "svgIcon",
+      "l0": "BLOCK_NAMES_EN",
+      "oq": "STAT_LABELS",
+      "xS": "VEHICLE_NAMES_EN"
+    },
+    "assets/index-Dp6GxvJu-84.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-85.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-87.js": {
+      "P": "VEHICLE_KIND",
+      "v": "BLOCK"
+    },
+    "assets/index-Dp6GxvJu-91.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-92.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-94.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-95.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-96.js": {
+      "P": "VEHICLE_KIND"
+    },
+    "assets/index-Dp6GxvJu-97.js": {
+      "Mo": "RAID_LABEL",
+      "Ne": "clamp",
+      "z": "SETTINGS"
+    },
+    "assets/index-Dp6GxvJu-98.js": {
+      "Mo": "RAID_LABEL",
+      "Ne": "clamp",
+      "P": "VEHICLE_KIND",
+      "Qi": "lerp",
+      "Si": "CELESTIAL",
+      "de": "BLOCKS",
+      "lC": "VEHICLE_ARMOR",
+      "pt": "PROJECTILE_KIND"
+    },
+    "assets/terrain-pool-Dvsi82A--01.js": {
+      "H": "installTerrainPool"
+    }
+  },
+  "scoped": {
+    "assets/index-Dp6GxvJu-135.js": {
+      "Go": [
+        [
+          10571,
+          "gamemode"
+        ],
+        [
+          10579,
+          "gamemode"
+        ],
+        [
+          10597,
+          "gamemode"
+        ]
+      ],
+      "z": [
+        [
+          1727,
+          "SETTINGS"
+        ],
+        [
+          1888,
+          "SETTINGS"
+        ],
+        [
+          1896,
+          "SETTINGS"
+        ],
+        [
+          1977,
+          "SETTINGS"
+        ],
+        [
+          1996,
+          "SETTINGS"
+        ],
+        [
+          2972,
+          "SETTINGS"
+        ],
+        [
+          3008,
+          "SETTINGS"
+        ],
+        [
+          3127,
+          "SETTINGS"
+        ],
+        [
+          3170,
+          "SETTINGS"
+        ],
+        [
+          3195,
+          "SETTINGS"
+        ],
+        [
+          3219,
+          "SETTINGS"
+        ],
+        [
+          3392,
+          "SETTINGS"
+        ],
+        [
+          3435,
+          "SETTINGS"
+        ],
+        [
+          3460,
+          "SETTINGS"
+        ],
+        [
+          3570,
+          "SETTINGS"
+        ],
+        [
+          3628,
+          "SETTINGS"
+        ],
+        [
+          3688,
+          "SETTINGS"
+        ],
+        [
+          3693,
+          "SETTINGS"
+        ],
+        [
+          3712,
+          "SETTINGS"
+        ],
+        [
+          3725,
+          "SETTINGS"
+        ],
+        [
+          3804,
+          "SETTINGS"
+        ],
+        [
+          3858,
+          "SETTINGS"
+        ],
+        [
+          4119,
+          "SETTINGS"
+        ],
+        [
+          4133,
+          "SETTINGS"
+        ],
+        [
+          4150,
+          "SETTINGS"
+        ],
+        [
+          4163,
+          "SETTINGS"
+        ],
+        [
+          4177,
+          "SETTINGS"
+        ],
+        [
+          4197,
+          "SETTINGS"
+        ],
+        [
+          4214,
+          "SETTINGS"
+        ],
+        [
+          4234,
+          "SETTINGS"
+        ],
+        [
+          4248,
+          "SETTINGS"
+        ],
+        [
+          4258,
+          "SETTINGS"
+        ],
+        [
+          4274,
+          "SETTINGS"
+        ],
+        [
+          4297,
+          "SETTINGS"
+        ],
+        [
+          4313,
+          "SETTINGS"
+        ],
+        [
+          4323,
+          "SETTINGS"
+        ],
+        [
+          4333,
+          "SETTINGS"
+        ],
+        [
+          4343,
+          "SETTINGS"
+        ],
+        [
+          4355,
+          "SETTINGS"
+        ],
+        [
+          4375,
+          "SETTINGS"
+        ],
+        [
+          4391,
+          "SETTINGS"
+        ],
+        [
+          4401,
+          "SETTINGS"
+        ],
+        [
+          4413,
+          "SETTINGS"
+        ],
+        [
+          4429,
+          "SETTINGS"
+        ],
+        [
+          4444,
+          "SETTINGS"
+        ],
+        [
+          4464,
+          "SETTINGS"
+        ],
+        [
+          4487,
+          "SETTINGS"
+        ],
+        [
+          4508,
+          "SETTINGS"
+        ],
+        [
+          4533,
+          "SETTINGS"
+        ],
+        [
+          4575,
+          "SETTINGS"
+        ],
+        [
+          4819,
+          "SETTINGS"
+        ],
+        [
+          4835,
+          "SETTINGS"
+        ],
+        [
+          4944,
+          "SETTINGS"
+        ],
+        [
+          4970,
+          "SETTINGS"
+        ],
+        [
+          5006,
+          "SETTINGS"
+        ],
+        [
+          5042,
+          "SETTINGS"
+        ],
+        [
+          5084,
+          "SETTINGS"
+        ],
+        [
+          5110,
+          "SETTINGS"
+        ],
+        [
+          5131,
+          "SETTINGS"
+        ],
+        [
+          5157,
+          "SETTINGS"
+        ],
+        [
+          5178,
+          "SETTINGS"
+        ],
+        [
+          5207,
+          "SETTINGS"
+        ],
+        [
+          5397,
+          "SETTINGS"
+        ],
+        [
+          5426,
+          "SETTINGS"
+        ],
+        [
+          5464,
+          "SETTINGS"
+        ],
+        [
+          5493,
+          "SETTINGS"
+        ],
+        [
+          5517,
+          "SETTINGS"
+        ],
+        [
+          5538,
+          "SETTINGS"
+        ],
+        [
+          5561,
+          "SETTINGS"
+        ],
+        [
+          5592,
+          "SETTINGS"
+        ],
+        [
+          5621,
+          "SETTINGS"
+        ],
+        [
+          5657,
+          "SETTINGS"
+        ],
+        [
+          5734,
+          "SETTINGS"
+        ],
+        [
+          5767,
+          "SETTINGS"
+        ],
+        [
+          5802,
+          "SETTINGS"
+        ],
+        [
+          5837,
+          "SETTINGS"
+        ],
+        [
+          5870,
+          "SETTINGS"
+        ],
+        [
+          5900,
+          "SETTINGS"
+        ],
+        [
+          5930,
+          "SETTINGS"
+        ],
+        [
+          5960,
+          "SETTINGS"
+        ],
+        [
+          5990,
+          "SETTINGS"
+        ],
+        [
+          6020,
+          "SETTINGS"
+        ],
+        [
+          6050,
+          "SETTINGS"
+        ],
+        [
+          6083,
+          "SETTINGS"
+        ],
+        [
+          6112,
+          "SETTINGS"
+        ],
+        [
+          6152,
+          "SETTINGS"
+        ],
+        [
+          6185,
+          "SETTINGS"
+        ],
+        [
+          6218,
+          "SETTINGS"
+        ],
+        [
+          6251,
+          "SETTINGS"
+        ],
+        [
+          6282,
+          "SETTINGS"
+        ],
+        [
+          6324,
+          "SETTINGS"
+        ],
+        [
+          6358,
+          "SETTINGS"
+        ],
+        [
+          6400,
+          "SETTINGS"
+        ],
+        [
+          6462,
+          "SETTINGS"
+        ],
+        [
+          6471,
+          "SETTINGS"
+        ],
+        [
+          6541,
+          "SETTINGS"
+        ],
+        [
+          6606,
+          "SETTINGS"
+        ],
+        [
+          6614,
+          "SETTINGS"
+        ],
+        [
+          6665,
+          "SETTINGS"
+        ],
+        [
+          6705,
+          "SETTINGS"
+        ],
+        [
+          6710,
+          "SETTINGS"
+        ],
+        [
+          6723,
+          "SETTINGS"
+        ],
+        [
+          10585,
+          "SETTINGS"
+        ],
+        [
+          10603,
+          "SETTINGS"
+        ],
+        [
+          10615,
+          "SETTINGS"
+        ],
+        [
+          10633,
+          "SETTINGS"
+        ],
+        [
+          12517,
+          "SETTINGS"
+        ],
+        [
+          12796,
+          "SETTINGS"
+        ],
+        [
+          15980,
+          "SETTINGS"
+        ],
+        [
+          15998,
+          "SETTINGS"
+        ],
+        [
+          16328,
+          "SETTINGS"
+        ],
+        [
+          16631,
+          "SETTINGS"
+        ],
+        [
+          18222,
+          "SETTINGS"
+        ],
+        [
+          20260,
+          "SETTINGS"
+        ],
+        [
+          23806,
+          "SETTINGS"
+        ],
+        [
+          23896,
+          "SETTINGS"
+        ],
+        [
+          24119,
+          "SETTINGS"
+        ],
+        [
+          24429,
+          "SETTINGS"
+        ],
+        [
+          24779,
+          "SETTINGS"
+        ],
+        [
+          24891,
+          "SETTINGS"
+        ],
+        [
+          26093,
+          "SETTINGS"
+        ],
+        [
+          26472,
+          "SETTINGS"
+        ],
+        [
+          26488,
+          "SETTINGS"
+        ],
+        [
+          27192,
+          "SETTINGS"
+        ],
+        [
+          27257,
+          "SETTINGS"
+        ],
+        [
+          27264,
+          "SETTINGS"
+        ],
+        [
+          27469,
+          "SETTINGS"
+        ],
+        [
+          27476,
+          "SETTINGS"
+        ],
+        [
+          27490,
+          "SETTINGS"
+        ],
+        [
+          27693,
+          "SETTINGS"
+        ],
+        [
+          27760,
+          "SETTINGS"
+        ],
+        [
+          28092,
+          "SETTINGS"
+        ],
+        [
+          28141,
+          "SETTINGS"
+        ],
+        [
+          28230,
+          "SETTINGS"
+        ],
+        [
+          29029,
+          "SETTINGS"
+        ],
+        [
+          29047,
+          "SETTINGS"
+        ],
+        [
+          30016,
+          "SETTINGS"
+        ],
+        [
+          31176,
+          "SETTINGS"
+        ],
+        [
+          31190,
+          "SETTINGS"
+        ],
+        [
+          31204,
+          "SETTINGS"
+        ],
+        [
+          31218,
+          "SETTINGS"
+        ],
+        [
+          31480,
+          "SETTINGS"
+        ],
+        [
+          31630,
+          "SETTINGS"
+        ],
+        [
+          32005,
+          "SETTINGS"
+        ],
+        [
+          38426,
+          "SETTINGS"
+        ],
+        [
+          38438,
+          "SETTINGS"
+        ],
+        [
+          38464,
+          "SETTINGS"
+        ],
+        [
+          38539,
+          "SETTINGS"
+        ],
+        [
+          38549,
+          "SETTINGS"
+        ],
+        [
+          39905,
+          "SETTINGS"
+        ],
+        [
+          40003,
+          "SETTINGS"
+        ],
+        [
+          40492,
+          "SETTINGS"
+        ],
+        [
+          41373,
+          "SETTINGS"
+        ],
+        [
+          41870,
+          "SETTINGS"
+        ],
+        [
+          42565,
+          "SETTINGS"
+        ],
+        [
+          42998,
+          "SETTINGS"
+        ],
+        [
+          43018,
+          "SETTINGS"
+        ],
+        [
+          45003,
+          "SETTINGS"
+        ],
+        [
+          45382,
+          "SETTINGS"
+        ],
+        [
+          45390,
+          "SETTINGS"
+        ],
+        [
+          45398,
+          "SETTINGS"
+        ],
+        [
+          45490,
+          "SETTINGS"
+        ],
+        [
+          45497,
+          "SETTINGS"
+        ],
+        [
+          45886,
+          "SETTINGS"
+        ],
+        [
+          46567,
+          "SETTINGS"
+        ],
+        [
+          46585,
+          "SETTINGS"
+        ],
+        [
+          46615,
+          "SETTINGS"
+        ],
+        [
+          46633,
+          "SETTINGS"
+        ],
+        [
+          46705,
+          "SETTINGS"
+        ],
+        [
+          46768,
+          "SETTINGS"
+        ],
+        [
+          46884,
+          "SETTINGS"
+        ],
+        [
+          47232,
+          "SETTINGS"
+        ],
+        [
+          47508,
+          "SETTINGS"
+        ],
+        [
+          47514,
+          "SETTINGS"
+        ],
+        [
+          51186,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-15.js": {
+      "mg": [
+        [
+          1,
+          "ROLE_STYLES"
+        ],
+        [
+          582,
+          "ROLE_STYLES"
+        ],
+        [
+          588,
+          "ROLE_STYLES"
+        ],
+        [
+          1726,
+          "ROLE_STYLES"
+        ],
+        [
+          1738,
+          "ROLE_STYLES"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-155.js": {
+      "z": [
+        [
+          272,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-165.js": {
+      "v": [
+        [
+          280,
+          "BLOCK"
+        ],
+        [
+          555,
+          "BLOCK"
+        ]
+      ],
+      "z": [
+        [
+          2855,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-166.js": {
+      "z": [
+        [
+          924,
+          "SETTINGS"
+        ],
+        [
+          1690,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-167.js": {
+      "z": [
+        [
+          532,
+          "SETTINGS"
+        ],
+        [
+          865,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-168.js": {
+      "z": [
+        [
+          102,
+          "SETTINGS"
+        ],
+        [
+          115,
+          "SETTINGS"
+        ],
+        [
+          885,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-170.js": {
+      "z": [
+        [
+          165,
+          "SETTINGS"
+        ],
+        [
+          228,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-172.js": {
+      "z": [
+        [
+          458,
+          "SETTINGS"
+        ],
+        [
+          1926,
+          "SETTINGS"
+        ],
+        [
+          2030,
+          "SETTINGS"
+        ],
+        [
+          2550,
+          "SETTINGS"
+        ],
+        [
+          2562,
+          "SETTINGS"
+        ],
+        [
+          4606,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-175.js": {
+      "z": [
+        [
+          183,
+          "SETTINGS"
+        ],
+        [
+          271,
+          "SETTINGS"
+        ],
+        [
+          366,
+          "SETTINGS"
+        ],
+        [
+          717,
+          "SETTINGS"
+        ],
+        [
+          2244,
+          "SETTINGS"
+        ],
+        [
+          3635,
+          "SETTINGS"
+        ],
+        [
+          6045,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-178.js": {
+      "z": [
+        [
+          2181,
+          "SETTINGS"
+        ],
+        [
+          2335,
+          "SETTINGS"
+        ],
+        [
+          3686,
+          "SETTINGS"
+        ],
+        [
+          3692,
+          "SETTINGS"
+        ],
+        [
+          3705,
+          "SETTINGS"
+        ],
+        [
+          3711,
+          "SETTINGS"
+        ],
+        [
+          3813,
+          "SETTINGS"
+        ],
+        [
+          3819,
+          "SETTINGS"
+        ],
+        [
+          3831,
+          "SETTINGS"
+        ],
+        [
+          3837,
+          "SETTINGS"
+        ],
+        [
+          3869,
+          "SETTINGS"
+        ],
+        [
+          3875,
+          "SETTINGS"
+        ],
+        [
+          3888,
+          "SETTINGS"
+        ],
+        [
+          3894,
+          "SETTINGS"
+        ],
+        [
+          4003,
+          "SETTINGS"
+        ],
+        [
+          4009,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-198.js": {
+      "de": [
+        [
+          3330,
+          "BLOCKS"
+        ],
+        [
+          3550,
+          "BLOCKS"
+        ]
+      ],
+      "z": [
+        [
+          516,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-218.js": {
+      "z": [
+        [
+          4509,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-224.js": {
+      "z": [
+        [
+          3812,
+          "SETTINGS"
+        ],
+        [
+          3856,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-233.js": {
+      "z": [
+        [
+          43,
+          "SETTINGS"
+        ],
+        [
+          2592,
+          "SETTINGS"
+        ],
+        [
+          3028,
+          "SETTINGS"
+        ],
+        [
+          3034,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-238.js": {
+      "z": [
+        [
+          1770,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-239.js": {
+      "z": [
+        [
+          1607,
+          "SETTINGS"
+        ],
+        [
+          3851,
+          "SETTINGS"
+        ],
+        [
+          3868,
+          "SETTINGS"
+        ],
+        [
+          4266,
+          "SETTINGS"
+        ],
+        [
+          4887,
+          "SETTINGS"
+        ],
+        [
+          5100,
+          "SETTINGS"
+        ],
+        [
+          5236,
+          "SETTINGS"
+        ],
+        [
+          5244,
+          "SETTINGS"
+        ],
+        [
+          5744,
+          "SETTINGS"
+        ],
+        [
+          6105,
+          "SETTINGS"
+        ],
+        [
+          6304,
+          "SETTINGS"
+        ],
+        [
+          7970,
+          "SETTINGS"
+        ],
+        [
+          7981,
+          "SETTINGS"
+        ],
+        [
+          8246,
+          "SETTINGS"
+        ],
+        [
+          8434,
+          "SETTINGS"
+        ],
+        [
+          8749,
+          "SETTINGS"
+        ],
+        [
+          9286,
+          "SETTINGS"
+        ],
+        [
+          9294,
+          "SETTINGS"
+        ],
+        [
+          9302,
+          "SETTINGS"
+        ],
+        [
+          9877,
+          "SETTINGS"
+        ],
+        [
+          10064,
+          "SETTINGS"
+        ],
+        [
+          10925,
+          "SETTINGS"
+        ],
+        [
+          11017,
+          "SETTINGS"
+        ],
+        [
+          11066,
+          "SETTINGS"
+        ],
+        [
+          11076,
+          "SETTINGS"
+        ],
+        [
+          11085,
+          "SETTINGS"
+        ],
+        [
+          12852,
+          "SETTINGS"
+        ],
+        [
+          12930,
+          "SETTINGS"
+        ],
+        [
+          13022,
+          "SETTINGS"
+        ],
+        [
+          29765,
+          "SETTINGS"
+        ],
+        [
+          29873,
+          "SETTINGS"
+        ],
+        [
+          30794,
+          "SETTINGS"
+        ],
+        [
+          34439,
+          "SETTINGS"
+        ],
+        [
+          34855,
+          "SETTINGS"
+        ],
+        [
+          34865,
+          "SETTINGS"
+        ],
+        [
+          34914,
+          "SETTINGS"
+        ],
+        [
+          34966,
+          "SETTINGS"
+        ],
+        [
+          35271,
+          "SETTINGS"
+        ],
+        [
+          35397,
+          "SETTINGS"
+        ],
+        [
+          36523,
+          "SETTINGS"
+        ],
+        [
+          36628,
+          "SETTINGS"
+        ],
+        [
+          40233,
+          "SETTINGS"
+        ],
+        [
+          40439,
+          "SETTINGS"
+        ],
+        [
+          40714,
+          "SETTINGS"
+        ],
+        [
+          41480,
+          "SETTINGS"
+        ],
+        [
+          41520,
+          "SETTINGS"
+        ],
+        [
+          41530,
+          "SETTINGS"
+        ],
+        [
+          41588,
+          "SETTINGS"
+        ],
+        [
+          41612,
+          "SETTINGS"
+        ],
+        [
+          41636,
+          "SETTINGS"
+        ],
+        [
+          42031,
+          "SETTINGS"
+        ],
+        [
+          42231,
+          "SETTINGS"
+        ],
+        [
+          42255,
+          "SETTINGS"
+        ],
+        [
+          42261,
+          "SETTINGS"
+        ],
+        [
+          42971,
+          "SETTINGS"
+        ],
+        [
+          44024,
+          "SETTINGS"
+        ],
+        [
+          44388,
+          "SETTINGS"
+        ],
+        [
+          44421,
+          "SETTINGS"
+        ],
+        [
+          44484,
+          "SETTINGS"
+        ],
+        [
+          44550,
+          "SETTINGS"
+        ],
+        [
+          45347,
+          "SETTINGS"
+        ],
+        [
+          47388,
+          "SETTINGS"
+        ],
+        [
+          47605,
+          "SETTINGS"
+        ],
+        [
+          50265,
+          "SETTINGS"
+        ],
+        [
+          52620,
+          "SETTINGS"
+        ],
+        [
+          53316,
+          "SETTINGS"
+        ],
+        [
+          54008,
+          "SETTINGS"
+        ],
+        [
+          54158,
+          "SETTINGS"
+        ],
+        [
+          54164,
+          "SETTINGS"
+        ],
+        [
+          54975,
+          "SETTINGS"
+        ],
+        [
+          55093,
+          "SETTINGS"
+        ],
+        [
+          55774,
+          "SETTINGS"
+        ],
+        [
+          56458,
+          "SETTINGS"
+        ],
+        [
+          57277,
+          "SETTINGS"
+        ],
+        [
+          57393,
+          "SETTINGS"
+        ],
+        [
+          57507,
+          "SETTINGS"
+        ],
+        [
+          59125,
+          "SETTINGS"
+        ],
+        [
+          60513,
+          "SETTINGS"
+        ],
+        [
+          60616,
+          "SETTINGS"
+        ],
+        [
+          60704,
+          "SETTINGS"
+        ],
+        [
+          61760,
+          "SETTINGS"
+        ],
+        [
+          65911,
+          "SETTINGS"
+        ],
+        [
+          66363,
+          "SETTINGS"
+        ],
+        [
+          66382,
+          "SETTINGS"
+        ],
+        [
+          66475,
+          "SETTINGS"
+        ],
+        [
+          67069,
+          "SETTINGS"
+        ],
+        [
+          67372,
+          "SETTINGS"
+        ],
+        [
+          67500,
+          "SETTINGS"
+        ],
+        [
+          67654,
+          "SETTINGS"
+        ],
+        [
+          67688,
+          "SETTINGS"
+        ],
+        [
+          67764,
+          "SETTINGS"
+        ],
+        [
+          67792,
+          "SETTINGS"
+        ],
+        [
+          67808,
+          "SETTINGS"
+        ],
+        [
+          67912,
+          "SETTINGS"
+        ],
+        [
+          67949,
+          "SETTINGS"
+        ],
+        [
+          67994,
+          "SETTINGS"
+        ],
+        [
+          68069,
+          "SETTINGS"
+        ],
+        [
+          68140,
+          "SETTINGS"
+        ],
+        [
+          68657,
+          "SETTINGS"
+        ],
+        [
+          68671,
+          "SETTINGS"
+        ],
+        [
+          68721,
+          "SETTINGS"
+        ],
+        [
+          69039,
+          "SETTINGS"
+        ],
+        [
+          69129,
+          "SETTINGS"
+        ],
+        [
+          69232,
+          "SETTINGS"
+        ],
+        [
+          69282,
+          "SETTINGS"
+        ],
+        [
+          69328,
+          "SETTINGS"
+        ],
+        [
+          69443,
+          "SETTINGS"
+        ],
+        [
+          69456,
+          "SETTINGS"
+        ],
+        [
+          69478,
+          "SETTINGS"
+        ],
+        [
+          69500,
+          "SETTINGS"
+        ],
+        [
+          69577,
+          "SETTINGS"
+        ],
+        [
+          69931,
+          "SETTINGS"
+        ],
+        [
+          70176,
+          "SETTINGS"
+        ],
+        [
+          70591,
+          "SETTINGS"
+        ],
+        [
+          70642,
+          "SETTINGS"
+        ],
+        [
+          70654,
+          "SETTINGS"
+        ],
+        [
+          70796,
+          "SETTINGS"
+        ],
+        [
+          71087,
+          "SETTINGS"
+        ],
+        [
+          71127,
+          "SETTINGS"
+        ],
+        [
+          71140,
+          "SETTINGS"
+        ],
+        [
+          71191,
+          "SETTINGS"
+        ],
+        [
+          71252,
+          "SETTINGS"
+        ],
+        [
+          71265,
+          "SETTINGS"
+        ],
+        [
+          71325,
+          "SETTINGS"
+        ],
+        [
+          71508,
+          "SETTINGS"
+        ],
+        [
+          71519,
+          "SETTINGS"
+        ],
+        [
+          71951,
+          "SETTINGS"
+        ],
+        [
+          72048,
+          "SETTINGS"
+        ],
+        [
+          72098,
+          "SETTINGS"
+        ],
+        [
+          72214,
+          "SETTINGS"
+        ],
+        [
+          72925,
+          "SETTINGS"
+        ],
+        [
+          73191,
+          "SETTINGS"
+        ],
+        [
+          73362,
+          "SETTINGS"
+        ],
+        [
+          73443,
+          "SETTINGS"
+        ],
+        [
+          75216,
+          "SETTINGS"
+        ],
+        [
+          77328,
+          "SETTINGS"
+        ],
+        [
+          77413,
+          "SETTINGS"
+        ],
+        [
+          77733,
+          "SETTINGS"
+        ],
+        [
+          77742,
+          "SETTINGS"
+        ],
+        [
+          77862,
+          "SETTINGS"
+        ],
+        [
+          79941,
+          "SETTINGS"
+        ],
+        [
+          82308,
+          "SETTINGS"
+        ],
+        [
+          83912,
+          "SETTINGS"
+        ],
+        [
+          84017,
+          "SETTINGS"
+        ],
+        [
+          84661,
+          "SETTINGS"
+        ],
+        [
+          84710,
+          "SETTINGS"
+        ],
+        [
+          84775,
+          "SETTINGS"
+        ],
+        [
+          87032,
+          "SETTINGS"
+        ],
+        [
+          87435,
+          "SETTINGS"
+        ],
+        [
+          87488,
+          "SETTINGS"
+        ],
+        [
+          87947,
+          "SETTINGS"
+        ],
+        [
+          88005,
+          "SETTINGS"
+        ],
+        [
+          89625,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-72.js": {
+      "f4": [
+        [
+          250,
+          "QUALITY_PRESETS"
+        ],
+        [
+          1971,
+          "QUALITY_PRESETS"
+        ],
+        [
+          2004,
+          "QUALITY_PRESETS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-75.js": {
+      "BH": [
+        [
+          506,
+          "ARMOR_SLOTS_EN"
+        ]
+      ],
+      "l0": [
+        [
+          405,
+          "BLOCK_NAMES_EN"
+        ]
+      ],
+      "xS": [
+        [
+          465,
+          "VEHICLE_NAMES_EN"
+        ]
+      ],
+      "z": [
+        [
+          68,
+          "SETTINGS"
+        ],
+        [
+          91,
+          "SETTINGS"
+        ],
+        [
+          174,
+          "SETTINGS"
+        ],
+        [
+          379,
+          "SETTINGS"
+        ],
+        [
+          397,
+          "SETTINGS"
+        ],
+        [
+          428,
+          "SETTINGS"
+        ],
+        [
+          457,
+          "SETTINGS"
+        ],
+        [
+          475,
+          "SETTINGS"
+        ],
+        [
+          498,
+          "SETTINGS"
+        ],
+        [
+          522,
+          "SETTINGS"
+        ],
+        [
+          546,
+          "SETTINGS"
+        ],
+        [
+          571,
+          "SETTINGS"
+        ],
+        [
+          596,
+          "SETTINGS"
+        ],
+        [
+          642,
+          "SETTINGS"
+        ],
+        [
+          655,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-81.js": {
+      "z": [
+        [
+          2725,
+          "SETTINGS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-82.js": {
+      "hL": [
+        [
+          1638,
+          "STAT_KEYS"
+        ]
+      ]
+    },
+    "assets/index-Dp6GxvJu-98.js": {
+      "v": [
+        [
+          893,
+          "BLOCK"
+        ],
+        [
+          27192,
+          "BLOCK"
+        ]
+      ],
+      "z": [
+        [
+          16015,
+          "SETTINGS"
+        ],
+        [
+          16124,
+          "SETTINGS"
+        ],
+        [
+          31525,
+          "SETTINGS"
+        ],
+        [
+          31589,
+          "SETTINGS"
+        ],
+        [
+          42616,
+          "SETTINGS"
+        ],
+        [
+          42623,
+          "SETTINGS"
+        ],
+        [
+          42814,
+          "SETTINGS"
+        ],
+        [
+          42876,
+          "SETTINGS"
+        ],
+        [
+          43197,
+          "SETTINGS"
+        ],
+        [
+          43232,
+          "SETTINGS"
+        ],
+        [
+          43644,
+          "SETTINGS"
+        ]
+      ]
+    }
+  }
+}

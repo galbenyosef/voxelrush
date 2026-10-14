@@ -99,7 +99,7 @@ function KT(n) {
     n != null && n.light && e.add(c1(0.038, -0.012, -0.44)),
     n && n.scope > 0)
   ) {
-    const c = n.scope === 5 ? Op[E.AK47] : 0.075;
+    const c = n.scope === 5 ? Op[ITEM.AK47] : 0.075;
     e.add(h4(n.scope, 0, c, -0.2, 0.03));
   }
   return qn(e, r, s, null, null, l);
@@ -290,7 +290,7 @@ function YT(n) {
     n != null && n.light && e.add(c1(0, -0.03, -0.12)),
     n && n.scope > 0)
   ) {
-    const y = n.scope === 5 ? Op[E.GLOCK] : 0.078;
+    const y = n.scope === 5 ? Op[ITEM.GLOCK] : 0.078;
     e.add(h4(n.scope, 0, y, -0.03, 0.02));
   }
   return qn(e, p, d, r, null, m);

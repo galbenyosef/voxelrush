@@ -50,7 +50,7 @@ const Sj = ["settings", "tab", "chat", "shop", "inventory"],
   Tj = () => Yy() === "portrait" && innerHeight < 480,
   Yy = () => (innerHeight >= innerWidth ? "portrait" : "landscape");
 function Nf(n = Yy()) {
-  return n === "portrait" ? z.mobileLayoutPortrait : z.mobileLayout;
+  return n === "portrait" ? SETTINGS.mobileLayoutPortrait : SETTINGS.mobileLayout;
 }
 let uf = null;
 function Aj() {
@@ -78,8 +78,8 @@ function zm(n, e = !1) {
     s = innerWidth,
     o = innerHeight,
     a = Nf(i),
-    r = z.mobileLabels || z.mobileLayoutEdit,
-    l = `${i}|${s}x${o}|${[...t].sort().join(",")}|${JSON.stringify(a)}|${z.mobileLayoutEdit}|${r}`;
+    r = SETTINGS.mobileLabels || SETTINGS.mobileLayoutEdit,
+    l = `${i}|${s}x${o}|${[...t].sort().join(",")}|${JSON.stringify(a)}|${SETTINGS.mobileLayoutEdit}|${r}`;
   if (!e && l === e_) return;
   e_ = l;
   const c = Aj(),
@@ -165,7 +165,7 @@ function zm(n, e = !1) {
     D = p(y.use).y - p(y.use).size / 2 - 10;
   if (i === "portrait") {
     for (let oe = 0; oe < 3; oe++) {
-      const J = oe && !z.mobileLayoutEdit && !m ? 4 * L : 0;
+      const J = oe && !SETTINGS.mobileLayoutEdit && !m ? 4 * L : 0;
       for (let re = A + R + C / 2 + J; re + C / 2 <= D; re += L)
         N.push({ x: _ - oe * (C + R), y: re });
     }
@@ -188,7 +188,7 @@ function zm(n, e = !1) {
     for (let J = 2; J < 4; J++)
       for (let re = 0; re < 10; re++) {
         const Ce = { x: oe - C / 2 - re * (C + R), y: c.t + d + J * L + C / 2 },
-          Re = z.mobileLayoutEdit ? c.l + s * 0.33 + 16 : s / 2 + 40;
+          Re = SETTINGS.mobileLayoutEdit ? c.l + s * 0.33 + 16 : s / 2 + 40;
         Ce.x - C / 2 > Re && Ce.y + C / 2 <= D && N.push(Ce);
       }
   }

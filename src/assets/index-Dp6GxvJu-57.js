@@ -1,7 +1,7 @@
 // index-Dp6GxvJu 57 — math
 // Lines 45738-46084 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function zW(n, e, t, i, s, o) {
-  const a = de[v.COBBLE].tex[0],
+  const a = BLOCKS[BLOCK.COBBLE].tex[0],
     r = [];
   for (const [l, c, h, d] of [
     [0.38, 0.4, 0.42, 0.075],
@@ -76,7 +76,7 @@ function UW(n, e, t, i, s) {
     s,
     !0,
   );
-  const l = de[v.LOG].tex[1];
+  const l = BLOCKS[BLOCK.LOG].tex[1];
   n.box(
     a - 0.03,
     t + o * 1.7,
@@ -308,11 +308,11 @@ function qW(n, e, t, i, s, o, a) {
       }
     },
     l =
-      e.getBlock(t - 1, i, s) === v.BARBED_WIRE ||
-      e.getBlock(t + 1, i, s) === v.BARBED_WIRE,
+      e.getBlock(t - 1, i, s) === BLOCK.BARBED_WIRE ||
+      e.getBlock(t + 1, i, s) === BLOCK.BARBED_WIRE,
     c =
-      e.getBlock(t, i, s - 1) === v.BARBED_WIRE ||
-      e.getBlock(t, i, s + 1) === v.BARBED_WIRE,
+      e.getBlock(t, i, s - 1) === BLOCK.BARBED_WIRE ||
+      e.getBlock(t, i, s + 1) === BLOCK.BARBED_WIRE,
     h = (d) => {
       const u = (f) => {
         const p = f * Math.PI * 4,
@@ -346,4 +346,4 @@ function qW(n, e, t, i, s, o, a) {
     };
   (h(l || !c), l && c && h(!1));
 }
-const Uk = (n) => (n === v.METAL_DOOR ? Bl : n === v.ARMORED_DOOR ? Hl : 35);
+const Uk = (n) => (n === BLOCK.METAL_DOOR ? Bl : n === BLOCK.ARMORED_DOOR ? Hl : 35);

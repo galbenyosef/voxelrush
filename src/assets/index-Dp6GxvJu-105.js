@@ -1,14 +1,14 @@
 // index-Dp6GxvJu 105 — root
 // Lines 66235-66557 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const vY = () => !!(qc != null && qc.isOpen),
-  XL = () => z.language === "en",
+  XL = () => SETTINGS.language === "en",
   Yi = (n, e) => (XL() ? n : e),
   Ji = (n, e = "", t = "") => {
     const i = document.createElement(n);
     return (e && (i.className = e), t && (i.textContent = t), i);
   };
 function js(n) {
-  const e = z.binds[n] ?? "";
+  const e = SETTINGS.binds[n] ?? "";
   return e
     ? e.startsWith("Key")
       ? e.slice(3)
@@ -274,7 +274,7 @@ class SY {
   }
   build() {
     const e = document.body.classList.contains("drag-look"),
-      t = z.language + JSON.stringify(z.binds) + e;
+      t = SETTINGS.language + JSON.stringify(SETTINGS.binds) + e;
     if (t === this.built) return;
     ((this.built = t), (this.root.textContent = ""));
     const i = Ji("div", "ctp-card"),

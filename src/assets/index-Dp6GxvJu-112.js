@@ -21,7 +21,7 @@ function oj(n) {
       return ((R.textContent = C), R);
     },
     u = () => !document.hidden,
-    f = () => z.language === "en",
+    f = () => SETTINGS.language === "en",
     p = d("aside");
   ((p.id = "friend-notifications"),
     p.setAttribute("popover", "manual"),

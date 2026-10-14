@@ -1,9 +1,9 @@
 // index-Dp6GxvJu 189 — add
 // Lines 104911-105262 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 function WI(n, e, t, i = !1) {
-  if (n === Nt.FISH) return Vee(e, t);
-  if (n === Nt.SHARK) return $ee(e, t);
-  if (n === Nt.WENDIGO) return Kee(t);
+  if (n === ANIMAL_KIND.FISH) return Vee(e, t);
+  if (n === ANIMAL_KIND.SHARK) return $ee(e, t);
+  if (n === ANIMAL_KIND.WENDIGO) return Kee(t);
   const s = new pe(),
     o = [],
     a = [],
@@ -49,7 +49,7 @@ function WI(n, e, t, i = !1) {
           (s.add(M), o.push(M));
         }
     };
-  if (n === Nt.PIG) {
+  if (n === ANIMAL_KIND.PIG) {
     const h = 0.94 + ((t * 17) % 9) * 0.012,
       d = pi(15439267, h),
       u = pi(13595524, h),
@@ -89,7 +89,7 @@ function WI(n, e, t, i = !1) {
         l.add(Ye(0.12, 0.07, 0.07, u, 0.04, 0.16, 0.1))),
       s.add(l),
       c(pi(d, 0.93), 0.3, 0.42, 0.56, 5978688, "skin", 0.21));
-  } else if (n === Nt.CHICKEN) {
+  } else if (n === ANIMAL_KIND.CHICKEN) {
     const h = e ? 16768883 : [15920864, 15062461, 11956034, 4932929][t % 4],
       d = h,
       u = pi(h, 0.88),
@@ -169,7 +169,7 @@ function WI(n, e, t, i = !1) {
       }
       (s.add(b), o.push(b));
     }
-  } else if (n === Nt.SHEEP) {
+  } else if (n === ANIMAL_KIND.SHEEP) {
     const h = 0.91 + ((t * 13) % 8) * 0.014,
       d = pi(15723746, h),
       u = pi(16250092, h),
@@ -238,7 +238,7 @@ function WI(n, e, t, i = !1) {
       ),
       s.add(l),
       c(pi(m, 1.15), 0.26, 0.38, 0.74, 1775894, "plain", 0.15));
-  } else if (n === Nt.CAMEL) {
+  } else if (n === ANIMAL_KIND.CAMEL) {
     const h = 0.93 + ((t * 11) % 9) * 0.016,
       d = pi(13082730, h),
       u = pi(14466188, h),

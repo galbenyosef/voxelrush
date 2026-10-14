@@ -417,7 +417,7 @@ class yZ {
     if (t) return;
     const { item: i, finish: s, rarity: o } = this.dropName(e),
       a = wt("div", "me-tick");
-    (a.style.setProperty("--rarity", Ho[o].color),
+    (a.style.setProperty("--rarity", RARITIES[o].color),
       a.append(
         this.skinIcon(e.w, e.sk),
         wt("b", "", e.n),
@@ -444,11 +444,11 @@ class yZ {
     var b;
     this.reelBusy = !0;
     const { item: t, finish: i, rarity: s } = this.dropName(e),
-      o = Ho[s].tier,
+      o = RARITIES[s].tier,
       a = this.reel;
     (a.replaceChildren(), a.classList.remove("hidden", "done"));
     const r = wt("div", "me-reel-card");
-    (r.style.setProperty("--rarity", Ho[s].color),
+    (r.style.setProperty("--rarity", RARITIES[s].color),
       r.append(
         wt(
           "div",
@@ -474,7 +474,7 @@ class yZ {
         x = wt("div", "me-reel-cell");
       (x.style.setProperty(
         "--rarity",
-        ((b = Ho[M.rarity]) == null ? void 0 : b.color) ?? "#4b69ff",
+        ((b = RARITIES[M.rarity]) == null ? void 0 : b.color) ?? "#4b69ff",
       ),
         x.append(this.skinIcon(M.weapon, M.skin, 72)),
         c.append(x),
@@ -484,7 +484,7 @@ class yZ {
     const y = wt("div", "me-reel-label");
     y.append(
       wt("b", "", `${t} | ${i}`),
-      wt("span", "", this.say(Ho[s].en, Ho[s].ru)),
+      wt("span", "", this.say(RARITIES[s].en, RARITIES[s].ru)),
     );
     const g = wt("img", "me-reel-hero");
     ((g.alt = ""),
@@ -633,7 +633,7 @@ class yZ {
       const o = wt("div", "me-vote-cards");
       ((o.dataset.n = String(e.o.length)),
         e.o.forEach(([a], r) => {
-          const l = Yc(a),
+          const l = resolveMap(a),
             c = wt("button", "me-map");
           ((c.type = "button"),
             (c.dataset.id = a),
@@ -676,7 +676,7 @@ class yZ {
     for (const [s, o] of e.o) {
       const a = this.voteCards.get(s);
       if (!a) continue;
-      const r = Yc(s);
+      const r = resolveMap(s);
       (a.classList.toggle("mine", e.my === s),
         a.classList.toggle("win", e.win === s),
         a.classList.toggle("lose", !!e.win && e.win !== s),

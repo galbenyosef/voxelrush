@@ -47,11 +47,11 @@ function e$() {
       network: !1,
       memory: !1,
     },
-    graphics: { ...f4.medium },
+    graphics: { ...QUALITY_PRESETS.medium },
     shaders: 0,
   };
   try {
-    const f = JSON.parse(localStorage.getItem(eL) ?? "{}"),
+    const f = JSON.parse(localStorage.getItem(SETTINGS_KEY) ?? "{}"),
       p = { ...Co, ...(f.binds ?? {}) };
     if (((e = f.binds) == null ? void 0 : e.seat) === void 0) {
       const S = new Set(
@@ -185,24 +185,24 @@ function e$() {
     return n;
   }
 }
-const z = e$();
+const SETTINGS = e$();
 function qi() {
-  localStorage.setItem(eL, JSON.stringify(z));
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(SETTINGS));
 }
 function Ts() {
-  return z.quality === "custom" ? z.graphics : f4[z.quality];
+  return SETTINGS.quality === "custom" ? SETTINGS.graphics : QUALITY_PRESETS[SETTINGS.quality];
 }
 function sA() {
   return (
-    z.quality !== "custom" && (z.graphics = { ...f4[z.quality] }),
-    (z.quality = "custom"),
-    z.graphics
+    SETTINGS.quality !== "custom" && (SETTINGS.graphics = { ...QUALITY_PRESETS[SETTINGS.quality] }),
+    (SETTINGS.quality = "custom"),
+    SETTINGS.graphics
   );
 }
 function t$() {
-  ((z.binds = { ...Co }), qi());
+  ((SETTINGS.binds = { ...Co }), qi());
 }
 function i$(n, e) {
-  for (const t of Zk) t !== n && z.binds[t] === e && (z.binds[t] = "");
-  ((z.binds[n] = e), qi());
+  for (const t of Zk) t !== n && SETTINGS.binds[t] === e && (SETTINGS.binds[t] = "");
+  ((SETTINGS.binds[n] = e), qi());
 }

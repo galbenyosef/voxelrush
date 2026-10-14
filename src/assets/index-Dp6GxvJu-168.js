@@ -12,8 +12,8 @@ class pJ {
       if (!this.root) return;
       if (
         e.code === "Escape" ||
-        e.code === z.binds.inventory ||
-        e.code === z.binds.use
+        e.code === SETTINGS.binds.inventory ||
+        e.code === SETTINGS.binds.use
       ) {
         (e.preventDefault(), e.stopPropagation(), this.close());
         return;
@@ -99,10 +99,10 @@ class pJ {
       i = this.host.vehicle(this.vid);
     if (!i) return;
     this.renderedAt = performance.now();
-    const s = z.language === "en",
+    const s = SETTINGS.language === "en",
       o = this.host.creative(),
       a = this.host.balance(),
-      r = i.ownerName === Mo,
+      r = i.ownerName === RAID_LABEL,
       l = i.ownerName === this.host.me(),
       c = kg(i.maxHp),
       h = Dp(i.type),
@@ -132,20 +132,20 @@ class pJ {
           </div>
         </div>
         <div class="wm-grid">
-          <article class="wm-card repair"><h3>${Nn("tool")} ${s ? "Weld repair" : "Ремонт сваркой"}<span class="k">1</span></h3>
+          <article class="wm-card repair"><h3>${svgIcon("tool")} ${s ? "Weld repair" : "Ремонт сваркой"}<span class="k">1</span></h3>
             <p data-f="repairtext"></p><div class="wm-price" data-f="repairprice"></div>
             <button data-slot="1" data-act="repair"></button><div class="wm-progress"><i data-f="rprog"></i></div></article>
           ${[1, 2]
             .map(
               (
                 C,
-              ) => `<article class="wm-card armor" data-level="${C}"><h3>${Nn("shield")} <span data-f="an${C}"></span><span class="k">${C + 1}</span></h3>
+              ) => `<article class="wm-card armor" data-level="${C}"><h3>${svgIcon("shield")} <span data-f="an${C}"></span><span class="k">${C + 1}</span></h3>
             <div class="wm-mm">${Array.from({ length: 6 }, (R, L) => `<i style="height:${6 + L * 3}px" class="${L < (p ? 2 : C * 3) ? "f" : ""}"></i>`).join("")}</div>
             <p data-f="as${C}"></p><div class="wm-price" data-f="ap${C}"></div>
             <button data-slot="${C + 1}" data-act="armor" data-level="${C}"></button></article>`,
             )
             .join("")}
-          <article class="wm-card pack"><h3>${Nn("world")} ${s ? "Pack vehicle" : "Упаковать технику"}<span class="k">4</span></h3>
+          <article class="wm-card pack"><h3>${svgIcon("world")} ${s ? "Pack vehicle" : "Упаковать технику"}<span class="k">4</span></h3>
             <p data-f="packtext"></p><div class="wm-price" data-f="packprice"></div><button data-slot="4" data-act="pack"></button></article>
         </div>
         <div class="wm-foot">${lr() ? (s ? "Hold Fire with the welder aimed at a vehicle to repair it." : "Наведите сварку на технику и удерживайте «Огонь» для ремонта.") : s ? "Hold LMB with the welder on any vehicle to repair it by hand. Esc closes." : "Удерживайте ЛКМ со сваркой на технике — ремонт вручную. Esc — закрыть."}</div>

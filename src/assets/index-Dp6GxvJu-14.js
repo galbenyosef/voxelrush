@@ -1,32 +1,32 @@
-// index-Dp6GxvJu 14 — count
+// index-Dp6GxvJu 14 — item
 // Lines 30338-30683 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const Al = (n) => (n === 1 ? 2 : 1),
   dg = { 1: { en: "Alpha", ru: "Альфа" }, 2: { en: "Bravo", ru: "Браво" } },
   Ud = { mine: "#3d9bff", enemy: "#ff4d42", none: "#c8d2dc" },
   Rc = (n, e) => (n ? (n === (e || 1) ? Ud.mine : Ud.enemy) : Ud.none),
   Ux = { 1: 3, 2: 14 },
-  Fx = s1(E.AK47, {
+  Fx = s1(ITEM.AK47, {
     scope: 5,
     suppressor: !1,
     laser: !1,
     extMag: !1,
     light: !1,
   }),
-  Gx = s1(E.AWP, {
+  Gx = s1(ITEM.AWP, {
     scope: 3,
     suppressor: !1,
     laser: !1,
     extMag: !1,
     light: !1,
   }),
-  Jr = s1(E.GLOCK, {
+  Jr = s1(ITEM.GLOCK, {
     scope: 0,
     suppressor: !1,
     laser: !0,
     extMag: !1,
     light: !0,
   }),
-  _l = {
+  GAMEMODES = {
     assault: {
       id: "assault",
       name: { en: "Assault", ru: "Штурмовик" },
@@ -36,12 +36,12 @@ const Al = (n) => (n === 1 ? 2 : 1),
       },
       items: [
         { id: Fx, count: 1 },
-        { id: E.GRENADE, count: 3 },
-        { id: E.BANDAGE, count: 3 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_762, count: 210 },
+        { id: ITEM.GRENADE, count: 3 },
+        { id: ITEM.BANDAGE, count: 3 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_762, count: 210 },
       ],
-      armor: [E.HELMET_2, E.VEST_2, E.PANTS_2, E.BOOTS_1],
+      armor: [ITEM.HELMET_2, ITEM.VEST_2, ITEM.PANTS_2, ITEM.BOOTS_1],
       botRole: "rifleman",
       mode: "conquest",
     },
@@ -53,15 +53,15 @@ const Al = (n) => (n === 1 ? 2 : 1),
         ru: "Дробовик, аптечки — поднимает раненых",
       },
       items: [
-        { id: E.SHOTGUN, count: 1 },
-        { id: E.MILITARY_MEDKIT, count: 3 },
-        { id: E.BANDAGE, count: 8 },
+        { id: ITEM.SHOTGUN, count: 1 },
+        { id: ITEM.MILITARY_MEDKIT, count: 3 },
+        { id: ITEM.BANDAGE, count: 8 },
         { id: Jr, count: 1 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_SHELL, count: 48 },
-        { id: E.AMMO_9MM, count: 68 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_SHELL, count: 48 },
+        { id: ITEM.AMMO_9MM, count: 68 },
       ],
-      armor: [E.HELMET_1, E.VEST_2, E.PANTS_1, E.BOOTS_1],
+      armor: [ITEM.HELMET_1, ITEM.VEST_2, ITEM.PANTS_1, ITEM.BOOTS_1],
       botRole: "rifleman",
       mode: "conquest",
     },
@@ -73,18 +73,18 @@ const Al = (n) => (n === 1 ? 2 : 1),
         ru: "РПГ, противотанковые мины, FPV-дрон, сварка — жжёт и чинит технику",
       },
       items: [
-        { id: E.RPG, count: 1 },
+        { id: ITEM.RPG, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.WELDER, count: 1 },
-        { id: v.MINE_AT, count: 3 },
-        { id: E.DRONE, count: 1 },
-        { id: E.BANDAGE, count: 2 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.ROCKET, count: 6 },
-        { id: E.ROCKET_GUIDED, count: 6 },
-        { id: E.AMMO_9MM, count: 85 },
+        { id: ITEM.WELDER, count: 1 },
+        { id: BLOCK.MINE_AT, count: 3 },
+        { id: ITEM.DRONE, count: 1 },
+        { id: ITEM.BANDAGE, count: 2 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.ROCKET, count: 6 },
+        { id: ITEM.ROCKET_GUIDED, count: 6 },
+        { id: ITEM.AMMO_9MM, count: 85 },
       ],
-      armor: [E.HELMET_1, E.VEST_1, E.PANTS_1, E.BOOTS_1],
+      armor: [ITEM.HELMET_1, ITEM.VEST_1, ITEM.PANTS_1, ITEM.BOOTS_1],
       botRole: "grenadier",
       mode: "conquest",
     },
@@ -96,15 +96,15 @@ const Al = (n) => (n === 1 ? 2 : 1),
         ru: "Гранатомёт 40 мм — выкуривает из окопов и домов",
       },
       items: [
-        { id: E.GRENADE_LAUNCHER, count: 1 },
+        { id: ITEM.GRENADE_LAUNCHER, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.GRENADE, count: 2 },
-        { id: E.BANDAGE, count: 3 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_40MM, count: 14 },
-        { id: E.AMMO_9MM, count: 68 },
+        { id: ITEM.GRENADE, count: 2 },
+        { id: ITEM.BANDAGE, count: 3 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_40MM, count: 14 },
+        { id: ITEM.AMMO_9MM, count: 68 },
       ],
-      armor: [E.HELMET_2, E.VEST_2, E.PANTS_1, E.BOOTS_1],
+      armor: [ITEM.HELMET_2, ITEM.VEST_2, ITEM.PANTS_1, ITEM.BOOTS_1],
       botRole: "grenadier",
       mode: "conquest",
     },
@@ -118,14 +118,14 @@ const Al = (n) => (n === 1 ? 2 : 1),
       items: [
         { id: Gx, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.DRONE, count: 2 },
-        { id: v.MINE_AP, count: 2 },
-        { id: E.BANDAGE, count: 2 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_338, count: 30 },
-        { id: E.AMMO_9MM, count: 68 },
+        { id: ITEM.DRONE, count: 2 },
+        { id: BLOCK.MINE_AP, count: 2 },
+        { id: ITEM.BANDAGE, count: 2 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_338, count: 30 },
+        { id: ITEM.AMMO_9MM, count: 68 },
       ],
-      armor: [E.HELMET_1, E.VEST_1, E.PANTS_1, E.BOOTS_1],
+      armor: [ITEM.HELMET_1, ITEM.VEST_1, ITEM.PANTS_1, ITEM.BOOTS_1],
       botRole: "sniper",
       mode: "conquest",
     },
@@ -137,14 +137,14 @@ const Al = (n) => (n === 1 ? 2 : 1),
         ru: "Пулемёт, тяжёлая броня, мины — держит линию",
       },
       items: [
-        { id: E.MINIGUN, count: 1 },
-        { id: E.GRENADE, count: 2 },
-        { id: v.MINE_AP, count: 2 },
-        { id: E.BANDAGE, count: 3 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_762, count: 600 },
+        { id: ITEM.MINIGUN, count: 1 },
+        { id: ITEM.GRENADE, count: 2 },
+        { id: BLOCK.MINE_AP, count: 2 },
+        { id: ITEM.BANDAGE, count: 3 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_762, count: 600 },
       ],
-      armor: [E.HELMET_3, E.VEST_3, E.PANTS_2, E.BOOTS_2],
+      armor: [ITEM.HELMET_3, ITEM.VEST_3, ITEM.PANTS_2, ITEM.BOOTS_2],
       botRole: "gunner",
       mode: "conquest",
     },
@@ -158,12 +158,12 @@ const Al = (n) => (n === 1 ? 2 : 1),
       items: [
         { id: Fx, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.GRENADE, count: 2 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_762, count: 150 },
-        { id: E.AMMO_9MM, count: 51 },
+        { id: ITEM.GRENADE, count: 2 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_762, count: 150 },
+        { id: ITEM.AMMO_9MM, count: 51 },
       ],
-      armor: [E.HELMET_2, E.VEST_2, E.PANTS_1, E.BOOTS_1],
+      armor: [ITEM.HELMET_2, ITEM.VEST_2, ITEM.PANTS_1, ITEM.BOOTS_1],
       botRole: "rifleman",
       mode: "tdm",
     },
@@ -177,12 +177,12 @@ const Al = (n) => (n === 1 ? 2 : 1),
       items: [
         { id: Gx, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.GRENADE, count: 1 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_338, count: 30 },
-        { id: E.AMMO_9MM, count: 51 },
+        { id: ITEM.GRENADE, count: 1 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_338, count: 30 },
+        { id: ITEM.AMMO_9MM, count: 51 },
       ],
-      armor: [E.HELMET_1, E.VEST_1, E.PANTS_1, E.BOOTS_1],
+      armor: [ITEM.HELMET_1, ITEM.VEST_1, ITEM.PANTS_1, ITEM.BOOTS_1],
       botRole: "sniper",
       mode: "tdm",
     },
@@ -194,14 +194,14 @@ const Al = (n) => (n === 1 ? 2 : 1),
         ru: "Дробовик, Glock, гранаты — хозяин тоннелей",
       },
       items: [
-        { id: E.SHOTGUN, count: 1 },
+        { id: ITEM.SHOTGUN, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.GRENADE, count: 2 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_SHELL, count: 40 },
-        { id: E.AMMO_9MM, count: 51 },
+        { id: ITEM.GRENADE, count: 2 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_SHELL, count: 40 },
+        { id: ITEM.AMMO_9MM, count: 51 },
       ],
-      armor: [E.HELMET_2, E.VEST_3, E.PANTS_2, E.BOOTS_1],
+      armor: [ITEM.HELMET_2, ITEM.VEST_3, ITEM.PANTS_2, ITEM.BOOTS_1],
       botRole: "shotgunner",
       mode: "tdm",
     },
@@ -213,14 +213,14 @@ const Al = (n) => (n === 1 ? 2 : 1),
         ru: "Миниган, Glock, граната — тяжёлая броня, стена свинца",
       },
       items: [
-        { id: E.MINIGUN, count: 1 },
+        { id: ITEM.MINIGUN, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.GRENADE, count: 1 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_762, count: 400 },
-        { id: E.AMMO_9MM, count: 34 },
+        { id: ITEM.GRENADE, count: 1 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_762, count: 400 },
+        { id: ITEM.AMMO_9MM, count: 34 },
       ],
-      armor: [E.HELMET_3, E.VEST_3, E.PANTS_2, E.BOOTS_2],
+      armor: [ITEM.HELMET_3, ITEM.VEST_3, ITEM.PANTS_2, ITEM.BOOTS_2],
       botRole: "gunner",
       mode: "tdm",
     },
@@ -232,28 +232,28 @@ const Al = (n) => (n === 1 ? 2 : 1),
         ru: "Гранатомёт 40 мм, Glock, гранаты — выкуривает из углов",
       },
       items: [
-        { id: E.GRENADE_LAUNCHER, count: 1 },
+        { id: ITEM.GRENADE_LAUNCHER, count: 1 },
         { id: Jr, count: 1 },
-        { id: E.GRENADE, count: 3 },
-        { id: E.COMBAT_KNIFE, count: 1 },
-        { id: E.AMMO_40MM, count: 12 },
-        { id: E.AMMO_9MM, count: 51 },
+        { id: ITEM.GRENADE, count: 3 },
+        { id: ITEM.COMBAT_KNIFE, count: 1 },
+        { id: ITEM.AMMO_40MM, count: 12 },
+        { id: ITEM.AMMO_9MM, count: 51 },
       ],
-      armor: [E.HELMET_2, E.VEST_2, E.PANTS_1, E.BOOTS_1],
+      armor: [ITEM.HELMET_2, ITEM.VEST_2, ITEM.PANTS_1, ITEM.BOOTS_1],
       botRole: "grenadier",
       mode: "tdm",
     },
   },
   Wx = { battery: 40 },
   s5 = { hqClear: 30, markRange: 55 },
-  Vx = (n) => (n === v.MINE_AT ? "at" : n === v.MINE_AP ? "ap" : null),
-  DS = (n) => Object.keys(_l).filter((e) => _l[e].mode === n);
-DS("conquest");
-DS("tdm");
+  Vx = (n) => (n === BLOCK.MINE_AT ? "at" : n === BLOCK.MINE_AP ? "ap" : null),
+  gamemodeKeys = (n) => Object.keys(GAMEMODES).filter((e) => GAMEMODES[e].mode === n);
+gamemodeKeys("conquest");
+gamemodeKeys("tdm");
 const o5 = ["A", "B", "C", "D", "E"],
   $z = { shield: 3 },
-  qz = new Set([E.AMMO_762, E.AMMO_9MM, E.AMMO_338, E.AMMO_SHELL]),
-  a5 = {
+  qz = new Set([ITEM.AMMO_762, ITEM.AMMO_9MM, ITEM.AMMO_338, ITEM.AMMO_SHELL]),
+  KILLSTREAK_TITLES = {
     3: { en: "KILLING SPREE", ru: "СЕРИЯ УБИЙСТВ" },
     5: { en: "RAMPAGE", ru: "НЕУДЕРЖИМЫЙ" },
     7: { en: "DOMINATING", ru: "ДОМИНИРУЕТ" },
@@ -315,9 +315,9 @@ function jz(n) {
 function Xz() {
   (ug.clear(), fg.clear(), (pg = []), (Tp = ""), xy());
 }
-let Go = "global";
+let gamemode = "global";
 try {
-  localStorage.getItem("vr-chat-channel") === "squad" && (Go = "squad");
+  localStorage.getItem("vr-chat-channel") === "squad" && (gamemode = "squad");
 } catch {}
 function e0() {
   return !!Po(Tp);
@@ -330,19 +330,19 @@ function Qz() {
   return Gl > 0 || e0();
 }
 function xy() {
-  (Gl > 0 && Go === "squad"
+  (Gl > 0 && gamemode === "squad"
     ? k2("team")
-    : ((!Gl && Go === "team") || (!Gl && !e0() && Go === "squad")) &&
+    : ((!Gl && gamemode === "team") || (!Gl && !e0() && gamemode === "squad")) &&
       k2("global"),
     window.dispatchEvent(new Event("squad-state-changed")));
 }
 function k2(n) {
-  Go = n;
+  gamemode = n;
   try {
-    n !== "team" && localStorage.setItem("vr-chat-channel", Go);
+    n !== "team" && localStorage.setItem("vr-chat-channel", gamemode);
   } catch {}
   window.dispatchEvent(new Event("chat-channel-changed"));
 }
 function l5() {
-  k2(Go !== "global" ? "global" : Gl > 0 ? "team" : e0() ? "squad" : "global");
+  k2(gamemode !== "global" ? "global" : Gl > 0 ? "team" : e0() ? "squad" : "global");
 }

@@ -120,15 +120,15 @@ class qne {
       const R =
         d ||
         (r === 8
-          ? E.AWP
+          ? ITEM.AWP
           : r === 9
-            ? E.MINIGUN
+            ? ITEM.MINIGUN
             : r === 10
-              ? E.GRENADE_LAUNCHER
-              : E.AK47);
+              ? ITEM.GRENADE_LAUNCHER
+              : ITEM.AK47);
       b = R;
       const L = R0(R).group.clone(!0);
-      if (R === E.AWP) {
+      if (R === ITEM.AWP) {
         const N = new le(
           new xt(0.032, 0.032, 0.23, 12),
           new gi({ color: 2436647 }),

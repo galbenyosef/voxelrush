@@ -1,6 +1,6 @@
 // index-Dp6GxvJu 15 — color
 // Lines 30684-31006 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-const mg = {
+const ROLE_STYLES = {
   owner: { prefix: "[Owner]", color: "#ff5555", weight: "bold" },
   admin: { prefix: "[Admin]", color: "#ff5555", weight: "bold" },
   moderator: { prefix: "[Moder]", color: "#65d9ff", weight: "bold" },
@@ -87,8 +87,8 @@ function Jz(n) {
       : "operations.manage"
     : "world.manage";
 }
-function eU(n, e = "player") {
-  const t = mg[e] ?? mg.player;
+function roleStyle(n, e = "player") {
+  const t = ROLE_STYLES[e] ?? ROLE_STYLES.player;
   return t.prefix ? `${t.prefix} ${n}` : n;
 }
 const tU = new URLSearchParams(typeof location > "u" ? "" : location.search),
@@ -103,12 +103,12 @@ const tU = new URLSearchParams(typeof location > "u" ? "" : location.search),
       }
     })(),
   ua = tU.get("embed") === "x" || BS,
-  iU = "https://play.voxelrush.app/",
-  HS = "vr-embed-token";
+  SITE_URL = "https://play.voxelrush.app/",
+  EMBED_TOKEN_KEY = "vr-embed-token";
 function nU() {
   if (!ua) return "";
   try {
-    return localStorage.getItem(HS) ?? "";
+    return localStorage.getItem(EMBED_TOKEN_KEY) ?? "";
   } catch {
     return "";
   }
@@ -116,14 +116,14 @@ function nU() {
 function L2(n) {
   if (!(!ua || typeof n != "string" || !/^[a-zA-Z0-9_-]{43}$/.test(n))) {
     try {
-      localStorage.setItem(HS, n);
+      localStorage.setItem(EMBED_TOKEN_KEY, n);
     } catch {}
     zS = n;
   }
 }
 function sU() {
   try {
-    localStorage.removeItem(HS);
+    localStorage.removeItem(EMBED_TOKEN_KEY);
   } catch {}
   zS = "";
 }
@@ -146,7 +146,7 @@ function oU(n) {
   (e(), addEventListener("resize", e));
   const t = document.createElement("a");
   ((t.id = "embed-full-game"),
-    (t.href = iU),
+    (t.href = SITE_URL),
     (t.target = "_blank"),
     (t.rel = "noopener"));
   const i = () => {
@@ -169,9 +169,9 @@ const c5 = {},
       "https://backend.voxelrush.app",
   );
 let Me = null,
-  Ca = "player",
-  su = [];
-const yg = new Map();
+  localRole = "player",
+  ownerPermissions = [];
+const roleMap = new Map();
 async function tn(n, e = "GET", t) {
   const i = await fetch(`${zC}/v1${n}`, {
     method: e,
@@ -231,23 +231,23 @@ function qx() {
     } catch {}
 }
 function aU(n) {
-  ((Ca = n.role), (su = n.permissions), yg.clear());
-  for (const e of n.roster) yg.set(e.name, e.role);
+  ((localRole = n.role), (ownerPermissions = n.permissions), roleMap.clear());
+  for (const e of n.roster) roleMap.set(e.name, e.role);
   window.dispatchEvent(new Event("access-changed"));
 }
 function rU(n) {
-  ((Ca = n ? "owner" : "player"), (su = n ? ["*"] : []), yg.clear(), Xz());
+  ((localRole = n ? "owner" : "player"), (ownerPermissions = n ? ["*"] : []), roleMap.clear(), Xz());
 }
 function Ja(n) {
-  return Ap(Ca, su, Jz(n));
+  return Ap(localRole, ownerPermissions, Jz(n));
 }
-function uw(n) {
-  const e = yg.get(n) || "player",
+function roleOf(n) {
+  const e = roleMap.get(n) || "player",
     t = Po(n),
-    i = eU(n, e),
-    s = Xa(n) ? "#65cfff" : Yz(n) ? "#68e5a2" : mg[e].color;
+    i = roleStyle(n, e),
+    s = Xa(n) ? "#65cfff" : Yz(n) ? "#68e5a2" : ROLE_STYLES[e].color;
   return {
-    ...mg[e],
+    ...ROLE_STYLES[e],
     color: s,
     baseLabel: i,
     squad: t,
@@ -273,7 +273,7 @@ async function lU(n) {
 }
 function fw(n = !1) {
   return n
-    ? Ap(Ca, su, "world.edit")
+    ? Ap(localRole, ownerPermissions, "world.edit")
     : !!Me && Ap(Me.role, Me.permissions, "world.edit");
 }
 const US = () => -new Date().getTimezoneOffset();

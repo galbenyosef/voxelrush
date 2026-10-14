@@ -192,7 +192,7 @@ class oZ {
         vehicleId: -1,
         vehicleSeat: 0,
         lookYaw: 0,
-        planet: Si.EARTH,
+        planet: CELESTIAL.EARTH,
         disguise: null,
       }));
     const g = this.cosmetics.get(e);
@@ -381,7 +381,7 @@ class oZ {
   }
   heldTipWorld(e, t, i = 0) {
     const s = this.map.get(e);
-    if (!s || !s.group.visible || s.held !== E.FISHING_ROD) return null;
+    if (!s || !s.group.visible || s.held !== ITEM.FISHING_ROD) return null;
     const o = s.heldMesh.children[0],
       a = o == null ? void 0 : o.getObjectByName("vm-muzzle");
     return a
@@ -471,7 +471,7 @@ class oZ {
     const t = this.map.get(e);
     return t ? { yaw: t.lookYaw, pitch: t.target.pitch } : null;
   }
-  setState(e, t, i, s, o, a, r, l, c = Si.EARTH, h = 0) {
+  setState(e, t, i, s, o, a, r, l, c = CELESTIAL.EARTH, h = 0) {
     const d = this.map.get(e);
     d &&
       ((d.planet = c),

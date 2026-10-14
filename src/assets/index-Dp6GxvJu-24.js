@@ -302,13 +302,13 @@ const VS = {
     roundAppears: 0.42,
   },
   Sw = {
-    [E.AK47]: VS,
-    [E.GLOCK]: iF,
-    [E.AWP]: nF,
-    [E.SHOTGUN]: sF,
-    [E.MINIGUN]: oF,
-    [E.RPG]: aF,
-    [E.GRENADE_LAUNCHER]: rF,
+    [ITEM.AK47]: VS,
+    [ITEM.GLOCK]: iF,
+    [ITEM.AWP]: nF,
+    [ITEM.SHOTGUN]: sF,
+    [ITEM.MINIGUN]: oF,
+    [ITEM.RPG]: aF,
+    [ITEM.GRENADE_LAUNCHER]: rF,
   };
 function lF(n, e) {
   const t = Sw[n] ?? VS,

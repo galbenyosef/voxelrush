@@ -327,7 +327,7 @@ function sk(n, e, t, i = 0, s = 0) {
     (a.rotation.x = Math.sin(t * 1.37) * 0.035 - s * 0.12),
     (r.rotation.x = s * 0.1));
 }
-const GU = [
+const EMOTES = [
     { id: 1, ru: "Брейкденс", en: "Breakdance", duration: 12 },
     { id: 2, ru: "Смех", en: "Laugh", duration: 5 },
     { id: 3, ru: "Победный танец", en: "Victory dance", duration: 10 },
@@ -338,7 +338,7 @@ const GU = [
     { id: 8, ru: "Приветствие", en: "Wave", duration: 5 },
     { id: 9, ru: "Салют", en: "Salute", duration: 4 },
   ],
-  ok = (n) => GU.find((e) => e.id === n),
+  ok = (n) => EMOTES.find((e) => e.id === n),
   Ms = (n) => ((n = Math.max(0, Math.min(1, n))), n * n * (3 - 2 * n));
 function WU(n, e) {
   const t = ok(n);

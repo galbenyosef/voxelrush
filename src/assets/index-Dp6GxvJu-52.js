@@ -1,6 +1,6 @@
 // index-Dp6GxvJu 52 — pos
 // Lines 44413-44478 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
-const Eg = [
+const EMOTE_PACK = [
     {
       dir: [-1, 0, 0],
       corners: [
@@ -57,7 +57,7 @@ const Eg = [
     },
   ],
   bW = new Map(
-    Eg.map((n) => [n, Eg.find((e) => e.dir.every((t, i) => t === -n.dir[i]))]),
+    EMOTE_PACK.map((n) => [n, EMOTE_PACK.find((e) => e.dir.every((t, i) => t === -n.dir[i]))]),
   ),
   wW = [1, 1, 1, 1],
   va = 0.02,
@@ -65,4 +65,4 @@ const Eg = [
   ba = 0.003,
   Hk = 5,
   t4 = 7,
-  MW = new Set([v.FLY_AGARIC, v.MUSHROOM]);
+  MW = new Set([BLOCK.FLY_AGARIC, BLOCK.MUSHROOM]);

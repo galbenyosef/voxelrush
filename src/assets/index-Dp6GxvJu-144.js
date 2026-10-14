@@ -1,11 +1,11 @@
-// index-Dp6GxvJu 144 — bandage
+// index-Dp6GxvJu 144 — item
 // Lines 88040-88058 of readable/assets/index-Dp6GxvJu.pretty.js (statement-aligned).
 const mZ = new Set([
-    E.GRENADE,
-    E.BANDAGE,
-    E.COMBAT_KNIFE,
-    E.MILITARY_MEDKIT,
-    E.WELDER,
+    ITEM.GRENADE,
+    ITEM.BANDAGE,
+    ITEM.COMBAT_KNIFE,
+    ITEM.MILITARY_MEDKIT,
+    ITEM.WELDER,
   ]),
   wt = (n, e, t) => {
     const i = document.createElement(n);

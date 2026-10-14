@@ -149,13 +149,13 @@ function vq(n, e, t) {
       ),
       en(i, 2.4, 0.3, 0.14, 0, 1, -3.08, 0, 0, 0, An),
       w4(i, 6, 2.2, 1, -3.15, 0.34, 0.075),
-      t === P.HIMARS && e.launcher)
+      t === VEHICLE_KIND.HIMARS && e.launcher)
     ) {
       for (const s of [-1, 1])
         en(e.launcher, 0.07, 0.96, 2.78, s * 0.94, 0.55, 1.5, 0, 0, 0, An);
       Pa(e.launcher, "up", 3, 4, 0.52, 0.66, 0, 1.12, 1.5);
     }
-    if (t === P.PATRIOT && e.launcher) {
+    if (t === VEHICLE_KIND.PATRIOT && e.launcher) {
       for (const s of [-1, 1])
         en(e.launcher, 0.07, 0.98, 2.36, s * 0.9, 0.54, -1.2, 0, 0, 0, An);
       Pa(e.launcher, "up", 2, 4, 0.78, 0.56, 0, 1.1, -1.2);
@@ -179,7 +179,7 @@ function bq(n) {
 }
 function wq(n, e) {
   const t = n.hull;
-  if (e === P.FIGHTER_JET) {
+  if (e === VEHICLE_KIND.FIGHTER_JET) {
     en(t, 1.2, 0.07, 7, 0, 0.74, 0.6, 0, 0, 0, An);
     for (const s of [-1, 1])
       (en(t, 0.07, 0.56, 3.3, s * 0.76, 1.34, 0.7, 0, 0, 0, d0),
@@ -242,13 +242,13 @@ function TL(n, e, t, i) {
     (s.fpv.name = "armor-kit-fpv"),
     s.turret && (s.turret.name = "armor-kit-turret"),
     s.launcher && (s.launcher.name = "armor-kit-launcher"),
-    n === P.TANK && s.turret)
+    n === VEHICLE_KIND.TANK && s.turret)
   )
     gq(e, s);
-  else if (n === P.BTR_TURRET && s.turret) yq(e, s);
-  else if (n === P.HIMARS || n === P.PATRIOT) vq(e, s, n);
-  else if (n === P.HELI) bq(s);
-  else if (n === P.PLANE || n === P.FIGHTER_JET) wq(s, n);
+  else if (n === VEHICLE_KIND.BTR_TURRET && s.turret) yq(e, s);
+  else if (n === VEHICLE_KIND.HIMARS || n === VEHICLE_KIND.PATRIOT) vq(e, s, n);
+  else if (n === VEHICLE_KIND.HELI) bq(s);
+  else if (n === VEHICLE_KIND.PLANE || n === VEHICLE_KIND.FIGHTER_JET) wq(s, n);
   else return null;
   for (const o of [s.hull, s.turret, s.launcher, s.fpv])
     o &&
@@ -306,7 +306,7 @@ function WA(n, e, t = []) {
 }
 const tl = 30;
 function VA(n) {
-  return n === P.BTR_TURRET
+  return n === VEHICLE_KIND.BTR_TURRET
     ? {
         interval: 0.08,
         reload: 1,

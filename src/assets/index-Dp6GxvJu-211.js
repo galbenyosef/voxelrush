@@ -191,9 +191,9 @@ class _R {
       const c = (e.colorJitter ?? 0.15) * (Math.random() - 0.5);
       (this.colAttr.setXYZW(
         s,
-        Ne(this.tmpColor.r + c, 0, 1),
-        Ne(this.tmpColor.g + c, 0, 1),
-        Ne(this.tmpColor.b + c, 0, 1),
+        clamp(this.tmpColor.r + c, 0, 1),
+        clamp(this.tmpColor.g + c, 0, 1),
+        clamp(this.tmpColor.b + c, 0, 1),
         this.baseAlpha[s],
       ),
         (this.lit[s] = e.lit ? 1 : 0),

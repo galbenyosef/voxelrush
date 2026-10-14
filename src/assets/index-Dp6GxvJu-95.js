@@ -295,12 +295,12 @@ function DK() {
     { ...n, props: [e] }
   );
 }
-const BK = new Set([P.TANK, P.BTR_TURRET, P.HIMARS, P.PATRIOT, P.BOAT]),
+const BK = new Set([VEHICLE_KIND.TANK, VEHICLE_KIND.BTR_TURRET, VEHICLE_KIND.HIMARS, VEHICLE_KIND.PATRIOT, VEHICLE_KIND.BOAT]),
   HK = {
-    [P.TANK]: new k(-1.15, 1.25, 1.5),
-    [P.BTR_TURRET]: new k(0.95, 1.55, 2.1),
-    [P.HIMARS]: new k(0.85, 2.5, -1.2),
-    [P.PATRIOT]: new k(0.85, 2.5, -1.2),
+    [VEHICLE_KIND.TANK]: new k(-1.15, 1.25, 1.5),
+    [VEHICLE_KIND.BTR_TURRET]: new k(0.95, 1.55, 2.1),
+    [VEHICLE_KIND.HIMARS]: new k(0.85, 2.5, -1.2),
+    [VEHICLE_KIND.PATRIOT]: new k(0.85, 2.5, -1.2),
   };
 function zK(n) {
   const e = new pe();
