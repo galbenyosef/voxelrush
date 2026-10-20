@@ -87,6 +87,8 @@ captured as files.
 - `tools/verify.mjs` — re-hash the capture against the manifest
 - `tools/update.mjs` — read-only drift probe against the live origin
 - `tools/audit.js` — integrity gate for the derived layers (`AUDIT PASS`)
+- `tools/check-exports.mjs` — public-export-name gate for the derived layer
+  (self-contained; every public name the capture exported is still exported)
 - `tools/serve.mjs` — local static server with the origin's COOP/COEP headers
   (directory-index aware; boot/play only)
 - rename campaign — `tools/names.json` (reviewed), `tools/apply-names.mjs`,
@@ -132,6 +134,7 @@ node tools/audit.js              # derived-layer integrity gate → AUDIT PASS
 node tools/derive.mjs --check    # re-render + byte-compare, write nothing
 node tools/verify-rename.mjs --all   # rename layer: reproduces / references / bindings
 node tools/check-chunk.mjs --all     # cross-slice calls still resolve
+node tools/check-exports.mjs     # the derived layer still exports every public name
 node tools/record-manifest.mjs --check  # capture walk agrees, no derived path leaked
 node tools/capture.mjs --check   # residual closure audit → 0 new unresolved
 ```
