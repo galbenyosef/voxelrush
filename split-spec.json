@@ -2265,12 +2265,13 @@
       "file": "assets/bootstrap-C4umvuQD-tail-export.js",
       "skipped": true,
       "title": "bootstrap-C4umvuQD — final export table (not sliced)",
-      "desc": "Lines 554-554. The chunk's final export {…} table — the exported bindings live in the earlier slices; a standalone tail carries no new statements, so it is indexed only.",
+      "desc": "Lines 554-554. The chunk's final export {…} table — the exported bindings live in the earlier slices; a standalone tail carries no new statements, so it is indexed only. The tail records the served chunk's own export statement (assets/bootstrap-C4umvuQD.js) as its text — the statement the reading copy's table must still match.",
       "startLine": 554,
       "endLine": 554,
       "sourceFile": "readable/assets/bootstrap-C4umvuQD.pretty.js",
       "firstLine": "export { G as W, b as a, ee as b, Y as f };",
-      "lastLine": "export { G as W, b as a, ee as b, Y as f };"
+      "lastLine": "export { G as W, b as a, ee as b, Y as f };",
+      "text": "export{G as W,b as a,ee as b,Y as f};"
     },
     {
       "file": "assets/terrain-pool-Dvsi82A--01.js",
@@ -2284,12 +2285,13 @@
       "file": "assets/terrain-pool-Dvsi82A--tail-export.js",
       "skipped": true,
       "title": "terrain-pool-Dvsi82A- — final export table (not sliced)",
-      "desc": "Lines 294-294. The chunk's final export {…} table — the exported bindings live in the earlier slices; a standalone tail carries no new statements, so it is indexed only.",
+      "desc": "Lines 294-294. The chunk's final export {…} table — the exported bindings live in the earlier slices; a standalone tail carries no new statements, so it is indexed only. The tail records the served chunk's own export statement (assets/terrain-pool-Dvsi82A-.js) as its text — the statement the reading copy's table must still match.",
       "startLine": 294,
       "endLine": 294,
       "sourceFile": "readable/assets/terrain-pool-Dvsi82A-.pretty.js",
       "firstLine": "export { H as installTerrainPool };",
-      "lastLine": "export { H as installTerrainPool };"
+      "lastLine": "export { H as installTerrainPool };",
+      "text": "export{H as installTerrainPool};"
     },
     {
       "file": "assets/chunk-mesh-worker-coep-v1-BX2YFLnd-01.js",
@@ -5791,12 +5793,13 @@
       "file": "assets/main-Bs7z9e_r-tail-export.js",
       "skipped": true,
       "title": "main-Bs7z9e_r — final export table (not sliced)",
-      "desc": "Lines 144271-144271. The chunk's final export {…} table — the exported bindings live in the earlier slices; a standalone tail carries no new statements, so it is indexed only.",
+      "desc": "Lines 144271-144271. The chunk's final export {…} table — the exported bindings live in the earlier slices; a standalone tail carries no new statements, so it is indexed only. The tail records the served chunk's own export statement (assets/main-Bs7z9e_r.js) as its text — the statement the reading copy's table must still match.",
       "startLine": 144271,
       "endLine": 144271,
       "sourceFile": "readable/assets/main-Bs7z9e_r.pretty.js",
       "firstLine": "export { B8 as W, TY as m, Ud as t };",
-      "lastLine": "export { B8 as W, TY as m, Ud as t };"
+      "lastLine": "export { B8 as W, TY as m, Ud as t };",
+      "text": "export{B8 as W,TY as m,Ud as t};"
     },
     {
       "file": "sw-01.js",
