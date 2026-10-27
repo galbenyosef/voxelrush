@@ -139,6 +139,40 @@ node tools/record-manifest.mjs --check  # capture walk agrees, no derived path l
 node tools/capture.mjs --check   # residual closure audit → 0 new unresolved
 ```
 
+## Boot test (2026-10-27)
+
+Entry `http://127.0.0.1:5018/`, served with `node tools/serve.mjs 5018` (the
+origin's COOP/COEP headers). The headless browser was launched with the network
+blocked at the resolver (`--host-resolver-rules=MAP * 127.0.0.1`) and no
+upstream access.
+
+**Outcome: rendered.** The capture boots offline and paints the VOXEL RUSH menu
+over a live 3D scene.
+
+Measured evidence after a 7 s settle on `readyState: complete`:
+
+- title `Voxel Rush — Free Browser FPS with Tanks, Helicopters & Drones`
+- body text: 394 chars
+- canvases: 1262x568 (the 3D scene), 452x452, 216x216, 160x160, 300x150 plus the
+  small 40x40 HUD canvases
+- scripts: 5
+- console messages / page errors: 0 / 0
+- same-origin requests: 18, all HTTP 200 (entry document, entry chunk,
+  stylesheet, manifest, favicon, icon and 12 `version.json` polls)
+- same-origin 404s: none
+- cross-origin requests blocked by design: 5 (`telegram.org/js/telegram-web-app.js`;
+  `backend.voxelrush.app` `/v1/auth/me`, `/v1/golden`, `/v1/t` POST and its
+  OPTIONS preflight) — the live backend is external to the capture
+
+Screenshot: `docs/boot-2026-10-27.png` (verified non-blank; menu with Play
+Online / Single player / Armory / Rewards / Settings, a rendered voxel
+courtyard, operator model and featured AK-47 panel).
+
+Gaps seen: the menu shows "Account unavailable" and "Sign in to create or join
+a squad" because `/v1/auth/me` and `/v1/golden` are live-backend calls; online
+play needs `backend.voxelrush.app`, while Single player ("Your own world,
+offline") is fully served from the capture.
+
 ## Updating from upstream
 
 ```
