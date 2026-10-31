@@ -1,0 +1,342 @@
+// main-C153VVJY 358 — x370178
+// Lines 141762-142101 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+function oJ() {
+  const _0x2ae4bb = _0x44a014;
+  (bf(),
+    Is[_0x2ae4bb(0x1d88)](),
+    Js["save"](),
+    Y1(),
+    (x1 = fl = au = rr = !0x0),
+    W1(),
+    zs(),
+    X1(),
+    Ug(),
+    kl(),
+    nr(),
+    Dg(),
+    ap(),
+    Hg(),
+    i0(),
+    Rf(),
+    R_(),
+    Sa(Pg, Object["fromEntries"](Mf)),
+    Sa($d, Object[_0x2ae4bb(0x830)](Ll)),
+    B[_0x2ae4bb(0x1d88)](),
+    ae[_0x2ae4bb(0x1d88)]());
+}
+function NC(_0x384bda, _0x3d7bc8 = _0x384bda[_0x44a014(0xe58)]) {
+  const _0x49d303 = _0x44a014,
+    { from: _0x42544c, to: _0x2d5eec } = _0x384bda;
+  if (!O7(_0x2d5eec) || _0x42544c === _0x2d5eec) return !0x0;
+  for (const _0x2c21ea of [...G["values"]()])
+    _0x2c21ea[_0x49d303(0x35b)] === _0x42544c &&
+      (!_0x2c21ea[_0x49d303(0xcfb)] ||
+        _0x2c21ea["identity"]["id"] === _0x3d7bc8) &&
+      (IA(_0x2c21ea),
+      _0x2c21ea["ws"][_0x49d303(0xe45)](0xfa1, _0x49d303(0x4ac)));
+  if (
+    [...G["values"]()][_0x49d303(0x1eb0)](
+      (_0x348d73) =>
+        _0x348d73[_0x49d303(0x35b)][_0x49d303(0x397)]() ===
+        _0x2d5eec[_0x49d303(0x397)](),
+    )
+  )
+    return !0x1;
+  const _0x4abe0f = (_0x1a3413) => {
+    const _0xb7f651 = _0x49d303;
+    _0x1a3413[_0xb7f651(0x97a)](_0x42544c) &&
+      (_0x1a3413[_0xb7f651(0x1b41)](
+        _0x2d5eec,
+        _0x1a3413[_0xb7f651(0xda9)](_0x42544c),
+      ),
+      _0x1a3413[_0xb7f651(0x367)](_0x42544c));
+  };
+  for (const _0x24000f of [
+    _t,
+    js,
+    U1,
+    V1,
+    Fr,
+    Ql,
+    cs,
+    Fi,
+    Ll,
+    jl,
+    Mf,
+    Se,
+    Ui,
+    _l,
+    ru,
+    xd,
+    Ld,
+    m3,
+  ])
+    _0x4abe0f(_0x24000f);
+  (Uc["delete"](_0x42544c), XE["delete"](_0x42544c));
+  for (const _0x31b574 of _t[_0x49d303(0xda9)](_0x2d5eec) ?? [])
+    _0x31b574[0x5] &&
+      (!_0x3d7bc8 || _0x31b574[0x5][_0x49d303(0xbe9)] === _0x3d7bc8) &&
+      (_0x31b574[0x5][_0x49d303(0x19d2)] = _0x2d5eec);
+  for (const _0x8b5572 of Ui["values"]())
+    _0x8b5572[_0x49d303(0x367)](_0x42544c) && _0x8b5572["add"](_0x2d5eec);
+  for (const [_0x176295, _0x3d4124] of tl)
+    _0x3d4124 === _0x42544c && tl[_0x49d303(0x1b41)](_0x176295, _0x2d5eec);
+  for (const _0x5ad690 of A1[_0x49d303(0x642)]()) _0x4abe0f(_0x5ad690);
+  for (const _0x51e6bf of W["values"]())
+    _0x51e6bf[_0x49d303(0x19d2)] === _0x42544c &&
+      ((_0x51e6bf[_0x49d303(0x19d2)] = _0x2d5eec), (re = !0x0));
+  for (const _0x5bbe1 of rt[_0x49d303(0x642)]())
+    _0x5bbe1[_0x49d303(0x19d2)] === _0x42544c &&
+      (_0x5bbe1[_0x49d303(0x19d2)] = _0x2d5eec);
+  for (const _0x20282f of Vo["values"]())
+    _0x20282f[_0x49d303(0x19d2)] === _0x42544c &&
+      (_0x20282f[_0x49d303(0x19d2)] = _0x2d5eec);
+  for (const _0x3ee471 of Ge[_0x49d303(0x642)]())
+    _0x3ee471[_0x49d303(0x19d2)] === _0x42544c &&
+      (_0x3ee471[_0x49d303(0x19d2)] = _0x2d5eec);
+  (ke[_0x49d303(0x1e58)](_0x42544c, _0x2d5eec),
+    bf(),
+    vi[_0x49d303(0x1e58)](_0x42544c, _0x2d5eec));
+  for (const _0x13735b of [pf, Ef])
+    for (const [_0x928a67, _0x2cc227] of _0x13735b)
+      _0x2cc227 === _0x42544c &&
+        _0x13735b[_0x49d303(0x1b41)](_0x928a67, _0x2d5eec);
+  for (const _0x3cf463 of fu[_0x49d303(0x642)]())
+    (_0x3cf463[_0x49d303(0xbe9)] === _0x42544c &&
+      (_0x3cf463[_0x49d303(0xbe9)] = _0x2d5eec),
+      _0x3cf463[_0x49d303(0x742)]?.["attacker"] === _0x42544c &&
+        (_0x3cf463[_0x49d303(0x742)]["attacker"] = _0x2d5eec));
+  for (const _0x42d61b of q1[_0x49d303(0x642)]())
+    _0x42d61b[_0x49d303(0xbe9)] === _0x42544c &&
+      (_0x42d61b[_0x49d303(0xbe9)] = _0x2d5eec);
+  Hc[_0x49d303(0x1e58)](_0x42544c, _0x2d5eec);
+  for (const _0x5d233d of [gi, cl, ql, ou])
+    _0x5d233d[_0x49d303(0x1e58)](_0x42544c, _0x2d5eec);
+  return (
+    _0x3d7bc8 && Js[_0x49d303(0x1e58)](_0x3d7bc8, _0x2d5eec),
+    j1["rename"](_0x42544c, _0x2d5eec),
+    iu[_0x49d303(0x1bd3)](_0x42544c, _0x2d5eec),
+    ut &&
+      (ut[_0x49d303(0x18c7)] === _0x42544c &&
+        (ut[_0x49d303(0x18c7)] = _0x2d5eec),
+      _0x4abe0f(ut[_0x49d303(0xf49)])),
+    (x1 = fl = au = rr = Jl = !0x0),
+    W1(),
+    zs(),
+    X1(),
+    Ug(),
+    kl(),
+    Y1(),
+    nr(),
+    Dg(),
+    ap(),
+    Hg(),
+    i0(),
+    R_(),
+    Nu(),
+    gi[_0x49d303(0x1d88)](),
+    cl[_0x49d303(0x1d88)](),
+    ql["save"](),
+    ou["save"](),
+    Sa(Pg, Object["fromEntries"](Mf)),
+    Sa($d, Object[_0x49d303(0x830)](Ll)),
+    console[_0x49d303(0x1ed0)](
+      _0x49d303(0x1fcc) + _0x42544c + _0x49d303(0x1fa3) + _0x2d5eec,
+    ),
+    !0x0
+  );
+}
+async function sJ(_0x371301) {
+  const _0x4df1f4 = _0x44a014,
+    _0xa71917 = (_0x371301 ?? [])[_0x4df1f4(0x1ca)]((_0x66c350) =>
+      NC(_0x66c350),
+    );
+  _0xa71917[_0x4df1f4(0x1715)] &&
+    (await es(_0x4df1f4(0xcd7), {
+      ids: _0xa71917[_0x4df1f4(0x73a)]((_0x36a867) => _0x36a867["id"]),
+    }));
+}
+let sd = !0x0,
+  yN = 0x0;
+async function iJ() {
+  const _0x165f68 = _0x44a014;
+  if (!(Date["now"]() - yN < 0xea60)) {
+    yN = Date["now"]();
+    try {
+      const _0x26f3d4 = new URL(Be["address"])[_0x165f68(0x1dee)];
+      if (
+        !_0x26f3d4 ||
+        _0x26f3d4 === _0x165f68(0x40e) ||
+        /^[\d.]+$|:/[_0x165f68(0x1db2)](_0x26f3d4)
+      ) {
+        sd = !0x0;
+        return;
+      }
+      const _0x53966d = globalThis["process"][_0x165f68(0x1d03)]?.(
+        _0x165f68(0x20b4),
+      );
+      if (!_0x53966d) return;
+      (await _0x53966d[_0x165f68(0x18b1)][_0x165f68(0x1760)](_0x26f3d4),
+        sd ||
+          console[_0x165f68(0x1ed0)](
+            _0x165f68(0x166d) +
+              _0x26f3d4 +
+              "\x20resolves:\x20listing\x20the\x20server",
+          ),
+        (sd = !0x0));
+    } catch {
+      (sd &&
+        console[_0x165f68(0x1ed0)](
+          _0x165f68(0x166d) + Be[_0x165f68(0x616)] + _0x165f68(0x1a5d),
+        ),
+        (sd = !0x1));
+    }
+  }
+}
+async function Lm() {
+  const _0x370178 = _0x44a014;
+  if (!(!Ps || JE)) {
+    (await iJ(), (JE = !0x0));
+    try {
+      const _0x134625 = [...G["values"]()]["filter"](
+          (_0x247dbb) => _0x247dbb["identity"],
+        ),
+        _0x1c6ec5 = await es(_0x370178(0x10ca), {
+          name: Be[_0x370178(0x35b)],
+          maxPlayers: Be[_0x370178(0x1b87)],
+          discoverable: Be[_0x370178(0x1c4d)] && sd,
+          players: _0x134625["map"]((_0x7b58f0) => ({
+            session: _0x7b58f0["identity"][_0x370178(0x12f4)],
+            balance: Me(_0x7b58f0),
+            revision: Ll["get"](_0x7b58f0[_0x370178(0x35b)]) || 0x0,
+          })),
+        });
+      EN = Date[_0x370178(0xe89)]();
+      const _0x2dd7a2 = (_0x1c6ec5[_0x370178(0x69e)] ?? [])[_0x370178(0x1ca)](
+        (_0x23a2cb) => nJ(_0x23a2cb["userId"], _0x23a2cb["username"]),
+      );
+      (_0x2dd7a2["length"] &&
+        (oJ(),
+        await es(_0x370178(0x2105), {
+          ids: _0x2dd7a2[_0x370178(0x73a)]((_0x31cb67) => _0x31cb67["id"]),
+        })),
+        await sJ(_0x1c6ec5[_0x370178(0x1697)]));
+      for (const _0x277e08 of _0x1c6ec5["players"]) {
+        const _0x18a2d0 = _0x134625[_0x370178(0xf90)](
+          (_0x1477ca) =>
+            _0x1477ca["identity"][_0x370178(0x12f4)] ===
+            _0x277e08[_0x370178(0x1577)],
+        );
+        if (!(
+          !_0x18a2d0 || G[_0x370178(0xda9)](_0x18a2d0["id"]) !== _0x18a2d0
+        )) {
+          if (_0x277e08[_0x370178(0x1454)]) {
+            _0x18a2d0["ws"][_0x370178(0xe45)](0x3f0, _0x370178(0x1569));
+            continue;
+          }
+          ((_0x18a2d0[_0x370178(0xcfb)][_0x370178(0x110d)] = _0x277e08["role"]),
+            (_0x18a2d0[_0x370178(0xcfb)]["permissions"] =
+              _0x277e08[_0x370178(0x1c80)]),
+            (_0x18a2d0["identity"][_0x370178(0x1785)] = _0x277e08["cosmetics"]),
+            (_0x18a2d0[_0x370178(0xcfb)][_0x370178(0xb9b)] =
+              _0x277e08["mutedUntil"]),
+            Z_(_0x18a2d0),
+            Zl(_0x18a2d0),
+            ((!ts(_0x18a2d0, _0x370178(0x14b3)) && _0x18a2d0["fly"]) ||
+              (!ts(_0x18a2d0, _0x370178(0x20f9)) &&
+                _0x18a2d0[_0x370178(0x675)])) &&
+              (ts(_0x18a2d0, _0x370178(0x14b3)) ||
+                (_0x18a2d0[_0x370178(0x2121)] = !0x1),
+              ts(_0x18a2d0, _0x370178(0x20f9)) ||
+                (_0x18a2d0[_0x370178(0x675)] = !0x1),
+              Z(_0x18a2d0, dA(_0x18a2d0))),
+            ts(_0x18a2d0, "player.god") ||
+              (_0x18a2d0[_0x370178(0x1d2b)] = !0x1),
+            !ts(_0x18a2d0, "player.creative") &&
+              _0x18a2d0[_0x370178(0x2b5)] &&
+              ((_0x18a2d0[_0x370178(0x2b5)] = !0x1),
+              Z(_0x18a2d0, new F(C[_0x370178(0x158)])["u8"](0x0))),
+            _0x277e08["balance"] !== null &&
+              _0x277e08["revision"] >
+                (Ll[_0x370178(0xda9)](_0x18a2d0[_0x370178(0x35b)]) || 0x0) &&
+              (po(_0x18a2d0, _0x277e08[_0x370178(0x1b2)]),
+              M_(),
+              Ll["set"](_0x18a2d0[_0x370178(0x35b)], _0x277e08["revision"]),
+              _0x27cf81[_0x370178(0x3de)](
+                $d + _0x370178(0x5ff),
+                JSON[_0x370178(0x2043)](Object["fromEntries"](Ll)),
+              ),
+              _0x27cf81[_0x370178(0x738)]($d + _0x370178(0x5ff), $d)));
+        }
+      }
+      if ((wC(), await XX(), await dp(), _0x1c6ec5[_0x370178(0x74e)])) {
+        await eJ(_0x134625);
+        const _0x483bb1 = await Js[_0x370178(0x8a1)]({
+          absolute: (_0x22455c) =>
+            es("cosmetics/counters", { counters: _0x22455c }),
+          add: (_0x293d0d) =>
+            es("cosmetics/counters/add", { counters: _0x293d0d }),
+        });
+        if (Date[_0x370178(0xe89)]() >= $w) {
+          $w = Date[_0x370178(0xe89)]() + 0x4e20;
+          const _0x59e75f = [];
+          for (const _0x17d9c4 of _0x134625)
+            for (const _0x48937c of _t["get"](_0x17d9c4[_0x370178(0x35b)]) ??
+              [])
+              _0x48937c[0x5]?.[_0x370178(0x1ab8)] &&
+                _0x48937c[0x1] > 0x0 &&
+                _0x59e75f[_0x370178(0x2fb)](_0x48937c[0x5][_0x370178(0x1ab8)]);
+          if (_0x59e75f[_0x370178(0x1715)]) {
+            for (const _0x34ac6f of await Js[_0x370178(0x15e4)](
+              _0x59e75f,
+              (_0x3c774d) => es(_0x370178(0x1fc9), { ids: _0x3c774d }),
+            ))
+              _0x483bb1[_0x370178(0x953)](_0x34ac6f);
+          }
+        }
+        if (_0x483bb1["size"]) {
+          for (const _0x25f402 of _0x134625)
+            (_t[_0x370178(0xda9)](_0x25f402["name"]) ?? [])["some"](
+              (_0x3ef9c9) =>
+                _0x3ef9c9[0x5] &&
+                _0x483bb1["has"](_0x3ef9c9[0x5][_0x370178(0x1ab8)]),
+            ) &&
+              ((_0x25f402[_0x370178(0x1037)] = void 0x0),
+              Zl(_0x25f402),
+              fe(_0x25f402));
+        }
+      }
+    } catch (_0x133823) {
+      if (
+        (console["error"](
+          "[platform]",
+          _0x133823 instanceof Error
+            ? _0x133823[_0x370178(0x67a)]
+            : _0x370178(0x539),
+        ),
+        Date["now"]() - EN > 0xea60)
+      ) {
+        for (const _0x2e6f68 of G[_0x370178(0x642)]())
+          _0x2e6f68[_0x370178(0xcfb)] &&
+            _0x2e6f68["ws"][_0x370178(0xe45)](
+              0x3f5,
+              "Authentication\x20unavailable",
+            );
+      }
+    } finally {
+      ((JE = !0x1), f3 && ((f3 = !0x1), setTimeout(() => void Lm(), 0x32)));
+    }
+  }
+}
+const Mp = dY["createServer"]((_0xed2179, _0x4db7c8) => {
+  const _0x3c0bab = _0x44a014,
+    _0x2c4128 = performance["now"]();
+  try {
+    rJ(_0xed2179, _0x4db7c8);
+  } finally {
+    Mu[_0x3c0bab(0x1b65)](
+      _0x3c0bab(0x1376),
+      performance[_0x3c0bab(0xe89)]() - _0x2c4128,
+    );
+  }
+});

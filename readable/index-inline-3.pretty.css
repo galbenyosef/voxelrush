@@ -3119,6 +3119,17 @@ body.mobile #invhotbartitle {
   font-size: 13px;
   color: var(--heading);
 }
+#invrankboard {
+  display: block;
+  width: 96px;
+  height: auto;
+  margin: 4px auto 6px;
+  filter: drop-shadow(0 3px 8px #0009);
+}
+#invrankboard:not([src]) {
+  visibility: hidden;
+  height: 38px;
+}
 #invrankname {
   color: var(--accent);
   font-size: 14px;
@@ -3141,7 +3152,7 @@ body.mobile #invhotbartitle {
 #invrankfill {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, var(--primary-hover), var(--accent));
+  background: linear-gradient(90deg, #2fae3a, #63f05c);
   transition: width 0.2s ease;
 }
 /* compact entry to the skills window, under the rank bar */
@@ -3950,6 +3961,10 @@ body.mobile .mini-btn {
   bottom: 6px;
   transform: translateX(-50%);
 }
+#attachslot-grip {
+  right: 26%;
+  bottom: 6px;
+}
 #attachpicker.hidden {
   display: none;
 }
@@ -4049,6 +4064,9 @@ body.mobile .mini-btn {
 }
 body:has(#voice-hud[hidden]) {
   --ops-top: 176px;
+}
+body.ui-panel-open #raidhud {
+  visibility: hidden;
 }
 #raidhud {
   position: fixed;

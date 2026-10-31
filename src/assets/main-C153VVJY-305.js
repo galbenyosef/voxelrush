@@ -1,0 +1,291 @@
+// main-C153VVJY 305 — x5baba8
+// Lines 115588-115876 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+const L6 = se[_0x44a014(0x282)](Ue, _0x44a014(0x1ae8)),
+  q1 = new Map(),
+  Hc = new T7(Ue);
+function z6(_0x3e5c98) {
+  const _0x303e43 = _0x44a014;
+  return ts(_0x3e5c98, _0x303e43(0x224c));
+}
+function Kw(_0x45cf90, _0x116500) {
+  const _0x57c14e = _0x44a014;
+  Z(
+    _0x45cf90,
+    new F(C[_0x57c14e(0x47c)])[_0x57c14e(0x1d68)](JSON["stringify"](_0x116500)),
+  );
+}
+function $T(_0x12caf3) {
+  const _0x247e1c = _0x44a014,
+    _0x5399d0 = new F(C[_0x247e1c(0x47c)])[_0x247e1c(0x1d68)](
+      JSON[_0x247e1c(0x2043)]({
+        type: _0x247e1c(0x1e05),
+        sites: Hc[_0x247e1c(0x17d)](),
+      }),
+    );
+  _0x12caf3 ? Z(_0x12caf3, _0x5399d0) : lt(D[_0x247e1c(0xd62)], _0x5399d0);
+}
+function sX(_0x5024eb, _0x3c3c27) {
+  const _0x5baba8 = _0x44a014,
+    _0x3559aa = (_0x94a0a, _0x57c1a7) =>
+      Kw(_0x5024eb, {
+        type: _0x5baba8(0x1dd2),
+        message: _0x5024eb[_0x5baba8(0x177)] === "en" ? _0x94a0a : _0x57c1a7,
+      });
+  if (!z6(_0x5024eb)) {
+    _0x3559aa(_0x5baba8(0xa58), _0x5baba8(0x1670));
+    return;
+  }
+  if (
+    !_0x5024eb[_0x5baba8(0x161)] ||
+    _0x5024eb["downed"] ||
+    _0x5024eb["planet"] !== D[_0x5baba8(0xd62)] ||
+    _0x5024eb[_0x5baba8(0x1445)] !== -0x1 ||
+    _0x5024eb[_0x5baba8(0x1e03)]
+  ) {
+    _0x3559aa(_0x5baba8(0xe84), _0x5baba8(0x1438));
+    return;
+  }
+  if (_0x3c3c27[_0x5baba8(0x1515)] === _0x5baba8(0x21d3)) {
+    const {
+      x: _0x4bcd35,
+      y: _0xdf2bd2,
+      z: _0x568ead,
+      rotation: _0x1408eb,
+    } = _0x3c3c27;
+    if (
+      ![_0x4bcd35, _0xdf2bd2, _0x568ead, _0x1408eb][_0x5baba8(0x1b05)](
+        Number[_0x5baba8(0xaf9)],
+      ) ||
+      Math["abs"](_0x4bcd35) > 0xf4240 ||
+      Math[_0x5baba8(0x1fc4)](_0x568ead) > 0xf4240 ||
+      _0xdf2bd2 < 0x1 ||
+      _0xdf2bd2 > 0x7c ||
+      _0x1408eb < 0x0 ||
+      _0x1408eb > 0x3 ||
+      _0x5024eb[_0x5baba8(0x18a0)] !== R[_0x5baba8(0x84c)] ||
+      Math[_0x5baba8(0x1b0)](
+        _0x5024eb["x"] - _0x4bcd35 - 0.5,
+        jo(_0x5024eb) - _0xdf2bd2,
+        _0x5024eb["z"] - _0x568ead - 0.5,
+      ) > 0x7 ||
+      !De(At, _0x4bcd35, _0x568ead, 0x2) ||
+      !_r(
+        _0x5024eb["x"],
+        jo(_0x5024eb),
+        _0x5024eb["z"],
+        _0x4bcd35 + 0.5,
+        _0xdf2bd2 + 0.01,
+        _0x568ead + 0.5,
+        _0x5024eb[_0x5baba8(0x529)],
+      )
+    ) {
+      _0x3559aa(
+        _0x5baba8(0x218a),
+        "Возьмите\x20компьютер\x20и\x20наведите\x20на\x20ближайший\x20пол.",
+      );
+      return;
+    }
+    if (Hc[_0x5baba8(0x1174)]["size"] >= 0x80) {
+      _0x3559aa(_0x5baba8(0xfd2), _0x5baba8(0x2126));
+      return;
+    }
+    for (let _0x1aaf29 = -0x1; _0x1aaf29 <= 0x1; _0x1aaf29++)
+      for (let _0x3291f2 = -0x1; _0x3291f2 <= 0x1; _0x3291f2++) {
+        const _0x4d5ee3 =
+          q[
+            B[_0x5baba8(0xcdd)](
+              _0x4bcd35 + _0x1aaf29,
+              _0xdf2bd2 - 0x1,
+              _0x568ead + _0x3291f2,
+            )
+          ];
+        if (
+          Il(
+            _0x5024eb["planet"],
+            _0x4bcd35 + _0x1aaf29,
+            _0x568ead + _0x3291f2,
+          ) ||
+          Qu(
+            _0x5024eb,
+            _0x4bcd35 + _0x1aaf29,
+            _0xdf2bd2,
+            _0x568ead + _0x3291f2,
+          ) ||
+          !On(_0x5024eb, _0x4bcd35 + _0x1aaf29, _0x568ead + _0x3291f2)
+        ) {
+          _0x3559aa(_0x5baba8(0xd54), _0x5baba8(0xafc));
+          return;
+        }
+        if (!_0x4d5ee3?.[_0x5baba8(0x1b2b)] || _0x4d5ee3[_0x5baba8(0x10b5)]) {
+          _0x3559aa(
+            "A\x20flat,\x20solid\x203\x20×\x203\x20floor\x20is\x20required.",
+            _0x5baba8(0x12ee),
+          );
+          return;
+        }
+        for (let _0x11195e = 0x0; _0x11195e < 0x3; _0x11195e++)
+          if (
+            B[_0x5baba8(0xcdd)](
+              _0x4bcd35 + _0x1aaf29,
+              _0xdf2bd2 + _0x11195e,
+              _0x568ead + _0x3291f2,
+            ) !== l[_0x5baba8(0x1ff6)]
+          ) {
+            _0x3559aa(
+              "Clear\x20a\x203\x20×\x203\x20area\x20and\x20three\x20blocks\x20above\x20it.",
+              _0x5baba8(0x123e),
+            );
+            return;
+          }
+      }
+    for (const _0x2dfcdc of [
+      ...Hc["records"][_0x5baba8(0x642)](),
+      ...T1()[_0x5baba8(0x1ef3)](z3),
+    ])
+      if (
+        Math[_0x5baba8(0x1fc4)](_0x2dfcdc["y"] - _0xdf2bd2) < 0x3 &&
+        Math[_0x5baba8(0x1b0)](
+          _0x2dfcdc["x"] - _0x4bcd35 - 0.5,
+          _0x2dfcdc["z"] - _0x568ead - 0.5,
+        ) < 0x3
+      ) {
+        _0x3559aa(_0x5baba8(0x2c0), _0x5baba8(0x10a1));
+        return;
+      }
+    for (const _0x40fb7c of G[_0x5baba8(0x642)]())
+      if (
+        _0x40fb7c[_0x5baba8(0x161)] &&
+        _0x40fb7c["planet"] === _0x5024eb[_0x5baba8(0x529)] &&
+        Math[_0x5baba8(0x1fc4)](_0x40fb7c["y"] - _0xdf2bd2) < 0x3 &&
+        Math[_0x5baba8(0x1fc4)](_0x40fb7c["x"] - _0x4bcd35 - 0.5) < 1.7 &&
+        Math[_0x5baba8(0x1fc4)](_0x40fb7c["z"] - _0x568ead - 0.5) < 1.3
+      ) {
+        _0x3559aa(_0x5baba8(0xcaf), _0x5baba8(0xae0));
+        return;
+      }
+    if (!qo(_0x5024eb, R["COMPUTER"])) {
+      _0x3559aa(_0x5baba8(0xc27), "Компьютера\x20нет\x20в\x20инвентаре.");
+      return;
+    }
+    (Hc["add"]({
+      id: _0x5baba8(0x219e) + B1(),
+      x: _0x4bcd35 + 0.5,
+      y: _0xdf2bd2,
+      z: _0x568ead + 0.5,
+      rotation: _0x1408eb,
+      owner: _0x5024eb["name"],
+    }),
+      $T(),
+      P(
+        0x1,
+        _0x5024eb[_0x5baba8(0x177)] === "en"
+          ? _0x5baba8(0x195)
+          : _0x5baba8(0x1ca1),
+        _0x5024eb,
+      ));
+    return;
+  }
+  if (
+    !["open", _0x5baba8(0xe49), _0x5baba8(0x1a08)][_0x5baba8(0x175a)](
+      _0x3c3c27[_0x5baba8(0x1515)],
+    ) ||
+    !("id" in _0x3c3c27) ||
+    typeof _0x3c3c27["id"] != "string"
+  )
+    return;
+  const _0x2c9227 = Hc["records"][_0x5baba8(0xda9)](_0x3c3c27["id"]);
+  if (
+    !_0x2c9227 ||
+    Math[_0x5baba8(0x1b0)](
+      _0x5024eb["x"] - _0x2c9227["x"],
+      _0x5024eb["y"] - _0x2c9227["y"],
+      _0x5024eb["z"] - _0x2c9227["z"],
+    ) > 5.5 ||
+    !On(_0x5024eb, _0x2c9227["x"], _0x2c9227["z"])
+  ) {
+    _0x3559aa(_0x5baba8(0x19e6), _0x5baba8(0x11f7));
+    return;
+  }
+  const _0x118a78 = R7(_0x2c9227),
+    _0x1b46f4 =
+      _0x2c9227["x"] +
+      Math[_0x5baba8(0x12df)](_0x118a78) * g0["x"] +
+      Math[_0x5baba8(0x1fcd)](_0x118a78) * g0["z"],
+    _0x51894f =
+      _0x2c9227["z"] -
+      Math[_0x5baba8(0x1fcd)](_0x118a78) * g0["x"] +
+      Math[_0x5baba8(0x12df)](_0x118a78) * g0["z"];
+  if (
+    !Kt(
+      _0x5024eb["x"],
+      jo(_0x5024eb),
+      _0x5024eb["z"],
+      _0x1b46f4,
+      _0x2c9227["y"] + g0["y"],
+      _0x51894f,
+      _0x5024eb[_0x5baba8(0x529)],
+    )
+  ) {
+    _0x3559aa(_0x5baba8(0x1388), _0x5baba8(0xdfd));
+    return;
+  }
+  if (_0x3c3c27[_0x5baba8(0x1515)] === _0x5baba8(0x1a08)) {
+    if (_0x5024eb["held"] !== R["WELDER"]) {
+      _0x3559aa(
+        _0x5baba8(0x7a4),
+        "Используйте\x20сварку,\x20чтобы\x20упаковать\x20компьютер.",
+      );
+      return;
+    }
+    if (!l2(_0x5024eb[_0x5baba8(0x35b)], R["COMPUTER"], 0x1)) {
+      _0x3559aa(_0x5baba8(0x1cfb), _0x5baba8(0x48c));
+      return;
+    }
+    (Ln(_0x5024eb, R[_0x5baba8(0x84c)], 0x1),
+      Hc[_0x5baba8(0x13b9)](_0x2c9227["id"]),
+      $T());
+    return;
+  }
+  const _0x389746 =
+    _0x3c3c27["action"] === _0x5baba8(0xe49)
+      ? Hc[_0x5baba8(0xe49)](_0x2c9227["id"], _0x3c3c27["url"])
+      : _0x2c9227[_0x5baba8(0x957)];
+  if (!_0x389746) {
+    _0x3559aa(_0x5baba8(0x169a), _0x5baba8(0xaa1));
+    return;
+  }
+  Kw(_0x5024eb, {
+    type: _0x3c3c27[_0x5baba8(0x1515)],
+    id: _0x2c9227["id"],
+    url: _0x389746,
+  });
+}
+try {
+  const t = JSON[_0x44a014(0x19fc)](
+    _0x27cf81[_0x44a014(0x92d)](L6, _0x44a014(0x258)),
+  );
+  if (Array[_0x44a014(0x15c7)](t)) {
+    for (const e of t)
+      e &&
+        typeof e["id"] == _0x44a014(0x18e4) &&
+        typeof e["owner"] == "string" &&
+        [e["x"], e["y"], e["z"], e[_0x44a014(0x1aaa)]][_0x44a014(0x1b05)](
+          Number[_0x44a014(0x1142)],
+        ) &&
+        Number["isInteger"](e["rotation"]) &&
+        e["rotation"] >= 0x0 &&
+        e[_0x44a014(0x1aaa)] < 0x4 &&
+        e["y"] >= 0x0 &&
+        e["y"] < 0x80 &&
+        (!e["game"] || H2(e[_0x44a014(0x1cc3)])) &&
+        q1[_0x44a014(0x1b41)](e["id"], e);
+  }
+} catch {}
+function T1() {
+  const _0x54b526 = _0x44a014;
+  return [...(Xe?.[_0x54b526(0x20b3)]() ?? []), ...q1[_0x54b526(0x642)]()];
+}
+function R_() {
+  const _0x4dca26 = _0x44a014;
+  Sa(L6, [...q1[_0x4dca26(0x642)]()]);
+}

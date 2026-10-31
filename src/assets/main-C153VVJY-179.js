@@ -1,0 +1,352 @@
+// main-C153VVJY 179 — xe2de03
+// Lines 64009-64358 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+function TT(_0x2b547a, _0x954c6) {
+  const _0x46f506 = _0x44a014,
+    _0x12ab51 = Math[_0x46f506(0x1fc4)](_0x2b547a),
+    _0x2dc5c4 = Math[_0x46f506(0x1fc4)](_0x954c6),
+    _0x347d3e = dn(-0x70, -0x62, _0x954c6) * dn(0x40, 0x32, _0x954c6),
+    _0x2d180e = 0xc4 + 0x32 * _0x347d3e,
+    _0xc39b20 = 0x36 - 0x2c * _0x347d3e,
+    _0x3d2f0b =
+      0.16 *
+      Math[_0x46f506(0x1fcd)](_0x2b547a * 0.047 + _0x954c6 * 0.021) *
+      Math[_0x46f506(0x1fcd)](_0x954c6 * 0.039 - _0x2b547a * 0.017) *
+      (0x1 - _0x347d3e);
+  return dn(
+    0x0,
+    0x1,
+    Math["max"](
+      (_0x12ab51 - _0x2d180e) / _0xc39b20,
+      (_0x2dc5c4 - 0xc4) / 0x36,
+    ) + _0x3d2f0b,
+  );
+}
+function xT(_0x1e3eb6, _0x5b4b20) {
+  let _0x23bda8 = 0x0;
+  for (const [
+    _0x43a54d,
+    _0x203e7e,
+    _0x98a302,
+    _0x18a585,
+    _0x2a0476,
+    _0x48b249,
+  ] of sU) {
+    const _0x159e1f = wf(
+      _0x1e3eb6,
+      _0x5b4b20,
+      _0x43a54d,
+      _0x203e7e,
+      _0x98a302,
+      _0x18a585,
+    );
+    _0x159e1f["d"] >= _0x2a0476 ||
+      (_0x23bda8 = Math["max"](
+        _0x23bda8,
+        _0x48b249 *
+          Math["pow"](0x1 - _0x159e1f["d"] / _0x2a0476, 1.25) *
+          (0x1 - 0.45 * _0x159e1f["t"]),
+      ));
+  }
+  return _0x23bda8;
+}
+function uU(_0x569870, _0x1919b6) {
+  const _0xe2de03 = _0x44a014,
+    _0x58a7e2 = Math[_0xe2de03(0x1fc4)](_0x1919b6),
+    _0x1824be = Math[_0xe2de03(0x1b0)](_0x569870, _0x1919b6),
+    _0x5e7167 = ys(_0x569870, _0x1919b6, 0x3),
+    _0x5c8c94 = (_0x32fb42, _0x407b7c) =>
+      1.3 *
+        Math[_0xe2de03(0x1fcd)](_0x32fb42 * 0.031 + 0.7) *
+        Math[_0xe2de03(0x12df)](_0x407b7c * 0.027 - 0.4) +
+      0.8 *
+        Math[_0xe2de03(0x1fcd)](_0x32fb42 * 0.063 + _0x407b7c * 0.049 + 1.9) +
+      0.4 * Math[_0xe2de03(0x12df)](_0x407b7c * 0.11 - _0x32fb42 * 0.06),
+    _0x3d5c03 = ST(_0x569870, _0x1919b6),
+    _0x2b1f61 = dn(0x0, 0xa, _0x3d5c03),
+    _0x625caa = Kx(_0x569870, _0x1919b6),
+    _0x53b604 = QL(_0x569870, _0x1919b6);
+  let _0x56be21 =
+    Un +
+    0.3 +
+    ((_0x5c8c94(_0x569870, _0x1919b6) + _0x5c8c94(-_0x569870, -_0x1919b6)) /
+      0x2) *
+      _0x2b1f61;
+  _0x56be21 +=
+    0x6 * Math["pow"](dn(0x80, 0xcc, _0x58a7e2), 1.4) * dn(0x0, 0x8, _0x625caa);
+  for (const [_0x5f48b9, _0x21cbd8, _0x4f3e57, _0x246647] of lU)
+    _0x56be21 +=
+      _0x246647 *
+      uf(_0x569870, _0x1919b6, _0x5f48b9, _0x21cbd8, _0x4f3e57) *
+      _0x2b1f61;
+  const _0x184529 = tz(_0x569870, _0x1919b6),
+    _0xec2630 =
+      dn(5.5, 1.5, _0x184529) *
+      dn(0x0, 0x3, _0x625caa) *
+      dn(0x0, 0x6, _0x53b604);
+  _0x56be21 -= 2.4 * _0xec2630;
+  const _0x39ed45 = Math["hypot"](_0x569870 - Nl["x"], _0x1919b6 - Nl["z"]),
+    _0x3d30bc = dn(Nl["foot"], Nl["top"], _0x39ed45);
+  _0x56be21 += (Fy - _0x56be21) * _0x3d30bc;
+  const _0x164fd5 =
+      TT(_0x569870, _0x1919b6) * dn(0x0, 2.2, XL(_0x569870, _0x1919b6, rU)),
+    _0x3f0266 = xT(_0x569870, _0x1919b6) * dn(0x0, 0x8, _0x3d5c03);
+  let _0x25b1c3 =
+    _0x164fd5 > 0x0
+      ? 0x2e * Math[_0xe2de03(0x1dcf)](_0x164fd5, 1.15) +
+        (0x6 * Ro(_0x569870, _0x1919b6, 0x1d, 0x5) +
+          1.5 * Ro(_0x569870, _0x1919b6, 0xb, 0x11) -
+          2.5) *
+          _0x164fd5
+      : 0x0;
+  (_0x3f0266 > _0x25b1c3 &&
+    (_0x25b1c3 =
+      _0x3f0266 +
+      (_0x3f0266 > 0x3
+        ? (0x4 * Ro(_0x569870, _0x1919b6, 0x15, 0x6) +
+            1.2 * Ro(_0x569870, _0x1919b6, 0x9, 0x12) -
+            0x2) *
+          Math[_0xe2de03(0x16e0)](0x1, _0x3f0266 / 0xc)
+        : 0x0)),
+    (_0x56be21 += _0x25b1c3));
+  const _0x417689 = wf(
+    _0x569870,
+    _0x1919b6,
+    eE[0x0],
+    eE[0x1],
+    eE[0x2],
+    eE[0x3],
+  )["d"];
+  _0x417689 < 2.6 &&
+    _0x625caa > 0x0 &&
+    (_0x56be21 -= _0x417689 < 1.4 ? 1.6 : 0.8);
+  let _0x475cdf = Math[_0xe2de03(0x1f96)](_0x56be21),
+    _0x4bd8e2;
+  const _0x199b5f = Ro(_0x569870, _0x1919b6, 0x9, 0xb),
+    _0x2501f6 = Ro(_0x569870, _0x1919b6, 0x4, 0xc);
+  if (ji(_0x569870, _0x1919b6, tE))
+    _0x1919b6 === tE[0x1] || _0x1919b6 === tE[0x3]
+      ? (_0x4bd8e2 = oa(_0x569870, 0xc) < 0x9 ? ns : ma)
+      : (_0x569870 >= -0xef &&
+            _0x569870 <= -0xea &&
+            oa(_0x1919b6 - tE[0x1], 0x3) === 0x1) ||
+          (_0x1919b6 === -0x30 && _0x569870 > -0xe6 && oa(_0x569870, 0xa) < 0x5)
+        ? (_0x4bd8e2 = ns)
+        : (_0x1919b6 === -0x36 || _0x1919b6 === -0x2a) &&
+            _0x569870 >= -0xe7 &&
+            _0x569870 <= -0xdc
+          ? (_0x4bd8e2 = $y)
+          : (_0x4bd8e2 = _0x5e7167 < 0.035 ? Rs : _0x5e7167 < 0.05 ? bn : ma);
+  else {
+    if (
+      ji(_0x569870, _0x1919b6, tU) ||
+      eU[_0xe2de03(0x1eb0)]((_0xd0a2b8) => ji(_0x569870, _0x1919b6, _0xd0a2b8))
+    )
+      _0x4bd8e2 =
+        _0x1919b6 === -0x1e && oa(_0x569870, 0x6) < 0x3
+          ? $y
+          : oa(_0x569870, 0x7) === 0x0
+            ? l[_0xe2de03(0xbc6)]
+            : bn;
+    else {
+      if (ji(_0x569870, _0x1919b6, nU))
+        _0x4bd8e2 =
+          oa(_0x569870, 0x6) === 0x0 || oa(_0x1919b6, 0x6) === 0x0
+            ? l[_0xe2de03(0xbc6)]
+            : _0x5e7167 < 0.04
+              ? ma
+              : bn;
+      else {
+        if (_0x625caa <= 0x0) {
+          const _0x1a3f2d = JL(_0x569870, _0x1919b6);
+          if (
+            _0x1a3f2d[_0xe2de03(0x12e4)][_0xe2de03(0x335)] === _0xe2de03(0xcd4)
+          ) {
+            const _0x1407aa =
+              _0x1824be < n2 + 0x6 ? 0x1 - _0x1824be / (n2 + 0x6) : 0x0;
+            _0x4bd8e2 =
+              _0x5e7167 < _0x1407aa * 0.6
+                ? _0x5e7167 < _0x1407aa * 0.3
+                  ? Rs
+                  : l[_0xe2de03(0x1b9c)]
+                : _0x1919b6 === 0x0 &&
+                    oa(_0x569870, 0x8) < 0x4 &&
+                    _0x5e7167 > 0.1
+                  ? ns
+                  : _0x58a7e2 === 0x4 && _0x5e7167 < 0.45
+                    ? l[_0xe2de03(0x1b9c)]
+                    : _0x5e7167 < 0.03
+                      ? l[_0xe2de03(0x1be5)]
+                      : ma;
+          } else
+            _0x1a3f2d[_0xe2de03(0x12e4)][_0xe2de03(0x335)] === _0xe2de03(0x1a1a)
+              ? (_0x4bd8e2 = ji(_0x569870, _0x1919b6, MT)
+                  ? _0x5e7167 < 0.2
+                    ? l[_0xe2de03(0x18cc)]
+                    : l[_0xe2de03(0x1be5)]
+                  : _0x5e7167 < 0.55
+                    ? l[_0xe2de03(0x1b9c)]
+                    : _0x5e7167 < 0.8
+                      ? l["DIRT"]
+                      : l[_0xe2de03(0x1be5)])
+              : _0x1a3f2d[_0xe2de03(0x12e4)][_0xe2de03(0x335)] ===
+                  _0xe2de03(0x19e2)
+                ? (_0x4bd8e2 =
+                    _0x5e7167 < 0.6
+                      ? l["GRAVEL"]
+                      : _0x5e7167 < 0.8
+                        ? l[_0xe2de03(0x1386)]
+                        : l[_0xe2de03(0x1be5)])
+                : (_0x4bd8e2 =
+                    _0x1a3f2d[_0xe2de03(0x1a69)] < 0.7 &&
+                    oa(Math[_0xe2de03(0x2f3)](_0x1a3f2d["along"]), 0x8) < 0x3 &&
+                    _0x5e7167 > 0.15
+                      ? ns
+                      : _0x1a3f2d["d"] > -0x1 && _0x5e7167 < 0.4
+                        ? l[_0xe2de03(0x1b9c)]
+                        : _0x5e7167 < 0.05
+                          ? l[_0xe2de03(0x1be5)]
+                          : ma);
+        } else
+          ji(_0x569870, _0x1919b6, ZL)
+            ? (_0x4bd8e2 =
+                oa(_0x569870, 0x7) === 0x0 || oa(_0x1919b6, 0x7) === 0x0
+                  ? l[_0xe2de03(0xbc6)]
+                  : _0x5e7167 < 0.07
+                    ? l[_0xe2de03(0x1b9c)]
+                    : bn)
+            : ji(_0x569870, _0x1919b6, $x)
+              ? (_0x4bd8e2 =
+                  _0x5e7167 < 0.06
+                    ? l[_0xe2de03(0x1386)]
+                    : l[_0xe2de03(0x17f3)])
+              : ji(_0x569870, _0x1919b6, oU)
+                ? (_0x4bd8e2 =
+                    (_0x569870 + _0x1919b6) % 0x2
+                      ? l[_0xe2de03(0x1be5)]
+                      : l[_0xe2de03(0x6a9)])
+                : ji(_0x569870, _0x1919b6, MT)
+                  ? (_0x4bd8e2 =
+                      _0x2501f6 > 0.66
+                        ? l[_0xe2de03(0x1386)]
+                        : _0x5e7167 < 0.05
+                          ? l[_0xe2de03(0x1b9c)]
+                          : l[_0xe2de03(0x17f3)])
+                  : _0x3d30bc > 0.97
+                    ? (_0x4bd8e2 =
+                        _0x39ed45 < 0x6
+                          ? bn
+                          : _0x5e7167 < 0.5
+                            ? l["GRAVEL"]
+                            : _0x5e7167 < 0.7
+                              ? l["DIRT"]
+                              : l["GRASS"])
+                    : _0x25b1c3 > 0x3
+                      ? (_0x4bd8e2 =
+                          _0x475cdf + 0x4 * _0x2501f6 >= Un + 0x1f
+                            ? l[_0xe2de03(0x1ecd)]
+                            : _0x25b1c3 > 0xf || _0x2501f6 > 0.52
+                              ? l["STONE"]
+                              : _0x5e7167 < 0.25
+                                ? l[_0xe2de03(0x1b9c)]
+                                : l[_0xe2de03(0x17f3)])
+                      : _0x417689 < 2.6 && _0x625caa > 0x0
+                        ? (_0x4bd8e2 =
+                            _0x5e7167 < 0.5
+                              ? Rs
+                              : _0x5e7167 < 0.8
+                                ? l[_0xe2de03(0x1386)]
+                                : l[_0xe2de03(0x1b9c)])
+                        : _0xec2630 > 0.6
+                          ? (_0x4bd8e2 =
+                              _0x5e7167 < 0.45
+                                ? l[_0xe2de03(0x1b9c)]
+                                : _0x5e7167 < 0.7
+                                  ? l[_0xe2de03(0x1be5)]
+                                  : l[_0xe2de03(0x1386)])
+                          : _0x1824be < n2 + 0x4 &&
+                              _0x5e7167 < (0x1 - _0x1824be / (n2 + 0x4)) * 0.9
+                            ? (_0x4bd8e2 =
+                                _0x5e7167 < 0.25
+                                  ? Rs
+                                  : _0x5e7167 < 0.5
+                                    ? l[_0xe2de03(0x1b9c)]
+                                    : l["DIRT"])
+                            : (_0x4bd8e2 =
+                                _0x199b5f > 0.8
+                                  ? l["DIRT"]
+                                  : _0x2501f6 > 0.88
+                                    ? l[_0xe2de03(0x1b9c)]
+                                    : l[_0xe2de03(0x17f3)]);
+      }
+    }
+  }
+  for (const [_0x424c55, _0x2f3af1, _0x314004, _0x101634] of cU) {
+    const _0x293f31 = Math[_0xe2de03(0x1b0)](
+      _0x569870 - _0x424c55,
+      _0x1919b6 - _0x2f3af1,
+    );
+    _0x293f31 > _0x314004 + 1.3 ||
+      (_0x293f31 <= _0x314004
+        ? ((_0x475cdf -= Math["round"](
+            _0x101634 * (0x1 - (_0x293f31 / _0x314004) ** 0x2),
+          )),
+          (_0x4bd8e2 =
+            _0x5e7167 < 0.6 ? l[_0xe2de03(0x1386)] : l[_0xe2de03(0x1b9c)]))
+        : _0x5e7167 < 0.5 &&
+          ((_0x475cdf += 0x1), (_0x4bd8e2 = l[_0xe2de03(0x1386)])));
+  }
+  return {
+    h: Math[_0xe2de03(0x723)](0x4, Math["min"](cr - 0xa, _0x475cdf)),
+    surface: _0x4bd8e2,
+  };
+}
+const Ul = new jm(mf, uU, Un + 0x32),
+  Ux = (_0x4be345, _0x2b58c4) => Ul[_0x44a014(0x106d)](_0x4be345, _0x2b58c4),
+  Qm = new Map();
+function dU(_0x52238d, _0x55b359) {
+  const _0x1529df = _0x44a014;
+  return Ul[_0x1529df(0x1036)](_0x52238d, _0x55b359)
+    ? (Qm[_0x1529df(0xda9)](Ul[_0x1529df(0x14be)](_0x52238d, _0x55b359)) ??
+        null)
+    : null;
+}
+const Ky = (_0x545814, _0xe45693, _0x168210) => {
+  const _0x57e2a = _0x44a014;
+  Ul[_0x57e2a(0x1036)](_0x545814, _0xe45693) &&
+    Qm[_0x57e2a(0x1b41)](Ul["idx"](_0x545814, _0xe45693), _0x168210);
+};
+function mU(_0xd7a83e) {
+  const _0x561e27 = _0x44a014;
+  Ul["write"](
+    _0xd7a83e,
+    (_0x159690, _0x3ed2fa, _0x24449b, _0x19d09f, _0xf4bc6) =>
+      _0xf4bc6 === l[_0x561e27(0x1783)] || _0xf4bc6 === l[_0x561e27(0x1ecd)]
+        ? l[_0x561e27(0x1783)]
+        : _0x24449b > _0x19d09f - 0x3
+          ? l[_0x561e27(0x1386)]
+          : l[_0x561e27(0x1783)],
+    (_0x4d031b, _0x1129ee, _0x279ff7, _0x3a6bdd) => {
+      const _0x312e24 = _0x561e27;
+      if (_0x3a6bdd !== l["GRASS"]) return 0x0;
+      const _0x432fa0 = Hs(_0x4d031b, _0x1129ee) ? _0x4d031b : -_0x4d031b,
+        _0x17a2f9 = Hs(_0x4d031b, _0x1129ee) ? _0x1129ee : -_0x1129ee;
+      if (ji(_0x432fa0, _0x17a2f9, $x) || ji(_0x432fa0, _0x17a2f9, RT))
+        return 0x0;
+      const _0x2bbc71 = ys(_0x4d031b, _0x1129ee, 0x29);
+      return Math[_0x312e24(0x1fc4)](_0x1129ee) > 0xb0 ||
+        Math[_0x312e24(0x1fc4)](_0x4d031b) > 0xc8
+        ? 0x0
+        : _0x2bbc71 < 0.03
+          ? l["TALL_GRASS"]
+          : _0x2bbc71 < 0.039
+            ? [
+                l["FLOWER_YELLOW"],
+                l["FLOWER_WHITE"],
+                l["FLOWER_BLUE"],
+                l[_0x312e24(0x588)],
+                l[_0x312e24(0xb05)],
+              ][Math[_0x312e24(0x2f3)](ys(_0x4d031b, _0x1129ee, 0x2a) * 0x5)]
+            : 0x0;
+    },
+  );
+}

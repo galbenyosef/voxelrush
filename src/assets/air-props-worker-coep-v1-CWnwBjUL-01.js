@@ -1,0 +1,28 @@
+// air-props-worker-coep-v1-CWnwBjUL 01 — x55f568
+// Lines 1-26 of readable/assets/air-props-worker-coep-v1-CWnwBjUL.pretty.js (statement-aligned).
+const _0x1b29b1 = _0x56ee;
+(function (_0x41fa6, _0xe580e6) {
+  const _0x55f568 = _0x56ee,
+    _0x55ad25 = _0x41fa6();
+  while (!![]) {
+    try {
+      const _0xa794f7 =
+        (-parseInt(_0x55f568(0x2e7)) / 0x1) *
+          (parseInt(_0x55f568(0x405)) / 0x2) +
+        (-parseInt(_0x55f568(0x381)) / 0x3) *
+          (parseInt(_0x55f568(0x208)) / 0x4) +
+        (-parseInt(_0x55f568(0x3f2)) / 0x5) *
+          (parseInt(_0x55f568(0x313)) / 0x6) +
+        (-parseInt(_0x55f568(0x4d6)) / 0x7) *
+          (-parseInt(_0x55f568(0x2cd)) / 0x8) +
+        parseInt(_0x55f568(0x234)) / 0x9 +
+        (parseInt(_0x55f568(0x415)) / 0xa) *
+          (-parseInt(_0x55f568(0x38a)) / 0xb) +
+        parseInt(_0x55f568(0x386)) / 0xc;
+      if (_0xa794f7 === _0xe580e6) break;
+      else _0x55ad25["push"](_0x55ad25["shift"]());
+    } catch (_0x4e90a1) {
+      _0x55ad25["push"](_0x55ad25["shift"]());
+    }
+  }
+})(_0x499e, 0x86619);

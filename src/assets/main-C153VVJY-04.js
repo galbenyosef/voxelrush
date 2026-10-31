@@ -1,0 +1,27 @@
+// main-C153VVJY 04 — x36caf9
+// Lines 916-940 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+function Fl(_0x2d8465) {
+  const _0x6fd08b = _0x44a014;
+  let _0xa8af3f = 0x0,
+    _0x4dad29 = 0x0,
+    _0x2536cf = 0x0,
+    _0x196dbd = 0x0;
+  for (const _0x32c6e2 of _0x2d8465) {
+    const _0x36caf9 = Tf[_0x32c6e2];
+    _0x36caf9 &&
+      ((_0xa8af3f += _0x36caf9[_0x6fd08b(0x556)]),
+      (_0x4dad29 += _0x36caf9[_0x6fd08b(0x13e9)]),
+      (_0x2536cf += _0x36caf9[_0x6fd08b(0x673)]),
+      (_0x196dbd += _0x36caf9[_0x6fd08b(0xb8e)]));
+  }
+  return {
+    bonusHp: _0xa8af3f,
+    bulletResist: Math[_0x6fd08b(0x16e0)](0.78, _0x4dad29),
+    explodeResist: Math["min"](0.72, _0x2536cf),
+    fallResist: Math["min"](0.55, _0x196dbd),
+  };
+}
+function ry(_0x3ea04b) {
+  const _0x31d8c0 = _0x44a014;
+  return b2 + Fl(_0x3ea04b)[_0x31d8c0(0x556)];
+}

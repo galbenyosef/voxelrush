@@ -1,0 +1,311 @@
+// main-C153VVJY 66 — x2e646e
+// Lines 21953-22261 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+const y5 = {
+    owner: {
+      prefix: _0x44a014(0x12e2),
+      color: _0x44a014(0xede),
+      weight: _0x44a014(0x1bb8),
+    },
+    admin: {
+      prefix: _0x44a014(0x1c3b),
+      color: "#ff5555",
+      weight: _0x44a014(0x1bb8),
+    },
+    moderator: {
+      prefix: "[Moder]",
+      color: _0x44a014(0x960),
+      weight: _0x44a014(0x1bb8),
+    },
+    player: { prefix: "", color: _0x44a014(0x213a), weight: _0x44a014(0xeb1) },
+  },
+  A5 = [
+    _0x44a014(0x2065),
+    "social.friends",
+    _0x44a014(0xa78),
+    "travel.home",
+    _0x44a014(0xb14),
+    _0x44a014(0x2092),
+    "operations.play",
+    _0x44a014(0x1bca),
+  ],
+  c7 = {
+    player: A5,
+    moderator: [
+      ...A5,
+      "moderation.kick",
+      "moderation.ban",
+      "moderation.ban_ip",
+      _0x44a014(0x1e32),
+      "moderation.mute",
+      "moderation.unmute",
+      _0x44a014(0x1125),
+    ],
+  };
+function f7(_0xf28ff3, _0x13271b, _0x52aa58) {
+  const _0x2c289a = _0x44a014;
+  return _0x52aa58 === _0x2c289a(0x224c) ||
+    _0x52aa58 === _0x2c289a(0x2022) ||
+    _0x52aa58 === _0x2c289a(0x20f9)
+    ? _0xf28ff3 === _0x2c289a(0xbe9) || _0xf28ff3 === _0x2c289a(0x63d)
+    : _0xf28ff3 === "owner" || _0xf28ff3 === "admin"
+      ? !0x0
+      : _0x52aa58 === "operations.manage"
+        ? !0x1
+        : _0x13271b[_0x2c289a(0x175a)](_0x52aa58);
+}
+function hk(_0x42a051) {
+  const _0x2e646e = _0x44a014,
+    _0x4e8c7d = _0x42a051[_0x2e646e(0x48f)]()
+      [_0x2e646e(0x182e)]()
+      [_0x2e646e(0x1e42)](/^\//, "")
+      ["split"](/\s+/),
+    [_0x412062, _0x2eb711 = ""] = _0x4e8c7d;
+  if (
+    ["computer", _0x2e646e(0x1091), _0x2e646e(0x1dd1)][_0x2e646e(0x175a)](
+      _0x412062,
+    ) ||
+    (_0x412062 === _0x2e646e(0x1fa7) &&
+      [_0x2e646e(0x1cf), _0x2e646e(0x1091), "pc"][_0x2e646e(0x175a)](_0x2eb711))
+  )
+    return _0x2e646e(0x224c);
+  if (_0x412062[_0x2e646e(0x1f59)]("/")) return _0x2e646e(0x1340);
+  if (
+    _0x412062 === "tp" &&
+    (_0x4e8c7d["length"] === 0x3 || _0x4e8c7d[_0x2e646e(0x1715)] === 0x5)
+  )
+    return _0x2e646e(0x532);
+  const _0x36c7bc = {
+    help: "chat.basic",
+    report: _0x2e646e(0x2065),
+    dance: _0x2e646e(0x2065),
+    friends: "social.friends",
+    pay: "economy.pay",
+    home: _0x2e646e(0xe65),
+    sethome: _0x2e646e(0xe65),
+    spawn: "travel.home",
+    rtp: _0x2e646e(0xe65),
+    tpr: _0x2e646e(0xe65),
+    tpa: "travel.home",
+    tpc: _0x2e646e(0xe65),
+    voicerange: _0x2e646e(0x3d2),
+    shop: _0x2e646e(0xb14),
+    give: "player.give",
+    setbalance: "economy.set",
+    tp: "player.teleport",
+    tphere: _0x2e646e(0x532),
+    fly: _0x2e646e(0x14b3),
+    god: _0x2e646e(0x9e6),
+    gamemode: _0x2e646e(0x1744),
+    disguise: _0x2e646e(0x1daf),
+    vanish: _0x2e646e(0x2022),
+    noclip: _0x2e646e(0x20f9),
+    undisguise: "player.disguise",
+    kick: "moderation.kick",
+    ban: _0x2e646e(0xa71),
+    banip: _0x2e646e(0x9f0),
+    unban: "moderation.unban",
+    mute: "moderation.mute",
+    unmute: "moderation.unmute",
+    debug: _0x2e646e(0x7f3),
+    fx: _0x2e646e(0x7f3),
+    slowmo: _0x2e646e(0x7f3),
+    bombtest: _0x2e646e(0x7f3),
+  };
+  if (_0x36c7bc[_0x412062]) return _0x36c7bc[_0x412062];
+  if (
+    [_0x2e646e(0x1746), _0x2e646e(0x1d86)]["includes"](_0x412062) &&
+    ["", "status", _0x2e646e(0xd80)][_0x2e646e(0x175a)](_0x2eb711)
+  )
+    return _0x2e646e(0x2092);
+  if (_0x412062 === _0x2e646e(0x1eb4) && !_0x2eb711) return _0x2e646e(0x1bca);
+  const _0x79dff8 = {
+    mission: [
+      "",
+      "join",
+      _0x2e646e(0x21d5),
+      _0x2e646e(0x644),
+      _0x2e646e(0x1253),
+      _0x2e646e(0x1a4d),
+    ],
+    raid: [_0x2e646e(0x9ac), _0x2e646e(0x13d), _0x2e646e(0xbfb)],
+    defense: ["", _0x2e646e(0x9ac), _0x2e646e(0x282), "ready", "support"],
+    district: [
+      "",
+      _0x2e646e(0x9ac),
+      _0x2e646e(0x282),
+      _0x2e646e(0xbfb),
+      _0x2e646e(0xa33),
+    ],
+    evac: ["", _0x2e646e(0x9ac), _0x2e646e(0x112d)],
+    evacuation: ["", "status", _0x2e646e(0x112d)],
+  };
+  return _0x79dff8[_0x412062]
+    ? _0x79dff8[_0x412062][_0x2e646e(0x175a)](_0x2eb711)
+      ? "operations.play"
+      : "operations.manage"
+    : _0x2e646e(0x3d2);
+}
+function h7(_0x6beed1, _0x54becd = _0x44a014(0x17d0)) {
+  const _0x428da5 = _0x44a014,
+    _0x194f97 = y5[_0x54becd] ?? y5[_0x428da5(0x17d0)];
+  return _0x194f97[_0x428da5(0x8f9)]
+    ? _0x194f97[_0x428da5(0x8f9)] + "\x20" + _0x6beed1
+    : _0x6beed1;
+}
+const { env: Yr } = globalThis[_0x44a014(0x1a78)],
+  JA = Yr[_0x44a014(0x1e48)] === "1",
+  u7 = {
+    name: _0x44a014(0x21d9),
+    address: "",
+    maxPlayers: 0x14,
+    perPlayerVehicleLimit: 0xf,
+    discoverable: !0x0,
+    requireAuth: !JA && Yr["GAME_AUTH_REQUIRED"] !== "0",
+    trustLoopbackProxy: !0x1,
+    allowedOrigins: [],
+  },
+  Be = {
+    ...u7,
+    ...(!JA && Yr[_0x44a014(0xf1d)]
+      ? JSON["parse"](
+          _0x27cf81[_0x44a014(0x92d)](Yr[_0x44a014(0xf1d)], _0x44a014(0x258)),
+        )
+      : {}),
+  };
+if (
+  !Number[_0x44a014(0x167b)](Be["maxPlayers"]) ||
+  Be[_0x44a014(0x1b87)] < 0x1 ||
+  Be[_0x44a014(0x1b87)] > 0xff
+)
+  throw new Error(_0x44a014(0x104));
+if (
+  !Number[_0x44a014(0x167b)](Be[_0x44a014(0x141c)]) ||
+  Be[_0x44a014(0x141c)] < 0x1 ||
+  Be[_0x44a014(0x141c)] > 0x2710
+)
+  throw new Error(_0x44a014(0x10c8));
+for (const t of [_0x44a014(0x1c4d), _0x44a014(0x43c), _0x44a014(0x155c)])
+  if (typeof Be[t] != _0x44a014(0xc51)) throw new Error(_0x44a014(0x1a84) + t);
+if (
+  !JA &&
+  Be[_0x44a014(0x43c)] &&
+  (!Yr[_0x44a014(0x17ac)] || !Yr[_0x44a014(0x1f8a)])
+)
+  throw new Error(
+    "Central\x20authentication\x20requires\x20PLATFORM_API_URL\x20and\x20GAME_SERVER_KEY.\x20Use\x20GAME_AUTH_REQUIRED=0\x20only\x20for\x20isolated\x20development.",
+  );
+const Ps = !JA && !!Yr[_0x44a014(0x17ac)] && !!Yr["GAME_SERVER_KEY"];
+if (Ps) {
+  const t = new URL(Yr[_0x44a014(0x17ac)]);
+  if (
+    t[_0x44a014(0x167d)] !== _0x44a014(0x1f6a) &&
+    !(
+      t[_0x44a014(0x167d)] === "http:" &&
+      [_0x44a014(0x40e), "127.0.0.1", _0x44a014(0x3a4)][_0x44a014(0x175a)](
+        t[_0x44a014(0x1dee)],
+      )
+    )
+  )
+    throw new Error(
+      "PLATFORM_API_URL\x20requires\x20HTTPS\x20outside\x20loopback",
+    );
+  if (Yr["GAME_SERVER_KEY"][_0x44a014(0x1715)] < 0x20)
+    throw new Error("Invalid\x20game\x20server\x20key");
+}
+function ts(_0x49a741, _0xc0b626) {
+  const _0x271610 = _0x44a014;
+  return (
+    (!Be[_0x271610(0x43c)] && !_0x49a741[_0x271610(0xcfb)]) ||
+    (!!_0x49a741[_0x271610(0xcfb)] &&
+      f7(
+        _0x49a741[_0x271610(0xcfb)][_0x271610(0x110d)],
+        _0x49a741[_0x271610(0xcfb)][_0x271610(0x1c80)],
+        _0xc0b626,
+      ))
+  );
+}
+function uk(_0x3eefef) {
+  const _0x2f8774 = _0x44a014,
+    _0x4c6430 =
+      _0x3eefef?.[_0x2f8774(0xe50)][_0x2f8774(0xe85)]?.[_0x2f8774(0x1e42)](
+        /^::ffff:/,
+        "",
+      ) || _0x2f8774(0x8c8);
+  if (
+    Be[_0x2f8774(0x155c)] &&
+    [_0x2f8774(0x8c8), _0x2f8774(0xd01)]["includes"](_0x4c6430)
+  ) {
+    const _0xf82b0e = _0x3eefef?.[_0x2f8774(0x63a)][_0x2f8774(0x13a9)];
+    if (
+      typeof _0xf82b0e == _0x2f8774(0x18e4) &&
+      /^[0-9a-fA-F:.]+$/[_0x2f8774(0x1db2)](_0xf82b0e)
+    )
+      return _0xf82b0e;
+  }
+  return _0x4c6430;
+}
+async function es(_0x3a9bc0, _0x489558) {
+  const _0x3e3a3a = _0x44a014,
+    _0x29630e = await fetch(
+      Yr[_0x3e3a3a(0x17ac)] + _0x3e3a3a(0x1dfc) + _0x3a9bc0,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": _0x3e3a3a(0x9ce),
+          Authorization: _0x3e3a3a(0x18ac) + Yr[_0x3e3a3a(0x1f8a)],
+        },
+        body: JSON[_0x3e3a3a(0x2043)](_0x489558),
+        signal: AbortSignal[_0x3e3a3a(0x159f)](0x1388),
+      },
+    );
+  if (_0x29630e[_0x3e3a3a(0x9ac)] === 0xcc) return;
+  const _0x2700e4 = await _0x29630e["json"]();
+  if (!_0x29630e["ok"])
+    throw new Error(_0x2700e4["error"] || _0x3e3a3a(0x1689));
+  return _0x2700e4;
+}
+async function d7(_0x4bf5af, _0x29884d) {
+  const _0x28be6d = _0x44a014;
+  if (Be[_0x28be6d(0x43c)]) {
+    if (!_0x4bf5af) throw new Error(_0x28be6d(0x1c05));
+    return es(_0x28be6d(0x282), { ticket: _0x4bf5af, ip: uk(_0x29884d) });
+  }
+}
+function m7(_0x1a6543) {
+  const _0x109a2a = _0x44a014;
+  return {
+    name: _0x1a6543[_0x109a2a(0x35b)],
+    role: _0x1a6543[_0x109a2a(0xcfb)]?.["role"] || "player",
+  };
+}
+function p7(_0x1a6d84) {
+  const _0x3008ce = _0x44a014;
+  return (
+    _0x1a6d84[_0x3008ce(0xcfb)]?.["permissions"] ||
+    (Be[_0x3008ce(0x43c)] ? c7["player"] : ["*"])
+  );
+}
+function dx(_0x1eae9d) {
+  const _0x35ce5f = _0x44a014,
+    _0x4d31e6 = _0x1eae9d[_0x35ce5f(0x1f59)]("/"),
+    _0x446efb = [];
+  for (const _0x48c31d of _0x1eae9d[_0x35ce5f(0x1e42)](/\\/g, "/")["split"](
+    "/",
+  ))
+    !_0x48c31d ||
+      _0x48c31d === "." ||
+      (_0x48c31d === ".."
+        ? _0x446efb[_0x35ce5f(0x31e)]()
+        : _0x446efb[_0x35ce5f(0x2fb)](_0x48c31d));
+  return (
+    "" + (_0x4d31e6 ? "/" : "") + _0x446efb["join"]("/") ||
+    (_0x4d31e6 ? "/" : ".")
+  );
+}
+function E7(_0x3c65e9) {
+  return dx(_0x3c65e9);
+}
+function y7(..._0x2bab19) {
+  const _0x26d2d3 = _0x44a014;
+  return dx(_0x2bab19[_0x26d2d3(0x282)]("/"));
+}

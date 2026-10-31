@@ -1,0 +1,329 @@
+// main-C153VVJY 386 — x131290
+// Lines 151289-151615 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+function zQ(_0x69897d, _0x4979e8) {
+  const _0x38c3a8 = _0x44a014,
+    _0x38eebb = Vm(_0x69897d, _0x4979e8)[_0x38c3a8(0x1884)][0x0]?.["id"] ?? 0x0,
+    _0x26d3f7 = pn(_0x38eebb) || _0x38eebb;
+  return _0x26d3f7 === R[_0x38c3a8(0x1166)] ||
+    _0x26d3f7 === R[_0x38c3a8(0x501)] ||
+    _0x26d3f7 === R[_0x38c3a8(0xa86)]
+    ? _0x26d3f7
+    : void 0x0;
+}
+function lO(_0x1bcac1, _0x97affb, _0x2127aa, _0x3eca7f, _0x378082, _0x3f55c3) {
+  const _0x117838 = _0x44a014,
+    _0x11b6a0 = rl[_0x378082][_0x117838(0x20cc)],
+    _0x5c7e51 = fv(_0x3f55c3, _0x97affb),
+    _0x8f6d53 = {
+      combatRole: _0x11b6a0,
+      gun: zQ(_0x378082, _0x97affb),
+      aimT: 0x0,
+      id: _0x1bcac1,
+      ownerName: _0x3f55c3,
+      ownerPid: -0x1,
+      planet: D["EARTH"],
+      hostile: !0x1,
+      x: _0x2127aa["x"],
+      y: _0x2127aa["y"],
+      z: _0x2127aa["z"],
+      yaw: _0x3eca7f,
+      hp: hl,
+      armor: [...rl[_0x378082]["armor"]][_0x117838(0x1ca)](
+        (_0x4d0849) => _0x4d0849 > 0x0,
+      ),
+      targetPid: -0x1,
+      targetVehicleId: -0x1,
+      reloadT: 0x0,
+      fireCd: 0x0,
+      mag: Ye[_0x11b6a0][_0x117838(0xedf)],
+      spawnX: _0x2127aa["x"],
+      spawnZ: _0x2127aa["z"],
+      ...$f(),
+      front: {
+        senseT: Math[_0x117838(0x10b2)]() * 0.4,
+        strafeT: 0x0,
+        strafe: Math[_0x117838(0x10b2)]() < 0.5 ? -0x1 : 0x1,
+        targetKind: 0x0,
+        targetId: -0x1,
+        lostT: 0x0,
+        vx: 0x0,
+        vz: 0x0,
+        vy: 0x0,
+        checkX: _0x2127aa["x"],
+        checkZ: _0x2127aa["z"],
+        checkT: Math["random"](),
+        unstickT: 0x0,
+        unstickA: 0x0,
+        boardCheckT: 0x1 + Math[_0x117838(0x10b2)]() * 0x2,
+        skill: _0x5c7e51["skill"],
+        ace: _0x5c7e51[_0x117838(0xb39)],
+        stamina: 0x1,
+      },
+    };
+  return (
+    rt[_0x117838(0x1b41)](_0x8f6d53["id"], _0x8f6d53),
+    Ur[_0x117838(0x1b41)](_0x3f55c3, _0x8f6d53["id"]),
+    _0x8f6d53
+  );
+}
+const CQ = 0x20,
+  cO = 0.34,
+  fO = 0.9;
+let $N = 0x0;
+function vQ(_0x529972) {
+  const _0x57f81d = _0x44a014,
+    _0x1b7bc5 = j;
+  if (!(_0x529972 < $N || !_0x1b7bc5[_0x57f81d(0x19a8)] || Ke)) {
+    $N = _0x529972 + 0xea60;
+    for (const _0x27ca0e of [0x1, 0x2]) {
+      const _0x56984d = [];
+      for (const _0x2db9c5 of _0x1b7bc5[_0x57f81d(0x1990)][
+        _0x57f81d(0x642)
+      ]()) {
+        const _0x1b281a = rt[_0x57f81d(0xda9)](_0x2db9c5["id"]);
+        _0x2db9c5[_0x57f81d(0x8de)] === _0x27ca0e &&
+          _0x1b281a?.[_0x57f81d(0x1324)] &&
+          (_0x1b281a[_0x57f81d(0x1324)][_0x57f81d(0x2190)] ?? 0x0) > 0x2d &&
+          _0x56984d[_0x57f81d(0x2fb)](_0x1b281a);
+      }
+      if (_0x56984d[_0x57f81d(0x1715)] < 0x4) continue;
+      const _0x27e997 = (_0x2fa6db) => {
+        const _0x2d116b = _0x57f81d,
+          _0x1141c6 = _0x2fa6db["front"],
+          _0x12e2d2 = _0x1b7bc5[_0x2d116b(0x11b5)](
+            _0x2fa6db["id"],
+            _0x2fa6db["x"],
+            _0x2fa6db["z"],
+          ),
+          _0x5eb6b0 =
+            _0x12e2d2 && Sn
+              ? Sn[_0x2d116b(0xb54)](
+                  _0x12e2d2["id"],
+                  _0x2fa6db["x"],
+                  _0x2fa6db["z"],
+                )
+              : NaN;
+        return (
+          _0x2fa6db[_0x2d116b(0x19d2)] +
+          "\x20" +
+          _0x2fa6db["x"]["toFixed"](0x1) +
+          "," +
+          _0x2fa6db["y"][_0x2d116b(0x1fef)](0x1) +
+          "," +
+          _0x2fa6db["z"][_0x2d116b(0x1fef)](0x1) +
+          "\x20→\x20" +
+          (_0x12e2d2?.["id"] ?? "-") +
+          _0x2d116b(0x1ea0) +
+          (Number["isFinite"](_0x5eb6b0)
+            ? Math[_0x2d116b(0x1f96)](_0x5eb6b0)
+            : "none") +
+          _0x2d116b(0x1f23) +
+          _0x1141c6[_0x2d116b(0xeff)] +
+          ":" +
+          _0x1141c6[_0x2d116b(0x2038)] +
+          _0x2d116b(0x1845) +
+          (_0x1141c6["board"] ?? "-") +
+          (L1["hazard"](_0x2fa6db["x"], _0x2fa6db["y"] + 0.1, _0x2fa6db["z"])
+            ? "\x20in\x20a\x20fence"
+            : "") +
+          (Tm(_0x2fa6db) ? _0x2d116b(0x87d) : "")
+        );
+      };
+      console["log"](
+        _0x57f81d(0x1e93) +
+          _0x56984d[_0x57f81d(0x1715)] +
+          _0x57f81d(0x2143) +
+          _0x27ca0e +
+          _0x57f81d(0x1c25) +
+          (Di ?? "-") +
+          _0x57f81d(0x1483) +
+          _0x56984d[_0x57f81d(0x473)](0x0, 0x4)
+            [_0x57f81d(0x73a)](_0x27e997)
+            ["join"](_0x57f81d(0x3eb)),
+      );
+    }
+  }
+}
+let U0 = 0x0;
+function DQ(_0x2362b4) {
+  const _0x5b8edf = _0x44a014;
+  if (!j || Di !== JG || j[_0x5b8edf(0x19b8)] !== _0x5b8edf(0xfcf)) {
+    U0 = 0x0;
+    return;
+  }
+  if (
+    (U0 || (U0 = _0x2362b4 + 0xfa0 + Math["random"]() * 0xfa0), _0x2362b4 < U0)
+  )
+    return;
+  U0 =
+    _0x2362b4 +
+    (Yp[_0x5b8edf(0xee2)] +
+      Math[_0x5b8edf(0x10b2)]() *
+        (Yp[_0x5b8edf(0x21c1)] - Yp[_0x5b8edf(0xee2)])) *
+      0x3e8;
+  const _0x467bbf = j[_0x5b8edf(0x1cb3)](),
+    _0x5f473b = _0x467bbf[_0x5b8edf(0x1ca)](
+      (_0x290da8) =>
+        _0x290da8[0x3] === 0x1 ||
+        (_0x290da8[0x2] > 0x0 && _0x290da8[0x2] < 0x64),
+    ),
+    _0x1b9119 =
+      _0x5f473b["length"] && Math[_0x5b8edf(0x10b2)]() < 0.7
+        ? _0x5f473b
+        : _0x467bbf,
+    _0x2b8171 =
+      _0x1b9119[
+        Math[_0x5b8edf(0x2f3)](Math["random"]() * _0x1b9119[_0x5b8edf(0x1715)])
+      ];
+  if (!_0x2b8171) return;
+  const _0x8788c8 = Math["random"]() * Math["PI"] * 0x2,
+    _0x638569 = 0x6 + Math["random"]() * 0x10;
+  Ze(
+    new F(C[_0x5b8edf(0x2186)])
+      ["u8"](Xh[_0x5b8edf(0x1be8)])
+      [_0x5b8edf(0x1088)](
+        _0x2b8171[0x4] + Math[_0x5b8edf(0x12df)](_0x8788c8) * _0x638569,
+      )
+      [_0x5b8edf(0x1088)](
+        _0x2b8171[0x6] + Yp["HEIGHT"] + Math["random"]() * 0x6,
+      )
+      [_0x5b8edf(0x1088)](
+        _0x2b8171[0x5] + Math[_0x5b8edf(0x1fcd)](_0x8788c8) * _0x638569,
+      ),
+  );
+}
+function BQ() {
+  const _0x131290 = _0x44a014;
+  if (!j) return;
+  const _0x227abb = Date["now"]();
+  if ((J % 0x5 === 0x0 && DQ(_0x227abb), J % Bt === 0x0)) {
+    (vQ(_0x227abb), Pt && IQ(_0x227abb));
+    for (const _0x1d516b of rc)
+      (_0x1d516b[_0x131290(0x8ac)] >= 0x0 &&
+        W[_0x131290(0x97a)](_0x1d516b[_0x131290(0x8ac)])) ||
+        (_0x1d516b[_0x131290(0x8ac)] >= 0x0 &&
+          (ze["delete"](_0x1d516b[_0x131290(0x8ac)]),
+          (_0x1d516b[_0x131290(0x8ac)] = -0x1),
+          (_0x1d516b[_0x131290(0xa51)] = _0x227abb + 0xea60)),
+        _0x227abb >= _0x1d516b["respawnAt"] &&
+          j[_0x131290(0x19b8)] !== _0x131290(0x1a7) &&
+          jC(_0x1d516b));
+    for (const [_0x35c852, _0x14a50c] of ze) {
+      const _0x2c749c = W[_0x131290(0xda9)](_0x35c852),
+        _0x4a0b92 = j["arena"]["hq"][_0x14a50c];
+      if (!_0x2c749c || _0x2c749c["hp"] <= 0x0) continue;
+      const _0x4af88c = $t(_0x2c749c["type"]) ? cc[_0x14a50c] : null,
+        _0x38c57e =
+          !!_0x4af88c &&
+          Math["hypot"](
+            _0x2c749c["x"] - _0x4af88c["x"],
+            _0x2c749c["z"] - _0x4af88c["z"],
+          ) < _0x4af88c["r"] &&
+          _0x2c749c["y"] < _0x4af88c["y"] + _0x4af88c["climb"];
+      if (
+        _0x4af88c &&
+        !_0x38c57e &&
+        _0x2c749c[_0x131290(0x1bc6)] === -0x1 &&
+        !_0x2c749c[_0x131290(0x9f1)]["length"] &&
+        !xe[_0x131290(0x97a)](_0x35c852) &&
+        !Ta(_0x2c749c)
+      ) {
+        const _0x2aa1c2 = bl["get"](_0x35c852);
+        if (_0x2aa1c2 !== void 0x0 && _0x227abb - _0x2aa1c2 > 0x9c40) {
+          lc(_0x2c749c);
+          const _0x2a1709 = rc[_0x131290(0xf90)](
+            (_0x16f81b) => _0x16f81b["vid"] === _0x35c852,
+          );
+          _0x2a1709 &&
+            ((_0x2a1709[_0x131290(0x8ac)] = -0x1),
+            (_0x2a1709[_0x131290(0xa51)] = _0x227abb + 0x7530));
+          continue;
+        }
+      }
+      if (!(_0x2c749c["hp"] >= (an[_0x2c749c[_0x131290(0x1556)]] ?? 0x0))) {
+        if (_0x38c57e) {
+          ((_0x2c749c["hp"] = Math[_0x131290(0x16e0)](
+            an[_0x2c749c[_0x131290(0x1556)]],
+            _0x2c749c["hp"] +
+              Math[_0x131290(0x2af)](
+                an[_0x2c749c["type"]] * (Ta(_0x2c749c) ? 0.07 : 0.05),
+              ),
+          )),
+            Ot(
+              _0x2c749c,
+              new F(C[_0x131290(0x1d11)])
+                [_0x131290(0x1e72)](_0x2c749c["id"])
+                [_0x131290(0x1e72)](_0x2c749c["hp"]),
+            ),
+            (re = !0x0));
+          continue;
+        }
+        Math["hypot"](
+          _0x2c749c["x"] - _0x4a0b92["x"],
+          _0x2c749c["z"] - _0x4a0b92["z"],
+        ) > CQ ||
+          _0x2c749c["y"] -
+            B[_0x131290(0x878)](
+              _0x2c749c["x"],
+              _0x2c749c["z"],
+              _0x2c749c["y"] + 0x1,
+            ) >
+            0x3 ||
+          ((_0x2c749c["hp"] = Math[_0x131290(0x16e0)](
+            an[_0x2c749c["type"]],
+            _0x2c749c["hp"] +
+              Math[_0x131290(0x2af)](an[_0x2c749c[_0x131290(0x1556)]] * 0.04),
+          )),
+          Ot(
+            _0x2c749c,
+            new F(C[_0x131290(0x1d11)])
+              ["u16"](_0x2c749c["id"])
+              [_0x131290(0x1e72)](_0x2c749c["hp"]),
+          ),
+          (re = !0x0));
+      }
+    }
+    for (const _0x17a93e of G[_0x131290(0x642)]()) {
+      const _0x209baf = Ec(_0x17a93e);
+      !_0x209baf ||
+        !_0x17a93e["alive"] ||
+        !j[_0x131290(0x19a8)] ||
+        !j["enemyHqAt"](_0x209baf, _0x17a93e["x"], _0x17a93e["z"]) ||
+        ((cn = null),
+        _n(
+          _0x17a93e,
+          0x12,
+          void 0x0,
+          _0x17a93e["language"] === "en"
+            ? _0x131290(0x2024)
+            : _0x131290(0x17b7),
+          _0x131290(0x1fe),
+        ),
+        P(
+          0x2,
+          _0x17a93e[_0x131290(0x177)] === "en"
+            ? _0x131290(0x1463)
+            : "Запретная\x20зона\x20—\x20покиньте\x20вражеский\x20штаб!",
+          _0x17a93e,
+        ));
+    }
+    for (const _0x96bba9 of [...j[_0x131290(0x1990)][_0x131290(0x642)]()])
+      rt[_0x131290(0x97a)](_0x96bba9["id"]) ||
+        Qs["has"](_0x96bba9["id"]) ||
+        (Ur[_0x131290(0x367)](_0x96bba9[_0x131290(0x35b)]),
+        Ri &&
+          console[_0x131290(0x1ed0)](
+            _0x131290(0x1773) + _0x96bba9["name"] + _0x131290(0xf55),
+          ),
+        j[_0x131290(0x14a5)](
+          _0x96bba9["id"],
+          { kind: "bot", id: -0x1, name: "" },
+          _0x131290(0x10a7),
+          !0x1,
+          { x: 0x0, y: -0x63, z: 0x0 },
+        ));
+    (stt(_0x227abb), _tt(_0x227abb), lv && PQ());
+  }
+}
+const lv = Ft[_0x44a014(0xb7b)] || "";
+let KN = null;

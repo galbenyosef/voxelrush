@@ -1,0 +1,289 @@
+// main-C153VVJY 205 — x44a014
+// Lines 80056-80342 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+const AW = {
+    id: _0x44a014(0x133c),
+    half: Dr,
+    border: ez,
+    height: Yx,
+    build: yW,
+    pads: [
+      { type: _0x44a014(0x12f7), along: 0x12, side: -0xc },
+      { type: _0x44a014(0x53d), along: 0x13, side: 0x0 },
+      { type: "tank", along: 0x12, side: 0xc },
+      { type: "heli", along: -0x2, side: -0x17 },
+      { type: "heli", along: -0x2, side: 0x17 },
+    ],
+    camo: Ir[_0x44a014(0x385)],
+    times: [0x898, 0x1770, 0x2260, 0x2968],
+    weather: [0x0, 0x0, 0x1],
+    hqStyle: {
+      surface: l[_0x44a014(0x17f3)],
+      apron: l[_0x44a014(0x1b9c)],
+      floor: l[_0x44a014(0xbc6)],
+      floorAccent: Ct,
+    },
+    flagSurface: l[_0x44a014(0xbc6)],
+    tankGoals: {
+      C: [
+        { x: -0x20, z: 0xa, r: 0x3 },
+        { x: 0x20, z: -0xa, r: 0x3 },
+        { x: -0xc, z: -0x28, r: 0x3 },
+        { x: 0xc, z: 0x28, r: 0x3 },
+      ],
+      B: [
+        { x: -0x3e, z: -0x46, r: 0x3 },
+        { x: -0x26, z: -0x5c, r: 0x3 },
+        { x: -0xe, z: -0x48, r: 0x3 },
+      ],
+      D: [
+        { x: 0x3e, z: 0x46, r: 0x3 },
+        { x: 0x26, z: 0x5c, r: 0x3 },
+        { x: 0xe, z: 0x48, r: 0x3 },
+      ],
+    },
+    approaches: {
+      C: [
+        { x: -0x14, z: -0x28 },
+        { x: 0x14, z: 0x28 },
+        { x: -0x9, z: 0x28 },
+        { x: 0x9, z: -0x28 },
+      ],
+      A: [
+        { x: -0x3f, z: 0x2 },
+        { x: -0x42, z: 0x3e },
+        { x: -0x2a, z: 0x1e },
+      ],
+      E: [
+        { x: 0x3f, z: -0x2 },
+        { x: 0x42, z: -0x3e },
+        { x: 0x2a, z: -0x1e },
+      ],
+      B: [
+        { x: -0x26, z: -0x61 },
+        { x: -0x4, z: -0x4a },
+        { x: -0x40, z: -0x46 },
+      ],
+      D: [
+        { x: 0x26, z: 0x61 },
+        { x: 0x4, z: 0x4a },
+        { x: 0x40, z: 0x46 },
+      ],
+    },
+    heliCruise: 0x18,
+    heliAvoid: [
+      { x: OT["x"], z: OT["z"], r: 0x9 },
+      { x: 0x24, z: 0x28, r: 0x9 },
+      { x: Bi["x"], z: Bi["z"], r: 0x15 },
+      { x: 0x26, z: 0x46, r: 0x15 },
+      { x: -0xe, z: -0x38, r: 0x5 },
+      { x: 0xe, z: 0x38, r: 0x5 },
+    ],
+    navRule: _0x44a014(0x1d5a),
+    navDeck: WU,
+  },
+  gW = 0x96,
+  MW = {
+    id: "river",
+    half: Rh,
+    border: Oi,
+    height: hm,
+    build: l$,
+    pads: [
+      { type: "tank", along: 0x11, side: 0x0 },
+      { type: "tank", along: 0xf, side: 0xb },
+      { type: "heli", along: 0x1, side: -0x16 },
+      { type: _0x44a014(0x1b2e), along: 0x1, side: 0x16 },
+    ],
+    times: [0x640, 0x1450, 0x2008, 0x2a94, 0xd48],
+  },
+  RW = {
+    id: _0x44a014(0x1cb9),
+    half: Nn,
+    border: ef,
+    height: Ih,
+    build: k$,
+    pads: [
+      { type: _0x44a014(0x12f7), along: 0x13, side: -0xc },
+      { type: "btr", along: 0x15, side: 0x0 },
+      { type: _0x44a014(0x12f7), along: 0x13, side: 0xc },
+      { type: "heli", along: -0x2, side: -0x18 },
+      { type: "heli", along: -0x2, side: 0x18 },
+      { type: "heli", along: -0xf, side: 0x0 },
+    ],
+    camo: Ir[_0x44a014(0x1742)],
+    times: [0x960, 0x15e0, 0x2198, 0x2904],
+    hqStyle: {
+      wall: l["SANDSTONE_SMOOTH"],
+      floor: l[_0x44a014(0xbc6)],
+      floorAccent: l[_0x44a014(0x6a9)],
+      apron: l["GRAVEL"],
+      surface: l[_0x44a014(0x51e)],
+      tower: l[_0x44a014(0x886)],
+    },
+    flagSurface: l[_0x44a014(0x51e)],
+    tankGoals: {
+      C: [
+        { x: -0x1c, z: 0x0, r: 0x5 },
+        { x: 0x1c, z: 0x0, r: 0x5 },
+        { x: 0x0, z: -0x1e, r: 0x5 },
+        { x: 0x0, z: 0x1e, r: 0x5 },
+      ],
+      A: [
+        { x: -0x72, z: 0x13, r: 0x5 },
+        { x: -0x5c, z: 0x28, r: 0x5 },
+        { x: -0x72, z: 0x3d, r: 0x5 },
+      ],
+      E: [
+        { x: 0x72, z: -0x13, r: 0x5 },
+        { x: 0x5c, z: -0x28, r: 0x5 },
+        { x: 0x72, z: -0x3d, r: 0x5 },
+      ],
+    },
+    approaches: {
+      C: [
+        { x: -0x27, z: -0x1e },
+        { x: 0x27, z: 0x1e },
+        { x: 0x27, z: -0x1e },
+        { x: -0x27, z: 0x1e },
+      ],
+      B: [
+        { x: -0x4e, z: -0x6e },
+        { x: 0x8, z: -0x74 },
+      ],
+      D: [
+        { x: 0x4e, z: 0x6e },
+        { x: -0x8, z: 0x74 },
+      ],
+      A: [
+        { x: -0x64, z: 0x3e },
+        { x: -0x4c, z: 0x8 },
+      ],
+      E: [
+        { x: 0x64, z: -0x3e },
+        { x: 0x4c, z: -0x8 },
+      ],
+    },
+    heliCruise: 0x18,
+    navRule: "lowest",
+    navDeck: S4,
+    sturdy: (_0xcc8516, _0x4e9030, _0x473c82) => {
+      const _0x5acebb = S4(_0xcc8516, _0x473c82);
+      return _0x5acebb !== null && _0x4e9030 <= _0x5acebb + 0x1 ? gW : 0x0;
+    },
+  },
+  qx = {
+    river: MW,
+    kavir: RW,
+    frost: eK,
+    city: CL,
+    cosmo: JK,
+    pass: NU,
+    haunt: CU,
+    chernobyl: AW,
+  };
+function SW(_0x2fa64e, _0x3ab121 = Date["now"](), _0x245dc5) {
+  const _0x5163c4 = _0x44a014,
+    _0x48f2ff = (_0x2fa64e ?? "")
+      [_0x5163c4(0x47b)](",")
+      [_0x5163c4(0x73a)]((_0x146e13) => _0x146e13[_0x5163c4(0x48f)]())
+      [_0x5163c4(0x1ca)](Zk),
+    _0x5d2b61 = _0x48f2ff["length"]
+      ? [...new Set(_0x48f2ff)]
+      : Xk[_0x5163c4(0x1ca)]((_0xadf871) => !qx[_0xadf871]["exclusive"]),
+    _0x35d80e = _0x5d2b61["filter"]((_0x2ce6d9) =>
+      eL(_0x2ce6d9, _0x3ab121, _0x245dc5),
+    );
+  return _0x35d80e[_0x5163c4(0x1715)] ? _0x35d80e : _0x5d2b61;
+}
+const wT = 0x7e,
+  TW = (_0x2b507e) => fo + Wk[_0x2b507e],
+  mz = {
+    wall: l["HAY_BALE"],
+    floor: l[_0x44a014(0x6a9)],
+    floorAccent: l[_0x44a014(0xbc6)],
+    apron: l[_0x44a014(0x1b9c)],
+    surface: l[_0x44a014(0x17f3)],
+    tower: l[_0x44a014(0x6a9)],
+  };
+function jx(
+  _0x5786ad,
+  _0x226176,
+  _0xb81e76,
+  _0x1ed76a,
+  _0x4e88c0,
+  _0x3eec13,
+  _0x4b0106,
+) {
+  const _0xcc7edf = _0x44a014;
+  for (
+    let _0x57f3a2 = -_0x4e88c0 - _0x3eec13;
+    _0x57f3a2 <= _0x4e88c0 + _0x3eec13;
+    _0x57f3a2++
+  )
+    for (
+      let _0x266267 = -_0x4e88c0 - _0x3eec13;
+      _0x266267 <= _0x4e88c0 + _0x3eec13;
+      _0x266267++
+    ) {
+      const _0x14a827 =
+        Math[_0xcc7edf(0x723)](
+          Math[_0xcc7edf(0x1fc4)](_0x57f3a2),
+          Math[_0xcc7edf(0x1fc4)](_0x266267),
+        ) - _0x4e88c0;
+      if (_0x14a827 <= 0x0 || _0x14a827 > _0x3eec13) continue;
+      const _0x23ff40 = _0x226176 + _0x57f3a2,
+        _0x221fd0 = _0xb81e76 + _0x266267;
+      let _0x357bd6 = _0x1ed76a;
+      for (
+        let _0xe8d103 = Math["min"](wT, _0x1ed76a + 0xc);
+        _0xe8d103 > 0x1;
+        _0xe8d103--
+      ) {
+        const _0x3f1f29 = _0x5786ad["getBlock"](
+          _0x23ff40,
+          _0xe8d103,
+          _0x221fd0,
+        );
+        if (gt(_0x3f1f29) && !ge(_0x3f1f29) && !xn(_0x3f1f29)) {
+          _0x357bd6 = _0xe8d103;
+          break;
+        }
+      }
+      const _0x22a445 = Math["round"](
+          _0x1ed76a + (_0x357bd6 - _0x1ed76a) * (_0x14a827 / (_0x3eec13 + 0x1)),
+        ),
+        _0x4a2e9d = Math[_0xcc7edf(0x723)](
+          _0x1ed76a - _0x14a827,
+          Math[_0xcc7edf(0x16e0)](_0x1ed76a + _0x14a827, _0x22a445),
+        );
+      for (
+        let _0x3b2812 = _0x4a2e9d + 0x1;
+        _0x3b2812 <= Math[_0xcc7edf(0x723)](_0x357bd6, _0x4a2e9d) + 0x8;
+        _0x3b2812++
+      ) {
+        const _0x3156ae = _0x5786ad[_0xcc7edf(0xcdd)](
+          _0x23ff40,
+          _0x3b2812,
+          _0x221fd0,
+        );
+        (gt(_0x3156ae) || ge(_0x3156ae) || xn(_0x3156ae)) &&
+          _0x5786ad[_0xcc7edf(0x1f7f)](
+            _0x23ff40,
+            _0x3b2812,
+            _0x221fd0,
+            l[_0xcc7edf(0x1ff6)],
+          );
+      }
+      for (
+        let _0x2f95e7 = Math[_0xcc7edf(0x16e0)](_0x357bd6, _0x4a2e9d);
+        _0x2f95e7 <= _0x4a2e9d;
+        _0x2f95e7++
+      )
+        _0x5786ad["setBlock"](
+          _0x23ff40,
+          _0x2f95e7,
+          _0x221fd0,
+          _0x2f95e7 === _0x4a2e9d ? _0x4b0106 : l[_0xcc7edf(0x1386)],
+        );
+    }
+}

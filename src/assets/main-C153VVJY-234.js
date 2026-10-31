@@ -1,0 +1,291 @@
+// main-C153VVJY 234 — x55afd8
+// Lines 87770-88058 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+function zV() {
+  const _0x55afd8 = _0x44a014;
+  return Eg([
+    {
+      path: [
+        "n1",
+        _0x55afd8(0x4c8),
+        _0x55afd8(0x2246),
+        "HA",
+        _0x55afd8(0x16fd),
+        _0x55afd8(0x1eb9),
+      ],
+    },
+    {
+      path: [
+        "n1",
+        "oc1",
+        "lg1",
+        _0x55afd8(0x17a8),
+        "HT",
+        _0x55afd8(0x902),
+        _0x55afd8(0xda1),
+        _0x55afd8(0x1eb9),
+      ],
+      weight: -0.5,
+    },
+    {
+      path: [
+        "n1",
+        _0x55afd8(0x4c8),
+        "bt1",
+        "lg1",
+        "HA",
+        _0x55afd8(0x16fd),
+        _0x55afd8(0x1eb9),
+      ],
+      weight: 0.5,
+    },
+    {
+      path: [
+        "n1",
+        _0x55afd8(0x4c8),
+        _0x55afd8(0x2246),
+        "HA",
+        "BR",
+        "GN",
+        "PN",
+        "gw2",
+        _0x55afd8(0x1488),
+      ],
+      weight: -0.5,
+    },
+    {
+      path: [
+        _0x55afd8(0x4b0),
+        _0x55afd8(0x1330),
+        _0x55afd8(0x10a4),
+        "GN",
+        _0x55afd8(0x6a1),
+        _0x55afd8(0x9fa),
+        _0x55afd8(0x16fd),
+      ],
+      weight: -0x1,
+      close: !0x0,
+    },
+    {
+      path: [
+        "ml1",
+        _0x55afd8(0x1330),
+        _0x55afd8(0x5a4),
+        _0x55afd8(0x1330),
+        "gn1",
+        "GN",
+        _0x55afd8(0x6a1),
+        _0x55afd8(0x7cd),
+        _0x55afd8(0x1488),
+      ],
+      weight: -0x1,
+    },
+    {
+      path: [
+        _0x55afd8(0x4b0),
+        _0x55afd8(0xed3),
+        _0x55afd8(0x1c6b),
+        "PN",
+        _0x55afd8(0x2064),
+        _0x55afd8(0x7cd),
+        "ml2",
+      ],
+      weight: 0.5,
+    },
+    {
+      path: [
+        _0x55afd8(0x4b0),
+        "gw1",
+        _0x55afd8(0x1e57),
+        "GN",
+        _0x55afd8(0x6a1),
+        "gw2",
+        "ml2",
+      ],
+      weight: 0x1,
+    },
+    {
+      path: [
+        _0x55afd8(0x4b0),
+        _0x55afd8(0xed3),
+        _0x55afd8(0x20d7),
+        "GS",
+        "PS",
+        _0x55afd8(0x1c6a),
+        "gw2",
+        "ml2",
+      ],
+      weight: 0.5,
+    },
+    {
+      path: [
+        _0x55afd8(0x4b0),
+        "la1",
+        _0x55afd8(0xd08),
+        "SF",
+        _0x55afd8(0x54a),
+        _0x55afd8(0x1bde),
+        _0x55afd8(0x1488),
+      ],
+      weight: -0x1,
+    },
+    {
+      path: ["s1", _0x55afd8(0xd08), "dn1", "DJ", "dn2", _0x55afd8(0x54a)],
+      close: !0x0,
+    },
+    {
+      path: [
+        "s1",
+        _0x55afd8(0x8aa),
+        "dw1",
+        "DJ",
+        _0x55afd8(0x392),
+        _0x55afd8(0x8b4),
+      ],
+      close: !0x0,
+    },
+    {
+      path: [
+        "s1",
+        "mc1",
+        "st1",
+        "SF",
+        "GS",
+        "PS",
+        _0x55afd8(0x1c6a),
+        _0x55afd8(0x7cd),
+        _0x55afd8(0x1488),
+      ],
+    },
+  ]);
+}
+function CV(_0x5845e5) {
+  const _0x3202d3 = _0x44a014,
+    _0x45aa8f = new hV();
+  (mV(_0x45aa8f), pV(_0x5845e5, _0x45aa8f));
+  const _0x8d481d = new TV(_0x5845e5, _0x45aa8f);
+  RV(_0x8d481d);
+  const _0x299713 = xV(_0x8d481d);
+  for (const _0x5e98be of [-0x1, 0x1])
+    ((_0x8d481d["s"] = _0x5e98be),
+      _V(_0x8d481d),
+      OV(_0x8d481d),
+      wV(_0x8d481d),
+      IV(_0x8d481d));
+  return (
+    NV(_0x8d481d),
+    SV(_0x8d481d),
+    kV(_0x8d481d),
+    {
+      hq: { 0x1: { x: -0x34, y: Lt, z: 0x0 }, 0x2: { x: 0x34, y: Lt, z: 0x0 } },
+      spawns: _0x299713,
+      depots: {
+        0x1: { x: -0x38 + 0.5, y: Lt, z: 0.5 },
+        0x2: { x: 0x37 + 0.5, y: Lt, z: 0.5 },
+      },
+      zones: LV(_0x45aa8f),
+      lanes: zV(),
+      floorAt: (_0x347d55, _0x4a9d6b) =>
+        _0x45aa8f[_0x3202d3(0x1036)](_0x347d55, _0x4a9d6b) &&
+        _0x45aa8f[_0x3202d3(0x335)][
+          _0x45aa8f[_0x3202d3(0x14be)](_0x347d55, _0x4a9d6b)
+        ] === Bo
+          ? _0x45aa8f[_0x3202d3(0x1220)](_0x347d55, _0x4a9d6b)
+          : null,
+    }
+  );
+}
+const vV = {
+    id: _0x44a014(0x1756),
+    half: eo,
+    border: fV,
+    build: CV,
+    safeRadius: 0x9,
+    times: [0x1450, 0x2580, 0x960, 0x2c24],
+  },
+  Ws = 0x50,
+  no = 0x40,
+  DV = 0x3e,
+  Yy = 0x28,
+  $ = Yy + 0x1,
+  Ci = $ - 0x2,
+  $c = $ - 0x5,
+  Wt = (_0x4a3153) => fo + _0x4a3153,
+  wt = {
+    white: 0x0,
+    orange: 0x1,
+    yellow: 0x4,
+    lime: 0x5,
+    pink: 0x6,
+    lightgray: 0x8,
+    cyan: 0x9,
+    blue: 0xb,
+    brown: 0xc,
+    green: 0xd,
+    black: 0xf,
+  },
+  BV = { 0x1: 0x3, 0x2: 0xe },
+  we = Wt(wt[_0x44a014(0x1dd0)]),
+  zn = l["SANDSTONE_SMOOTH"],
+  Ao = l[_0x44a014(0x14f6)],
+  Tr = l["POLISHED_STONE"],
+  Dn = l[_0x44a014(0x6a9)];
+class PV extends mg {
+  [_0x44a014(0x1929)] = new Int16Array(
+    this[_0x44a014(0x1c1e)] * this[_0x44a014(0x1c1e)],
+  );
+  [_0x44a014(0x16e3)] = new Uint8Array(
+    this[_0x44a014(0x1c1e)] * this[_0x44a014(0x1c1e)],
+  );
+  [_0x44a014(0x11e3)] = new Int16Array(
+    this[_0x44a014(0x1c1e)] * this[_0x44a014(0x1c1e)],
+  );
+  constructor() {
+    super(Ws, $);
+  }
+  ["mark"](_0x2ce337, _0x21fa29, _0x39fdbe, _0x275565, _0x361304, _0x5c7933) {
+    const _0x4566d5 = _0x44a014;
+    for (const [_0x5b225c, _0x48d447] of [
+      [_0x21fa29, _0x275565],
+      [-0x1 - _0x275565, -0x1 - _0x21fa29],
+    ])
+      for (let _0x44dea6 = _0x5b225c; _0x44dea6 <= _0x48d447; _0x44dea6++)
+        for (let _0x2ab99b = _0x39fdbe; _0x2ab99b <= _0x361304; _0x2ab99b++)
+          this[_0x4566d5(0x1036)](_0x44dea6, _0x2ab99b) &&
+            (_0x2ce337[this[_0x4566d5(0x14be)](_0x44dea6, _0x2ab99b)] =
+              _0x5c7933);
+  }
+  [_0x44a014(0x7c7)](_0x354a02, _0x59533f) {
+    return (
+      _0x354a02 >= -no && _0x354a02 < no && _0x59533f >= -no && _0x59533f < no
+    );
+  }
+}
+const HV = { [-0x33]: 0x2, [-0x32]: 0x4, [-0x31]: 0x5 },
+  yz = (_0x2191de) =>
+    _0x2191de < -0x33 || _0x2191de > -0x26 ? 0x0 : (HV[_0x2191de] ?? 0x6);
+function bV(_0x42e8be, _0x1cb4a3) {
+  const _0x2b73d9 = _0x44a014,
+    _0x5f54ef = Ht(_0x42e8be >> 0x1, _0x1cb4a3 >> 0x1, 0x5a) * 2.2,
+    _0x38264d = Math[_0x2b73d9(0x1b0)](
+      _0x42e8be + 0x4b,
+      (_0x1cb4a3 + 0x41) * 1.15,
+    );
+  if (_0x38264d < 0x13) {
+    const _0x2553a9 = $ - 0x3 + (0x13 - _0x38264d) * 0.95 + _0x5f54ef;
+    if (_0x2553a9 > Ci + 0x1) return Math[_0x2b73d9(0x1f96)](_0x2553a9);
+  }
+  const _0x5e97dc = Math[_0x2b73d9(0x1b0)](_0x42e8be + 0x1f, _0x1cb4a3 + 0x47);
+  if (_0x5e97dc < 5.5) {
+    const _0x510a9c = $ - 0x2 + (5.5 - _0x5e97dc) * 1.1 + _0x5f54ef * 0.5;
+    if (_0x510a9c > Ci + 0x1) return Math[_0x2b73d9(0x1f96)](_0x510a9c);
+  }
+  return _0x1cb4a3 >= no
+    ? Math["round"](
+        $ +
+          0x9 +
+          (_0x1cb4a3 - no) * 1.25 +
+          _0x5f54ef +
+          (_0x42e8be > -0xa ? (_0x42e8be + 0xa) * 0.35 : 0x0),
+      )
+    : 0x0;
+}

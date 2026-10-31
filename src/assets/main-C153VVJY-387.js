@@ -1,0 +1,318 @@
+// main-C153VVJY 387 — x585ca0
+// Lines 151616-151931 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+function PQ() {
+  const _0x585ca0 = _0x44a014,
+    _0x371557 = j;
+  if (!_0x371557["bots"][_0x585ca0(0x1c1e)] && !G[_0x585ca0(0x1c1e)]) return;
+  KN ??= _0x27cf81[_0x585ca0(0x1161)](lv, { flags: "a" });
+  const _0x37b5a1 = (_0x20e745) =>
+      Math[_0x585ca0(0x1f96)](_0x20e745 * 0xa) / 0xa,
+    _0xe263f2 = [];
+  for (const _0x265716 of _0x371557[_0x585ca0(0x1990)][_0x585ca0(0x642)]()) {
+    const _0x5a13d1 = rt[_0x585ca0(0xda9)](_0x265716["id"]);
+    _0x5a13d1 &&
+      _0x5a13d1["hp"] > 0x0 &&
+      _0xe263f2[_0x585ca0(0x2fb)]([
+        _0x265716["id"],
+        _0x265716["team"],
+        _0x37b5a1(_0x5a13d1["x"]),
+        _0x37b5a1(_0x5a13d1["y"]),
+        _0x37b5a1(_0x5a13d1["z"]),
+        _0x265716[_0x585ca0(0xa93)] ??
+          (_0x265716[_0x585ca0(0x18be)]
+            ? _0x585ca0(0x18be)
+            : _0x265716[_0x585ca0(0x2d9)]?.[_0x265716["step"] ?? 0x0]) ??
+          "",
+        _0x5a13d1[_0x585ca0(0x1db4)] ? 0x1 : 0x0,
+      ]);
+  }
+  const _0xb2f26e = [];
+  for (const [_0x35da00, _0x484655] of ze) {
+    const _0x21f393 = W[_0x585ca0(0xda9)](_0x35da00);
+    _0x21f393 &&
+      _0x21f393[_0x585ca0(0x1556)] !== I[_0x585ca0(0x13cf)] &&
+      _0xb2f26e[_0x585ca0(0x2fb)]([
+        _0x35da00,
+        _0x484655,
+        _0x21f393[_0x585ca0(0x1556)],
+        _0x37b5a1(_0x21f393["x"]),
+        _0x37b5a1(_0x21f393["y"]),
+        _0x37b5a1(_0x21f393["z"]),
+        Math[_0x585ca0(0x1f96)](_0x21f393["hp"]),
+        xe["has"](_0x35da00) || _0x21f393[_0x585ca0(0x1bc6)] !== -0x1
+          ? 0x1
+          : 0x0,
+      ]);
+  }
+  KN[_0x585ca0(0x47e)](
+    JSON[_0x585ca0(0x2043)]({
+      t: Math[_0x585ca0(0x1f96)](performance[_0x585ca0(0xe89)]() / 0x3e8),
+      map: Di,
+      r: _0x371557["round"],
+      ph: _0x371557[_0x585ca0(0x19b8)],
+      tk: _0x371557[_0x585ca0(0x206a)],
+      f: _0x371557["flagStates"]()[_0x585ca0(0x73a)]((_0x669fef) => [
+        _0x669fef[0x0],
+        _0x669fef[0x1],
+      ]),
+      b: _0xe263f2,
+      v: _0xb2f26e,
+    }) + "\x0a",
+  );
+}
+const UN = {
+    peace: {
+      sight: 0x3c,
+      range: 0x1,
+      aim: 0.5,
+      falloff: 0.5,
+      moving: 0.55,
+      react: 0.55,
+    },
+    easy: {
+      sight: 0x3c,
+      range: 0x1,
+      aim: 0.5,
+      falloff: 0.5,
+      moving: 0.55,
+      react: 0.55,
+    },
+    medium: {
+      sight: 0x48,
+      range: 0x1,
+      aim: 0.62,
+      falloff: 0.45,
+      moving: 0.6,
+      react: 0.4,
+    },
+    hard: {
+      sight: 0x58,
+      range: 1.15,
+      aim: 0.7,
+      falloff: 0.38,
+      moving: 0.68,
+      react: 0.3,
+    },
+    hardcore: {
+      sight: 0x69,
+      range: 1.3,
+      aim: 0.78,
+      falloff: 0.3,
+      moving: 0.75,
+      react: 0.2,
+    },
+    "ultra-hardcore": {
+      sight: 0x87,
+      range: 1.65,
+      aim: 0.88,
+      falloff: 0.2,
+      moving: 0.85,
+      react: 0.12,
+    },
+    "unreal-hardcore": {
+      sight: 0x96,
+      range: 1.8,
+      aim: 0.94,
+      falloff: 0.14,
+      moving: 0.9,
+      react: 0.06,
+    },
+  },
+  Ts = (_0x2da2dd) =>
+    !_0x2da2dd || _0x2da2dd[_0x44a014(0x335)] !== 0x2
+      ? UN[Zt]
+      : UN[
+          Zt === "peace" || Zt === _0x44a014(0x1b34)
+            ? Zt
+            : xo
+              ? _0x44a014(0x8f7)
+              : "medium"
+        ],
+  ks = 4.6,
+  tr = 2.2,
+  cv = 6.3,
+  fh = new Map(),
+  WN = Math[_0x44a014(0x723)](
+    0x0,
+    Math["min"](0x6, Number(Ft[_0x44a014(0x797)] ?? 0x2)),
+  );
+function fv(_0x17a9dd, _0xd3715b) {
+  const _0x5dbc95 = _0x44a014;
+  let _0x2e374d = fh[_0x5dbc95(0xda9)](_0x17a9dd);
+  if (_0x2e374d && _0x2e374d["team"] === _0xd3715b) return _0x2e374d;
+  if (fh[_0x5dbc95(0x1c1e)] > 0x190) {
+    for (const _0x5ab450 of [...fh[_0x5dbc95(0xdd8)]()])
+      Ur[_0x5dbc95(0x97a)](_0x5ab450) || fh["delete"](_0x5ab450);
+  }
+  let _0x195287 = 0x0;
+  for (const _0x357819 of fh["values"]())
+    _0x357819[_0x5dbc95(0x8de)] === _0xd3715b &&
+      _0x357819[_0x5dbc95(0xb39)] &&
+      _0x195287++;
+  const _0x3b093e =
+    _0x195287 < (xo ? WN + 0x1 : WN) && Math[_0x5dbc95(0x10b2)]() < 0.34;
+  return (
+    (_0x2e374d = {
+      ace: _0x3b093e,
+      team: _0xd3715b,
+      skill: xo
+        ? _0x3b093e
+          ? 1.42 + Math[_0x5dbc95(0x10b2)]() * 0.14
+          : 0.85 + (Math[_0x5dbc95(0x10b2)]() + Math[_0x5dbc95(0x10b2)]()) * 0.2
+        : _0x3b093e
+          ? 1.36 + Math[_0x5dbc95(0x10b2)]() * 0.14
+          : 0.7 +
+            (Math[_0x5dbc95(0x10b2)]() + Math[_0x5dbc95(0x10b2)]()) * 0.225,
+    }),
+    fh["set"](_0x17a9dd, _0x2e374d),
+    Ri &&
+      console[_0x5dbc95(0x1ed0)](
+        _0x5dbc95(0x1de4) +
+          _0x17a9dd +
+          "\x20" +
+          _0x2e374d[_0x5dbc95(0xa82)][_0x5dbc95(0x1fef)](0x2) +
+          (_0x3b093e ? _0x5dbc95(0x1130) : ""),
+      ),
+    _0x2e374d
+  );
+}
+function HQ() {
+  const _0x5241be = _0x44a014;
+  (fh["clear"](), (Ah[_0x5241be(0x1715)] = 0x0));
+}
+function d2(_0x49b7d5, _0x4e126, _0x4aec4f = !0x0) {
+  const _0x31281e = _0x44a014,
+    _0x5fbb3f = _0x49b7d5["front"];
+  if (!_0x4aec4f || (_0x49b7d5[_0x31281e(0x21c9)] ?? 0x0) > 0.55)
+    return ((_0x5fbb3f[_0x31281e(0x1867)] = !0x1), ks);
+  const _0x40ab78 =
+    _0x5fbb3f[_0x31281e(0x113e)] !== void 0x0 &&
+    J - _0x5fbb3f[_0x31281e(0x113e)] <= 0x2 &&
+    _0x5fbb3f["sprinting"];
+  _0x5fbb3f[_0x31281e(0x113e)] = J;
+  const _0x50ccbe = _0x5fbb3f["stamina"] ?? 0x1;
+  return _0x50ccbe > (_0x40ab78 ? 0.04 : 0.5)
+    ? ((_0x5fbb3f[_0x31281e(0x1867)] = !0x0),
+      (_0x5fbb3f[_0x31281e(0x19c0)] = Math[_0x31281e(0x723)](
+        0x0,
+        _0x50ccbe -
+          _0x4e126 / 0x6 -
+          _0x4e126 / (0x6 + 0x4 * (_0x5fbb3f[_0x31281e(0xa82)] ?? 0x1)),
+      )),
+      cv)
+    : ((_0x5fbb3f["sprinting"] = !0x1), ks);
+}
+const Ah = [];
+let bQ = 0x1;
+function hv(_0x1a104b, _0x3ab18e, _0x196bc4, _0x3f03d6, _0x4a2c2e = 0x898) {
+  const _0x3d6355 = _0x44a014,
+    _0x5c1170 = Date[_0x3d6355(0xe89)]();
+  for (
+    let _0x15a47e = Ah[_0x3d6355(0x1715)] - 0x1;
+    _0x15a47e >= 0x0;
+    _0x15a47e--
+  )
+    Ah[_0x15a47e][_0x3d6355(0x1a88)] < _0x5c1170 &&
+      Ah[_0x3d6355(0xe2b)](_0x15a47e, 0x1);
+  Ah[_0x3d6355(0x1715)] < 0x18 &&
+    Ah[_0x3d6355(0x2fb)]({
+      id: bQ++,
+      x: _0x1a104b,
+      y: _0x3ab18e,
+      z: _0x196bc4,
+      at: _0x5c1170,
+      until: _0x5c1170 + _0x4a2c2e,
+      team: _0x3f03d6,
+    });
+}
+function GQ(_0x38c90e, _0x4f90f5, _0x480a1d) {
+  const _0x6dff6b = _0x44a014,
+    _0x4411ae = _0x38c90e[_0x6dff6b(0x1324)][_0x6dff6b(0xa82)] ?? 0x1;
+  for (const _0x20e7e4 of Ah)
+    if (
+      !(
+        _0x20e7e4["until"] <= _0x480a1d ||
+        !j[_0x6dff6b(0xfe0)](_0x20e7e4[_0x6dff6b(0x8de)], _0x4f90f5) ||
+        Math["hypot"](
+          _0x20e7e4["x"] - _0x38c90e["x"],
+          _0x20e7e4["z"] - _0x38c90e["z"],
+        ) > 6.5 ||
+        Math[_0x6dff6b(0x1fc4)](_0x20e7e4["y"] - _0x38c90e["y"]) > 0x4
+      ) &&
+      !(
+        ((Math["imul"](_0x38c90e["id"], 0x466f45d) ^
+          Math[_0x6dff6b(0x2cd)](_0x20e7e4["id"], 0x127409f)) >>>
+          0x0) %
+          0x3e8 >=
+        (0.15 + 0.45 * _0x4411ae) * 0x3e8
+      ) &&
+      !(
+        _0x480a1d - _0x20e7e4["at"] <
+        (0x15e + (_0x38c90e["id"] % 0x5) * 0x5a) / _0x4411ae
+      )
+    )
+      return _0x20e7e4;
+  return null;
+}
+const FQ = {
+  rifleman: 0x11,
+  gunner: 0xe,
+  sniper: 0x48,
+  grenadier: 0x10,
+  shotgunner: 0x2e,
+};
+function Gn(_0x267921, _0x412e5d) {
+  const _0x26a6d1 = _0x44a014;
+  if (_0x267921 === 0x1) {
+    const _0x3bf1ff = G[_0x26a6d1(0xda9)](_0x412e5d);
+    return _0x3bf1ff &&
+      _0x3bf1ff[_0x26a6d1(0x161)] &&
+      !_0x3bf1ff[_0x26a6d1(0x20d)]
+      ? {
+          kind: 0x1,
+          id: _0x412e5d,
+          x: _0x3bf1ff["x"],
+          y: _0x3bf1ff["y"] + ga(_0x3bf1ff),
+          z: _0x3bf1ff["z"],
+        }
+      : null;
+  }
+  if (_0x267921 === 0x2) {
+    const _0x5bec69 = rt["get"](_0x412e5d);
+    return _0x5bec69 && _0x5bec69["hp"] > 0x0
+      ? {
+          kind: 0x2,
+          id: _0x412e5d,
+          x: _0x5bec69["x"],
+          y: _0x5bec69["y"] + (_0x5bec69[_0x26a6d1(0x1db4)] ? 0.8 : 1.1),
+          z: _0x5bec69["z"],
+        }
+      : null;
+  }
+  if (_0x267921 === 0x3) {
+    const _0x801a19 = W[_0x26a6d1(0xda9)](_0x412e5d);
+    return _0x801a19 && _0x801a19["hp"] > 0x0
+      ? {
+          kind: 0x3,
+          id: _0x412e5d,
+          x: _0x801a19["x"],
+          y: _0x801a19["y"] + 0x1,
+          z: _0x801a19["z"],
+        }
+      : null;
+  }
+  if (_0x267921 === 0x4) {
+    const _0x3f23a2 = Ei[_0x412e5d];
+    return _0x3f23a2 &&
+      !c0[_0x26a6d1(0xda9)](_0x3f23a2["zone"])?.[_0x26a6d1(0x1d8d)]
+      ? {
+          kind: 0x4,
+          id: _0x412e5d,
+          x: _0x3f23a2["x"] + 0.5,
+          y: _0x3f23a2["y"] + 0x6,
+          z: _0x3f23a2["z"] + 0.5,
+        }
+      : null;
+  }
+  return null;
+}

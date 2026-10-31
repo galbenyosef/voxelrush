@@ -99,7 +99,9 @@ const PINNED = "3.9.6";
 const MIN_WINDOW = 250;
 const MAX_WINDOW = 350;
 const MAX_PASSES = 3; // prettier layout fixed point: format until stable
-const TODAY = "2026-10-15"; // structure/rename pass: superseded layers archive to legacy/<date>/
+// superseded derived layers archive to legacy/<date>/; the refresh lane sets
+// ARCHIVE_DATE so a re-cut lands under the refresh date (default keeps 2026-10-15)
+const TODAY = process.env.ARCHIVE_DATE || "2026-10-15";
 const ROOT = ""; // capture root (the served site root — capture sits at the repo root)
 const checkOnly = process.argv.includes("--check");
 

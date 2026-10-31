@@ -1,0 +1,194 @@
+{
+  "generated": "2026-10-12T23:10:10.724Z",
+  "origin": "https://play.voxelrush.app",
+  "files": {
+    "about/index.html": {
+      "bytes": 15662,
+      "sha256": "9816934cfd3dad4611fdb9d4c4032f8c77556180290918df46d9ead6166cd5c1"
+    },
+    "assets/bootstrap-C4umvuQD.js": {
+      "bytes": 12786,
+      "sha256": "44d890d23b8ba22423ddec10e78f88827f9856fa4e7ee5935bac711e183e7eb7"
+    },
+    "assets/chunk-mesh-worker-coep-v1-BX2YFLnd.js": {
+      "bytes": 164610,
+      "sha256": "3eaca23dcf3cdf6e7933e4fbb24a4505cb1dd9ecd82a78d14d112f9d7b9ab5cf"
+    },
+    "assets/en-betting-fLWr_8lQ.wav": {
+      "bytes": 86134,
+      "sha256": "6381e238369562b58cc7e92c9424b1154aeda133d35eed2fb97e70f2f9a1d9cb"
+    },
+    "assets/en-blackjack-CMYWU1Hz.wav": {
+      "bytes": 118790,
+      "sha256": "81e9652760fb7749c9c9d37ae7d29962f2ea1e63a5995eee473e1805807f4b51"
+    },
+    "assets/en-bust-CFLuSXwu.wav": {
+      "bytes": 112646,
+      "sha256": "64dcf05fbdcf45fac743ad7943ca707aa7e05e3ca08dcc5567d2194b7d5424ef"
+    },
+    "assets/en-deal-BPd_AobF.wav": {
+      "bytes": 103942,
+      "sha256": "150b976338c101b9ea2cd64d83028e4f48abf7fc927ec0126dee88532406c3ae"
+    },
+    "assets/en-dealer-Cpqy5ae4.wav": {
+      "bytes": 71286,
+      "sha256": "2fdd63cc7b8b9e30edc0f7828dba084a3d3f3d9f572431bbe5c82123461acd2c"
+    },
+    "assets/en-lose-Bnl5eKOD.wav": {
+      "bytes": 136198,
+      "sha256": "1a2d46066368849d46c8987eb20966b6c839d11a07a32baf7660b9ff68f66206"
+    },
+    "assets/en-push-lAFFAI5U.wav": {
+      "bytes": 95750,
+      "sha256": "44226ad34338244ff4dfa8b1d626277e09bba97bc12970672880e96e9af2b64b"
+    },
+    "assets/en-result-DThJYp7t.wav": {
+      "bytes": 108038,
+      "sha256": "d79859bbc8e06de442438885b6b1152168ddfe6543aa8fb04527221e6e4e8630"
+    },
+    "assets/en-turn-C3MYv3x4.wav": {
+      "bytes": 89606,
+      "sha256": "279b787d20191780d332c2908e8776cbf08b59fd38c22947d34a3d8ba1cc3b57"
+    },
+    "assets/en-welcome-Bz-fSXWg.wav": {
+      "bytes": 127494,
+      "sha256": "05a124e91aed9b8eb8b3f01791b01eda4ad5dbb1c0ce077839488c5c5d94b030"
+    },
+    "assets/en-win-XqIEpdQu.wav": {
+      "bytes": 105478,
+      "sha256": "fc86aead77ab92748fedb0b058ba943210a313ec973bb12fe41f8d6d9a864570"
+    },
+    "assets/index-D16eXMZ8.css": {
+      "bytes": 346768,
+      "sha256": "5376f2105cf9025624db0b1b86acafea3b52ad55466289a6edb64bb6ddd6e106"
+    },
+    "assets/index-Dp6GxvJu.js": {
+      "bytes": 2965190,
+      "sha256": "86d5be80af26d43776e7a7b8b79182e9bfecf84c999efa156bf319b10aac9f6a"
+    },
+    "assets/local-server-worker-coep-v1-CTlf9c4s.js": {
+      "bytes": 3714882,
+      "sha256": "850b7b4cebd501b9d8898cf30aa792a3a3ea5a9ddc680852c7838d1576ffd4bd"
+    },
+    "assets/main-Bs7z9e_r.js": {
+      "bytes": 3303284,
+      "sha256": "43951b4eed8df0cd44a0a6483890ecaf9222a8b7b6aa17262cd1f8cd74e0ff8c"
+    },
+    "assets/ru-betting-DkYbMmUE.wav": {
+      "bytes": 82038,
+      "sha256": "ca4edabac3c9aad55b54ba284770876d41554dadb79dd404b019fed8c533d73a"
+    },
+    "assets/ru-blackjack-C0d4wD-B.wav": {
+      "bytes": 87558,
+      "sha256": "d9235d56322870a402ff0992f35907f32f0122147b818e5b8d2b210a230c332d"
+    },
+    "assets/ru-bust-CmfY5Uwj.wav": {
+      "bytes": 128518,
+      "sha256": "16f5f605b3ee8ef80567a921673b63e300f4ef25c15796fa9809489d4215e6d8"
+    },
+    "assets/ru-deal-BcUhQpGY.wav": {
+      "bytes": 98310,
+      "sha256": "597394270f50a98fc283db4433cd47a2b7d77d67aface025fd48f3293054fdad"
+    },
+    "assets/ru-dealer-iH9ICF4N.wav": {
+      "bytes": 77430,
+      "sha256": "a1d70b1dbe0f3c41be1455ccc5e3ebd2d2b8bdc8547aa0479df16e9aaf61eab9"
+    },
+    "assets/ru-lose-BmXQQ3Nd.wav": {
+      "bytes": 143366,
+      "sha256": "89d4946dd0b4b9387bfc694c45bbf462238add0a2db61e3dddf731bb58d74a70"
+    },
+    "assets/ru-push-Chw7w_Ap.wav": {
+      "bytes": 121862,
+      "sha256": "5909091d6a78bb5a67bbf35811dfd4e104078ca7f860035a7b987a5ee8142b2c"
+    },
+    "assets/ru-result-DmJKQTJd.wav": {
+      "bytes": 123398,
+      "sha256": "eb3669a1b3ae11c70184aa691f1f56f67d11cd8d534b1ee2d172e19ee0c49128"
+    },
+    "assets/ru-turn-B83vb7y6.wav": {
+      "bytes": 105990,
+      "sha256": "78a47638ee0ea3d7de84080105dbb126188ac6050fc858339a627901fcc0ad25"
+    },
+    "assets/ru-welcome-B0mS1WGt.wav": {
+      "bytes": 133126,
+      "sha256": "2c7ba5b229851a6fcf5914a9ee55f0cfaa3394438bee1d3b3f95a94efac354f6"
+    },
+    "assets/ru-win-b_LEoxVr.wav": {
+      "bytes": 100870,
+      "sha256": "70c409f8317b3561f8e9fb0db3ef02d89e59b5be31d11ae225c93b499dc56d27"
+    },
+    "assets/terrain-pool-Dvsi82A-.js": {
+      "bytes": 6638,
+      "sha256": "49e4a63655cc1afc89cc26d573452a39854c5c391d62c46e7946d689c17d5570"
+    },
+    "favicon.ico": {
+      "bytes": 13374,
+      "sha256": "5c00ea62ca8d93918eac14d486e35737e1055b6ad74ac02165a934f977f30a86"
+    },
+    "icons/apple-touch-icon.png": {
+      "bytes": 42057,
+      "sha256": "eb05b273b77a7cb53cb0b168b4bbc680152aa1b25d85eb0ca8e3b9530e388f66"
+    },
+    "icons/icon-192.png": {
+      "bytes": 47517,
+      "sha256": "587161c2366baab8043bfa2720ec90e85b7a5dad8cbf63a5657d85cdfb18be41"
+    },
+    "icons/icon-512.png": {
+      "bytes": 304365,
+      "sha256": "6d18c9b902bd92c27aa4b77b320e84282903275ef86ed3d06535a192a1370959"
+    },
+    "icons/icon-maskable-512.png": {
+      "bytes": 157535,
+      "sha256": "e724fd55a4ffc6d5a989a526da3da9089443890a7cfeda1bddf7bad277d87b9e"
+    },
+    "index.html": {
+      "bytes": 163277,
+      "sha256": "ab0e63d6320b5edc5b36aeb670824a467aefe355a40626aa24e18707f23fb27b"
+    },
+    "manifest.webmanifest": {
+      "bytes": 722,
+      "sha256": "b6fef41a93c00fbbd13b420f032fbea76cfd5a100d4cd25388286d5b7a6be2f3"
+    },
+    "og-image.jpg": {
+      "bytes": 286568,
+      "sha256": "09175066666c244bd2a21c68f8041dac56075b4b90201b9fb6a864d565e55d7d"
+    },
+    "robots.txt": {
+      "bytes": 140,
+      "sha256": "af2a9ab93652a21a95ed1132054311ea1db52acae6e8cfc0ed8df99b0101f9c9"
+    },
+    "ru/index.html": {
+      "bytes": 20501,
+      "sha256": "c11b03797055fc22a13d2e6ccedad8d288ecda6c75d4bf575de5d8d090e925bf"
+    },
+    "screens/deploy-classes.jpg": {
+      "bytes": 101436,
+      "sha256": "f5096f8fea301986166883c2d35d9fd5279eacb72d7f59ba974574c8c97b2f8e"
+    },
+    "screens/frontline-kavir-citadel.jpg": {
+      "bytes": 210980,
+      "sha256": "9c1d318a5f2df4f364dcf9efe0f1599ad76153e1c922dd10a7b5a54695cbd942"
+    },
+    "screens/frontline-river-crossing.jpg": {
+      "bytes": 226932,
+      "sha256": "ad62d1cbde7d6501aee679c2c1fbb3097ac1d46b1d00a692c22017d204ca5edb"
+    },
+    "screens/frontline-village-fight.jpg": {
+      "bytes": 238070,
+      "sha256": "06a8d9b85f692d19986e10f501ade28a4797e47876a660a2fce38f62dee37288"
+    },
+    "sitemap.xml": {
+      "bytes": 2775,
+      "sha256": "6281bb363fb66abc2e1dd752d8657b8bb04dc43390706516ca1bceada3f48764"
+    },
+    "sw.js": {
+      "bytes": 11541,
+      "sha256": "70ccc1d2e0cd3413852a06be2c71fdce8483290849b0007e746f2df35e6eb3cf"
+    },
+    "version.json": {
+      "bytes": 65,
+      "sha256": "b1dd96d54bf37d56ec2b503e90861208fe4785a3b7149a26c98a90e7466f38eb"
+    }
+  }
+}

@@ -10,25 +10,32 @@ Source: https://play.voxelrush.app/
 ## Stack
 
 - **Vite production build** served at the origin root by Cloudflare — the entry
-  chunk `assets/index-Dp6GxvJu.js` (2,965,190 B) carries the app plus a bundled
+  chunk `assets/index-BeUlFSPp.js` (3,104,027 B) carries the app plus a bundled
   **three.js r169** core (content-anchored wholeFile region, never sliced)
 - **the world runs in workers** — `assets/local-server-worker-coep-v1-*.js`
-  (3,714,882 B) is the offline world server; it dynamic-imports the obfuscated
-  payload chain `./bootstrap-C4umvuQD.js` → `./main-Bs7z9e_r.js` →
-  `./terrain-pool-Dvsi82A-.js` and serves its world data (`/world/*`,
-  `/structures/*`, map JSON) from memory — that in-memory world is what makes
-  Single player work with no backend
+  (3,500,130 B) is the offline world server; it imports the obfuscated payload
+  chain `./bootstrap-B8Ot5Flt.js` → `./main-C153VVJY.js` and serves its world
+  data (`/world/*`, `/structures/*`, map JSON) from memory — that in-memory
+  world is what makes Single player work with no backend; the terrain/mesh
+  workers (`assets/air-props-worker-*`, `assets/air-terrain-worker-*`,
+  `assets/chunk-mesh-worker-*`) build and render the voxel world
+- **boot decision extracted** — the redeploy moved the pre-paint redirect out of
+  an inline `<script>` into `boot.js` (3,973 B), referenced from the entry
+  document; `vendor/telegram-web-app.js` (119,119 B) is the origin's own copy of
+  the Telegram shim (captured byte-exact; the CDN reference stays external)
+- **13 locale files** — `assets/<lang>-<hash>.json` for ar/de/es/fr/it/ja/ko/
+  nl/pl/pt/tr plus the inlined en strings
 - **cross-origin isolation required** — the origin sends
   `cross-origin-opener-policy: same-origin` +
   `cross-origin-embedder-policy: require-corp` (SharedArrayBuffer for the
   worker world); `tools/serve.mjs` sends the same headers, a plain static
   server will not boot the world
-- **obfuscator.io-protected payloads** — the four worker/module chunks and
-  `sw.js` are control-flow-flattened with base64 string tables; app and engine
-  strings (including the module names above) live in those tables
+- **obfuscator.io-protected payloads** — the bootstrap/main/local-server-worker
+  chunks and `sw.js` are control-flow-flattened with base64 string tables; app
+  and engine strings (including the module names above) live in those tables
 - **off-origin references stay external** — `telegram.org/js/telegram-web-app.js`,
-  the Discord invite and the `voxelrush.app` marketing pages are recorded in
-  `_mirror-report.json`, never backfilled
+  the Discord invite, Google OAuth and the `voxelrush.app` marketing pages are
+  recorded in `_mirror-report.json`, never backfilled
 
 ## What this is
 
@@ -38,15 +45,19 @@ and mines, Team Deathmatch, plus a voxel survival sandbox ("Your own world,
 offline"). The client is a Vite production build whose entry chunk carries
 three.js r169 inline; the offline world is simulated by the local-server worker
 and rendered with a mesh worker. Captured whole, byte-exact under
-`.upstream/manifest.json`: **47 files, 14,715,503 bytes** — the entry document
-(163,277 B), the entry chunk + stylesheet (346,768 B), four worker/module
-payloads, the service worker, 22 dealer-bank WAVs (en/ru), 10 images and the
-`/about/` + `/ru/` static pages plus manifest/version/sitemap/robots. The
-runtime graph was driven to a fixpoint by `tools/capture.mjs`; the
-`bootstrap/main/terrain-pool` payloads were found by playing the served mirror
-in a browser — the boot test failed on exactly that worker import, and decoding
-the obfuscated string tables then enumerated the chain (see the derivation
-note).
+`.upstream/manifest.json` (build `mvs8vmgl-d7keq5`, refreshed 2026-10-31):
+**39 files, 16,137,083 bytes** — the entry document + `boot.js`, the entry chunk
+(3,104,027 B) and stylesheet (404,534 B), five module/worker payloads, the
+service worker, 13 locale JSON bundles, 10 images and the `/about/` + `/ru/`
+static pages plus manifest/version/sitemap/robots. The runtime graph was driven
+to a fixpoint by `tools/capture.mjs`; the obfuscated payload chain
+(`bootstrap-B8Ot5Flt` ↔ `main-C153VVJY`) is enumerated in the capture tool so a
+redeploy that hides it again in the base64 string table still boot-tests.
+
+The 2026-10-28 redeploy dropped the dealer-bank WAVs and the old
+`bootstrap-C4umvuQD → main-Bs7z9e_r → terrain-pool-Dvsi82A-` chain from the
+runtime graph; those bytes are still served at their immutable URLs and are
+preserved under `legacy/2026-10-31/` (never invented as "gone upstream").
 
 Live backend (stays external — not part of the capture): online play and
 account features talk to `backend.voxelrush.app`; served locally the menu shows
@@ -65,27 +76,40 @@ captured as files.
 - `_mirror-report.json` — crawl record: request count, fetched paths, recorded
   gaps (404s and SPA-fallback paths), external references
 - `readable/` — prettified derived layer at the **served paths** (pinned
-  prettier 3.9.6, layout fixed point): 9 `*.pretty.js` + 6 `*.pretty.css` +
-  `index-inline-map.json` (`readable/assets/index-Dp6GxvJu.pretty.js`,
-  `readable/sw.pretty.js`, `readable/about/index-inline-1.pretty.css`, …)
-- `src/` + `split-spec.json` — 682 statement-aligned slices at the served paths
-  (`src/assets/index-Dp6GxvJu-NN.js`) with the recorded derivation spec (695
-  sections), re-cut through the recorded rename map
-- `rename-map.json` — the recovered semantic rename map over `src/` (464
-  word-boundary names + 29 indexed names over 425 occurrences; derived)
+  prettier 3.9.6, layout fixed point): 10 `*.pretty.js` + 6 `*.pretty.css` +
+  `index-inline-map.json` (`readable/assets/index-BeUlFSPp.pretty.js`,
+  `readable/boot.pretty.js`, `readable/sw.pretty.js`,
+  `readable/about/index-inline-1.pretty.css`, …)
+- `src/` + `split-spec.json` — 790 statement-aligned slices at the served paths
+  (`src/assets/index-BeUlFSPp-NN.js`) with the recorded derivation spec (800
+  sections, 8 wholeFile, 2 skipped export tables)
+- `rename-map.json` — the recovered rename map over `src/` (currently empty:
+  0 word-boundary names; see the 2026-10-31 refresh record — the old map was
+  invalidated by the redeploy and the campaign is an open task)
 - `legacy/2026-10-15/` — the superseded derived layers (the 2026-10-13 flat
   `readable__`/`src__` layers and the pre-rename served-path slices), archived
   byte-exact per PLAN §3/§5
-- `docs/cover.png` — gameplay cover; `docs/boot-2026-10-13.png` — boot evidence;
+- `legacy/2026-10-31/` — the refresh archive: the 4 replaced capture files
+  (`index.html`, `robots.txt`, `sw.js`, `version.json`), the 26 superseded
+  capture files (old bundles + the 22 dealer WAVs), both superseded payload
+  chains, the replaced `_mirror-report.json` / `.upstream/manifest.json`, the
+  2026-10-15 `rename-map.json` and `tools/names.json`, and every superseded
+  `readable/`/`src/` file
+- `docs/cover.png` — gameplay cover; `docs/boot-2026-10-13.png`,
+  `docs/boot-2026-10-27.png`, `docs/boot-2026-10-31-refresh.png` — boot evidence;
   `docs/boot-harness.html` — the iframe boot harness (embed mode is a supported
   mode of the app; the capture is untouched)
 - `tools/capture.mjs` — byte-exact capture + runtime-closure fetch (`--check`
-  for a residual closure audit)
+  for a residual closure audit; `--out <dir>` for dry runs)
 - `tools/derive.mjs` — rebuild `readable/` + `src/` + `split-spec.json`
   (`--check` re-renders and byte-compares without writing; archives superseded
-  files to `legacy/<date>/`)
+  files to `legacy/<date>/`, and `ARCHIVE_DATE` selects that date)
 - `tools/verify.mjs` — re-hash the capture against the manifest
-- `tools/update.mjs` — read-only drift probe against the live origin
+- `tools/update.mjs` — drift probe (`--json`), the mandatory `--gate` trust
+  gate, and the gated `--pull` refresh (see below)
+- `tools/boot.mjs` — self-contained offline boot test: its own headless
+  Chromium with `--host-resolver-rules=MAP * 127.0.0.1`, `serve.mjs` on
+  4700–4799, render assertions, screenshot into `docs/`
 - `tools/audit.js` — integrity gate for the derived layers (`AUDIT PASS`)
 - `tools/check-exports.mjs` — public-export-name gate for the derived layer
   (self-contained; every public name the capture exported is still exported)
@@ -99,14 +123,17 @@ captured as files.
 
 ## Assets
 
-- **audio** — 22 file(s): `assets/` (the dealer voice bank, en + ru: betting,
-  blackjack, bust, deal, dealer, lose, push, result, turn, welcome, win)
+- **audio** — none as files (the 22-file en/ru dealer voice bank was part of the
+  2026-10-12 build only; the 2026-10-28 redeploy no longer references it. The
+  WAVs are preserved byte-exact under `legacy/2026-10-31/assets/`)
 - **images** — 10 file(s): `screens/` (4 gameplay screenshots:
   frontline-river-crossing / frontline-village-fight / frontline-kavir-citadel /
   deploy-classes), `icons/` (4 app icons incl. maskable-512), `og-image.jpg`,
   `favicon.ico`
-- **data** — 4 file(s): `manifest.webmanifest`, `version.json`, `sitemap.xml`,
-  `robots.txt`
+- **data** — 15 file(s): 11 locale bundles (`assets/ar-*.json` … `assets/tr-*.json`),
+  `manifest.webmanifest`, `version.json`, `sitemap.xml`, `robots.txt`
+- **vendor copy** — `vendor/telegram-web-app.js` (the origin self-hosts the
+  Telegram shim; captured byte-exact, the CDN reference stays external)
 - **fonts** — none as files (the UI font ships base64-inlined in the entry/CSS)
 - **models** — none as files (the voxel world is generated by the workers; meshes
   are built procedurally)
@@ -121,15 +148,19 @@ then open http://127.0.0.1:8099/ — the origin requires cross-origin isolation
 (COOP same-origin + COEP require-corp), which `tools/serve.mjs` reproduces; a
 plain static server without those headers boots the menu but the world worker
 will fail. Single player ("Your own world, offline") works fully from the
-capture; online play needs the live `backend.voxelrush.app`. For automated
-screenshots the mirror was played through `docs/boot-harness.html` — the app is
-a first-class embed target and switches to pointer-lock-free drag-look when
-framed (the harness loads only captured files and modifies nothing).
+capture; online play needs the live `backend.voxelrush.app`. For an automated,
+network-severed boot run use `node tools/boot.mjs` (its own headless Chromium
+with `--host-resolver-rules=MAP * 127.0.0.1`, `serve.mjs` on 4700–4799, render
+assertions, screenshot). For screenshots through a normal browser the mirror
+was played through `docs/boot-harness.html` — the app is a first-class embed
+target and switches to pointer-lock-free drag-look when framed (the harness
+loads only captured files and modifies nothing).
 
 ## Verify
 
 ```
 node tools/verify.mjs            # re-hash the capture against the manifest
+node tools/update.mjs --gate     # trust gate: the fetch layer reproduces the capture
 node tools/audit.js              # derived-layer integrity gate → AUDIT PASS
 node tools/derive.mjs --check    # re-render + byte-compare, write nothing
 node tools/verify-rename.mjs --all   # rename layer: reproduces / references / bindings
@@ -137,6 +168,7 @@ node tools/check-chunk.mjs --all     # cross-slice calls still resolve
 node tools/check-exports.mjs     # the derived layer still exports every public name
 node tools/record-manifest.mjs --check  # capture walk agrees, no derived path leaked
 node tools/capture.mjs --check   # residual closure audit → 0 new unresolved
+node tools/boot.mjs --port 4751 --out docs/boot-<date>.png  # offline boot + screenshot
 ```
 
 ## Boot test (2026-10-27)
@@ -173,10 +205,44 @@ a squad" because `/v1/auth/me` and `/v1/golden` are live-backend calls; online
 play needs `backend.voxelrush.app`, while Single player ("Your own world,
 offline") is fully served from the capture.
 
+## Boot test (2026-10-31 refresh)
+
+Entry `http://127.0.0.1:4751/index.html`, served by `tools/boot.mjs` through
+`tools/serve.mjs 4751` (the origin's COOP/COEP headers). The harness launches
+its own headless Chromium with the network severed at the resolver
+(`--host-resolver-rules=MAP * 127.0.0.1`, `--no-proxy-server`), then asserts and
+screenshots the result.
+
+**Outcome: rendered.** All 11 checks passed after a 7 s settle on
+`readyState: complete`:
+
+- title `Voxel Rush — Free Browser FPS with Tanks, Helicopters & Drones`
+- 477 canvases; main canvas 1280x800 client (1280x800 backing), WebGL 2.0
+  (`OpenGL ES 3.0 Chromium`, swiftshader)
+- body text 501 chars (Halloween event menu: Play Online / Single player /
+  Armory / Rewards / Settings + squad and quest panels)
+- console messages / errors: 6 / 0
+- same-origin requests: all from 127.0.0.1, no 404 (the Cloudflare Insights
+  `/cdn-cgi/trace` beacon is the only expected miss — infrastructure noise,
+  never captured)
+- offline proof: explicit fetches to `play.voxelrush.app` and
+  `backend.voxelrush.app` both failed (`TypeError: Failed to fetch`)
+- the seasonal modal was dismissed before capture so the menu is visible
+
+Screenshot: `docs/boot-2026-10-31-refresh.png` (verified by reading it back: the
+VOXEL RUSH menu over a rendered voxel courtyard, operator model, Halloween quest
+panel and featured AK-47). Listener killed and port 4751 proven closed
+(`netstat`: no LISTEN).
+
+Gaps seen: "Account unavailable" / "Sign in to create or join a squad" — the
+live backend is external, as on 2026-10-27; Single player remains fully served.
+
 ## Updating from upstream
 
 ```
 node tools/update.mjs            # read-only drift probe: what changed upstream
+node tools/update.mjs --gate     # trust gate only (writes nothing)
+node tools/update.mjs --pull --date YYYY-MM-DD   # gated refresh
 ```
 
 The probe never rewrites the capture — a mirror is a point-in-time snapshot.
@@ -184,10 +250,88 @@ The origin serves an HTTP 200 text/html SPA fallback for missing paths, so the
 probe only trusts a 200 whose content type matches the file (an HTML page whose
 bytes equal the entry document counts as live-missing); directory captures
 (`about/index.html`, `ru/index.html`) are probed at their trailing-slash
-routes. Refreshing means re-fetching into a clean tree
-(`node tools/capture.mjs`), re-cutting the manifest, and re-deriving
-`readable/` + `src/` from the new bundle with `node tools/derive.mjs`. A real
-refresh must move the replaced files to `legacy/<date>/` first (PLAN §3).
+routes.
+
+`--pull` is the refresh path (PLAN §3) and refuses to write unless both gates
+pass: **the trust gate** fetches every captured file with the capture tool's own
+fallback semantics and proves the unchanged files are byte-identical (and each
+drifted file is stable across two fetches), and the **closure gate** runs
+`tools/capture.mjs --out` into a scratch tree and requires it to reproduce every
+unchanged file still in the new closure byte-for-byte. It then archives every
+replaced/removed file under `legacy/<date>/`, installs the new closure, records
+superseded vs upstream-gone files honestly, and re-cuts the manifest with
+`tools/record-manifest.mjs`. Re-deriving `readable/` + `src/` is then required:
+`ARCHIVE_DATE=<date> node tools/derive.mjs` (and `tools/recover-scoped-map.mjs`
+first if the rename map is being re-authored).
+
+Note the drift probe only compares **captured** files: a redeploy can keep the
+old hashed bundles served while the entry document points at a whole new set
+(the 2026-10-31 refresh: 4 captured files changed, but the deep closure scan
+found 21 new files, 26 superseded and a new payload chain). That is why the
+closure gate runs `capture.mjs`, never the probe alone (PLAN §4).
+
+### 2026-10-31 refresh (build mvs8vmgl-d7keq5)
+
+- **Trigger** — `node tools/update.mjs` reported **4 of 47** captured files
+  changed (`index.html`, `robots.txt`, `sw.js`, `version.json`), 0 live-missing.
+  `version.json` moved `mv5sawna-jtl2ka` (built 2026-10-12T21:49Z) →
+  `mvs8vmgl-d7keq5` (built 2026-10-28T15:04Z); `index.html` externalised the
+  pre-paint boot script to `/boot.js` and gained hreflang/canonical/sitemap
+  metadata; `robots.txt` gained Cloudflare's managed content-signals block;
+  `sw.js` is a new build (new cache id and push handling).
+- **Trust gate (before any write)** — `node tools/update.mjs --gate`:
+  **43/47 unchanged captured files reproduced byte-for-byte**, 4 changed
+  upstream (4/4 stable across two independent refetches), 0 live-missing.
+- **Deep closure (the probe's blind spot, PLAN §4)** — `--pull` runs
+  `tools/capture.mjs --out` into a scratch tree and gates it. The redeploy had
+  moved the whole graph: 21 **new** files (`assets/index-BeUlFSPp.js` 3,104,027 B,
+  `assets/index-BzCKlgJW.css` 404,534 B, `local-server-worker-A1ihJuBz.js`
+  3,500,130 B, `bootstrap-B8Ot5Flt.js` ↔ `main-C153VVJY.js`,
+  `chunk-mesh-worker-GBSiXDQy.js`, new `air-props`/`air-terrain` workers,
+  11 locale JSON bundles, `boot.js`, `vendor/telegram-web-app.js`) and 26
+  **superseded** files (the old entry chunk/stylesheet, old mesh + local-server
+  workers and the 22 dealer WAVs — all still served at their immutable URLs, so
+  recorded as superseded, never invented as "upstream-gone"). A second pass
+  retired the now-unreferenced old payload chain (`bootstrap-C4umvuQD.js`,
+  `main-Bs7z9e_r.js`, `terrain-pool-Dvsi82A-.js`) from `KNOWN`, leaving the
+  final capture at **39 files, 16,137,083 bytes**.
+- **Backup** — every replaced/removed byte went to `legacy/2026-10-31/` first:
+  the 4 replaced capture files, all 29 superseded capture files, the replaced
+  `_mirror-report.json` and `.upstream/manifest.json`, and the superseded
+  `rename-map.json` + `tools/names.json`. Nothing was deleted without a copy
+  there (or in history).
+- **Re-derive** — `ARCHIVE_DATE=2026-10-31 node tools/derive.mjs` →
+  **17 readable files** (10 `*.pretty.js` + 6 `*.pretty.css` + inline map),
+  **790 src slices** in **800 spec sections** (8 wholeFile, 2 skipped export
+  tables, 28 notRendered, 5 inline content blocks with twins + 3 inline data
+  blocks). The bundled three.js r169 band is re-anchored content-wise at
+  pretty lines 31–25,943 (machinery 31–30).
+- **Rename campaign — explicit open task (PLAN §5).** The 2026-10-15 map is
+  **invalid** for this bundle: the minifier reassigned names (the old `MAPS`
+  binding `pH` is now a three.js shader chunk; the map table is `LV`), and 36 of
+  the 87 rules are refused by guard (s) for occurring inside the wholeFile
+  three.js band. `src/` therefore carries the new bundle's own minified names
+  and `rename-map.json` records the (identity) alignment; the archived
+  `legacy/2026-10-31/tools/names.json` + `rename-map.json` are the authoring
+  base for re-authoring against `assets/index-BeUlFSPp.js`. This is the one
+  deliberate regression in the refresh and is recorded here rather than claimed.
+- **Gates (verbatim)**:
+  - `node tools/verify.mjs` → `39 files checked, 0 problems`
+  - `node tools/record-manifest.mjs --check` → `PASS — 39 capture file(s) recorded, walk agrees byte-for-byte, no derived path leaked`
+  - `node tools/capture.mjs --check` → `closure check: 120 reference group(s), 52 unresolved (0 new vs _mirror-report.json), 7 external off-origin reference(s) (left on CDN)`
+  - `node tools/derive.mjs --check` → `DERIVE CHECK PASS — readable/ + src/ + split-spec.json are current under pinned prettier 3.9.6`
+  - `node tools/audit.js` → `AUDIT PASS — 800 spec sections (790/790 src↔pretty round-trips byte-exact, 16/16 pretty sources tiled contiguously, 2/2 skipped export-table sections re-verified textually, 790/790 src slices + 10/10 readable/*.pretty.js parse standalone, 16/16 pretties provably distinct, 16/16 source provenances resolve, 10 index-only wholeFile/skipped sections carry no src file, 5 inline content block(s) with twins, 3 inline data block(s) notRendered, 0/0 renameBindings, 3/8 imports resolve (5 whitelisted machinery), 16/16 pretties re-render byte-exact, capture manifest free of derived layers)`
+  - `node tools/verify-rename.mjs --all` → `790/790 slice(s) reproduce byte-exact, 0 renamed slice(s), 10/10 chunk(s) references+bindings YES`
+  - `node tools/check-chunk.mjs --all` → `10 chunk(s), 790 slice body(ies) substituted — all cross-slice calls resolve`
+  - `node tools/check-exports.mjs` → `2 export table(s) checked; no public export name lost`
+- **Boot** — `node tools/boot.mjs --port 4751 --session boot-voxelrush-refresh`
+  → `BOOT: RENDERED — every check passed` (see the 2026-10-31 boot section);
+  screenshot `docs/boot-2026-10-31-refresh.png`; listener killed, port proven
+  closed.
+- **Live backend, vendor CDNs** — unchanged policy: `backend.voxelrush.app`,
+  Google OAuth and the `voxelrush.app`/Discord links stay external;
+  `vendor/telegram-web-app.js` is captured only because the origin serves it
+  itself (no CDN vendoring was performed).
 
 ### 2026-10-13 capture + readable/src derivation
 
@@ -383,16 +527,19 @@ refinement, proposal (ah)); no sliced chunk here is a whole-program IIFE.
 - **Capture layer** — the captured files are byte-exact copies of what the
   origin served; nothing in them is edited. `.gitattributes` pins `* -text` so
   git never normalizes EOLs.
-- **Vendor integrity** — three.js and every image/audio/data file stay
-  byte-exact as served; `readable/` never rewrites vendor bytes (the three.js
-  region is indexed whole, never sliced).
+- **Vendor integrity** — three.js and every image/data file stay byte-exact as
+  served (the 22 legacy dealer WAVs are preserved under `legacy/2026-10-31/`);
+  `readable/` never rewrites vendor bytes (the three.js region is indexed whole,
+  never sliced).
 - **Readable layer** — `readable/` is derived (prettified) and never shipped to
   a browser; it exists so the bundle can actually be read.
 - **Provenance** — `.upstream/manifest.json` records sha256 for each captured
   artifact, and `tools/verify.mjs` re-checks it; `_mirror-report.json` is the
   crawl record.
-- **Drift** — `tools/update.mjs` is read-only: it reports what changed upstream
-  and never rewrites the capture.
+- **Drift** — `tools/update.mjs` is read-only by default: it reports what
+  changed upstream and never rewrites the capture. The explicit `--pull` (gated
+  by `--gate`'s byte-for-byte reproduction + the scratch closure gate) is the
+  only writing refresh path, and it always archives what it replaces.
 
 ## Fleet status
 

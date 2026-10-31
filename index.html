@@ -2,21 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<!-- Decide before the first paint, without waiting for the game bundle or account API. -->
-<script>
-  (() => {
-    const p = new URLSearchParams(location.search);
-    let returning = false;
-    try {
-      const saved = JSON.parse(sessionStorage.getItem('vr-rejoin') || 'null');
-      returning = !!saved && typeof saved.address === 'string' && typeof saved.name === 'string' && Date.now() - saved.at < 180000;
-    } catch {}
-    if (returning || (p.get('menu') !== '1' && (p.get('embed') === 'x' || window.top !== window.self || p.has('mode') || p.has('server'))))
-      document.documentElement.classList.add('boot-joining');
-  })();
-</script>
+<!-- Decide before the first paint, without waiting for the game bundle or account API (public/boot.js). -->
+<script src="/boot.js"></script>
 <style>
   #boot-loading { display: none; }
+  html.i18n-pending #menu > :not(#menubg) { animation: i18n-wait 3.5s step-end both; }
+  @keyframes i18n-wait { from { opacity: 0; } to { opacity: 1; } }
   html.boot-joining #menu { display: none !important; }
   html.boot-joining #boot-loading { position: fixed; inset: 0; z-index: 100; display: grid; place-content: center; gap: 24px; text-align: center; background: #070b10; color: #e6ecf2; font: 600 16px system-ui, sans-serif; }
   #boot-loading strong { font-size: clamp(30px, 7vw, 54px); letter-spacing: .08em; }
@@ -59,7 +50,7 @@
 <meta name="twitter:image" content="https://play.voxelrush.app/og-image.jpg" />
 <meta name="twitter:image:alt" content="Voxel Rush key art: a voxel squad at a field camp" />
 <meta name="application-name" content="Voxel Rush" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://play.voxelrush.app/#org","name":"Voxel Rush","url":"https://play.voxelrush.app/","logo":"https://play.voxelrush.app/icons/icon-512.png","sameAs":["https://voxelrush.app/","https://discord.gg/Vt35u4XAh"]},{"@type":"WebSite","@id":"https://play.voxelrush.app/#site","name":"Voxel Rush","url":"https://play.voxelrush.app/","inLanguage":["en","ru"],"publisher":{"@id":"https://play.voxelrush.app/#org"}},{"@type":["VideoGame","WebApplication"],"@id":"https://play.voxelrush.app/#game","name":"Voxel Rush","url":"https://play.voxelrush.app/","description":"Free multiplayer voxel shooter and war sandbox that runs in the browser: 40-soldier FRONTLINE battles for five flags with tanks, helicopters, FPV drones and mines, Team Deathmatch on a close-quarters town map, and a survival world with base building, mining, trading, raids and squads.","image":["https://play.voxelrush.app/og-image.jpg","https://play.voxelrush.app/screens/frontline-river-crossing.jpg","https://play.voxelrush.app/screens/frontline-village-fight.jpg","https://play.voxelrush.app/screens/frontline-kavir-citadel.jpg","https://play.voxelrush.app/screens/deploy-classes.jpg"],"screenshot":[{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/frontline-river-crossing.jpg","caption":"A FRONTLINE battle seen from above the river crossing: flags, tanks and a helicopter","width":1280,"height":720},{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/frontline-village-fight.jpg","caption":"A soldier with a rocket launcher watches an enemy helicopter, tank and FPV drone near flag C","width":1280,"height":720},{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/frontline-kavir-citadel.jpg","caption":"The desert map Kavir Citadel: a fortress with the middle flag, tanks and a helicopter around it","width":1280,"height":720},{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/deploy-classes.jpg","caption":"The deploy screen: six soldier classes and the battle map with flags and vehicles","width":1280,"height":720}],"genre":["First-person shooter","Sandbox","Multiplayer","Voxel"],"gamePlatform":["Web browser","PC","Android","iOS"],"applicationCategory":"GameApplication","operatingSystem":"Any (modern web browser with WebGL 2)","browserRequirements":"Requires JavaScript and WebGL 2","playMode":["MultiPlayer","CoOp","SinglePlayer"],"numberOfPlayers":{"@type":"QuantitativeValue","minValue":1,"maxValue":40},"inLanguage":["en","ru"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},"publisher":{"@id":"https://play.voxelrush.app/#org"},"sameAs":["https://voxelrush.app/"],"mainEntityOfPage":"https://voxelrush.app/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://play.voxelrush.app/#org","name":"Voxel Rush","url":"https://play.voxelrush.app/","logo":"https://play.voxelrush.app/icons/icon-512.png","sameAs":["https://voxelrush.app/","https://discord.gg/Vt35u4XAh"]},{"@type":"WebSite","@id":"https://play.voxelrush.app/#site","name":"Voxel Rush","url":"https://play.voxelrush.app/","inLanguage":["en","de","es","fr","it","nl","pl","pt-BR","tr","ru","ar","ja","ko"],"publisher":{"@id":"https://play.voxelrush.app/#org"}},{"@type":["VideoGame","WebApplication"],"@id":"https://play.voxelrush.app/#game","name":"Voxel Rush","url":"https://play.voxelrush.app/","description":"Free multiplayer voxel shooter and war sandbox that runs in the browser: 40-soldier FRONTLINE battles for five flags with tanks, helicopters, FPV drones and mines, Team Deathmatch on a close-quarters town map, and a survival world with base building, mining, trading, raids and squads.","image":["https://play.voxelrush.app/og-image.jpg","https://play.voxelrush.app/screens/frontline-river-crossing.jpg","https://play.voxelrush.app/screens/frontline-village-fight.jpg","https://play.voxelrush.app/screens/frontline-kavir-citadel.jpg","https://play.voxelrush.app/screens/deploy-classes.jpg"],"screenshot":[{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/frontline-river-crossing.jpg","caption":"A FRONTLINE battle seen from above the river crossing: flags, tanks and a helicopter","width":1280,"height":720},{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/frontline-village-fight.jpg","caption":"A soldier with a rocket launcher watches an enemy helicopter, tank and FPV drone near flag C","width":1280,"height":720},{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/frontline-kavir-citadel.jpg","caption":"The desert map Kavir Citadel: a fortress with the middle flag, tanks and a helicopter around it","width":1280,"height":720},{"@type":"ImageObject","url":"https://play.voxelrush.app/screens/deploy-classes.jpg","caption":"The deploy screen: six soldier classes and the battle map with flags and vehicles","width":1280,"height":720}],"genre":["First-person shooter","Sandbox","Multiplayer","Voxel"],"gamePlatform":["Web browser","PC","Android","iOS"],"applicationCategory":"GameApplication","operatingSystem":"Any (modern web browser with WebGL 2)","browserRequirements":"Requires JavaScript and WebGL 2","playMode":["MultiPlayer","CoOp","SinglePlayer"],"numberOfPlayers":{"@type":"QuantitativeValue","minValue":1,"maxValue":40},"inLanguage":["en","de","es","fr","it","nl","pl","pt-BR","tr","ru","ar","ja","ko"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},"publisher":{"@id":"https://play.voxelrush.app/#org"},"sameAs":["https://voxelrush.app/"],"mainEntityOfPage":"https://voxelrush.app/"}]}</script>
 <link rel="manifest" href="/manifest.webmanifest" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
@@ -851,10 +842,12 @@
   #invprofile { width: 156px; padding: 10px; border-radius: 4px; background: rgba(5, 8, 12, 0.4);
     border: 1px solid var(--panel-border); text-align: center; }
   #invprofile h3 { font-family: var(--font-main); margin: 0 0 5px; font-size: 13px; color: var(--heading); }
+  #invrankboard { display: block; width: 96px; height: auto; margin: 4px auto 6px; filter: drop-shadow(0 3px 8px #0009); }
+  #invrankboard:not([src]) { visibility: hidden; height: 38px; }
   #invrankname { color: var(--accent); font-size: 14px; font-weight: 700; }
   #invrankxp, #invranknext { margin-top: 4px; color: var(--text-dim); font-size: 11px; }
   #invrankbar { height: 7px; margin-top: 7px; border-radius: 99px; overflow: hidden; background: #0a0d07; border: 1px solid var(--input-border); }
-  #invrankfill { height: 100%; width: 0; background: linear-gradient(90deg, var(--primary-hover), var(--accent)); transition: width .2s ease; }
+  #invrankfill { height: 100%; width: 0; background: linear-gradient(90deg, #2fae3a, #63f05c); transition: width .2s ease; }
   /* compact entry to the skills window, under the rank bar */
   #invskills { display: flex; align-items: center; gap: 7px; width: 100%; margin-top: 9px; padding: 5px 7px 5px 5px;
     border-radius: 7px; border: 1px solid rgba(232, 196, 92, .38); cursor: pointer; font: inherit; font-size: 12px; font-weight: 700;
@@ -1024,6 +1017,7 @@
   #attachslot-laser { left: 26%; bottom: 6px; }
   #attachslot-light { right: 5%; top: 50%; transform: translateY(-50%); }
   #attachslot-mag { left: 50%; bottom: 6px; transform: translateX(-50%); }
+  #attachslot-grip { right: 26%; bottom: 6px; }
   #attachpicker.hidden { display: none; }
   .attach-picker-title { font-size: 12px; color: var(--heading); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; }
   .attach-picker-list { display: flex; flex-direction: column; gap: 6px; max-height: 240px; overflow-y: auto; }
@@ -1048,6 +1042,7 @@
      button, so the centre of the screen — crosshair, targets, the road ahead — stays clear. */
   :root { --ops-top: 234px; --ops-width: 252px; }
   body:has(#voice-hud[hidden]) { --ops-top: 176px; }
+  body.ui-panel-open #raidhud { visibility: hidden; }
   #raidhud { position: fixed; z-index:12; top: var(--ops-top); right: max(14px, env(safe-area-inset-right)); left: auto;
     width: var(--ops-width); box-sizing: border-box; pointer-events: none;
     max-height: calc(100vh - var(--ops-top) - 150px); overflow: hidden;
@@ -1171,8 +1166,8 @@
     left:auto; right:max(8px,var(--safe-right)); bottom:112px; width:min(270px,34vw); max-height:100px;
   }
 </style>
-  <script type="module" crossorigin src="/assets/index-Dp6GxvJu.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-D16eXMZ8.css">
+  <script type="module" crossorigin src="/assets/index-BeUlFSPp.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BzCKlgJW.css">
 </head>
 <body>
   <div id="game"></div>
@@ -1267,12 +1262,15 @@
     <header class="mm-top">
       <div class="mm-community">
         <div class="mm-season" aria-hidden="true"><i></i><span data-i18n="menuSeason">Season 1 · Operation Genesis</span></div>
-        <a class="mm-discord" id="menu-discord" href="https://discord.gg/Vt35u4XAh" target="_blank" rel="noopener noreferrer" aria-label="Join the Voxel Rush Discord community (opens in a new tab)" title="Find a squad, report bugs, and share ideas · Opens in a new tab">
+        <a class="mm-discord" id="menu-discord" href="https://discord.gg/Vt35u4XAh" target="_blank" rel="noopener noreferrer" aria-label="Join the Voxel Rush Discord community (opens in a new tab)" data-i18n-aria="menuDiscordAria" title="Find a squad, report bugs, and share ideas · Opens in a new tab" data-i18n-title="menuDiscordTitle">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4a19.5 19.5 0 0 0-4.8-1.5l-.6 1.3a18.2 18.2 0 0 0-5.8 0l-.6-1.3a19.5 19.5 0 0 0-4.8 1.5C.6 9 .1 13.5.4 18a19.6 19.6 0 0 0 5.9 3l1.2-2a12.7 12.7 0 0 1-1.8-.9l.4-.3a14 14 0 0 0 11.8 0l.4.3c-.6.4-1.2.7-1.8.9l1.2 2a19.6 19.6 0 0 0 5.9-3c.4-5.2-.8-9.7-3.3-13.6ZM8.5 15.3c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Zm7 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Z"/></svg>
-          <span>Join Discord</span><span aria-hidden="true">↗</span>
+          <span data-i18n="menuDiscord">Join Discord</span><span aria-hidden="true">↗</span>
         </a>
       </div>
-      <div id="menu-account" class="menu-account"></div>
+      <div class="mm-top-end">
+        <div id="menu-language" class="lang-menu"></div>
+        <div id="menu-account" class="menu-account"></div>
+      </div>
     </header>
     <div class="menu-hero" aria-hidden="true">
       <div class="mm-kicker" data-i18n="menuKicker">Voxel war sandbox</div>
@@ -1290,9 +1288,9 @@
         <!-- Installing the game and posting about it live in the Rewards dialog; these stay as hooks for pwa.ts and automation. -->
         <button class="hidden mm-hidden" id="installbtn" type="button" tabindex="-1" aria-hidden="true"></button>
         <button class="mm-hidden" id="menusupport" type="button" tabindex="-1" aria-hidden="true"></button>
-        <a class="mm-discord mm-discord-mobile" id="menu-discord-mobile" href="https://discord.gg/Vt35u4XAh" target="_blank" rel="noopener noreferrer" aria-label="Join the Voxel Rush Discord community (opens in a new tab)" title="Find a squad, report bugs, and share ideas · Opens in a new tab">
+        <a class="mm-discord mm-discord-mobile" id="menu-discord-mobile" href="https://discord.gg/Vt35u4XAh" target="_blank" rel="noopener noreferrer" aria-label="Join the Voxel Rush Discord community (opens in a new tab)" data-i18n-aria="menuDiscordAria" title="Find a squad, report bugs, and share ideas · Opens in a new tab" data-i18n-title="menuDiscordTitle">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4a19.5 19.5 0 0 0-4.8-1.5l-.6 1.3a18.2 18.2 0 0 0-5.8 0l-.6-1.3a19.5 19.5 0 0 0-4.8 1.5C.6 9 .1 13.5.4 18a19.6 19.6 0 0 0 5.9 3l1.2-2a12.7 12.7 0 0 1-1.8-.9l.4-.3a14 14 0 0 0 11.8 0l.4.3c-.6.4-1.2.7-1.8.9l1.2 2a19.6 19.6 0 0 0 5.9-3c.4-5.2-.8-9.7-3.3-13.6ZM8.5 15.3c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Zm7 0c-1.1 0-2-1-2-2.3s.9-2.3 2-2.3 2 1 2 2.3-.9 2.3-2 2.3Z"/></svg>
-          <span>Join Discord</span><span aria-hidden="true">↗</span>
+          <span data-i18n="menuDiscord">Join Discord</span><span aria-hidden="true">↗</span>
         </a>
       </nav>
       <div id="menu-error" role="status" aria-live="polite"></div>
@@ -1327,7 +1325,7 @@
         <label data-i18n="renderDistanceLabel">Render distance</label><div class="slider-row"><input type="range" id="grender" min="2" max="18" step="1"><span id="grenderval"></span></div>
         <label data-i18n="resolutionScaleLabel">Resolution scale</label><div class="slider-row"><input type="range" id="gpixel" min="50" max="200" step="5"><span id="gpixelval"></span></div>
         <label data-i18n="particlesLabel">Particles</label><div class="slider-row"><input type="range" id="gparticles" min="0" max="130" step="5"><span id="gparticlesval"></span></div>
-        <label data-i18n="shadowQualityLabel">Shadow quality</label><select id="gshadows" class="panel-select"><option value="0">Off</option><option value="1024">1024</option><option value="2048">2048</option><option value="4096">4096</option></select>
+        <label data-i18n="shadowQualityLabel">Shadow quality</label><select id="gshadows" class="panel-select"><option value="0" data-i18n="offLabel">Off</option><option value="1024">1024</option><option value="2048">2048</option><option value="4096">4096</option></select>
         <label data-i18n="textureQualityLabel">Texture quality</label><select id="gtextures" class="panel-select"><option value="16">16×16</option><option value="32">32×32</option><option value="64">64×64</option><option value="128">128×128</option></select>
         <label data-i18n="modelDetailLabel">Model detail</label><select id="gmodels" class="panel-select"><option value="0" data-i18n="modelDetailLow">Low</option><option value="1" data-i18n="modelDetailMed">Medium</option><option value="2" data-i18n="modelDetailHigh">High</option></select>
         <label data-i18n="militaryOptimizationLabel">Optimize military models at</label><div class="slider-row"><input type="range" id="gmilitarythreshold" min="10" max="100" step="5"><span id="gmilitarythresholdval"></span></div>
@@ -1378,7 +1376,7 @@
       <div class="desktop-only"><label data-i18n="fullscreen">Auto fullscreen</label>
       <button class="btn secondary" id="fullscreentoggle" style="margin-top:0;" data-i18n="offLabel">Off</button></div>
       <label data-i18n="language">Language</label>
-      <select id="language" class="panel-select"><option value="en">English</option><option value="ru">Русский</option></select>
+      <select id="language" class="panel-select"></select>
       <label><input type="checkbox" id="autojumptoggle" checked> <span data-i18n="autoJumpLabel">Auto-jump (single-block steps)</span></label>
       <label><input type="checkbox" id="camerabobtoggle" checked> <span data-i18n="cameraBobLabel">Camera bob</span></label>
       <label><input type="checkbox" id="itemtooltipstoggle" checked> <span data-i18n="itemTooltipsLabel">Item tooltips</span></label>
@@ -1438,15 +1436,12 @@
       <div class="pause-actions">
       <button class="btn" id="resumebtn" data-i18n="resumeButton">Resume</button>
       <div class="pause-armory">
-        <button class="btn secondary" id="pausecharacter" type="button"><span class="pause-armory-icon" aria-hidden="true">◆</span><span data-i18n="pauseCharacterSkins">Character skins</span></button>
-        <button class="btn secondary" id="pauseweaponskins" type="button"><span class="pause-armory-icon" aria-hidden="true">✦</span><span data-i18n="pauseWeaponSkins">Weapon skins</span></button>
+        <button class="btn secondary" id="pauseinventory" type="button"><span class="pause-armory-icon" aria-hidden="true">◆</span><span data-i18n="invTitle">Inventory</span></button>
       </div>
-      <button class="btn secondary" id="pauseskills" data-i18n="skillsButton">Skills &amp; stats</button>
       <button class="btn secondary" id="pausesettings" data-i18n="settingsLabel">Settings</button>
       <button class="btn secondary hidden" id="pausesave" data-i18n="saveGameButton">Save game</button>
       <button class="btn danger" id="disconnectbtn" data-i18n="disconnectButton">Disconnect from server</button>
       </div>
-      <details id="missions-menu" class="pause-help mission-menu hidden" hidden><summary data-i18n="missionsTitle">Missions</summary><div id="missions-menu-content"></div></details>
       <details class="pause-help"><summary data-i18n="pauseControls">Controls</summary><div class="controls-list" id="pausebinds">
         <div><b>LMB</b> — fire / break</div>
         <div><b>RMB</b> — aim / place block</div>
@@ -1500,10 +1495,11 @@
       </div>
       <div id="invprofile">
         <h3 data-i18n="rankTitle">Rank</h3>
-        <div id="invrankname">Recruit</div>
+        <img id="invrankboard" alt="" draggable="false">
+        <div id="invrankname">Private</div>
         <div id="invrankxp">0 / 100 XP</div>
         <div id="invrankbar"><div id="invrankfill"></div></div>
-        <div id="invranknext">Private: 100 XP remaining</div>
+        <div id="invranknext"></div>
         <button id="invskills" type="button" aria-label="Skills &amp; stats" data-i18n-aria="skillsButton">
           <span class="inv-skills-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.8l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 16.8l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span>
           <span class="inv-skills-label" data-i18n="invSkillsButton">Skills</span>
@@ -1589,6 +1585,7 @@
         <div class="attach-slot" id="attachslot-laser"></div>
         <div class="attach-slot" id="attachslot-mag"></div>
         <div class="attach-slot" id="attachslot-light"></div>
+        <div class="attach-slot" id="attachslot-grip"></div>
       </div>
       <div id="attachammo" class="hidden"></div>
       <div id="attachpicker" class="hidden"></div>
@@ -1637,32 +1634,9 @@
     <button id="layoutreset" class="btn secondary" type="button" data-i18n="resetLayoutButton">Reset to default</button>
   </div>
 
-  <script src="https://telegram.org/js/telegram-web-app.js" crossorigin="anonymous"></script>
-  <script>
-    (() => {
-      const isDevOrigin = location.protocol === 'http:'
-        && location.hostname === '212.43.159.250'
-        && location.port === '5174';
-      if (!isDevOrigin || !('serviceWorker' in navigator)) return;
-
-      window.addEventListener('load', () => {
-        void (async () => {
-          const registrations = await navigator.serviceWorker.getRegistrations();
-          const cacheKeys = 'caches' in window ? await caches.keys() : [];
-          if (!registrations.length && !cacheKeys.length) return;
-
-          await Promise.all(registrations.map((registration) => registration.unregister()));
-          if ('caches' in window) {
-            await Promise.all(cacheKeys.map((key) => caches.delete(key)));
-          }
-          location.reload();
-        })().catch(() => {
-          // Storage cleanup is best-effort; the app can still start if the
-          // browser blocks access to one of the storage APIs.
-        });
-      });
-    })();
-  </script>
+  <!-- Telegram's Mini App bridge, served from this origin: the page loads no third-party script
+       (Content-Security-Policy script-src 'self'). Refresh from https://telegram.org/js/telegram-web-app.js. -->
+  <script src="/vendor/telegram-web-app.js"></script>
   <div id="ammo-picker" class="hidden" role="dialog" aria-label="Ammunition"></div>
 </body>
 </html>

@@ -48,7 +48,12 @@
 //   _mirror-report.json        crawl record (dead-world shape)
 //   .upstream/manifest.json    Gen-A { generated, origin, files: { rel: {bytes, sha256} } }
 //
-// usage: node tools/capture.mjs [--check] [--report-only]
+// usage: node tools/capture.mjs [--check] [--report-only] [--out <dir>]
+//
+// --out <dir> writes the capture, _mirror-report.json and .upstream/manifest.json
+// under <dir> instead of the repo root. It is the dry-run hook tools/update.mjs
+// --pull uses: capture into a scratch tree, byte-compare it against the
+// committed capture (the trust gate), and only then install.
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -56,28 +61,34 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const proj = path.resolve(here, "..");
+// write root: repo root by default, or --out <dir> (dry-run / trust-gate mode)
+const OUT = (() => {
+  const i = process.argv.indexOf("--out");
+  return i >= 0 && process.argv[i + 1] ? path.resolve(process.argv[i + 1]) : proj;
+})();
 const ORIGIN = "https://play.voxelrush.app";
 const ENTRY = "index.html"; // served at the origin root; capture at repo root (DISK_PREFIX = "")
 const UA = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/126.0" };
 
 // references the static scanner cannot see, enumerated explicitly (each one is
-// evidence-backed, discovered by playing the served mirror in a browser and
-// decoding the obfuscated string arrays the build ships):
-//   - assets/bootstrap-C4umvuQD.js — `local-server-worker-coep-v1-*.js` dynamic-
-//     imports it as "./bootstrap-C4umvuQD.js" from its base64-encoded string
-//     table (invisible to the literal scanner; the first boot-test failure was
-//     exactly this fetch).
-//   - assets/main-Bs7z9e_r.js  — bootstrap's own encoded string table imports it.
-//   - assets/terrain-pool-Dvsi82A-.js — main's encoded string table imports it.
+// evidence-backed). Current build (mvs8vmgl-d7keq5, 2026-10-28):
+//   - assets/bootstrap-B8Ot5Flt.js — the local-server worker's payload chain
+//     entry (dynamic import); the 2026-10-31 refresh found it via the literal
+//     specifier, but the chain is kept here so a future redeploy that hides it
+//     in the base64 string table again still boot-tests.
+//   - assets/main-C153VVJY.js — bootstrap's own import.
 // The decoded tables also name the in-memory world routes the local-server
 // worker serves itself (/world/*, /structures/* — SPA-fallback upstream, no
 // static files; documented in README, deliberately not captured).
 // robots.txt is a conventional root file the entry does not reference; recorded
 // explicitly for site completeness.
+//
+// The 2026-10-13 chain (bootstrap-C4umvuQD -> main-Bs7z9e_r -> terrain-pool-
+// Dvsi82A-) is no longer referenced by the current build; those bytes are still
+// served at their immutable URLs but now live under legacy/2026-10-31/.
 const KNOWN = [
-  "assets/bootstrap-C4umvuQD.js",
-  "assets/main-Bs7z9e_r.js",
-  "assets/terrain-pool-Dvsi82A-.js",
+  "assets/bootstrap-B8Ot5Flt.js",
+  "assets/main-C153VVJY.js",
   "robots.txt",
 ];
 
@@ -411,8 +422,8 @@ async function main() {
   // write every captured file byte-exact at the capture root
   let bytes = 0;
   for (const [rel, rec] of [...state.fetched.entries()].sort()) {
-    const abs = path.join(proj, rel);
-    if (!path.resolve(abs).startsWith(path.resolve(proj) + path.sep) && path.resolve(abs) !== path.resolve(proj))
+    const abs = path.join(OUT, rel);
+    if (!path.resolve(abs).startsWith(path.resolve(OUT) + path.sep))
       throw new Error(`path escapes capture root: ${rel}`);
     fs.mkdirSync(path.dirname(abs), { recursive: true });
     fs.writeFileSync(abs, rec.buf);
@@ -434,14 +445,14 @@ async function main() {
     unreachable: state.unreachable.sort((a, b) => a.path.localeCompare(b.path)),
     external: [...external].sort(),
   };
-  fs.writeFileSync(path.join(proj, "_mirror-report.json"), JSON.stringify(report, null, 2) + "\n");
+  fs.writeFileSync(path.join(OUT, "_mirror-report.json"), JSON.stringify(report, null, 2) + "\n");
 
   // Gen-A manifest over EVERY captured file
   const files = {};
   for (const [rel, rec] of [...state.fetched.entries()].sort()) files[rel] = { bytes: rec.bytes, sha256: rec.sha256 };
-  fs.mkdirSync(path.join(proj, ".upstream"), { recursive: true });
+  fs.mkdirSync(path.join(OUT, ".upstream"), { recursive: true });
   fs.writeFileSync(
-    path.join(proj, ".upstream", "manifest.json"),
+    path.join(OUT, ".upstream", "manifest.json"),
     JSON.stringify({ generated: new Date().toISOString(), origin: ORIGIN, files }, null, 2) + "\n",
   );
 

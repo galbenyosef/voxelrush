@@ -1,6 +1,17 @@
 #boot-loading {
   display: none;
 }
+html.i18n-pending #menu > :not(#menubg) {
+  animation: i18n-wait 3.5s step-end both;
+}
+@keyframes i18n-wait {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 html.boot-joining #menu {
   display: none !important;
 }

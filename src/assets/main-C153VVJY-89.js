@@ -1,0 +1,240 @@
+// main-C153VVJY 89 — x4dcbbe
+// Lines 29789-30026 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+class Rk {
+  constructor(_0x34ebbe, _0x461a3a, _0x303178, _0x5c259f, _0x197b1d) {
+    const _0x4dcbbe = _0x44a014;
+    ((this[_0x4dcbbe(0x2ed)] = _0x34ebbe),
+      (this["signs"] = _0x461a3a),
+      (this[_0x4dcbbe(0x529)] = _0x303178),
+      (this[_0x4dcbbe(0x1b41)] = _0x5c259f),
+      (this[_0x4dcbbe(0x1dc0)] = _0x197b1d));
+    try {
+      for (const _0x37eba4 of JSON[_0x4dcbbe(0x19fc)](
+        _0x27cf81[_0x4dcbbe(0x92d)](
+          se[_0x4dcbbe(0x282)](_0x34ebbe["dir"], _0x4dcbbe(0xdab)),
+          _0x4dcbbe(0x258),
+        ),
+      ))
+        [_0x37eba4["x"], _0x37eba4["y"], _0x37eba4["z"]][_0x4dcbbe(0x1b05)](
+          Number[_0x4dcbbe(0x167b)],
+        ) &&
+          typeof _0x37eba4["owner"] == _0x4dcbbe(0x18e4) &&
+          (_0x37eba4[_0x4dcbbe(0x335)] === _0x4dcbbe(0x14ac) ||
+            _0x37eba4[_0x4dcbbe(0x335)] === _0x4dcbbe(0x805)) &&
+          this[_0x4dcbbe(0x1174)]["set"](
+            $p(_0x37eba4["x"], _0x37eba4["y"], _0x37eba4["z"]),
+            {
+              ..._0x37eba4,
+              name: this[_0x4dcbbe(0x4f1)](_0x37eba4[_0x4dcbbe(0x35b)]),
+            },
+          );
+    } catch {}
+  }
+  [_0x44a014(0x1174)] = new Map();
+  ["dirty"] = !0x1;
+  [_0x44a014(0x4f1)](_0x31241d) {
+    const _0x202c84 = _0x44a014;
+    return String(_0x31241d ?? "")
+      [_0x202c84(0x1e42)](/[\x00-\x1f\x7f]/g, "")
+      ["trim"]()
+      ["slice"](0x0, 0x30);
+  }
+  [_0x44a014(0xf25)](_0x34be8c, _0x1985b7, _0x27906e, _0x5d610c, _0x5cf745) {
+    const _0x1f2551 = _0x44a014,
+      _0x3838e3 = $p(_0x34be8c, _0x1985b7, _0x27906e);
+    return this["records"]["has"](_0x3838e3)
+      ? !0x1
+      : (this[_0x1f2551(0x1174)]["set"](_0x3838e3, {
+          x: _0x34be8c,
+          y: _0x1985b7,
+          z: _0x27906e,
+          owner: _0x5d610c,
+          kind: _0x5cf745,
+          name:
+            _0x5cf745 === _0x1f2551(0x14ac)
+              ? _0x1f2551(0xa11)
+              : this[_0x1f2551(0x1307)]
+                  ["get"](_0x34be8c, _0x1985b7, _0x27906e)
+                  ?.[_0x1f2551(0x1178)][_0x1f2551(0x47b)]("\x0a")[0x0] ||
+                "Mechanism",
+        }),
+        (this[_0x1f2551(0x18ff)] = !0x0),
+        !0x0);
+  }
+  [_0x44a014(0x13b9)](_0x43888c, _0x300dd6, _0x35298f) {
+    const _0x49b52a = _0x44a014;
+    this[_0x49b52a(0x1174)][_0x49b52a(0x367)](
+      $p(_0x43888c, _0x300dd6, _0x35298f),
+    ) && (this["dirty"] = !0x0);
+  }
+  ["valid"](_0x39bc5b) {
+    const _0x3c69a9 = _0x44a014;
+    return (
+      this[_0x3c69a9(0x2ed)]["getBlock"](
+        _0x39bc5b["x"],
+        _0x39bc5b["y"],
+        _0x39bc5b["z"],
+      ) ===
+      (_0x39bc5b[_0x3c69a9(0x335)] === _0x3c69a9(0x14ac)
+        ? l[_0x3c69a9(0x8f0)]
+        : l[_0x3c69a9(0x21d)])
+    );
+  }
+  ["allows"](_0x4391bb, _0x423efc) {
+    const _0x33dfe6 = _0x44a014;
+    return (
+      this[_0x33dfe6(0x1dc0)]?.(_0x4391bb, _0x423efc) ??
+      _0x423efc[_0x33dfe6(0xbe9)] === _0x4391bb
+    );
+  }
+  [_0x44a014(0x2e7)](_0x2c9fd7, _0x340c34) {
+    const _0x197e3c = _0x44a014,
+      _0x350f1d = [];
+    for (const [_0x3c67ae, _0x50cb71] of this[_0x197e3c(0x1174)])
+      if (this[_0x197e3c(0x127b)](_0x2c9fd7, _0x50cb71)) {
+        if (!this[_0x197e3c(0x17e2)](_0x50cb71)) {
+          (this["records"]["delete"](_0x3c67ae),
+            (this[_0x197e3c(0x18ff)] = !0x0));
+          continue;
+        }
+        _0x350f1d[_0x197e3c(0x2fb)]({
+          ..._0x50cb71,
+          planet: this[_0x197e3c(0x529)],
+          signal: jn(_0x340c34, {
+            ..._0x50cb71,
+            planet: this[_0x197e3c(0x529)],
+          }),
+          on:
+            _0x50cb71["kind"] === _0x197e3c(0x14ac)
+              ? !!(
+                  this[_0x197e3c(0x2ed)]["getMeta"](
+                    _0x50cb71["x"],
+                    _0x50cb71["y"],
+                    _0x50cb71["z"],
+                  ) & Vt
+                )
+              : !!this["signs"][_0x197e3c(0xda9)](
+                  _0x50cb71["x"],
+                  _0x50cb71["y"],
+                  _0x50cb71["z"],
+                )?.[_0x197e3c(0xa39)],
+          command:
+            _0x50cb71[_0x197e3c(0x335)] === _0x197e3c(0x805)
+              ? qc(
+                  this[_0x197e3c(0x1307)]["get"](
+                    _0x50cb71["x"],
+                    _0x50cb71["y"],
+                    _0x50cb71["z"],
+                  )?.["text"] ?? "",
+                )
+              : void 0x0,
+        });
+      }
+    return _0x350f1d;
+  }
+  ["update"](
+    _0x773fa6,
+    _0x28ab79,
+    _0x11b3ab,
+    _0x1baaee,
+    _0x343b56,
+    _0x2c5e5c,
+    _0x2e1d79,
+  ) {
+    const _0x4b176f = _0x44a014,
+      _0x7c0572 = this["records"][_0x4b176f(0xda9)](
+        $p(_0x11b3ab, _0x1baaee, _0x343b56),
+      );
+    if (
+      !_0x7c0572 ||
+      !this[_0x4b176f(0x127b)](_0x773fa6, _0x7c0572) ||
+      !this[_0x4b176f(0x17e2)](_0x7c0572) ||
+      !jn(_0x28ab79, { ..._0x7c0572, planet: this[_0x4b176f(0x529)] })
+    )
+      return _0x4b176f(0x96b);
+    if (_0x2e1d79 !== void 0x0) {
+      const _0x342049 = this["clean"](_0x2e1d79);
+      return _0x342049
+        ? ((_0x7c0572["name"] = _0x342049),
+          (this[_0x4b176f(0x18ff)] = !0x0),
+          "")
+        : "Enter\x20a\x20device\x20name";
+    }
+    if (_0x7c0572[_0x4b176f(0x335)] === _0x4b176f(0x14ac))
+      this[_0x4b176f(0x1b41)](
+        _0x11b3ab,
+        _0x1baaee,
+        _0x343b56,
+        l[_0x4b176f(0x8f0)],
+        (this[_0x4b176f(0x2ed)][_0x4b176f(0xdb5)](
+          _0x11b3ab,
+          _0x1baaee,
+          _0x343b56,
+        ) &
+          ~Vt) |
+          (_0x2c5e5c ? Vt : 0x0),
+      );
+    else
+      return this[_0x4b176f(0x1307)][_0x4b176f(0x1568)](
+        _0x11b3ab,
+        _0x1baaee,
+        _0x343b56,
+        _0x773fa6,
+        _0x2c5e5c,
+      );
+    return "";
+  }
+  ["renameOwner"](_0x1e2f81, _0x34fef0) {
+    const _0x46deec = _0x44a014;
+    for (const _0x553cde of this[_0x46deec(0x1174)]["values"]())
+      _0x553cde["owner"] === _0x1e2f81 &&
+        ((_0x553cde[_0x46deec(0xbe9)] = _0x34fef0),
+        (this[_0x46deec(0x18ff)] = !0x0));
+  }
+  [_0x44a014(0x1d88)]() {
+    const _0x556410 = _0x44a014;
+    this[_0x556410(0x18ff)] &&
+      (_0x27cf81[_0x556410(0x3de)](
+        se[_0x556410(0x282)](
+          this[_0x556410(0x2ed)][_0x556410(0xed7)],
+          _0x556410(0xdab),
+        ),
+        JSON[_0x556410(0x2043)]([
+          ...this[_0x556410(0x1174)][_0x556410(0x642)](),
+        ]),
+      ),
+      (this[_0x556410(0x18ff)] = !0x1));
+  }
+}
+const P5 = new Map();
+function Sk(_0x2e6133) {
+  const _0x1246f5 = _0x44a014;
+  let _0x546654 = P5[_0x1246f5(0xda9)](_0x2e6133);
+  return (
+    _0x546654 === void 0x0 &&
+      ((_0x546654 = Math[_0x1246f5(0x723)](
+        0x0,
+        ...(ao[_0x2e6133] ?? [])["map"](
+          (_0x3c3e32) => _0x3c3e32[_0x1246f5(0x723)]["y"],
+        ),
+      )),
+      P5[_0x1246f5(0x1b41)](_0x2e6133, _0x546654)),
+    _0x546654
+  );
+}
+const yx = (_0x3be1db) => _0x3be1db !== I[_0x44a014(0x1e09)] && !!ao[_0x3be1db],
+  h9 = (_0x590732) => Sk(_0x590732) + 3.5;
+function u9(_0x1fac2e, _0x9eb0e2) {
+  const _0x718d17 = _0x44a014,
+    _0x30324a = Math["hypot"](
+      _0x9eb0e2["x"] - _0x1fac2e["x"],
+      _0x9eb0e2["z"] - _0x1fac2e["z"],
+    ),
+    _0x2bbae4 = _0x1fac2e["y"] - _0x9eb0e2["y"] - Sk(_0x9eb0e2["type"]);
+  return (
+    yx(_0x9eb0e2[_0x718d17(0x1556)]) &&
+    _0x30324a <= 0x5 &&
+    _0x2bbae4 >= 0.25 &&
+    _0x2bbae4 <= 0x9
+  );
+}

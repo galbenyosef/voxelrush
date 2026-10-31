@@ -1,0 +1,5345 @@
+const _0x1d72df = _0x2d47;
+(function (_0x90a494, _0x4c2975) {
+  const _0x7abbcd = _0x2d47,
+    _0xd990e7 = _0x90a494();
+  while (!![]) {
+    try {
+      const _0x13d82b =
+        (-parseInt(_0x7abbcd(0x3ce)) / 0x1) *
+          (-parseInt(_0x7abbcd(0x252)) / 0x2) +
+        parseInt(_0x7abbcd(0x1fe)) / 0x3 +
+        -parseInt(_0x7abbcd(0x2cd)) / 0x4 +
+        -parseInt(_0x7abbcd(0x47c)) / 0x5 +
+        (parseInt(_0x7abbcd(0x272)) / 0x6) *
+          (-parseInt(_0x7abbcd(0x335)) / 0x7) +
+        (parseInt(_0x7abbcd(0x388)) / 0x8) *
+          (-parseInt(_0x7abbcd(0x491)) / 0x9) +
+        (-parseInt(_0x7abbcd(0x3e6)) / 0xa) *
+          (-parseInt(_0x7abbcd(0x284)) / 0xb);
+      if (_0x13d82b === _0x4c2975) break;
+      else _0xd990e7["push"](_0xd990e7["shift"]());
+    } catch (_0x2ff601) {
+      _0xd990e7["push"](_0xd990e7["shift"]());
+    }
+  }
+})(_0x1a29, 0x53cbb);
+const t = {
+    AIR: 0x0,
+    GRASS: 0x1,
+    DIRT: 0x2,
+    STONE: 0x3,
+    COBBLE: 0x4,
+    SAND: 0x5,
+    GRAVEL: 0x6,
+    LOG: 0x7,
+    PLANKS: 0x9,
+    BRICK: 0xa,
+    GLASS: 0xb,
+    WATER: 0xc,
+    BEDROCK: 0xd,
+    SNOW: 0xe,
+    GLOWSTONE: 0x11,
+    LADDER: 0x13,
+    REDSTONE: 0x15,
+    LAMP: 0x1b,
+    PISTON_HEAD: 0x1e,
+    DYNAMITE: 0x31,
+    DETONATOR: 0x32,
+    CHEST: 0x33,
+    COAL_ORE: 0x34,
+    IRON_ORE: 0x35,
+    GOLD_ORE: 0x36,
+    DIAMOND_ORE: 0x37,
+    TITANIUM_ORE: 0x38,
+    SANDSTONE: 0x39,
+    SANDSTONE_SMOOTH: 0x3a,
+    SANDSTONE_CHISELED: 0x3b,
+    STONE_BRICKS: 0x3c,
+    MOSSY_STONE_BRICKS: 0x3d,
+    POLISHED_STONE: 0x3e,
+    STAIR_WOOD: 0x3f,
+    STAIR_STONE: 0x40,
+    STAIR_SANDSTONE: 0x41,
+    STAIR_COBBLE: 0x42,
+    STAIR_BRICK: 0x43,
+    STAIR_STONE_BRICKS: 0x44,
+    STAIR_SAND: 0x45,
+    SAPLING: 0x46,
+    METAL_DOOR: 0x47,
+    ARMORED_DOOR: 0x48,
+    FURNACE: 0x49,
+    BOOKSHELF: 0x4a,
+    LANTERN: 0x4b,
+    CHAIN: 0x4c,
+    MILITARY_CHEST: 0x4d,
+    HAY_BALE: 0x4e,
+    BARREL: 0x4f,
+    FENCE_WOOD: 0x50,
+    FENCE_COBBLE: 0x51,
+    FENCE_STONE: 0x52,
+    FENCE_STONE_BRICKS: 0x53,
+    FENCE_SANDSTONE: 0x54,
+    FENCE_GATE_WOOD: 0x55,
+    BARBED_WIRE: 0x56,
+    TALL_GRASS: 0x57,
+    FLOWER_RED: 0x58,
+    FLOWER_WHITE: 0x59,
+    FLOWER_BLUE: 0x5a,
+    FLOWER_PINK: 0x5b,
+    FLOWER_YELLOW: 0x5c,
+    FENCE_GATE_COBBLE: 0x5d,
+    FENCE_GATE_STONE: 0x5e,
+    FENCE_GATE_STONE_BRICKS: 0x5f,
+    FENCE_GATE_SANDSTONE: 0x60,
+    TROPICAL_LOG: 0x61,
+    TROPICAL_LEAVES: 0x62,
+    DESERT_LOG: 0x63,
+    DESERT_LEAVES: 0x64,
+    PINE_LOG: 0x65,
+    PINE_LEAVES: 0x66,
+    SAKURA_LOG: 0x67,
+    SAKURA_LEAVES: 0x68,
+    TROPICAL_SAPLING: 0x69,
+    DESERT_SAPLING: 0x6a,
+    PINE_SAPLING: 0x6b,
+    SAKURA_SAPLING: 0x6c,
+    CACTUS: 0x6d,
+    LAVA: 0x6e,
+    FIRE: 0x6f,
+    WHEAT_CROP: 0x70,
+    SNOW_LAYER: 0x71,
+    WHEAT_SPROUT: 0x72,
+    WHEAT_YOUNG: 0x73,
+    TARGET: 0x74,
+    DESERT_GRASS: 0x75,
+    FARMLAND: 0x76,
+    POTATO_SPROUT: 0x77,
+    POTATO_YOUNG: 0x78,
+    POTATO_CROP: 0x79,
+    CARROT_SPROUT: 0x7a,
+    CARROT_YOUNG: 0x7b,
+    CARROT_CROP: 0x7c,
+    CAKE: 0x7d,
+    LIGHTNING_ROD: 0x7e,
+    CAMPFIRE: 0x7f,
+    SEAWEED: 0x80,
+    SEAGRASS: 0x81,
+    CORAL_PINK: 0x82,
+    CORAL_BLUE: 0x83,
+    CORAL_YELLOW: 0x84,
+    HIEROGLYPH_SANDSTONE: 0x85,
+    GOLD_INLAY: 0x86,
+    LAPIS_INLAY: 0x87,
+    EGYPTIAN_PILLAR: 0x88,
+    SARCOPHAGUS: 0x89,
+    LUNAR_REGOLITH: 0x8a,
+    LUNAR_ROCK: 0x8b,
+    LUNAR_BASALT: 0x8c,
+    LUNAR_ICE: 0x8d,
+    LUNAR_ORE: 0x8e,
+    LUNAR_PANEL: 0x8f,
+    LUNAR_GLASS: 0x90,
+    COMPOSTER: 0x91,
+    WOOD_TABLE: 0x92,
+    WOOD_CHAIR: 0x93,
+    WOOD_BENCH: 0x94,
+    MAP_TABLE: 0x95,
+    REMOTE_STATION: 0x96,
+    MINE_AP: 0x97,
+    MINE_AT: 0x98,
+    SAVANNA_GRASS: 0x99,
+    STAIR_RSTONE: 0x9a,
+    KITCHEN_COUNTER: 0x9b,
+    SINK: 0x9c,
+    STORAGE_SHELF: 0x9d,
+    SOFA: 0x9e,
+    WALL_LIGHT: 0x9f,
+    POTTED_PLANT: 0xa0,
+    RASPBERRY_BUSH_SPROUT: 0xa1,
+    RASPBERRY_BUSH_YOUNG: 0xa2,
+    RASPBERRY_BUSH_RIPE: 0xa3,
+    BLUEBERRY_BUSH_SPROUT: 0xa4,
+    BLUEBERRY_BUSH_YOUNG: 0xa5,
+    BLUEBERRY_BUSH_RIPE: 0xa6,
+    BLACKBERRY_BUSH_SPROUT: 0xa7,
+    BLACKBERRY_BUSH_YOUNG: 0xa8,
+    BLACKBERRY_BUSH_RIPE: 0xa9,
+    RGLOWSTONE: 0xaa,
+    SIGN: 0xab,
+    RADIO_RELAY: 0xac,
+    AUTUMN_LEAVES_ORANGE: 0xad,
+    AUTUMN_LEAVES_RED: 0xae,
+    AUTUMN_LEAVES_YELLOW: 0xaf,
+    BIRCH_LOG: 0xb0,
+    LEAF_LITTER: 0xb1,
+    PUMPKIN: 0xb2,
+    JACK_O_LANTERN: 0xb3,
+    PUMPKIN_SPROUT: 0xb4,
+    PUMPKIN_YOUNG: 0xb5,
+    PUMPKIN_CROP: 0xb6,
+    CANDLE: 0xb7,
+    COBWEB: 0xb8,
+    GRAVESTONE: 0xb9,
+    GRAVE_CROSS: 0xba,
+    SKULL: 0xbb,
+    CAULDRON: 0xbc,
+    SCARECROW: 0xbd,
+    IRON_FENCE: 0xbe,
+    DARK_PLANKS: 0xbf,
+    DEAD_LOG: 0xc0,
+    MOSSY_COBBLE: 0xc1,
+    COFFIN: 0xc2,
+    POTION_SHELF: 0xc3,
+    HANGING_HERBS: 0xc4,
+    FLY_AGARIC: 0xc5,
+    MUSHROOM: 0xc6,
+    STAIR_DARK: 0xc7,
+    CRACKED_STONE_BRICKS: 0xc8,
+    AUTUMN_SAPLING: 0xc9,
+    OWNERSHIP_TOTEM: 0xca,
+    CASINO_CARPET: 0xcb,
+    ROYAL_CARPET: 0xcc,
+    MARBLE: 0xcd,
+    BLACK_MARBLE: 0xce,
+    GOLD_BLOCK: 0xcf,
+    VELVET_PANEL: 0xd0,
+    MARQUEE_LIGHTS: 0xd1,
+    LED_SCREEN: 0xd2,
+    AVIATION_LIGHT: 0xd3,
+    ICE: 0xd4,
+    WHEAT_FIELD: 0xd5,
+    STUBBLE_FIELD: 0xd6,
+    CROP_FIELD: 0xd7,
+  },
+  o = (
+    _0x2a30de,
+    _0x3aeba3,
+    _0x450057,
+    _0x1064ca,
+    _0x3358e6,
+    _0x3f8913,
+    _0x485618 = {},
+    _0x5bdfab = _0x450057,
+  ) => ({
+    id: _0x2a30de,
+    name: _0x3aeba3,
+    label: _0x450057,
+    labelEn: _0x5bdfab,
+    hardness: _0x1064ca,
+    tex: _0x3358e6,
+    color: _0x3f8913,
+    solid: !0x0,
+    transparent: !0x1,
+    liquid: !0x1,
+    light: 0x0,
+    shape: "cube",
+    interactive: !0x1,
+    ..._0x485618,
+  }),
+  _ = [
+    o(
+      0x0,
+      "air",
+      _0x1d72df(0x399),
+      0x0,
+      [0x0, 0x0, 0x0],
+      0x0,
+      { solid: !0x1, transparent: !0x0 },
+      _0x1d72df(0x414),
+    ),
+    o(
+      0x1,
+      _0x1d72df(0x377),
+      _0x1d72df(0x432),
+      0x1e,
+      [0x0, 0x1, 0x2],
+      0x4c7739,
+      {},
+      _0x1d72df(0x1fd),
+    ),
+    o(
+      0x2,
+      _0x1d72df(0x351),
+      _0x1d72df(0x4a3),
+      0x1e,
+      [0x2, 0x2, 0x2],
+      0x8a5a2b,
+      {},
+      _0x1d72df(0x384),
+    ),
+    o(
+      0x3,
+      _0x1d72df(0x308),
+      _0x1d72df(0x1bb),
+      0x5a,
+      [0x3, 0x3, 0x3],
+      0x8b8b8b,
+      {},
+      _0x1d72df(0x4bf),
+    ),
+    o(
+      0x4,
+      _0x1d72df(0x3a4),
+      "Булыжник",
+      0x50,
+      [0x4, 0x4, 0x4],
+      0x7a7a7a,
+      {},
+      _0x1d72df(0x2e2),
+    ),
+    o(
+      0x5,
+      _0x1d72df(0x1b0),
+      _0x1d72df(0x2a5),
+      0x19,
+      [0x5, 0x5, 0x5],
+      0xdbcf9a,
+      {},
+      _0x1d72df(0x40d),
+    ),
+    o(
+      0x6,
+      _0x1d72df(0x433),
+      _0x1d72df(0x474),
+      0x1e,
+      [0x6, 0x6, 0x6],
+      0x9a9186,
+      {},
+      _0x1d72df(0x496),
+    ),
+    o(
+      0x7,
+      _0x1d72df(0x3c1),
+      "Бревно",
+      0x3c,
+      [0x7, 0x8, 0x7],
+      0x6b4f2a,
+      {},
+      _0x1d72df(0x302),
+    ),
+    o(
+      0x8,
+      _0x1d72df(0x2ae),
+      _0x1d72df(0x355),
+      0x8,
+      [0x9, 0x9, 0x9],
+      0x3f7d2c,
+      { transparent: !0x0 },
+      _0x1d72df(0x295),
+    ),
+    o(
+      0x9,
+      _0x1d72df(0x1be),
+      _0x1d72df(0x394),
+      0x32,
+      [0xa, 0xa, 0xa],
+      0xb08c53,
+      {},
+      _0x1d72df(0x262),
+    ),
+    o(
+      0xa,
+      _0x1d72df(0x455),
+      "Кирпич",
+      0x64,
+      [0xb, 0xb, 0xb],
+      0xa4552f,
+      {},
+      "Brick",
+    ),
+    o(
+      0xb,
+      _0x1d72df(0x3f3),
+      "Стекло",
+      0x5,
+      [0xc, 0xc, 0xc],
+      0xbfe4ef,
+      { transparent: !0x0 },
+      _0x1d72df(0x200),
+    ),
+    o(
+      0xc,
+      _0x1d72df(0x3fc),
+      _0x1d72df(0x3fd),
+      -0x1,
+      [0xd, 0xd, 0xd],
+      0x3d6fd1,
+      { solid: !0x1, transparent: !0x0, liquid: !0x0 },
+      _0x1d72df(0x287),
+    ),
+    o(
+      0xd,
+      _0x1d72df(0x221),
+      _0x1d72df(0x243),
+      -0x1,
+      [0xe, 0xe, 0xe],
+      0x333333,
+      {},
+      _0x1d72df(0x1ea),
+    ),
+    o(
+      0xe,
+      "snow",
+      _0x1d72df(0x3d0),
+      0x14,
+      [0xf, 0xf, 0xf],
+      0xf0f5f7,
+      {},
+      _0x1d72df(0x225),
+    ),
+    o(
+      0xf,
+      _0x1d72df(0x2dd),
+      "Арм.\x20камень",
+      0x12c,
+      [0x10, 0x10, 0x10],
+      0x6f7480,
+      {},
+      _0x1d72df(0x376),
+    ),
+    o(
+      0x10,
+      _0x1d72df(0x462),
+      _0x1d72df(0x1e9),
+      0x12c,
+      [0x11, 0x11, 0x11],
+      0xc4dbe8,
+      { transparent: !0x0 },
+      _0x1d72df(0x4b6),
+    ),
+    o(
+      0x11,
+      _0x1d72df(0x2d4),
+      _0x1d72df(0x484),
+      0x28,
+      [0x12, 0x12, 0x12],
+      0xffd966,
+      { light: 0xf },
+      _0x1d72df(0x4a9),
+    ),
+    o(
+      0x12,
+      "torch",
+      _0x1d72df(0x497),
+      0x1,
+      [0x13, 0x13, 0x13],
+      0xffcc55,
+      { solid: !0x1, transparent: !0x0, light: 0xe, shape: _0x1d72df(0x30b) },
+      "Torch",
+    ),
+    o(
+      0x13,
+      _0x1d72df(0x446),
+      "Лестница",
+      0x14,
+      [0x14, 0x14, 0x14],
+      0xa8834f,
+      { solid: !0x1, transparent: !0x0, shape: "ladder" },
+      _0x1d72df(0x36d),
+    ),
+    o(
+      0x14,
+      "bed",
+      _0x1d72df(0x340),
+      0x19,
+      [0x15, 0x17, 0xa],
+      0xc23b3b,
+      { transparent: !0x0, shape: _0x1d72df(0x3a8), interactive: !0x0 },
+      _0x1d72df(0x2e9),
+    ),
+    o(
+      0x15,
+      _0x1d72df(0x46b),
+      _0x1d72df(0x1d2),
+      0x1,
+      [0x18, 0x19, 0x18],
+      0xa11f10,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x3e4) },
+      "Redstone",
+    ),
+    o(
+      0x16,
+      "lever",
+      _0x1d72df(0x440),
+      0x5,
+      [0x1a, 0x1a, 0x1a],
+      0x8d8d8d,
+      {
+        solid: !0x1,
+        transparent: !0x0,
+        shape: _0x1d72df(0x387),
+        interactive: !0x0,
+      },
+      _0x1d72df(0x379),
+    ),
+    o(
+      0x17,
+      _0x1d72df(0x32f),
+      "Кнопка",
+      0x5,
+      [0x3, 0x3, 0x3],
+      0x8b8b8b,
+      {
+        solid: !0x1,
+        transparent: !0x0,
+        shape: _0x1d72df(0x387),
+        interactive: !0x0,
+      },
+      _0x1d72df(0x43e),
+    ),
+    o(
+      0x18,
+      "plate",
+      _0x1d72df(0x345),
+      0x5,
+      [0x3, 0x3, 0x3],
+      0x9b9b9b,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x3e4) },
+      "Pressure\x20plate",
+    ),
+    o(
+      0x19,
+      _0x1d72df(0x4a2),
+      "Красный\x20факел",
+      0x1,
+      [0x1b, 0x1c, 0x1b],
+      0xd0432a,
+      { solid: !0x1, transparent: !0x0, light: 0x7, shape: _0x1d72df(0x30b) },
+      _0x1d72df(0x2f5),
+    ),
+    o(
+      0x1a,
+      _0x1d72df(0x24c),
+      _0x1d72df(0x3c6),
+      0x5,
+      [0x1d, 0x1d, 0x1d],
+      0x9a9a9a,
+      { solid: !0x1, transparent: !0x0, shape: "flat", interactive: !0x0 },
+      _0x1d72df(0x1f5),
+    ),
+    o(
+      0x1b,
+      "lamp",
+      _0x1d72df(0x29e),
+      0x1e,
+      [0x1e, 0x1e, 0x1e],
+      0xd8b45a,
+      {},
+      _0x1d72df(0x37c),
+    ),
+    o(
+      0x1c,
+      "piston",
+      _0x1d72df(0x21f),
+      0x3c,
+      [0x20, 0x21, 0x21],
+      0x8a7b56,
+      {},
+      _0x1d72df(0x375),
+    ),
+    o(
+      0x1d,
+      _0x1d72df(0x1b9),
+      _0x1d72df(0x449),
+      0x3c,
+      [0x22, 0x21, 0x21],
+      0x7ba05c,
+      {},
+      _0x1d72df(0x327),
+    ),
+    o(
+      0x1e,
+      _0x1d72df(0x3c5),
+      _0x1d72df(0x468),
+      0x3c,
+      [0x20, 0x21, 0x21],
+      0x8a7b56,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x387) },
+      _0x1d72df(0x1c9),
+    ),
+    o(
+      0x1f,
+      "door",
+      _0x1d72df(0x322),
+      0x1e,
+      [0x23, 0x23, 0x23],
+      0xa0703c,
+      { solid: !0x1, transparent: !0x0, shape: "door", interactive: !0x0 },
+      "Door",
+    ),
+    o(
+      0x20,
+      _0x1d72df(0x27a),
+      "",
+      0x0,
+      [0x0, 0x0, 0x0],
+      0x0,
+      { solid: !0x1, transparent: !0x0 },
+      "",
+    ),
+  ],
+  ht = 0x21,
+  ge = 0x26,
+  Ge = [
+    [_0x1d72df(0x42e), "Белая\x20глина", 0xe9ecec, "White\x20clay"],
+    [_0x1d72df(0x242), "Оранжевая\x20глина", 0xf07613, _0x1d72df(0x36c)],
+    [_0x1d72df(0x405), "Пурпурная\x20глина", 0xbd44b3, _0x1d72df(0x37b)],
+    [_0x1d72df(0x3c2), _0x1d72df(0x3bc), 0x3aafd9, _0x1d72df(0x330)],
+    [_0x1d72df(0x378), _0x1d72df(0x299), 0xf8c627, _0x1d72df(0x23e)],
+    [_0x1d72df(0x1f7), _0x1d72df(0x3bf), 0x70b919, _0x1d72df(0x4bd)],
+    [_0x1d72df(0x268), "Розовая\x20глина", 0xed8dac, _0x1d72df(0x309)],
+    ["gray_clay", _0x1d72df(0x4ac), 0x3e4447, "Gray\x20clay"],
+    [_0x1d72df(0x257), _0x1d72df(0x498), 0x8e8e86, _0x1d72df(0x261)],
+    ["cyan_clay", _0x1d72df(0x219), 0x158991, "Cyan\x20clay"],
+    [_0x1d72df(0x26c), "Фиолетовая\x20глина", 0x792aac, "Purple\x20clay"],
+    [_0x1d72df(0x315), _0x1d72df(0x382), 0x35399d, "Blue\x20clay"],
+    [_0x1d72df(0x2b4), _0x1d72df(0x3f2), 0x724728, "Brown\x20clay"],
+    ["green_clay", _0x1d72df(0x230), 0x546d1b, _0x1d72df(0x2d7)],
+    ["red_clay", "Красная\x20глина", 0xa02722, _0x1d72df(0x28f)],
+    [_0x1d72df(0x46a), _0x1d72df(0x311), 0x141519, _0x1d72df(0x1e4)],
+  ];
+Ge[_0x1d72df(0x431)](
+  ([_0x226491, _0xd159de, _0x36a910, _0x1ff103], _0x1c478d) => {
+    const _0x2bf0ec = _0x1d72df,
+      _0x3370fe = ge + _0x1c478d;
+    _[_0x2bf0ec(0x32d)](
+      o(
+        ht + _0x1c478d,
+        _0x226491,
+        _0xd159de,
+        0x19,
+        [_0x3370fe, _0x3370fe, _0x3370fe],
+        _0x36a910,
+        {},
+        _0x1ff103,
+      ),
+    );
+  },
+);
+const Ue = 0x36,
+  Nt = 0x37,
+  be = 0xab,
+  me = 0xac;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x301)],
+    _0x1d72df(0x398),
+    _0x1d72df(0x266),
+    0x5,
+    [be, Ue, me],
+    0xc2352a,
+    {},
+    _0x1d72df(0x3c3),
+  ),
+),
+  _["push"](
+    o(
+      t[_0x1d72df(0x30e)],
+      _0x1d72df(0x3be),
+      "Детонатор",
+      0x5,
+      [Nt, Nt, Nt],
+      0x333a44,
+      {},
+      "Detonator",
+    ),
+  ));
+const Ct = 0x38,
+  y = 0x39;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x395)],
+    _0x1d72df(0x2f4),
+    "Сундук",
+    0x2d,
+    [Ct, Ct, Ct],
+    0x9a6a35,
+    { interactive: !0x0, transparent: !0x0, shape: _0x1d72df(0x30a) },
+    "Chest",
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x1f9)],
+      _0x1d72df(0x1f4),
+      "Угольная\x20руда",
+      0x64,
+      [y, y, y],
+      0x3b3b3b,
+      {},
+      _0x1d72df(0x461),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["IRON_ORE"],
+      _0x1d72df(0x1af),
+      _0x1d72df(0x361),
+      0x6e,
+      [y + 0x1, y + 0x1, y + 0x1],
+      0xc18a5a,
+      {},
+      _0x1d72df(0x24e),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x3bb)],
+      _0x1d72df(0x467),
+      _0x1d72df(0x277),
+      0x78,
+      [y + 0x2, y + 0x2, y + 0x2],
+      0xe0bc4b,
+      {},
+      "Gold\x20ore",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x250)],
+      _0x1d72df(0x3d5),
+      "Алмазная\x20руда",
+      0x82,
+      [y + 0x3, y + 0x3, y + 0x3],
+      0x49d8e8,
+      {},
+      _0x1d72df(0x450),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x21a)],
+      _0x1d72df(0x1ce),
+      "Титановая\x20руда",
+      0x91,
+      [y + 0x4, y + 0x4, y + 0x4],
+      0xb7c5d4,
+      {},
+      "Titanium\x20ore",
+    ),
+  ));
+const M = 0x3e;
+(_[_0x1d72df(0x32d)](
+  o(
+    t["SANDSTONE"],
+    _0x1d72df(0x1da),
+    "Песчаник",
+    0x6e,
+    [M, M, M],
+    0xd8c48a,
+    {},
+    _0x1d72df(0x3d2),
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["SANDSTONE_SMOOTH"],
+      "smooth_sandstone",
+      _0x1d72df(0x343),
+      0x6e,
+      [M + 0x1, M + 0x1, M + 0x1],
+      0xe0cd97,
+      {},
+      _0x1d72df(0x30c),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x443)],
+      _0x1d72df(0x37a),
+      _0x1d72df(0x2d0),
+      0x6e,
+      [M + 0x2, M + 0x2, M + 0x2],
+      0xdccb96,
+      {},
+      "Chiseled\x20sandstone",
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x3ad)],
+      "stone_bricks",
+      _0x1d72df(0x389),
+      0x78,
+      [M + 0x3, M + 0x3, M + 0x3],
+      0x8c8c8c,
+      {},
+      _0x1d72df(0x25a),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["MOSSY_STONE_BRICKS"],
+      _0x1d72df(0x476),
+      _0x1d72df(0x240),
+      0x78,
+      [M + 0x4, M + 0x4, M + 0x4],
+      0x7c8c6e,
+      {},
+      "Mossy\x20stone\x20bricks",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x289)],
+      _0x1d72df(0x392),
+      _0x1d72df(0x436),
+      0x78,
+      [M + 0x5, M + 0x5, M + 0x5],
+      0xa8a8a8,
+      {},
+      _0x1d72df(0x403),
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x4b7)],
+      "wood_stairs",
+      _0x1d72df(0x459),
+      0x32,
+      [0xa, 0xa, 0xa],
+      0xb08c53,
+      { transparent: !0x0, shape: _0x1d72df(0x25c) },
+      _0x1d72df(0x1b6),
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x2e6)],
+      "stone_stairs",
+      "Каменная\x20ступенька",
+      0x5a,
+      [0x3, 0x3, 0x3],
+      0x8b8b8b,
+      { transparent: !0x0, shape: _0x1d72df(0x25c) },
+      _0x1d72df(0x269),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["STAIR_SANDSTONE"],
+      _0x1d72df(0x434),
+      "Ступенька\x20из\x20песчаника",
+      0x6e,
+      [0x3e, 0x3e, 0x3e],
+      0xd8c48a,
+      { transparent: !0x0, shape: "stair" },
+      "Sandstone\x20stair",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2ea)],
+      _0x1d72df(0x3d4),
+      _0x1d72df(0x49b),
+      0x50,
+      [0x4, 0x4, 0x4],
+      0x7a7a7a,
+      { transparent: !0x0, shape: _0x1d72df(0x25c) },
+      _0x1d72df(0x337),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["STAIR_BRICK"],
+      _0x1d72df(0x2de),
+      _0x1d72df(0x495),
+      0x64,
+      [0xb, 0xb, 0xb],
+      0xa4552f,
+      { transparent: !0x0, shape: _0x1d72df(0x25c) },
+      _0x1d72df(0x1ba),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["STAIR_STONE_BRICKS"],
+      _0x1d72df(0x317),
+      "Ступенька\x20из\x20каменного\x20кирпича",
+      0x78,
+      [0x41, 0x41, 0x41],
+      0x8c8c8c,
+      { transparent: !0x0, shape: _0x1d72df(0x25c) },
+      _0x1d72df(0x28b),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["STAIR_SAND"],
+      _0x1d72df(0x26f),
+      "Ступенька\x20из\x20песка",
+      0x19,
+      [0x5, 0x5, 0x5],
+      0xdbcf9a,
+      { transparent: !0x0, shape: _0x1d72df(0x25c) },
+      _0x1d72df(0x1dc),
+    ),
+  ));
+const Bt = M + 0x6;
+_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x386)],
+    _0x1d72df(0x416),
+    _0x1d72df(0x29a),
+    0x1,
+    [Bt, Bt, Bt],
+    0x5a8a3a,
+    { solid: !0x1, transparent: !0x0, shape: "plant" },
+    _0x1d72df(0x372),
+  ),
+);
+const dt = 0x45,
+  Mt = 0x47,
+  ye = 0x5d,
+  Ke = 0x5e,
+  He = 0x9d;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x41e)],
+    _0x1d72df(0x383),
+    _0x1d72df(0x349),
+    0x5a,
+    [dt, dt, dt],
+    0x77828c,
+    { solid: !0x1, transparent: !0x0, shape: "door", interactive: !0x0 },
+    _0x1d72df(0x3fa),
+  ),
+),
+  _["push"](
+    o(
+      t["ARMORED_DOOR"],
+      _0x1d72df(0x38c),
+      _0x1d72df(0x1c6),
+      0x168,
+      [Mt, Mt, Mt],
+      0x4d5963,
+      { solid: !0x1, transparent: !0x0, shape: "door", interactive: !0x0 },
+      _0x1d72df(0x2aa),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x404)],
+      _0x1d72df(0x1b1),
+      _0x1d72df(0x3b9),
+      0x64,
+      [ye, He, Ke],
+      0x59616a,
+      { interactive: !0x0 },
+      _0x1d72df(0x249),
+    ),
+  ));
+const N = 0x4b,
+  I = 0x58;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x27b)],
+    "bookshelf",
+    _0x1d72df(0x3b3),
+    0x2d,
+    [0xa, N, 0xa],
+    0x7b4f2d,
+    {},
+    _0x1d72df(0x441),
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x49a)],
+      _0x1d72df(0x46d),
+      "Фонарь",
+      0x8,
+      [N + 0x1, N + 0x1, N + 0x1],
+      0xf6b84a,
+      { solid: !0x1, transparent: !0x0, light: 0xe, shape: _0x1d72df(0x46d) },
+      _0x1d72df(0x45a),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x31c)],
+      _0x1d72df(0x2c1),
+      _0x1d72df(0x27d),
+      0x23,
+      [N + 0x2, N + 0x2, N + 0x2],
+      0x616a72,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x2c1) },
+      _0x1d72df(0x256),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2ba)],
+      _0x1d72df(0x1d7),
+      "Военный\x20сундук",
+      0x46,
+      [N + 0x3, N + 0x3, N + 0x3],
+      0x4f642f,
+      { interactive: !0x0, transparent: !0x0, shape: _0x1d72df(0x30a) },
+      "Military\x20chest",
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x48b)],
+      _0x1d72df(0x1c7),
+      _0x1d72df(0x456),
+      0x16,
+      [N + 0x4, N + 0x4, N + 0x4],
+      0xd5aa29,
+      {},
+      _0x1d72df(0x411),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x23f)],
+      _0x1d72df(0x306),
+      "Бочка",
+      0x2d,
+      [N + 0x5, N + 0x5, N + 0x5],
+      0x805a31,
+      { interactive: !0x0 },
+      _0x1d72df(0x336),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2b7)],
+      "wood_fence",
+      "Деревянный\x20забор",
+      0x2d,
+      [I, I, I],
+      0xa77c45,
+      { transparent: !0x0, shape: _0x1d72df(0x3c9) },
+      "Wooden\x20fence",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2f3)],
+      _0x1d72df(0x447),
+      _0x1d72df(0x4ab),
+      0x55,
+      [I + 0x1, I + 0x1, I + 0x1],
+      0x777777,
+      { transparent: !0x0, shape: _0x1d72df(0x3c9) },
+      _0x1d72df(0x2ed),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x35a)],
+      _0x1d72df(0x1e5),
+      _0x1d72df(0x3e9),
+      0x5f,
+      [I + 0x2, I + 0x2, I + 0x2],
+      0x888888,
+      { transparent: !0x0, shape: "fence" },
+      _0x1d72df(0x371),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["FENCE_STONE_BRICKS"],
+      _0x1d72df(0x3ef),
+      "Забор\x20из\x20каменного\x20кирпича",
+      0x78,
+      [I + 0x3, I + 0x3, I + 0x3],
+      0x858585,
+      { transparent: !0x0, shape: _0x1d72df(0x3c9) },
+      "Stone\x20brick\x20fence",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x1db)],
+      _0x1d72df(0x1d8),
+      _0x1d72df(0x48d),
+      0x69,
+      [I + 0x4, I + 0x4, I + 0x4],
+      0xd6c18a,
+      { transparent: !0x0, shape: _0x1d72df(0x3c9) },
+      _0x1d72df(0x43b),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x3b8)],
+      _0x1d72df(0x1f0),
+      _0x1d72df(0x2b2),
+      0x2d,
+      [I, I, I],
+      0xa77c45,
+      {
+        solid: !0x1,
+        transparent: !0x0,
+        shape: _0x1d72df(0x3e2),
+        interactive: !0x0,
+      },
+      "Wooden\x20fence\x20gate",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x226)],
+      _0x1d72df(0x410),
+      _0x1d72df(0x2c2),
+      0x20,
+      [N + 0x6, N + 0x6, N + 0x6],
+      0x777d80,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x48c) },
+      _0x1d72df(0x2d8),
+    ),
+  ));
+const f = (_0x291d11, _0x9ed6d, _0xfd5ce4, _0x3e8278, _0x997008, _0x397b96) =>
+  _["push"](
+    o(
+      _0x291d11,
+      _0x9ed6d,
+      _0xfd5ce4,
+      0x1,
+      [_0x997008, _0x997008, _0x997008],
+      _0x397b96,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x44a) },
+      _0x3e8278,
+    ),
+  );
+(f(
+  t[_0x1d72df(0x40b)],
+  _0x1d72df(0x3cf),
+  _0x1d72df(0x477),
+  _0x1d72df(0x2f8),
+  N + 0x7,
+  0x3d6d30,
+),
+  f(
+    t["FLOWER_RED"],
+    "red_flower",
+    _0x1d72df(0x2f9),
+    _0x1d72df(0x2d9),
+    N + 0x8,
+    0xd83d32,
+  ),
+  f(
+    t[_0x1d72df(0x48e)],
+    _0x1d72df(0x267),
+    _0x1d72df(0x1ed),
+    "White\x20flower",
+    N + 0x9,
+    0xf0eee5,
+  ),
+  f(
+    t[_0x1d72df(0x4ae)],
+    _0x1d72df(0x273),
+    _0x1d72df(0x1e6),
+    _0x1d72df(0x46c),
+    N + 0xa,
+    0x3b6fd8,
+  ),
+  f(
+    t["FLOWER_PINK"],
+    _0x1d72df(0x318),
+    _0x1d72df(0x2fe),
+    "Pink\x20flower",
+    N + 0xb,
+    0xe886ad,
+  ),
+  f(
+    t[_0x1d72df(0x369)],
+    _0x1d72df(0x473),
+    "Жёлтый\x20цветок",
+    "Yellow\x20flower",
+    N + 0xc,
+    0xf1cf38,
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x238)],
+      _0x1d72df(0x3b1),
+      _0x1d72df(0x314),
+      0x55,
+      [I + 0x1, I + 0x1, I + 0x1],
+      0x777777,
+      { solid: !0x1, transparent: !0x0, shape: "gate", interactive: !0x0 },
+      _0x1d72df(0x23d),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x247)],
+      "stone_fence_gate",
+      _0x1d72df(0x1fb),
+      0x5f,
+      [I + 0x2, I + 0x2, I + 0x2],
+      0x888888,
+      {
+        solid: !0x1,
+        transparent: !0x0,
+        shape: _0x1d72df(0x3e2),
+        interactive: !0x0,
+      },
+      _0x1d72df(0x32c),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2e8)],
+      _0x1d72df(0x326),
+      _0x1d72df(0x2da),
+      0x78,
+      [I + 0x3, I + 0x3, I + 0x3],
+      0x858585,
+      {
+        solid: !0x1,
+        transparent: !0x0,
+        shape: _0x1d72df(0x3e2),
+        interactive: !0x0,
+      },
+      "Stone\x20brick\x20fence\x20gate",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x381)],
+      _0x1d72df(0x21e),
+      _0x1d72df(0x212),
+      0x69,
+      [I + 0x4, I + 0x4, I + 0x4],
+      0xd6c18a,
+      {
+        solid: !0x1,
+        transparent: !0x0,
+        shape: _0x1d72df(0x3e2),
+        interactive: !0x0,
+      },
+      _0x1d72df(0x3fe),
+    ),
+  ));
+const O = 0x5f;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x3d7)],
+    _0x1d72df(0x465),
+    "Тропическое\x20бревно",
+    0x3c,
+    [O, O + 0x1, O],
+    0x8a5935,
+    {},
+    _0x1d72df(0x220),
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x1ac)],
+      "tropical_leaves",
+      _0x1d72df(0x2a1),
+      0x8,
+      [O + 0x2, O + 0x2, O + 0x2],
+      0x238a43,
+      { transparent: !0x0 },
+      "Tropical\x20leaves",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["DESERT_LOG"],
+      "desert_log",
+      _0x1d72df(0x228),
+      0x3c,
+      [O + 0x3, O + 0x4, O + 0x3],
+      0x986039,
+      {},
+      _0x1d72df(0x3a5),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2a4)],
+      "desert_leaves",
+      _0x1d72df(0x34f),
+      0x8,
+      [O + 0x5, O + 0x5, O + 0x5],
+      0x7b9a3d,
+      { transparent: !0x0 },
+      _0x1d72df(0x25b),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x368)],
+      _0x1d72df(0x366),
+      "Хвойное\x20бревно",
+      0x41,
+      [O + 0x6, O + 0x7, O + 0x6],
+      0x63442d,
+      {},
+      _0x1d72df(0x2d1),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x1c0)],
+      _0x1d72df(0x3f1),
+      _0x1d72df(0x360),
+      0x9,
+      [O + 0x8, O + 0x8, O + 0x8],
+      0x285d45,
+      { transparent: !0x0 },
+      "Pine\x20needles",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x352)],
+      "sakura_log",
+      _0x1d72df(0x304),
+      0x3a,
+      [O + 0x9, O + 0xa, O + 0x9],
+      0x765044,
+      {},
+      _0x1d72df(0x2cf),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x1b3)],
+      _0x1d72df(0x36e),
+      "Листва\x20сакуры",
+      0x8,
+      [O + 0xb, O + 0xb, O + 0xb],
+      0xe990ba,
+      { transparent: !0x0 },
+      _0x1d72df(0x30f),
+    ),
+  ),
+  f(
+    t["TROPICAL_SAPLING"],
+    "tropical_sapling",
+    "Росток\x20тропического\x20дерева",
+    "Tropical\x20sapling",
+    O + 0xc,
+    0x2e9c4f,
+  ),
+  f(
+    t[_0x1d72df(0x3eb)],
+    _0x1d72df(0x2f1),
+    "Росток\x20пустынного\x20дерева",
+    _0x1d72df(0x3c8),
+    O + 0xd,
+    0x819746,
+  ),
+  f(
+    t["PINE_SAPLING"],
+    _0x1d72df(0x264),
+    "Росток\x20хвойного\x20дерева",
+    _0x1d72df(0x25e),
+    O + 0xe,
+    0x316c4f,
+  ),
+  f(
+    t["SAKURA_SAPLING"],
+    _0x1d72df(0x36a),
+    "Росток\x20сакуры",
+    "Sakura\x20sapling",
+    O + 0xf,
+    0xd879a8,
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x483)],
+      _0x1d72df(0x2cc),
+      _0x1d72df(0x363),
+      0x1c,
+      [O + 0x10, O + 0x10, O + 0x10],
+      0x3d983f,
+      { transparent: !0x0 },
+      _0x1d72df(0x331),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x338)],
+      _0x1d72df(0x22e),
+      "Лава",
+      -0x1,
+      [O + 0x11, O + 0x11, O + 0x11],
+      0xff5b18,
+      { solid: !0x1, transparent: !0x0, liquid: !0x0, light: 0xf },
+      _0x1d72df(0x276),
+    ),
+  ),
+  f(
+    t[_0x1d72df(0x4a8)],
+    _0x1d72df(0x43d),
+    _0x1d72df(0x1fa),
+    _0x1d72df(0x44e),
+    O + 0x12,
+    0xff8a22,
+  ),
+  (_[t[_0x1d72df(0x4a8)]][_0x1d72df(0x310)] = 0xf),
+  f(
+    t[_0x1d72df(0x2c6)],
+    _0x1d72df(0x2df),
+    "Пшеница",
+    _0x1d72df(0x49f),
+    O + 0x13,
+    0xd8b13c,
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x29f)],
+      _0x1d72df(0x344),
+      _0x1d72df(0x20c),
+      0x4,
+      [0xf, 0xf, 0xf],
+      0xf4f8fa,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x45d) },
+      "Snow\x20layer",
+    ),
+  ),
+  f(
+    t[_0x1d72df(0x3f7)],
+    _0x1d72df(0x1ec),
+    _0x1d72df(0x2fa),
+    _0x1d72df(0x3c4),
+    O + 0x14,
+    0x79a842,
+  ),
+  f(
+    t[_0x1d72df(0x2fb)],
+    _0x1d72df(0x4ba),
+    _0x1d72df(0x47e),
+    _0x1d72df(0x1ca),
+    O + 0x15,
+    0xa8b84d,
+  ));
+const Pt = O + 0x16;
+_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x373)],
+    _0x1d72df(0x40e),
+    _0x1d72df(0x37e),
+    0x5a,
+    [Pt, Pt, Pt],
+    0xd8483c,
+    {},
+    _0x1d72df(0x463),
+  ),
+);
+const z = O + 0x17;
+(f(
+  t["DESERT_GRASS"],
+  _0x1d72df(0x2fd),
+  _0x1d72df(0x35d),
+  _0x1d72df(0x201),
+  z,
+  0xb8a45c,
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["FARMLAND"],
+      _0x1d72df(0x285),
+      "Удобренная\x20земля",
+      0x22,
+      [z + 0x1, z + 0x2, 0x2],
+      0x6b4a24,
+      {},
+      _0x1d72df(0x427),
+    ),
+  ),
+  f(
+    t["POTATO_SPROUT"],
+    _0x1d72df(0x23a),
+    _0x1d72df(0x3e7),
+    _0x1d72df(0x4b5),
+    z + 0x3,
+    0x6f9a45,
+  ),
+  f(
+    t[_0x1d72df(0x43c)],
+    "young_potato",
+    "Молодой\x20картофель",
+    _0x1d72df(0x2c9),
+    z + 0x4,
+    0x5f9440,
+  ),
+  f(
+    t[_0x1d72df(0x316)],
+    _0x1d72df(0x3df),
+    _0x1d72df(0x258),
+    _0x1d72df(0x24b),
+    z + 0x5,
+    0x4f8a3a,
+  ),
+  f(
+    t[_0x1d72df(0x3f0)],
+    "carrot_sprout",
+    "Ростки\x20моркови",
+    "Carrot\x20sprouts",
+    z + 0x6,
+    0x77a24a,
+  ),
+  f(
+    t[_0x1d72df(0x390)],
+    _0x1d72df(0x2f6),
+    _0x1d72df(0x40c),
+    _0x1d72df(0x1d9),
+    z + 0x7,
+    0x69a03f,
+  ),
+  f(
+    t[_0x1d72df(0x339)],
+    _0x1d72df(0x49c),
+    "Морковь",
+    _0x1d72df(0x211),
+    z + 0x8,
+    0xe07b28,
+  ));
+const Rt = z + 0x9;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x460)],
+    _0x1d72df(0x1b4),
+    "Торт",
+    0xa,
+    [Rt, Rt + 0x1, Rt + 0x2],
+    0xf2e4d4,
+    {
+      shape: _0x1d72df(0x1b4),
+      solid: !0x1,
+      transparent: !0x0,
+      light: 0x8,
+      interactive: !0x0,
+    },
+    _0x1d72df(0x227),
+  ),
+),
+  _["push"](
+    o(
+      t[_0x1d72df(0x421)],
+      _0x1d72df(0x296),
+      _0x1d72df(0x3b6),
+      0x28,
+      [N + 0x2, N + 0x2, N + 0x2],
+      0xb87333,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x387) },
+      _0x1d72df(0x34c),
+    ),
+  ));
+const ct = Rt + 0x3,
+  Fe = ct + 0x1;
+_[_0x1d72df(0x32d)](
+  o(
+    t["CAMPFIRE"],
+    _0x1d72df(0x49d),
+    "Костёр",
+    0x14,
+    [ct, ct, ct],
+    0xd4762a,
+    { solid: !0x1, transparent: !0x0, light: 0xc, shape: _0x1d72df(0x49d) },
+    _0x1d72df(0x44c),
+  ),
+);
+const st = Fe + 0x1;
+(f(t[_0x1d72df(0x4a5)], "seaweed", _0x1d72df(0x3e0), "Seaweed", st, 0x2f7a4a),
+  f(
+    t[_0x1d72df(0x24d)],
+    _0x1d72df(0x231),
+    _0x1d72df(0x417),
+    _0x1d72df(0x46e),
+    st + 0x1,
+    0x3f9a5c,
+  ),
+  f(
+    t[_0x1d72df(0x3f6)],
+    _0x1d72df(0x21b),
+    _0x1d72df(0x41d),
+    _0x1d72df(0x423),
+    st + 0x2,
+    0xe4629b,
+  ),
+  f(
+    t["CORAL_BLUE"],
+    _0x1d72df(0x3e1),
+    _0x1d72df(0x47f),
+    _0x1d72df(0x2c7),
+    st + 0x3,
+    0x3f7fe0,
+  ),
+  f(
+    t[_0x1d72df(0x425)],
+    _0x1d72df(0x282),
+    _0x1d72df(0x348),
+    _0x1d72df(0x471),
+    st + 0x4,
+    0xf0c247,
+  ));
+const U = st + 0x5;
+(_["push"](
+  o(
+    t[_0x1d72df(0x354)],
+    _0x1d72df(0x2e3),
+    _0x1d72df(0x1ab),
+    0x87,
+    [U, U + 0x1, U],
+    0xd3b96f,
+    {},
+    _0x1d72df(0x33b),
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2ab)],
+      _0x1d72df(0x1e2),
+      _0x1d72df(0x4ad),
+      0x96,
+      [U + 0x2, U + 0x2, U + 0x2],
+      0xe8b92e,
+      { light: 0x5 },
+      _0x1d72df(0x26b),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x328)],
+      _0x1d72df(0x244),
+      _0x1d72df(0x294),
+      0x7d,
+      [U + 0x3, U + 0x3, U + 0x3],
+      0x174ca0,
+      {},
+      "Lapis\x20inlay",
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x341)],
+      _0x1d72df(0x237),
+      _0x1d72df(0x424),
+      0x8c,
+      [U + 0x4, U + 0x5, U + 0x4],
+      0xd8c17c,
+      {},
+      "Egyptian\x20pillar",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x358)],
+      "sarcophagus",
+      _0x1d72df(0x42d),
+      0xaf,
+      [U + 0x6, U + 0x6, U + 0x6],
+      0xb88b24,
+      { interactive: !0x0 },
+      _0x1d72df(0x1cd),
+    ),
+  ));
+const C = U + 0x7;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x24a)],
+    _0x1d72df(0x20d),
+    _0x1d72df(0x232),
+    0x69,
+    [C, C, C],
+    0xa7a7a2,
+    {},
+    _0x1d72df(0x40f),
+  ),
+),
+  _["push"](
+    o(
+      t[_0x1d72df(0x34b)],
+      _0x1d72df(0x1d0),
+      _0x1d72df(0x2db),
+      0xb4,
+      [C + 0x1, C + 0x1, C + 0x1],
+      0x74757a,
+      {},
+      _0x1d72df(0x45e),
+    ),
+  ),
+  _["push"](
+    o(
+      t["LUNAR_BASALT"],
+      "lunar_basalt",
+      _0x1d72df(0x2ca),
+      0xe6,
+      [C + 0x2, C + 0x2, C + 0x2],
+      0x393b43,
+      {},
+      _0x1d72df(0x28a),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x39c)],
+      _0x1d72df(0x275),
+      _0x1d72df(0x222),
+      0x96,
+      [C + 0x3, C + 0x3, C + 0x3],
+      0xbad8e8,
+      { transparent: !0x0 },
+      "Lunar\x20ice",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x248)],
+      _0x1d72df(0x271),
+      _0x1d72df(0x41f),
+      0x140,
+      [C + 0x4, C + 0x4, C + 0x4],
+      0x77e4ff,
+      { light: 0x5 },
+      _0x1d72df(0x2c3),
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x3e8)],
+      _0x1d72df(0x393),
+      "Панель\x20лунной\x20базы",
+      0x2ee1,
+      [C + 0x5, C + 0x5, C + 0x5],
+      0xe4e7e9,
+      {},
+      _0x1d72df(0x1d3),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x385)],
+      _0x1d72df(0x391),
+      _0x1d72df(0x2ce),
+      0xbb9,
+      [C + 0x6, C + 0x6, C + 0x6],
+      0x91c9de,
+      { transparent: !0x0 },
+      _0x1d72df(0x4a6),
+    ),
+  ));
+const Zt = C + 0x7,
+  xt = C + 0x8;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x1cb)],
+    _0x1d72df(0x3da),
+    _0x1d72df(0x241),
+    0x37,
+    [xt, Zt, Zt],
+    0x8d6238,
+    { transparent: !0x0, shape: _0x1d72df(0x3da), interactive: !0x0 },
+    _0x1d72df(0x2ac),
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x270)],
+      _0x1d72df(0x37d),
+      _0x1d72df(0x2b1),
+      0x2d,
+      [0xa, 0xa, 0xa],
+      0xb08c53,
+      { transparent: !0x0, shape: _0x1d72df(0x30a) },
+      _0x1d72df(0x43f),
+    ),
+  ),
+  _["push"](
+    o(
+      t["WOOD_CHAIR"],
+      "wood_chair",
+      "Стул\x20с\x20мягким\x20сиденьем",
+      0x23,
+      [0x15, 0xa, 0xa],
+      0xad7049,
+      { transparent: !0x0, shape: _0x1d72df(0x30a), interactive: !0x0 },
+      _0x1d72df(0x28e),
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x48a)],
+      _0x1d72df(0x1dd),
+      _0x1d72df(0x2e5),
+      0x28,
+      [0xa, 0xa, 0xa],
+      0xb08c53,
+      { transparent: !0x0, shape: _0x1d72df(0x30a), interactive: !0x0 },
+      _0x1d72df(0x49e),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x33e)],
+      _0x1d72df(0x21d),
+      _0x1d72df(0x466),
+      0x37,
+      [
+        _["find"](
+          (_0x26448f) => _0x26448f[_0x1d72df(0x38d)] === _0x1d72df(0x475),
+        )[_0x1d72df(0x208)][0x0],
+        0xa,
+        0xa,
+      ],
+      0x78865b,
+      { transparent: !0x0, shape: _0x1d72df(0x30a) },
+      _0x1d72df(0x324),
+    ),
+  ));
+const Dt = xt + 0x1,
+  We = xt + 0x2;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x2e7)],
+    "remote_station",
+    "Станция\x20удалённого\x20управления",
+    0x78,
+    [Dt, Dt, Dt],
+    0x477a6b,
+    {
+      transparent: !0x0,
+      shape: _0x1d72df(0x30a),
+      interactive: !0x0,
+      light: 0x5,
+    },
+    "Remote\x20command\x20station",
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x40a)],
+      _0x1d72df(0x2bb),
+      _0x1d72df(0x38a),
+      0xc,
+      [0x33, 0x33, 0x33],
+      0x527344,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x30a) },
+      _0x1d72df(0x499),
+    ),
+  ),
+  _["push"](
+    o(
+      t["MINE_AT"],
+      _0x1d72df(0x470),
+      _0x1d72df(0x1f6),
+      0x18,
+      [0x32, 0x32, 0x32],
+      0x8e8152,
+      { solid: !0x1, transparent: !0x0, shape: "furniture" },
+      _0x1d72df(0x2b6),
+    ),
+  ));
+const kt = We + 0x1,
+  we = kt + 0x2;
+((_[t[_0x1d72df(0x4bb)]][_0x1d72df(0x208)][0x0] = we),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x4b8)],
+      _0x1d72df(0x2c0),
+      _0x1d72df(0x46f),
+      0x12,
+      [kt, kt + 0x1, 0x2],
+      0xb6ab62,
+      {},
+      _0x1d72df(0x2d5),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x44b)],
+      _0x1d72df(0x31e),
+      _0x1d72df(0x3b7),
+      0x12c,
+      [0x10, 0x10, 0x10],
+      0x6f7480,
+      { transparent: !0x0, shape: _0x1d72df(0x25c) },
+      _0x1d72df(0x2af),
+    ),
+  ));
+function _0x1a29() {
+  const _0x3022c4 = [
+    "u3DLzxqGqM9Uyw56yq",
+    "uKDmt1Dtve9orq",
+    "qwLY",
+    "0jRqVTga0l7qU9c10llrGDc60lJqUsdqUTc+0llrKDga",
+    "C2fWBgLUzW",
+    "0jZqVTga0yhqUTcW0y8G0ylrGncW0llqSa",
+    "u0fora",
+    "0jZqVTc50lRqScdrGDc+ingb0lZqTDgb0lJrGTc10lVqTDc8",
+    "z2v0",
+    "AhLWB3q",
+    "zw50CMLLCW",
+    "0kdqVTc30l7qSTgl0lKG0lRqVTga0ldqU9c7",
+    "tuvuquXFre9puG",
+    "0jpqTDc70lJqUs0Zinga0ypqTncW",
+    "yxrOzw5HmtaWma",
+    "teLhsfrosu5hx1jpra",
+    "uhvTCgTPBIbZChjVDxq",
+    "ugLUAYbJB3jHBa",
+    "0jxqS9c40l/qTDgc0yhqUTcW0y8G0lRqVTc70l7qVDc90la",
+    "q09squXFwuvmte9x",
+    "q09cqKXf",
+    "rMvYDgLSAxnLzcbZB2LS",
+    "CMLWzq",
+    "twfWBguGC2fWBgLUzW",
+    "rM9YDhvUzsbVzIbpBhLTChvZ",
+    "yMXHy2TIzxjYEq",
+    "vKvmvKvux1bbtKvm",
+    "0khqSnga0lRqVTge0ldqSW",
+    "D2HPDgvFy2XHEq",
+    "D2vI",
+    "y2f1BgrYB24",
+    "zM9YrwfJAa",
+    "0klrGncW0llqSa",
+    "z3jHDMvS",
+    "C2fUzhn0B25Lx3n0ywLYCW",
+    "u0TvteW",
+    "0j/qVTc70lJrGnc+0llqSnc90l3rI9c5inc60ldqVnc10l3rJa",
+    "CMvPBMzVCMnLzf9NBg93C3rVBMu",
+    "C3rLCa",
+    "yxv0Dw1Ux2XLyxzLC19VCMfUz2u",
+    "qMXHy2TIzxjYEq",
+    "u2fUzhn0B25LigzLBMnL",
+    "ue9uqvrpx1Lpvu5h",
+    "zMLYzq",
+    "qNv0Dg9U",
+    "v29VzgvUihrHyMXL",
+    "0kdrI9gh0ldqSW",
+    "qM9VA3nOzwXM",
+    "ufvnueTjtL9duK9q",
+    "u0forfnut05fx0nisvnfteve",
+    "u3vNyxiGuNvZAa",
+    "C3DIBZeWmda",
+    "BgfKzgvY",
+    "y29IyMXLx2zLBMnL",
+    "rKXzx0fhqvjjqW",
+    "0jVqUnc/0lRqUnc5inc/0l7rGngi0lxqVDgm",
+    "CgXHBNq",
+    "u1rbsvjFuLnut05f",
+    "q2fTCgzPCMu",
+    "0kdqSnc00lJqVTga0lxqU9c1",
+    "rMLYzq",
+    "BgLUzq",
+    "rgLHBw9UzcbVCMu",
+    "yxv0Dw1Ux2XLyxzLC19Yzwq",
+    "A2LUza",
+    "u1rvqKjmrv9gsuvmra",
+    "u0LosW",
+    "yNjPy2S",
+    "0khrGTc+0lmG0yhqTDc90la",
+    "v0fmtf9msuDiva",
+    "yMfUza",
+    "0jtqTDga0lxqSTgp0l3qVDcW0y8G0yhrGTgd0l/qTDc90yZqUTcW",
+    "tgfUDgvYBG",
+    "u0flvvjbx1nbueXjtKC",
+    "zMXHDe1HCa",
+    "C25VDW",
+    "thvUyxiGCM9JAW",
+    "DMvSDMv0x3bHBMvS",
+    "q0flrq",
+    "q29HBcbVCMu",
+    "CMDSyxnZ",
+    "u2HVB3rPBMCGDgfYz2v0",
+    "zgf0yq",
+    "DhjVCgLJywXFBg9N",
+    "0kJrGTcW0lhqVDc+0lKG0yhrGTc+0lSG0yeG0lRqSnga0ylqVTc5",
+    "z29Szf9VCMu",
+    "0j/qVTga0yJqTDc90yWGkngi0ylqVTc6kq",
+    "tufsqKXf",
+    "yMXHy2TFy2XHEq",
+    "CMvKC3rVBMu",
+    "qMX1zsbMBg93zxi",
+    "BgfUDgvYBG",
+    "u2vHz3jHC3m",
+    "0khrG9gf0l7qUsdqTngr0ydqVsdrGDcW0llqSnc90l3rIW",
+    "BwLUzv9HDa",
+    "wwvSBg93ignVCMfS",
+    "C3rHCMXPz2H0lxnZ",
+    "EwvSBg93x2zSB3DLCG",
+    "0jprGncW0llqUnc5",
+    "z3jLzw5Fy2XHEq",
+    "Bw9ZC3LFC3rVBMvFyNjPy2TZ",
+    "0jlrI9gb0l7qUTcW0y8G0ylrGncW0llqSa",
+    "twfYCxvLzsbSAwDODhm",
+    "rKfstuXbtKq",
+    "0jhqTDga0zhqT9c+0llqVTc1incX0ydqTDcY0l3qVG",
+    "0jRrG9gf0l7qVDc90ldrJYdrGTgd0lZqSDcW",
+    "mJi0ndyYnw5nBvfZDa",
+    "0lZqSnc70lJqVDgl",
+    "0jZqVTc70l7qTncW0y8G0l/rInc10l3qUngg0la",
+    "0khqUnc90lJqUsdqUTc+0ydqSnc70lS",
+    "Cg90Aw9Ux3nOzwXM",
+    "0jFqVTc70l7rGTc+0lKG0lhqU9c+0lO",
+    "C3vNyxiXmdaW",
+    "q0fdvfvt",
+    "0khqSTc10ylqVTc60ldqVnc10l3rJa",
+    "z3jHDMvZDg9Uzq",
+    "nwXTDZi",
+    "0klqVTgc0lxqVcdqSTc70ldqTnc10l3qUngp",
+    "0j/qSngd0ylqUnc90la",
+    "tufsuvvfrq",
+    "v09prf9cru5dsa",
+    "sefzx0jbteu",
+    "D2LYzq",
+    "0jFqSncX0l7rGcdqUnc3inc/0lxrGDgh0ldqVDc40lRqSa",
+    "rKXpv0vsx1Disvrf",
+    "BwfW",
+    "C2LU",
+    "nZm0mZfWrK5RtwK",
+    "qKXbq0Tcrvjswv9cvvnix1jjueu",
+    "u09gqq",
+    "refss19qtefos1m",
+    "0jRqUnga0l/qUngh0l3qSngpingb0ylrG9c/0lxqVDgm0lRqSa",
+    "r3jHDMvS",
+    "0ktqSnc60lxqUW",
+    "0khqSTc10ylqU9c+lDgb0lxrGncW0y8G0lpqU9c40l3qSa",
+    "qw50As1WzxjZB25UzwWGBwLUzq",
+    "tefovevstG",
+    "0jhrG9c70yVqTTc90ldrJYdrGDgc0ypqV9c10l3rJnc60la",
+    "y2fYCM90x2nYB3a",
+    "y2fTCgzPCMu",
+    "v29VzgvUigjLBMnO",
+    "v2HLyxqGy3jVCa",
+    "A2v5",
+    "ueXbtKTt",
+    "CNrVCMnO",
+    "0jFqTDc80lVrJW",
+    "u05pvW",
+    "u0vbv0vfra",
+    "uhjLC3n1CMLZzwqGz2XHC3m",
+    "sefor0Lor19irvjcuW",
+    "rKLsrq",
+    "r2XVD3n0B25L",
+    "r2f0zxmGB2yGt2X5Bxb1CYbtDxbLCIbty2f0DgvY",
+    "0jhrG9c70yVqTTc90yVqUsdqT9cW0lhqVTga",
+    "0khqTDga0ldrJYdqS9c70lJqVDcW",
+    "0jFqVTc70l7rGTcW0y8G0lJqVDc60ydrG9gb0ylqSngg0lJrJW",
+    "rKXpv0vsx0jmvuu",
+    "yNvMzMfSBW",
+    "q0foreXf",
+    "qNvMzMfSBYblAw5Nie1Lz2f3yxLZ",
+    "zMXVB3i",
+    "BwLU",
+    "yM9Uyw56yti1mda",
+    "ug90yxrVihnWCM91Dhm",
+    "uMvPBMzVCMnLzcbNBgfZCW",
+    "u1rbsvjFv09pra",
+    "u0fwqu5oqv9huKftuW",
+    "r1jbu1m",
+    "Ew91BMDFD2HLyxq",
+    "v09prf9dsefjuG",
+    "ENDOz29M",
+    "tgLTzsbJBgf5",
+    "AgfUz2LUz19OzxjICW",
+    "u3rVBMu",
+    "uKfesu9FuKvmqvK",
+    "0j/qTDgb0yFqSnc90lJqUIdrGsdqUnc10ydqVTcZ0lVqUnge0ldqVnc4",
+    "vfjpueLdquXFtevbvKvt",
+    "EM9Uzq",
+    "qKXbq0Tcrvjswv9cvvnix1Lpvu5h",
+    "AxjVBL9VCMu",
+    "C2fUza",
+    "zNvYBMfJzq",
+    "rgfYAYb3B29Kihn0ywLY",
+    "u0flvvjbx0XfqvzfuW",
+    "y2fRzq",
+    "v3jVDwDODcbPCM9UigzLBMnL",
+    "v29VzgvUihn0ywLY",
+    "Cg90DgvKx3bSyw50",
+    "uK9zquXFq0fsuevu",
+    "C3bPC3rVBG",
+    "qNjPy2SGC3rHAxi",
+    "0jRqSnc80lxqVDgm",
+    "v2LZzg9Tig9Mief0AgvUysaXmdaW",
+    "zM9YDhvUzq",
+    "CgXHBMTZ",
+    "yMLNyMi",
+    "ueLorv9mrufwrvm",
+    "nsbmAw9UCYbnzwDHD2f5CYaY",
+    "DgrOBteWmda",
+    "zM9JDxnA",
+    "z29OC3m",
+    "y29Z",
+    "0jdrGnc80lJrGnc+0llqSnc90l3qSngpinc00llqTDga0yW",
+    "Agf5x2jHBgu",
+    "q29MzMLU",
+    "ugLZDg9UigHLywq",
+    "ww91BMCGD2HLyxq",
+    "q09nue9tvevs",
+    "0kFrKDga0l3rI9c5inc80ydqSnc80l7rGa",
+    "u2fYy29WAgfNDxm",
+    "DgL0yw5PDw1FB3jL",
+    "C2LNBG",
+    "BhvUyxjFCM9JAW",
+    "vxbOB2XZDgvYzwqGC29Myq",
+    "0kdqTDc00yhrGTc+0ypqVq",
+    "thvUyxiGyMfZzsbWyw5LBa",
+    "r3jHDMuGy3jVC3m",
+    "AgvHDMvUlxnZ",
+    "txvZAhjVB20",
+    "BwLSAxrHCNLFy2HLC3q",
+    "C2fUzhn0B25Lx2zLBMnL",
+    "ww91BMCGy2fYCM90",
+    "C2fUzhn0B25L",
+    "rKvoq0vFu0forfnut05f",
+    "u2fUzcbZDgfPCG",
+    "D29Vzf9Izw5JAa",
+    "vKvmvKvu",
+    "yNvZAcbZChjVDxq",
+    "vgHLierVzYbiB3vZzsbnzwDHD2f5CW",
+    "C3iXmdaW",
+    "z29Szf9PBMXHEq",
+    "0jhqSncZ0ydrJ9c90ldrJYdqU9c40yhrGTcY0la",
+    "qMXHy2SGy2XHEq",
+    "C3rVBMvFzMvUy2u",
+    "0khqUnc90lJqUsdrHTcY0lxrGTc+0lO",
+    "0jZqVTc70l7qTnc+0lKG0lRrG9gb0yi",
+    "BwfYCxvLzv9SAwDODhm",
+    "0jdrGnc8lIdrGDgc0lxqUTc70l4",
+    "qMvKCM9JAW",
+    "Bw9ZC3LFy29IyMXL",
+    "D2HLyxrFC3bYB3v0",
+    "0jhqTDc70yVqUsdrHTcY0lxrGTc+0lO",
+    "qvvuvu1ox0Xfqvzfu19puKfor0u",
+    "u1rptKu",
+    "D29Vzf9Mzw5Jzv9NyxrL",
+    "0jZrKDga0ylqSTc+0luG0ltqTDga0lxqSTc+",
+    "0jVrKDc0",
+    "ChvTCgTPBG",
+    "y29HBf9VCMu",
+    "uMvWzwf0zxi",
+    "0j/rGnc+0ylqUncY0l7rGTcW0l3qUTc+0llqSngpinc80lJqVDcW",
+    "BgLTzv9JBgf5",
+    "CMfZCgjLCNj5",
+    "q09btf9puKu",
+    "0j7qS9c+0l3rJa",
+    "0jRqSnc80lxqVDc90ldrJYdqUTcW0lVqUngc0lRqSa",
+    "D2HLyxrFzMLLBgq",
+    "r3jHC3m",
+    "ntq4mdmXu0PJvvvh",
+    "y3jVCf9MAwvSza",
+    "r2XHC3m",
+    "rgvZzxj0igDYyxnZ",
+    "0jhqSnga0yxqSngc0l3qSngpinc/0ldqVDc10lVrJa",
+    "EMv1CY1OywrLCZi1ma",
+    "y3jVCa",
+    "q0fsuevu",
+    "q2fZAw5VignHCNbLDa",
+    "uMLWzsb3AgvHDcbMAwvSza",
+    "Dgv4",
+    "rKvoq0vFu1rptKvFqLjjq0Tt",
+    "ue9uvevex1bmqu5u",
+    "tefnua",
+    "0khqVDc10lBqVDgl0lKG0l/qVTc60ydqVTcY",
+    "BhvUyxjFCMvNB2XPDgG",
+    "zM9VltjHBG",
+    "rMfSBgvUigXLyxzLCW",
+    "0jBqVDc40llrJngr",
+    "q2fYCM90ignYB3a",
+    "0jRqSnc70lJrGTc60laG0lJqTYdqV9c10yhrH9cW0l3qUnc60la",
+    "0khrGTgd0l/qTDc90yZqUTcWinc40lCG0ylrKDc80l3rI9gfinc00l7rGDc+0lO",
+    "qMLNz2vYiejHC3mGqM9Uyw56yq",
+    "uMfZCgjLCNj5",
+    "C3bYB3v0",
+    "y29HCNnL",
+    "teferevs",
+    "0jhqUnga0y7qT9c+0llqSngpincZ0lVqUnc90la",
+    "veLuqu5jvu1Ft1jf",
+    "CgLUA19JB3jHBa",
+    "sunf",
+    "BwfWx3rHyMXL",
+    "C2fUzhn0B25Lx2zLBMnLx2DHDgu",
+    "0j/qVTga0yJqTDc90yW",
+    "vhjVCgLJywWGBg9N",
+    "yMvKCM9JAW",
+    "0jVrG9c90l3rI9c5inc70zhqTa",
+    "B3DUzxjZAgLWx3rVDgvT",
+    "y2fZAw5Vx2nHCNbLDa",
+    "u25VDW",
+    "qKfsqKvex1DjuKu",
+    "q2fRzq",
+    "0j/rG9gb0ylrI9c90l3qVTc1incX0ydqTDcY0l3qVG",
+    "u0nbuKvduK9x",
+    "u3vWCgX5ihnOzwX2Aw5N",
+    "CNvPBG",
+    "0klrI9c60llqTDc90l3qSngpinc/0lVqTDgc0yW",
+    "C3DIB24",
+    "Bgf2yq",
+    "yMfZCZeWmda",
+    "0jFqTDc70zhqVDcW0y8G0lpqU9c40l3qSa",
+    "C2vHz3jHC3m",
+    "0jVrG9c90l3rI9c5inga0lxqS9c+0lVqUngc",
+    "0jZrG9gf0l7qVnc+0ya",
+    "z29VmtaWma",
+    "r0Xpv1nut05f",
+    "Aw11Ba",
+    "zwD5ChrPyw5FCgLSBgfY",
+    "rKvoq0vFr0furv9dt0jcteu",
+    "uMfKAw8GCMvSyxK",
+    "Cg90yxrVx3nWCM91Da",
+    "vfjpueLdquXFu0fqteLorW",
+    "ue9usu9ox1niruXg",
+    "q29IyMXLC3rVBMuGzMvUy2uGz2f0zq",
+    "wwvSBg93ignSyxK",
+    "qKfsuKvm",
+    "0jFqSnc80yJqTDc70yVqUsdqUTcW0lZqTDc90l3rI9c5inc60lJrGnc/0lJrHW",
+    "0jRqVTc80l/qVTgb0ylqTDga",
+    "B3jHBMDLx2nSyxK",
+    "0jhqTDc00ydqVTc6",
+    "BgfWAxnFAw5SyxK",
+    "D2fSBf9SAwDODa",
+    "qKXbq0TFtufsqKXf",
+    "rKvoq0vFr0furv9tve9orq",
+    "tfvoqvjFt1jf",
+    "rNvYBMfJzq",
+    "tfvoqvjFuKvht0XjveG",
+    "ug90yxrVignYB3a",
+    "CMvWzwf0zxi",
+    "u0vbr1jbu1m",
+    "sxjVBIbVCMu",
+    "u3r1yMjSzsbMAwvSza",
+    "reLbtu9orf9puKu",
+    "0jdrGnc80lJrGnc+0llqSnc90l3rI9c5ingb0llqTDgc0l7qUTcW0lZqTDc90yW",
+    "mNzLywDrsa",
+    "AgfZ",
+    "0j3qSnc00lprGnc+0lhqUnc1",
+    "yxzZAw4",
+    "q2HHAw4",
+    "BgLNAhrNCMf5x2nSyxK",
+    "0jRqSnga0ylqVTge0lxqU9gm",
+    "BgLVBNm",
+    "u3rVBMuGyNjPy2TZ",
+    "rgvZzxj0igXLyxzLCW",
+    "C3rHAxi",
+    "BgvUz3rO",
+    "ugLUzsbZyxbSAw5N",
+    "uKftuejfuLjzx0jvu0HFwu9vtKC",
+    "Cg93",
+    "tgLNAhqGz3jHEsbJBgf5",
+    "ugXHBMTZ",
+    "r3jLzw4Gy3jVCcbMAwvSza",
+    "CgLUzv9ZyxbSAw5N",
+    "s2L0y2HLBIbJywjPBMv0",
+    "0jtqUnc90ldqVnc40yi",
+    "D2HPDgvFzMXVD2vY",
+    "CgLUA19JBgf5",
+    "u3rVBMuGC3rHAxi",
+    "tufsuvvfrv9msuDivfm",
+    "r29SzcbPBMXHEq",
+    "ChvYCgXLx2nSyxK",
+    "v2LZzg9Tig9Mief0AgvUyq",
+    "r2f0zxmGB2yGsgvHDMvUifn1CgvYifnJyxr0zxi",
+    "C2fUzf9ZDgfPCNm",
+    "v09prf9uqujmrq",
+    "BhvUyxjFB3jL",
+    "odC3mJCYrg1Zv1vX",
+    "yMX1zv9MBg93zxi",
+    "v2L0y2GNCYbJyxvSzhjVBG",
+    "BhvUyxjFAwnL",
+    "tgf2yq",
+    "0jFqVTc70l7rGTcW0y8G0ydrG9c00la",
+    "u1rbsvjFu0forfnut05f",
+    "qvvuvu1ox1nbueXjtKC",
+    "CMv0AxjLzf8ZmG",
+    "qK9ps1niruXg",
+    "t1DorvjtseLqx1rpvevn",
+    "0kBqTDc/0yW",
+    "qKveuK9dsW",
+    "C3rHCMXPz2H0mtaWma",
+    "y3jHy2TLzf9ZDg9Uzv9ICMLJA3m",
+    "lNbHz2vZlMrLDG",
+    "EwvSBg93x2nVCMfS",
+    "u1rbsvjFu0fora",
+    "ndGXnZG5q2zuvwPp",
+    "zMfYBwXHBMq",
+    "zgvHzf9SB2C",
+    "v2f0zxi",
+    "v0HfqvrFrKLfteq",
+    "ue9msvnirurFu1rptKu",
+    "thvUyxiGyMfZywX0",
+    "u3rVBMuGyNjPy2SGC3rHAxi",
+    "B2X5Bxb1CZeWmda",
+    "0yFqTDga0l3qUnc60lG",
+    "vxbOB2XZDgvYzwqGy2HHAxi",
+    "uMvKignSyxK",
+    "u2XVDcbTywnOAw5LoIa",
+    "qLjjq0S",
+    "y29MzMLU",
+    "qxzPyxrPB24GB2jZDhj1y3rPB24GBgLNAhq",
+    "0jVqSnc30yprGnc40ylqVTcY0ldrJYdqUnc90lRrGngd0yhrGTcW0yBqUngp",
+    "tgvHDMvZ",
+    "BgLNAhrUAw5Nx3jVza",
+    "yMLNlwjHC3m",
+    "0kdqVTgb0ylqVTc6inc60lVrKDc90la",
+    "0jBrKDc70ylqSngpincZ0lVqUnc90la",
+    "0khqSnc20lxqVDc10yyG0ltqTDga0lxqSTcW",
+    "CM95ywXFy2fYCgv0",
+    "s0Luq0HftL9dt1vovevs",
+    "yMLNz2vYlwjHC3m",
+    "0jVqSnc80l/qSa",
+    "u05pv19mqvLfuG",
+    "0klrI9c60llqSa",
+    "0klrGnc+0l/qUngh0lxrGDc60ldrJYdqU9c40yhrGTcY0la",
+    "zg9NAg91C2u",
+    "0j7qS9c90lGG0lRqSnc30lJqVDc+",
+    "revtrvjux0XfqvzfuW",
+    "0j/qTDgb0l7qUG",
+    "y29ID2vI",
+    "q0ftsu5px0nbuLbfva",
+    "u2nHCMvJCM93",
+    "qMX1zwjLCNj5",
+    "qxjTB3jLzcbKB29Y",
+    "r09mrf9jtKXbwq",
+    "q29TCg9ZDgvY",
+    "rgvHzcb3B29K",
+    "BgvHDMvZ",
+    "uMvPBMzVCMnLzcbZDg9UzsbZDgfPCG",
+    "r2f0zxmGB2yGt2X5Bxb1CW",
+    "0jtqTDga0lxqSTgp0l3qVDgl0lKG0yhrGTc+0lS",
+    "0jtqTDga0lxqSTgp0l3qVDcW0y8G0lRqSnc70lJrGTc60la",
+    "ufvnueTjtG",
+    "yNjVD25Fy2XHEq",
+    "uKftuejfuLjzx0jvu0HFuKLqrq",
+    "qw50As10yw5Rig1PBMu",
+    "rKvoq0vFv09pra",
+    "C3jIB24",
+    "0kdqVTgb0ylqVTc6ingc0yVqUTcY0yS",
+    "tuLmsvrbuLLFq0Hfu1q",
+    "BwLUzv9HCa",
+    "swnL",
+    "z2f0zxnVBW",
+    "AgfUz2LUzW",
+    "rgfYAYbWBgfUA3m",
+    "C2f2yw5Uyv9NCMfZCW",
+    "y2HHAw4",
+    "0jRqVTc70y7rH9cW0y8G0l/rGnc+0llqVTc70l7qUTcW",
+    "sgvSAxvTltmGB3jL",
+    "0kFqTDga0lxqVW",
+    "AxjVBL9Mzw5Jzq",
+    "v0HfqvrFq1jpua",
+    "qMX1zsbJB3jHBa",
+    "r1jbvKvtve9orq",
+    "ww91BMCGCg90yxrV",
+    "0jVrG9c90l3rI9c5incX0ldqT9cW0lVrJngc",
+    "CMfKAw9FCMvSyxK",
+    "y2fJDhvZ",
+    "mJu2mdi2ohbbuxbbtq",
+    "0jpqTDga0lZqTDgc0lJrH9c90l7qTsdrGDgc0lxqUTc70l4",
+    "u2fRDxjHigXVzW",
+    "0kdqTDc30l3qVTc5inc/0lxrGDgh0ldqVDc40lO",
+    "ugLUzsbSB2C",
+    "C3j1C2G",
+    "u3rHCMXPz2H0ifbYAw5JzxnZideWmda",
+    "z2XVD3n0B25L",
+    "u2f2yw5Uysb0DxjM",
+    "ug90Aw9UihnOzwXM",
+    "r3jLzw4Gy2XHEq",
+    "qMfYyMvKihDPCMu",
+    "uMvKigzSB3DLCG",
+    "0jRqSnc70lJrGTc60laG0lJqTYdqUTcW0lZqTDc90l3qVTcZ0l4G0lRqUnga0l/qUngh0la",
+    "0jVrG9c90l3qSngpinc/0l7rGnc+0ltqSa",
+    "r1jbvKvm",
+    "CNn0B25L",
+    "yNjPy2TFC3rHAxjZ",
+    "D2HLyxrFy3jVCa",
+    "yxrOzw5H",
+    "qvzjqvrjt05FteLhsfq",
+    "q29IyMXLC3rVBMu",
+    "AgLLCM9NBhLWAf9Zyw5KC3rVBMu",
+    "B2X5Bxb1CW",
+    "0jtqTDga0lxqSTgp0l3qVDcW0y8G0yhqUTcW0lZrJngp",
+    "u1rbsvjFu1rptKu",
+    "uKvnt1rfx1nuqvrjt04",
+    "rKvoq0vFr0furv9tve9orv9cuKLds1m",
+    "qMvK",
+    "u1rbsvjFq09cqKXf",
+    "z29OmtaWma",
+    "ufvnueTjtL9tufjpvvq",
+    "q29IyMXLC3rVBMuGzMvUy2u",
+    "0jRqVTcY0zhrGcdqUTcW0lFqUnc90l4",
+    "qMLNiejHC3mGqM9Uyw56yq",
+    "0jprGnc40le",
+    "zgvZzxj0x3nHCgXPBMC",
+    "zMX5x2fNyxjPyW",
+    "rKvoq0vFq09cqKXf",
+    "y2HLC3q",
+    "uMvKC3rVBMuGDg9Yy2G",
+    "Ew91BMDFy2fYCM90",
+    "ENzOmJuW",
+    "vgfSBcbNCMfZCW",
+    "0jRrGncW0yhqVDgl0lKG0yBqSTc10ylqVTc6",
+    "0kdqVTgb0ylqUTc4inc/0yJqTDc90lJrHTgl",
+    "v0HfqvrFwu9vtKC",
+    "AM9Rzxi",
+    "zgvZzxj0x2DYyxnZ",
+    "0kdqVTc30l7qSTgl0lKG0yBqSTc10ylqVTc6",
+    "yNvZAa",
+    "D29HmtaWma",
+    "rfLoqu1jveu",
+    "tg9N",
+    "DMfSDwvZ",
+    "0jhrGnc10llqVDc+ingb0ldqUTgd0ydrIW",
+    "Ew91BMC",
+    "yMfYCMvS",
+    "q09squXFqKXvrq",
+    "C3rVBMu",
+    "ugLUAYbJBgf5",
+    "zNvYBML0DxjL",
+    "Dg9Yy2G",
+    "u21VB3rOihnHBMrZDg9Uzq",
+    "C3DIB24YntaW",
+    "revut05bve9s",
+    "u2fRDxjHigXLyxzLCW",
+    "BgLNAhq",
+    "0kFrKDga0l3qSngpincZ0lVqUnc90la",
+    "0khqSTc10ylqUnc70yZqVDc40lOG0jtqTTc10lRqSa",
+    "Bwf4",
+    "0jhrG9c70yVqTTc90ldrJYdqUTcW0lVqUngc0lRqSa",
+    "yMX1zv9JBgf5",
+    "ue9uqvrpx0nst1a",
+    "C3rVBMvFyNjPy2TFC3rHAxjZ",
+    "CgLUA19MBg93zxi",
+    "u3DLzxqGqM9Uyw56ysaYntaW",
+    "C29Myq",
+    "zgfYA19WBgfUA3m",
+    "q0Hbsu4",
+    "tevbrL9msvrurvi",
+    "CMvPBMzVCMnLzf9ZDg9Uzv9ZDgfPCNm",
+    "yNvMzMvY",
+    "yM9Uyw56ys1ZCW",
+    "u2LNBG",
+    "0jtqSTc10ydrJa",
+    "D29HDgG",
+    "twfWihrHyMXL",
+    "z29Szf9IBg9JAW",
+    "C3rVBMvFyNjPy2TFzMvUy2vFz2f0zq",
+    "u3rPy2T5ihbPC3rVBG",
+    "tefqsvnFsu5mqvK",
+    "yxv0Dw1Ux3nHCgXPBMC",
+    "0jFqVTc70l7rGTcW0y8G0lVqUngb0ylqSTcW",
+    "C3DLzxqTCNvZAa",
+    "u3rVBMuGzMvUy2uGz2f0zq",
+    "ChvZAa",
+    "0j/rG9cZ0ldqU9c+",
+    "yNv0Dg9U",
+    "tgLNAhqGyMX1zsbJBgf5",
+    "q2fJDhvZ",
+    "qvvuvu1ox0Xfqvzfu19zruXmt1C",
+    "rhj5Aw5NigHLCMjZ",
+    "0lxqTTc10llqUnc60lG",
+    "n0vvAMzgzG",
+    "qMfYCMvS",
+    "q29IyMXLC3rVBMuGC3rHAxi",
+    "tefwqq",
+    "q0fsuK9ux0nst1a",
+    "CM91BMq",
+    "sgLLCM9NBhLWAcbZyw5KC3rVBMu",
+    "ywjZ",
+    "v2fSBcbSAwDODa",
+    "tufqx1rbqKXf",
+    "C3aXmdaW",
+    "0jRrGnc+0llqSngc0yW",
+    "ruDzufrjqu5FueLmtefs",
+    "0j7qV9cW0llrInc40luG0lVqUngb0ylrJngp",
+    "0jpqU9cW0ltqUTc40lKG0l/qTDgb0yFqSnc90lJqUG",
+    "C25VD19SyxLLCG",
+    "0j3qSnc20lJqVnc90ldrJYdqV9c70lJrGTcW",
+    "u3DLzxqGuNvZAcbcB25HBNPH",
+    "ufvnueTjtL9zt1vorW",
+    "0jBrKDc70ylrI9c5inc60l7rGncW0lVqUW",
+    "0jZqTDgc0ldqU9c70lJrH9c10yhqUTcW0y8G0ltqSTc10ydrJa",
+    "0j/qVTc70luG0yhqV9c10lVqVTc5inc/0yJqTDc90lJrHTgl",
+    "tfvoqvjFuK9dsW",
+    "tgLNAhrUAw5NihjVza",
+    "u3rHCMXPz2H0ifbYAw5JzxnZifn1CgvYifnJyxr0zxi",
+    "r0Xbu1m",
+    "0j/rG9gb0ylrI9c90l3qSngpinc70lJrGDgc0llqSa",
+    "reLsva",
+    "zgLYDa",
+    "u0flvvjbx0XprW",
+    "BgvHzL9SAxr0zxi",
+    "seLfuK9htfLqsf9tqu5eu1rptKu",
+    "0jVqUngb0ylqSTcW",
+    "tvvtsfjpt00",
+    "CMLWzsbIDxnO",
+    "u0fsq09qsefhvvm",
+    "qKLsq0HFte9h",
+    "rKvoq0vFu1rptKu",
+    "zg9NAg91C2uTBwvNyq",
+    "Cg9ZDe1LC3nHz2u",
+    "0j/rG9gb0ylrI9c90l3qSngpingc0ydqSncY0la",
+    "u1rbsvjFqLjjq0S",
+    "0jprGnc+0le",
+    "0kxqSTc+0y8",
+    "0jBqTDc70lxqT9c90ldrJYdrGngd0ltqSa",
+    "qKXbq0Tcrvjswv9cvvnix1nquK9vva",
+    "0jRqSnc60ylrG9gb",
+    "zNjVBuvUDhjPzxm",
+    "y2fUzgXL",
+    "CgLUzv9SB2C",
+    "qvvuvu1ox0Xfqvzfu19sruq",
+    "ueLorv9mt0C",
+    "rKXpv0vsx1LfteXpvW",
+    "C2fRDxjHx3nHCgXPBMC",
+    "r2f0zxmGB2yGt2X5Bxb1CYaXmdaW",
+    "t3jHBMDLignSyxK",
+    "tgfKzgvY",
+    "C2fRDxjHx2XLyxzLCW",
+    "r09mra",
+    "r2f0zxmGB2yGsgvHDMvUideWmda",
+    "u3rVBMuGzMvUy2u",
+    "vhjLzsbZyxbSAw5N",
+    "vefsr0vu",
+    "zMfYBq",
+    "ugLZDg9U",
+    "uMvPBMzVCMnLzcbZDg9Uzq",
+    "z3jHC3m",
+    "EwvSBg93x2nSyxK",
+    "tgv2zxi",
+    "y2HPC2vSzwrFC2fUzhn0B25L",
+    "twfNzw50ysbJBgf5",
+    "tgfTCa",
+    "D29Vzf90ywjSzq",
+    "0jZqUngi0lxqVDgm",
+    "BgvKx3nJCMvLBG",
+    "rKXpv0vsx1bjtKS",
+    "rKvoq0vFr0furv9tqu5eu1rptKu",
+    "0khqUnc90y/rJYdqS9c70lJqVDcW",
+    "Bwv0ywXFzg9VCG",
+    "rgLYDa",
+    "tfvoqvjFr0Xbu1m",
+    "u0fqteLorW",
+    "zgv2AwnL",
+    "mZm2wgfJz2zM",
+    "0jRqSnc80lxqVDc90yVqUsdqUTc40ydqV9c40yC",
+    "0j/rGnc+0ylqUncY0l7qV9c10yxqVTgc0l3qSngpinc80lJqVDcW",
+    "AwnL",
+    "yxjTB3jLzf9KB29Y",
+    "BMfTzq",
+    "q1jpuf9gsuvmra",
+    "C3vNyxiTC3m",
+    "q0fsuK9ux1Lpvu5h",
+    "BhvUyxjFz2XHC3m",
+    "Cg9SAxnOzwrFC3rVBMu",
+    "BhvUyxjFCgfUzwW",
+    "0jtqVTgb0lRqUa",
+    "q0Hfu1q",
+    "yMX1zwjLCNj5",
+    "u0forfnut05f",
+    "zhLUyw1PDgu",
+    "0jlqVTc30ltrG9gf",
+    "DgL0Bgu",
+    "qMXVy2SGB2yGz29Sza",
+    "tfvoqvjFsunf",
+    "yMjIltzVza",
+    "ug90DgvKihbSyw50",
+    "u3DLzxqGqM9Uyw56ysaXmdaW",
+    "revtrvjux0Dsqvnt",
+    "qMLNiejHC3mGu3bSyxnOideWmda",
+    "0j7rGncW0l3qTTc10llqSngpinc+0yhqTDc90l3rJ9gpinc70lJrGDgc0llqSa",
+    "zgHTzwDH",
+    "y29IyMXL",
+    "rgvZzxj0igXVzW",
+    "quLs",
+    "uhvTCgTPBG",
+    "yMvK",
+    "0jRrG9gb0yi",
+    "yMXHy2TFBwfYyMXL",
+    "ChvTCgTPBL9ZChjVDxq",
+    "r09mrf9cte9dsW",
+    "u1rptKvFqLjjq0Tt",
+    "u1rbsvjFrefssW",
+    "C3r1yMjSzv9MAwvSza",
+    "u2T1BgW",
+    "y29IyMXLx2zLBMnLx2DHDgu",
+    "q1jbq0Tfrf9tve9orv9cuKLds1m",
+    "0jRqVDc40lBqVDgl0lKG0lhqU9c+0lO",
+    "0jZqVTcZ0lJqU9gm0l3rI9c5inc60ydqTDgb0yi",
+    "ChvTCgTPBL9JCM9W",
+    "0jprGnc+0lZqVTc+0ylqSTc+0lq",
+    "0jdrGnc80lJrGnc+0llqSnc90l3qSngpingb0ylrG9c/0lxqVDgm0lRqSa",
+    "rKvoq0vFr0furv9xt09e",
+    "0j/qTDgh0lRqSa",
+    "x2j1C2HF",
+    "r09mrf9puKu",
+    "0jpqVTc70ypqSDcW0y8G0lpqU9c40l3qSa",
+    "0khqV9c10lVrI9c5inc60yprGDgc",
+    "zgv0B25HDg9Y",
+    "0jVqSnc50lZqVTcY0ldrJYdqS9c70lJqVDcW",
+    "t3DUzxjZAgLWihrVDgvT",
+    "Bg9N",
+    "BgLNAhrIBhvLx2nSyxK",
+    "rhLUyw1PDgu",
+    "v2HLyxqGC3bYB3v0CW",
+    "CgHLywq",
+    "0j/qVTcY0ylqVTga0lJrGTc10lVrJa",
+    "yM9Uyw56yq",
+    "rgvZzxj0ihnHCgXPBMC",
+    "zMvUy2u",
+    "BxvZAhjVB20",
+    "C2jZCW",
+    "yxv0Dw1Ux2XLyxzLC195zwXSB3C",
+    "yxzPyxrPB25FBgLNAhq",
+    "mte3ody5DLbOsKXJ",
+    "DgfSBf9NCMfZCW",
+    "0khqVDc10lm",
+    "0jZrGncW0lZqVTga",
+    "u2fUzhn0B25L",
+    "C2v0",
+    "y29IyMXLx3n0ywLYCW",
+    "zgLHBw9Uzf9VCMu",
+    "0khrG9gi0zhqVDgl0luG0ylrGncW0llrIW",
+    "vfjpueLdquXFte9h",
+    "q09grKLo",
+    "q3jHy2TLzcbZDg9UzsbICMLJA3m",
+    "y29TCg9ZDgvY",
+    "qMLYy2GGBg9N",
+    "r2f0zxmGB2yGt2X5Bxb1CYaYntaW",
+    "0jZrJ9cZ0lRqUnc5inc00lJqSTcW0l0",
+    "u3DLzxqGqM9Uyw56ysbtDxbLCIbty2f0DgvY",
+    "Cg90yxrVx2nYB3a",
+    "0jlqVTc00l7rGnc+0yhqU9c4",
+    "yMX1zv9JB3jHBa",
+    "z2f0zq",
+    "C3rHz2vZ",
+    "zMXHDa",
+    "CM90",
+    "mZCWBuf0uePt",
+    "0kdqVTgb0ylqUTc4inc60ldrGngc0l7rHnc10lVrJW",
+    "tfvoqvjFueforuW",
+    "0jRqSnc80lxqVDc90yVqUsdqT9cW0lhqVTga",
+    "uKveu1rptKu",
+    "revtrvjux1nbueXjtKC",
+    "BgfIzwW",
+    "uMLWzsbWDw1WA2LUihzPBMu",
+    "ueLtve9ox0Hfquq",
+    "C3rVBMvFyNjPy2TFzMvUy2u",
+    "q0fsuK9ux1nquK9vva",
+    "CgLUzv9Szwf2zxm",
+    "0jRqVTga0lJrH9c90lxqSTcW0y8G0lpqU9c40l3qSa",
+    "z2XHC3m",
+    "vgHLierVzYbiB3vZzsbnzwDHD2f5CYaXmdaW",
+    "AgvHDMvUmtaWma",
+    "q09squXFueLosW",
+    "v0HfqvrFu1bst1vu",
+    "uKftuejfuLjzx0jvu0HFu1bst1vu",
+    "DMLSBgfNzq",
+    "twv0ywWGzg9VCG",
+    "u1rbsvjFu1rptKvFqLjjq0Tt",
+    "D2f0zxi",
+    "0jlqVTc00la",
+    "u2fUzhn0B25LigzLBMnLigDHDgu",
+    "u0LhtG",
+    "0jFqSnc80yJqTDc70yVqUsdqSDgd0lVrI9c20l3qUnc6",
+    "0kdqSngb0ylqTDc90lJqTsdqSIdqS9c+0ydrInc60lu",
+    "BwfYyMXL",
+    "ug9SAxnOzwqGC3rVBMu",
+    "rLvstKfdrq",
+    "BwfNzw50yv9JBgf5",
+    "DgrOB3vZzq",
+    "wMv1CYb2CYbiywrLCYbhB2rZig9MifDHCG",
+    "qKXvrujfuLjzx0jvu0HFwu9vtKC",
+    "yMTTDW",
+    "tuLorv9bua",
+    "vefmtf9huKftuW",
+    "0jZqVTc70l7qTncW0y8G0lZqVTga0lRqVTcY0yW",
+    "u2fUza",
+    "DgfYz2v0",
+    "thvUyxiGCMvNB2XPDgG",
+    "yMfYyMvKx3DPCMu",
+    "sgf5igjHBgu",
+  ];
+  _0x1a29 = function () {
+    return _0x3022c4;
+  };
+  return _0x1a29();
+}
+for (const [r, a, e, n, s] of [
+  [
+    t[_0x1d72df(0x29c)],
+    "kitchen_counter",
+    _0x1d72df(0x47b),
+    _0x1d72df(0x265),
+    0xa18060,
+  ],
+  [
+    t[_0x1d72df(0x454)],
+    "sink",
+    _0x1d72df(0x419),
+    "Sink\x20and\x20faucet",
+    0xc3c9ce,
+  ],
+  [
+    t["STORAGE_SHELF"],
+    "storage_shelf",
+    "Стеллаж\x20с\x20припасами",
+    _0x1d72df(0x22a),
+    0x6d7a67,
+  ],
+  [
+    t[_0x1d72df(0x493)],
+    _0x1d72df(0x31a),
+    _0x1d72df(0x3dd),
+    _0x1d72df(0x1d1),
+    0x9f6f50,
+  ],
+  [
+    t[_0x1d72df(0x457)],
+    _0x1d72df(0x245),
+    "Настенный\x20светильник",
+    _0x1d72df(0x33d),
+    0xffe4b0,
+  ],
+  [
+    t[_0x1d72df(0x20a)],
+    _0x1d72df(0x1b7),
+    _0x1d72df(0x401),
+    _0x1d72df(0x39e),
+    0x648652,
+  ],
+])
+  _[_0x1d72df(0x32d)](
+    o(
+      r,
+      a,
+      e,
+      0x2d,
+      [0xa, 0xa, 0xa],
+      s,
+      {
+        transparent: !0x0,
+        shape: _0x1d72df(0x30a),
+        interactive: r === t["SOFA"],
+        solid: r !== t[_0x1d72df(0x457)] && r !== t[_0x1d72df(0x20a)],
+        light: r === t[_0x1d72df(0x457)] ? 0xe : 0x0,
+      },
+      n,
+    ),
+  );
+const Qt = 0x9e,
+  Ye = 0xad,
+  Tt = [
+    {
+      key: _0x1d72df(0x1f8),
+      ru: _0x1d72df(0x47d),
+      en: _0x1d72df(0x215),
+      color: 0xc03050,
+      stages: [t[_0x1d72df(0x3f8)], t[_0x1d72df(0x25f)], t[_0x1d72df(0x2b5)]],
+    },
+    {
+      key: _0x1d72df(0x396),
+      ru: _0x1d72df(0x28d),
+      en: _0x1d72df(0x2a9),
+      color: 0x4a5aa8,
+      stages: [
+        t["BLUEBERRY_BUSH_SPROUT"],
+        t[_0x1d72df(0x408)],
+        t["BLUEBERRY_BUSH_RIPE"],
+      ],
+    },
+    {
+      key: _0x1d72df(0x42b),
+      ru: _0x1d72df(0x334),
+      en: _0x1d72df(0x43a),
+      color: 0x3d2b45,
+      stages: [t[_0x1d72df(0x362)], t[_0x1d72df(0x1ae)], t[_0x1d72df(0x492)]],
+    },
+  ];
+Tt[_0x1d72df(0x431)]((_0xa8eeff, _0x227b16) => {
+  const _0x490011 = _0x1d72df,
+    _0x437ad9 = [_0x490011(0x3a9), _0x490011(0x1e7), _0x490011(0x3bd)],
+    _0xe94a57 = [_0x490011(0x1df), "young\x20bush", _0x490011(0x357)];
+  _0xa8eeff["stages"][_0x490011(0x431)]((_0x3b5fbd, _0x3476ae) => {
+    const _0x30f144 = _0x490011;
+    _["push"](
+      o(
+        _0x3b5fbd,
+        _0xa8eeff[_0x30f144(0x4a0)] +
+          _0x30f144(0x3ba) +
+          [_0x30f144(0x216), _0x30f144(0x305), _0x30f144(0x428)][_0x3476ae],
+        _0x437ad9[_0x3476ae] + "\x20" + _0xa8eeff["ru"],
+        0x4,
+        [
+          Ye + _0x227b16 * 0x3 + _0x3476ae,
+          Qt + _0x227b16 * 0x3 + _0x3476ae,
+          Qt + _0x227b16 * 0x3 + _0x3476ae,
+        ],
+        _0x3476ae === 0x2 ? _0xa8eeff["color"] : 0x4a7a38,
+        { solid: !0x1, transparent: !0x0, shape: _0x30f144(0x2ff) },
+        _0xa8eeff["en"] + "\x20" + _0xe94a57[_0x3476ae],
+      ),
+    );
+  });
+});
+const gt = 0xa8;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x413)],
+    _0x1d72df(0x437),
+    _0x1d72df(0x251),
+    0x12c,
+    [gt, gt, gt],
+    0xffdda0,
+    { light: 0xf },
+    "Reinforced\x20glowstone",
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x3ff)],
+      _0x1d72df(0x1cf),
+      "Табличка",
+      0x19,
+      [0xa, 0xa, 0xa],
+      0xb08c53,
+      {
+        solid: !0x1,
+        transparent: !0x0,
+        shape: _0x1d72df(0x387),
+        interactive: !0x0,
+      },
+      _0x1d72df(0x321),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x1aa)],
+      _0x1d72df(0x2cb),
+      _0x1d72df(0x44d),
+      0x23,
+      [0x78, 0x78, 0x78],
+      0x608c7c,
+      {
+        solid: !0x0,
+        transparent: !0x0,
+        shape: _0x1d72df(0x387),
+        interactive: !0x0,
+      },
+      _0x1d72df(0x239),
+    ),
+  ));
+const qt = 0xcc,
+  ve = 0xcd,
+  Gt = 0xce,
+  ie = 0xcf,
+  Lt = 0xd0,
+  ke = 0xd2,
+  ue = 0xd3,
+  Ut = 0xd4,
+  bt = 0xd5,
+  mt = 0xd6,
+  yt = 0xd7,
+  Kt = 0xd9,
+  Ht = 0xda,
+  w = 0xdb,
+  Jt = 0xdc,
+  St = 0xdd,
+  Ft = 0xde,
+  Wt = 0xdf,
+  Ve = 0xe0,
+  xe = 0xe1,
+  wt = 0xe2,
+  Yt = 0xe4,
+  ze = 0xe5;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x1ee)],
+    _0x1d72df(0x439),
+    _0x1d72df(0x3a2),
+    0x8,
+    [0xc9, 0xc9, 0xc9],
+    0xd9772a,
+    { transparent: !0x0 },
+    "Orange\x20autumn\x20leaves",
+  ),
+),
+  _["push"](
+    o(
+      t[_0x1d72df(0x367)],
+      _0x1d72df(0x451),
+      _0x1d72df(0x1e3),
+      0x8,
+      [0xca, 0xca, 0xca],
+      0xb8322a,
+      { transparent: !0x0 },
+      "Crimson\x20autumn\x20leaves",
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x332)],
+      _0x1d72df(0x3cc),
+      _0x1d72df(0x32a),
+      0x8,
+      [0xcb, 0xcb, 0xcb],
+      0xe3b53a,
+      { transparent: !0x0 },
+      "Golden\x20autumn\x20leaves",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x359)],
+      "birch_log",
+      _0x1d72df(0x47a),
+      0x37,
+      [qt, ve, qt],
+      0xe4e0d4,
+      {},
+      _0x1d72df(0x3db),
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x31d)],
+      _0x1d72df(0x353),
+      _0x1d72df(0x342),
+      0x1,
+      [Gt, Gt, Gt],
+      0xb8642a,
+      { solid: !0x1, transparent: !0x0, shape: "litter" },
+      _0x1d72df(0x20f),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2b3)],
+      _0x1d72df(0x1f3),
+      _0x1d72df(0x2a0),
+      0x14,
+      [ie, Lt, Lt],
+      0xe07a1f,
+      {},
+      _0x1d72df(0x3a7),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["JACK_O_LANTERN"],
+      "jack_o_lantern",
+      _0x1d72df(0x312),
+      0x14,
+      [ie, Lt, Lt],
+      0xffa530,
+      { light: 0xc },
+      "Jack\x20o\x27lantern",
+    ),
+  ),
+  f(
+    t["PUMPKIN_SPROUT"],
+    _0x1d72df(0x3ab),
+    _0x1d72df(0x2b9),
+    _0x1d72df(0x422),
+    ke,
+    0x6f9e3f,
+  ),
+  f(
+    t[_0x1d72df(0x347)],
+    "young_pumpkin",
+    _0x1d72df(0x22c),
+    "Pumpkin\x20vine",
+    ue,
+    0x5d8f36,
+  ),
+  f(
+    t[_0x1d72df(0x442)],
+    _0x1d72df(0x3b5),
+    "Спелая\x20тыква\x20на\x20грядке",
+    _0x1d72df(0x3ed),
+    ue,
+    0xe07a1f,
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x4b0)],
+      "candle",
+      "Свечи",
+      0x1,
+      [Ut, Ut, Ut],
+      0xf1e3c2,
+      { solid: !0x1, transparent: !0x0, light: 0x8, shape: _0x1d72df(0x365) },
+      "Candles",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["COBWEB"],
+      _0x1d72df(0x2a6),
+      _0x1d72df(0x488),
+      0x4,
+      [bt, bt, bt],
+      0xe8e8ea,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x42f) },
+      "Cobweb",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2c8)],
+      _0x1d72df(0x485),
+      _0x1d72df(0x254),
+      0x6e,
+      [mt, mt, mt],
+      0x8d9090,
+      { transparent: !0x0, shape: _0x1d72df(0x30a) },
+      "Gravestone",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["GRAVE_CROSS"],
+      "grave_cross",
+      _0x1d72df(0x3b4),
+      0x3c,
+      [St, St, St],
+      0x5d5147,
+      { transparent: !0x0, shape: _0x1d72df(0x30a) },
+      _0x1d72df(0x1d4),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x435)],
+      "skull",
+      _0x1d72df(0x2c4),
+      0x14,
+      [yt, yt, yt],
+      0xe6dfc9,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x30a) },
+      _0x1d72df(0x3b0),
+    ),
+  ),
+  _["push"](
+    o(
+      t["CAULDRON"],
+      _0x1d72df(0x430),
+      "Ведьмин\x20котёл",
+      0x8c,
+      [Yt, Yt, Yt],
+      0x2e3134,
+      {
+        transparent: !0x0,
+        shape: _0x1d72df(0x30a),
+        light: 0x7,
+        interactive: !0x0,
+      },
+      _0x1d72df(0x274),
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x229)],
+      "scarecrow",
+      _0x1d72df(0x32e),
+      0x14,
+      [Kt, Kt, Kt],
+      0xb49a5e,
+      { transparent: !0x0, shape: _0x1d72df(0x30a) },
+      _0x1d72df(0x2a8),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["IRON_FENCE"],
+      _0x1d72df(0x2c5),
+      "Кованая\x20ограда",
+      0x96,
+      [Ht, Ht, Ht],
+      0x2c2d31,
+      { transparent: !0x0, shape: _0x1d72df(0x3c9) },
+      _0x1d72df(0x1b5),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x494)],
+      _0x1d72df(0x31b),
+      "Тёмные\x20доски",
+      0x32,
+      [w, w, w],
+      0x3f2c20,
+      {},
+      _0x1d72df(0x2bf),
+    ),
+  ),
+  _["push"](
+    o(
+      t["DEAD_LOG"],
+      _0x1d72df(0x286),
+      _0x1d72df(0x1f1),
+      0x37,
+      [Jt, St, Jt],
+      0x5b544d,
+      {},
+      _0x1d72df(0x2ad),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["MOSSY_COBBLE"],
+      _0x1d72df(0x1eb),
+      _0x1d72df(0x400),
+      0x50,
+      [Ft, Ft, Ft],
+      0x6b7a5c,
+      {},
+      "Mossy\x20cobblestone",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x3d8)],
+      _0x1d72df(0x292),
+      _0x1d72df(0x35f),
+      0x2d,
+      [w, w, w],
+      0x3f2c20,
+      { transparent: !0x0, shape: "furniture", interactive: !0x0 },
+      _0x1d72df(0x1c8),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x23c)],
+      _0x1d72df(0x480),
+      "Полка\x20с\x20зельями",
+      0x28,
+      [w, w, w],
+      0x5e3f7a,
+      { transparent: !0x0, shape: _0x1d72df(0x30a), light: 0x6 },
+      _0x1d72df(0x2d6),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x4a7)],
+      _0x1d72df(0x4be),
+      _0x1d72df(0x3d6),
+      0x1,
+      [Wt, Wt, Wt],
+      0x7c8a4a,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x2be) },
+      _0x1d72df(0x333),
+    ),
+  ),
+  f(
+    t[_0x1d72df(0x448)],
+    _0x1d72df(0x2f2),
+    _0x1d72df(0x233),
+    "Fly\x20agaric",
+    Ve,
+    0xd2342a,
+  ),
+  f(
+    t[_0x1d72df(0x356)],
+    _0x1d72df(0x3ca),
+    _0x1d72df(0x2f0),
+    _0x1d72df(0x1d6),
+    xe,
+    0x8a5a36,
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x3ae)],
+      "dark_stairs",
+      _0x1d72df(0x213),
+      0x32,
+      [w, w, w],
+      0x3f2c20,
+      { transparent: !0x0, shape: "stair" },
+      _0x1d72df(0x1b2),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x3b2)],
+      _0x1d72df(0x280),
+      "Потрескавшийся\x20каменный\x20кирпич",
+      0x64,
+      [wt, wt, wt],
+      0x7f7f7d,
+      {},
+      _0x1d72df(0x3d9),
+    ),
+  ),
+  f(
+    t[_0x1d72df(0x279)],
+    _0x1d72df(0x329),
+    _0x1d72df(0x298),
+    _0x1d72df(0x429),
+    ze,
+    0xd9772a,
+  ));
+const zt = new Set(
+  Tt[_0x1d72df(0x45c)]((_0x2c073d) => [..._0x2c073d[_0x1d72df(0x3e3)]]),
+);
+(new Set(Tt[_0x1d72df(0x48f)]((_0x51bea9) => _0x51bea9[_0x1d72df(0x3e3)][0x2])),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x27c)],
+      _0x1d72df(0x223),
+      _0x1d72df(0x487),
+      0x64,
+      [0x11, 0x11, 0x11],
+      0x4ee2ce,
+      {
+        transparent: !0x0,
+        shape: _0x1d72df(0x30a),
+        interactive: !0x0,
+        light: 0xa,
+      },
+      _0x1d72df(0x3c0),
+    ),
+  ));
+const d = {
+  CARPET: 0xef,
+  ROYAL_CARPET: 0xf0,
+  MARBLE: 0xf1,
+  BLACK_MARBLE: 0xf2,
+  GOLD: 0xf3,
+  VELVET: 0xf4,
+  MARQUEE: 0xf5,
+};
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x2a7)],
+    _0x1d72df(0x224),
+    _0x1d72df(0x2ee),
+    0x12,
+    [d[_0x1d72df(0x205)], d[_0x1d72df(0x205)], d[_0x1d72df(0x205)]],
+    0x8e1626,
+    {},
+    _0x1d72df(0x206),
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["ROYAL_CARPET"],
+      _0x1d72df(0x29b),
+      _0x1d72df(0x415),
+      0x12,
+      [d[_0x1d72df(0x1b8)], d["ROYAL_CARPET"], d[_0x1d72df(0x1b8)]],
+      0x3c1858,
+      {},
+      "Royal\x20carpet",
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x469)],
+      _0x1d72df(0x402),
+      _0x1d72df(0x3d1),
+      0x6e,
+      [d[_0x1d72df(0x469)], d[_0x1d72df(0x469)], d[_0x1d72df(0x469)]],
+      0xe9e4da,
+      {},
+      "Marble",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x246)],
+      _0x1d72df(0x3aa),
+      _0x1d72df(0x1cc),
+      0x6e,
+      [d[_0x1d72df(0x246)], d[_0x1d72df(0x246)], d[_0x1d72df(0x246)]],
+      0x1d1a22,
+      {},
+      "Black\x20marble",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x3ac)],
+      _0x1d72df(0x325),
+      _0x1d72df(0x481),
+      0x8c,
+      [d[_0x1d72df(0x36f)], d["GOLD"], d["GOLD"]],
+      0xe2b23f,
+      {},
+      _0x1d72df(0x39b),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x42c)],
+      _0x1d72df(0x45f),
+      _0x1d72df(0x202),
+      0x1e,
+      [d[_0x1d72df(0x1de)], d[_0x1d72df(0x1de)], d[_0x1d72df(0x1de)]],
+      0x6b1430,
+      {},
+      "Velvet\x20panel",
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x26a)],
+      _0x1d72df(0x1e8),
+      _0x1d72df(0x2a3),
+      0x23,
+      [d[_0x1d72df(0x489)], d["MARQUEE"], d["MARQUEE"]],
+      0xffd77a,
+      { light: 0xf },
+      _0x1d72df(0x478),
+    ),
+  ));
+const vt = 0xb7;
+(_["push"](
+  o(
+    t["LED_SCREEN"],
+    _0x1d72df(0x37f),
+    "LED-экран",
+    0x3c,
+    [vt, vt, vt],
+    0x14161c,
+    { interactive: !0x0 },
+    "LED\x20screen",
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t[_0x1d72df(0x2e1)],
+      _0x1d72df(0x3cd),
+      "Авиационный\x20заградительный\x20огонь",
+      0x1e,
+      [0xa, 0xa, 0xa],
+      0xd8261c,
+      { solid: !0x1, transparent: !0x0, shape: _0x1d72df(0x30a) },
+      _0x1d72df(0x293),
+    ),
+  ),
+  _["push"](
+    o(
+      t[_0x1d72df(0x21c)],
+      _0x1d72df(0x38b),
+      _0x1d72df(0x1f2),
+      0x3c,
+      [C + 0x3, C + 0x3, C + 0x3],
+      0xa9cfe2,
+      {},
+      _0x1d72df(0x2bc),
+    ),
+  ));
+const te = 0xb8,
+  ee = 0xba,
+  re = 0xbc;
+(_[_0x1d72df(0x32d)](
+  o(
+    t[_0x1d72df(0x288)],
+    _0x1d72df(0x1fc),
+    _0x1d72df(0x34a),
+    0x1e,
+    [te, te + 0x1, 0x2],
+    0xc9a24f,
+    {},
+    _0x1d72df(0x207),
+  ),
+),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["STUBBLE_FIELD"],
+      _0x1d72df(0x3af),
+      _0x1d72df(0x210),
+      0x1e,
+      [ee, ee + 0x1, 0x2],
+      0xb39a6a,
+      {},
+      _0x1d72df(0x24f),
+    ),
+  ),
+  _[_0x1d72df(0x32d)](
+    o(
+      t["CROP_FIELD"],
+      _0x1d72df(0x1ff),
+      "Поле\x20всходов",
+      0x1e,
+      [re, re + 0x1, 0x2],
+      0x587a35,
+      {},
+      _0x1d72df(0x263),
+    ),
+  ));
+const je = [t[_0x1d72df(0x3f6)], t[_0x1d72df(0x307)], t[_0x1d72df(0x425)]],
+  $e = new Set([t[_0x1d72df(0x4a5)], t[_0x1d72df(0x24d)], ...je]),
+  Xe = new Set([
+    t[_0x1d72df(0x2b7)],
+    t[_0x1d72df(0x2f3)],
+    t[_0x1d72df(0x35a)],
+    t[_0x1d72df(0x209)],
+    t["FENCE_SANDSTONE"],
+    t["IRON_FENCE"],
+  ]),
+  Ze = new Set([
+    t[_0x1d72df(0x3b8)],
+    t[_0x1d72df(0x238)],
+    t[_0x1d72df(0x247)],
+    t[_0x1d72df(0x2e8)],
+    t["FENCE_GATE_SANDSTONE"],
+  ]);
+[
+  t[_0x1d72df(0x218)],
+  t[_0x1d72df(0x4b7)],
+  t[_0x1d72df(0x2e6)],
+  t[_0x1d72df(0x278)],
+  t[_0x1d72df(0x2ea)],
+  t[_0x1d72df(0x35e)],
+  t[_0x1d72df(0x3fb)],
+  t[_0x1d72df(0x283)],
+  t[_0x1d72df(0x44b)],
+  t[_0x1d72df(0x3ae)],
+  ...Xe,
+  ...Ze,
+];
+const Qe = new Set([
+    t["SAPLING"],
+    t[_0x1d72df(0x23b)],
+    t[_0x1d72df(0x3eb)],
+    t["PINE_SAPLING"],
+    t[_0x1d72df(0x45b)],
+    t[_0x1d72df(0x279)],
+  ]),
+  le = new Set([t[_0x1d72df(0x3f7)], t[_0x1d72df(0x2fb)], t[_0x1d72df(0x2c6)]]),
+  Re = new Set([t["POTATO_SPROUT"], t[_0x1d72df(0x43c)], t[_0x1d72df(0x316)]]),
+  ce = new Set([t[_0x1d72df(0x3f0)], t["CARROT_YOUNG"], t[_0x1d72df(0x339)]]),
+  Se = new Set([t[_0x1d72df(0x2ec)], t[_0x1d72df(0x347)], t[_0x1d72df(0x442)]]),
+  qe = new Set([...le, ...Re, ...ce, ...Se, ...zt]);
+(({
+  ...Object[_0x1d72df(0x364)](
+    Tt[_0x1d72df(0x48f)]((_0x3dd921) => [
+      _0x3dd921[_0x1d72df(0x3e3)][0x0],
+      [..._0x3dd921[_0x1d72df(0x3e3)]],
+    ]),
+  ),
+}),
+  [
+    ...Qe,
+    t[_0x1d72df(0x40b)],
+    t[_0x1d72df(0x3a0)],
+    t["FLOWER_RED"],
+    t[_0x1d72df(0x48e)],
+    t[_0x1d72df(0x4ae)],
+    t[_0x1d72df(0x380)],
+    t[_0x1d72df(0x369)],
+    t[_0x1d72df(0x4a8)],
+    ...le,
+    ...Re,
+    ...ce,
+    ...Se,
+    t[_0x1d72df(0x448)],
+    t[_0x1d72df(0x356)],
+    t[_0x1d72df(0x31d)],
+    ...zt,
+    ...$e,
+  ]);
+const at = new Uint8Array(0x100);
+for (const r of _) at[r["id"]] = r[_0x1d72df(0x310)];
+((at[t[_0x1d72df(0x20b)]] = 0xf),
+  (at[t[_0x1d72df(0x3ea)]] = 0x2),
+  (at[t["FURNACE"]] = 0xd),
+  (at[t[_0x1d72df(0x4a8)]] = 0xf),
+  (at[t[_0x1d72df(0x338)]] = 0xf),
+  {
+    ...Object[_0x1d72df(0x364)](
+      [...zt][_0x1d72df(0x48f)]((_0x11e192) => [_0x11e192, _0x1d72df(0x2ae)]),
+    ),
+  },
+  _["filter"](
+    (_0x31eff2) =>
+      !!_0x31eff2[_0x1d72df(0x3ec)] &&
+      _0x31eff2["id"] !== t[_0x1d72df(0x3a6)] &&
+      _0x31eff2["id"] !== t[_0x1d72df(0x27e)] &&
+      _0x31eff2["id"] !== t[_0x1d72df(0x3ee)] &&
+      !qe[_0x1d72df(0x253)](_0x31eff2["id"]),
+  )[_0x1d72df(0x48f)]((_0x16b4a0) => _0x16b4a0["id"]));
+const he = [
+    [_0x1d72df(0x28c), _0x1d72df(0x36b), _0x1d72df(0x234), 0xb993ff, "Ω"],
+    [_0x1d72df(0x2e4), _0x1d72df(0x2b0), _0x1d72df(0x2bd), 0xa484f4, "Ω"],
+    ["olympus-ss", _0x1d72df(0x4aa), "gooss", 0xfac552, "Ω"],
+    ["olympus2500", _0x1d72df(0x3dc), "goo2500", 0x79c9ff, "Ω"],
+    [_0x1d72df(0x1bd), _0x1d72df(0x42a), _0x1d72df(0x20e), 0xecb95d, "Ω"],
+    ["bonanza1000", _0x1d72df(0x39f), _0x1d72df(0x445), 0xff87cb, "♥"],
+    [_0x1d72df(0x320), _0x1d72df(0x3de), _0x1d72df(0x3cb), 0xffcd78, "♥"],
+    [_0x1d72df(0x4b4), _0x1d72df(0x319), _0x1d72df(0x30d), 0xe68bff, "♥"],
+    [_0x1d72df(0x3c7), _0x1d72df(0x412), _0x1d72df(0x22d), 0xff9dcc, "♥"],
+    [_0x1d72df(0x32b), _0x1d72df(0x346), _0x1d72df(0x2b8), 0xffaa70, "♥"],
+    ["zeus-hades", _0x1d72df(0x407), _0x1d72df(0x4bc), 0xff7755, "⚡"],
+    [
+      _0x1d72df(0x203),
+      "Zeus\x20vs\x20Hades\x20250",
+      _0x1d72df(0x2f7),
+      0xffb556,
+      "⚡",
+    ],
+    ["doghouse1000", _0x1d72df(0x3f4), _0x1d72df(0x1c2), 0xffcf7c, "♠"],
+    [_0x1d72df(0x35b), _0x1d72df(0x1e0), _0x1d72df(0x3a3), 0xf9b579, "♠"],
+    [_0x1d72df(0x2a2), "The\x20Dog\x20House", _0x1d72df(0x406), 0xef9476, "♠"],
+    [_0x1d72df(0x27f), _0x1d72df(0x2d3), _0x1d72df(0x33f), 0x98b7ff, "★"],
+    [_0x1d72df(0x472), _0x1d72df(0x34d), "spss-44x", 0xd39bff, "★"],
+    [_0x1d72df(0x3f5), _0x1d72df(0x370), _0x1d72df(0x2eb), 0x85ddff, "✦"],
+    [_0x1d72df(0x1d5), _0x1d72df(0x26e), _0x1d72df(0x1c4), 0xb5e6ff, "✦"],
+    [
+      _0x1d72df(0x38f),
+      "Sugar\x20Rush\x20Super\x20Scatter",
+      "srss-xou",
+      0xff80cb,
+      "♥",
+    ],
+    [
+      _0x1d72df(0x482),
+      "Sugar\x20Rush\x201000",
+      _0x1d72df(0x1e1),
+      0xda95ff,
+      "♥",
+    ],
+    ["sugar", _0x1d72df(0x444), _0x1d72df(0x2d2), 0xffaad6, "♥"],
+    [_0x1d72df(0x2fc), "Joker\x27s\x20Jewels", "jjewels", 0xfd888b, "♦"],
+    [_0x1d72df(0x420), _0x1d72df(0x1bc), _0x1d72df(0x300), 0x76dacd, "Α"],
+    ["angel-sinner", "Angel\x20vs\x20Sinner", _0x1d72df(0x255), 0xf294c2, "✦"],
+    [_0x1d72df(0x2e0), _0x1d72df(0x26d), _0x1d72df(0x323), 0x9cdbb6, "Α"],
+    [_0x1d72df(0x259), _0x1d72df(0x1c1), _0x1d72df(0x486), 0xffcd70, "♠"],
+    [_0x1d72df(0x4af), _0x1d72df(0x4b1), _0x1d72df(0x409), 0xe7a570, "♠"],
+    [_0x1d72df(0x22f), _0x1d72df(0x3a1), "bbs1000", 0x70d9ed, "≈"],
+    [_0x1d72df(0x29d), _0x1d72df(0x214), _0x1d72df(0x39d), 0x7dcec7, "≈"],
+    [_0x1d72df(0x297), _0x1d72df(0x2ef), _0x1d72df(0x1bf), 0x85bfff, "≈"],
+  ][_0x1d72df(0x48f)](
+    ([_0x19c93a, _0x5c980a, _0x2fb32a, _0x6283a5, _0xc582ca]) => ({
+      id: _0x19c93a,
+      title: _0x5c980a,
+      host: _0x2fb32a + _0x1d72df(0x281),
+      color: _0x6283a5,
+      motif: _0xc582ca,
+    }),
+  ),
+  Le = 0x258,
+  X = 0x10,
+  Oe = 0x80,
+  V = 0x28;
+(({
+  ...Object[_0x1d72df(0x364)](
+    he["map"]((_0x380b4b, _0x226660) => [
+      Le + _0x226660,
+      "Игровой\x20автомат:\x20" + _0x380b4b[_0x1d72df(0x39a)],
+    ]),
+  ),
+}),
+  {
+    ...Object["fromEntries"](
+      he["map"]((_0x27a62b, _0x3cd80c) => [
+        Le + _0x3cd80c,
+        _0x1d72df(0x290) + _0x27a62b[_0x1d72df(0x39a)],
+      ]),
+    ),
+  });
+const ut = (_0x3d03c6, _0x2e3145, _0xdd9568) =>
+  (_0x2e3145 << 0x8) | (_0xdd9568 << 0x4) | _0x3d03c6;
+function g(_0x35fd75, _0x369efe, _0x3b17dd) {
+  const _0x2635cc = _0x1d72df;
+  let _0x218eb3 =
+    (_0x35fd75 ^
+      Math[_0x2635cc(0x236)](_0x369efe, 0x165667b1) ^
+      Math[_0x2635cc(0x236)](_0x3b17dd, 0x27d4eb2f)) >>>
+    0x0;
+  return (
+    (_0x218eb3 = (_0x218eb3 ^ (_0x218eb3 >>> 0xd)) >>> 0x0),
+    (_0x218eb3 = Math[_0x2635cc(0x236)](_0x218eb3, 0x4bf19f61) >>> 0x0),
+    ((_0x218eb3 ^ (_0x218eb3 >>> 0x10)) >>> 0x0) / 0x100000000
+  );
+}
+const se = (_0x45378f) => _0x45378f * _0x45378f * (0x3 - 0x2 * _0x45378f);
+function Je(_0x27d1f4, _0x3ab942, _0x4b8971) {
+  const _0x8590cd = _0x1d72df,
+    _0x2ba84c = Math[_0x8590cd(0x4b2)](_0x3ab942),
+    _0x2961a2 = Math[_0x8590cd(0x4b2)](_0x4b8971),
+    _0x2b9500 = se(_0x3ab942 - _0x2ba84c),
+    _0xaeb5ec = se(_0x4b8971 - _0x2961a2),
+    _0x5bc76e = g(_0x27d1f4, _0x2ba84c, _0x2961a2),
+    _0x4bf416 = g(_0x27d1f4, _0x2ba84c + 0x1, _0x2961a2),
+    _0x38280a = g(_0x27d1f4, _0x2ba84c, _0x2961a2 + 0x1),
+    _0xda9fbf = g(_0x27d1f4, _0x2ba84c + 0x1, _0x2961a2 + 0x1);
+  return (
+    _0x5bc76e +
+    (_0x4bf416 - _0x5bc76e) * _0x2b9500 +
+    (_0x38280a - _0x5bc76e) * _0xaeb5ec +
+    (_0x5bc76e - _0x4bf416 - _0x38280a + _0xda9fbf) * _0x2b9500 * _0xaeb5ec
+  );
+}
+function _0x2d47(_0x56d4c2, _0x3d7c8d) {
+  _0x56d4c2 = _0x56d4c2 - 0x1aa;
+  const _0x1a29cf = _0x1a29();
+  let _0x2d478e = _0x1a29cf[_0x56d4c2];
+  if (_0x2d47["LRZVeJ"] === undefined) {
+    var _0x39086f = function (_0x3a26bd) {
+      const _0x2e414c =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=";
+      let _0x2a30de = "",
+        _0x3aeba3 = "";
+      for (
+        let _0x450057 = 0x0, _0x1064ca, _0x3358e6, _0x3f8913 = 0x0;
+        (_0x3358e6 = _0x3a26bd["charAt"](_0x3f8913++));
+        ~_0x3358e6 &&
+        ((_0x1064ca =
+          _0x450057 % 0x4 ? _0x1064ca * 0x40 + _0x3358e6 : _0x3358e6),
+        _0x450057++ % 0x4)
+          ? (_0x2a30de += String["fromCharCode"](
+              0xff & (_0x1064ca >> ((-0x2 * _0x450057) & 0x6)),
+            ))
+          : 0x0
+      ) {
+        _0x3358e6 = _0x2e414c["indexOf"](_0x3358e6);
+      }
+      for (
+        let _0x485618 = 0x0, _0x5bdfab = _0x2a30de["length"];
+        _0x485618 < _0x5bdfab;
+        _0x485618++
+      ) {
+        _0x3aeba3 +=
+          "%" +
+          ("00" + _0x2a30de["charCodeAt"](_0x485618)["toString"](0x10))[
+            "slice"
+          ](-0x2);
+      }
+      return decodeURIComponent(_0x3aeba3);
+    };
+    ((_0x2d47["fuJZOs"] = _0x39086f),
+      (_0x2d47["OfRTii"] = {}),
+      (_0x2d47["LRZVeJ"] = !![]));
+  }
+  const _0x239c7f = _0x1a29cf[0x0],
+    _0x58499a = _0x56d4c2 + _0x239c7f,
+    _0x33b850 = _0x2d47["OfRTii"][_0x58499a];
+  return (
+    !_0x33b850
+      ? ((_0x2d478e = _0x2d47["fuJZOs"](_0x2d478e)),
+        (_0x2d47["OfRTii"][_0x58499a] = _0x2d478e))
+      : (_0x2d478e = _0x33b850),
+    _0x2d478e
+  );
+}
+function ae(_0x524883, _0x2fafc6, _0x32a380, _0x89e9d1) {
+  let _0x5d97a9 = 0x0,
+    _0xff5664 = 0.5,
+    _0x1eb13c = 0x1,
+    _0x43fa6d = 0x0;
+  for (let _0x15df94 = 0x0; _0x15df94 < _0x89e9d1; _0x15df94++)
+    ((_0x5d97a9 +=
+      (Je(
+        _0x524883 + _0x15df94 * 0x3f5,
+        _0x2fafc6 * _0x1eb13c,
+        _0x32a380 * _0x1eb13c,
+      ) *
+        0x2 -
+        0x1) *
+      _0xff5664),
+      (_0x43fa6d += _0xff5664),
+      (_0xff5664 *= 0.5),
+      (_0x1eb13c *= 0x2));
+  return _0x5d97a9 / _0x43fa6d;
+}
+const Z = 0xc00,
+  t1 = 0xb40,
+  pe = 0x2f,
+  m = 0x1bbd,
+  e1 = ["A", "B", "C"],
+  r1 = { 0x2: { x: 0x8fc } },
+  jt = [
+    { id: "A", x: -0x1ae, z: -0x230 },
+    { id: "B", x: 0x0, z: 0x0 },
+    { id: "C", x: 0x1ae, z: 0x230 },
+  ],
+  H = { 0x1: { x: -0x438, z: 0x0 }, 0x2: { x: 0x438, z: 0x0 } },
+  Et = 0x2e,
+  j = (_0x5acc66, _0x588f09, _0x2a2775) =>
+    Math[_0x1d72df(0x313)](
+      _0x588f09,
+      Math[_0x1d72df(0x4b3)](_0x2a2775, _0x5acc66),
+    ),
+  x = (_0x763449, _0x5c2292, _0x512c04) =>
+    _0x763449 + (_0x5c2292 - _0x763449) * _0x512c04,
+  F = (_0x25ee17, _0x1d2526, _0x13a4ec) => {
+    const _0x4ea922 = j(
+      (_0x13a4ec - _0x25ee17) / (_0x1d2526 - _0x25ee17),
+      0x0,
+      0x1,
+    );
+    return _0x4ea922 * _0x4ea922 * (0x3 - 0x2 * _0x4ea922);
+  },
+  $ = (_0x28c9b0, _0xe14795, _0x3ca623, _0xbfaff3, _0x376384) =>
+    (ae(
+      m + _0x28c9b0,
+      _0xe14795 * _0xbfaff3,
+      _0x3ca623 * _0xbfaff3,
+      _0x376384,
+    ) +
+      ae(
+        m + _0x28c9b0,
+        -_0xe14795 * _0xbfaff3,
+        -_0x3ca623 * _0xbfaff3,
+        _0x376384,
+      )) *
+    0.7,
+  Te = (_0x12bbda, _0x4af0ad, _0x1b79cf, _0x4f8355, _0x3f092d, _0x163d5f) =>
+    Math[_0x1d72df(0x41b)](
+      Math[_0x1d72df(0x313)](_0x1b79cf - _0x12bbda, 0x0, _0x12bbda - _0x3f092d),
+      Math[_0x1d72df(0x313)](_0x4f8355 - _0x4af0ad, 0x0, _0x4af0ad - _0x163d5f),
+    ),
+  ot = { x1: -0xa3c, x2: -0x7bc, z1: -0xf, z2: 0xf },
+  s1 = { x1: -0xa00, x2: -0x884, z1: -0x4e, z2: -0x10 },
+  Q = { x1: -0xa78, x2: -0x780, z1: -0x8c, z2: 0x28 },
+  At = (_0x16e1f2, _0x6c1a90) => (_0x16e1f2 === 0x1 ? _0x6c1a90 : -_0x6c1a90),
+  it = (_0x138141, _0x277973) => (_0x138141 === 0x1 ? _0x277973 : -_0x277973),
+  ne = (_0x3526cc, _0xe0304f, _0x1dc641, _0x1f7ed9) => {
+    const _0xabb7d0 = At(_0x1f7ed9, _0x3526cc),
+      _0x1fbb85 = it(_0x1f7ed9, _0xe0304f);
+    return (
+      _0xabb7d0 >= _0x1dc641["x1"] &&
+      _0xabb7d0 <= _0x1dc641["x2"] &&
+      _0x1fbb85 >= _0x1dc641["z1"] &&
+      _0x1fbb85 <= _0x1dc641["z2"]
+    );
+  };
+function q(_0x3eb493, _0x29e407) {
+  const _0x51d4ec = _0x1d72df;
+  return F(
+    0x370,
+    0x5b4,
+    Math[_0x51d4ec(0x33c)](_0x29e407) +
+      $(0x5, _0x3eb493, _0x29e407, 0.0011, 0x3) * 0xf0,
+  );
+}
+function fe(_0x4d2511, _0x4c4b7a) {
+  const _0x2506c2 = _0x1d72df,
+    _0x53ad0f = _0x4c4b7a + Math[_0x2506c2(0x490)](_0x4d2511 * 0.0041) * 0x25,
+    _0xf3fa04 = _0x4d2511 + Math["sin"](_0x4c4b7a * 0.0033) * 0x2d,
+    _0x168400 = ((_0x53ad0f % 0xbe) + 0xbe) % 0xbe,
+    _0x3808af = ((_0xf3fa04 % 0xf0) + 0xf0) % 0xf0,
+    _0x256980 = Math[_0x2506c2(0x4b3)](
+      Math["abs"](_0x168400 - 0x5f),
+      Math[_0x2506c2(0x33c)](_0x3808af - 0x78),
+    );
+  let _0x3a97ce = Math[_0x2506c2(0x4b2)]((_0x53ad0f + 0x5f) / 0xbe),
+    _0x3fdaef = Math[_0x2506c2(0x4b2)]((_0xf3fa04 + 0x78) / 0xf0),
+    _0x4835ff = (((_0x53ad0f + 0x5f) % 0xbe) + 0xbe) % 0xbe,
+    _0x13eae8 = (((_0xf3fa04 + 0x78) % 0xf0) + 0xf0) % 0xf0;
+  (_0x3a97ce < -_0x3a97ce ||
+    (_0x3a97ce === -_0x3a97ce && _0x3fdaef < -_0x3fdaef)) &&
+    ((_0x3a97ce = -_0x3a97ce),
+    (_0x3fdaef = -_0x3fdaef),
+    (_0x4835ff = 0xbe - _0x4835ff),
+    (_0x13eae8 = 0xf0 - _0x13eae8));
+  const _0x3fddde = g(m + 0x43, _0x3fdaef, _0x3a97ce),
+    _0x59356c =
+      _0x3fddde < 0.35
+        ? 0x0
+        : _0x3fddde < 0.6
+          ? _0x4835ff < 0x50 + _0x3fddde * 0x3c
+            ? 0x1
+            : 0x2
+          : _0x3fddde < 0.85
+            ? _0x13eae8 < 0x46 + _0x3fddde * 0x50
+              ? 0x3
+              : 0x4
+            : Math[_0x2506c2(0x4b3)](
+                0x2,
+                Math[_0x2506c2(0x4b2)](_0x13eae8 / 0x50),
+              ) + 0x5,
+    _0x2cf506 = g(m + 0x3d + _0x59356c * 0xd, _0x3fdaef, _0x3a97ce);
+  return {
+    line: _0x256980,
+    crop:
+      _0x2cf506 < 0.42
+        ? 0x0
+        : _0x2cf506 < 0.62
+          ? 0x1
+          : _0x2cf506 < 0.72
+            ? 0x2
+            : _0x2cf506 < 0.82
+              ? 0x3
+              : 0x4,
+  };
+}
+const lt = 0x16;
+function Ie(_0x43cec8, _0x8704d9) {
+  const _0x5def84 = _0x1d72df;
+  (_0x43cec8 < 0x0 || (_0x43cec8 === 0x0 && _0x8704d9 < 0x0)) &&
+    ((_0x43cec8 = -_0x43cec8), (_0x8704d9 = -_0x8704d9));
+  const _0x5dc075 = Math[_0x5def84(0x4b2)](_0x43cec8 / lt),
+    _0x5576c5 = Math[_0x5def84(0x4b2)](_0x8704d9 / lt);
+  let _0x582e94 = 0x0,
+    _0x4fc85d = !0x1;
+  for (
+    let _0x1b35d0 = _0x5576c5 - 0x1;
+    _0x1b35d0 <= _0x5576c5 + 0x1;
+    _0x1b35d0++
+  )
+    for (
+      let _0x38267c = _0x5dc075 - 0x1;
+      _0x38267c <= _0x5dc075 + 0x1;
+      _0x38267c++
+    ) {
+      const _0x293b88 =
+          (_0x38267c + 0.25 + g(m + 0x89, _0x38267c, _0x1b35d0) * 0.5) * lt,
+        _0x107c94 =
+          (_0x1b35d0 + 0.25 + g(m + 0x8b, _0x38267c, _0x1b35d0) * 0.5) * lt,
+        _0x5c3e1f = 2.6 + g(m + 0x95, _0x38267c, _0x1b35d0) * 3.4,
+        _0x1446de = Math[_0x5def84(0x41b)](
+          _0x43cec8 - _0x293b88,
+          _0x8704d9 - _0x107c94,
+        );
+      if (_0x1446de > _0x5c3e1f + 1.6 || _0x293b88 < _0x5c3e1f + 0x3) continue;
+      let _0x3a20ab = 0.012 + 0.2 * F(0x17c, 0x0, _0x293b88);
+      for (const _0x26a24d of jt)
+        _0x3a20ab = Math[_0x5def84(0x313)](
+          _0x3a20ab,
+          0.42 *
+            F(
+              0x1ae,
+              0x8c,
+              Math[_0x5def84(0x41b)](
+                _0x293b88 - _0x26a24d["x"],
+                _0x107c94 - _0x26a24d["z"],
+              ),
+            ),
+        );
+      g(m + 0x83, _0x38267c, _0x1b35d0) >
+        _0x3a20ab * F(0.3, 0.1, q(_0x293b88, _0x107c94)) ||
+        (_0x1446de < _0x5c3e1f
+          ? (_0x582e94 = Math["max"](
+              _0x582e94,
+              (0x1 - (_0x1446de / _0x5c3e1f) ** 0x2) * _0x5c3e1f * 0.55,
+            ))
+          : (_0x4fc85d = !0x0));
+    }
+  return _0x582e94 > 0x0 ? _0x582e94 : _0x4fc85d ? -0.7 : 0x0;
+}
+function _t(_0x57af2f, _0x3f56f4) {
+  const _0x26c46c = _0x1d72df,
+    _0x5c1952 = q(_0x57af2f, _0x3f56f4),
+    _0xcc621e = $(0x25, _0x57af2f, _0x3f56f4, 0.0042, 0x3),
+    _0x190d56 = $(0x29, _0x57af2f, _0x3f56f4, 0.021, 0x2),
+    _0x4cfc93 =
+      Math[_0x26c46c(0x260)](
+        j($(0x2b, _0x57af2f, _0x3f56f4, 0.0026, 0x2) - 0.05, 0x0, 0x1),
+        1.6,
+      ) * 0x10,
+    _0x5eb7df = 0x31 + _0xcc621e * 0x4 + _0x4cfc93 + _0x190d56 * 0.5,
+    _0x4b0578 = Math[_0x26c46c(0x260)](
+      j(
+        0x1 -
+          Math[_0x26c46c(0x33c)]($(0x17, _0x57af2f, _0x3f56f4, 0.0012, 0x4)),
+        0x0,
+        0x1,
+      ),
+      0x3,
+    ),
+    _0x102ea8 = j($(0x1d, _0x57af2f, _0x3f56f4, 0.0007, 0x3), -0.4, 0x1),
+    _0x212786 =
+      0x38 +
+      _0x4b0578 * 0x32 +
+      _0x102ea8 * 0x12 +
+      _0xcc621e * 0x7 +
+      _0x190d56 * 1.6;
+  let _0x56c4fb = x(_0x5eb7df, _0x212786, _0x5c1952);
+  const _0x28e41f = Math[_0x26c46c(0x33c)](
+      $(0x35, _0x57af2f, _0x3f56f4, 0.0009, 0x3),
+    ),
+    _0x2214da = F(0.05, 0.016, _0x28e41f) * F(0.25, 0.6, _0x5c1952);
+  _0x56c4fb = x(
+    _0x56c4fb,
+    Math[_0x26c46c(0x4b3)](_0x56c4fb, V - 0x2),
+    _0x2214da,
+  );
+  const _0x1f30be = F(
+    t1 - 0x104,
+    Z - 0x3c,
+    Math[_0x26c46c(0x313)](
+      Math[_0x26c46c(0x33c)](_0x57af2f),
+      Math[_0x26c46c(0x33c)](_0x3f56f4),
+    ),
+  );
+  return x(_0x56c4fb, 0x16, _0x1f30be);
+}
+const ft = jt[_0x1d72df(0x48f)]((_0x3de92d) => ({
+    zone: _0x3de92d["id"],
+    x: _0x3de92d["x"],
+    z: _0x3de92d["z"],
+    y: Math[_0x1d72df(0x33a)](
+      j(_t(_0x3de92d["x"], _0x3de92d["z"]), V + 0x6, 0x60),
+    ),
+  })),
+  $t = 0x22,
+  Ne = {
+    0x1: Math["round"](j(_t(H[0x1]["x"], H[0x1]["z"]), V + 0x6, 0x50)),
+    0x2: Math[_0x1d72df(0x33a)](j(_t(H[0x2]["x"], H[0x2]["z"]), V + 0x6, 0x50)),
+  },
+  a1 = [
+    { x: 0x280, z: -0x190, rot: 0x1 },
+    { x: 0xfa, z: 0x140, rot: 0x0 },
+  ],
+  n1 = 0x4e,
+  Ce = (() => {
+    const _0x17f2bc = _0x1d72df,
+      _0x305b26 = [],
+      _0x12ca09 = (_0x56a39a, _0x2b2cce) =>
+        Math[_0x17f2bc(0x33a)](j(_t(_0x56a39a, _0x2b2cce), V + 0x4, 0x5a)),
+      _0x341d88 = (_0x1e2b77, _0x1f8a8f, _0x352f4c) => {
+        const _0x2c317c = _0x17f2bc;
+        if (
+          q(_0x1e2b77, _0x1f8a8f) > 0.12 ||
+          Math[_0x2c317c(0x33c)](_0x1e2b77) > r1[0x2]["x"] - 0x1a4 ||
+          Math[_0x2c317c(0x33c)](_0x1f8a8f) > 0x334
+        )
+          return !0x1;
+        for (const _0x201226 of jt)
+          if (
+            Math[_0x2c317c(0x41b)](
+              _0x1e2b77 - _0x201226["x"],
+              _0x1f8a8f - _0x201226["z"],
+            ) <
+            0x96 + _0x352f4c
+          )
+            return !0x1;
+        for (const _0x3568d6 of [0x1, 0x2])
+          if (
+            Math[_0x2c317c(0x41b)](
+              _0x1e2b77 - H[_0x3568d6]["x"],
+              _0x1f8a8f - H[_0x3568d6]["z"],
+            ) <
+            0xaa + _0x352f4c
+          )
+            return !0x1;
+        for (const _0x173764 of _0x305b26)
+          if (
+            Math[_0x2c317c(0x41b)](
+              _0x1e2b77 - _0x173764["x"],
+              _0x1f8a8f - _0x173764["z"],
+            ) <
+              _0x173764["r"] + _0x352f4c + 0x3c ||
+            Math[_0x2c317c(0x41b)](
+              _0x1e2b77 + _0x173764["x"],
+              _0x1f8a8f + _0x173764["z"],
+            ) <
+              _0x173764["r"] + _0x352f4c + 0x3c
+          )
+            return !0x1;
+        return !0x0;
+      };
+    for (const [_0x370617, _0x319d4a] of a1[_0x17f2bc(0x41c)]())
+      _0x305b26["push"]({
+        x: _0x319d4a["x"],
+        z: _0x319d4a["z"],
+        y: _0x12ca09(_0x319d4a["x"], _0x319d4a["z"]),
+        r: n1,
+        kind: "village",
+        rot: _0x319d4a["rot"],
+        seed: 0xb + _0x370617,
+      });
+    for (let _0x5e2f26 = -0x4; _0x5e2f26 <= 0x4; _0x5e2f26++)
+      for (let _0x55726f = 0x0; _0x55726f <= 0x8; _0x55726f++) {
+        const _0x403510 = g(m + 0xd3, _0x55726f, _0x5e2f26);
+        if (_0x403510 > 0.3) continue;
+        let _0x6aa2bc = _0x55726f * 0xf0,
+          _0x2545d5 = _0x5e2f26 * 0xbe;
+        for (let _0x3e69b0 = 0x0; _0x3e69b0 < 0x4; _0x3e69b0++)
+          ((_0x6aa2bc =
+            _0x55726f * 0xf0 - Math["sin"](_0x2545d5 * 0.0033) * 0x2d),
+            (_0x2545d5 =
+              _0x5e2f26 * 0xbe - Math["sin"](_0x6aa2bc * 0.0041) * 0x25));
+        ((_0x6aa2bc += (g(m + 0xd5, _0x55726f, _0x5e2f26) - 0.5) * 0x32),
+          (_0x2545d5 += (g(m + 0xd9, _0x55726f, _0x5e2f26) - 0.5) * 0x28),
+          (_0x6aa2bc = Math[_0x17f2bc(0x33a)](_0x6aa2bc)),
+          (_0x2545d5 = Math[_0x17f2bc(0x33a)](_0x2545d5)),
+          !(_0x6aa2bc < 0x3c || !_0x341d88(_0x6aa2bc, _0x2545d5, 0x1e)) &&
+            _0x305b26[_0x17f2bc(0x32d)]({
+              x: _0x6aa2bc,
+              z: _0x2545d5,
+              y: _0x12ca09(_0x6aa2bc, _0x2545d5),
+              r: 0x1e,
+              kind: _0x403510 < 0.11 ? _0x17f2bc(0x22b) : _0x17f2bc(0x374),
+              rot: Math[_0x17f2bc(0x4b2)](
+                g(m + 0xdb, _0x55726f, _0x5e2f26) * 0x4,
+              ),
+              seed: _0x55726f * 0x1f + _0x5e2f26 * 0x7 + 0x64,
+            }));
+      }
+    for (const _0xb872af of [..._0x305b26])
+      _0x305b26[_0x17f2bc(0x32d)]({
+        ..._0xb872af,
+        x: -_0xb872af["x"],
+        z: -_0xb872af["z"],
+        rot: (_0xb872af[_0x17f2bc(0x3e5)] + 0x2) % 0x4,
+      });
+    return _0x305b26;
+  })(),
+  et = 0x80,
+  o1 = (() => {
+    const _0x493c24 = _0x1d72df,
+      _0xf9197c = new Map();
+    for (const _0xe25790 of Ce) {
+      const _0x573375 = _0xe25790["r"] + 0x2c;
+      for (
+        let _0x59136f = Math[_0x493c24(0x4b2)](
+          (_0xe25790["x"] - _0x573375) / et,
+        );
+        _0x59136f <= Math[_0x493c24(0x4b2)]((_0xe25790["x"] + _0x573375) / et);
+        _0x59136f++
+      )
+        for (
+          let _0x3c81c8 = Math[_0x493c24(0x4b2)](
+            (_0xe25790["z"] - _0x573375) / et,
+          );
+          _0x3c81c8 <=
+          Math[_0x493c24(0x4b2)]((_0xe25790["z"] + _0x573375) / et);
+          _0x3c81c8++
+        ) {
+          const _0x2e44e7 = (_0x59136f + 0x200) * 0x400 + _0x3c81c8 + 0x200;
+          let _0x4bd96b = _0xf9197c[_0x493c24(0x41a)](_0x2e44e7);
+          (_0x4bd96b ||
+            _0xf9197c[_0x493c24(0x3d3)](_0x2e44e7, (_0x4bd96b = [])),
+            _0x4bd96b[_0x493c24(0x32d)](_0xe25790));
+        }
+    }
+    return _0xf9197c;
+  })(),
+  Be = (_0x39e3e9, _0x38556c) =>
+    o1[_0x1d72df(0x41a)](
+      (Math[_0x1d72df(0x4b2)](_0x39e3e9 / et) + 0x200) * 0x400 +
+        Math[_0x1d72df(0x4b2)](_0x38556c / et) +
+        0x200,
+    ),
+  E1 = (_0x5def0e, _0x316064, _0x54b5bf) => {
+    const _0x16c669 = _0x1d72df,
+      _0x3d1e4d = _0x316064 - _0x5def0e["x"],
+      _0x55b331 = _0x54b5bf - _0x5def0e["z"];
+    return _0x5def0e[_0x16c669(0x3e5)] === 0x0
+      ? { a: _0x3d1e4d, b: _0x55b331 }
+      : _0x5def0e[_0x16c669(0x3e5)] === 0x1
+        ? { a: _0x55b331, b: -_0x3d1e4d }
+        : _0x5def0e[_0x16c669(0x3e5)] === 0x2
+          ? { a: -_0x3d1e4d, b: -_0x55b331 }
+          : { a: -_0x55b331, b: _0x3d1e4d };
+  };
+function de(_0x40f5b1, _0x200c21) {
+  for (const _0x4bb2d9 of Be(_0x40f5b1, _0x200c21) ?? [])
+    if (
+      Math["hypot"](_0x40f5b1 - _0x4bb2d9["x"], _0x200c21 - _0x4bb2d9["z"]) <
+      _0x4bb2d9["r"]
+    )
+      return _0x4bb2d9;
+  return null;
+}
+function _1(_0x15aab7, _0x51d82f, _0x94603d = !0x0) {
+  const _0x3684eb = _0x1d72df;
+  let _0x5c194f = _t(_0x15aab7, _0x51d82f);
+  _0x94603d && _0x5c194f > V + 0x2 && (_0x5c194f -= Ie(_0x15aab7, _0x51d82f));
+  for (const _0x5bd227 of Be(_0x15aab7, _0x51d82f) ?? []) {
+    const _0x307208 =
+      Math[_0x3684eb(0x41b)](
+        _0x15aab7 - _0x5bd227["x"],
+        _0x51d82f - _0x5bd227["z"],
+      ) - _0x5bd227["r"];
+    _0x307208 < 0x28 &&
+      (_0x5c194f = x(_0x5c194f, _0x5bd227["y"], F(0x28, 0x0, _0x307208)));
+  }
+  for (const _0x5be371 of [0x1, 0x2]) {
+    const _0x2e72f6 = Te(
+      At(_0x5be371, _0x15aab7),
+      it(_0x5be371, _0x51d82f),
+      Q["x1"],
+      Q["z1"],
+      Q["x2"],
+      Q["z2"],
+    );
+    _0x2e72f6 < 0xa0 && (_0x5c194f = x(_0x5c194f, pe, F(0xa0, 0x0, _0x2e72f6)));
+    const _0xa2e64 =
+      Math["hypot"](
+        _0x15aab7 - H[_0x5be371]["x"],
+        _0x51d82f - H[_0x5be371]["z"],
+      ) - Et;
+    _0xa2e64 < 0x50 &&
+      (_0x5c194f = x(_0x5c194f, Ne[_0x5be371], F(0x50, 0x0, _0xa2e64)));
+  }
+  for (const _0x1dbbc5 of ft) {
+    const _0x19bd62 =
+      Math[_0x3684eb(0x41b)](
+        _0x15aab7 - _0x1dbbc5["x"],
+        _0x51d82f - _0x1dbbc5["z"],
+      ) - $t;
+    _0x19bd62 < 0x5a &&
+      (_0x5c194f = x(_0x5c194f, _0x1dbbc5["y"], F(0x5a, 0x0, _0x19bd62)));
+  }
+  return Math["round"](j(_0x5c194f, 0x6, Oe - 0xa));
+}
+const J = (_0x5ccd26) => ht + _0x5ccd26,
+  Me = J(0x7),
+  W = J(0x8),
+  rt = J(0x0),
+  Ot = J(0xf),
+  pt = J(0xd),
+  A1 = J(0x4),
+  Vt = { 0x1: J(0x3), 0x2: J(0xe) },
+  i1 = [
+    t[_0x1d72df(0x4b9)],
+    t[_0x1d72df(0x453)],
+    t["WHEAT_FIELD"],
+    t[_0x1d72df(0x38e)],
+    t[_0x1d72df(0x479)],
+  ];
+function Pe(_0x2849c9, _0x2a6a31) {
+  const _0x2c222c = _0x1d72df;
+  for (const _0xd2baf3 of [0x1, 0x2])
+    if (
+      Te(
+        At(_0xd2baf3, _0x2849c9),
+        it(_0xd2baf3, _0x2a6a31),
+        Q["x1"],
+        Q["z1"],
+        Q["x2"],
+        Q["z2"],
+      ) < 0x28 ||
+      Math["hypot"](
+        _0x2849c9 - H[_0xd2baf3]["x"],
+        _0x2a6a31 - H[_0xd2baf3]["z"],
+      ) <
+        Et + 0x1e
+    )
+      return !0x0;
+  for (const _0x4e716d of ft)
+    if (
+      Math[_0x2c222c(0x41b)](
+        _0x2849c9 - _0x4e716d["x"],
+        _0x2a6a31 - _0x4e716d["z"],
+      ) <
+      $t + 0x18
+    )
+      return !0x0;
+  return !!de(_0x2849c9, _0x2a6a31);
+}
+function u1(_0x43c79d, _0x108c0b, _0x3a6c18, _0x3e8d7c) {
+  const _0x4cb661 = _0x1d72df;
+  for (const _0x28d34e of [0x1, 0x2]) {
+    if (ne(_0x43c79d, _0x108c0b, ot, _0x28d34e)) {
+      const _0x44eb67 = At(_0x28d34e, _0x43c79d),
+        _0x3f5b2b = it(_0x28d34e, _0x108c0b);
+      return Math[_0x4cb661(0x33c)](_0x3f5b2b) === 0xe ||
+        ((_0x44eb67 < ot["x1"] + 0xe || _0x44eb67 > ot["x2"] - 0xe) &&
+          Math[_0x4cb661(0x33c)](_0x3f5b2b) < 0xd &&
+          Math[_0x4cb661(0x33c)](_0x3f5b2b) % 0x4 < 0x2) ||
+        (Math[_0x4cb661(0x33c)](_0x3f5b2b) < 0x1 && (_0x44eb67 >> 0x3) & 0x1)
+        ? rt
+        : Me;
+    }
+    if (
+      ne(_0x43c79d, _0x108c0b, s1, _0x28d34e) ||
+      Math[_0x4cb661(0x41b)](
+        _0x43c79d - H[_0x28d34e]["x"],
+        _0x108c0b - H[_0x28d34e]["z"],
+      ) <
+        Et - 0x2
+    )
+      return W;
+  }
+  for (const _0x14d931 of ft)
+    if (
+      Math[_0x4cb661(0x41b)](
+        _0x43c79d - _0x14d931["x"],
+        _0x108c0b - _0x14d931["z"],
+      ) <
+      $t - 0x4
+    )
+      return W;
+  if (_0x3a6c18 <= V + 0x1)
+    return _0x3a6c18 < V - 0x6 ? t[_0x4cb661(0x2dc)] : t[_0x4cb661(0x418)];
+  if (_0x3a6c18 >= 0x68 && _0x3e8d7c < 1.6) return t[_0x4cb661(0x4a4)];
+  if (_0x3a6c18 >= 0x5c || (_0x3e8d7c >= 1.25 && q(_0x43c79d, _0x108c0b) > 0.2))
+    return t["STONE"];
+  const _0x3c9d2a = de(_0x43c79d, _0x108c0b);
+  if (_0x3c9d2a) {
+    const { a: _0xa6f015, b: _0x282388 } = E1(_0x3c9d2a, _0x43c79d, _0x108c0b);
+    return _0x3c9d2a[_0x4cb661(0x452)] === _0x4cb661(0x3f9)
+      ? (Math[_0x4cb661(0x33c)](_0x282388) < 0x3 &&
+          Math["abs"](_0xa6f015) < _0x3c9d2a["r"] - 0x4) ||
+        (Math[_0x4cb661(0x33c)](_0xa6f015) < 0x2 &&
+          Math[_0x4cb661(0x33c)](_0x282388) < _0x3c9d2a["r"] - 0xa)
+        ? t[_0x4cb661(0x2dc)]
+        : t["GRASS"]
+      : Math[_0x4cb661(0x33c)](_0x282388) < 0x2 &&
+          _0xa6f015 > -0x4 &&
+          _0xa6f015 < _0x3c9d2a["r"]
+        ? t["DIRT"]
+        : _0x3c9d2a[_0x4cb661(0x452)] === _0x4cb661(0x22b) &&
+            g(m + 0xe5, _0x43c79d, _0x108c0b) < 0.25
+          ? t[_0x4cb661(0x2dc)]
+          : t[_0x4cb661(0x4b9)];
+  }
+  if (q(_0x43c79d, _0x108c0b) < 0.3 && Ie(_0x43c79d, _0x108c0b) > 0.4)
+    return g(m + 0xe9, _0x43c79d, _0x108c0b) < 0.3
+      ? t[_0x4cb661(0x2dc)]
+      : t[_0x4cb661(0x350)];
+  if (q(_0x43c79d, _0x108c0b) < 0.25 && !Pe(_0x43c79d, _0x108c0b)) {
+    const _0x148e63 = fe(_0x43c79d, _0x108c0b);
+    if (_0x148e63["line"] > 0x3) return i1[_0x148e63[_0x4cb661(0x204)]];
+  }
+  return t[_0x4cb661(0x4b9)];
+}
+function l1(_0x16bf7f, _0x51b258, _0x380070) {
+  if (_0x380070 <= V + 0x2 || _0x380070 >= 0x58) return 0x0;
+  const _0x3c48b7 = q(_0x16bf7f, _0x51b258),
+    _0x14f4e8 = $(0x47, _0x16bf7f, _0x51b258, 0.0028, 0x3);
+  return (
+    F(x(0.34, 0.12, _0x3c48b7), x(0.5, 0.35, _0x3c48b7), _0x14f4e8) *
+    F(0x58, 0x4a, _0x380070) *
+    x(0.55, 0x1, _0x3c48b7)
+  );
+}
+function oe(_0x5b9100, _0x253611) {
+  const _0x5aaf08 = _0x1d72df;
+  return (
+    q(_0x5b9100, _0x253611) < 0.25 &&
+    fe(_0x5b9100, _0x253611)[_0x5aaf08(0x44f)] < 0x1 &&
+    !Pe(_0x5b9100, _0x253611)
+  );
+}
+const It = (
+  _0x46e7a7,
+  _0xc6367a,
+  _0x20019a,
+  _0x2a7216,
+  _0x4259d3,
+  _0x5ddcbb,
+  _0x5f1b9f,
+  _0x300891,
+) =>
+  _0x46e7a7[_0x1d72df(0x32d)]({
+    x1: Math["min"](_0xc6367a, _0x4259d3),
+    y1: Math["min"](_0x20019a, _0x5ddcbb),
+    z1: Math[_0x1d72df(0x4b3)](_0x2a7216, _0x5f1b9f),
+    x2: Math["max"](_0xc6367a, _0x4259d3),
+    y2: Math["max"](_0x20019a, _0x5ddcbb),
+    z2: Math[_0x1d72df(0x313)](_0x2a7216, _0x5f1b9f),
+    id: _0x300891,
+  });
+function Ee(_0x478d02) {
+  const _0x2fee1e = _0x1d72df,
+    _0x1274ea = [],
+    _0x46d2df = pe + 0x1,
+    _0x4d5a5e = (_0x3e5d38) => At(_0x478d02, _0x3e5d38),
+    _0x46dc51 = (_0x40b9a9) => it(_0x478d02, _0x40b9a9),
+    _0x55a188 = (
+      _0x19daac,
+      _0x3cc39e,
+      _0x378d0e,
+      _0x43093b,
+      _0x541527,
+      _0x245462,
+      _0x2368b1,
+    ) =>
+      It(
+        _0x1274ea,
+        _0x4d5a5e(_0x19daac),
+        _0x3cc39e,
+        _0x46dc51(_0x378d0e),
+        _0x4d5a5e(_0x43093b),
+        _0x541527,
+        _0x46dc51(_0x245462),
+        _0x2368b1,
+      );
+  for (const _0x17cc67 of [-0x9d8, -0x974, -0x910])
+    (_0x55a188(
+      _0x17cc67,
+      _0x46d2df,
+      -0x70,
+      _0x17cc67 + 0x3c,
+      _0x46d2df,
+      -0x50,
+      W,
+    ),
+      _0x55a188(
+        _0x17cc67,
+        _0x46d2df + 0x1,
+        -0x70,
+        _0x17cc67,
+        _0x46d2df + 0xb,
+        -0x50,
+        W,
+      ),
+      _0x55a188(
+        _0x17cc67 + 0x3c,
+        _0x46d2df + 0x1,
+        -0x70,
+        _0x17cc67 + 0x3c,
+        _0x46d2df + 0xb,
+        -0x50,
+        W,
+      ),
+      _0x55a188(
+        _0x17cc67,
+        _0x46d2df + 0x1,
+        -0x70,
+        _0x17cc67 + 0x3c,
+        _0x46d2df + 0xb,
+        -0x70,
+        W,
+      ),
+      _0x55a188(
+        _0x17cc67 - 0x1,
+        _0x46d2df + 0xc,
+        -0x71,
+        _0x17cc67 + 0x3d,
+        _0x46d2df + 0xc,
+        -0x4f,
+        Me,
+      ),
+      _0x55a188(
+        _0x17cc67 + 0x4,
+        _0x46d2df + 0xc,
+        -0x64,
+        _0x17cc67 + 0x38,
+        _0x46d2df + 0xc,
+        -0x5c,
+        Vt[_0x478d02],
+      ));
+  (_0x55a188(-0x8ac, _0x46d2df, -0x28, -0x8a5, _0x46d2df + 0x12, -0x21, W),
+    _0x55a188(
+      -0x8ae,
+      _0x46d2df + 0x13,
+      -0x2a,
+      -0x8a3,
+      _0x46d2df + 0x16,
+      -0x1f,
+      t[_0x2fee1e(0x34e)],
+    ),
+    _0x55a188(
+      -0x8af,
+      _0x46d2df + 0x17,
+      -0x2b,
+      -0x8a2,
+      _0x46d2df + 0x17,
+      -0x1e,
+      Ot,
+    ));
+  for (const [_0x4a55d9, _0x4d1f3a] of [
+    [-0xa50, -0x3c],
+    [-0xa50, -0x28],
+    [-0xa3c, -0x3c],
+    [-0xa3c, -0x28],
+  ])
+    _0x55a188(
+      _0x4a55d9,
+      _0x46d2df,
+      _0x4d1f3a,
+      _0x4a55d9 + 0x9,
+      _0x46d2df + 0x6,
+      _0x4d1f3a + 0x9,
+      rt,
+    );
+  for (let _0x1186da = ot["x1"]; _0x1186da <= ot["x2"]; _0x1186da += 0x28)
+    for (const _0x12125d of [-0x11, 0x11])
+      _0x55a188(
+        _0x1186da,
+        _0x46d2df,
+        _0x12125d,
+        _0x1186da,
+        _0x46d2df,
+        _0x12125d,
+        t[_0x2fee1e(0x235)],
+      );
+  return _0x1274ea;
+}
+function R1(_0x37727e) {
+  const _0x4c85a5 = _0x1d72df,
+    _0xde7fe0 = [],
+    _0x5af6ea = _0x37727e["y"] + 0x1,
+    _0x20b661 = (
+      _0x48b41d,
+      _0x59848f,
+      _0x4b70a2,
+      _0x3640e7,
+      _0xfe477a,
+      _0x273c3b,
+      _0x1d17e3,
+    ) =>
+      It(
+        _0xde7fe0,
+        _0x37727e["x"] + _0x48b41d,
+        _0x59848f,
+        _0x37727e["z"] + _0x4b70a2,
+        _0x37727e["x"] + _0x3640e7,
+        _0xfe477a,
+        _0x37727e["z"] + _0x273c3b,
+        _0x1d17e3,
+      );
+  (_0x20b661(-0x1, _0x5af6ea, -0x1, 0x1, _0x5af6ea + 0xb, 0x1, Ot),
+    _0x20b661(-0x5, _0x5af6ea + 0xc, -0x1, 0x5, _0x5af6ea + 0xf, 0x1, rt),
+    _0x20b661(-0x1, _0x5af6ea + 0xc, -0x3, 0x1, _0x5af6ea + 0xf, 0x3, rt));
+  for (const _0x2e3f04 of [0x0, 2.094, 4.189]) {
+    const _0x3b1149 = Math[_0x4c85a5(0x33a)](
+        Math[_0x4c85a5(0x1c5)](_0x2e3f04) * 0x11,
+      ),
+      _0x825703 = Math[_0x4c85a5(0x33a)](
+        Math[_0x4c85a5(0x490)](_0x2e3f04) * 0x11,
+      );
+    (_0x20b661(
+      _0x3b1149 - 0x3,
+      _0x5af6ea,
+      _0x825703 - 0x2,
+      _0x3b1149 + 0x3,
+      _0x5af6ea + 0x1,
+      _0x825703 + 0x2,
+      pt,
+    ),
+      _0x20b661(
+        _0x3b1149 - 0x2,
+        _0x5af6ea + 0x2,
+        _0x825703 - 0x2,
+        _0x3b1149 + 0x2,
+        _0x5af6ea + 0x4,
+        _0x825703 + 0x2,
+        pt,
+      ),
+      _0x20b661(
+        _0x3b1149 - 0x1,
+        _0x5af6ea + 0x5,
+        _0x825703 - 0x1,
+        _0x3b1149 + 0x1,
+        _0x5af6ea + 0x7,
+        _0x825703 + 0x1,
+        A1,
+      ));
+  }
+  return (
+    _0x20b661(
+      -0x6,
+      _0x5af6ea,
+      0x8,
+      0x6,
+      _0x5af6ea + 0x4,
+      0xe,
+      t["STONE_BRICKS"],
+    ),
+    _0x20b661(-0x7, _0x5af6ea + 0x5, 0x7, 0x7, _0x5af6ea + 0x5, 0xf, W),
+    _0xde7fe0
+  );
+}
+function _e(_0x328526) {
+  const _0x4ea59f = _0x1d72df,
+    _0x5570a9 = [],
+    _0xf6e622 = H[_0x328526],
+    _0x24b0ea = Ne[_0x328526] + 0x1,
+    _0x5ac031 = _0x328526 === 0x1 ? 0x1 : -0x1,
+    _0xdda352 = (
+      _0x2a5344,
+      _0xcd16dd,
+      _0x5f67b0,
+      _0x3ddadb,
+      _0x250a64,
+      _0x58cfaf,
+      _0xbc97d5,
+    ) =>
+      It(
+        _0x5570a9,
+        _0xf6e622["x"] + _0x2a5344 * _0x5ac031,
+        _0xcd16dd,
+        _0xf6e622["z"] + _0x5f67b0 * _0x5ac031,
+        _0xf6e622["x"] + _0x3ddadb * _0x5ac031,
+        _0x250a64,
+        _0xf6e622["z"] + _0x58cfaf * _0x5ac031,
+        _0xbc97d5,
+      );
+  for (const _0x1251ad of [-0x1a, -0x6, 0xe])
+    (_0xdda352(
+      -0x28,
+      _0x24b0ea,
+      _0x1251ad,
+      -0x28,
+      _0x24b0ea + 0x6,
+      _0x1251ad + 0xc,
+      W,
+    ),
+      _0xdda352(
+        -0x28,
+        _0x24b0ea,
+        _0x1251ad,
+        -0x1a,
+        _0x24b0ea + 0x6,
+        _0x1251ad,
+        W,
+      ),
+      _0xdda352(
+        -0x28,
+        _0x24b0ea,
+        _0x1251ad + 0xc,
+        -0x1a,
+        _0x24b0ea + 0x6,
+        _0x1251ad + 0xc,
+        W,
+      ),
+      _0xdda352(
+        -0x29,
+        _0x24b0ea + 0x7,
+        _0x1251ad - 0x1,
+        -0x19,
+        _0x24b0ea + 0x7,
+        _0x1251ad + 0xd,
+        pt,
+      ),
+      _0xdda352(
+        -0x26,
+        _0x24b0ea + 0x7,
+        _0x1251ad + 0x4,
+        -0x1c,
+        _0x24b0ea + 0x7,
+        _0x1251ad + 0x8,
+        Vt[_0x328526],
+      ));
+  for (let _0x45855f = 0x0; _0x45855f < 0x40; _0x45855f++) {
+    const _0x5f2f22 = (_0x45855f / 0x40) * Math["PI"] * 0x2;
+    if (
+      Math[_0x4ea59f(0x33c)](Math[_0x4ea59f(0x490)](_0x5f2f22)) < 0.22 ||
+      Math["abs"](Math[_0x4ea59f(0x1c5)](_0x5f2f22)) < 0.16
+    )
+      continue;
+    const _0x202cd6 = Math[_0x4ea59f(0x33a)](
+        Math["cos"](_0x5f2f22) * (Et + 0x2),
+      ),
+      _0x4f0a56 = Math["round"](Math[_0x4ea59f(0x490)](_0x5f2f22) * (Et + 0x2));
+    _0xdda352(
+      _0x202cd6,
+      _0x24b0ea,
+      _0x4f0a56,
+      _0x202cd6 + 0x1,
+      _0x24b0ea + 0x1,
+      _0x4f0a56 + 0x1,
+      t[_0x4ea59f(0x397)],
+    );
+  }
+  (_0xdda352(-0x14, _0x24b0ea, -0x26, -0xc, _0x24b0ea + 0x2, -0x23, pt),
+    _0xdda352(-0x13, _0x24b0ea + 0x3, -0x26, -0xd, _0x24b0ea + 0x3, -0x23, Ot));
+  for (const _0x54bb25 of [-0x1e, 0x1e])
+    (_0xdda352(
+      -0x4,
+      _0x24b0ea,
+      _0x54bb25,
+      -0x4,
+      _0x24b0ea + 0xc,
+      _0x54bb25,
+      Ot,
+    ),
+      _0xdda352(
+        -0x3,
+        _0x24b0ea + 0x9,
+        _0x54bb25,
+        0x2,
+        _0x24b0ea + 0xc,
+        _0x54bb25,
+        Vt[_0x328526],
+      ));
+  return _0x5570a9;
+}
+function c1(_0x5185e2) {
+  const _0x5a8cf9 = _0x1d72df,
+    _0x3c84d0 = [],
+    _0x4c685a = _0x5185e2["y"],
+    _0x455c3b = (_0x58e6ae, _0x46cb0d) =>
+      _0x5185e2[_0x5a8cf9(0x3e5)] === 0x0
+        ? [_0x58e6ae, _0x46cb0d]
+        : _0x5185e2[_0x5a8cf9(0x3e5)] === 0x1
+          ? [-_0x46cb0d, _0x58e6ae]
+          : _0x5185e2[_0x5a8cf9(0x3e5)] === 0x2
+            ? [-_0x58e6ae, -_0x46cb0d]
+            : [_0x46cb0d, -_0x58e6ae],
+    _0x4cc9df = (
+      _0x16cf45,
+      _0x55f0a5,
+      _0x545e49,
+      _0x203c69,
+      _0x262aa6,
+      _0x3fa60d,
+      _0x2e9e6f,
+    ) => {
+      const [_0x374891, _0x113e35] = _0x455c3b(_0x16cf45, _0x545e49),
+        [_0x142881, _0x45e66c] = _0x455c3b(_0x203c69, _0x3fa60d);
+      It(
+        _0x3c84d0,
+        _0x5185e2["x"] + _0x374891,
+        _0x55f0a5,
+        _0x5185e2["z"] + _0x113e35,
+        _0x5185e2["x"] + _0x142881,
+        _0x262aa6,
+        _0x5185e2["z"] + _0x45e66c,
+        _0x2e9e6f,
+      );
+    };
+  let _0x132438 = 0x0;
+  const _0x425b39 = () => g(m + 0x12d, _0x5185e2["seed"], _0x132438++),
+    _0x903a8a = (
+      _0x49042e,
+      _0x5dc070,
+      _0x718d92,
+      _0x41a109,
+      _0xe38a8a,
+      _0x20635b,
+      _0x392188,
+      _0x2c9cdc,
+    ) => {
+      const _0x511a14 = _0x5a8cf9,
+        _0xc0e8da = _0x49042e + _0x718d92 - 0x1,
+        _0x206502 = _0x5dc070 + _0x41a109 - 0x1,
+        _0x242ea0 = _0x4c685a + 0x4;
+      if (
+        (_0x4cc9df(
+          _0x49042e - 0x1,
+          _0x4c685a + 0x1,
+          _0x5dc070 - 0x1,
+          _0xc0e8da + 0x1,
+          _0x4c685a + 0xa,
+          _0x206502 + 0x1,
+          t[_0x511a14(0x3a6)],
+        ),
+        _0x4cc9df(
+          _0x49042e,
+          _0x4c685a - 0x4,
+          _0x5dc070,
+          _0xc0e8da,
+          _0x4c685a,
+          _0x206502,
+          t[_0x511a14(0x426)],
+        ),
+        _0x2c9cdc)
+      ) {
+        for (let _0x4449d8 = _0x49042e; _0x4449d8 <= _0xc0e8da; _0x4449d8++)
+          for (const _0x4e1e09 of [_0x5dc070, _0x206502]) {
+            const _0x49f05a = Math[_0x511a14(0x4b2)](_0x425b39() * 0x5);
+            _0x49f05a &&
+              _0x4cc9df(
+                _0x4449d8,
+                _0x4c685a + 0x1,
+                _0x4e1e09,
+                _0x4449d8,
+                _0x4c685a + _0x49f05a,
+                _0x4e1e09,
+                _0x425b39() < 0.4 ? t["COBBLE"] : _0x20635b,
+              );
+          }
+        for (
+          let _0x254838 = _0x5dc070 + 0x1;
+          _0x254838 < _0x206502;
+          _0x254838++
+        )
+          for (const _0x4b2ffd of [_0x49042e, _0xc0e8da]) {
+            const _0x56274a = Math[_0x511a14(0x4b2)](_0x425b39() * 0x5);
+            _0x56274a &&
+              _0x4cc9df(
+                _0x4b2ffd,
+                _0x4c685a + 0x1,
+                _0x254838,
+                _0x4b2ffd,
+                _0x4c685a + _0x56274a,
+                _0x254838,
+                _0x425b39() < 0.4 ? t[_0x511a14(0x426)] : _0x20635b,
+              );
+          }
+        for (let _0x2854d1 = 0x0; _0x2854d1 < 0x4; _0x2854d1++) {
+          const _0x51607d = _0x49042e + Math["floor"](_0x425b39() * _0x718d92),
+            _0x547faf =
+              _0x5dc070 + Math[_0x511a14(0x4b2)](_0x425b39() * _0x41a109);
+          _0x4cc9df(
+            _0x51607d,
+            _0x4c685a + 0x1,
+            _0x547faf,
+            _0x51607d + 0x1,
+            _0x4c685a + 0x1,
+            _0x547faf,
+            _0x425b39() < 0.5 ? t[_0x511a14(0x2dc)] : t["COBBLE"],
+          );
+        }
+      } else {
+        (_0x4cc9df(
+          _0x49042e,
+          _0x4c685a + 0x1,
+          _0x5dc070,
+          _0xc0e8da,
+          _0x242ea0,
+          _0x5dc070,
+          _0x20635b,
+        ),
+          _0x4cc9df(
+            _0x49042e,
+            _0x4c685a + 0x1,
+            _0x206502,
+            _0xc0e8da,
+            _0x242ea0,
+            _0x206502,
+            _0x20635b,
+          ),
+          _0x4cc9df(
+            _0x49042e,
+            _0x4c685a + 0x1,
+            _0x5dc070,
+            _0x49042e,
+            _0x242ea0,
+            _0x206502,
+            _0x20635b,
+          ),
+          _0x4cc9df(
+            _0xc0e8da,
+            _0x4c685a + 0x1,
+            _0x5dc070,
+            _0xc0e8da,
+            _0x242ea0,
+            _0x206502,
+            _0x20635b,
+          ));
+        for (const [_0x72fe73, _0x419810] of [
+          [_0x49042e, _0x5dc070],
+          [_0xc0e8da, _0x5dc070],
+          [_0x49042e, _0x206502],
+          [_0xc0e8da, _0x206502],
+        ])
+          _0x4cc9df(
+            _0x72fe73,
+            _0x4c685a + 0x1,
+            _0x419810,
+            _0x72fe73,
+            _0x242ea0,
+            _0x419810,
+            t["LOG"],
+          );
+        for (
+          let _0x469e25 = _0x49042e + 0x2;
+          _0x469e25 <= _0xc0e8da - 0x2;
+          _0x469e25 += 0x3
+        )
+          (_0x4cc9df(
+            _0x469e25,
+            _0x4c685a + 0x2,
+            _0x5dc070,
+            _0x469e25,
+            _0x4c685a + 0x3,
+            _0x5dc070,
+            t[_0x511a14(0x34e)],
+          ),
+            _0x4cc9df(
+              _0x469e25,
+              _0x4c685a + 0x2,
+              _0x206502,
+              _0x469e25,
+              _0x4c685a + 0x3,
+              _0x206502,
+              t["GLASS"],
+            ));
+        const _0x2ddd3a = Math["round"]((_0x49042e + _0xc0e8da) / 0x2),
+          _0x8b86c2 = _0xe38a8a < 0x0 ? _0x5dc070 : _0x206502;
+        _0x4cc9df(
+          _0x2ddd3a,
+          _0x4c685a + 0x1,
+          _0x8b86c2,
+          _0x2ddd3a,
+          _0x4c685a + 0x2,
+          _0x8b86c2,
+          t["AIR"],
+        );
+        const _0x20d008 = Math["ceil"](_0x41a109 / 0x2);
+        for (let _0x257966 = 0x0; _0x257966 <= _0x20d008; _0x257966++)
+          _0x4cc9df(
+            _0x49042e - 0x1,
+            _0x242ea0 + 0x1 + _0x257966,
+            _0x5dc070 - 0x1 + _0x257966,
+            _0xc0e8da + 0x1,
+            _0x242ea0 + 0x1 + _0x257966,
+            _0x206502 + 0x1 - _0x257966,
+            _0x392188,
+          );
+        _0x4cc9df(
+          _0x49042e + 0x1,
+          _0x242ea0 + 0x1,
+          _0x5dc070 + 0x1,
+          _0x49042e + 0x1,
+          _0x242ea0 + _0x20d008 + 0x2,
+          _0x5dc070 + 0x1,
+          t[_0x511a14(0x426)],
+        );
+      }
+    };
+  if (_0x5185e2[_0x5a8cf9(0x452)] === _0x5a8cf9(0x3f9)) {
+    for (let _0x488ca4 = -0x42; _0x488ca4 <= 0x1e; _0x488ca4 += 0x10)
+      for (const _0x4c9411 of [-0x1, 0x1]) {
+        const _0xd3583b = 0x9 + Math[_0x5a8cf9(0x4b2)](_0x425b39() * 0x3),
+          _0x34e9b9 = 0x7 + Math[_0x5a8cf9(0x4b2)](_0x425b39() * 0x2),
+          _0xc0c95a =
+            _0x425b39() < 0.5 ? t[_0x5a8cf9(0x4a1)] : t[_0x5a8cf9(0x291)],
+          _0x4a1e3d = _0x4c9411 > 0x0 ? 0x6 : -0x6 - _0x34e9b9 + 0x1;
+        _0x903a8a(
+          _0x488ca4 + Math[_0x5a8cf9(0x4b2)](_0x425b39() * 0x3),
+          _0x4a1e3d,
+          _0xd3583b,
+          _0x34e9b9,
+          _0x4c9411 > 0x0 ? -0x1 : 0x1,
+          _0xc0c95a,
+          _0x425b39() < 0.6 ? t[_0x5a8cf9(0x291)] : t[_0x5a8cf9(0x494)],
+          _0x425b39() < 0.3,
+        );
+      }
+    const _0x4d8899 = 0x32,
+      _0x4fce87 = 0x44,
+      _0x437b72 = 0x5;
+    (_0x4cc9df(
+      _0x4d8899 - 0x1,
+      _0x4c685a + 0x1,
+      -_0x437b72 - 0x1,
+      _0x4fce87 + 0x1,
+      _0x4c685a + 0xe,
+      _0x437b72 + 0x1,
+      t[_0x5a8cf9(0x3a6)],
+    ),
+      _0x4cc9df(
+        _0x4d8899,
+        _0x4c685a - 0x4,
+        -_0x437b72,
+        _0x4fce87,
+        _0x4c685a,
+        _0x437b72,
+        t[_0x5a8cf9(0x426)],
+      ),
+      _0x4cc9df(
+        _0x4d8899,
+        _0x4c685a + 0x1,
+        -_0x437b72,
+        _0x4fce87,
+        _0x4c685a + 0x7,
+        -_0x437b72,
+        t[_0x5a8cf9(0x3ad)],
+      ),
+      _0x4cc9df(
+        _0x4d8899,
+        _0x4c685a + 0x1,
+        _0x437b72,
+        _0x4fce87,
+        _0x4c685a + 0x7,
+        _0x437b72,
+        t["STONE_BRICKS"],
+      ),
+      _0x4cc9df(
+        _0x4fce87,
+        _0x4c685a + 0x1,
+        -_0x437b72,
+        _0x4fce87,
+        _0x4c685a + 0x7,
+        _0x437b72,
+        t[_0x5a8cf9(0x3ad)],
+      ));
+    for (
+      let _0x3334ba = _0x4d8899 + 0x3;
+      _0x3334ba <= _0x4fce87 - 0x2;
+      _0x3334ba += 0x3
+    )
+      (_0x4cc9df(
+        _0x3334ba,
+        _0x4c685a + 0x2,
+        -_0x437b72,
+        _0x3334ba,
+        _0x4c685a + 0x5,
+        -_0x437b72,
+        t[_0x5a8cf9(0x34e)],
+      ),
+        _0x4cc9df(
+          _0x3334ba,
+          _0x4c685a + 0x2,
+          _0x437b72,
+          _0x3334ba,
+          _0x4c685a + 0x5,
+          _0x437b72,
+          t[_0x5a8cf9(0x34e)],
+        ));
+    for (let _0x286335 = 0x0; _0x286335 <= _0x437b72 + 0x1; _0x286335++)
+      _0x4cc9df(
+        _0x4d8899,
+        _0x4c685a + 0x8 + _0x286335,
+        -_0x437b72 - 0x1 + _0x286335,
+        _0x4fce87 + 0x1,
+        _0x4c685a + 0x8 + _0x286335,
+        _0x437b72 + 0x1 - _0x286335,
+        t[_0x5a8cf9(0x494)],
+      );
+    const _0x38589c = _0x4d8899 - 0x6;
+    (_0x4cc9df(
+      _0x38589c,
+      _0x4c685a - 0x4,
+      -0x3,
+      _0x4d8899 - 0x1,
+      _0x4c685a,
+      0x3,
+      t[_0x5a8cf9(0x426)],
+    ),
+      _0x4cc9df(
+        _0x38589c,
+        _0x4c685a + 0x1,
+        -0x3,
+        _0x4d8899,
+        _0x4c685a + 0x13,
+        0x3,
+        t[_0x5a8cf9(0x3ad)],
+      ),
+      _0x4cc9df(
+        _0x38589c + 0x1,
+        _0x4c685a + 0x1,
+        -0x2,
+        _0x4d8899 - 0x1,
+        _0x4c685a + 0x12,
+        0x2,
+        t["AIR"],
+      ),
+      _0x4cc9df(
+        _0x38589c + 0x2,
+        _0x4c685a + 0x1,
+        -0x3,
+        _0x38589c + 0x3,
+        _0x4c685a + 0x3,
+        -0x3,
+        t["AIR"],
+      ));
+    for (const _0x2516b6 of [-0x3, 0x3])
+      _0x4cc9df(
+        _0x38589c + 0x2,
+        _0x4c685a + 0xf,
+        _0x2516b6,
+        _0x38589c + 0x3,
+        _0x4c685a + 0x11,
+        _0x2516b6,
+        t[_0x5a8cf9(0x3a6)],
+      );
+    (_0x4cc9df(
+      _0x38589c,
+      _0x4c685a + 0xf,
+      -0x1,
+      _0x38589c,
+      _0x4c685a + 0x11,
+      0x1,
+      t[_0x5a8cf9(0x3a6)],
+    ),
+      _0x4cc9df(
+        _0x4d8899,
+        _0x4c685a + 0xf,
+        -0x1,
+        _0x4d8899,
+        _0x4c685a + 0x11,
+        0x1,
+        t[_0x5a8cf9(0x3a6)],
+      ),
+      _0x4cc9df(
+        _0x38589c + 0x2,
+        _0x4c685a + 0xf,
+        -0x1,
+        _0x38589c + 0x3,
+        _0x4c685a + 0xf,
+        0x1,
+        t[_0x5a8cf9(0x49a)],
+      ));
+    for (let _0x4186fc = 0x0; _0x4186fc < 0x4; _0x4186fc++)
+      _0x4cc9df(
+        _0x38589c + _0x4186fc,
+        _0x4c685a + 0x14 + _0x4186fc * 0x2,
+        -0x3 + _0x4186fc,
+        _0x4d8899 - _0x4186fc,
+        _0x4c685a + 0x15 + _0x4186fc * 0x2,
+        0x3 - _0x4186fc,
+        _0x4186fc < 0x3 ? t["DARK_PLANKS"] : t[_0x5a8cf9(0x426)],
+      );
+    return (
+      _0x4cc9df(
+        _0x38589c + 0x3,
+        _0x4c685a + 0x1c,
+        0x0,
+        _0x38589c + 0x3,
+        _0x4c685a + 0x1e,
+        0x0,
+        t["COBBLE"],
+      ),
+      _0x3c84d0
+    );
+  }
+  const _0x2056a7 = _0x5185e2[_0x5a8cf9(0x452)] === _0x5a8cf9(0x22b);
+  _0x903a8a(
+    -0xe,
+    0x3,
+    0xa,
+    0x7,
+    -0x1,
+    _0x425b39() < 0.5 ? t[_0x5a8cf9(0x4a1)] : t[_0x5a8cf9(0x291)],
+    t[_0x5a8cf9(0x291)],
+    _0x2056a7,
+  );
+  const _0x18fcd9 = 0xf,
+    _0x3df053 = 0xa,
+    _0x134f16 = 0x2,
+    _0x587a37 = -0xe;
+  if (
+    (_0x4cc9df(
+      _0x134f16 - 0x1,
+      _0x4c685a + 0x1,
+      _0x587a37 - 0x1,
+      _0x134f16 + _0x18fcd9,
+      _0x4c685a + 0xd,
+      _0x587a37 + _0x3df053,
+      t[_0x5a8cf9(0x3a6)],
+    ),
+    _0x4cc9df(
+      _0x134f16,
+      _0x4c685a - 0x4,
+      _0x587a37,
+      _0x134f16 + _0x18fcd9 - 0x1,
+      _0x4c685a,
+      _0x587a37 + _0x3df053 - 0x1,
+      t[_0x5a8cf9(0x426)],
+    ),
+    _0x2056a7)
+  ) {
+    for (
+      let _0x10adb1 = _0x134f16;
+      _0x10adb1 < _0x134f16 + _0x18fcd9;
+      _0x10adb1++
+    )
+      for (const _0x280146 of [_0x587a37, _0x587a37 + _0x3df053 - 0x1]) {
+        const _0x3c824f = Math[_0x5a8cf9(0x4b2)](_0x425b39() * 0x3);
+        _0x3c824f &&
+          _0x4cc9df(
+            _0x10adb1,
+            _0x4c685a + 0x1,
+            _0x280146,
+            _0x10adb1,
+            _0x4c685a + _0x3c824f,
+            _0x280146,
+            _0x425b39() < 0.6 ? t[_0x5a8cf9(0x426)] : t[_0x5a8cf9(0x494)],
+          );
+      }
+    _0x4cc9df(
+      -0xc,
+      _0x4c685a - 0x2,
+      -0xc,
+      -0x9,
+      _0x4c685a + 0x4 + Math["floor"](_0x425b39() * 0x5),
+      -0x9,
+      t[_0x5a8cf9(0x3ad)],
+    );
+    for (let _0x4a7cc7 = 0x0; _0x4a7cc7 < 0x6; _0x4a7cc7++) {
+      const _0xf7d947 = -0x10 + Math[_0x5a8cf9(0x4b2)](_0x425b39() * 0x22),
+        _0x5122df = -0x10 + Math["floor"](_0x425b39() * 0x22);
+      _0x4cc9df(
+        _0xf7d947,
+        _0x4c685a + 0x1,
+        _0x5122df,
+        _0xf7d947 + 0x1 + Math[_0x5a8cf9(0x4b2)](_0x425b39() * 0x2),
+        _0x4c685a + 0x1,
+        _0x5122df + 0x1,
+        _0x425b39() < 0.5 ? t["GRAVEL"] : t["COBBLE"],
+      );
+    }
+  } else {
+    (_0x4cc9df(
+      _0x134f16,
+      _0x4c685a + 0x1,
+      _0x587a37,
+      _0x134f16 + _0x18fcd9 - 0x1,
+      _0x4c685a + 0x1,
+      _0x587a37 + _0x3df053 - 0x1,
+      t[_0x5a8cf9(0x426)],
+    ),
+      _0x4cc9df(
+        _0x134f16,
+        _0x4c685a + 0x2,
+        _0x587a37,
+        _0x134f16 + _0x18fcd9 - 0x1,
+        _0x4c685a + 0x6,
+        _0x587a37,
+        t[_0x5a8cf9(0x494)],
+      ),
+      _0x4cc9df(
+        _0x134f16,
+        _0x4c685a + 0x2,
+        _0x587a37 + _0x3df053 - 0x1,
+        _0x134f16 + _0x18fcd9 - 0x1,
+        _0x4c685a + 0x6,
+        _0x587a37 + _0x3df053 - 0x1,
+        t[_0x5a8cf9(0x494)],
+      ),
+      _0x4cc9df(
+        _0x134f16,
+        _0x4c685a + 0x2,
+        _0x587a37,
+        _0x134f16,
+        _0x4c685a + 0x6,
+        _0x587a37 + _0x3df053 - 0x1,
+        t[_0x5a8cf9(0x494)],
+      ),
+      _0x4cc9df(
+        _0x134f16 + _0x18fcd9 - 0x1,
+        _0x4c685a + 0x2,
+        _0x587a37,
+        _0x134f16 + _0x18fcd9 - 0x1,
+        _0x4c685a + 0x6,
+        _0x587a37 + _0x3df053 - 0x1,
+        t[_0x5a8cf9(0x494)],
+      ),
+      _0x4cc9df(
+        _0x134f16 + 0x1,
+        _0x4c685a + 0x1,
+        _0x587a37 + 0x1,
+        _0x134f16 + _0x18fcd9 - 0x2,
+        _0x4c685a + 0x1,
+        _0x587a37 + _0x3df053 - 0x2,
+        t[_0x5a8cf9(0x3a6)],
+      ),
+      _0x4cc9df(
+        _0x134f16,
+        _0x4c685a + 0x1,
+        _0x587a37 + 0x3,
+        _0x134f16,
+        _0x4c685a + 0x5,
+        _0x587a37 + _0x3df053 - 0x4,
+        t[_0x5a8cf9(0x3a6)],
+      ),
+      _0x4cc9df(
+        _0x134f16 + _0x18fcd9 - 0x4,
+        _0x4c685a + 0x1,
+        _0x587a37 + 0x1,
+        _0x134f16 + _0x18fcd9 - 0x2,
+        _0x4c685a + 0x3,
+        _0x587a37 + 0x3,
+        t["HAY_BALE"],
+      ));
+    for (let _0x595d10 = 0x0; _0x595d10 <= _0x3df053 / 0x2; _0x595d10++)
+      _0x4cc9df(
+        _0x134f16 - 0x1,
+        _0x4c685a + 0x7 + _0x595d10,
+        _0x587a37 - 0x1 + _0x595d10,
+        _0x134f16 + _0x18fcd9,
+        _0x4c685a + 0x7 + _0x595d10,
+        _0x587a37 + _0x3df053 - _0x595d10,
+        t[_0x5a8cf9(0x494)],
+      );
+    (_0x4cc9df(
+      -0xc,
+      _0x4c685a - 0x2,
+      -0xc,
+      -0x9,
+      _0x4c685a + 0xe,
+      -0x9,
+      t[_0x5a8cf9(0x3ad)],
+    ),
+      _0x4cc9df(
+        -0xb,
+        _0x4c685a + 0xf,
+        -0xb,
+        -0xa,
+        _0x4c685a + 0xf,
+        -0xa,
+        t[_0x5a8cf9(0x291)],
+      ));
+    for (let _0x4e07b9 = 0x0; _0x4e07b9 < 0x4; _0x4e07b9++) {
+      const _0x1e91b0 = -0x6 + Math[_0x5a8cf9(0x4b2)](_0x425b39() * 0x16),
+        _0x4ed4bf = 0xc + Math["floor"](_0x425b39() * 0xa);
+      _0x4cc9df(
+        _0x1e91b0,
+        _0x4c685a + 0x1,
+        _0x4ed4bf,
+        _0x1e91b0 + 0x1,
+        _0x4c685a + 0x2,
+        _0x4ed4bf + 0x1,
+        t[_0x5a8cf9(0x48b)],
+      );
+    }
+  }
+  return _0x3c84d0;
+}
+const S1 = [...Ee(0x1), ...Ee(0x2), ..._e(0x1), ..._e(0x2)],
+  h1 = Ce[_0x1d72df(0x45c)](c1),
+  De = Object[_0x1d72df(0x364)](
+    ft[_0x1d72df(0x48f)]((_0x15325a) => [
+      _0x15325a[_0x1d72df(0x1ad)],
+      R1(_0x15325a),
+    ]),
+  );
+Object["fromEntries"](
+  e1[_0x1d72df(0x48f)]((_0x4f56df) => [
+    _0x4f56df,
+    De[_0x4f56df]["reduce"](
+      (_0x44d61d, _0x28fc06) =>
+        _0x44d61d +
+        (_0x28fc06["x2"] - _0x28fc06["x1"] + 0x1) *
+          (_0x28fc06["y2"] - _0x28fc06["y1"] + 0x1) *
+          (_0x28fc06["z2"] - _0x28fc06["z1"] + 0x1),
+      0x0,
+    ),
+  ]),
+);
+const L1 = [...S1, ...Object[_0x1d72df(0x303)](De)[_0x1d72df(0x3e4)](), ...h1];
+((() => {
+  const _0x30a769 = _0x1d72df,
+    _0x33f4f9 = new Map();
+  for (const _0x5cbec7 of L1)
+    for (
+      let _0x66d87f = Math["floor"](_0x5cbec7["x1"] / X);
+      _0x66d87f <= Math["floor"](_0x5cbec7["x2"] / X);
+      _0x66d87f++
+    )
+      for (
+        let _0x51ba80 = Math[_0x30a769(0x4b2)](_0x5cbec7["z1"] / X);
+        _0x51ba80 <= Math["floor"](_0x5cbec7["z2"] / X);
+        _0x51ba80++
+      ) {
+        const _0x5d1a0e = (_0x66d87f + 0x400) * 0x800 + _0x51ba80 + 0x400;
+        let _0x50a8e1 = _0x33f4f9[_0x30a769(0x41a)](_0x5d1a0e);
+        (_0x50a8e1 || _0x33f4f9[_0x30a769(0x3d3)](_0x5d1a0e, (_0x50a8e1 = [])),
+          _0x50a8e1[_0x30a769(0x32d)](_0x5cbec7));
+      }
+  return _0x33f4f9;
+})(),
+  (() => {
+    const _0x33436d = _0x1d72df,
+      _0x3d8780 = new Uint8Array(X * X * Oe);
+    for (let _0x3c3ad1 = 0x0; _0x3c3ad1 < X; _0x3c3ad1++)
+      for (let _0x33667f = 0x0; _0x33667f < X; _0x33667f++) {
+        _0x3d8780[ut(_0x3c3ad1, 0x0, _0x33667f)] = t[_0x33436d(0x27e)];
+        for (let _0x4acb4f = 0x1; _0x4acb4f < 0x16; _0x4acb4f++)
+          _0x3d8780[ut(_0x3c3ad1, _0x4acb4f, _0x33667f)] = t[_0x33436d(0x1ef)];
+        _0x3d8780[ut(_0x3c3ad1, 0x16, _0x33667f)] = t[_0x33436d(0x2dc)];
+        for (let _0x548606 = 0x17; _0x548606 <= V; _0x548606++)
+          _0x3d8780[ut(_0x3c3ad1, _0x548606, _0x33667f)] = t["WATER"];
+      }
+    return _0x3d8780;
+  })());
+const O1 = (_0x9cdab9, _0x4b8dcf) =>
+  _0x4b8dcf < V
+    ? 0x0
+    : _0x9cdab9 === t["SAND"]
+      ? 0x1
+      : _0x9cdab9 === t[_0x1d72df(0x2dc)]
+        ? 0x2
+        : _0x9cdab9 === t["GRASS"]
+          ? 0x3
+          : _0x9cdab9 === t[_0x1d72df(0x1ef)]
+            ? 0x5
+            : _0x9cdab9 === t[_0x1d72df(0x4a4)]
+              ? 0x6
+              : _0x9cdab9 === ht + 0x7
+                ? 0x7
+                : _0x9cdab9 === ht + 0x0
+                  ? 0x9
+                  : _0x9cdab9 === t[_0x1d72df(0x453)]
+                    ? 0xa
+                    : _0x9cdab9 === t["WHEAT_FIELD"]
+                      ? 0xb
+                      : _0x9cdab9 === t[_0x1d72df(0x38e)]
+                        ? 0xc
+                        : _0x9cdab9 === t[_0x1d72df(0x479)]
+                          ? 0xd
+                          : _0x9cdab9 === t[_0x1d72df(0x350)]
+                            ? 0xe
+                            : 0x8;
+function Ae(_0x8fea9c, _0x51e045, _0x2ad44c, _0x360015, _0x46e0c1) {
+  const _0xe35a2d = _0x1d72df,
+    _0x2454a5 = Math[_0xe35a2d(0x313)](0x0, _0x2ad44c - 0x1),
+    _0x5a5282 = Math[_0xe35a2d(0x4b3)](_0x8fea9c - 0x1, _0x360015 + 0x1),
+    _0x4d0f45 = new Uint8Array((_0x5a5282 - _0x2454a5 + 0x1) * _0x8fea9c);
+  for (let _0x2539d9 = _0x2454a5; _0x2539d9 <= _0x5a5282; _0x2539d9++)
+    for (let _0x5cecdb = 0x0; _0x5cecdb < _0x8fea9c; _0x5cecdb++)
+      _0x4d0f45[(_0x2539d9 - _0x2454a5) * _0x8fea9c + _0x5cecdb] = _1(
+        -Z + _0x5cecdb * _0x51e045,
+        -Z + _0x2539d9 * _0x51e045,
+        !0x1,
+      );
+  const _0xd8cd5c = (_0x7ec49, _0x4a65e8) =>
+    _0x4d0f45[
+      (Math["min"](_0x5a5282, Math[_0xe35a2d(0x313)](_0x2454a5, _0x4a65e8)) -
+        _0x2454a5) *
+        _0x8fea9c +
+        Math[_0xe35a2d(0x4b3)](_0x8fea9c - 0x1, Math["max"](0x0, _0x7ec49))
+    ];
+  for (let _0x1f4959 = _0x2ad44c; _0x1f4959 <= _0x360015; _0x1f4959++)
+    for (let _0x12426b = 0x0; _0x12426b < _0x8fea9c; _0x12426b++) {
+      const _0x4bead0 = -Z + _0x12426b * _0x51e045,
+        _0x17b4e7 = -Z + _0x1f4959 * _0x51e045,
+        _0x2e5448 = _0xd8cd5c(_0x12426b, _0x1f4959),
+        _0x32bc50 =
+          Math["max"](
+            Math[_0xe35a2d(0x33c)](
+              _0xd8cd5c(_0x12426b + 0x1, _0x1f4959) -
+                _0xd8cd5c(_0x12426b - 0x1, _0x1f4959),
+            ),
+            Math[_0xe35a2d(0x33c)](
+              _0xd8cd5c(_0x12426b, _0x1f4959 + 0x1) -
+                _0xd8cd5c(_0x12426b, _0x1f4959 - 0x1),
+            ),
+          ) /
+          (0x2 * _0x51e045),
+        _0x35aed3 = u1(_0x4bead0, _0x17b4e7, _0x2e5448, _0x32bc50),
+        _0x21db5d = O1(_0x35aed3, _0x2e5448),
+        _0x31ceae = ((_0x1f4959 - _0x2ad44c) * _0x8fea9c + _0x12426b) * 0x4,
+        _0x1996ec =
+          _0x21db5d === 0x3
+            ? Math[_0xe35a2d(0x313)](
+                l1(_0x4bead0, _0x17b4e7, _0x2e5448),
+                oe(_0x4bead0, _0x17b4e7) ||
+                  oe(_0x4bead0 + _0x51e045 * 0.5, _0x17b4e7 + _0x51e045 * 0.5)
+                  ? 0.75
+                  : 0x0,
+              )
+            : 0x0;
+      ((_0x46e0c1[_0x31ceae] = _0x2e5448),
+        (_0x46e0c1[_0x31ceae + 0x1] = _0x21db5d),
+        (_0x46e0c1[_0x31ceae + 0x2] = Math[_0xe35a2d(0x33a)](_0x1996ec * 0xff)),
+        (_0x46e0c1[_0x31ceae + 0x3] = 0xff));
+    }
+}
+self["onmessage"] = (_0xb77f9f) => {
+  const _0x3b0041 = _0x1d72df,
+    _0x1a2288 = _0xb77f9f[_0x3b0041(0x464)][_0x3b0041(0x438)],
+    _0x517adc = Math["round"]((Z * 0x2) / _0x1a2288),
+    _0x35b154 = _0x1a2288 * 0x4,
+    _0x206ed0 = Math[_0x3b0041(0x33a)]((Z * 0x2) / _0x35b154),
+    _0x1c5e5a = new Uint8Array(_0x206ed0 * _0x206ed0 * 0x4);
+  (Ae(_0x206ed0, _0x35b154, 0x0, _0x206ed0 - 0x1, _0x1c5e5a),
+    self[_0x3b0041(0x35c)](
+      {
+        kind: _0x3b0041(0x217),
+        n: _0x206ed0,
+        step: _0x35b154,
+        data: _0x1c5e5a,
+      },
+      [_0x1c5e5a[_0x3b0041(0x31f)]],
+    ));
+  const _0x1467a8 = 0x60,
+    _0x42f9b4 = [];
+  for (let _0x510e46 = 0x0; _0x510e46 < _0x517adc; _0x510e46 += _0x1467a8)
+    _0x42f9b4["push"](_0x510e46);
+  const _0x38e06f = Math[_0x3b0041(0x33a)](
+    (_0xb77f9f[_0x3b0041(0x464)][_0x3b0041(0x1c3)] + Z) / _0x1a2288,
+  );
+  _0x42f9b4["sort"](
+    (_0x390e80, _0x245b25) =>
+      Math[_0x3b0041(0x33c)](_0x390e80 + _0x1467a8 / 0x2 - _0x38e06f) -
+      Math["abs"](_0x245b25 + _0x1467a8 / 0x2 - _0x38e06f),
+  );
+  for (let _0x2b289a = 0x0; _0x2b289a < _0x42f9b4["length"]; _0x2b289a++) {
+    const _0x86c67b = _0x42f9b4[_0x2b289a],
+      _0x1239c2 = Math["min"](_0x517adc - 0x1, _0x86c67b + _0x1467a8 - 0x1),
+      _0xddbab4 = new Uint8Array(
+        (_0x1239c2 - _0x86c67b + 0x1) * _0x517adc * 0x4,
+      );
+    (Ae(_0x517adc, _0x1a2288, _0x86c67b, _0x1239c2, _0xddbab4),
+      self["postMessage"](
+        {
+          kind: _0x3b0041(0x458),
+          n: _0x517adc,
+          step: _0x1a2288,
+          j0: _0x86c67b,
+          data: _0xddbab4,
+          last: _0x2b289a === _0x42f9b4[_0x3b0041(0x25d)] - 0x1,
+        },
+        [_0xddbab4[_0x3b0041(0x31f)]],
+      ));
+  }
+};

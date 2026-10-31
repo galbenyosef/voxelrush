@@ -1,0 +1,11195 @@
+/**
+ * @license
+ * Copyright 2010-2024 Three.js Authors
+ * SPDX-License-Identifier: MIT
+ */ class nn {
+  addEventListener(t, e) {
+    this._listeners === void 0 && (this._listeners = {});
+    const s = this._listeners;
+    (s[t] === void 0 && (s[t] = []), s[t].indexOf(e) === -1 && s[t].push(e));
+  }
+  hasEventListener(t, e) {
+    if (this._listeners === void 0) return !1;
+    const s = this._listeners;
+    return s[t] !== void 0 && s[t].indexOf(e) !== -1;
+  }
+  removeEventListener(t, e) {
+    if (this._listeners === void 0) return;
+    const n = this._listeners[t];
+    if (n !== void 0) {
+      const i = n.indexOf(e);
+      i !== -1 && n.splice(i, 1);
+    }
+  }
+  dispatchEvent(t) {
+    if (this._listeners === void 0) return;
+    const s = this._listeners[t.type];
+    if (s !== void 0) {
+      t.target = this;
+      const n = s.slice(0);
+      for (let i = 0, c = n.length; i < c; i++) n[i].call(this, t);
+      t.target = null;
+    }
+  }
+}
+const nt = [
+  "00",
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "0a",
+  "0b",
+  "0c",
+  "0d",
+  "0e",
+  "0f",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "1a",
+  "1b",
+  "1c",
+  "1d",
+  "1e",
+  "1f",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+  "25",
+  "26",
+  "27",
+  "28",
+  "29",
+  "2a",
+  "2b",
+  "2c",
+  "2d",
+  "2e",
+  "2f",
+  "30",
+  "31",
+  "32",
+  "33",
+  "34",
+  "35",
+  "36",
+  "37",
+  "38",
+  "39",
+  "3a",
+  "3b",
+  "3c",
+  "3d",
+  "3e",
+  "3f",
+  "40",
+  "41",
+  "42",
+  "43",
+  "44",
+  "45",
+  "46",
+  "47",
+  "48",
+  "49",
+  "4a",
+  "4b",
+  "4c",
+  "4d",
+  "4e",
+  "4f",
+  "50",
+  "51",
+  "52",
+  "53",
+  "54",
+  "55",
+  "56",
+  "57",
+  "58",
+  "59",
+  "5a",
+  "5b",
+  "5c",
+  "5d",
+  "5e",
+  "5f",
+  "60",
+  "61",
+  "62",
+  "63",
+  "64",
+  "65",
+  "66",
+  "67",
+  "68",
+  "69",
+  "6a",
+  "6b",
+  "6c",
+  "6d",
+  "6e",
+  "6f",
+  "70",
+  "71",
+  "72",
+  "73",
+  "74",
+  "75",
+  "76",
+  "77",
+  "78",
+  "79",
+  "7a",
+  "7b",
+  "7c",
+  "7d",
+  "7e",
+  "7f",
+  "80",
+  "81",
+  "82",
+  "83",
+  "84",
+  "85",
+  "86",
+  "87",
+  "88",
+  "89",
+  "8a",
+  "8b",
+  "8c",
+  "8d",
+  "8e",
+  "8f",
+  "90",
+  "91",
+  "92",
+  "93",
+  "94",
+  "95",
+  "96",
+  "97",
+  "98",
+  "99",
+  "9a",
+  "9b",
+  "9c",
+  "9d",
+  "9e",
+  "9f",
+  "a0",
+  "a1",
+  "a2",
+  "a3",
+  "a4",
+  "a5",
+  "a6",
+  "a7",
+  "a8",
+  "a9",
+  "aa",
+  "ab",
+  "ac",
+  "ad",
+  "ae",
+  "af",
+  "b0",
+  "b1",
+  "b2",
+  "b3",
+  "b4",
+  "b5",
+  "b6",
+  "b7",
+  "b8",
+  "b9",
+  "ba",
+  "bb",
+  "bc",
+  "bd",
+  "be",
+  "bf",
+  "c0",
+  "c1",
+  "c2",
+  "c3",
+  "c4",
+  "c5",
+  "c6",
+  "c7",
+  "c8",
+  "c9",
+  "ca",
+  "cb",
+  "cc",
+  "cd",
+  "ce",
+  "cf",
+  "d0",
+  "d1",
+  "d2",
+  "d3",
+  "d4",
+  "d5",
+  "d6",
+  "d7",
+  "d8",
+  "d9",
+  "da",
+  "db",
+  "dc",
+  "dd",
+  "de",
+  "df",
+  "e0",
+  "e1",
+  "e2",
+  "e3",
+  "e4",
+  "e5",
+  "e6",
+  "e7",
+  "e8",
+  "e9",
+  "ea",
+  "eb",
+  "ec",
+  "ed",
+  "ee",
+  "ef",
+  "f0",
+  "f1",
+  "f2",
+  "f3",
+  "f4",
+  "f5",
+  "f6",
+  "f7",
+  "f8",
+  "f9",
+  "fa",
+  "fb",
+  "fc",
+  "fd",
+  "fe",
+  "ff",
+];
+function Rs() {
+  const r = (Math.random() * 4294967295) | 0,
+    t = (Math.random() * 4294967295) | 0,
+    e = (Math.random() * 4294967295) | 0,
+    s = (Math.random() * 4294967295) | 0;
+  return (
+    nt[r & 255] +
+    nt[(r >> 8) & 255] +
+    nt[(r >> 16) & 255] +
+    nt[(r >> 24) & 255] +
+    "-" +
+    nt[t & 255] +
+    nt[(t >> 8) & 255] +
+    "-" +
+    nt[((t >> 16) & 15) | 64] +
+    nt[(t >> 24) & 255] +
+    "-" +
+    nt[(e & 63) | 128] +
+    nt[(e >> 8) & 255] +
+    "-" +
+    nt[(e >> 16) & 255] +
+    nt[(e >> 24) & 255] +
+    nt[s & 255] +
+    nt[(s >> 8) & 255] +
+    nt[(s >> 16) & 255] +
+    nt[(s >> 24) & 255]
+  ).toLowerCase();
+}
+function Ut(r, t, e) {
+  return Math.max(t, Math.min(e, r));
+}
+function Le(r, t) {
+  switch (t.constructor) {
+    case Float32Array:
+      return r;
+    case Uint32Array:
+      return r / 4294967295;
+    case Uint16Array:
+      return r / 65535;
+    case Uint8Array:
+      return r / 255;
+    case Int32Array:
+      return Math.max(r / 2147483647, -1);
+    case Int16Array:
+      return Math.max(r / 32767, -1);
+    case Int8Array:
+      return Math.max(r / 127, -1);
+    default:
+      throw new Error("Invalid component type.");
+  }
+}
+function rt(r, t) {
+  switch (t.constructor) {
+    case Float32Array:
+      return r;
+    case Uint32Array:
+      return Math.round(r * 4294967295);
+    case Uint16Array:
+      return Math.round(r * 65535);
+    case Uint8Array:
+      return Math.round(r * 255);
+    case Int32Array:
+      return Math.round(r * 2147483647);
+    case Int16Array:
+      return Math.round(r * 32767);
+    case Int8Array:
+      return Math.round(r * 127);
+    default:
+      throw new Error("Invalid component type.");
+  }
+}
+class zt {
+  constructor(t = 0, e = 0) {
+    ((zt.prototype.isVector2 = !0), (this.x = t), (this.y = e));
+  }
+  get width() {
+    return this.x;
+  }
+  set width(t) {
+    this.x = t;
+  }
+  get height() {
+    return this.y;
+  }
+  set height(t) {
+    this.y = t;
+  }
+  set(t, e) {
+    return ((this.x = t), (this.y = e), this);
+  }
+  setScalar(t) {
+    return ((this.x = t), (this.y = t), this);
+  }
+  setX(t) {
+    return ((this.x = t), this);
+  }
+  setY(t) {
+    return ((this.y = t), this);
+  }
+  setComponent(t, e) {
+    switch (t) {
+      case 0:
+        this.x = e;
+        break;
+      case 1:
+        this.y = e;
+        break;
+      default:
+        throw new Error("index is out of range: " + t);
+    }
+    return this;
+  }
+  getComponent(t) {
+    switch (t) {
+      case 0:
+        return this.x;
+      case 1:
+        return this.y;
+      default:
+        throw new Error("index is out of range: " + t);
+    }
+  }
+  clone() {
+    return new this.constructor(this.x, this.y);
+  }
+  copy(t) {
+    return ((this.x = t.x), (this.y = t.y), this);
+  }
+  add(t) {
+    return ((this.x += t.x), (this.y += t.y), this);
+  }
+  addScalar(t) {
+    return ((this.x += t), (this.y += t), this);
+  }
+  addVectors(t, e) {
+    return ((this.x = t.x + e.x), (this.y = t.y + e.y), this);
+  }
+  addScaledVector(t, e) {
+    return ((this.x += t.x * e), (this.y += t.y * e), this);
+  }
+  sub(t) {
+    return ((this.x -= t.x), (this.y -= t.y), this);
+  }
+  subScalar(t) {
+    return ((this.x -= t), (this.y -= t), this);
+  }
+  subVectors(t, e) {
+    return ((this.x = t.x - e.x), (this.y = t.y - e.y), this);
+  }
+  multiply(t) {
+    return ((this.x *= t.x), (this.y *= t.y), this);
+  }
+  multiplyScalar(t) {
+    return ((this.x *= t), (this.y *= t), this);
+  }
+  divide(t) {
+    return ((this.x /= t.x), (this.y /= t.y), this);
+  }
+  divideScalar(t) {
+    return this.multiplyScalar(1 / t);
+  }
+  applyMatrix3(t) {
+    const e = this.x,
+      s = this.y,
+      n = t.elements;
+    return (
+      (this.x = n[0] * e + n[3] * s + n[6]),
+      (this.y = n[1] * e + n[4] * s + n[7]),
+      this
+    );
+  }
+  min(t) {
+    return (
+      (this.x = Math.min(this.x, t.x)),
+      (this.y = Math.min(this.y, t.y)),
+      this
+    );
+  }
+  max(t) {
+    return (
+      (this.x = Math.max(this.x, t.x)),
+      (this.y = Math.max(this.y, t.y)),
+      this
+    );
+  }
+  clamp(t, e) {
+    return (
+      (this.x = Math.max(t.x, Math.min(e.x, this.x))),
+      (this.y = Math.max(t.y, Math.min(e.y, this.y))),
+      this
+    );
+  }
+  clampScalar(t, e) {
+    return (
+      (this.x = Math.max(t, Math.min(e, this.x))),
+      (this.y = Math.max(t, Math.min(e, this.y))),
+      this
+    );
+  }
+  clampLength(t, e) {
+    const s = this.length();
+    return this.divideScalar(s || 1).multiplyScalar(
+      Math.max(t, Math.min(e, s)),
+    );
+  }
+  floor() {
+    return ((this.x = Math.floor(this.x)), (this.y = Math.floor(this.y)), this);
+  }
+  ceil() {
+    return ((this.x = Math.ceil(this.x)), (this.y = Math.ceil(this.y)), this);
+  }
+  round() {
+    return ((this.x = Math.round(this.x)), (this.y = Math.round(this.y)), this);
+  }
+  roundToZero() {
+    return ((this.x = Math.trunc(this.x)), (this.y = Math.trunc(this.y)), this);
+  }
+  negate() {
+    return ((this.x = -this.x), (this.y = -this.y), this);
+  }
+  dot(t) {
+    return this.x * t.x + this.y * t.y;
+  }
+  cross(t) {
+    return this.x * t.y - this.y * t.x;
+  }
+  lengthSq() {
+    return this.x * this.x + this.y * this.y;
+  }
+  length() {
+    return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
+  manhattanLength() {
+    return Math.abs(this.x) + Math.abs(this.y);
+  }
+  normalize() {
+    return this.divideScalar(this.length() || 1);
+  }
+  angle() {
+    return Math.atan2(-this.y, -this.x) + Math.PI;
+  }
+  angleTo(t) {
+    const e = Math.sqrt(this.lengthSq() * t.lengthSq());
+    if (e === 0) return Math.PI / 2;
+    const s = this.dot(t) / e;
+    return Math.acos(Ut(s, -1, 1));
+  }
+  distanceTo(t) {
+    return Math.sqrt(this.distanceToSquared(t));
+  }
+  distanceToSquared(t) {
+    const e = this.x - t.x,
+      s = this.y - t.y;
+    return e * e + s * s;
+  }
+  manhattanDistanceTo(t) {
+    return Math.abs(this.x - t.x) + Math.abs(this.y - t.y);
+  }
+  setLength(t) {
+    return this.normalize().multiplyScalar(t);
+  }
+  lerp(t, e) {
+    return (
+      (this.x += (t.x - this.x) * e),
+      (this.y += (t.y - this.y) * e),
+      this
+    );
+  }
+  lerpVectors(t, e, s) {
+    return (
+      (this.x = t.x + (e.x - t.x) * s),
+      (this.y = t.y + (e.y - t.y) * s),
+      this
+    );
+  }
+  equals(t) {
+    return t.x === this.x && t.y === this.y;
+  }
+  fromArray(t, e = 0) {
+    return ((this.x = t[e]), (this.y = t[e + 1]), this);
+  }
+  toArray(t = [], e = 0) {
+    return ((t[e] = this.x), (t[e + 1] = this.y), t);
+  }
+  fromBufferAttribute(t, e) {
+    return ((this.x = t.getX(e)), (this.y = t.getY(e)), this);
+  }
+  rotateAround(t, e) {
+    const s = Math.cos(e),
+      n = Math.sin(e),
+      i = this.x - t.x,
+      c = this.y - t.y;
+    return (
+      (this.x = i * s - c * n + t.x),
+      (this.y = i * n + c * s + t.y),
+      this
+    );
+  }
+  random() {
+    return ((this.x = Math.random()), (this.y = Math.random()), this);
+  }
+  *[Symbol.iterator]() {
+    (yield this.x, yield this.y);
+  }
+}
+class Te {
+  constructor(t, e, s, n, i, c, h, o, a) {
+    ((Te.prototype.isMatrix3 = !0),
+      (this.elements = [1, 0, 0, 0, 1, 0, 0, 0, 1]),
+      t !== void 0 && this.set(t, e, s, n, i, c, h, o, a));
+  }
+  set(t, e, s, n, i, c, h, o, a) {
+    const u = this.elements;
+    return (
+      (u[0] = t),
+      (u[1] = n),
+      (u[2] = h),
+      (u[3] = e),
+      (u[4] = i),
+      (u[5] = o),
+      (u[6] = s),
+      (u[7] = c),
+      (u[8] = a),
+      this
+    );
+  }
+  identity() {
+    return (this.set(1, 0, 0, 0, 1, 0, 0, 0, 1), this);
+  }
+  copy(t) {
+    const e = this.elements,
+      s = t.elements;
+    return (
+      (e[0] = s[0]),
+      (e[1] = s[1]),
+      (e[2] = s[2]),
+      (e[3] = s[3]),
+      (e[4] = s[4]),
+      (e[5] = s[5]),
+      (e[6] = s[6]),
+      (e[7] = s[7]),
+      (e[8] = s[8]),
+      this
+    );
+  }
+  extractBasis(t, e, s) {
+    return (
+      t.setFromMatrix3Column(this, 0),
+      e.setFromMatrix3Column(this, 1),
+      s.setFromMatrix3Column(this, 2),
+      this
+    );
+  }
+  setFromMatrix4(t) {
+    const e = t.elements;
+    return (
+      this.set(e[0], e[4], e[8], e[1], e[5], e[9], e[2], e[6], e[10]),
+      this
+    );
+  }
+  multiply(t) {
+    return this.multiplyMatrices(this, t);
+  }
+  premultiply(t) {
+    return this.multiplyMatrices(t, this);
+  }
+  multiplyMatrices(t, e) {
+    const s = t.elements,
+      n = e.elements,
+      i = this.elements,
+      c = s[0],
+      h = s[3],
+      o = s[6],
+      a = s[1],
+      u = s[4],
+      d = s[7],
+      l = s[2],
+      f = s[5],
+      m = s[8],
+      _ = n[0],
+      g = n[3],
+      y = n[6],
+      R = n[1],
+      E = n[4],
+      x = n[7],
+      S = n[2],
+      M = n[5],
+      A = n[8];
+    return (
+      (i[0] = c * _ + h * R + o * S),
+      (i[3] = c * g + h * E + o * M),
+      (i[6] = c * y + h * x + o * A),
+      (i[1] = a * _ + u * R + d * S),
+      (i[4] = a * g + u * E + d * M),
+      (i[7] = a * y + u * x + d * A),
+      (i[2] = l * _ + f * R + m * S),
+      (i[5] = l * g + f * E + m * M),
+      (i[8] = l * y + f * x + m * A),
+      this
+    );
+  }
+  multiplyScalar(t) {
+    const e = this.elements;
+    return (
+      (e[0] *= t),
+      (e[3] *= t),
+      (e[6] *= t),
+      (e[1] *= t),
+      (e[4] *= t),
+      (e[7] *= t),
+      (e[2] *= t),
+      (e[5] *= t),
+      (e[8] *= t),
+      this
+    );
+  }
+  determinant() {
+    const t = this.elements,
+      e = t[0],
+      s = t[1],
+      n = t[2],
+      i = t[3],
+      c = t[4],
+      h = t[5],
+      o = t[6],
+      a = t[7],
+      u = t[8];
+    return (
+      e * c * u - e * h * a - s * i * u + s * h * o + n * i * a - n * c * o
+    );
+  }
+  invert() {
+    const t = this.elements,
+      e = t[0],
+      s = t[1],
+      n = t[2],
+      i = t[3],
+      c = t[4],
+      h = t[5],
+      o = t[6],
+      a = t[7],
+      u = t[8],
+      d = u * c - h * a,
+      l = h * o - u * i,
+      f = a * i - c * o,
+      m = e * d + s * l + n * f;
+    if (m === 0) return this.set(0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const _ = 1 / m;
+    return (
+      (t[0] = d * _),
+      (t[1] = (n * a - u * s) * _),
+      (t[2] = (h * s - n * c) * _),
+      (t[3] = l * _),
+      (t[4] = (u * e - n * o) * _),
+      (t[5] = (n * i - h * e) * _),
+      (t[6] = f * _),
+      (t[7] = (s * o - a * e) * _),
+      (t[8] = (c * e - s * i) * _),
+      this
+    );
+  }
+  transpose() {
+    let t;
+    const e = this.elements;
+    return (
+      (t = e[1]),
+      (e[1] = e[3]),
+      (e[3] = t),
+      (t = e[2]),
+      (e[2] = e[6]),
+      (e[6] = t),
+      (t = e[5]),
+      (e[5] = e[7]),
+      (e[7] = t),
+      this
+    );
+  }
+  getNormalMatrix(t) {
+    return this.setFromMatrix4(t).invert().transpose();
+  }
+  transposeIntoArray(t) {
+    const e = this.elements;
+    return (
+      (t[0] = e[0]),
+      (t[1] = e[3]),
+      (t[2] = e[6]),
+      (t[3] = e[1]),
+      (t[4] = e[4]),
+      (t[5] = e[7]),
+      (t[6] = e[2]),
+      (t[7] = e[5]),
+      (t[8] = e[8]),
+      this
+    );
+  }
+  setUvTransform(t, e, s, n, i, c, h) {
+    const o = Math.cos(i),
+      a = Math.sin(i);
+    return (
+      this.set(
+        s * o,
+        s * a,
+        -s * (o * c + a * h) + c + t,
+        -n * a,
+        n * o,
+        -n * (-a * c + o * h) + h + e,
+        0,
+        0,
+        1,
+      ),
+      this
+    );
+  }
+  scale(t, e) {
+    return (this.premultiply(Ns.makeScale(t, e)), this);
+  }
+  rotate(t) {
+    return (this.premultiply(Ns.makeRotation(-t)), this);
+  }
+  translate(t, e) {
+    return (this.premultiply(Ns.makeTranslation(t, e)), this);
+  }
+  makeTranslation(t, e) {
+    return (
+      t.isVector2
+        ? this.set(1, 0, t.x, 0, 1, t.y, 0, 0, 1)
+        : this.set(1, 0, t, 0, 1, e, 0, 0, 1),
+      this
+    );
+  }
+  makeRotation(t) {
+    const e = Math.cos(t),
+      s = Math.sin(t);
+    return (this.set(e, -s, 0, s, e, 0, 0, 0, 1), this);
+  }
+  makeScale(t, e) {
+    return (this.set(t, 0, 0, 0, e, 0, 0, 0, 1), this);
+  }
+  equals(t) {
+    const e = this.elements,
+      s = t.elements;
+    for (let n = 0; n < 9; n++) if (e[n] !== s[n]) return !1;
+    return !0;
+  }
+  fromArray(t, e = 0) {
+    for (let s = 0; s < 9; s++) this.elements[s] = t[s + e];
+    return this;
+  }
+  toArray(t = [], e = 0) {
+    const s = this.elements;
+    return (
+      (t[e] = s[0]),
+      (t[e + 1] = s[1]),
+      (t[e + 2] = s[2]),
+      (t[e + 3] = s[3]),
+      (t[e + 4] = s[4]),
+      (t[e + 5] = s[5]),
+      (t[e + 6] = s[6]),
+      (t[e + 7] = s[7]),
+      (t[e + 8] = s[8]),
+      t
+    );
+  }
+  clone() {
+    return new this.constructor().fromArray(this.elements);
+  }
+}
+const Ns = new Te();
+function Li(r) {
+  for (let t = r.length - 1; t >= 0; --t) if (r[t] >= 65535) return !0;
+  return !1;
+}
+function gn(r) {
+  return document.createElementNS("http://www.w3.org/1999/xhtml", r);
+}
+function Bs(r) {
+  return r < 0.04045
+    ? r * 0.0773993808
+    : Math.pow(r * 0.9478672986 + 0.0521327014, 2.4);
+}
+let ce;
+class Ii {
+  static getDataURL(t) {
+    if (/^data:/i.test(t.src) || typeof HTMLCanvasElement > "u") return t.src;
+    let e;
+    if (t instanceof HTMLCanvasElement) e = t;
+    else {
+      (ce === void 0 && (ce = gn("canvas")),
+        (ce.width = t.width),
+        (ce.height = t.height));
+      const s = ce.getContext("2d");
+      (t instanceof ImageData
+        ? s.putImageData(t, 0, 0)
+        : s.drawImage(t, 0, 0, t.width, t.height),
+        (e = ce));
+    }
+    return e.width > 2048 || e.height > 2048
+      ? (console.warn(
+          "THREE.ImageUtils.getDataURL: Image converted to jpg for performance reasons",
+          t,
+        ),
+        e.toDataURL("image/jpeg", 0.6))
+      : e.toDataURL("image/png");
+  }
+  static sRGBToLinear(t) {
+    if (
+      (typeof HTMLImageElement < "u" && t instanceof HTMLImageElement) ||
+      (typeof HTMLCanvasElement < "u" && t instanceof HTMLCanvasElement) ||
+      (typeof ImageBitmap < "u" && t instanceof ImageBitmap)
+    ) {
+      const e = gn("canvas");
+      ((e.width = t.width), (e.height = t.height));
+      const s = e.getContext("2d");
+      s.drawImage(t, 0, 0, t.width, t.height);
+      const n = s.getImageData(0, 0, t.width, t.height),
+        i = n.data;
+      for (let c = 0; c < i.length; c++) i[c] = Bs(i[c] / 255) * 255;
+      return (s.putImageData(n, 0, 0), e);
+    } else if (t.data) {
+      const e = t.data.slice(0);
+      for (let s = 0; s < e.length; s++)
+        e instanceof Uint8Array || e instanceof Uint8ClampedArray
+          ? (e[s] = Math.floor(Bs(e[s] / 255) * 255))
+          : (e[s] = Bs(e[s]));
+      return { data: e, width: t.width, height: t.height };
+    } else
+      return (
+        console.warn(
+          "THREE.ImageUtils.sRGBToLinear(): Unsupported image type. No color space conversion applied.",
+        ),
+        t
+      );
+  }
+}
+let Ci = 0;
+class Ni {
+  constructor(t = null) {
+    ((this.isSource = !0),
+      Object.defineProperty(this, "id", { value: Ci++ }),
+      (this.uuid = Rs()),
+      (this.data = t),
+      (this.dataReady = !0),
+      (this.version = 0));
+  }
+  set needsUpdate(t) {
+    t === !0 && this.version++;
+  }
+  toJSON(t) {
+    const e = t === void 0 || typeof t == "string";
+    if (!e && t.images[this.uuid] !== void 0) return t.images[this.uuid];
+    const s = { uuid: this.uuid, url: "" },
+      n = this.data;
+    if (n !== null) {
+      let i;
+      if (Array.isArray(n)) {
+        i = [];
+        for (let c = 0, h = n.length; c < h; c++)
+          n[c].isDataTexture ? i.push(Ps(n[c].image)) : i.push(Ps(n[c]));
+      } else i = Ps(n);
+      s.url = i;
+    }
+    return (e || (t.images[this.uuid] = s), s);
+  }
+}
+function Ps(r) {
+  return (typeof HTMLImageElement < "u" && r instanceof HTMLImageElement) ||
+    (typeof HTMLCanvasElement < "u" && r instanceof HTMLCanvasElement) ||
+    (typeof ImageBitmap < "u" && r instanceof ImageBitmap)
+    ? Ii.getDataURL(r)
+    : r.data
+      ? {
+          data: Array.from(r.data),
+          width: r.width,
+          height: r.height,
+          type: r.data.constructor.name,
+        }
+      : (console.warn("THREE.Texture: Unable to serialize Texture."), {});
+}
+let Bi = 0;
+class ie extends nn {
+  constructor(
+    t = ie.DEFAULT_IMAGE,
+    e = ie.DEFAULT_MAPPING,
+    s = 1001,
+    n = 1001,
+    i = 1006,
+    c = 1008,
+    h = 1023,
+    o = 1009,
+    a = ie.DEFAULT_ANISOTROPY,
+    u = "",
+  ) {
+    (super(),
+      (this.isTexture = !0),
+      Object.defineProperty(this, "id", { value: Bi++ }),
+      (this.uuid = Rs()),
+      (this.name = ""),
+      (this.source = new Ni(t)),
+      (this.mipmaps = []),
+      (this.mapping = e),
+      (this.channel = 0),
+      (this.wrapS = s),
+      (this.wrapT = n),
+      (this.magFilter = i),
+      (this.minFilter = c),
+      (this.anisotropy = a),
+      (this.format = h),
+      (this.internalFormat = null),
+      (this.type = o),
+      (this.offset = new zt(0, 0)),
+      (this.repeat = new zt(1, 1)),
+      (this.center = new zt(0, 0)),
+      (this.rotation = 0),
+      (this.matrixAutoUpdate = !0),
+      (this.matrix = new Te()),
+      (this.generateMipmaps = !0),
+      (this.premultiplyAlpha = !1),
+      (this.flipY = !0),
+      (this.unpackAlignment = 4),
+      (this.colorSpace = u),
+      (this.userData = {}),
+      (this.version = 0),
+      (this.onUpdate = null),
+      (this.isRenderTargetTexture = !1),
+      (this.pmremVersion = 0));
+  }
+  get image() {
+    return this.source.data;
+  }
+  set image(t = null) {
+    this.source.data = t;
+  }
+  updateMatrix() {
+    this.matrix.setUvTransform(
+      this.offset.x,
+      this.offset.y,
+      this.repeat.x,
+      this.repeat.y,
+      this.rotation,
+      this.center.x,
+      this.center.y,
+    );
+  }
+  clone() {
+    return new this.constructor().copy(this);
+  }
+  copy(t) {
+    return (
+      (this.name = t.name),
+      (this.source = t.source),
+      (this.mipmaps = t.mipmaps.slice(0)),
+      (this.mapping = t.mapping),
+      (this.channel = t.channel),
+      (this.wrapS = t.wrapS),
+      (this.wrapT = t.wrapT),
+      (this.magFilter = t.magFilter),
+      (this.minFilter = t.minFilter),
+      (this.anisotropy = t.anisotropy),
+      (this.format = t.format),
+      (this.internalFormat = t.internalFormat),
+      (this.type = t.type),
+      this.offset.copy(t.offset),
+      this.repeat.copy(t.repeat),
+      this.center.copy(t.center),
+      (this.rotation = t.rotation),
+      (this.matrixAutoUpdate = t.matrixAutoUpdate),
+      this.matrix.copy(t.matrix),
+      (this.generateMipmaps = t.generateMipmaps),
+      (this.premultiplyAlpha = t.premultiplyAlpha),
+      (this.flipY = t.flipY),
+      (this.unpackAlignment = t.unpackAlignment),
+      (this.colorSpace = t.colorSpace),
+      (this.userData = JSON.parse(JSON.stringify(t.userData))),
+      (this.needsUpdate = !0),
+      this
+    );
+  }
+  toJSON(t) {
+    const e = t === void 0 || typeof t == "string";
+    if (!e && t.textures[this.uuid] !== void 0) return t.textures[this.uuid];
+    const s = {
+      metadata: { version: 4.6, type: "Texture", generator: "Texture.toJSON" },
+      uuid: this.uuid,
+      name: this.name,
+      image: this.source.toJSON(t).uuid,
+      mapping: this.mapping,
+      channel: this.channel,
+      repeat: [this.repeat.x, this.repeat.y],
+      offset: [this.offset.x, this.offset.y],
+      center: [this.center.x, this.center.y],
+      rotation: this.rotation,
+      wrap: [this.wrapS, this.wrapT],
+      format: this.format,
+      internalFormat: this.internalFormat,
+      type: this.type,
+      colorSpace: this.colorSpace,
+      minFilter: this.minFilter,
+      magFilter: this.magFilter,
+      anisotropy: this.anisotropy,
+      flipY: this.flipY,
+      generateMipmaps: this.generateMipmaps,
+      premultiplyAlpha: this.premultiplyAlpha,
+      unpackAlignment: this.unpackAlignment,
+    };
+    return (
+      Object.keys(this.userData).length > 0 && (s.userData = this.userData),
+      e || (t.textures[this.uuid] = s),
+      s
+    );
+  }
+  dispose() {
+    this.dispatchEvent({ type: "dispose" });
+  }
+  transformUv(t) {
+    if (this.mapping !== 300) return t;
+    if ((t.applyMatrix3(this.matrix), t.x < 0 || t.x > 1))
+      switch (this.wrapS) {
+        case 1e3:
+          t.x = t.x - Math.floor(t.x);
+          break;
+        case 1001:
+          t.x = t.x < 0 ? 0 : 1;
+          break;
+        case 1002:
+          Math.abs(Math.floor(t.x) % 2) === 1
+            ? (t.x = Math.ceil(t.x) - t.x)
+            : (t.x = t.x - Math.floor(t.x));
+          break;
+      }
+    if (t.y < 0 || t.y > 1)
+      switch (this.wrapT) {
+        case 1e3:
+          t.y = t.y - Math.floor(t.y);
+          break;
+        case 1001:
+          t.y = t.y < 0 ? 0 : 1;
+          break;
+        case 1002:
+          Math.abs(Math.floor(t.y) % 2) === 1
+            ? (t.y = Math.ceil(t.y) - t.y)
+            : (t.y = t.y - Math.floor(t.y));
+          break;
+      }
+    return (this.flipY && (t.y = 1 - t.y), t);
+  }
+  set needsUpdate(t) {
+    t === !0 && (this.version++, (this.source.needsUpdate = !0));
+  }
+  set needsPMREMUpdate(t) {
+    t === !0 && this.pmremVersion++;
+  }
+}
+ie.DEFAULT_IMAGE = null;
+ie.DEFAULT_MAPPING = 300;
+ie.DEFAULT_ANISOTROPY = 1;
+class Ye {
+  constructor(t = 0, e = 0, s = 0, n = 1) {
+    ((this.isQuaternion = !0),
+      (this._x = t),
+      (this._y = e),
+      (this._z = s),
+      (this._w = n));
+  }
+  static slerpFlat(t, e, s, n, i, c, h) {
+    let o = s[n + 0],
+      a = s[n + 1],
+      u = s[n + 2],
+      d = s[n + 3];
+    const l = i[c + 0],
+      f = i[c + 1],
+      m = i[c + 2],
+      _ = i[c + 3];
+    if (h === 0) {
+      ((t[e + 0] = o), (t[e + 1] = a), (t[e + 2] = u), (t[e + 3] = d));
+      return;
+    }
+    if (h === 1) {
+      ((t[e + 0] = l), (t[e + 1] = f), (t[e + 2] = m), (t[e + 3] = _));
+      return;
+    }
+    if (d !== _ || o !== l || a !== f || u !== m) {
+      let g = 1 - h;
+      const y = o * l + a * f + u * m + d * _,
+        R = y >= 0 ? 1 : -1,
+        E = 1 - y * y;
+      if (E > Number.EPSILON) {
+        const S = Math.sqrt(E),
+          M = Math.atan2(S, y * R);
+        ((g = Math.sin(g * M) / S), (h = Math.sin(h * M) / S));
+      }
+      const x = h * R;
+      if (
+        ((o = o * g + l * x),
+        (a = a * g + f * x),
+        (u = u * g + m * x),
+        (d = d * g + _ * x),
+        g === 1 - h)
+      ) {
+        const S = 1 / Math.sqrt(o * o + a * a + u * u + d * d);
+        ((o *= S), (a *= S), (u *= S), (d *= S));
+      }
+    }
+    ((t[e] = o), (t[e + 1] = a), (t[e + 2] = u), (t[e + 3] = d));
+  }
+  static multiplyQuaternionsFlat(t, e, s, n, i, c) {
+    const h = s[n],
+      o = s[n + 1],
+      a = s[n + 2],
+      u = s[n + 3],
+      d = i[c],
+      l = i[c + 1],
+      f = i[c + 2],
+      m = i[c + 3];
+    return (
+      (t[e] = h * m + u * d + o * f - a * l),
+      (t[e + 1] = o * m + u * l + a * d - h * f),
+      (t[e + 2] = a * m + u * f + h * l - o * d),
+      (t[e + 3] = u * m - h * d - o * l - a * f),
+      t
+    );
+  }
+  get x() {
+    return this._x;
+  }
+  set x(t) {
+    ((this._x = t), this._onChangeCallback());
+  }
+  get y() {
+    return this._y;
+  }
+  set y(t) {
+    ((this._y = t), this._onChangeCallback());
+  }
+  get z() {
+    return this._z;
+  }
+  set z(t) {
+    ((this._z = t), this._onChangeCallback());
+  }
+  get w() {
+    return this._w;
+  }
+  set w(t) {
+    ((this._w = t), this._onChangeCallback());
+  }
+  set(t, e, s, n) {
+    return (
+      (this._x = t),
+      (this._y = e),
+      (this._z = s),
+      (this._w = n),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  clone() {
+    return new this.constructor(this._x, this._y, this._z, this._w);
+  }
+  copy(t) {
+    return (
+      (this._x = t.x),
+      (this._y = t.y),
+      (this._z = t.z),
+      (this._w = t.w),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  setFromEuler(t, e = !0) {
+    const s = t._x,
+      n = t._y,
+      i = t._z,
+      c = t._order,
+      h = Math.cos,
+      o = Math.sin,
+      a = h(s / 2),
+      u = h(n / 2),
+      d = h(i / 2),
+      l = o(s / 2),
+      f = o(n / 2),
+      m = o(i / 2);
+    switch (c) {
+      case "XYZ":
+        ((this._x = l * u * d + a * f * m),
+          (this._y = a * f * d - l * u * m),
+          (this._z = a * u * m + l * f * d),
+          (this._w = a * u * d - l * f * m));
+        break;
+      case "YXZ":
+        ((this._x = l * u * d + a * f * m),
+          (this._y = a * f * d - l * u * m),
+          (this._z = a * u * m - l * f * d),
+          (this._w = a * u * d + l * f * m));
+        break;
+      case "ZXY":
+        ((this._x = l * u * d - a * f * m),
+          (this._y = a * f * d + l * u * m),
+          (this._z = a * u * m + l * f * d),
+          (this._w = a * u * d - l * f * m));
+        break;
+      case "ZYX":
+        ((this._x = l * u * d - a * f * m),
+          (this._y = a * f * d + l * u * m),
+          (this._z = a * u * m - l * f * d),
+          (this._w = a * u * d + l * f * m));
+        break;
+      case "YZX":
+        ((this._x = l * u * d + a * f * m),
+          (this._y = a * f * d + l * u * m),
+          (this._z = a * u * m - l * f * d),
+          (this._w = a * u * d - l * f * m));
+        break;
+      case "XZY":
+        ((this._x = l * u * d - a * f * m),
+          (this._y = a * f * d - l * u * m),
+          (this._z = a * u * m + l * f * d),
+          (this._w = a * u * d + l * f * m));
+        break;
+      default:
+        console.warn(
+          "THREE.Quaternion: .setFromEuler() encountered an unknown order: " +
+            c,
+        );
+    }
+    return (e === !0 && this._onChangeCallback(), this);
+  }
+  setFromAxisAngle(t, e) {
+    const s = e / 2,
+      n = Math.sin(s);
+    return (
+      (this._x = t.x * n),
+      (this._y = t.y * n),
+      (this._z = t.z * n),
+      (this._w = Math.cos(s)),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  setFromRotationMatrix(t) {
+    const e = t.elements,
+      s = e[0],
+      n = e[4],
+      i = e[8],
+      c = e[1],
+      h = e[5],
+      o = e[9],
+      a = e[2],
+      u = e[6],
+      d = e[10],
+      l = s + h + d;
+    if (l > 0) {
+      const f = 0.5 / Math.sqrt(l + 1);
+      ((this._w = 0.25 / f),
+        (this._x = (u - o) * f),
+        (this._y = (i - a) * f),
+        (this._z = (c - n) * f));
+    } else if (s > h && s > d) {
+      const f = 2 * Math.sqrt(1 + s - h - d);
+      ((this._w = (u - o) / f),
+        (this._x = 0.25 * f),
+        (this._y = (n + c) / f),
+        (this._z = (i + a) / f));
+    } else if (h > d) {
+      const f = 2 * Math.sqrt(1 + h - s - d);
+      ((this._w = (i - a) / f),
+        (this._x = (n + c) / f),
+        (this._y = 0.25 * f),
+        (this._z = (o + u) / f));
+    } else {
+      const f = 2 * Math.sqrt(1 + d - s - h);
+      ((this._w = (c - n) / f),
+        (this._x = (i + a) / f),
+        (this._y = (o + u) / f),
+        (this._z = 0.25 * f));
+    }
+    return (this._onChangeCallback(), this);
+  }
+  setFromUnitVectors(t, e) {
+    let s = t.dot(e) + 1;
+    return (
+      s < Number.EPSILON
+        ? ((s = 0),
+          Math.abs(t.x) > Math.abs(t.z)
+            ? ((this._x = -t.y), (this._y = t.x), (this._z = 0), (this._w = s))
+            : ((this._x = 0), (this._y = -t.z), (this._z = t.y), (this._w = s)))
+        : ((this._x = t.y * e.z - t.z * e.y),
+          (this._y = t.z * e.x - t.x * e.z),
+          (this._z = t.x * e.y - t.y * e.x),
+          (this._w = s)),
+      this.normalize()
+    );
+  }
+  angleTo(t) {
+    return 2 * Math.acos(Math.abs(Ut(this.dot(t), -1, 1)));
+  }
+  rotateTowards(t, e) {
+    const s = this.angleTo(t);
+    if (s === 0) return this;
+    const n = Math.min(1, e / s);
+    return (this.slerp(t, n), this);
+  }
+  identity() {
+    return this.set(0, 0, 0, 1);
+  }
+  invert() {
+    return this.conjugate();
+  }
+  conjugate() {
+    return (
+      (this._x *= -1),
+      (this._y *= -1),
+      (this._z *= -1),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  dot(t) {
+    return this._x * t._x + this._y * t._y + this._z * t._z + this._w * t._w;
+  }
+  lengthSq() {
+    return (
+      this._x * this._x +
+      this._y * this._y +
+      this._z * this._z +
+      this._w * this._w
+    );
+  }
+  length() {
+    return Math.sqrt(
+      this._x * this._x +
+        this._y * this._y +
+        this._z * this._z +
+        this._w * this._w,
+    );
+  }
+  normalize() {
+    let t = this.length();
+    return (
+      t === 0
+        ? ((this._x = 0), (this._y = 0), (this._z = 0), (this._w = 1))
+        : ((t = 1 / t),
+          (this._x = this._x * t),
+          (this._y = this._y * t),
+          (this._z = this._z * t),
+          (this._w = this._w * t)),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  multiply(t) {
+    return this.multiplyQuaternions(this, t);
+  }
+  premultiply(t) {
+    return this.multiplyQuaternions(t, this);
+  }
+  multiplyQuaternions(t, e) {
+    const s = t._x,
+      n = t._y,
+      i = t._z,
+      c = t._w,
+      h = e._x,
+      o = e._y,
+      a = e._z,
+      u = e._w;
+    return (
+      (this._x = s * u + c * h + n * a - i * o),
+      (this._y = n * u + c * o + i * h - s * a),
+      (this._z = i * u + c * a + s * o - n * h),
+      (this._w = c * u - s * h - n * o - i * a),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  slerp(t, e) {
+    if (e === 0) return this;
+    if (e === 1) return this.copy(t);
+    const s = this._x,
+      n = this._y,
+      i = this._z,
+      c = this._w;
+    let h = c * t._w + s * t._x + n * t._y + i * t._z;
+    if (
+      (h < 0
+        ? ((this._w = -t._w),
+          (this._x = -t._x),
+          (this._y = -t._y),
+          (this._z = -t._z),
+          (h = -h))
+        : this.copy(t),
+      h >= 1)
+    )
+      return ((this._w = c), (this._x = s), (this._y = n), (this._z = i), this);
+    const o = 1 - h * h;
+    if (o <= Number.EPSILON) {
+      const f = 1 - e;
+      return (
+        (this._w = f * c + e * this._w),
+        (this._x = f * s + e * this._x),
+        (this._y = f * n + e * this._y),
+        (this._z = f * i + e * this._z),
+        this.normalize(),
+        this
+      );
+    }
+    const a = Math.sqrt(o),
+      u = Math.atan2(a, h),
+      d = Math.sin((1 - e) * u) / a,
+      l = Math.sin(e * u) / a;
+    return (
+      (this._w = c * d + this._w * l),
+      (this._x = s * d + this._x * l),
+      (this._y = n * d + this._y * l),
+      (this._z = i * d + this._z * l),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  slerpQuaternions(t, e, s) {
+    return this.copy(t).slerp(e, s);
+  }
+  random() {
+    const t = 2 * Math.PI * Math.random(),
+      e = 2 * Math.PI * Math.random(),
+      s = Math.random(),
+      n = Math.sqrt(1 - s),
+      i = Math.sqrt(s);
+    return this.set(
+      n * Math.sin(t),
+      n * Math.cos(t),
+      i * Math.sin(e),
+      i * Math.cos(e),
+    );
+  }
+  equals(t) {
+    return (
+      t._x === this._x &&
+      t._y === this._y &&
+      t._z === this._z &&
+      t._w === this._w
+    );
+  }
+  fromArray(t, e = 0) {
+    return (
+      (this._x = t[e]),
+      (this._y = t[e + 1]),
+      (this._z = t[e + 2]),
+      (this._w = t[e + 3]),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  toArray(t = [], e = 0) {
+    return (
+      (t[e] = this._x),
+      (t[e + 1] = this._y),
+      (t[e + 2] = this._z),
+      (t[e + 3] = this._w),
+      t
+    );
+  }
+  fromBufferAttribute(t, e) {
+    return (
+      (this._x = t.getX(e)),
+      (this._y = t.getY(e)),
+      (this._z = t.getZ(e)),
+      (this._w = t.getW(e)),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  toJSON() {
+    return this.toArray();
+  }
+  _onChange(t) {
+    return ((this._onChangeCallback = t), this);
+  }
+  _onChangeCallback() {}
+  *[Symbol.iterator]() {
+    (yield this._x, yield this._y, yield this._z, yield this._w);
+  }
+}
+class C {
+  constructor(t = 0, e = 0, s = 0) {
+    ((C.prototype.isVector3 = !0), (this.x = t), (this.y = e), (this.z = s));
+  }
+  set(t, e, s) {
+    return (
+      s === void 0 && (s = this.z),
+      (this.x = t),
+      (this.y = e),
+      (this.z = s),
+      this
+    );
+  }
+  setScalar(t) {
+    return ((this.x = t), (this.y = t), (this.z = t), this);
+  }
+  setX(t) {
+    return ((this.x = t), this);
+  }
+  setY(t) {
+    return ((this.y = t), this);
+  }
+  setZ(t) {
+    return ((this.z = t), this);
+  }
+  setComponent(t, e) {
+    switch (t) {
+      case 0:
+        this.x = e;
+        break;
+      case 1:
+        this.y = e;
+        break;
+      case 2:
+        this.z = e;
+        break;
+      default:
+        throw new Error("index is out of range: " + t);
+    }
+    return this;
+  }
+  getComponent(t) {
+    switch (t) {
+      case 0:
+        return this.x;
+      case 1:
+        return this.y;
+      case 2:
+        return this.z;
+      default:
+        throw new Error("index is out of range: " + t);
+    }
+  }
+  clone() {
+    return new this.constructor(this.x, this.y, this.z);
+  }
+  copy(t) {
+    return ((this.x = t.x), (this.y = t.y), (this.z = t.z), this);
+  }
+  add(t) {
+    return ((this.x += t.x), (this.y += t.y), (this.z += t.z), this);
+  }
+  addScalar(t) {
+    return ((this.x += t), (this.y += t), (this.z += t), this);
+  }
+  addVectors(t, e) {
+    return (
+      (this.x = t.x + e.x),
+      (this.y = t.y + e.y),
+      (this.z = t.z + e.z),
+      this
+    );
+  }
+  addScaledVector(t, e) {
+    return (
+      (this.x += t.x * e),
+      (this.y += t.y * e),
+      (this.z += t.z * e),
+      this
+    );
+  }
+  sub(t) {
+    return ((this.x -= t.x), (this.y -= t.y), (this.z -= t.z), this);
+  }
+  subScalar(t) {
+    return ((this.x -= t), (this.y -= t), (this.z -= t), this);
+  }
+  subVectors(t, e) {
+    return (
+      (this.x = t.x - e.x),
+      (this.y = t.y - e.y),
+      (this.z = t.z - e.z),
+      this
+    );
+  }
+  multiply(t) {
+    return ((this.x *= t.x), (this.y *= t.y), (this.z *= t.z), this);
+  }
+  multiplyScalar(t) {
+    return ((this.x *= t), (this.y *= t), (this.z *= t), this);
+  }
+  multiplyVectors(t, e) {
+    return (
+      (this.x = t.x * e.x),
+      (this.y = t.y * e.y),
+      (this.z = t.z * e.z),
+      this
+    );
+  }
+  applyEuler(t) {
+    return this.applyQuaternion(Rn.setFromEuler(t));
+  }
+  applyAxisAngle(t, e) {
+    return this.applyQuaternion(Rn.setFromAxisAngle(t, e));
+  }
+  applyMatrix3(t) {
+    const e = this.x,
+      s = this.y,
+      n = this.z,
+      i = t.elements;
+    return (
+      (this.x = i[0] * e + i[3] * s + i[6] * n),
+      (this.y = i[1] * e + i[4] * s + i[7] * n),
+      (this.z = i[2] * e + i[5] * s + i[8] * n),
+      this
+    );
+  }
+  applyNormalMatrix(t) {
+    return this.applyMatrix3(t).normalize();
+  }
+  applyMatrix4(t) {
+    const e = this.x,
+      s = this.y,
+      n = this.z,
+      i = t.elements,
+      c = 1 / (i[3] * e + i[7] * s + i[11] * n + i[15]);
+    return (
+      (this.x = (i[0] * e + i[4] * s + i[8] * n + i[12]) * c),
+      (this.y = (i[1] * e + i[5] * s + i[9] * n + i[13]) * c),
+      (this.z = (i[2] * e + i[6] * s + i[10] * n + i[14]) * c),
+      this
+    );
+  }
+  applyQuaternion(t) {
+    const e = this.x,
+      s = this.y,
+      n = this.z,
+      i = t.x,
+      c = t.y,
+      h = t.z,
+      o = t.w,
+      a = 2 * (c * n - h * s),
+      u = 2 * (h * e - i * n),
+      d = 2 * (i * s - c * e);
+    return (
+      (this.x = e + o * a + c * d - h * u),
+      (this.y = s + o * u + h * a - i * d),
+      (this.z = n + o * d + i * u - c * a),
+      this
+    );
+  }
+  project(t) {
+    return this.applyMatrix4(t.matrixWorldInverse).applyMatrix4(
+      t.projectionMatrix,
+    );
+  }
+  unproject(t) {
+    return this.applyMatrix4(t.projectionMatrixInverse).applyMatrix4(
+      t.matrixWorld,
+    );
+  }
+  transformDirection(t) {
+    const e = this.x,
+      s = this.y,
+      n = this.z,
+      i = t.elements;
+    return (
+      (this.x = i[0] * e + i[4] * s + i[8] * n),
+      (this.y = i[1] * e + i[5] * s + i[9] * n),
+      (this.z = i[2] * e + i[6] * s + i[10] * n),
+      this.normalize()
+    );
+  }
+  divide(t) {
+    return ((this.x /= t.x), (this.y /= t.y), (this.z /= t.z), this);
+  }
+  divideScalar(t) {
+    return this.multiplyScalar(1 / t);
+  }
+  min(t) {
+    return (
+      (this.x = Math.min(this.x, t.x)),
+      (this.y = Math.min(this.y, t.y)),
+      (this.z = Math.min(this.z, t.z)),
+      this
+    );
+  }
+  max(t) {
+    return (
+      (this.x = Math.max(this.x, t.x)),
+      (this.y = Math.max(this.y, t.y)),
+      (this.z = Math.max(this.z, t.z)),
+      this
+    );
+  }
+  clamp(t, e) {
+    return (
+      (this.x = Math.max(t.x, Math.min(e.x, this.x))),
+      (this.y = Math.max(t.y, Math.min(e.y, this.y))),
+      (this.z = Math.max(t.z, Math.min(e.z, this.z))),
+      this
+    );
+  }
+  clampScalar(t, e) {
+    return (
+      (this.x = Math.max(t, Math.min(e, this.x))),
+      (this.y = Math.max(t, Math.min(e, this.y))),
+      (this.z = Math.max(t, Math.min(e, this.z))),
+      this
+    );
+  }
+  clampLength(t, e) {
+    const s = this.length();
+    return this.divideScalar(s || 1).multiplyScalar(
+      Math.max(t, Math.min(e, s)),
+    );
+  }
+  floor() {
+    return (
+      (this.x = Math.floor(this.x)),
+      (this.y = Math.floor(this.y)),
+      (this.z = Math.floor(this.z)),
+      this
+    );
+  }
+  ceil() {
+    return (
+      (this.x = Math.ceil(this.x)),
+      (this.y = Math.ceil(this.y)),
+      (this.z = Math.ceil(this.z)),
+      this
+    );
+  }
+  round() {
+    return (
+      (this.x = Math.round(this.x)),
+      (this.y = Math.round(this.y)),
+      (this.z = Math.round(this.z)),
+      this
+    );
+  }
+  roundToZero() {
+    return (
+      (this.x = Math.trunc(this.x)),
+      (this.y = Math.trunc(this.y)),
+      (this.z = Math.trunc(this.z)),
+      this
+    );
+  }
+  negate() {
+    return ((this.x = -this.x), (this.y = -this.y), (this.z = -this.z), this);
+  }
+  dot(t) {
+    return this.x * t.x + this.y * t.y + this.z * t.z;
+  }
+  lengthSq() {
+    return this.x * this.x + this.y * this.y + this.z * this.z;
+  }
+  length() {
+    return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+  }
+  manhattanLength() {
+    return Math.abs(this.x) + Math.abs(this.y) + Math.abs(this.z);
+  }
+  normalize() {
+    return this.divideScalar(this.length() || 1);
+  }
+  setLength(t) {
+    return this.normalize().multiplyScalar(t);
+  }
+  lerp(t, e) {
+    return (
+      (this.x += (t.x - this.x) * e),
+      (this.y += (t.y - this.y) * e),
+      (this.z += (t.z - this.z) * e),
+      this
+    );
+  }
+  lerpVectors(t, e, s) {
+    return (
+      (this.x = t.x + (e.x - t.x) * s),
+      (this.y = t.y + (e.y - t.y) * s),
+      (this.z = t.z + (e.z - t.z) * s),
+      this
+    );
+  }
+  cross(t) {
+    return this.crossVectors(this, t);
+  }
+  crossVectors(t, e) {
+    const s = t.x,
+      n = t.y,
+      i = t.z,
+      c = e.x,
+      h = e.y,
+      o = e.z;
+    return (
+      (this.x = n * o - i * h),
+      (this.y = i * c - s * o),
+      (this.z = s * h - n * c),
+      this
+    );
+  }
+  projectOnVector(t) {
+    const e = t.lengthSq();
+    if (e === 0) return this.set(0, 0, 0);
+    const s = t.dot(this) / e;
+    return this.copy(t).multiplyScalar(s);
+  }
+  projectOnPlane(t) {
+    return (ks.copy(this).projectOnVector(t), this.sub(ks));
+  }
+  reflect(t) {
+    return this.sub(ks.copy(t).multiplyScalar(2 * this.dot(t)));
+  }
+  angleTo(t) {
+    const e = Math.sqrt(this.lengthSq() * t.lengthSq());
+    if (e === 0) return Math.PI / 2;
+    const s = this.dot(t) / e;
+    return Math.acos(Ut(s, -1, 1));
+  }
+  distanceTo(t) {
+    return Math.sqrt(this.distanceToSquared(t));
+  }
+  distanceToSquared(t) {
+    const e = this.x - t.x,
+      s = this.y - t.y,
+      n = this.z - t.z;
+    return e * e + s * s + n * n;
+  }
+  manhattanDistanceTo(t) {
+    return (
+      Math.abs(this.x - t.x) + Math.abs(this.y - t.y) + Math.abs(this.z - t.z)
+    );
+  }
+  setFromSpherical(t) {
+    return this.setFromSphericalCoords(t.radius, t.phi, t.theta);
+  }
+  setFromSphericalCoords(t, e, s) {
+    const n = Math.sin(e) * t;
+    return (
+      (this.x = n * Math.sin(s)),
+      (this.y = Math.cos(e) * t),
+      (this.z = n * Math.cos(s)),
+      this
+    );
+  }
+  setFromCylindrical(t) {
+    return this.setFromCylindricalCoords(t.radius, t.theta, t.y);
+  }
+  setFromCylindricalCoords(t, e, s) {
+    return (
+      (this.x = t * Math.sin(e)),
+      (this.y = s),
+      (this.z = t * Math.cos(e)),
+      this
+    );
+  }
+  setFromMatrixPosition(t) {
+    const e = t.elements;
+    return ((this.x = e[12]), (this.y = e[13]), (this.z = e[14]), this);
+  }
+  setFromMatrixScale(t) {
+    const e = this.setFromMatrixColumn(t, 0).length(),
+      s = this.setFromMatrixColumn(t, 1).length(),
+      n = this.setFromMatrixColumn(t, 2).length();
+    return ((this.x = e), (this.y = s), (this.z = n), this);
+  }
+  setFromMatrixColumn(t, e) {
+    return this.fromArray(t.elements, e * 4);
+  }
+  setFromMatrix3Column(t, e) {
+    return this.fromArray(t.elements, e * 3);
+  }
+  setFromEuler(t) {
+    return ((this.x = t._x), (this.y = t._y), (this.z = t._z), this);
+  }
+  setFromColor(t) {
+    return ((this.x = t.r), (this.y = t.g), (this.z = t.b), this);
+  }
+  equals(t) {
+    return t.x === this.x && t.y === this.y && t.z === this.z;
+  }
+  fromArray(t, e = 0) {
+    return ((this.x = t[e]), (this.y = t[e + 1]), (this.z = t[e + 2]), this);
+  }
+  toArray(t = [], e = 0) {
+    return ((t[e] = this.x), (t[e + 1] = this.y), (t[e + 2] = this.z), t);
+  }
+  fromBufferAttribute(t, e) {
+    return (
+      (this.x = t.getX(e)),
+      (this.y = t.getY(e)),
+      (this.z = t.getZ(e)),
+      this
+    );
+  }
+  random() {
+    return (
+      (this.x = Math.random()),
+      (this.y = Math.random()),
+      (this.z = Math.random()),
+      this
+    );
+  }
+  randomDirection() {
+    const t = Math.random() * Math.PI * 2,
+      e = Math.random() * 2 - 1,
+      s = Math.sqrt(1 - e * e);
+    return (
+      (this.x = s * Math.cos(t)),
+      (this.y = e),
+      (this.z = s * Math.sin(t)),
+      this
+    );
+  }
+  *[Symbol.iterator]() {
+    (yield this.x, yield this.y, yield this.z);
+  }
+}
+const ks = new C(),
+  Rn = new Ye();
+class Ve {
+  constructor(
+    t = new C(1 / 0, 1 / 0, 1 / 0),
+    e = new C(-1 / 0, -1 / 0, -1 / 0),
+  ) {
+    ((this.isBox3 = !0), (this.min = t), (this.max = e));
+  }
+  set(t, e) {
+    return (this.min.copy(t), this.max.copy(e), this);
+  }
+  setFromArray(t) {
+    this.makeEmpty();
+    for (let e = 0, s = t.length; e < s; e += 3)
+      this.expandByPoint(gt.fromArray(t, e));
+    return this;
+  }
+  setFromBufferAttribute(t) {
+    this.makeEmpty();
+    for (let e = 0, s = t.count; e < s; e++)
+      this.expandByPoint(gt.fromBufferAttribute(t, e));
+    return this;
+  }
+  setFromPoints(t) {
+    this.makeEmpty();
+    for (let e = 0, s = t.length; e < s; e++) this.expandByPoint(t[e]);
+    return this;
+  }
+  setFromCenterAndSize(t, e) {
+    const s = gt.copy(e).multiplyScalar(0.5);
+    return (this.min.copy(t).sub(s), this.max.copy(t).add(s), this);
+  }
+  setFromObject(t, e = !1) {
+    return (this.makeEmpty(), this.expandByObject(t, e));
+  }
+  clone() {
+    return new this.constructor().copy(this);
+  }
+  copy(t) {
+    return (this.min.copy(t.min), this.max.copy(t.max), this);
+  }
+  makeEmpty() {
+    return (
+      (this.min.x = this.min.y = this.min.z = 1 / 0),
+      (this.max.x = this.max.y = this.max.z = -1 / 0),
+      this
+    );
+  }
+  isEmpty() {
+    return (
+      this.max.x < this.min.x ||
+      this.max.y < this.min.y ||
+      this.max.z < this.min.z
+    );
+  }
+  getCenter(t) {
+    return this.isEmpty()
+      ? t.set(0, 0, 0)
+      : t.addVectors(this.min, this.max).multiplyScalar(0.5);
+  }
+  getSize(t) {
+    return this.isEmpty() ? t.set(0, 0, 0) : t.subVectors(this.max, this.min);
+  }
+  expandByPoint(t) {
+    return (this.min.min(t), this.max.max(t), this);
+  }
+  expandByVector(t) {
+    return (this.min.sub(t), this.max.add(t), this);
+  }
+  expandByScalar(t) {
+    return (this.min.addScalar(-t), this.max.addScalar(t), this);
+  }
+  expandByObject(t, e = !1) {
+    t.updateWorldMatrix(!1, !1);
+    const s = t.geometry;
+    if (s !== void 0) {
+      const i = s.getAttribute("position");
+      if (e === !0 && i !== void 0 && t.isInstancedMesh !== !0)
+        for (let c = 0, h = i.count; c < h; c++)
+          (t.isMesh === !0
+            ? t.getVertexPosition(c, gt)
+            : gt.fromBufferAttribute(i, c),
+            gt.applyMatrix4(t.matrixWorld),
+            this.expandByPoint(gt));
+      else
+        (t.boundingBox !== void 0
+          ? (t.boundingBox === null && t.computeBoundingBox(),
+            je.copy(t.boundingBox))
+          : (s.boundingBox === null && s.computeBoundingBox(),
+            je.copy(s.boundingBox)),
+          je.applyMatrix4(t.matrixWorld),
+          this.union(je));
+    }
+    const n = t.children;
+    for (let i = 0, c = n.length; i < c; i++) this.expandByObject(n[i], e);
+    return this;
+  }
+  containsPoint(t) {
+    return (
+      t.x >= this.min.x &&
+      t.x <= this.max.x &&
+      t.y >= this.min.y &&
+      t.y <= this.max.y &&
+      t.z >= this.min.z &&
+      t.z <= this.max.z
+    );
+  }
+  containsBox(t) {
+    return (
+      this.min.x <= t.min.x &&
+      t.max.x <= this.max.x &&
+      this.min.y <= t.min.y &&
+      t.max.y <= this.max.y &&
+      this.min.z <= t.min.z &&
+      t.max.z <= this.max.z
+    );
+  }
+  getParameter(t, e) {
+    return e.set(
+      (t.x - this.min.x) / (this.max.x - this.min.x),
+      (t.y - this.min.y) / (this.max.y - this.min.y),
+      (t.z - this.min.z) / (this.max.z - this.min.z),
+    );
+  }
+  intersectsBox(t) {
+    return (
+      t.max.x >= this.min.x &&
+      t.min.x <= this.max.x &&
+      t.max.y >= this.min.y &&
+      t.min.y <= this.max.y &&
+      t.max.z >= this.min.z &&
+      t.min.z <= this.max.z
+    );
+  }
+  intersectsSphere(t) {
+    return (
+      this.clampPoint(t.center, gt),
+      gt.distanceToSquared(t.center) <= t.radius * t.radius
+    );
+  }
+  intersectsPlane(t) {
+    let e, s;
+    return (
+      t.normal.x > 0
+        ? ((e = t.normal.x * this.min.x), (s = t.normal.x * this.max.x))
+        : ((e = t.normal.x * this.max.x), (s = t.normal.x * this.min.x)),
+      t.normal.y > 0
+        ? ((e += t.normal.y * this.min.y), (s += t.normal.y * this.max.y))
+        : ((e += t.normal.y * this.max.y), (s += t.normal.y * this.min.y)),
+      t.normal.z > 0
+        ? ((e += t.normal.z * this.min.z), (s += t.normal.z * this.max.z))
+        : ((e += t.normal.z * this.max.z), (s += t.normal.z * this.min.z)),
+      e <= -t.constant && s >= -t.constant
+    );
+  }
+  intersectsTriangle(t) {
+    if (this.isEmpty()) return !1;
+    (this.getCenter(Ie),
+      ts.subVectors(this.max, Ie),
+      ue.subVectors(t.a, Ie),
+      le.subVectors(t.b, Ie),
+      de.subVectors(t.c, Ie),
+      Wt.subVectors(le, ue),
+      Ht.subVectors(de, le),
+      $t.subVectors(ue, de));
+    let e = [
+      0,
+      -Wt.z,
+      Wt.y,
+      0,
+      -Ht.z,
+      Ht.y,
+      0,
+      -$t.z,
+      $t.y,
+      Wt.z,
+      0,
+      -Wt.x,
+      Ht.z,
+      0,
+      -Ht.x,
+      $t.z,
+      0,
+      -$t.x,
+      -Wt.y,
+      Wt.x,
+      0,
+      -Ht.y,
+      Ht.x,
+      0,
+      -$t.y,
+      $t.x,
+      0,
+    ];
+    return !Us(e, ue, le, de, ts) ||
+      ((e = [1, 0, 0, 0, 1, 0, 0, 0, 1]), !Us(e, ue, le, de, ts))
+      ? !1
+      : (es.crossVectors(Wt, Ht),
+        (e = [es.x, es.y, es.z]),
+        Us(e, ue, le, de, ts));
+  }
+  clampPoint(t, e) {
+    return e.copy(t).clamp(this.min, this.max);
+  }
+  distanceToPoint(t) {
+    return this.clampPoint(t, gt).distanceTo(t);
+  }
+  getBoundingSphere(t) {
+    return (
+      this.isEmpty()
+        ? t.makeEmpty()
+        : (this.getCenter(t.center),
+          (t.radius = this.getSize(gt).length() * 0.5)),
+      t
+    );
+  }
+  intersect(t) {
+    return (
+      this.min.max(t.min),
+      this.max.min(t.max),
+      this.isEmpty() && this.makeEmpty(),
+      this
+    );
+  }
+  union(t) {
+    return (this.min.min(t.min), this.max.max(t.max), this);
+  }
+  applyMatrix4(t) {
+    return this.isEmpty()
+      ? this
+      : (Pt[0].set(this.min.x, this.min.y, this.min.z).applyMatrix4(t),
+        Pt[1].set(this.min.x, this.min.y, this.max.z).applyMatrix4(t),
+        Pt[2].set(this.min.x, this.max.y, this.min.z).applyMatrix4(t),
+        Pt[3].set(this.min.x, this.max.y, this.max.z).applyMatrix4(t),
+        Pt[4].set(this.max.x, this.min.y, this.min.z).applyMatrix4(t),
+        Pt[5].set(this.max.x, this.min.y, this.max.z).applyMatrix4(t),
+        Pt[6].set(this.max.x, this.max.y, this.min.z).applyMatrix4(t),
+        Pt[7].set(this.max.x, this.max.y, this.max.z).applyMatrix4(t),
+        this.setFromPoints(Pt),
+        this);
+  }
+  translate(t) {
+    return (this.min.add(t), this.max.add(t), this);
+  }
+  equals(t) {
+    return t.min.equals(this.min) && t.max.equals(this.max);
+  }
+}
+const Pt = [
+    new C(),
+    new C(),
+    new C(),
+    new C(),
+    new C(),
+    new C(),
+    new C(),
+    new C(),
+  ],
+  gt = new C(),
+  je = new Ve(),
+  ue = new C(),
+  le = new C(),
+  de = new C(),
+  Wt = new C(),
+  Ht = new C(),
+  $t = new C(),
+  Ie = new C(),
+  ts = new C(),
+  es = new C(),
+  Jt = new C();
+function Us(r, t, e, s, n) {
+  for (let i = 0, c = r.length - 3; i <= c; i += 3) {
+    Jt.fromArray(r, i);
+    const h =
+        n.x * Math.abs(Jt.x) + n.y * Math.abs(Jt.y) + n.z * Math.abs(Jt.z),
+      o = t.dot(Jt),
+      a = e.dot(Jt),
+      u = s.dot(Jt);
+    if (Math.max(-Math.max(o, a, u), Math.min(o, a, u)) > h) return !1;
+  }
+  return !0;
+}
+const Pi = new Ve(),
+  Ce = new C(),
+  Ds = new C();
+class ki {
+  constructor(t = new C(), e = -1) {
+    ((this.isSphere = !0), (this.center = t), (this.radius = e));
+  }
+  set(t, e) {
+    return (this.center.copy(t), (this.radius = e), this);
+  }
+  setFromPoints(t, e) {
+    const s = this.center;
+    e !== void 0 ? s.copy(e) : Pi.setFromPoints(t).getCenter(s);
+    let n = 0;
+    for (let i = 0, c = t.length; i < c; i++)
+      n = Math.max(n, s.distanceToSquared(t[i]));
+    return ((this.radius = Math.sqrt(n)), this);
+  }
+  copy(t) {
+    return (this.center.copy(t.center), (this.radius = t.radius), this);
+  }
+  isEmpty() {
+    return this.radius < 0;
+  }
+  makeEmpty() {
+    return (this.center.set(0, 0, 0), (this.radius = -1), this);
+  }
+  containsPoint(t) {
+    return t.distanceToSquared(this.center) <= this.radius * this.radius;
+  }
+  distanceToPoint(t) {
+    return t.distanceTo(this.center) - this.radius;
+  }
+  intersectsSphere(t) {
+    const e = this.radius + t.radius;
+    return t.center.distanceToSquared(this.center) <= e * e;
+  }
+  intersectsBox(t) {
+    return t.intersectsSphere(this);
+  }
+  intersectsPlane(t) {
+    return Math.abs(t.distanceToPoint(this.center)) <= this.radius;
+  }
+  clampPoint(t, e) {
+    const s = this.center.distanceToSquared(t);
+    return (
+      e.copy(t),
+      s > this.radius * this.radius &&
+        (e.sub(this.center).normalize(),
+        e.multiplyScalar(this.radius).add(this.center)),
+      e
+    );
+  }
+  getBoundingBox(t) {
+    return this.isEmpty()
+      ? (t.makeEmpty(), t)
+      : (t.set(this.center, this.center), t.expandByScalar(this.radius), t);
+  }
+  applyMatrix4(t) {
+    return (
+      this.center.applyMatrix4(t),
+      (this.radius = this.radius * t.getMaxScaleOnAxis()),
+      this
+    );
+  }
+  translate(t) {
+    return (this.center.add(t), this);
+  }
+  expandByPoint(t) {
+    if (this.isEmpty()) return (this.center.copy(t), (this.radius = 0), this);
+    Ce.subVectors(t, this.center);
+    const e = Ce.lengthSq();
+    if (e > this.radius * this.radius) {
+      const s = Math.sqrt(e),
+        n = (s - this.radius) * 0.5;
+      (this.center.addScaledVector(Ce, n / s), (this.radius += n));
+    }
+    return this;
+  }
+  union(t) {
+    return t.isEmpty()
+      ? this
+      : this.isEmpty()
+        ? (this.copy(t), this)
+        : (this.center.equals(t.center) === !0
+            ? (this.radius = Math.max(this.radius, t.radius))
+            : (Ds.subVectors(t.center, this.center).setLength(t.radius),
+              this.expandByPoint(Ce.copy(t.center).add(Ds)),
+              this.expandByPoint(Ce.copy(t.center).sub(Ds))),
+          this);
+  }
+  equals(t) {
+    return t.center.equals(this.center) && t.radius === this.radius;
+  }
+  clone() {
+    return new this.constructor().copy(this);
+  }
+}
+class Nt {
+  constructor(t, e, s, n, i, c, h, o, a, u, d, l, f, m, _, g) {
+    ((Nt.prototype.isMatrix4 = !0),
+      (this.elements = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]),
+      t !== void 0 && this.set(t, e, s, n, i, c, h, o, a, u, d, l, f, m, _, g));
+  }
+  set(t, e, s, n, i, c, h, o, a, u, d, l, f, m, _, g) {
+    const y = this.elements;
+    return (
+      (y[0] = t),
+      (y[4] = e),
+      (y[8] = s),
+      (y[12] = n),
+      (y[1] = i),
+      (y[5] = c),
+      (y[9] = h),
+      (y[13] = o),
+      (y[2] = a),
+      (y[6] = u),
+      (y[10] = d),
+      (y[14] = l),
+      (y[3] = f),
+      (y[7] = m),
+      (y[11] = _),
+      (y[15] = g),
+      this
+    );
+  }
+  identity() {
+    return (this.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), this);
+  }
+  clone() {
+    return new Nt().fromArray(this.elements);
+  }
+  copy(t) {
+    const e = this.elements,
+      s = t.elements;
+    return (
+      (e[0] = s[0]),
+      (e[1] = s[1]),
+      (e[2] = s[2]),
+      (e[3] = s[3]),
+      (e[4] = s[4]),
+      (e[5] = s[5]),
+      (e[6] = s[6]),
+      (e[7] = s[7]),
+      (e[8] = s[8]),
+      (e[9] = s[9]),
+      (e[10] = s[10]),
+      (e[11] = s[11]),
+      (e[12] = s[12]),
+      (e[13] = s[13]),
+      (e[14] = s[14]),
+      (e[15] = s[15]),
+      this
+    );
+  }
+  copyPosition(t) {
+    const e = this.elements,
+      s = t.elements;
+    return ((e[12] = s[12]), (e[13] = s[13]), (e[14] = s[14]), this);
+  }
+  setFromMatrix3(t) {
+    const e = t.elements;
+    return (
+      this.set(
+        e[0],
+        e[3],
+        e[6],
+        0,
+        e[1],
+        e[4],
+        e[7],
+        0,
+        e[2],
+        e[5],
+        e[8],
+        0,
+        0,
+        0,
+        0,
+        1,
+      ),
+      this
+    );
+  }
+  extractBasis(t, e, s) {
+    return (
+      t.setFromMatrixColumn(this, 0),
+      e.setFromMatrixColumn(this, 1),
+      s.setFromMatrixColumn(this, 2),
+      this
+    );
+  }
+  makeBasis(t, e, s) {
+    return (
+      this.set(
+        t.x,
+        e.x,
+        s.x,
+        0,
+        t.y,
+        e.y,
+        s.y,
+        0,
+        t.z,
+        e.z,
+        s.z,
+        0,
+        0,
+        0,
+        0,
+        1,
+      ),
+      this
+    );
+  }
+  extractRotation(t) {
+    const e = this.elements,
+      s = t.elements,
+      n = 1 / fe.setFromMatrixColumn(t, 0).length(),
+      i = 1 / fe.setFromMatrixColumn(t, 1).length(),
+      c = 1 / fe.setFromMatrixColumn(t, 2).length();
+    return (
+      (e[0] = s[0] * n),
+      (e[1] = s[1] * n),
+      (e[2] = s[2] * n),
+      (e[3] = 0),
+      (e[4] = s[4] * i),
+      (e[5] = s[5] * i),
+      (e[6] = s[6] * i),
+      (e[7] = 0),
+      (e[8] = s[8] * c),
+      (e[9] = s[9] * c),
+      (e[10] = s[10] * c),
+      (e[11] = 0),
+      (e[12] = 0),
+      (e[13] = 0),
+      (e[14] = 0),
+      (e[15] = 1),
+      this
+    );
+  }
+  makeRotationFromEuler(t) {
+    const e = this.elements,
+      s = t.x,
+      n = t.y,
+      i = t.z,
+      c = Math.cos(s),
+      h = Math.sin(s),
+      o = Math.cos(n),
+      a = Math.sin(n),
+      u = Math.cos(i),
+      d = Math.sin(i);
+    if (t.order === "XYZ") {
+      const l = c * u,
+        f = c * d,
+        m = h * u,
+        _ = h * d;
+      ((e[0] = o * u),
+        (e[4] = -o * d),
+        (e[8] = a),
+        (e[1] = f + m * a),
+        (e[5] = l - _ * a),
+        (e[9] = -h * o),
+        (e[2] = _ - l * a),
+        (e[6] = m + f * a),
+        (e[10] = c * o));
+    } else if (t.order === "YXZ") {
+      const l = o * u,
+        f = o * d,
+        m = a * u,
+        _ = a * d;
+      ((e[0] = l + _ * h),
+        (e[4] = m * h - f),
+        (e[8] = c * a),
+        (e[1] = c * d),
+        (e[5] = c * u),
+        (e[9] = -h),
+        (e[2] = f * h - m),
+        (e[6] = _ + l * h),
+        (e[10] = c * o));
+    } else if (t.order === "ZXY") {
+      const l = o * u,
+        f = o * d,
+        m = a * u,
+        _ = a * d;
+      ((e[0] = l - _ * h),
+        (e[4] = -c * d),
+        (e[8] = m + f * h),
+        (e[1] = f + m * h),
+        (e[5] = c * u),
+        (e[9] = _ - l * h),
+        (e[2] = -c * a),
+        (e[6] = h),
+        (e[10] = c * o));
+    } else if (t.order === "ZYX") {
+      const l = c * u,
+        f = c * d,
+        m = h * u,
+        _ = h * d;
+      ((e[0] = o * u),
+        (e[4] = m * a - f),
+        (e[8] = l * a + _),
+        (e[1] = o * d),
+        (e[5] = _ * a + l),
+        (e[9] = f * a - m),
+        (e[2] = -a),
+        (e[6] = h * o),
+        (e[10] = c * o));
+    } else if (t.order === "YZX") {
+      const l = c * o,
+        f = c * a,
+        m = h * o,
+        _ = h * a;
+      ((e[0] = o * u),
+        (e[4] = _ - l * d),
+        (e[8] = m * d + f),
+        (e[1] = d),
+        (e[5] = c * u),
+        (e[9] = -h * u),
+        (e[2] = -a * u),
+        (e[6] = f * d + m),
+        (e[10] = l - _ * d));
+    } else if (t.order === "XZY") {
+      const l = c * o,
+        f = c * a,
+        m = h * o,
+        _ = h * a;
+      ((e[0] = o * u),
+        (e[4] = -d),
+        (e[8] = a * u),
+        (e[1] = l * d + _),
+        (e[5] = c * u),
+        (e[9] = f * d - m),
+        (e[2] = m * d - f),
+        (e[6] = h * u),
+        (e[10] = _ * d + l));
+    }
+    return (
+      (e[3] = 0),
+      (e[7] = 0),
+      (e[11] = 0),
+      (e[12] = 0),
+      (e[13] = 0),
+      (e[14] = 0),
+      (e[15] = 1),
+      this
+    );
+  }
+  makeRotationFromQuaternion(t) {
+    return this.compose(Ui, t, Di);
+  }
+  lookAt(t, e, s) {
+    const n = this.elements;
+    return (
+      lt.subVectors(t, e),
+      lt.lengthSq() === 0 && (lt.z = 1),
+      lt.normalize(),
+      Yt.crossVectors(s, lt),
+      Yt.lengthSq() === 0 &&
+        (Math.abs(s.z) === 1 ? (lt.x += 1e-4) : (lt.z += 1e-4),
+        lt.normalize(),
+        Yt.crossVectors(s, lt)),
+      Yt.normalize(),
+      ss.crossVectors(lt, Yt),
+      (n[0] = Yt.x),
+      (n[4] = ss.x),
+      (n[8] = lt.x),
+      (n[1] = Yt.y),
+      (n[5] = ss.y),
+      (n[9] = lt.y),
+      (n[2] = Yt.z),
+      (n[6] = ss.z),
+      (n[10] = lt.z),
+      this
+    );
+  }
+  multiply(t) {
+    return this.multiplyMatrices(this, t);
+  }
+  premultiply(t) {
+    return this.multiplyMatrices(t, this);
+  }
+  multiplyMatrices(t, e) {
+    const s = t.elements,
+      n = e.elements,
+      i = this.elements,
+      c = s[0],
+      h = s[4],
+      o = s[8],
+      a = s[12],
+      u = s[1],
+      d = s[5],
+      l = s[9],
+      f = s[13],
+      m = s[2],
+      _ = s[6],
+      g = s[10],
+      y = s[14],
+      R = s[3],
+      E = s[7],
+      x = s[11],
+      S = s[15],
+      M = n[0],
+      A = n[4],
+      O = n[8],
+      I = n[12],
+      k = n[1],
+      w = n[5],
+      N = n[9],
+      L = n[13],
+      U = n[2],
+      v = n[6],
+      q = n[10],
+      K = n[14],
+      G = n[3],
+      V = n[7],
+      $ = n[11],
+      X = n[15];
+    return (
+      (i[0] = c * M + h * k + o * U + a * G),
+      (i[4] = c * A + h * w + o * v + a * V),
+      (i[8] = c * O + h * N + o * q + a * $),
+      (i[12] = c * I + h * L + o * K + a * X),
+      (i[1] = u * M + d * k + l * U + f * G),
+      (i[5] = u * A + d * w + l * v + f * V),
+      (i[9] = u * O + d * N + l * q + f * $),
+      (i[13] = u * I + d * L + l * K + f * X),
+      (i[2] = m * M + _ * k + g * U + y * G),
+      (i[6] = m * A + _ * w + g * v + y * V),
+      (i[10] = m * O + _ * N + g * q + y * $),
+      (i[14] = m * I + _ * L + g * K + y * X),
+      (i[3] = R * M + E * k + x * U + S * G),
+      (i[7] = R * A + E * w + x * v + S * V),
+      (i[11] = R * O + E * N + x * q + S * $),
+      (i[15] = R * I + E * L + x * K + S * X),
+      this
+    );
+  }
+  multiplyScalar(t) {
+    const e = this.elements;
+    return (
+      (e[0] *= t),
+      (e[4] *= t),
+      (e[8] *= t),
+      (e[12] *= t),
+      (e[1] *= t),
+      (e[5] *= t),
+      (e[9] *= t),
+      (e[13] *= t),
+      (e[2] *= t),
+      (e[6] *= t),
+      (e[10] *= t),
+      (e[14] *= t),
+      (e[3] *= t),
+      (e[7] *= t),
+      (e[11] *= t),
+      (e[15] *= t),
+      this
+    );
+  }
+  determinant() {
+    const t = this.elements,
+      e = t[0],
+      s = t[4],
+      n = t[8],
+      i = t[12],
+      c = t[1],
+      h = t[5],
+      o = t[9],
+      a = t[13],
+      u = t[2],
+      d = t[6],
+      l = t[10],
+      f = t[14],
+      m = t[3],
+      _ = t[7],
+      g = t[11],
+      y = t[15];
+    return (
+      m *
+        (+i * o * d -
+          n * a * d -
+          i * h * l +
+          s * a * l +
+          n * h * f -
+          s * o * f) +
+      _ *
+        (+e * o * f -
+          e * a * l +
+          i * c * l -
+          n * c * f +
+          n * a * u -
+          i * o * u) +
+      g *
+        (+e * a * d -
+          e * h * f -
+          i * c * d +
+          s * c * f +
+          i * h * u -
+          s * a * u) +
+      y *
+        (-n * h * u - e * o * d + e * h * l + n * c * d - s * c * l + s * o * u)
+    );
+  }
+  transpose() {
+    const t = this.elements;
+    let e;
+    return (
+      (e = t[1]),
+      (t[1] = t[4]),
+      (t[4] = e),
+      (e = t[2]),
+      (t[2] = t[8]),
+      (t[8] = e),
+      (e = t[6]),
+      (t[6] = t[9]),
+      (t[9] = e),
+      (e = t[3]),
+      (t[3] = t[12]),
+      (t[12] = e),
+      (e = t[7]),
+      (t[7] = t[13]),
+      (t[13] = e),
+      (e = t[11]),
+      (t[11] = t[14]),
+      (t[14] = e),
+      this
+    );
+  }
+  setPosition(t, e, s) {
+    const n = this.elements;
+    return (
+      t.isVector3
+        ? ((n[12] = t.x), (n[13] = t.y), (n[14] = t.z))
+        : ((n[12] = t), (n[13] = e), (n[14] = s)),
+      this
+    );
+  }
+  invert() {
+    const t = this.elements,
+      e = t[0],
+      s = t[1],
+      n = t[2],
+      i = t[3],
+      c = t[4],
+      h = t[5],
+      o = t[6],
+      a = t[7],
+      u = t[8],
+      d = t[9],
+      l = t[10],
+      f = t[11],
+      m = t[12],
+      _ = t[13],
+      g = t[14],
+      y = t[15],
+      R = d * g * a - _ * l * a + _ * o * f - h * g * f - d * o * y + h * l * y,
+      E = m * l * a - u * g * a - m * o * f + c * g * f + u * o * y - c * l * y,
+      x = u * _ * a - m * d * a + m * h * f - c * _ * f - u * h * y + c * d * y,
+      S = m * d * o - u * _ * o - m * h * l + c * _ * l + u * h * g - c * d * g,
+      M = e * R + s * E + n * x + i * S;
+    if (M === 0)
+      return this.set(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const A = 1 / M;
+    return (
+      (t[0] = R * A),
+      (t[1] =
+        (_ * l * i -
+          d * g * i -
+          _ * n * f +
+          s * g * f +
+          d * n * y -
+          s * l * y) *
+        A),
+      (t[2] =
+        (h * g * i -
+          _ * o * i +
+          _ * n * a -
+          s * g * a -
+          h * n * y +
+          s * o * y) *
+        A),
+      (t[3] =
+        (d * o * i -
+          h * l * i -
+          d * n * a +
+          s * l * a +
+          h * n * f -
+          s * o * f) *
+        A),
+      (t[4] = E * A),
+      (t[5] =
+        (u * g * i -
+          m * l * i +
+          m * n * f -
+          e * g * f -
+          u * n * y +
+          e * l * y) *
+        A),
+      (t[6] =
+        (m * o * i -
+          c * g * i -
+          m * n * a +
+          e * g * a +
+          c * n * y -
+          e * o * y) *
+        A),
+      (t[7] =
+        (c * l * i -
+          u * o * i +
+          u * n * a -
+          e * l * a -
+          c * n * f +
+          e * o * f) *
+        A),
+      (t[8] = x * A),
+      (t[9] =
+        (m * d * i -
+          u * _ * i -
+          m * s * f +
+          e * _ * f +
+          u * s * y -
+          e * d * y) *
+        A),
+      (t[10] =
+        (c * _ * i -
+          m * h * i +
+          m * s * a -
+          e * _ * a -
+          c * s * y +
+          e * h * y) *
+        A),
+      (t[11] =
+        (u * h * i -
+          c * d * i -
+          u * s * a +
+          e * d * a +
+          c * s * f -
+          e * h * f) *
+        A),
+      (t[12] = S * A),
+      (t[13] =
+        (u * _ * n -
+          m * d * n +
+          m * s * l -
+          e * _ * l -
+          u * s * g +
+          e * d * g) *
+        A),
+      (t[14] =
+        (m * h * n -
+          c * _ * n -
+          m * s * o +
+          e * _ * o +
+          c * s * g -
+          e * h * g) *
+        A),
+      (t[15] =
+        (c * d * n -
+          u * h * n +
+          u * s * o -
+          e * d * o -
+          c * s * l +
+          e * h * l) *
+        A),
+      this
+    );
+  }
+  scale(t) {
+    const e = this.elements,
+      s = t.x,
+      n = t.y,
+      i = t.z;
+    return (
+      (e[0] *= s),
+      (e[4] *= n),
+      (e[8] *= i),
+      (e[1] *= s),
+      (e[5] *= n),
+      (e[9] *= i),
+      (e[2] *= s),
+      (e[6] *= n),
+      (e[10] *= i),
+      (e[3] *= s),
+      (e[7] *= n),
+      (e[11] *= i),
+      this
+    );
+  }
+  getMaxScaleOnAxis() {
+    const t = this.elements,
+      e = t[0] * t[0] + t[1] * t[1] + t[2] * t[2],
+      s = t[4] * t[4] + t[5] * t[5] + t[6] * t[6],
+      n = t[8] * t[8] + t[9] * t[9] + t[10] * t[10];
+    return Math.sqrt(Math.max(e, s, n));
+  }
+  makeTranslation(t, e, s) {
+    return (
+      t.isVector3
+        ? this.set(1, 0, 0, t.x, 0, 1, 0, t.y, 0, 0, 1, t.z, 0, 0, 0, 1)
+        : this.set(1, 0, 0, t, 0, 1, 0, e, 0, 0, 1, s, 0, 0, 0, 1),
+      this
+    );
+  }
+  makeRotationX(t) {
+    const e = Math.cos(t),
+      s = Math.sin(t);
+    return (this.set(1, 0, 0, 0, 0, e, -s, 0, 0, s, e, 0, 0, 0, 0, 1), this);
+  }
+  makeRotationY(t) {
+    const e = Math.cos(t),
+      s = Math.sin(t);
+    return (this.set(e, 0, s, 0, 0, 1, 0, 0, -s, 0, e, 0, 0, 0, 0, 1), this);
+  }
+  makeRotationZ(t) {
+    const e = Math.cos(t),
+      s = Math.sin(t);
+    return (this.set(e, -s, 0, 0, s, e, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), this);
+  }
+  makeRotationAxis(t, e) {
+    const s = Math.cos(e),
+      n = Math.sin(e),
+      i = 1 - s,
+      c = t.x,
+      h = t.y,
+      o = t.z,
+      a = i * c,
+      u = i * h;
+    return (
+      this.set(
+        a * c + s,
+        a * h - n * o,
+        a * o + n * h,
+        0,
+        a * h + n * o,
+        u * h + s,
+        u * o - n * c,
+        0,
+        a * o - n * h,
+        u * o + n * c,
+        i * o * o + s,
+        0,
+        0,
+        0,
+        0,
+        1,
+      ),
+      this
+    );
+  }
+  makeScale(t, e, s) {
+    return (this.set(t, 0, 0, 0, 0, e, 0, 0, 0, 0, s, 0, 0, 0, 0, 1), this);
+  }
+  makeShear(t, e, s, n, i, c) {
+    return (this.set(1, s, i, 0, t, 1, c, 0, e, n, 1, 0, 0, 0, 0, 1), this);
+  }
+  compose(t, e, s) {
+    const n = this.elements,
+      i = e._x,
+      c = e._y,
+      h = e._z,
+      o = e._w,
+      a = i + i,
+      u = c + c,
+      d = h + h,
+      l = i * a,
+      f = i * u,
+      m = i * d,
+      _ = c * u,
+      g = c * d,
+      y = h * d,
+      R = o * a,
+      E = o * u,
+      x = o * d,
+      S = s.x,
+      M = s.y,
+      A = s.z;
+    return (
+      (n[0] = (1 - (_ + y)) * S),
+      (n[1] = (f + x) * S),
+      (n[2] = (m - E) * S),
+      (n[3] = 0),
+      (n[4] = (f - x) * M),
+      (n[5] = (1 - (l + y)) * M),
+      (n[6] = (g + R) * M),
+      (n[7] = 0),
+      (n[8] = (m + E) * A),
+      (n[9] = (g - R) * A),
+      (n[10] = (1 - (l + _)) * A),
+      (n[11] = 0),
+      (n[12] = t.x),
+      (n[13] = t.y),
+      (n[14] = t.z),
+      (n[15] = 1),
+      this
+    );
+  }
+  decompose(t, e, s) {
+    const n = this.elements;
+    let i = fe.set(n[0], n[1], n[2]).length();
+    const c = fe.set(n[4], n[5], n[6]).length(),
+      h = fe.set(n[8], n[9], n[10]).length();
+    (this.determinant() < 0 && (i = -i),
+      (t.x = n[12]),
+      (t.y = n[13]),
+      (t.z = n[14]),
+      Rt.copy(this));
+    const a = 1 / i,
+      u = 1 / c,
+      d = 1 / h;
+    return (
+      (Rt.elements[0] *= a),
+      (Rt.elements[1] *= a),
+      (Rt.elements[2] *= a),
+      (Rt.elements[4] *= u),
+      (Rt.elements[5] *= u),
+      (Rt.elements[6] *= u),
+      (Rt.elements[8] *= d),
+      (Rt.elements[9] *= d),
+      (Rt.elements[10] *= d),
+      e.setFromRotationMatrix(Rt),
+      (s.x = i),
+      (s.y = c),
+      (s.z = h),
+      this
+    );
+  }
+  makePerspective(t, e, s, n, i, c, h = 2e3) {
+    const o = this.elements,
+      a = (2 * i) / (e - t),
+      u = (2 * i) / (s - n),
+      d = (e + t) / (e - t),
+      l = (s + n) / (s - n);
+    let f, m;
+    if (h === 2e3) ((f = -(c + i) / (c - i)), (m = (-2 * c * i) / (c - i)));
+    else if (h === 2001) ((f = -c / (c - i)), (m = (-c * i) / (c - i)));
+    else
+      throw new Error(
+        "THREE.Matrix4.makePerspective(): Invalid coordinate system: " + h,
+      );
+    return (
+      (o[0] = a),
+      (o[4] = 0),
+      (o[8] = d),
+      (o[12] = 0),
+      (o[1] = 0),
+      (o[5] = u),
+      (o[9] = l),
+      (o[13] = 0),
+      (o[2] = 0),
+      (o[6] = 0),
+      (o[10] = f),
+      (o[14] = m),
+      (o[3] = 0),
+      (o[7] = 0),
+      (o[11] = -1),
+      (o[15] = 0),
+      this
+    );
+  }
+  makeOrthographic(t, e, s, n, i, c, h = 2e3) {
+    const o = this.elements,
+      a = 1 / (e - t),
+      u = 1 / (s - n),
+      d = 1 / (c - i),
+      l = (e + t) * a,
+      f = (s + n) * u;
+    let m, _;
+    if (h === 2e3) ((m = (c + i) * d), (_ = -2 * d));
+    else if (h === 2001) ((m = i * d), (_ = -1 * d));
+    else
+      throw new Error(
+        "THREE.Matrix4.makeOrthographic(): Invalid coordinate system: " + h,
+      );
+    return (
+      (o[0] = 2 * a),
+      (o[4] = 0),
+      (o[8] = 0),
+      (o[12] = -l),
+      (o[1] = 0),
+      (o[5] = 2 * u),
+      (o[9] = 0),
+      (o[13] = -f),
+      (o[2] = 0),
+      (o[6] = 0),
+      (o[10] = _),
+      (o[14] = -m),
+      (o[3] = 0),
+      (o[7] = 0),
+      (o[11] = 0),
+      (o[15] = 1),
+      this
+    );
+  }
+  equals(t) {
+    const e = this.elements,
+      s = t.elements;
+    for (let n = 0; n < 16; n++) if (e[n] !== s[n]) return !1;
+    return !0;
+  }
+  fromArray(t, e = 0) {
+    for (let s = 0; s < 16; s++) this.elements[s] = t[s + e];
+    return this;
+  }
+  toArray(t = [], e = 0) {
+    const s = this.elements;
+    return (
+      (t[e] = s[0]),
+      (t[e + 1] = s[1]),
+      (t[e + 2] = s[2]),
+      (t[e + 3] = s[3]),
+      (t[e + 4] = s[4]),
+      (t[e + 5] = s[5]),
+      (t[e + 6] = s[6]),
+      (t[e + 7] = s[7]),
+      (t[e + 8] = s[8]),
+      (t[e + 9] = s[9]),
+      (t[e + 10] = s[10]),
+      (t[e + 11] = s[11]),
+      (t[e + 12] = s[12]),
+      (t[e + 13] = s[13]),
+      (t[e + 14] = s[14]),
+      (t[e + 15] = s[15]),
+      t
+    );
+  }
+}
+const fe = new C(),
+  Rt = new Nt(),
+  Ui = new C(0, 0, 0),
+  Di = new C(1, 1, 1),
+  Yt = new C(),
+  ss = new C(),
+  lt = new C(),
+  Tn = new Nt(),
+  bn = new Ye();
+class Ts {
+  constructor(t = 0, e = 0, s = 0, n = Ts.DEFAULT_ORDER) {
+    ((this.isEuler = !0),
+      (this._x = t),
+      (this._y = e),
+      (this._z = s),
+      (this._order = n));
+  }
+  get x() {
+    return this._x;
+  }
+  set x(t) {
+    ((this._x = t), this._onChangeCallback());
+  }
+  get y() {
+    return this._y;
+  }
+  set y(t) {
+    ((this._y = t), this._onChangeCallback());
+  }
+  get z() {
+    return this._z;
+  }
+  set z(t) {
+    ((this._z = t), this._onChangeCallback());
+  }
+  get order() {
+    return this._order;
+  }
+  set order(t) {
+    ((this._order = t), this._onChangeCallback());
+  }
+  set(t, e, s, n = this._order) {
+    return (
+      (this._x = t),
+      (this._y = e),
+      (this._z = s),
+      (this._order = n),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  clone() {
+    return new this.constructor(this._x, this._y, this._z, this._order);
+  }
+  copy(t) {
+    return (
+      (this._x = t._x),
+      (this._y = t._y),
+      (this._z = t._z),
+      (this._order = t._order),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  setFromRotationMatrix(t, e = this._order, s = !0) {
+    const n = t.elements,
+      i = n[0],
+      c = n[4],
+      h = n[8],
+      o = n[1],
+      a = n[5],
+      u = n[9],
+      d = n[2],
+      l = n[6],
+      f = n[10];
+    switch (e) {
+      case "XYZ":
+        ((this._y = Math.asin(Ut(h, -1, 1))),
+          Math.abs(h) < 0.9999999
+            ? ((this._x = Math.atan2(-u, f)), (this._z = Math.atan2(-c, i)))
+            : ((this._x = Math.atan2(l, a)), (this._z = 0)));
+        break;
+      case "YXZ":
+        ((this._x = Math.asin(-Ut(u, -1, 1))),
+          Math.abs(u) < 0.9999999
+            ? ((this._y = Math.atan2(h, f)), (this._z = Math.atan2(o, a)))
+            : ((this._y = Math.atan2(-d, i)), (this._z = 0)));
+        break;
+      case "ZXY":
+        ((this._x = Math.asin(Ut(l, -1, 1))),
+          Math.abs(l) < 0.9999999
+            ? ((this._y = Math.atan2(-d, f)), (this._z = Math.atan2(-c, a)))
+            : ((this._y = 0), (this._z = Math.atan2(o, i))));
+        break;
+      case "ZYX":
+        ((this._y = Math.asin(-Ut(d, -1, 1))),
+          Math.abs(d) < 0.9999999
+            ? ((this._x = Math.atan2(l, f)), (this._z = Math.atan2(o, i)))
+            : ((this._x = 0), (this._z = Math.atan2(-c, a))));
+        break;
+      case "YZX":
+        ((this._z = Math.asin(Ut(o, -1, 1))),
+          Math.abs(o) < 0.9999999
+            ? ((this._x = Math.atan2(-u, a)), (this._y = Math.atan2(-d, i)))
+            : ((this._x = 0), (this._y = Math.atan2(h, f))));
+        break;
+      case "XZY":
+        ((this._z = Math.asin(-Ut(c, -1, 1))),
+          Math.abs(c) < 0.9999999
+            ? ((this._x = Math.atan2(l, a)), (this._y = Math.atan2(h, i)))
+            : ((this._x = Math.atan2(-u, f)), (this._y = 0)));
+        break;
+      default:
+        console.warn(
+          "THREE.Euler: .setFromRotationMatrix() encountered an unknown order: " +
+            e,
+        );
+    }
+    return ((this._order = e), s === !0 && this._onChangeCallback(), this);
+  }
+  setFromQuaternion(t, e, s) {
+    return (
+      Tn.makeRotationFromQuaternion(t),
+      this.setFromRotationMatrix(Tn, e, s)
+    );
+  }
+  setFromVector3(t, e = this._order) {
+    return this.set(t.x, t.y, t.z, e);
+  }
+  reorder(t) {
+    return (bn.setFromEuler(this), this.setFromQuaternion(bn, t));
+  }
+  equals(t) {
+    return (
+      t._x === this._x &&
+      t._y === this._y &&
+      t._z === this._z &&
+      t._order === this._order
+    );
+  }
+  fromArray(t) {
+    return (
+      (this._x = t[0]),
+      (this._y = t[1]),
+      (this._z = t[2]),
+      t[3] !== void 0 && (this._order = t[3]),
+      this._onChangeCallback(),
+      this
+    );
+  }
+  toArray(t = [], e = 0) {
+    return (
+      (t[e] = this._x),
+      (t[e + 1] = this._y),
+      (t[e + 2] = this._z),
+      (t[e + 3] = this._order),
+      t
+    );
+  }
+  _onChange(t) {
+    return ((this._onChangeCallback = t), this);
+  }
+  _onChangeCallback() {}
+  *[Symbol.iterator]() {
+    (yield this._x, yield this._y, yield this._z, yield this._order);
+  }
+}
+Ts.DEFAULT_ORDER = "XYZ";
+class wi {
+  constructor() {
+    this.mask = 1;
+  }
+  set(t) {
+    this.mask = ((1 << t) | 0) >>> 0;
+  }
+  enable(t) {
+    this.mask |= (1 << t) | 0;
+  }
+  enableAll() {
+    this.mask = -1;
+  }
+  toggle(t) {
+    this.mask ^= (1 << t) | 0;
+  }
+  disable(t) {
+    this.mask &= ~((1 << t) | 0);
+  }
+  disableAll() {
+    this.mask = 0;
+  }
+  test(t) {
+    return (this.mask & t.mask) !== 0;
+  }
+  isEnabled(t) {
+    return (this.mask & ((1 << t) | 0)) !== 0;
+  }
+}
+let zi = 0;
+const On = new C(),
+  pe = new Ye(),
+  kt = new Nt(),
+  ns = new C(),
+  Ne = new C(),
+  Fi = new C(),
+  Gi = new Ye(),
+  Ln = new C(1, 0, 0),
+  In = new C(0, 1, 0),
+  Cn = new C(0, 0, 1),
+  Nn = { type: "added" },
+  Wi = { type: "removed" },
+  me = { type: "childadded", child: null },
+  ws = { type: "childremoved", child: null };
+class vt extends nn {
+  constructor() {
+    (super(),
+      (this.isObject3D = !0),
+      Object.defineProperty(this, "id", { value: zi++ }),
+      (this.uuid = Rs()),
+      (this.name = ""),
+      (this.type = "Object3D"),
+      (this.parent = null),
+      (this.children = []),
+      (this.up = vt.DEFAULT_UP.clone()));
+    const t = new C(),
+      e = new Ts(),
+      s = new Ye(),
+      n = new C(1, 1, 1);
+    function i() {
+      s.setFromEuler(e, !1);
+    }
+    function c() {
+      e.setFromQuaternion(s, void 0, !1);
+    }
+    (e._onChange(i),
+      s._onChange(c),
+      Object.defineProperties(this, {
+        position: { configurable: !0, enumerable: !0, value: t },
+        rotation: { configurable: !0, enumerable: !0, value: e },
+        quaternion: { configurable: !0, enumerable: !0, value: s },
+        scale: { configurable: !0, enumerable: !0, value: n },
+        modelViewMatrix: { value: new Nt() },
+        normalMatrix: { value: new Te() },
+      }),
+      (this.matrix = new Nt()),
+      (this.matrixWorld = new Nt()),
+      (this.matrixAutoUpdate = vt.DEFAULT_MATRIX_AUTO_UPDATE),
+      (this.matrixWorldAutoUpdate = vt.DEFAULT_MATRIX_WORLD_AUTO_UPDATE),
+      (this.matrixWorldNeedsUpdate = !1),
+      (this.layers = new wi()),
+      (this.visible = !0),
+      (this.castShadow = !1),
+      (this.receiveShadow = !1),
+      (this.frustumCulled = !0),
+      (this.renderOrder = 0),
+      (this.animations = []),
+      (this.userData = {}));
+  }
+  onBeforeShadow() {}
+  onAfterShadow() {}
+  onBeforeRender() {}
+  onAfterRender() {}
+  applyMatrix4(t) {
+    (this.matrixAutoUpdate && this.updateMatrix(),
+      this.matrix.premultiply(t),
+      this.matrix.decompose(this.position, this.quaternion, this.scale));
+  }
+  applyQuaternion(t) {
+    return (this.quaternion.premultiply(t), this);
+  }
+  setRotationFromAxisAngle(t, e) {
+    this.quaternion.setFromAxisAngle(t, e);
+  }
+  setRotationFromEuler(t) {
+    this.quaternion.setFromEuler(t, !0);
+  }
+  setRotationFromMatrix(t) {
+    this.quaternion.setFromRotationMatrix(t);
+  }
+  setRotationFromQuaternion(t) {
+    this.quaternion.copy(t);
+  }
+  rotateOnAxis(t, e) {
+    return (pe.setFromAxisAngle(t, e), this.quaternion.multiply(pe), this);
+  }
+  rotateOnWorldAxis(t, e) {
+    return (pe.setFromAxisAngle(t, e), this.quaternion.premultiply(pe), this);
+  }
+  rotateX(t) {
+    return this.rotateOnAxis(Ln, t);
+  }
+  rotateY(t) {
+    return this.rotateOnAxis(In, t);
+  }
+  rotateZ(t) {
+    return this.rotateOnAxis(Cn, t);
+  }
+  translateOnAxis(t, e) {
+    return (
+      On.copy(t).applyQuaternion(this.quaternion),
+      this.position.add(On.multiplyScalar(e)),
+      this
+    );
+  }
+  translateX(t) {
+    return this.translateOnAxis(Ln, t);
+  }
+  translateY(t) {
+    return this.translateOnAxis(In, t);
+  }
+  translateZ(t) {
+    return this.translateOnAxis(Cn, t);
+  }
+  localToWorld(t) {
+    return (this.updateWorldMatrix(!0, !1), t.applyMatrix4(this.matrixWorld));
+  }
+  worldToLocal(t) {
+    return (
+      this.updateWorldMatrix(!0, !1),
+      t.applyMatrix4(kt.copy(this.matrixWorld).invert())
+    );
+  }
+  lookAt(t, e, s) {
+    t.isVector3 ? ns.copy(t) : ns.set(t, e, s);
+    const n = this.parent;
+    (this.updateWorldMatrix(!0, !1),
+      Ne.setFromMatrixPosition(this.matrixWorld),
+      this.isCamera || this.isLight
+        ? kt.lookAt(Ne, ns, this.up)
+        : kt.lookAt(ns, Ne, this.up),
+      this.quaternion.setFromRotationMatrix(kt),
+      n &&
+        (kt.extractRotation(n.matrixWorld),
+        pe.setFromRotationMatrix(kt),
+        this.quaternion.premultiply(pe.invert())));
+  }
+  add(t) {
+    if (arguments.length > 1) {
+      for (let e = 0; e < arguments.length; e++) this.add(arguments[e]);
+      return this;
+    }
+    return t === this
+      ? (console.error(
+          "THREE.Object3D.add: object can't be added as a child of itself.",
+          t,
+        ),
+        this)
+      : (t && t.isObject3D
+          ? (t.removeFromParent(),
+            (t.parent = this),
+            this.children.push(t),
+            t.dispatchEvent(Nn),
+            (me.child = t),
+            this.dispatchEvent(me),
+            (me.child = null))
+          : console.error(
+              "THREE.Object3D.add: object not an instance of THREE.Object3D.",
+              t,
+            ),
+        this);
+  }
+  remove(t) {
+    if (arguments.length > 1) {
+      for (let s = 0; s < arguments.length; s++) this.remove(arguments[s]);
+      return this;
+    }
+    const e = this.children.indexOf(t);
+    return (
+      e !== -1 &&
+        ((t.parent = null),
+        this.children.splice(e, 1),
+        t.dispatchEvent(Wi),
+        (ws.child = t),
+        this.dispatchEvent(ws),
+        (ws.child = null)),
+      this
+    );
+  }
+  removeFromParent() {
+    const t = this.parent;
+    return (t !== null && t.remove(this), this);
+  }
+  clear() {
+    return this.remove(...this.children);
+  }
+  attach(t) {
+    return (
+      this.updateWorldMatrix(!0, !1),
+      kt.copy(this.matrixWorld).invert(),
+      t.parent !== null &&
+        (t.parent.updateWorldMatrix(!0, !1), kt.multiply(t.parent.matrixWorld)),
+      t.applyMatrix4(kt),
+      t.removeFromParent(),
+      (t.parent = this),
+      this.children.push(t),
+      t.updateWorldMatrix(!1, !0),
+      t.dispatchEvent(Nn),
+      (me.child = t),
+      this.dispatchEvent(me),
+      (me.child = null),
+      this
+    );
+  }
+  getObjectById(t) {
+    return this.getObjectByProperty("id", t);
+  }
+  getObjectByName(t) {
+    return this.getObjectByProperty("name", t);
+  }
+  getObjectByProperty(t, e) {
+    if (this[t] === e) return this;
+    for (let s = 0, n = this.children.length; s < n; s++) {
+      const c = this.children[s].getObjectByProperty(t, e);
+      if (c !== void 0) return c;
+    }
+  }
+  getObjectsByProperty(t, e, s = []) {
+    this[t] === e && s.push(this);
+    const n = this.children;
+    for (let i = 0, c = n.length; i < c; i++)
+      n[i].getObjectsByProperty(t, e, s);
+    return s;
+  }
+  getWorldPosition(t) {
+    return (
+      this.updateWorldMatrix(!0, !1),
+      t.setFromMatrixPosition(this.matrixWorld)
+    );
+  }
+  getWorldQuaternion(t) {
+    return (
+      this.updateWorldMatrix(!0, !1),
+      this.matrixWorld.decompose(Ne, t, Fi),
+      t
+    );
+  }
+  getWorldScale(t) {
+    return (
+      this.updateWorldMatrix(!0, !1),
+      this.matrixWorld.decompose(Ne, Gi, t),
+      t
+    );
+  }
+  getWorldDirection(t) {
+    this.updateWorldMatrix(!0, !1);
+    const e = this.matrixWorld.elements;
+    return t.set(e[8], e[9], e[10]).normalize();
+  }
+  raycast() {}
+  traverse(t) {
+    t(this);
+    const e = this.children;
+    for (let s = 0, n = e.length; s < n; s++) e[s].traverse(t);
+  }
+  traverseVisible(t) {
+    if (this.visible === !1) return;
+    t(this);
+    const e = this.children;
+    for (let s = 0, n = e.length; s < n; s++) e[s].traverseVisible(t);
+  }
+  traverseAncestors(t) {
+    const e = this.parent;
+    e !== null && (t(e), e.traverseAncestors(t));
+  }
+  updateMatrix() {
+    (this.matrix.compose(this.position, this.quaternion, this.scale),
+      (this.matrixWorldNeedsUpdate = !0));
+  }
+  updateMatrixWorld(t) {
+    (this.matrixAutoUpdate && this.updateMatrix(),
+      (this.matrixWorldNeedsUpdate || t) &&
+        (this.matrixWorldAutoUpdate === !0 &&
+          (this.parent === null
+            ? this.matrixWorld.copy(this.matrix)
+            : this.matrixWorld.multiplyMatrices(
+                this.parent.matrixWorld,
+                this.matrix,
+              )),
+        (this.matrixWorldNeedsUpdate = !1),
+        (t = !0)));
+    const e = this.children;
+    for (let s = 0, n = e.length; s < n; s++) e[s].updateMatrixWorld(t);
+  }
+  updateWorldMatrix(t, e) {
+    const s = this.parent;
+    if (
+      (t === !0 && s !== null && s.updateWorldMatrix(!0, !1),
+      this.matrixAutoUpdate && this.updateMatrix(),
+      this.matrixWorldAutoUpdate === !0 &&
+        (this.parent === null
+          ? this.matrixWorld.copy(this.matrix)
+          : this.matrixWorld.multiplyMatrices(
+              this.parent.matrixWorld,
+              this.matrix,
+            )),
+      e === !0)
+    ) {
+      const n = this.children;
+      for (let i = 0, c = n.length; i < c; i++) n[i].updateWorldMatrix(!1, !0);
+    }
+  }
+  toJSON(t) {
+    const e = t === void 0 || typeof t == "string",
+      s = {};
+    e &&
+      ((t = {
+        geometries: {},
+        materials: {},
+        textures: {},
+        images: {},
+        shapes: {},
+        skeletons: {},
+        animations: {},
+        nodes: {},
+      }),
+      (s.metadata = {
+        version: 4.6,
+        type: "Object",
+        generator: "Object3D.toJSON",
+      }));
+    const n = {};
+    ((n.uuid = this.uuid),
+      (n.type = this.type),
+      this.name !== "" && (n.name = this.name),
+      this.castShadow === !0 && (n.castShadow = !0),
+      this.receiveShadow === !0 && (n.receiveShadow = !0),
+      this.visible === !1 && (n.visible = !1),
+      this.frustumCulled === !1 && (n.frustumCulled = !1),
+      this.renderOrder !== 0 && (n.renderOrder = this.renderOrder),
+      Object.keys(this.userData).length > 0 && (n.userData = this.userData),
+      (n.layers = this.layers.mask),
+      (n.matrix = this.matrix.toArray()),
+      (n.up = this.up.toArray()),
+      this.matrixAutoUpdate === !1 && (n.matrixAutoUpdate = !1),
+      this.isInstancedMesh &&
+        ((n.type = "InstancedMesh"),
+        (n.count = this.count),
+        (n.instanceMatrix = this.instanceMatrix.toJSON()),
+        this.instanceColor !== null &&
+          (n.instanceColor = this.instanceColor.toJSON())),
+      this.isBatchedMesh &&
+        ((n.type = "BatchedMesh"),
+        (n.perObjectFrustumCulled = this.perObjectFrustumCulled),
+        (n.sortObjects = this.sortObjects),
+        (n.drawRanges = this._drawRanges),
+        (n.reservedRanges = this._reservedRanges),
+        (n.visibility = this._visibility),
+        (n.active = this._active),
+        (n.bounds = this._bounds.map((h) => ({
+          boxInitialized: h.boxInitialized,
+          boxMin: h.box.min.toArray(),
+          boxMax: h.box.max.toArray(),
+          sphereInitialized: h.sphereInitialized,
+          sphereRadius: h.sphere.radius,
+          sphereCenter: h.sphere.center.toArray(),
+        }))),
+        (n.maxInstanceCount = this._maxInstanceCount),
+        (n.maxVertexCount = this._maxVertexCount),
+        (n.maxIndexCount = this._maxIndexCount),
+        (n.geometryInitialized = this._geometryInitialized),
+        (n.geometryCount = this._geometryCount),
+        (n.matricesTexture = this._matricesTexture.toJSON(t)),
+        this._colorsTexture !== null &&
+          (n.colorsTexture = this._colorsTexture.toJSON(t)),
+        this.boundingSphere !== null &&
+          (n.boundingSphere = {
+            center: n.boundingSphere.center.toArray(),
+            radius: n.boundingSphere.radius,
+          }),
+        this.boundingBox !== null &&
+          (n.boundingBox = {
+            min: n.boundingBox.min.toArray(),
+            max: n.boundingBox.max.toArray(),
+          })));
+    function i(h, o) {
+      return (h[o.uuid] === void 0 && (h[o.uuid] = o.toJSON(t)), o.uuid);
+    }
+    if (this.isScene)
+      (this.background &&
+        (this.background.isColor
+          ? (n.background = this.background.toJSON())
+          : this.background.isTexture &&
+            (n.background = this.background.toJSON(t).uuid)),
+        this.environment &&
+          this.environment.isTexture &&
+          this.environment.isRenderTargetTexture !== !0 &&
+          (n.environment = this.environment.toJSON(t).uuid));
+    else if (this.isMesh || this.isLine || this.isPoints) {
+      n.geometry = i(t.geometries, this.geometry);
+      const h = this.geometry.parameters;
+      if (h !== void 0 && h.shapes !== void 0) {
+        const o = h.shapes;
+        if (Array.isArray(o))
+          for (let a = 0, u = o.length; a < u; a++) {
+            const d = o[a];
+            i(t.shapes, d);
+          }
+        else i(t.shapes, o);
+      }
+    }
+    if (
+      (this.isSkinnedMesh &&
+        ((n.bindMode = this.bindMode),
+        (n.bindMatrix = this.bindMatrix.toArray()),
+        this.skeleton !== void 0 &&
+          (i(t.skeletons, this.skeleton), (n.skeleton = this.skeleton.uuid))),
+      this.material !== void 0)
+    )
+      if (Array.isArray(this.material)) {
+        const h = [];
+        for (let o = 0, a = this.material.length; o < a; o++)
+          h.push(i(t.materials, this.material[o]));
+        n.material = h;
+      } else n.material = i(t.materials, this.material);
+    if (this.children.length > 0) {
+      n.children = [];
+      for (let h = 0; h < this.children.length; h++)
+        n.children.push(this.children[h].toJSON(t).object);
+    }
+    if (this.animations.length > 0) {
+      n.animations = [];
+      for (let h = 0; h < this.animations.length; h++) {
+        const o = this.animations[h];
+        n.animations.push(i(t.animations, o));
+      }
+    }
+    if (e) {
+      const h = c(t.geometries),
+        o = c(t.materials),
+        a = c(t.textures),
+        u = c(t.images),
+        d = c(t.shapes),
+        l = c(t.skeletons),
+        f = c(t.animations),
+        m = c(t.nodes);
+      (h.length > 0 && (s.geometries = h),
+        o.length > 0 && (s.materials = o),
+        a.length > 0 && (s.textures = a),
+        u.length > 0 && (s.images = u),
+        d.length > 0 && (s.shapes = d),
+        l.length > 0 && (s.skeletons = l),
+        f.length > 0 && (s.animations = f),
+        m.length > 0 && (s.nodes = m));
+    }
+    return ((s.object = n), s);
+    function c(h) {
+      const o = [];
+      for (const a in h) {
+        const u = h[a];
+        (delete u.metadata, o.push(u));
+      }
+      return o;
+    }
+  }
+  clone(t) {
+    return new this.constructor().copy(this, t);
+  }
+  copy(t, e = !0) {
+    if (
+      ((this.name = t.name),
+      this.up.copy(t.up),
+      this.position.copy(t.position),
+      (this.rotation.order = t.rotation.order),
+      this.quaternion.copy(t.quaternion),
+      this.scale.copy(t.scale),
+      this.matrix.copy(t.matrix),
+      this.matrixWorld.copy(t.matrixWorld),
+      (this.matrixAutoUpdate = t.matrixAutoUpdate),
+      (this.matrixWorldAutoUpdate = t.matrixWorldAutoUpdate),
+      (this.matrixWorldNeedsUpdate = t.matrixWorldNeedsUpdate),
+      (this.layers.mask = t.layers.mask),
+      (this.visible = t.visible),
+      (this.castShadow = t.castShadow),
+      (this.receiveShadow = t.receiveShadow),
+      (this.frustumCulled = t.frustumCulled),
+      (this.renderOrder = t.renderOrder),
+      (this.animations = t.animations.slice()),
+      (this.userData = JSON.parse(JSON.stringify(t.userData))),
+      e === !0)
+    )
+      for (let s = 0; s < t.children.length; s++) {
+        const n = t.children[s];
+        this.add(n.clone());
+      }
+    return this;
+  }
+}
+vt.DEFAULT_UP = new C(0, 1, 0);
+vt.DEFAULT_MATRIX_AUTO_UPDATE = !0;
+vt.DEFAULT_MATRIX_WORLD_AUTO_UPDATE = !0;
+const J = new C(),
+  is = new zt();
+class re {
+  constructor(t, e, s = !1) {
+    if (Array.isArray(t))
+      throw new TypeError(
+        "THREE.BufferAttribute: array should be a Typed Array.",
+      );
+    ((this.isBufferAttribute = !0),
+      (this.name = ""),
+      (this.array = t),
+      (this.itemSize = e),
+      (this.count = t !== void 0 ? t.length / e : 0),
+      (this.normalized = s),
+      (this.usage = 35044),
+      (this.updateRanges = []),
+      (this.gpuType = 1015),
+      (this.version = 0));
+  }
+  onUploadCallback() {}
+  set needsUpdate(t) {
+    t === !0 && this.version++;
+  }
+  setUsage(t) {
+    return ((this.usage = t), this);
+  }
+  addUpdateRange(t, e) {
+    this.updateRanges.push({ start: t, count: e });
+  }
+  clearUpdateRanges() {
+    this.updateRanges.length = 0;
+  }
+  copy(t) {
+    return (
+      (this.name = t.name),
+      (this.array = new t.array.constructor(t.array)),
+      (this.itemSize = t.itemSize),
+      (this.count = t.count),
+      (this.normalized = t.normalized),
+      (this.usage = t.usage),
+      (this.gpuType = t.gpuType),
+      this
+    );
+  }
+  copyAt(t, e, s) {
+    ((t *= this.itemSize), (s *= e.itemSize));
+    for (let n = 0, i = this.itemSize; n < i; n++)
+      this.array[t + n] = e.array[s + n];
+    return this;
+  }
+  copyArray(t) {
+    return (this.array.set(t), this);
+  }
+  applyMatrix3(t) {
+    if (this.itemSize === 2)
+      for (let e = 0, s = this.count; e < s; e++)
+        (is.fromBufferAttribute(this, e),
+          is.applyMatrix3(t),
+          this.setXY(e, is.x, is.y));
+    else if (this.itemSize === 3)
+      for (let e = 0, s = this.count; e < s; e++)
+        (J.fromBufferAttribute(this, e),
+          J.applyMatrix3(t),
+          this.setXYZ(e, J.x, J.y, J.z));
+    return this;
+  }
+  applyMatrix4(t) {
+    for (let e = 0, s = this.count; e < s; e++)
+      (J.fromBufferAttribute(this, e),
+        J.applyMatrix4(t),
+        this.setXYZ(e, J.x, J.y, J.z));
+    return this;
+  }
+  applyNormalMatrix(t) {
+    for (let e = 0, s = this.count; e < s; e++)
+      (J.fromBufferAttribute(this, e),
+        J.applyNormalMatrix(t),
+        this.setXYZ(e, J.x, J.y, J.z));
+    return this;
+  }
+  transformDirection(t) {
+    for (let e = 0, s = this.count; e < s; e++)
+      (J.fromBufferAttribute(this, e),
+        J.transformDirection(t),
+        this.setXYZ(e, J.x, J.y, J.z));
+    return this;
+  }
+  set(t, e = 0) {
+    return (this.array.set(t, e), this);
+  }
+  getComponent(t, e) {
+    let s = this.array[t * this.itemSize + e];
+    return (this.normalized && (s = Le(s, this.array)), s);
+  }
+  setComponent(t, e, s) {
+    return (
+      this.normalized && (s = rt(s, this.array)),
+      (this.array[t * this.itemSize + e] = s),
+      this
+    );
+  }
+  getX(t) {
+    let e = this.array[t * this.itemSize];
+    return (this.normalized && (e = Le(e, this.array)), e);
+  }
+  setX(t, e) {
+    return (
+      this.normalized && (e = rt(e, this.array)),
+      (this.array[t * this.itemSize] = e),
+      this
+    );
+  }
+  getY(t) {
+    let e = this.array[t * this.itemSize + 1];
+    return (this.normalized && (e = Le(e, this.array)), e);
+  }
+  setY(t, e) {
+    return (
+      this.normalized && (e = rt(e, this.array)),
+      (this.array[t * this.itemSize + 1] = e),
+      this
+    );
+  }
+  getZ(t) {
+    let e = this.array[t * this.itemSize + 2];
+    return (this.normalized && (e = Le(e, this.array)), e);
+  }
+  setZ(t, e) {
+    return (
+      this.normalized && (e = rt(e, this.array)),
+      (this.array[t * this.itemSize + 2] = e),
+      this
+    );
+  }
+  getW(t) {
+    let e = this.array[t * this.itemSize + 3];
+    return (this.normalized && (e = Le(e, this.array)), e);
+  }
+  setW(t, e) {
+    return (
+      this.normalized && (e = rt(e, this.array)),
+      (this.array[t * this.itemSize + 3] = e),
+      this
+    );
+  }
+  setXY(t, e, s) {
+    return (
+      (t *= this.itemSize),
+      this.normalized && ((e = rt(e, this.array)), (s = rt(s, this.array))),
+      (this.array[t + 0] = e),
+      (this.array[t + 1] = s),
+      this
+    );
+  }
+  setXYZ(t, e, s, n) {
+    return (
+      (t *= this.itemSize),
+      this.normalized &&
+        ((e = rt(e, this.array)),
+        (s = rt(s, this.array)),
+        (n = rt(n, this.array))),
+      (this.array[t + 0] = e),
+      (this.array[t + 1] = s),
+      (this.array[t + 2] = n),
+      this
+    );
+  }
+  setXYZW(t, e, s, n, i) {
+    return (
+      (t *= this.itemSize),
+      this.normalized &&
+        ((e = rt(e, this.array)),
+        (s = rt(s, this.array)),
+        (n = rt(n, this.array)),
+        (i = rt(i, this.array))),
+      (this.array[t + 0] = e),
+      (this.array[t + 1] = s),
+      (this.array[t + 2] = n),
+      (this.array[t + 3] = i),
+      this
+    );
+  }
+  onUpload(t) {
+    return ((this.onUploadCallback = t), this);
+  }
+  clone() {
+    return new this.constructor(this.array, this.itemSize).copy(this);
+  }
+  toJSON() {
+    const t = {
+      itemSize: this.itemSize,
+      type: this.array.constructor.name,
+      array: Array.from(this.array),
+      normalized: this.normalized,
+    };
+    return (
+      this.name !== "" && (t.name = this.name),
+      this.usage !== 35044 && (t.usage = this.usage),
+      t
+    );
+  }
+}
+class Hi extends re {
+  constructor(t, e, s) {
+    super(new Uint16Array(t), e, s);
+  }
+}
+class Yi extends re {
+  constructor(t, e, s) {
+    super(new Uint32Array(t), e, s);
+  }
+}
+class Ot extends re {
+  constructor(t, e, s) {
+    super(new Float32Array(t), e, s);
+  }
+}
+let Vi = 0;
+const mt = new Nt(),
+  zs = new vt(),
+  _e = new C(),
+  dt = new Ve(),
+  Be = new Ve(),
+  et = new C();
+class bs extends nn {
+  constructor() {
+    (super(),
+      (this.isBufferGeometry = !0),
+      Object.defineProperty(this, "id", { value: Vi++ }),
+      (this.uuid = Rs()),
+      (this.name = ""),
+      (this.type = "BufferGeometry"),
+      (this.index = null),
+      (this.attributes = {}),
+      (this.morphAttributes = {}),
+      (this.morphTargetsRelative = !1),
+      (this.groups = []),
+      (this.boundingBox = null),
+      (this.boundingSphere = null),
+      (this.drawRange = { start: 0, count: 1 / 0 }),
+      (this.userData = {}));
+  }
+  getIndex() {
+    return this.index;
+  }
+  setIndex(t) {
+    return (
+      Array.isArray(t)
+        ? (this.index = new (Li(t) ? Yi : Hi)(t, 1))
+        : (this.index = t),
+      this
+    );
+  }
+  getAttribute(t) {
+    return this.attributes[t];
+  }
+  setAttribute(t, e) {
+    return ((this.attributes[t] = e), this);
+  }
+  deleteAttribute(t) {
+    return (delete this.attributes[t], this);
+  }
+  hasAttribute(t) {
+    return this.attributes[t] !== void 0;
+  }
+  addGroup(t, e, s = 0) {
+    this.groups.push({ start: t, count: e, materialIndex: s });
+  }
+  clearGroups() {
+    this.groups = [];
+  }
+  setDrawRange(t, e) {
+    ((this.drawRange.start = t), (this.drawRange.count = e));
+  }
+  applyMatrix4(t) {
+    const e = this.attributes.position;
+    e !== void 0 && (e.applyMatrix4(t), (e.needsUpdate = !0));
+    const s = this.attributes.normal;
+    if (s !== void 0) {
+      const i = new Te().getNormalMatrix(t);
+      (s.applyNormalMatrix(i), (s.needsUpdate = !0));
+    }
+    const n = this.attributes.tangent;
+    return (
+      n !== void 0 && (n.transformDirection(t), (n.needsUpdate = !0)),
+      this.boundingBox !== null && this.computeBoundingBox(),
+      this.boundingSphere !== null && this.computeBoundingSphere(),
+      this
+    );
+  }
+  applyQuaternion(t) {
+    return (mt.makeRotationFromQuaternion(t), this.applyMatrix4(mt), this);
+  }
+  rotateX(t) {
+    return (mt.makeRotationX(t), this.applyMatrix4(mt), this);
+  }
+  rotateY(t) {
+    return (mt.makeRotationY(t), this.applyMatrix4(mt), this);
+  }
+  rotateZ(t) {
+    return (mt.makeRotationZ(t), this.applyMatrix4(mt), this);
+  }
+  translate(t, e, s) {
+    return (mt.makeTranslation(t, e, s), this.applyMatrix4(mt), this);
+  }
+  scale(t, e, s) {
+    return (mt.makeScale(t, e, s), this.applyMatrix4(mt), this);
+  }
+  lookAt(t) {
+    return (
+      zs.lookAt(t),
+      zs.updateMatrix(),
+      this.applyMatrix4(zs.matrix),
+      this
+    );
+  }
+  center() {
+    return (
+      this.computeBoundingBox(),
+      this.boundingBox.getCenter(_e).negate(),
+      this.translate(_e.x, _e.y, _e.z),
+      this
+    );
+  }
+  setFromPoints(t) {
+    const e = [];
+    for (let s = 0, n = t.length; s < n; s++) {
+      const i = t[s];
+      e.push(i.x, i.y, i.z || 0);
+    }
+    return (this.setAttribute("position", new Ot(e, 3)), this);
+  }
+  computeBoundingBox() {
+    this.boundingBox === null && (this.boundingBox = new Ve());
+    const t = this.attributes.position,
+      e = this.morphAttributes.position;
+    if (t && t.isGLBufferAttribute) {
+      (console.error(
+        "THREE.BufferGeometry.computeBoundingBox(): GLBufferAttribute requires a manual bounding box.",
+        this,
+      ),
+        this.boundingBox.set(
+          new C(-1 / 0, -1 / 0, -1 / 0),
+          new C(1 / 0, 1 / 0, 1 / 0),
+        ));
+      return;
+    }
+    if (t !== void 0) {
+      if ((this.boundingBox.setFromBufferAttribute(t), e))
+        for (let s = 0, n = e.length; s < n; s++) {
+          const i = e[s];
+          (dt.setFromBufferAttribute(i),
+            this.morphTargetsRelative
+              ? (et.addVectors(this.boundingBox.min, dt.min),
+                this.boundingBox.expandByPoint(et),
+                et.addVectors(this.boundingBox.max, dt.max),
+                this.boundingBox.expandByPoint(et))
+              : (this.boundingBox.expandByPoint(dt.min),
+                this.boundingBox.expandByPoint(dt.max)));
+        }
+    } else this.boundingBox.makeEmpty();
+    (isNaN(this.boundingBox.min.x) ||
+      isNaN(this.boundingBox.min.y) ||
+      isNaN(this.boundingBox.min.z)) &&
+      console.error(
+        'THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The "position" attribute is likely to have NaN values.',
+        this,
+      );
+  }
+  computeBoundingSphere() {
+    this.boundingSphere === null && (this.boundingSphere = new ki());
+    const t = this.attributes.position,
+      e = this.morphAttributes.position;
+    if (t && t.isGLBufferAttribute) {
+      (console.error(
+        "THREE.BufferGeometry.computeBoundingSphere(): GLBufferAttribute requires a manual bounding sphere.",
+        this,
+      ),
+        this.boundingSphere.set(new C(), 1 / 0));
+      return;
+    }
+    if (t) {
+      const s = this.boundingSphere.center;
+      if ((dt.setFromBufferAttribute(t), e))
+        for (let i = 0, c = e.length; i < c; i++) {
+          const h = e[i];
+          (Be.setFromBufferAttribute(h),
+            this.morphTargetsRelative
+              ? (et.addVectors(dt.min, Be.min),
+                dt.expandByPoint(et),
+                et.addVectors(dt.max, Be.max),
+                dt.expandByPoint(et))
+              : (dt.expandByPoint(Be.min), dt.expandByPoint(Be.max)));
+        }
+      dt.getCenter(s);
+      let n = 0;
+      for (let i = 0, c = t.count; i < c; i++)
+        (et.fromBufferAttribute(t, i),
+          (n = Math.max(n, s.distanceToSquared(et))));
+      if (e)
+        for (let i = 0, c = e.length; i < c; i++) {
+          const h = e[i],
+            o = this.morphTargetsRelative;
+          for (let a = 0, u = h.count; a < u; a++)
+            (et.fromBufferAttribute(h, a),
+              o && (_e.fromBufferAttribute(t, a), et.add(_e)),
+              (n = Math.max(n, s.distanceToSquared(et))));
+        }
+      ((this.boundingSphere.radius = Math.sqrt(n)),
+        isNaN(this.boundingSphere.radius) &&
+          console.error(
+            'THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The "position" attribute is likely to have NaN values.',
+            this,
+          ));
+    }
+  }
+  computeTangents() {
+    const t = this.index,
+      e = this.attributes;
+    if (
+      t === null ||
+      e.position === void 0 ||
+      e.normal === void 0 ||
+      e.uv === void 0
+    ) {
+      console.error(
+        "THREE.BufferGeometry: .computeTangents() failed. Missing required attributes (index, position, normal or uv)",
+      );
+      return;
+    }
+    const s = e.position,
+      n = e.normal,
+      i = e.uv;
+    this.hasAttribute("tangent") === !1 &&
+      this.setAttribute("tangent", new re(new Float32Array(4 * s.count), 4));
+    const c = this.getAttribute("tangent"),
+      h = [],
+      o = [];
+    for (let O = 0; O < s.count; O++) ((h[O] = new C()), (o[O] = new C()));
+    const a = new C(),
+      u = new C(),
+      d = new C(),
+      l = new zt(),
+      f = new zt(),
+      m = new zt(),
+      _ = new C(),
+      g = new C();
+    function y(O, I, k) {
+      (a.fromBufferAttribute(s, O),
+        u.fromBufferAttribute(s, I),
+        d.fromBufferAttribute(s, k),
+        l.fromBufferAttribute(i, O),
+        f.fromBufferAttribute(i, I),
+        m.fromBufferAttribute(i, k),
+        u.sub(a),
+        d.sub(a),
+        f.sub(l),
+        m.sub(l));
+      const w = 1 / (f.x * m.y - m.x * f.y);
+      isFinite(w) &&
+        (_.copy(u)
+          .multiplyScalar(m.y)
+          .addScaledVector(d, -f.y)
+          .multiplyScalar(w),
+        g
+          .copy(d)
+          .multiplyScalar(f.x)
+          .addScaledVector(u, -m.x)
+          .multiplyScalar(w),
+        h[O].add(_),
+        h[I].add(_),
+        h[k].add(_),
+        o[O].add(g),
+        o[I].add(g),
+        o[k].add(g));
+    }
+    let R = this.groups;
+    R.length === 0 && (R = [{ start: 0, count: t.count }]);
+    for (let O = 0, I = R.length; O < I; ++O) {
+      const k = R[O],
+        w = k.start,
+        N = k.count;
+      for (let L = w, U = w + N; L < U; L += 3)
+        y(t.getX(L + 0), t.getX(L + 1), t.getX(L + 2));
+    }
+    const E = new C(),
+      x = new C(),
+      S = new C(),
+      M = new C();
+    function A(O) {
+      (S.fromBufferAttribute(n, O), M.copy(S));
+      const I = h[O];
+      (E.copy(I),
+        E.sub(S.multiplyScalar(S.dot(I))).normalize(),
+        x.crossVectors(M, I));
+      const w = x.dot(o[O]) < 0 ? -1 : 1;
+      c.setXYZW(O, E.x, E.y, E.z, w);
+    }
+    for (let O = 0, I = R.length; O < I; ++O) {
+      const k = R[O],
+        w = k.start,
+        N = k.count;
+      for (let L = w, U = w + N; L < U; L += 3)
+        (A(t.getX(L + 0)), A(t.getX(L + 1)), A(t.getX(L + 2)));
+    }
+  }
+  computeVertexNormals() {
+    const t = this.index,
+      e = this.getAttribute("position");
+    if (e !== void 0) {
+      let s = this.getAttribute("normal");
+      if (s === void 0)
+        ((s = new re(new Float32Array(e.count * 3), 3)),
+          this.setAttribute("normal", s));
+      else for (let l = 0, f = s.count; l < f; l++) s.setXYZ(l, 0, 0, 0);
+      const n = new C(),
+        i = new C(),
+        c = new C(),
+        h = new C(),
+        o = new C(),
+        a = new C(),
+        u = new C(),
+        d = new C();
+      if (t)
+        for (let l = 0, f = t.count; l < f; l += 3) {
+          const m = t.getX(l + 0),
+            _ = t.getX(l + 1),
+            g = t.getX(l + 2);
+          (n.fromBufferAttribute(e, m),
+            i.fromBufferAttribute(e, _),
+            c.fromBufferAttribute(e, g),
+            u.subVectors(c, i),
+            d.subVectors(n, i),
+            u.cross(d),
+            h.fromBufferAttribute(s, m),
+            o.fromBufferAttribute(s, _),
+            a.fromBufferAttribute(s, g),
+            h.add(u),
+            o.add(u),
+            a.add(u),
+            s.setXYZ(m, h.x, h.y, h.z),
+            s.setXYZ(_, o.x, o.y, o.z),
+            s.setXYZ(g, a.x, a.y, a.z));
+        }
+      else
+        for (let l = 0, f = e.count; l < f; l += 3)
+          (n.fromBufferAttribute(e, l + 0),
+            i.fromBufferAttribute(e, l + 1),
+            c.fromBufferAttribute(e, l + 2),
+            u.subVectors(c, i),
+            d.subVectors(n, i),
+            u.cross(d),
+            s.setXYZ(l + 0, u.x, u.y, u.z),
+            s.setXYZ(l + 1, u.x, u.y, u.z),
+            s.setXYZ(l + 2, u.x, u.y, u.z));
+      (this.normalizeNormals(), (s.needsUpdate = !0));
+    }
+  }
+  normalizeNormals() {
+    const t = this.attributes.normal;
+    for (let e = 0, s = t.count; e < s; e++)
+      (et.fromBufferAttribute(t, e),
+        et.normalize(),
+        t.setXYZ(e, et.x, et.y, et.z));
+  }
+  toNonIndexed() {
+    function t(h, o) {
+      const a = h.array,
+        u = h.itemSize,
+        d = h.normalized,
+        l = new a.constructor(o.length * u);
+      let f = 0,
+        m = 0;
+      for (let _ = 0, g = o.length; _ < g; _++) {
+        h.isInterleavedBufferAttribute
+          ? (f = o[_] * h.data.stride + h.offset)
+          : (f = o[_] * u);
+        for (let y = 0; y < u; y++) l[m++] = a[f++];
+      }
+      return new re(l, u, d);
+    }
+    if (this.index === null)
+      return (
+        console.warn(
+          "THREE.BufferGeometry.toNonIndexed(): BufferGeometry is already non-indexed.",
+        ),
+        this
+      );
+    const e = new bs(),
+      s = this.index.array,
+      n = this.attributes;
+    for (const h in n) {
+      const o = n[h],
+        a = t(o, s);
+      e.setAttribute(h, a);
+    }
+    const i = this.morphAttributes;
+    for (const h in i) {
+      const o = [],
+        a = i[h];
+      for (let u = 0, d = a.length; u < d; u++) {
+        const l = a[u],
+          f = t(l, s);
+        o.push(f);
+      }
+      e.morphAttributes[h] = o;
+    }
+    e.morphTargetsRelative = this.morphTargetsRelative;
+    const c = this.groups;
+    for (let h = 0, o = c.length; h < o; h++) {
+      const a = c[h];
+      e.addGroup(a.start, a.count, a.materialIndex);
+    }
+    return e;
+  }
+  toJSON() {
+    const t = {
+      metadata: {
+        version: 4.6,
+        type: "BufferGeometry",
+        generator: "BufferGeometry.toJSON",
+      },
+    };
+    if (
+      ((t.uuid = this.uuid),
+      (t.type = this.type),
+      this.name !== "" && (t.name = this.name),
+      Object.keys(this.userData).length > 0 && (t.userData = this.userData),
+      this.parameters !== void 0)
+    ) {
+      const o = this.parameters;
+      for (const a in o) o[a] !== void 0 && (t[a] = o[a]);
+      return t;
+    }
+    t.data = { attributes: {} };
+    const e = this.index;
+    e !== null &&
+      (t.data.index = {
+        type: e.array.constructor.name,
+        array: Array.prototype.slice.call(e.array),
+      });
+    const s = this.attributes;
+    for (const o in s) {
+      const a = s[o];
+      t.data.attributes[o] = a.toJSON(t.data);
+    }
+    const n = {};
+    let i = !1;
+    for (const o in this.morphAttributes) {
+      const a = this.morphAttributes[o],
+        u = [];
+      for (let d = 0, l = a.length; d < l; d++) {
+        const f = a[d];
+        u.push(f.toJSON(t.data));
+      }
+      u.length > 0 && ((n[o] = u), (i = !0));
+    }
+    i &&
+      ((t.data.morphAttributes = n),
+      (t.data.morphTargetsRelative = this.morphTargetsRelative));
+    const c = this.groups;
+    c.length > 0 && (t.data.groups = JSON.parse(JSON.stringify(c)));
+    const h = this.boundingSphere;
+    return (
+      h !== null &&
+        (t.data.boundingSphere = {
+          center: h.center.toArray(),
+          radius: h.radius,
+        }),
+      t
+    );
+  }
+  clone() {
+    return new this.constructor().copy(this);
+  }
+  copy(t) {
+    ((this.index = null),
+      (this.attributes = {}),
+      (this.morphAttributes = {}),
+      (this.groups = []),
+      (this.boundingBox = null),
+      (this.boundingSphere = null));
+    const e = {};
+    this.name = t.name;
+    const s = t.index;
+    s !== null && this.setIndex(s.clone(e));
+    const n = t.attributes;
+    for (const a in n) {
+      const u = n[a];
+      this.setAttribute(a, u.clone(e));
+    }
+    const i = t.morphAttributes;
+    for (const a in i) {
+      const u = [],
+        d = i[a];
+      for (let l = 0, f = d.length; l < f; l++) u.push(d[l].clone(e));
+      this.morphAttributes[a] = u;
+    }
+    this.morphTargetsRelative = t.morphTargetsRelative;
+    const c = t.groups;
+    for (let a = 0, u = c.length; a < u; a++) {
+      const d = c[a];
+      this.addGroup(d.start, d.count, d.materialIndex);
+    }
+    const h = t.boundingBox;
+    h !== null && (this.boundingBox = h.clone());
+    const o = t.boundingSphere;
+    return (
+      o !== null && (this.boundingSphere = o.clone()),
+      (this.drawRange.start = t.drawRange.start),
+      (this.drawRange.count = t.drawRange.count),
+      (this.userData = t.userData),
+      this
+    );
+  }
+  dispose() {
+    this.dispatchEvent({ type: "dispose" });
+  }
+}
+typeof __THREE_DEVTOOLS__ < "u" &&
+  __THREE_DEVTOOLS__.dispatchEvent(
+    new CustomEvent("register", { detail: { revision: "169" } }),
+  );
+typeof window < "u" &&
+  (window.__THREE__
+    ? console.warn("WARNING: Multiple instances of Three.js being imported.")
+    : (window.__THREE__ = "169"));
+const Qn = [
+    ["olympus1000", "Gates of Olympus 1000", "goo1000", 12162047, "Ω"],
+    ["olympus", "Gates of Olympus", "gatesoo", 10781940, "Ω"],
+    ["olympus-ss", "Gates of Olympus Super Scatter", "gooss", 16434514, "Ω"],
+    ["olympus2500", "Gates of Olympus 2500", "goo2500", 7981567, "Ω"],
+    ["fortune", "Fortune of Olympus", "foo-2an", 15513949, "Ω"],
+    ["bonanza1000", "Sweet Bonanza 1000", "swbo1000", 16746443, "♥"],
+    ["bonanza-ss", "Sweet Bonanza Super Scatter", "sbss", 16764280, "♥"],
+    ["bonanza2500", "Sweet Bonanza 2500", "swbon2500", 15109119, "♥"],
+    ["bonanza", "Sweet Bonanza", "swbon", 16752076, "♥"],
+    ["sweet-rush", "Sweet Rush Bonanza", "srbon", 16755312, "♥"],
+    ["zeus-hades", "Zeus vs Hades Gods of War", "zwhgof", 16742229, "⚡"],
+    ["zeus-hades250", "Zeus vs Hades 250", "zvh250", 16758102, "⚡"],
+    ["doghouse1000", "The Dog House Megaways 1000", "tdhm1000", 16764796, "♠"],
+    ["doghouse-mega", "The Dog House Megaways", "dhmega", 16364921, "♠"],
+    ["doghouse", "The Dog House", "tdhouse", 15701110, "♠"],
+    ["starlight1000", "Starlight Princess 1000", "sp1000", 10008575, "★"],
+    [
+      "starlight-ss",
+      "Starlight Princess Super Scatter",
+      "spss-44x",
+      13868031,
+      "★",
+    ],
+    ["heaven1000", "Gates of Heaven 1000", "goh1000", 8773119, "✦"],
+    ["heaven-ss", "Gates of Heaven Super Scatter", "gohss", 11921151, "✦"],
+    ["sugar-ss", "Sugar Rush Super Scatter", "srss-xou", 16744651, "♥"],
+    ["sugar1000", "Sugar Rush 1000", "sr1000", 14325247, "♥"],
+    ["sugar", "Sugar Rush", "srush", 16755414, "♥"],
+    ["joker", "Joker's Jewels", "jjewels", 16615563, "♦"],
+    ["athena1000", "Wisdom of Athena 1000", "woa1000", 7789261, "Α"],
+    ["angel-sinner", "Angel vs Sinner", "avsin", 15897794, "✦"],
+    ["athena", "Wisdom of Athena", "woath", 10279862, "Α"],
+    ["lions", "5 Lions Megaways 2", "5lmw2", 16764272, "♠"],
+    ["buffalo", "Buffalo King Megaways", "bkmw", 15181168, "♠"],
+    ["bass1000", "Big Bass Splash 1000", "bbs1000", 7395821, "≈"],
+    ["bigger-bass", "Bigger Bass Bonanza", "bbb-6od", 8244935, "≈"],
+    ["big-bass", "Big Bass Bonanza", "bigbb", 8765439, "≈"],
+  ].map(([r, t, e, s, n]) => ({
+    id: r,
+    title: t,
+    host: `${e}.pages.dev`,
+    color: s,
+    motif: n,
+  })),
+  Xn = 600,
+  D = 16,
+  H = 128,
+  Es = 40;
+({
+  ...Object.fromEntries(
+    Qn.map((r, t) => [Xn + t, `Игровой автомат: ${r.title}`]),
+  ),
+});
+({
+  ...Object.fromEntries(Qn.map((r, t) => [Xn + t, `Slot machine: ${r.title}`])),
+});
+const we = (r, t) => r + "," + t,
+  Se = (r, t, e) => (t << 8) | (e << 4) | r,
+  cs = (r, t, e) => (r < t ? t : r > e ? e : r),
+  p = {
+    AIR: 0,
+    GRASS: 1,
+    DIRT: 2,
+    STONE: 3,
+    COBBLE: 4,
+    LOG: 7,
+    LEAVES: 8,
+    PLANKS: 9,
+    WATER: 12,
+    BEDROCK: 13,
+    GLOWSTONE: 17,
+    TORCH: 18,
+    LADDER: 19,
+    BED: 20,
+    REDSTONE: 21,
+    LEVER: 22,
+    BUTTON: 23,
+    PLATE: 24,
+    RTORCH: 25,
+    REPEATER: 26,
+    LAMP: 27,
+    PISTON: 28,
+    SPISTON: 29,
+    PISTON_HEAD: 30,
+    DOOR: 31,
+    DYNAMITE: 49,
+    DETONATOR: 50,
+    CHEST: 51,
+    COAL_ORE: 52,
+    IRON_ORE: 53,
+    GOLD_ORE: 54,
+    DIAMOND_ORE: 55,
+    TITANIUM_ORE: 56,
+    SANDSTONE: 57,
+    SANDSTONE_SMOOTH: 58,
+    SANDSTONE_CHISELED: 59,
+    STONE_BRICKS: 60,
+    MOSSY_STONE_BRICKS: 61,
+    POLISHED_STONE: 62,
+    STAIR_WOOD: 63,
+    STAIR_STONE: 64,
+    STAIR_SANDSTONE: 65,
+    STAIR_COBBLE: 66,
+    STAIR_BRICK: 67,
+    STAIR_STONE_BRICKS: 68,
+    STAIR_SAND: 69,
+    SAPLING: 70,
+    METAL_DOOR: 71,
+    ARMORED_DOOR: 72,
+    FURNACE: 73,
+    BOOKSHELF: 74,
+    LANTERN: 75,
+    CHAIN: 76,
+    MILITARY_CHEST: 77,
+    HAY_BALE: 78,
+    BARREL: 79,
+    FENCE_WOOD: 80,
+    FENCE_COBBLE: 81,
+    FENCE_STONE: 82,
+    FENCE_STONE_BRICKS: 83,
+    FENCE_SANDSTONE: 84,
+    FENCE_GATE_WOOD: 85,
+    BARBED_WIRE: 86,
+    TALL_GRASS: 87,
+    FLOWER_RED: 88,
+    FLOWER_WHITE: 89,
+    FLOWER_BLUE: 90,
+    FLOWER_PINK: 91,
+    FLOWER_YELLOW: 92,
+    FENCE_GATE_COBBLE: 93,
+    FENCE_GATE_STONE: 94,
+    FENCE_GATE_STONE_BRICKS: 95,
+    FENCE_GATE_SANDSTONE: 96,
+    TROPICAL_LOG: 97,
+    TROPICAL_LEAVES: 98,
+    DESERT_LOG: 99,
+    DESERT_LEAVES: 100,
+    PINE_LOG: 101,
+    PINE_LEAVES: 102,
+    SAKURA_LOG: 103,
+    SAKURA_LEAVES: 104,
+    TROPICAL_SAPLING: 105,
+    DESERT_SAPLING: 106,
+    PINE_SAPLING: 107,
+    SAKURA_SAPLING: 108,
+    CACTUS: 109,
+    LAVA: 110,
+    FIRE: 111,
+    WHEAT_CROP: 112,
+    SNOW_LAYER: 113,
+    WHEAT_SPROUT: 114,
+    WHEAT_YOUNG: 115,
+    TARGET: 116,
+    DESERT_GRASS: 117,
+    FARMLAND: 118,
+    POTATO_SPROUT: 119,
+    POTATO_YOUNG: 120,
+    POTATO_CROP: 121,
+    CARROT_SPROUT: 122,
+    CARROT_YOUNG: 123,
+    CARROT_CROP: 124,
+    CAKE: 125,
+    LIGHTNING_ROD: 126,
+    CAMPFIRE: 127,
+    SEAWEED: 128,
+    SEAGRASS: 129,
+    CORAL_PINK: 130,
+    CORAL_BLUE: 131,
+    CORAL_YELLOW: 132,
+    HIEROGLYPH_SANDSTONE: 133,
+    GOLD_INLAY: 134,
+    LAPIS_INLAY: 135,
+    EGYPTIAN_PILLAR: 136,
+    SARCOPHAGUS: 137,
+    LUNAR_REGOLITH: 138,
+    LUNAR_ROCK: 139,
+    LUNAR_BASALT: 140,
+    LUNAR_ICE: 141,
+    LUNAR_ORE: 142,
+    LUNAR_PANEL: 143,
+    LUNAR_GLASS: 144,
+    COMPOSTER: 145,
+    WOOD_TABLE: 146,
+    WOOD_CHAIR: 147,
+    WOOD_BENCH: 148,
+    MAP_TABLE: 149,
+    REMOTE_STATION: 150,
+    MINE_AP: 151,
+    MINE_AT: 152,
+    SAVANNA_GRASS: 153,
+    STAIR_RSTONE: 154,
+    KITCHEN_COUNTER: 155,
+    SINK: 156,
+    STORAGE_SHELF: 157,
+    SOFA: 158,
+    WALL_LIGHT: 159,
+    POTTED_PLANT: 160,
+    RASPBERRY_BUSH_SPROUT: 161,
+    RASPBERRY_BUSH_YOUNG: 162,
+    RASPBERRY_BUSH_RIPE: 163,
+    BLUEBERRY_BUSH_SPROUT: 164,
+    BLUEBERRY_BUSH_YOUNG: 165,
+    BLUEBERRY_BUSH_RIPE: 166,
+    BLACKBERRY_BUSH_SPROUT: 167,
+    BLACKBERRY_BUSH_YOUNG: 168,
+    BLACKBERRY_BUSH_RIPE: 169,
+    RGLOWSTONE: 170,
+    SIGN: 171,
+    RADIO_RELAY: 172,
+    AUTUMN_LEAVES_ORANGE: 173,
+    AUTUMN_LEAVES_RED: 174,
+    AUTUMN_LEAVES_YELLOW: 175,
+    BIRCH_LOG: 176,
+    LEAF_LITTER: 177,
+    PUMPKIN: 178,
+    JACK_O_LANTERN: 179,
+    PUMPKIN_SPROUT: 180,
+    PUMPKIN_YOUNG: 181,
+    PUMPKIN_CROP: 182,
+    CANDLE: 183,
+    COBWEB: 184,
+    GRAVESTONE: 185,
+    GRAVE_CROSS: 186,
+    SKULL: 187,
+    CAULDRON: 188,
+    SCARECROW: 189,
+    IRON_FENCE: 190,
+    DARK_PLANKS: 191,
+    DEAD_LOG: 192,
+    MOSSY_COBBLE: 193,
+    COFFIN: 194,
+    POTION_SHELF: 195,
+    HANGING_HERBS: 196,
+    FLY_AGARIC: 197,
+    MUSHROOM: 198,
+    STAIR_DARK: 199,
+    CRACKED_STONE_BRICKS: 200,
+    AUTUMN_SAPLING: 201,
+    OWNERSHIP_TOTEM: 202,
+    CASINO_CARPET: 203,
+    ROYAL_CARPET: 204,
+    MARBLE: 205,
+    BLACK_MARBLE: 206,
+    GOLD_BLOCK: 207,
+    VELVET_PANEL: 208,
+    MARQUEE_LIGHTS: 209,
+    LED_SCREEN: 210,
+    AVIATION_LIGHT: 211,
+    ICE: 212,
+    WHEAT_FIELD: 213,
+    STUBBLE_FIELD: 214,
+    CROP_FIELD: 215,
+  },
+  vi = 4,
+  Mt = 8,
+  qi = 128,
+  Ki = 64,
+  Zn = (r) => (r >> 4) & 15,
+  us = [
+    [0, -1, 0],
+    [0, 1, 0],
+    [-1, 0, 0],
+    [1, 0, 0],
+    [0, 0, -1],
+    [0, 0, 1],
+  ],
+  Lt = [
+    [0, -1, 0],
+    [-1, 0, 0],
+    [1, 0, 0],
+    [0, 0, -1],
+    [0, 0, 1],
+    [0, 1, 0],
+  ],
+  ae = [
+    [0, -1],
+    [1, 0],
+    [0, 1],
+    [-1, 0],
+  ],
+  b = (r, t, e, s, n, i, c = {}, h = e) => ({
+    id: r,
+    name: t,
+    label: e,
+    labelEn: h,
+    hardness: s,
+    tex: n,
+    color: i,
+    solid: !0,
+    transparent: !1,
+    liquid: !1,
+    light: 0,
+    shape: "cube",
+    interactive: !1,
+    ...c,
+  }),
+  T = [
+    b(
+      0,
+      "air",
+      "Воздух",
+      0,
+      [0, 0, 0],
+      0,
+      { solid: !1, transparent: !0 },
+      "Air",
+    ),
+    b(1, "grass", "Трава", 30, [0, 1, 2], 5011257, {}, "Grass"),
+    b(2, "dirt", "Земля", 30, [2, 2, 2], 9067051, {}, "Dirt"),
+    b(3, "stone", "Камень", 90, [3, 3, 3], 9145227, {}, "Stone"),
+    b(4, "cobble", "Булыжник", 80, [4, 4, 4], 8026746, {}, "Cobblestone"),
+    b(5, "sand", "Песок", 25, [5, 5, 5], 14405530, {}, "Sand"),
+    b(6, "gravel", "Гравий", 30, [6, 6, 6], 10129798, {}, "Gravel"),
+    b(7, "log", "Бревно", 60, [7, 8, 7], 7032618, {}, "Log"),
+    b(
+      8,
+      "leaves",
+      "Листва",
+      8,
+      [9, 9, 9],
+      4160812,
+      { transparent: !0 },
+      "Leaves",
+    ),
+    b(9, "planks", "Доски", 50, [10, 10, 10], 11570259, {}, "Planks"),
+    b(10, "brick", "Кирпич", 100, [11, 11, 11], 10769711, {}, "Brick"),
+    b(
+      11,
+      "glass",
+      "Стекло",
+      5,
+      [12, 12, 12],
+      12575983,
+      { transparent: !0 },
+      "Glass",
+    ),
+    b(
+      12,
+      "water",
+      "Вода",
+      -1,
+      [13, 13, 13],
+      4026321,
+      { solid: !1, transparent: !0, liquid: !0 },
+      "Water",
+    ),
+    b(13, "bedrock", "Бедрок", -1, [14, 14, 14], 3355443, {}, "Bedrock"),
+    b(14, "snow", "Снег", 20, [15, 15, 15], 15791607, {}, "Snow"),
+    b(
+      15,
+      "rstone",
+      "Арм. камень",
+      300,
+      [16, 16, 16],
+      7304320,
+      {},
+      "Reinforced stone",
+    ),
+    b(
+      16,
+      "rglass",
+      "Арм. стекло",
+      300,
+      [17, 17, 17],
+      12901352,
+      { transparent: !0 },
+      "Reinforced glass",
+    ),
+    b(
+      17,
+      "glowstone",
+      "Светокамень",
+      40,
+      [18, 18, 18],
+      16767334,
+      { light: 15 },
+      "Glowstone",
+    ),
+    b(
+      18,
+      "torch",
+      "Факел",
+      1,
+      [19, 19, 19],
+      16763989,
+      { solid: !1, transparent: !0, light: 14, shape: "torch" },
+      "Torch",
+    ),
+    b(
+      19,
+      "ladder",
+      "Лестница",
+      20,
+      [20, 20, 20],
+      11043663,
+      { solid: !1, transparent: !0, shape: "ladder" },
+      "Ladder",
+    ),
+    b(
+      20,
+      "bed",
+      "Кровать",
+      25,
+      [21, 23, 10],
+      12729147,
+      { transparent: !0, shape: "bed", interactive: !0 },
+      "Bed",
+    ),
+    b(
+      21,
+      "redstone",
+      "Редстоун",
+      1,
+      [24, 25, 24],
+      10559248,
+      { solid: !1, transparent: !0, shape: "flat" },
+      "Redstone",
+    ),
+    b(
+      22,
+      "lever",
+      "Рычаг",
+      5,
+      [26, 26, 26],
+      9276813,
+      { solid: !1, transparent: !0, shape: "device", interactive: !0 },
+      "Lever",
+    ),
+    b(
+      23,
+      "button",
+      "Кнопка",
+      5,
+      [3, 3, 3],
+      9145227,
+      { solid: !1, transparent: !0, shape: "device", interactive: !0 },
+      "Button",
+    ),
+    b(
+      24,
+      "plate",
+      "Нажимная плита",
+      5,
+      [3, 3, 3],
+      10197915,
+      { solid: !1, transparent: !0, shape: "flat" },
+      "Pressure plate",
+    ),
+    b(
+      25,
+      "rtorch",
+      "Красный факел",
+      1,
+      [27, 28, 27],
+      13648682,
+      { solid: !1, transparent: !0, light: 7, shape: "torch" },
+      "Redstone torch",
+    ),
+    b(
+      26,
+      "repeater",
+      "Повторитель",
+      5,
+      [29, 29, 29],
+      10132122,
+      { solid: !1, transparent: !0, shape: "flat", interactive: !0 },
+      "Repeater",
+    ),
+    b(27, "lamp", "Лампа", 30, [30, 30, 30], 14201946, {}, "Lamp"),
+    b(28, "piston", "Поршень", 60, [32, 33, 33], 9075542, {}, "Piston"),
+    b(
+      29,
+      "spiston",
+      "Липкий поршень",
+      60,
+      [34, 33, 33],
+      8101980,
+      {},
+      "Sticky piston",
+    ),
+    b(
+      30,
+      "phead",
+      "Поршень (шток)",
+      60,
+      [32, 33, 33],
+      9075542,
+      { solid: !1, transparent: !0, shape: "device" },
+      "Piston head",
+    ),
+    b(
+      31,
+      "door",
+      "Дверь",
+      30,
+      [35, 35, 35],
+      10514492,
+      { solid: !1, transparent: !0, shape: "door", interactive: !0 },
+      "Door",
+    ),
+    b(
+      32,
+      "retired_32",
+      "",
+      0,
+      [0, 0, 0],
+      0,
+      { solid: !1, transparent: !0 },
+      "",
+    ),
+  ],
+  Qi = 33,
+  $n = 38,
+  rn = [
+    ["white_clay", "Белая глина", 15330540, "White clay"],
+    ["orange_clay", "Оранжевая глина", 15758867, "Orange clay"],
+    ["magenta_clay", "Пурпурная глина", 12403891, "Magenta clay"],
+    ["lightblue_clay", "Голубая глина", 3846105, "Light blue clay"],
+    ["yellow_clay", "Жёлтая глина", 16303655, "Yellow clay"],
+    ["lime_clay", "Лаймовая глина", 7387417, "Lime clay"],
+    ["pink_clay", "Розовая глина", 15568300, "Pink clay"],
+    ["gray_clay", "Серая глина", 4080711, "Gray clay"],
+    ["lightgray_clay", "Светло-серая глина", 9342598, "Light gray clay"],
+    ["cyan_clay", "Бирюзовая глина", 1411473, "Cyan clay"],
+    ["purple_clay", "Фиолетовая глина", 7940780, "Purple clay"],
+    ["blue_clay", "Синяя глина", 3488157, "Blue clay"],
+    ["brown_clay", "Коричневая глина", 7489320, "Brown clay"],
+    ["green_clay", "Зелёная глина", 5532955, "Green clay"],
+    ["red_clay", "Красная глина", 10495778, "Red clay"],
+    ["black_clay", "Чёрная глина", 1316121, "Black clay"],
+  ];
+rn.forEach(([r, t, e, s], n) => {
+  const i = $n + n;
+  T.push(b(Qi + n, r, t, 25, [i, i, i], e, {}, s));
+});
+const Jn = 54,
+  ls = 55,
+  jn = 171,
+  ti = 172;
+T.push(
+  b(
+    p.DYNAMITE,
+    "dynamite",
+    "Динамит",
+    5,
+    [jn, Jn, ti],
+    12727594,
+    {},
+    "Dynamite",
+  ),
+);
+T.push(
+  b(
+    p.DETONATOR,
+    "detonator",
+    "Детонатор",
+    5,
+    [ls, ls, ls],
+    3357252,
+    {},
+    "Detonator",
+  ),
+);
+const ds = 56,
+  it = 57;
+T.push(
+  b(
+    p.CHEST,
+    "chest",
+    "Сундук",
+    45,
+    [ds, ds, ds],
+    10119733,
+    { interactive: !0, transparent: !0, shape: "furniture" },
+    "Chest",
+  ),
+);
+T.push(
+  b(
+    p.COAL_ORE,
+    "coal_ore",
+    "Угольная руда",
+    100,
+    [it, it, it],
+    3881787,
+    {},
+    "Coal ore",
+  ),
+);
+T.push(
+  b(
+    p.IRON_ORE,
+    "iron_ore",
+    "Железная руда",
+    110,
+    [it + 1, it + 1, it + 1],
+    12683866,
+    {},
+    "Iron ore",
+  ),
+);
+T.push(
+  b(
+    p.GOLD_ORE,
+    "gold_ore",
+    "Золотая руда",
+    120,
+    [it + 2, it + 2, it + 2],
+    14728267,
+    {},
+    "Gold ore",
+  ),
+);
+T.push(
+  b(
+    p.DIAMOND_ORE,
+    "diamond_ore",
+    "Алмазная руда",
+    130,
+    [it + 3, it + 3, it + 3],
+    4839656,
+    {},
+    "Diamond ore",
+  ),
+);
+T.push(
+  b(
+    p.TITANIUM_ORE,
+    "titanium_ore",
+    "Титановая руда",
+    145,
+    [it + 4, it + 4, it + 4],
+    12043732,
+    {},
+    "Titanium ore",
+  ),
+);
+const j = 62;
+T.push(
+  b(
+    p.SANDSTONE,
+    "sandstone",
+    "Песчаник",
+    110,
+    [j, j, j],
+    14206090,
+    {},
+    "Sandstone",
+  ),
+);
+T.push(
+  b(
+    p.SANDSTONE_SMOOTH,
+    "smooth_sandstone",
+    "Гладкий песчаник",
+    110,
+    [j + 1, j + 1, j + 1],
+    14732695,
+    {},
+    "Smooth sandstone",
+  ),
+);
+T.push(
+  b(
+    p.SANDSTONE_CHISELED,
+    "chiseled_sandstone",
+    "Резной песчаник",
+    110,
+    [j + 2, j + 2, j + 2],
+    14470038,
+    {},
+    "Chiseled sandstone",
+  ),
+);
+T.push(
+  b(
+    p.STONE_BRICKS,
+    "stone_bricks",
+    "Каменный кирпич",
+    120,
+    [j + 3, j + 3, j + 3],
+    9211020,
+    {},
+    "Stone bricks",
+  ),
+);
+T.push(
+  b(
+    p.MOSSY_STONE_BRICKS,
+    "mossy_stone_bricks",
+    "Замшелый каменный кирпич",
+    120,
+    [j + 4, j + 4, j + 4],
+    8162414,
+    {},
+    "Mossy stone bricks",
+  ),
+);
+T.push(
+  b(
+    p.POLISHED_STONE,
+    "polished_stone",
+    "Полированный камень",
+    120,
+    [j + 5, j + 5, j + 5],
+    11053224,
+    {},
+    "Polished stone",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_WOOD,
+    "wood_stairs",
+    "Деревянная ступенька",
+    50,
+    [10, 10, 10],
+    11570259,
+    { transparent: !0, shape: "stair" },
+    "Wooden stair",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_STONE,
+    "stone_stairs",
+    "Каменная ступенька",
+    90,
+    [3, 3, 3],
+    9145227,
+    { transparent: !0, shape: "stair" },
+    "Stone stair",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_SANDSTONE,
+    "sandstone_stairs",
+    "Ступенька из песчаника",
+    110,
+    [62, 62, 62],
+    14206090,
+    { transparent: !0, shape: "stair" },
+    "Sandstone stair",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_COBBLE,
+    "cobble_stairs",
+    "Булыжная ступенька",
+    80,
+    [4, 4, 4],
+    8026746,
+    { transparent: !0, shape: "stair" },
+    "Cobblestone stair",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_BRICK,
+    "brick_stairs",
+    "Кирпичная ступенька",
+    100,
+    [11, 11, 11],
+    10769711,
+    { transparent: !0, shape: "stair" },
+    "Brick stair",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_STONE_BRICKS,
+    "stone_brick_stairs",
+    "Ступенька из каменного кирпича",
+    120,
+    [65, 65, 65],
+    9211020,
+    { transparent: !0, shape: "stair" },
+    "Stone brick stair",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_SAND,
+    "sand_stairs",
+    "Ступенька из песка",
+    25,
+    [5, 5, 5],
+    14405530,
+    { transparent: !0, shape: "stair" },
+    "Sand stair",
+  ),
+);
+const Fs = j + 6;
+T.push(
+  b(
+    p.SAPLING,
+    "sapling",
+    "Саженец дерева",
+    1,
+    [Fs, Fs, Fs],
+    5933626,
+    { solid: !1, transparent: !0, shape: "plant" },
+    "Tree sapling",
+  ),
+);
+const Ae = 69,
+  ye = 71,
+  ei = 73,
+  si = 74,
+  on = 93,
+  an = 94,
+  hn = 157;
+function Xi(r, t, e, s) {
+  if (e !== 0) return e > 0 ? on : an;
+  const [n, i] = ae[r & 3];
+  return t === n && s === i ? (r & Mt ? si : ei) : hn;
+}
+T.push(
+  b(
+    p.METAL_DOOR,
+    "metal_door",
+    "Металлическая дверь",
+    90,
+    [Ae, Ae, Ae],
+    7832204,
+    { solid: !1, transparent: !0, shape: "door", interactive: !0 },
+    "Metal door",
+  ),
+);
+T.push(
+  b(
+    p.ARMORED_DOOR,
+    "armored_door",
+    "Армированная дверь",
+    360,
+    [ye, ye, ye],
+    5069155,
+    { solid: !1, transparent: !0, shape: "door", interactive: !0 },
+    "Armored door",
+  ),
+);
+T.push(
+  b(
+    p.FURNACE,
+    "furnace",
+    "Печка",
+    100,
+    [on, hn, an],
+    5857642,
+    { interactive: !0 },
+    "Furnace",
+  ),
+);
+const Y = 75,
+  W = 88;
+T.push(
+  b(
+    p.BOOKSHELF,
+    "bookshelf",
+    "Книжный блок",
+    45,
+    [10, Y, 10],
+    8081197,
+    {},
+    "Bookshelf",
+  ),
+);
+T.push(
+  b(
+    p.LANTERN,
+    "lantern",
+    "Фонарь",
+    8,
+    [Y + 1, Y + 1, Y + 1],
+    16169034,
+    { solid: !1, transparent: !0, light: 14, shape: "lantern" },
+    "Lantern",
+  ),
+);
+T.push(
+  b(
+    p.CHAIN,
+    "chain",
+    "Цепь",
+    35,
+    [Y + 2, Y + 2, Y + 2],
+    6384242,
+    { solid: !1, transparent: !0, shape: "chain" },
+    "Chain",
+  ),
+);
+T.push(
+  b(
+    p.MILITARY_CHEST,
+    "military_chest",
+    "Военный сундук",
+    70,
+    [Y + 3, Y + 3, Y + 3],
+    5202991,
+    { interactive: !0, transparent: !0, shape: "furniture" },
+    "Military chest",
+  ),
+);
+T.push(
+  b(
+    p.HAY_BALE,
+    "hay_bale",
+    "Стог сена",
+    22,
+    [Y + 4, Y + 4, Y + 4],
+    14002729,
+    {},
+    "Hay bale",
+  ),
+);
+T.push(
+  b(
+    p.BARREL,
+    "barrel",
+    "Бочка",
+    45,
+    [Y + 5, Y + 5, Y + 5],
+    8411697,
+    { interactive: !0 },
+    "Barrel",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_WOOD,
+    "wood_fence",
+    "Деревянный забор",
+    45,
+    [W, W, W],
+    10976325,
+    { transparent: !0, shape: "fence" },
+    "Wooden fence",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_COBBLE,
+    "cobble_fence",
+    "Булыжный забор",
+    85,
+    [W + 1, W + 1, W + 1],
+    7829367,
+    { transparent: !0, shape: "fence" },
+    "Cobblestone fence",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_STONE,
+    "stone_fence",
+    "Каменный забор",
+    95,
+    [W + 2, W + 2, W + 2],
+    8947848,
+    { transparent: !0, shape: "fence" },
+    "Stone fence",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_STONE_BRICKS,
+    "stone_brick_fence",
+    "Забор из каменного кирпича",
+    120,
+    [W + 3, W + 3, W + 3],
+    8750469,
+    { transparent: !0, shape: "fence" },
+    "Stone brick fence",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_SANDSTONE,
+    "sandstone_fence",
+    "Забор из песчаника",
+    105,
+    [W + 4, W + 4, W + 4],
+    14074250,
+    { transparent: !0, shape: "fence" },
+    "Sandstone fence",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_GATE_WOOD,
+    "wood_fence_gate",
+    "Деревянная калитка",
+    45,
+    [W, W, W],
+    10976325,
+    { solid: !1, transparent: !0, shape: "gate", interactive: !0 },
+    "Wooden fence gate",
+  ),
+);
+T.push(
+  b(
+    p.BARBED_WIRE,
+    "barbed_wire",
+    "Колючая проволока",
+    32,
+    [Y + 6, Y + 6, Y + 6],
+    7830912,
+    { solid: !1, transparent: !0, shape: "wire" },
+    "Barbed wire",
+  ),
+);
+const F = (r, t, e, s, n, i) =>
+  T.push(
+    b(
+      r,
+      t,
+      e,
+      1,
+      [n, n, n],
+      i,
+      { solid: !1, transparent: !0, shape: "plant" },
+      s,
+    ),
+  );
+F(p.TALL_GRASS, "tall_grass", "Высокая трава", "Tall grass", Y + 7, 4025648);
+F(p.FLOWER_RED, "red_flower", "Красный цветок", "Red flower", Y + 8, 14171442);
+F(
+  p.FLOWER_WHITE,
+  "white_flower",
+  "Белый цветок",
+  "White flower",
+  Y + 9,
+  15789797,
+);
+F(p.FLOWER_BLUE, "blue_flower", "Синий цветок", "Blue flower", Y + 10, 3895256);
+F(
+  p.FLOWER_PINK,
+  "pink_flower",
+  "Розовый цветок",
+  "Pink flower",
+  Y + 11,
+  15238829,
+);
+F(
+  p.FLOWER_YELLOW,
+  "yellow_flower",
+  "Жёлтый цветок",
+  "Yellow flower",
+  Y + 12,
+  15847224,
+);
+T.push(
+  b(
+    p.FENCE_GATE_COBBLE,
+    "cobble_fence_gate",
+    "Булыжная калитка",
+    85,
+    [W + 1, W + 1, W + 1],
+    7829367,
+    { solid: !1, transparent: !0, shape: "gate", interactive: !0 },
+    "Cobblestone fence gate",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_GATE_STONE,
+    "stone_fence_gate",
+    "Каменная калитка",
+    95,
+    [W + 2, W + 2, W + 2],
+    8947848,
+    { solid: !1, transparent: !0, shape: "gate", interactive: !0 },
+    "Stone fence gate",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_GATE_STONE_BRICKS,
+    "stone_brick_fence_gate",
+    "Калитка из каменного кирпича",
+    120,
+    [W + 3, W + 3, W + 3],
+    8750469,
+    { solid: !1, transparent: !0, shape: "gate", interactive: !0 },
+    "Stone brick fence gate",
+  ),
+);
+T.push(
+  b(
+    p.FENCE_GATE_SANDSTONE,
+    "sandstone_fence_gate",
+    "Калитка из песчаника",
+    105,
+    [W + 4, W + 4, W + 4],
+    14074250,
+    { solid: !1, transparent: !0, shape: "gate", interactive: !0 },
+    "Sandstone fence gate",
+  ),
+);
+const P = 95,
+  Bn = 184,
+  Gs = 185;
+T.push(
+  b(
+    p.TROPICAL_LOG,
+    "tropical_log",
+    "Тропическое бревно",
+    60,
+    [P, P + 1, P],
+    9066805,
+    {},
+    "Tropical log",
+  ),
+);
+T.push(
+  b(
+    p.TROPICAL_LEAVES,
+    "tropical_leaves",
+    "Тропическая листва",
+    8,
+    [P + 2, P + 2, P + 2],
+    2329155,
+    { transparent: !0 },
+    "Tropical leaves",
+  ),
+);
+T.push(
+  b(
+    p.DESERT_LOG,
+    "desert_log",
+    "Пустынное бревно",
+    60,
+    [P + 3, P + 4, P + 3],
+    9986105,
+    {},
+    "Desert log",
+  ),
+);
+T.push(
+  b(
+    p.DESERT_LEAVES,
+    "desert_leaves",
+    "Пустынная листва",
+    8,
+    [P + 5, P + 5, P + 5],
+    8100413,
+    { transparent: !0 },
+    "Desert leaves",
+  ),
+);
+T.push(
+  b(
+    p.PINE_LOG,
+    "pine_log",
+    "Хвойное бревно",
+    65,
+    [P + 6, P + 7, P + 6],
+    6505517,
+    {},
+    "Pine log",
+  ),
+);
+T.push(
+  b(
+    p.PINE_LEAVES,
+    "pine_leaves",
+    "Хвоя",
+    9,
+    [P + 8, P + 8, P + 8],
+    2645317,
+    { transparent: !0 },
+    "Pine needles",
+  ),
+);
+T.push(
+  b(
+    p.SAKURA_LOG,
+    "sakura_log",
+    "Бревно сакуры",
+    58,
+    [P + 9, P + 10, P + 9],
+    7753796,
+    {},
+    "Sakura log",
+  ),
+);
+T.push(
+  b(
+    p.SAKURA_LEAVES,
+    "sakura_leaves",
+    "Листва сакуры",
+    8,
+    [P + 11, P + 11, P + 11],
+    15306938,
+    { transparent: !0 },
+    "Sakura leaves",
+  ),
+);
+F(
+  p.TROPICAL_SAPLING,
+  "tropical_sapling",
+  "Росток тропического дерева",
+  "Tropical sapling",
+  P + 12,
+  3054671,
+);
+F(
+  p.DESERT_SAPLING,
+  "desert_sapling",
+  "Росток пустынного дерева",
+  "Desert sapling",
+  P + 13,
+  8492870,
+);
+F(
+  p.PINE_SAPLING,
+  "pine_sapling",
+  "Росток хвойного дерева",
+  "Pine sapling",
+  P + 14,
+  3238991,
+);
+F(
+  p.SAKURA_SAPLING,
+  "sakura_sapling",
+  "Росток сакуры",
+  "Sakura sapling",
+  P + 15,
+  14186920,
+);
+T.push(
+  b(
+    p.CACTUS,
+    "cactus",
+    "Кактус",
+    28,
+    [P + 16, P + 16, P + 16],
+    4036671,
+    { transparent: !0 },
+    "Cactus",
+  ),
+);
+T.push(
+  b(
+    p.LAVA,
+    "lava",
+    "Лава",
+    -1,
+    [P + 17, P + 17, P + 17],
+    16735e3,
+    { solid: !1, transparent: !0, liquid: !0, light: 15 },
+    "Lava",
+  ),
+);
+F(p.FIRE, "fire", "Огонь", "Fire", P + 18, 16747042);
+T[p.FIRE].light = 15;
+F(p.WHEAT_CROP, "wheat_crop", "Пшеница", "Wheat crop", P + 19, 14201148);
+T.push(
+  b(
+    p.SNOW_LAYER,
+    "snow_layer",
+    "Снежный покров",
+    4,
+    [15, 15, 15],
+    16054522,
+    { solid: !1, transparent: !0, shape: "snow" },
+    "Snow layer",
+  ),
+);
+F(
+  p.WHEAT_SPROUT,
+  "wheat_sprout",
+  "Ростки пшеницы",
+  "Wheat sprouts",
+  P + 20,
+  7972930,
+);
+F(
+  p.WHEAT_YOUNG,
+  "young_wheat",
+  "Молодая пшеница",
+  "Young wheat",
+  P + 21,
+  11057229,
+);
+const fs = P + 22;
+T.push(
+  b(
+    p.TARGET,
+    "target",
+    "Мишень",
+    90,
+    [fs, fs, fs],
+    14174268,
+    {},
+    "Shooting target",
+  ),
+);
+const at = P + 23;
+F(
+  p.DESERT_GRASS,
+  "desert_grass",
+  "Пустынная трава",
+  "Desert grass",
+  at,
+  12100700,
+);
+T.push(
+  b(
+    p.FARMLAND,
+    "farmland",
+    "Удобренная земля",
+    34,
+    [at + 1, at + 2, 2],
+    7031332,
+    {},
+    "Fertilised soil",
+  ),
+);
+F(
+  p.POTATO_SPROUT,
+  "potato_sprout",
+  "Ростки картофеля",
+  "Potato sprouts",
+  at + 3,
+  7313989,
+);
+F(
+  p.POTATO_YOUNG,
+  "young_potato",
+  "Молодой картофель",
+  "Young potato",
+  at + 4,
+  6263872,
+);
+F(p.POTATO_CROP, "potato_crop", "Картофель", "Potato crop", at + 5, 5212730);
+F(
+  p.CARROT_SPROUT,
+  "carrot_sprout",
+  "Ростки моркови",
+  "Carrot sprouts",
+  at + 6,
+  7840330,
+);
+F(
+  p.CARROT_YOUNG,
+  "young_carrot",
+  "Молодая морковь",
+  "Young carrot",
+  at + 7,
+  6922303,
+);
+F(p.CARROT_CROP, "carrot_crop", "Морковь", "Carrot crop", at + 8, 14711592);
+const ze = at + 9,
+  Pn = 7;
+T.push(
+  b(
+    p.CAKE,
+    "cake",
+    "Торт",
+    10,
+    [ze, ze + 1, ze + 2],
+    15918292,
+    { shape: "cake", solid: !1, transparent: !0, light: 8, interactive: !0 },
+    "Cake",
+  ),
+);
+T.push(
+  b(
+    p.LIGHTNING_ROD,
+    "lightning_rod",
+    "Громоотвод",
+    40,
+    [Y + 2, Y + 2, Y + 2],
+    12088115,
+    { solid: !1, transparent: !0, shape: "device" },
+    "Lightning rod",
+  ),
+);
+const Fe = ze + 3,
+  cn = Fe + 1;
+T.push(
+  b(
+    p.CAMPFIRE,
+    "campfire",
+    "Костёр",
+    20,
+    [Fe, Fe, Fe],
+    13923882,
+    { solid: !1, transparent: !0, light: 12, shape: "campfire" },
+    "Campfire",
+  ),
+);
+const Gt = cn + 1;
+F(p.SEAWEED, "seaweed", "Водоросли", "Seaweed", Gt, 3111498);
+F(p.SEAGRASS, "seagrass", "Морская трава", "Seagrass", Gt + 1, 4168284);
+F(p.CORAL_PINK, "pink_coral", "Розовый коралл", "Pink coral", Gt + 2, 14967451);
+F(p.CORAL_BLUE, "blue_coral", "Синий коралл", "Blue coral", Gt + 3, 4161504);
+F(
+  p.CORAL_YELLOW,
+  "yellow_coral",
+  "Жёлтый коралл",
+  "Yellow coral",
+  Gt + 4,
+  15778375,
+);
+const Q = Gt + 5;
+T.push(
+  b(
+    p.HIEROGLYPH_SANDSTONE,
+    "hieroglyph_sandstone",
+    "Песчаник с иероглифами",
+    135,
+    [Q, Q + 1, Q],
+    13875567,
+    {},
+    "Hieroglyph sandstone",
+  ),
+);
+T.push(
+  b(
+    p.GOLD_INLAY,
+    "gold_inlay",
+    "Золотая инкрустация",
+    150,
+    [Q + 2, Q + 2, Q + 2],
+    15251758,
+    { light: 5 },
+    "Gold inlay",
+  ),
+);
+T.push(
+  b(
+    p.LAPIS_INLAY,
+    "lapis_inlay",
+    "Лазуритовая инкрустация",
+    125,
+    [Q + 3, Q + 3, Q + 3],
+    1526944,
+    {},
+    "Lapis inlay",
+  ),
+);
+T.push(
+  b(
+    p.EGYPTIAN_PILLAR,
+    "egyptian_pillar",
+    "Египетская колонна",
+    140,
+    [Q + 4, Q + 5, Q + 4],
+    14205308,
+    {},
+    "Egyptian pillar",
+  ),
+);
+T.push(
+  b(
+    p.SARCOPHAGUS,
+    "sarcophagus",
+    "Саркофаг",
+    175,
+    [Q + 6, Q + 6, Q + 6],
+    12094244,
+    { interactive: !0 },
+    "Sarcophagus",
+  ),
+);
+const z = Q + 7;
+T.push(
+  b(
+    p.LUNAR_REGOLITH,
+    "lunar_regolith",
+    "Лунный реголит",
+    105,
+    [z, z, z],
+    10987426,
+    {},
+    "Lunar regolith",
+  ),
+);
+T.push(
+  b(
+    p.LUNAR_ROCK,
+    "lunar_rock",
+    "Лунная порода",
+    180,
+    [z + 1, z + 1, z + 1],
+    7632250,
+    {},
+    "Lunar rock",
+  ),
+);
+T.push(
+  b(
+    p.LUNAR_BASALT,
+    "lunar_basalt",
+    "Лунный базальт",
+    230,
+    [z + 2, z + 2, z + 2],
+    3750723,
+    {},
+    "Lunar basalt",
+  ),
+);
+T.push(
+  b(
+    p.LUNAR_ICE,
+    "lunar_ice",
+    "Лунный лёд",
+    150,
+    [z + 3, z + 3, z + 3],
+    12245224,
+    { transparent: !0 },
+    "Lunar ice",
+  ),
+);
+T.push(
+  b(
+    p.LUNAR_ORE,
+    "lunar_ore",
+    "Гелий-3 руда",
+    320,
+    [z + 4, z + 4, z + 4],
+    7857407,
+    { light: 5 },
+    "Helium-3 ore",
+  ),
+);
+T.push(
+  b(
+    p.LUNAR_PANEL,
+    "lunar_panel",
+    "Панель лунной базы",
+    12001,
+    [z + 5, z + 5, z + 5],
+    15001577,
+    {},
+    "Lunar base panel",
+  ),
+);
+T.push(
+  b(
+    p.LUNAR_GLASS,
+    "lunar_glass",
+    "Герметичное стекло",
+    3001,
+    [z + 6, z + 6, z + 6],
+    9554398,
+    { transparent: !0 },
+    "Pressurised glass",
+  ),
+);
+const Js = z + 7,
+  Os = z + 8;
+T.push(
+  b(
+    p.COMPOSTER,
+    "composter",
+    "Компостер",
+    55,
+    [Os, Js, Js],
+    9265720,
+    { transparent: !0, shape: "composter", interactive: !0 },
+    "Composter",
+  ),
+);
+T.push(
+  b(
+    p.WOOD_TABLE,
+    "wood_table",
+    "Деревянный стол",
+    45,
+    [10, 10, 10],
+    11570259,
+    { transparent: !0, shape: "furniture" },
+    "Wooden table",
+  ),
+);
+T.push(
+  b(
+    p.WOOD_CHAIR,
+    "wood_chair",
+    "Стул с мягким сиденьем",
+    35,
+    [21, 10, 10],
+    11366473,
+    { transparent: !0, shape: "furniture", interactive: !0 },
+    "Upholstered chair",
+  ),
+);
+T.push(
+  b(
+    p.WOOD_BENCH,
+    "wood_bench",
+    "Деревянная скамья",
+    40,
+    [10, 10, 10],
+    11570259,
+    { transparent: !0, shape: "furniture", interactive: !0 },
+    "Wooden bench",
+  ),
+);
+T.push(
+  b(
+    p.MAP_TABLE,
+    "map_table",
+    "Штабной стол с картой",
+    55,
+    [T.find((r) => r.name === "green_clay").tex[0], 10, 10],
+    7898715,
+    { transparent: !0, shape: "furniture" },
+    "Map table",
+  ),
+);
+const qt = Os + 1,
+  ge = Os + 2;
+T.push(
+  b(
+    p.REMOTE_STATION,
+    "remote_station",
+    "Станция удалённого управления",
+    120,
+    [qt, qt, qt],
+    4684395,
+    { transparent: !0, shape: "furniture", interactive: !0, light: 5 },
+    "Remote command station",
+  ),
+);
+T.push(
+  b(
+    p.MINE_AP,
+    "mine_ap",
+    "Противопехотная мина",
+    12,
+    [51, 51, 51],
+    5403460,
+    { solid: !1, transparent: !0, shape: "furniture" },
+    "Anti-personnel mine",
+  ),
+);
+T.push(
+  b(
+    p.MINE_AT,
+    "mine_at",
+    "Противотанковая мина",
+    24,
+    [50, 50, 50],
+    9339218,
+    { solid: !1, transparent: !0, shape: "furniture" },
+    "Anti-tank mine",
+  ),
+);
+const He = ge + 1,
+  se = He + 2;
+T[p.WOOD_CHAIR].tex[0] = se;
+T.push(
+  b(
+    p.SAVANNA_GRASS,
+    "savanna_grass",
+    "Сухой дёрн саванны",
+    18,
+    [He, He + 1, 2],
+    11971426,
+    {},
+    "Savanna turf",
+  ),
+);
+T.push(
+  b(
+    p.STAIR_RSTONE,
+    "reinforced_stone_stairs",
+    "Армированная ступенька",
+    300,
+    [16, 16, 16],
+    7304320,
+    { transparent: !0, shape: "stair" },
+    "Reinforced stone stair",
+  ),
+);
+for (const [r, t, e, s, n] of [
+  [
+    p.KITCHEN_COUNTER,
+    "kitchen_counter",
+    "Кухонная тумба",
+    "Kitchen cabinet",
+    10584160,
+  ],
+  [p.SINK, "sink", "Мойка со смесителем", "Sink and faucet", 12831182],
+  [
+    p.STORAGE_SHELF,
+    "storage_shelf",
+    "Стеллаж с припасами",
+    "Supply shelving",
+    7174759,
+  ],
+  [p.SOFA, "sofa", "Мягкий диван", "Upholstered sofa", 10448720],
+  [p.WALL_LIGHT, "wall_light", "Настенный светильник", "Wall light", 16770224],
+  [
+    p.POTTED_PLANT,
+    "potted_plant",
+    "Растение в горшке",
+    "Potted plant",
+    6587986,
+  ],
+])
+  T.push(
+    b(
+      r,
+      t,
+      e,
+      45,
+      [10, 10, 10],
+      n,
+      {
+        transparent: !0,
+        shape: "furniture",
+        interactive: r === p.SOFA,
+        solid: r !== p.WALL_LIGHT && r !== p.POTTED_PLANT,
+        light: r === p.WALL_LIGHT ? 14 : 0,
+      },
+      s,
+    ),
+  );
+const js = 158,
+  ni = 173,
+  Qt = [
+    {
+      key: "raspberry",
+      ru: "малины",
+      en: "Raspberry",
+      color: 12595280,
+      stages: [
+        p.RASPBERRY_BUSH_SPROUT,
+        p.RASPBERRY_BUSH_YOUNG,
+        p.RASPBERRY_BUSH_RIPE,
+      ],
+    },
+    {
+      key: "blueberry",
+      ru: "черники",
+      en: "Blueberry",
+      color: 4872872,
+      stages: [
+        p.BLUEBERRY_BUSH_SPROUT,
+        p.BLUEBERRY_BUSH_YOUNG,
+        p.BLUEBERRY_BUSH_RIPE,
+      ],
+    },
+    {
+      key: "blackberry",
+      ru: "ежевики",
+      en: "Blackberry",
+      color: 4008773,
+      stages: [
+        p.BLACKBERRY_BUSH_SPROUT,
+        p.BLACKBERRY_BUSH_YOUNG,
+        p.BLACKBERRY_BUSH_RIPE,
+      ],
+    },
+  ];
+Qt.forEach((r, t) => {
+  const e = ["Куст", "Молодой куст", "Спелый куст"],
+    s = ["bush sprout", "young bush", "ripe bush"];
+  r.stages.forEach((n, i) => {
+    T.push(
+      b(
+        n,
+        `${r.key}_bush_${["sprout", "young", "ripe"][i]}`,
+        `${e[i]} ${r.ru}`,
+        4,
+        [ni + t * 3 + i, js + t * 3 + i, js + t * 3 + i],
+        i === 2 ? r.color : 4880952,
+        { solid: !1, transparent: !0, shape: "bush" },
+        `${r.en} ${s[i]}`,
+      ),
+    );
+  });
+});
+const Ws = 168;
+T.push(
+  b(
+    p.RGLOWSTONE,
+    "reinforced_glowstone",
+    "Армированный светокамень",
+    300,
+    [Ws, Ws, Ws],
+    16768416,
+    { light: 15 },
+    "Reinforced glowstone",
+  ),
+);
+T.push(
+  b(
+    p.SIGN,
+    "sign",
+    "Табличка",
+    25,
+    [10, 10, 10],
+    11570259,
+    { solid: !1, transparent: !0, shape: "device", interactive: !0 },
+    "Sign",
+  ),
+);
+T.push(
+  b(
+    p.RADIO_RELAY,
+    "radio_relay",
+    "Радиореле",
+    35,
+    [120, 120, 120],
+    6327420,
+    { solid: !0, transparent: !0, shape: "device", interactive: !0 },
+    "Radio relay",
+  ),
+);
+const kn = 204,
+  Zi = 205,
+  Hs = 206,
+  Ls = 207,
+  Ft = 208,
+  ii = 209,
+  $i = 210,
+  un = 211,
+  ps = 212,
+  Ys = 213,
+  ne = 214,
+  It = 215,
+  Ji = 216,
+  ms = 217,
+  Vs = 218,
+  tt = 219,
+  Un = 220,
+  oe = 221,
+  vs = 222,
+  qs = 223,
+  ji = 224,
+  tr = 225,
+  Ks = 226,
+  Qs = 227,
+  pt = 228,
+  er = 229,
+  sr = 230;
+T.push(
+  b(
+    p.AUTUMN_LEAVES_ORANGE,
+    "autumn_leaves_orange",
+    "Оранжевая осенняя листва",
+    8,
+    [201, 201, 201],
+    14251818,
+    { transparent: !0 },
+    "Orange autumn leaves",
+  ),
+);
+T.push(
+  b(
+    p.AUTUMN_LEAVES_RED,
+    "autumn_leaves_red",
+    "Багряная листва",
+    8,
+    [202, 202, 202],
+    12071466,
+    { transparent: !0 },
+    "Crimson autumn leaves",
+  ),
+);
+T.push(
+  b(
+    p.AUTUMN_LEAVES_YELLOW,
+    "autumn_leaves_yellow",
+    "Золотая листва",
+    8,
+    [203, 203, 203],
+    14923066,
+    { transparent: !0 },
+    "Golden autumn leaves",
+  ),
+);
+T.push(
+  b(
+    p.BIRCH_LOG,
+    "birch_log",
+    "Берёзовое бревно",
+    55,
+    [kn, Zi, kn],
+    14999764,
+    {},
+    "Birch log",
+  ),
+);
+T.push(
+  b(
+    p.LEAF_LITTER,
+    "leaf_litter",
+    "Опавшие листья",
+    1,
+    [Hs, Hs, Hs],
+    12084266,
+    { solid: !1, transparent: !0, shape: "litter" },
+    "Fallen leaves",
+  ),
+);
+T.push(
+  b(p.PUMPKIN, "pumpkin", "Тыква", 20, [Ls, Ft, Ft], 14711327, {}, "Pumpkin"),
+);
+T.push(
+  b(
+    p.JACK_O_LANTERN,
+    "jack_o_lantern",
+    "Светильник Джека",
+    20,
+    [Ls, Ft, Ft],
+    16753968,
+    { light: 12 },
+    "Jack o'lantern",
+  ),
+);
+F(
+  p.PUMPKIN_SPROUT,
+  "pumpkin_sprout",
+  "Росток тыквы",
+  "Pumpkin sprout",
+  $i,
+  7315007,
+);
+F(
+  p.PUMPKIN_YOUNG,
+  "young_pumpkin",
+  "Тыквенная плеть",
+  "Pumpkin vine",
+  un,
+  6131510,
+);
+F(
+  p.PUMPKIN_CROP,
+  "pumpkin_crop",
+  "Спелая тыква на грядке",
+  "Ripe pumpkin vine",
+  un,
+  14711327,
+);
+T.push(
+  b(
+    p.CANDLE,
+    "candle",
+    "Свечи",
+    1,
+    [ps, ps, ps],
+    15852482,
+    { solid: !1, transparent: !0, light: 8, shape: "candle" },
+    "Candles",
+  ),
+);
+T.push(
+  b(
+    p.COBWEB,
+    "cobweb",
+    "Паутина",
+    4,
+    [Ys, Ys, Ys],
+    15263978,
+    { solid: !1, transparent: !0, shape: "web" },
+    "Cobweb",
+  ),
+);
+T.push(
+  b(
+    p.GRAVESTONE,
+    "gravestone",
+    "Надгробие",
+    110,
+    [ne, ne, ne],
+    9277584,
+    { transparent: !0, shape: "furniture" },
+    "Gravestone",
+  ),
+);
+T.push(
+  b(
+    p.GRAVE_CROSS,
+    "grave_cross",
+    "Могильный крест",
+    60,
+    [oe, oe, oe],
+    6115655,
+    { transparent: !0, shape: "furniture" },
+    "Grave cross",
+  ),
+);
+T.push(
+  b(
+    p.SKULL,
+    "skull",
+    "Череп",
+    20,
+    [It, It, It],
+    15130569,
+    { solid: !1, transparent: !0, shape: "furniture" },
+    "Skull",
+  ),
+);
+T.push(
+  b(
+    p.CAULDRON,
+    "cauldron",
+    "Ведьмин котёл",
+    140,
+    [pt, pt, pt],
+    3027252,
+    { transparent: !0, shape: "furniture", light: 7, interactive: !0 },
+    "Witch's cauldron",
+  ),
+);
+T.push(
+  b(
+    p.SCARECROW,
+    "scarecrow",
+    "Пугало",
+    20,
+    [ms, ms, ms],
+    11835998,
+    { transparent: !0, shape: "furniture" },
+    "Scarecrow",
+  ),
+);
+T.push(
+  b(
+    p.IRON_FENCE,
+    "iron_fence",
+    "Кованая ограда",
+    150,
+    [Vs, Vs, Vs],
+    2895153,
+    { transparent: !0, shape: "fence" },
+    "Wrought iron fence",
+  ),
+);
+T.push(
+  b(
+    p.DARK_PLANKS,
+    "dark_planks",
+    "Тёмные доски",
+    50,
+    [tt, tt, tt],
+    4140064,
+    {},
+    "Dark planks",
+  ),
+);
+T.push(
+  b(
+    p.DEAD_LOG,
+    "dead_log",
+    "Мёртвое дерево",
+    55,
+    [Un, oe, Un],
+    5985357,
+    {},
+    "Dead wood",
+  ),
+);
+T.push(
+  b(
+    p.MOSSY_COBBLE,
+    "mossy_cobble",
+    "Замшелый булыжник",
+    80,
+    [vs, vs, vs],
+    7043676,
+    {},
+    "Mossy cobblestone",
+  ),
+);
+T.push(
+  b(
+    p.COFFIN,
+    "coffin",
+    "Гроб",
+    45,
+    [tt, tt, tt],
+    4140064,
+    { transparent: !0, shape: "furniture", interactive: !0 },
+    "Coffin",
+  ),
+);
+T.push(
+  b(
+    p.POTION_SHELF,
+    "potion_shelf",
+    "Полка с зельями",
+    40,
+    [tt, tt, tt],
+    6176634,
+    { transparent: !0, shape: "furniture", light: 6 },
+    "Potion shelf",
+  ),
+);
+T.push(
+  b(
+    p.HANGING_HERBS,
+    "hanging_herbs",
+    "Сушёные травы",
+    1,
+    [qs, qs, qs],
+    8161866,
+    { solid: !1, transparent: !0, shape: "hanging" },
+    "Drying herbs",
+  ),
+);
+F(p.FLY_AGARIC, "fly_agaric", "Мухомор", "Fly agaric", ji, 13775914);
+F(p.MUSHROOM, "mushroom", "Гриб", "Mushroom", tr, 9067062);
+T.push(
+  b(
+    p.STAIR_DARK,
+    "dark_stairs",
+    "Ступенька из тёмных досок",
+    50,
+    [tt, tt, tt],
+    4140064,
+    { transparent: !0, shape: "stair" },
+    "Dark wood stair",
+  ),
+);
+T.push(
+  b(
+    p.CRACKED_STONE_BRICKS,
+    "cracked_stone_bricks",
+    "Потрескавшийся каменный кирпич",
+    100,
+    [Ks, Ks, Ks],
+    8355709,
+    {},
+    "Cracked stone bricks",
+  ),
+);
+F(
+  p.AUTUMN_SAPLING,
+  "autumn_sapling",
+  "Росток клёна",
+  "Maple sapling",
+  er,
+  14251818,
+);
+function nr(r, t, e, s) {
+  if (e !== 0) return e > 0 ? Ls : Ft;
+  const [n, i] = ae[r & 3];
+  return t === n && s === i ? ii : Ft;
+}
+const ln = new Set(Qt.flatMap((r) => [...r.stages]));
+new Set(Qt.map((r) => r.stages[2]));
+const ir = (r) => {
+  for (const t of Qt) {
+    const e = t.stages.indexOf(r);
+    if (e >= 0) return e;
+  }
+  return -1;
+};
+T.push(
+  b(
+    p.OWNERSHIP_TOTEM,
+    "ownership_totem",
+    "Тотем владения",
+    100,
+    [17, 17, 17],
+    5169870,
+    { transparent: !0, shape: "furniture", interactive: !0, light: 10 },
+    "Ownership totem",
+  ),
+);
+const Z = {
+  CARPET: 239,
+  ROYAL_CARPET: 240,
+  MARBLE: 241,
+  BLACK_MARBLE: 242,
+  GOLD: 243,
+  VELVET: 244,
+  MARQUEE: 245,
+};
+T.push(
+  b(
+    p.CASINO_CARPET,
+    "casino_carpet",
+    "Ковёр казино",
+    18,
+    [Z.CARPET, Z.CARPET, Z.CARPET],
+    9311782,
+    {},
+    "Casino carpet",
+  ),
+);
+T.push(
+  b(
+    p.ROYAL_CARPET,
+    "royal_carpet",
+    "Королевский ковёр",
+    18,
+    [Z.ROYAL_CARPET, Z.ROYAL_CARPET, Z.ROYAL_CARPET],
+    3938392,
+    {},
+    "Royal carpet",
+  ),
+);
+T.push(
+  b(
+    p.MARBLE,
+    "marble",
+    "Мрамор",
+    110,
+    [Z.MARBLE, Z.MARBLE, Z.MARBLE],
+    15328474,
+    {},
+    "Marble",
+  ),
+);
+T.push(
+  b(
+    p.BLACK_MARBLE,
+    "black_marble",
+    "Чёрный мрамор",
+    110,
+    [Z.BLACK_MARBLE, Z.BLACK_MARBLE, Z.BLACK_MARBLE],
+    1907234,
+    {},
+    "Black marble",
+  ),
+);
+T.push(
+  b(
+    p.GOLD_BLOCK,
+    "gold_block",
+    "Золотой блок",
+    140,
+    [Z.GOLD, Z.GOLD, Z.GOLD],
+    14856767,
+    {},
+    "Block of gold",
+  ),
+);
+T.push(
+  b(
+    p.VELVET_PANEL,
+    "velvet_panel",
+    "Бархатная панель",
+    30,
+    [Z.VELVET, Z.VELVET, Z.VELVET],
+    7017520,
+    {},
+    "Velvet panel",
+  ),
+);
+T.push(
+  b(
+    p.MARQUEE_LIGHTS,
+    "marquee_lights",
+    "Огни казино",
+    35,
+    [Z.MARQUEE, Z.MARQUEE, Z.MARQUEE],
+    16766842,
+    { light: 15 },
+    "Marquee lights",
+  ),
+);
+const rr = 182,
+  Ge = 183;
+T.push(
+  b(
+    p.LED_SCREEN,
+    "led_screen",
+    "LED-экран",
+    60,
+    [Ge, Ge, Ge],
+    1316380,
+    { interactive: !0 },
+    "LED screen",
+  ),
+);
+T.push(
+  b(
+    p.AVIATION_LIGHT,
+    "aviation_light",
+    "Авиационный заградительный огонь",
+    30,
+    [10, 10, 10],
+    14165532,
+    { solid: !1, transparent: !0, shape: "furniture" },
+    "Aviation obstruction light",
+  ),
+);
+T.push(b(p.ICE, "ice", "Лёд", 60, [z + 3, z + 3, z + 3], 11128802, {}, "Ice"));
+const As = 184,
+  ys = 186,
+  xs = 188;
+T.push(
+  b(
+    p.WHEAT_FIELD,
+    "wheat_field",
+    "Поле спелой пшеницы",
+    30,
+    [As, As + 1, 2],
+    13214287,
+    {},
+    "Ripe wheat field",
+  ),
+);
+T.push(
+  b(
+    p.STUBBLE_FIELD,
+    "stubble_field",
+    "Жнивьё",
+    30,
+    [ys, ys + 1, 2],
+    11770474,
+    {},
+    "Stubble field",
+  ),
+);
+T.push(
+  b(
+    p.CROP_FIELD,
+    "crop_field",
+    "Поле всходов",
+    30,
+    [xs, xs + 1, 2],
+    5798453,
+    {},
+    "Green crop field",
+  ),
+);
+function or(r, t, e, s) {
+  if (e !== 0) return Ge;
+  const [n, i] = ae[r & 3];
+  return t === n && s === i ? rr : Ge;
+}
+const ar = [p.CORAL_PINK, p.CORAL_BLUE, p.CORAL_YELLOW],
+  ri = new Set([p.SEAWEED, p.SEAGRASS, ...ar]),
+  yt = (r, t = 0) => ri.has(r) || (ci(r) && (t & qi) !== 0),
+  Vt = (r, t = 0) => ci(r) && (t & Ki) !== 0,
+  hr = 4,
+  Dn = 32,
+  Xs = 3 / 16,
+  cr = new Set([p.DOOR, p.METAL_DOOR, p.ARMORED_DOOR]),
+  We = (r) => cr.has(r),
+  oi = [0, -Math.PI / 2, Math.PI, Math.PI / 2];
+function Ms(r, t, e) {
+  const s = Math.round(Math.cos(e)),
+    n = Math.round(Math.sin(e)),
+    i = r - 0.5,
+    c = t - 0.5;
+  return [0.5 + i * s + c * n, 0.5 - i * n + c * s];
+}
+const wn = new Map();
+function ur(r, t = (r & Mt) !== 0, e = Xs) {
+  const s = (r & 3) | (r & Dn) | (t ? 64 : 0);
+  if (e === Xs) {
+    const _ = wn.get(s);
+    if (_) return _;
+  }
+  const n = (r & Dn) !== 0,
+    [i, c, h, o] = t ? (n ? [1 - e, 0, 1, 1] : [0, 0, e, 1]) : [0, 1 - e, 1, 1],
+    a = oi[r & 3],
+    [u, d] = Ms(i, c, a),
+    [l, f] = Ms(h, o, a),
+    m = [Math.min(u, l), 0, Math.min(d, f), Math.max(u, l), 1, Math.max(d, f)];
+  return (e === Xs && wn.set(s, m), m);
+}
+function lr(r, t) {
+  const e = oi[t & 3],
+    [s, n] = Ms(r[0], r[2], e),
+    [i, c] = Ms(r[3], r[5], e);
+  return [
+    Math.min(s, i),
+    r[1],
+    Math.min(n, c),
+    Math.max(s, i),
+    r[4],
+    Math.max(n, c),
+  ];
+}
+const ai = new Set([
+    p.FENCE_WOOD,
+    p.FENCE_COBBLE,
+    p.FENCE_STONE,
+    p.FENCE_STONE_BRICKS,
+    p.FENCE_SANDSTONE,
+    p.IRON_FENCE,
+  ]),
+  dr = (r) => ai.has(r),
+  hi = new Set([
+    p.FENCE_GATE_WOOD,
+    p.FENCE_GATE_COBBLE,
+    p.FENCE_GATE_STONE,
+    p.FENCE_GATE_STONE_BRICKS,
+    p.FENCE_GATE_SANDSTONE,
+  ]),
+  dn = (r) => hi.has(r),
+  fr = new Set([
+    p.LADDER,
+    p.STAIR_WOOD,
+    p.STAIR_STONE,
+    p.STAIR_SANDSTONE,
+    p.STAIR_COBBLE,
+    p.STAIR_BRICK,
+    p.STAIR_STONE_BRICKS,
+    p.STAIR_SAND,
+    p.STAIR_RSTONE,
+    p.STAIR_DARK,
+    ...ai,
+    ...hi,
+  ]),
+  ci = (r) => fr.has(r),
+  pr = {
+    post1: 6 / 16,
+    post2: 10 / 16,
+    rail1: 7 / 16,
+    rail2: 9 / 16,
+    railsY: [
+      [6 / 16, 9 / 16],
+      [12 / 16, 15 / 16],
+    ],
+  },
+  ui = (r) =>
+    dr(r) || dn(r) || (r > 0 && !!T[r]?.solid && T[r]?.shape === "cube"),
+  mr = new Set([
+    p.SAPLING,
+    p.TROPICAL_SAPLING,
+    p.DESERT_SAPLING,
+    p.PINE_SAPLING,
+    p.SAKURA_SAPLING,
+    p.AUTUMN_SAPLING,
+  ]),
+  _r = [p.AUTUMN_LEAVES_ORANGE, p.AUTUMN_LEAVES_RED, p.AUTUMN_LEAVES_YELLOW],
+  Er = new Set([
+    p.LEAVES,
+    p.TROPICAL_LEAVES,
+    p.DESERT_LEAVES,
+    p.PINE_LEAVES,
+    p.SAKURA_LEAVES,
+    ..._r,
+  ]),
+  li = new Set([p.WHEAT_SPROUT, p.WHEAT_YOUNG, p.WHEAT_CROP]),
+  di = new Set([p.POTATO_SPROUT, p.POTATO_YOUNG, p.POTATO_CROP]),
+  fi = new Set([p.CARROT_SPROUT, p.CARROT_YOUNG, p.CARROT_CROP]),
+  pi = new Set([p.PUMPKIN_SPROUT, p.PUMPKIN_YOUNG, p.PUMPKIN_CROP]),
+  Ar = new Set([...li, ...di, ...fi, ...pi, ...ln]);
+({ ...Object.fromEntries(Qt.map((r) => [r.stages[0], [...r.stages]])) });
+[
+  ...mr,
+  p.TALL_GRASS,
+  p.DESERT_GRASS,
+  p.FLOWER_RED,
+  p.FLOWER_WHITE,
+  p.FLOWER_BLUE,
+  p.FLOWER_PINK,
+  p.FLOWER_YELLOW,
+  p.FIRE,
+  ...li,
+  ...di,
+  ...fi,
+  ...pi,
+  p.FLY_AGARIC,
+  p.MUSHROOM,
+  p.LEAF_LITTER,
+  ...ln,
+  ...ri,
+];
+const ee = (r) => Er.has(r),
+  yr = 8,
+  Kt = (r) => {
+    if (r & yr) return 1;
+    const t = r & 7;
+    return t === 0 ? 0.875 : (0.875 * (8 - t)) / 8;
+  },
+  mi = (r, t) =>
+    r === p.RTORCH
+      ? t & Mt
+        ? 0
+        : 7
+      : r === p.LAMP
+        ? t & Mt
+          ? 15
+          : 0
+        : r === p.REDSTONE
+          ? Zn(t) > 0
+            ? 2
+            : 0
+          : r === p.FURNACE
+            ? t & Mt
+              ? 13
+              : 0
+            : T[r].light,
+  be = new Uint8Array(256);
+for (const r of T) be[r.id] = r.light;
+be[p.LAMP] = 15;
+be[p.REDSTONE] = 2;
+be[p.FURNACE] = 13;
+be[p.FIRE] = 15;
+be[p.LAVA] = 15;
+({ ...Object.fromEntries([...ln].map((r) => [r, "leaves"])) });
+const _i = (r) => r > 0 && T[r].solid && !T[r].transparent;
+T.filter(
+  (r) =>
+    !!r.label &&
+    r.id !== p.AIR &&
+    r.id !== p.BEDROCK &&
+    r.id !== p.PISTON_HEAD &&
+    !Ar.has(r.id),
+).map((r) => r.id);
+function xr(r, t = 0) {
+  if (r === p.AIR) return 0;
+  if (T[r]?.solid && !T[r].transparent) return 15;
+  if (dn(r)) return t & Mt ? 0 : 1;
+  if (We(r)) return t & Mt ? 0 : 15;
+  if (ee(r) || r === p.WATER || yt(r, t)) return 2;
+  const e = T[r];
+  return e?.solid && !e.transparent ? 15 : 0;
+}
+const De = 15,
+  ft = D + De * 2,
+  Tt = ft * H,
+  jt = ft * Tt,
+  Ei = new Uint8Array(65536),
+  Ai = new Uint8Array(65536),
+  yi = new Uint8Array(65536);
+for (let r = 0; r < 256; r++)
+  for (const t of T) {
+    const e = (r << 8) | t.id;
+    ((Ei[e] = xr(t.id, r)),
+      (Ai[e] = mi(t.id, r)),
+      (yi[e] = Number(t.id === p.WATER || yt(t.id, r))));
+  }
+class xi {
+  block = new Uint8Array(jt);
+  sky = new Uint8Array(jt);
+  opacity = new Uint8Array(jt);
+  queue = new Int32Array(jt);
+  queued = new Uint8Array(jt);
+  compute(t, e, s) {
+    const { block: n, sky: i, opacity: c, queue: h, queued: o } = this,
+      a = t * D - De,
+      u = e * D - De;
+    (n.fill(0), i.fill(0), c.fill(15));
+    let d = !1;
+    for (let m = -1; m <= 1; m++)
+      for (let _ = -1; _ <= 1; _++) {
+        const g = s(t + m, e + _);
+        if (g)
+          for (let y = 0; y < D; y++)
+            for (let R = 0; R < D; R++) {
+              const E = m * D + y + De,
+                x = _ * D + R + De;
+              if (E < 0 || x < 0 || E >= ft || x >= ft) continue;
+              let S = 15;
+              const M = E * Tt + x * H;
+              for (
+                let A = H - 1, O = Se(y, H - 1, R);
+                A >= 0;
+                A--, O -= D * D
+              ) {
+                const I = M + A,
+                  k = (g.meta[O] << 8) | g.data[O],
+                  w = Ei[k];
+                ((c[I] = w),
+                  (S = yi[k] && w < 15 ? S * 0.9 : Math.max(0, S - w)),
+                  (i[I] = S > 0 ? Math.max(1, Math.round(S)) : 0));
+                const N = Ai[k];
+                ((n[I] = N), N > 1 && (d = !0));
+              }
+            }
+      }
+    const l = (m, _) => {
+      let g = 0,
+        y = 0,
+        R = 0;
+      o.fill(0);
+      const E = (x) => {
+        o[x] || ((o[x] = 1), (h[y] = x), (y = (y + 1) % jt), R++);
+      };
+      for (let x = 0; x < ft; x++)
+        for (let S = 0; S < ft; S++)
+          for (let M = 0; M < H; M++) {
+            const A = x * Tt + S * H + M,
+              O = m[A];
+            O <= 1 ||
+              ((!_ ||
+                (x > 0 && m[A - Tt] < O - 1 && c[A - Tt] < 15) ||
+                (x + 1 < ft && m[A + Tt] < O - 1 && c[A + Tt] < 15) ||
+                (S > 0 && m[A - H] < O - 1 && c[A - H] < 15) ||
+                (S + 1 < ft && m[A + H] < O - 1 && c[A + H] < 15) ||
+                (M > 0 && m[A - 1] < O - 1 && c[A - 1] < 15)) &&
+                E(A));
+          }
+      for (; R;) {
+        const x = h[g];
+        ((g = (g + 1) % jt), R--, (o[x] = 0));
+        const S = x % H,
+          M = Math.floor(x / H) % ft,
+          A = Math.floor(x / Tt),
+          O = (I) => {
+            const k = m[x] - Math.max(1, c[I]);
+            k > m[I] && ((m[I] = k), k > 1 && E(I));
+          };
+        (A > 0 && O(x - Tt),
+          A + 1 < ft && O(x + Tt),
+          M > 0 && O(x - H),
+          M + 1 < ft && O(x + H),
+          S > 0 && O(x - 1),
+          S + 1 < H && O(x + 1));
+      }
+    };
+    (d && l(n, !1), l(i, !0));
+    const f = (m, _, g, y) => {
+      const R = Math.floor(_) - a,
+        E = Math.floor(y) - u;
+      return (
+        (g = Math.floor(g)),
+        R < 0 || E < 0 || R >= ft || E >= ft || g < 0 || g >= H
+          ? 0
+          : m[R * Tt + E * H + g]
+      );
+    };
+    return {
+      ox: a,
+      oz: u,
+      data: n,
+      at: (m, _, g) => f(n, m, _, g),
+      skyAt: (m, _, g) => f(i, m, _, g),
+    };
+  }
+}
+function Mr(r) {
+  const t = !!(r & 4),
+    e = [[0.06, 0.42, t ? 0.03 : 0.45, 0.94, 0.96, t ? 0.13 : 0.55]];
+  t || e.push([0.45, 0, 0.45, 0.55, 0.42, 0.55]);
+  const s = (n, i) => {
+    switch (r & 3) {
+      case 1:
+        return [i, 1 - n];
+      case 2:
+        return [1 - n, 1 - i];
+      case 3:
+        return [1 - i, n];
+      default:
+        return [n, i];
+    }
+  };
+  return e.map(([n, i, c, h, o, a]) => {
+    const u = s(n, c),
+      d = s(h, a);
+    return [
+      Math.min(u[0], d[0]),
+      i,
+      Math.min(u[1], d[1]),
+      Math.max(u[0], d[0]),
+      o,
+      Math.max(u[1], d[1]),
+    ];
+  });
+}
+const Sr = (r) =>
+  (r >= p.REDSTONE && r <= p.DOOR) ||
+  We(r) ||
+  dn(r) ||
+  r === p.SIGN ||
+  r === p.RADIO_RELAY;
+function Pe(r, t, e, s) {
+  return s === 1
+    ? [t, 1 - r, e]
+    : s === 2
+      ? [1 - t, r, e]
+      : s === 3
+        ? [r, 1 - e, t]
+        : s === 4
+          ? [r, e, 1 - t]
+          : s === 5
+            ? [r, 1 - t, 1 - e]
+            : [r, t, e];
+}
+function Zs(r, t) {
+  const e = t(r[0], r[1], r[2]),
+    s = t(r[3], r[4], r[5]);
+  return [
+    Math.min(e[0], s[0]),
+    Math.min(e[1], s[1]),
+    Math.min(e[2], s[2]),
+    Math.max(e[0], s[0]),
+    Math.max(e[1], s[1]),
+    Math.max(e[2], s[2]),
+  ];
+}
+function gr(r, t, e, s, n) {
+  const i = Lt[t(e, s, n) & 7] ?? Lt[0],
+    c = [];
+  for (const h of us) {
+    const o = e + h[0],
+      a = s + h[1],
+      u = n + h[2];
+    if (r(o, a, u) !== p.REDSTONE) continue;
+    const d = Lt[t(o, a, u) & 7] ?? Lt[0];
+    h[0] * i[0] + h[1] * i[1] + h[2] * i[2] === 0 &&
+      i.every((l, f) => l === d[f]) &&
+      c.push(h);
+  }
+  for (const h of Lt) {
+    if (i.reduce((l, f, m) => l + f * h[m], 0) !== 0) continue;
+    const o = i.map((l, f) => l - h[f]),
+      a = e + o[0],
+      u = s + o[1],
+      d = n + o[2];
+    r(a, u, d) === p.REDSTONE &&
+      (Lt[t(a, u, d) & 7] ?? Lt[0]).every((l, f) => l === h[f]) &&
+      c.push(o);
+  }
+  if ((t(e, s, n) & 7) === 0)
+    for (const [h, o] of ae)
+      for (const a of [-1, 1])
+        r(e + h, s + a, n + o) !== p.REDSTONE ||
+          (t(e + h, s + a, n + o) & 7) !== 0 ||
+          T[r(a > 0 ? e : e + h, s + 1 * (a > 0 ? 1 : 0), a > 0 ? n : n + o)]
+            ?.solid ||
+          c.push([h, a, o]);
+  return c;
+}
+function Rr(r, t, e, s, n = 0, i = 0, c = 0) {
+  if (r === p.RADIO_RELAY) {
+    const l = [],
+      f = (m, _) => l.push({ box: m, tile: _ });
+    for (const m of [0.31, 0.63])
+      for (const _ of [0.35, 0.61]) f([m, 0, _, m + 0.06, 0.035, _ + 0.06], 16);
+    (f([0.29, 0.035, 0.32, 0.71, 0.075, 0.68], 16),
+      f([0.31, 0.075, 0.34, 0.69, 0.235, 0.66], qt),
+      f([0.3, 0.235, 0.33, 0.7, 0.26, 0.67], qt),
+      f([0.35, 0.12, 0.328, 0.55, 0.205, 0.34], 16),
+      f([0.365, 0.135, 0.324, 0.535, 0.19, 0.329], t & Mt ? ge : 16),
+      f([0.59, 0.14, 0.32, 0.625, 0.18, 0.34], t & Mt ? 170 : 169));
+    for (let m = 0; m < 4; m++)
+      f([0.688, 0.1 + m * 0.028, 0.4, 0.701, 0.112 + m * 0.028, 0.58], 16);
+    for (const m of [0.32, 0.66])
+      for (const _ of [0.35, 0.63])
+        f([m, 0.26, _, m + 0.02, 0.266, _ + 0.02], 16);
+    return (
+      f([0.605, 0.26, 0.58, 0.655, 0.3, 0.63], 16),
+      f([0.621, 0.3, 0.596, 0.639, 0.62, 0.614], 16),
+      f([0.618, 0.6, 0.593, 0.642, 0.65, 0.617], qt),
+      l
+    );
+  }
+  if (r < p.REDSTONE || r > p.PISTON_HEAD || r === p.RTORCH || r === p.LAMP)
+    return null;
+  const h = [],
+    o = !!(t & Mt),
+    a = t & 7,
+    u = (l, f) => h.push({ box: l, tile: f });
+  let d = !0;
+  if (r === p.REDSTONE) {
+    const l = Zn(t) ? 170 : 169;
+    u([0.38, 0.012, 0.38, 0.62, 0.04, 0.62], l);
+    const f = [];
+    if (e && s) {
+      f.push(...gr(e, s, n, i, c));
+      const y = Lt[a] ?? Lt[0];
+      for (const R of us)
+        R[0] * y[0] + R[1] * y[1] + R[2] * y[2] === 0 &&
+          Sr(e(n + R[0], i + R[1], c + R[2])) &&
+          e(n + R[0], i + R[1], c + R[2]) !== p.REDSTONE &&
+          f.push(R);
+    } else f.push([1, 0, 0], [-1, 0, 0], [0, 0, 1], [0, 0, -1]);
+    const m = Pe(0.5, 0, 0.5, a),
+      _ = Pe(1, 0, 0.5, a),
+      g = Pe(0.5, 0, 1, a);
+    for (const y of f) {
+      const R = y.reduce((x, S, M) => x + S * (_[M] - m[M]) * 2, 0),
+        E = y.reduce((x, S, M) => x + S * (g[M] - m[M]) * 2, 0);
+      if (
+        (R && u([R < 0 ? 0 : 0.5, 0.012, 0.43, R > 0 ? 1 : 0.5, 0.04, 0.57], l),
+        E && u([0.43, 0.012, E < 0 ? 0 : 0.5, 0.57, 0.04, E > 0 ? 1 : 0.5], l),
+        a === 0 && y[1] > 0)
+      ) {
+        const [x, , S] = y;
+        u(
+          [
+            x < 0 ? 0 : x > 0 ? 0.97 : 0.43,
+            0.04,
+            S < 0 ? 0 : S > 0 ? 0.97 : 0.43,
+            x ? (x < 0 ? 0.03 : 1) : 0.57,
+            1,
+            S ? (S < 0 ? 0.03 : 1) : 0.57,
+          ],
+          l,
+        );
+      }
+    }
+  } else if (r === p.LEVER) {
+    (u([0.28, 0, 0.27, 0.72, 0.12, 0.73], 26),
+      u([0.42, 0.12, 0.4, 0.58, 0.2, 0.6], 16));
+    for (let f = 0; f < 4; f++) {
+      const m = 0.46 + (o ? -1 : 1) * f * 0.047;
+      u([0.455, 0.18 + f * 0.06, m, 0.545, 0.26 + f * 0.06, m + 0.09], 8);
+    }
+    const l = 0.46 + (o ? -1 : 1) * 3 * 0.047;
+    u([0.435, 0.39, l - 0.015, 0.565, 0.47, l + 0.105], o ? 170 : 16);
+  } else if (r === p.BUTTON)
+    (u([0.28, 0, 0.32, 0.72, 0.035, 0.68], 16),
+      u([0.32, 0.035, 0.36, 0.68, o ? 0.065 : 0.12, 0.64], 3));
+  else if (r === p.PLATE)
+    ((d = !1),
+      u([0.06, 0, 0.06, 0.94, 0.025, 0.94], 16),
+      u([0.08, 0.025, 0.08, 0.92, o ? 0.04 : 0.09, 0.92], 3));
+  else if (r === p.REPEATER) {
+    ((d = !1),
+      u([0.08, 0, 0.06, 0.92, 0.1, 0.94], 3),
+      u([0.42, 0.1, 0.12, 0.58, 0.115, 0.88], o ? 170 : 169));
+    const l = (t >> 4) & 3;
+    for (const f of [0.2, 0.51 + l * 0.085])
+      (u([0.44, 0.11, f - 0.055, 0.56, 0.29, f + 0.055], 8),
+        u([0.42, 0.25, f - 0.075, 0.58, 0.35, f + 0.075], o ? 170 : 169));
+    return h.map((f) => ({
+      ...f,
+      box: Zs(f.box, (m, _, g) => {
+        const y = t & 3;
+        return y === 1
+          ? [1 - g, _, m]
+          : y === 2
+            ? [1 - m, _, 1 - g]
+            : y === 3
+              ? [g, _, 1 - m]
+              : [m, _, g];
+      }),
+    }));
+  } else if (r === p.PISTON || r === p.SPISTON || r === p.PISTON_HEAD) {
+    d = !1;
+    const l = us[t & 7] ?? us[3];
+    if (r !== p.PISTON_HEAD) {
+      u([0, 0, 0, 1, o ? 0.72 : 0.82, 1], 33);
+      for (const m of [0, 0.86])
+        for (const _ of [0, 0.86]) u([m, 0, _, m + 0.14, 0.82, _ + 0.14], 16);
+      o
+        ? u([0.4, 0.72, 0.4, 0.6, 1, 0.6], 8)
+        : u([0, 0.82, 0, 1, 1, 1], r === p.SPISTON ? 34 : 32);
+    } else
+      (u([0, 0.75, 0, 1, 1, 1], t & 16 ? 34 : 32),
+        u([0.4, 0, 0.4, 0.6, 0.75, 0.6], 8));
+    const f = Lt.findIndex(
+      (m) => m[0] === -l[0] && m[1] === -l[1] && m[2] === -l[2],
+    );
+    return h.map((m) => ({
+      ...m,
+      box: Zs(m.box, (_, g, y) => Pe(_, g, y, f)),
+    }));
+  } else return null;
+  return d
+    ? h.map((l) => ({ ...l, box: Zs(l.box, (f, m, _) => Pe(f, m, _, a)) }))
+    : h;
+}
+function Tr(r, t, e, s) {
+  const n = [];
+  return (
+    (r(t - 1, e, s) === p.CHAIN || r(t + 1, e, s) === p.CHAIN) && n.push(0),
+    (r(t, e - 1, s) === p.CHAIN || r(t, e + 1, s) === p.CHAIN) && n.push(1),
+    (r(t, e, s - 1) === p.CHAIN || r(t, e, s + 1) === p.CHAIN) && n.push(2),
+    n.length ? n : [1]
+  );
+}
+const $s = new Map();
+function br(r) {
+  if ($s.has(r)) return $s.get(r);
+  const t = [],
+    e = 12,
+    s = 4,
+    n = (i) =>
+      r === 0 ? [i[1], -i[0], i[2]] : r === 2 ? [i[0], -i[2], i[1]] : i;
+  for (let i = 0; i < 4; i++) {
+    const c = (h, o) => {
+      const a = (h / e) * Math.PI * 2,
+        u = (o / s) * Math.PI * 2,
+        d = Math.cos(a) / 0.105,
+        l = Math.sin(a) / 0.17,
+        f = Math.hypot(d, l),
+        m = 0.105 * Math.cos(a) + (0.027 * Math.cos(u) * d) / f,
+        _ = 0.17 * Math.sin(a) + (0.027 * Math.cos(u) * l) / f,
+        g = 0.027 * Math.sin(u),
+        y = n(i % 2 ? [g, _, -m] : [m, _, g]);
+      return ((y[r] += (i + 0.5) / 4 - 0.5), y.map((R) => R + 0.5));
+    };
+    for (let h = 0; h < e; h++)
+      for (let o = 0; o < s; o++) {
+        const a = [c(h, o), c(h + 1, o), c(h, o + 1), c(h + 1, o + 1)],
+          u = a[1].map((m, _) => m - a[0][_]),
+          d = a[2].map((m, _) => m - a[0][_]),
+          l = [
+            u[1] * d[2] - u[2] * d[1],
+            u[2] * d[0] - u[0] * d[2],
+            u[0] * d[1] - u[1] * d[0],
+          ],
+          f = Math.hypot(...l);
+        (l.forEach((m, _) => (l[_] = m / f)), t.push({ points: a, normal: l }));
+      }
+  }
+  return ($s.set(r, t), t);
+}
+function wt(r, t, e) {
+  let s = (r ^ Math.imul(t, 374761393) ^ Math.imul(e, 668265263)) >>> 0;
+  return (
+    (s = (s ^ (s >>> 13)) >>> 0),
+    (s = Math.imul(s, 1274126177) >>> 0),
+    ((s ^ (s >>> 16)) >>> 0) / 4294967296
+  );
+}
+const zn = (r) => r * r * (3 - 2 * r);
+function Or(r, t, e) {
+  const s = Math.floor(t),
+    n = Math.floor(e),
+    i = zn(t - s),
+    c = zn(e - n),
+    h = wt(r, s, n),
+    o = wt(r, s + 1, n),
+    a = wt(r, s, n + 1),
+    u = wt(r, s + 1, n + 1);
+  return h + (o - h) * i + (a - h) * c + (h - o - a + u) * i * c;
+}
+function xt(r, t, e, s) {
+  let n = 0,
+    i = 0.5,
+    c = 1,
+    h = 0;
+  for (let o = 0; o < s; o++)
+    ((n += (Or(r + o * 1013, t * c, e * c) * 2 - 1) * i),
+      (h += i),
+      (i *= 0.5),
+      (c *= 2));
+  return n / h;
+}
+const Re = 640,
+  ke = new Map();
+function Mi(r, t, e) {
+  const s = `${r}:${t}:${e}`;
+  if (ke.has(s)) return ke.get(s);
+  const n = t * Re + 250 + Math.floor(wt(r + 9001, t, e) * 140),
+    i = e * Re + 250 + Math.floor(wt(r + 9007, t, e) * 140),
+    c = xt(r + 301, n * 72e-5, i * 72e-5, 4),
+    h = xt(r + 401, n * 9e-4, i * 9e-4, 3),
+    o = xt(r + 501, n * 82e-5, i * 82e-5, 3),
+    a = wt(r + 9011, t, e),
+    u =
+      c < -0.19
+        ? "islands"
+        : h > 0.18 && o < 0.07
+          ? "oasis"
+          : h > 0 && o < 0.02 && a > 0.25
+            ? "savanna"
+            : a < 0.33
+              ? "volcanic"
+              : a < 0.66
+                ? "alpine"
+                : "yellowstone",
+    d =
+      wt(r + 9013, t, e) < 0.22 || Math.hypot(n, i) < 280
+        ? null
+        : {
+            kind: u,
+            x: n,
+            z: i,
+            radius: 200,
+            seed: Math.floor(wt(r + 9019, t, e) * 2147483647),
+          };
+  return (ke.size >= 1024 && ke.clear(), ke.set(s, d), d);
+}
+function Lr(r, t, e) {
+  const s = Mi(r, Math.floor(t / Re), Math.floor(e / Re));
+  return s && Math.hypot(t - s.x, e - s.z) < s.radius ? s : null;
+}
+const tn = (r) => {
+  const t = cs(r, 0, 1);
+  return t * t * (3 - 2 * t);
+};
+function Ir(r, t, e) {
+  const s = t - r.x,
+    n = e - r.z,
+    i = Math.atan2(n / 24, s / 37),
+    c = ((r.seed % 997) / 997) * Math.PI * 2,
+    h =
+      1 +
+      Math.sin(i * 3 + c) * 0.16 +
+      Math.sin(i * 5 - c) * 0.08 +
+      xt(r.seed + 61, t * 0.055, e * 0.055, 2) * 0.11;
+  return Math.hypot(s / 37, n / 24) / h;
+}
+function Cr(r, t, e, s) {
+  const n = t - r.x,
+    i = e - r.z,
+    c = Math.hypot(n, i),
+    h = xt(r.seed, t * 0.026, e * 0.026, 2);
+  let o = s;
+  if (r.kind === "volcanic") {
+    const a = Math.atan2(i, n);
+    ((o =
+      47 +
+      Math.max(0, 1 - c / 165) * 59 +
+      Math.sin(a * 9 + c * 0.035) * Math.min(3, c * 0.07) +
+      h * 2),
+      c < 28 && (o = 82 + tn(c / 28) * 14));
+  } else if (r.kind === "yellowstone") {
+    o = 49 + h * 2 + Math.max(0, c - 100) * 0.045;
+    const a = Nr(r, t, e);
+    a < 1 ? (o = 46 - Math.floor((1 - a) * 3)) : a < 1.38 && (o = 49);
+    const u = Math.hypot((n + 38) / 34, (i + 83) / 27);
+    u < 1 && (o = 50 + Math.floor((1 - u) * 7));
+  } else if (r.kind === "alpine") {
+    o = 48 + h * 3;
+    for (const [a, u, d] of [
+      [-46, -22, 59],
+      [38, -42, 64],
+      [5, 52, 51],
+    ])
+      o = Math.max(
+        o,
+        48 +
+          Math.max(
+            0,
+            1 -
+              Math.hypot(n - a, (i - u) * 1.15) /
+                (100 + Math.sin(Math.atan2(i - u, n - a) * 5) * 13),
+          ) *
+            d +
+          h * 3,
+      );
+    Math.hypot((n + 65) / 25, (i - 70) / 18) < 1 && (o = 43);
+  } else if (r.kind === "oasis") {
+    const a = Ir(r, t, e);
+    o =
+      a < 1
+        ? 46 - (1 - a) * 7
+        : 46 + (a - 1) * 5 + Math.abs(h) * Math.min(8, (a - 1) * 4);
+  } else if (r.kind === "savanna")
+    ((o = 48 + h * 3 + Math.abs(xt(r.seed + 23, t * 0.009, e * 0.009, 3)) * 9),
+      Math.hypot((n + 48) / 25, (i - 30) / 18) < 1 && (o = 44));
+  else {
+    o = Es - 12 + h * 2;
+    for (const [a, u, d, l] of [
+      [-60, -22, 70, 29],
+      [55, -44, 58, 22],
+      [26, 74, 49, 19],
+    ]) {
+      const f = Math.atan2(i - u, n - a),
+        m =
+          Math.hypot(n - a, (i - u) * 1.1) /
+          (1 + Math.sin(f * 3 + a) * 0.13 + Math.sin(f * 7) * 0.045);
+      o = Math.max(o, Es - 6 + Math.max(0, 1 - m / d) * l + h * 2);
+    }
+  }
+  return Math.floor(s + (o - s) * tn((r.radius - c) / 45));
+}
+function Nr(r, t, e) {
+  const s = t - r.x,
+    n = e - r.z,
+    i = (c, h, o, a) => {
+      const u = Math.atan2(h, c);
+      return (
+        Math.hypot(c / o, h / a) /
+        (1 + Math.sin(u * 5) * 0.065 + Math.sin(u * 9) * 0.025)
+      );
+    };
+  return Math.min(
+    i(s, n, 31, 23),
+    i(s - 63, n + 37, 12, 16),
+    i(s + 66, n - 31, 15, 11),
+  );
+}
+function Br(r, t, e) {
+  const s = Mi(r, Math.floor(t / Re), Math.floor(e / Re));
+  return !s || s.kind !== "islands"
+    ? 0
+    : tn((s.radius - Math.hypot(t - s.x, e - s.z)) / 48);
+}
+function Pr(r, t, e) {
+  const s = xt(r + 301, t * 72e-5, e * 72e-5, 4),
+    n = xt(r + 401, t * 9e-4, e * 9e-4, 3),
+    i = xt(r + 501, t * 82e-5, e * 82e-5, 3),
+    c = Math.abs(xt(r + 601, t * 0.00125, e * 0.00125, 4));
+  return { continent: s, heat: n, wet: i, ridge: c };
+}
+function kr(r) {
+  return r.continent < -0.14
+    ? "ocean"
+    : r.ridge > 0.47 || r.continent > 0.53
+      ? "mountains"
+      : r.heat < -0.23
+        ? "winter"
+        : r.heat < -0.075 && r.wet > -0.12
+          ? "autumn"
+          : r.heat > 0.18 && r.wet < 0.07
+            ? "desert"
+            : r.heat > 0 && r.wet > 0.02
+              ? "jungle"
+              : r.wet > -0.08
+                ? "forest"
+                : "plains";
+}
+function Ur(r, t, e, s, n) {
+  const i = xt(r + 7, t * 0.011, e * 0.011, 4);
+  let c;
+  if (n === "ocean") {
+    const h = cs((-0.14 - s.continent) / 0.55, 0, 1) ** 0.55;
+    c = Es + 1 - (2 + h * 34) + i * (1.5 + h * 4);
+  } else {
+    c = Es + 5 + i * 8 + s.continent * 12;
+    const h = (l) => {
+        const f = cs(l, 0, 1);
+        return f * f * (3 - 2 * f);
+      },
+      o = h(Math.max((s.ridge - 0.43) / 0.08, (s.continent - 0.49) / 0.08)),
+      a =
+        (1 - h((s.wet + 0.12) / 0.08)) *
+        (1 - h((s.heat - 0.14) / 0.08)) *
+        (1 - o),
+      u = h((s.heat - 0.14) / 0.08) * (1 - h((s.wet - 0.03) / 0.08)) * (1 - o),
+      d = h((s.heat + 0.04) / 0.08) * h((s.wet + 0.02) / 0.08) * (1 - o);
+    ((c += a * (1 - i * 4.5 - s.continent * 6)),
+      (c +=
+        o *
+        (Math.max(0, s.ridge - 0.47) * 118 +
+          Math.max(0, s.continent - 0.53) * 52 +
+          Math.abs(i) * 12)),
+      (c +=
+        (u > 0 ? u * Math.abs(xt(r + 17, t * 0.018, e * 0.018, 2)) * 5 : 0) +
+        d * i * 3));
+  }
+  return Math.floor(cs(c, 4, H - 13));
+}
+let Ue = new Map(),
+  Fn = new Map();
+function Dr(r, t, e) {
+  const s = Number.isInteger(t) && Number.isInteger(e) ? `${r}:${t}:${e}` : "",
+    n = s ? (Ue.get(s) ?? Fn.get(s)) : void 0;
+  if (n) return n;
+  const i = Pr(r, t, e),
+    c = kr(i),
+    h = Ur(r, t, e, i, c),
+    o = Lr(r, t, e),
+    a = {
+      height: o ? Cr(o, t, e, h) : h,
+      biome: o?.kind ?? c,
+      heat: i.heat,
+      wet: i.wet,
+    };
+  return (
+    s && (Ue.size >= 8192 && ((Fn = Ue), (Ue = new Map())), Ue.set(s, a)),
+    a
+  );
+}
+function wr(r, t, e) {
+  return Dr(r, t, e).biome;
+}
+const rs = new Map();
+function os(r, t, e) {
+  const s = `${r}:${t}:${e}`,
+    n = rs.get(s);
+  if (n) return n;
+  const i = wr(r, t * 24, e * 24),
+    h = {
+      desert: [1.3, 0.95, 0.48],
+      savanna: [1.2, 0.95, 0.55],
+      forest: [0.72, 0.91, 0.72],
+      jungle: [0.65, 1, 0.68],
+      autumn: [1.62, 0.9, 0.4],
+      winter: [0.87, 1, 1.02],
+      alpine: [0.84, 0.96, 0.95],
+      oasis: [0.87, 1, 0.62],
+      volcanic: [0.84, 0.78, 0.7],
+    }[i] ?? [1, 1, 0.83];
+  return (rs.size > 4096 && rs.clear(), rs.set(s, h), h);
+}
+const zr = -7101,
+  Fr = [0.84, 1, 0.72];
+function Si(r, t, e) {
+  if (r === zr) return Fr;
+  const s = Math.floor(t / 24),
+    n = Math.floor(e / 24),
+    i = t / 24 - s,
+    c = e / 24 - n,
+    h = os(r, s, n),
+    o = os(r, s + 1, n),
+    a = os(r, s, n + 1),
+    u = os(r, s + 1, n + 1);
+  return [0, 1, 2].map(
+    (d) =>
+      (h[d] * (1 - i) + o[d] * i) * (1 - c) + (a[d] * (1 - i) + u[d] * i) * c,
+  );
+}
+const Gr = 4,
+  fn = (r) => r === p.CHEST || r === p.MILITARY_CHEST,
+  Wr = 231,
+  Gn = 232,
+  _s = 233,
+  Ct = 234,
+  Hr = 235,
+  gi = 236,
+  as = 237,
+  Yr = 238,
+  Vr = (() => {
+    const r = [],
+      t = (e, s, n = {}) => r.push({ box: e, tile: s, ...n });
+    t([0.0625, 0, 0.0625, 0.9375, 0.625, 0.9375], Wr, { top: gi });
+    for (const e of [0.05, 0.86])
+      for (const s of [0.05, 0.86]) t([e, 0, s, e + 0.09, 0.625, s + 0.09], _s);
+    t([0.05, 0, 0.05, 0.95, 0.05, 0.95], _s);
+    for (const e of [0.2, 0.73])
+      t([e, 0.05, 0.055, e + 0.07, 0.625, 0.945], Ct);
+    (t([0.055, 0.625, 0.055, 0.945, 0.82, 0.945], Gn, { bottom: _s, lid: !0 }),
+      t([0.1, 0.82, 0.1, 0.9, 0.875, 0.9], Gn, { lid: !0 }));
+    for (const e of [0.2, 0.73])
+      (t([e, 0.62, 0.045, e + 0.07, 0.83, 0.955], Ct, { lid: !0 }),
+        t([e, 0.82, 0.09, e + 0.07, 0.885, 0.91], Ct, { lid: !0 }));
+    for (const e of [0.045, 0.855])
+      for (const s of [0.045, 0.855])
+        t([e, 0.7, s, e + 0.1, 0.83, s + 0.1], Ct, { lid: !0 });
+    return (
+      t([0.43, 0.48, 0.03, 0.57, 0.74, 0.055], Hr, { lid: !0, fit: !0 }),
+      t([0.48, 0.53, 0.024, 0.52, 0.62, 0.031], Ct, { lid: !0, fit: !0 }),
+      {
+        parts: r,
+        hingeY: 0.625,
+        hingeZ: 0.945,
+        openAngle: 1.85,
+        envelope: [0.0625, 0, 0.0625, 0.9375, 0.875, 0.9375],
+      }
+    );
+  })(),
+  vr = (() => {
+    const r = [],
+      t = (e, s, n = {}) => r.push({ box: e, tile: s, ...n });
+    t([0.05, 0.05, 0.14, 0.95, 0.58, 0.86], as, { top: gi });
+    for (const e of [0.1, 0.78]) t([e, 0, 0.12, e + 0.12, 0.06, 0.88], Ct);
+    for (const e of [0.03, 0.9]) t([e, 0.04, 0.125, e + 0.07, 0.58, 0.875], as);
+    for (const e of [0.025, 0.905])
+      for (const s of [0.12, 0.83])
+        t([e, 0.04, s, e + 0.07, 0.58, s + 0.05], Ct);
+    for (const e of [0.005, 0.965]) t([e, 0.3, 0.4, e + 0.03, 0.36, 0.6], Ct);
+    (t([0.3, 0.16, 0.128, 0.7, 0.44, 0.14], Yr, { fit: !0 }),
+      t([0.03, 0.58, 0.12, 0.97, 0.7, 0.88], as, { bottom: _s, lid: !0 }),
+      t([0.07, 0.7, 0.16, 0.93, 0.74, 0.84], as, { lid: !0 }),
+      t([0.4, 0.74, 0.46, 0.6, 0.775, 0.54], Ct, { lid: !0 }));
+    for (const e of [0.18, 0.74])
+      t([e, 0.46, 0.105, e + 0.08, 0.64, 0.125], Ct, { lid: !0, fit: !0 });
+    return {
+      parts: r,
+      hingeY: 0.58,
+      hingeZ: 0.88,
+      openAngle: 1.75,
+      envelope: [0.03, 0, 0.12, 0.97, 0.775, 0.88],
+    };
+  })(),
+  qr = (r) => (r === p.MILITARY_CHEST ? vr : Vr);
+function Kr(r, t) {
+  let [e, s, n, i, c, h] = r;
+  for (let o = 0; o < (t & 3); o++) [e, n, i, h] = [1 - h, e, 1 - n, i];
+  return [e, s, n, i, c, h];
+}
+function Qr(r, t, e, s, n) {
+  const i = n & 3;
+  if (n & Gr) return i;
+  for (const c of [0, 2, 1, 3]) {
+    const h = (i + c) & 3,
+      [o, a] = ae[h],
+      u = r(t + o, e, s + a);
+    if (!_i(u) && !fn(u)) return h;
+  }
+  return i;
+}
+function Ri(r, t, e = "all") {
+  const s = [];
+  for (const n of qr(r).parts)
+    (e === "body" && n.lid) ||
+      (e === "lid" && !n.lid) ||
+      s.push({ ...n, box: Kr(n.box, t) });
+  return s;
+}
+function Xr(r, t = 0) {
+  if (fn(r)) return Ri(r, t & 3);
+  const e = [],
+    s = (o, a = !1) => e.push({ box: o, fabric: a }),
+    n = (o) => T.find((a) => a.name === o).tex[0],
+    i = (o, a = 10) => e.push({ box: o, tile: a }),
+    c = n("gray_clay"),
+    h = n("white_clay");
+  if (r === p.OWNERSHIP_TOTEM) {
+    const o = n("black_clay"),
+      a = T[p.POLISHED_STONE].tex[0],
+      u = n("yellow_clay"),
+      d = n("cyan_clay");
+    (i([0.08, 0, 0.08, 0.92, 0.09, 0.92], o),
+      i([0.15, 0.09, 0.15, 0.85, 0.17, 0.85], a),
+      i([0.24, 0.17, 0.24, 0.76, 0.22, 0.76], u),
+      i([0.32, 0.22, 0.32, 0.68, 0.35, 0.68], o),
+      i([0.22, 0.35, 0.22, 0.78, 0.39, 0.78], u),
+      i([0.22, 0.8, 0.22, 0.78, 0.84, 0.78], u));
+    for (const l of [0.24, 0.7])
+      for (const f of [0.24, 0.7]) i([l, 0.39, f, l + 0.06, 0.8, f + 0.06], u);
+    for (const [l, f, m] of [
+      [0.12, 0.4, 0.05],
+      [0.21, 0.45, 0.08],
+      [0.26, 0.53, 0.14],
+      [0.21, 0.67, 0.08],
+      [0.12, 0.75, 0.045],
+    ])
+      i([0.5 - l / 2, f, 0.5 - l / 2, 0.5 + l / 2, f + m, 0.5 + l / 2], d);
+    (i([0.33, 0.84, 0.33, 0.67, 0.89, 0.67], o),
+      i([0.39, 0.89, 0.39, 0.61, 0.93, 0.61], u),
+      i([0.46, 0.93, 0.46, 0.54, 0.99, 0.54], d));
+    for (const l of [0.18, 0.76]) i([l, 0.22, 0.13, l + 0.06, 0.32, 0.2], u);
+  } else if (r === p.KITCHEN_COUNTER || r === p.SINK) {
+    (i([0.06, 0, 0.08, 0.94, 0.09, 0.92], c),
+      i([0.02, 0.09, 0.08, 0.98, 0.82, 0.96]));
+    for (const o of [0.055, 0.515])
+      (i([o, 0.16, 0.035, o + 0.43, 0.73, 0.08]),
+        i([o + 0.32, 0.52, 0.012, o + 0.365, 0.62, 0.035], c));
+    r === p.KITCHEN_COUNTER
+      ? (i([0, 0.82, 0, 1, 0.9, 1], h),
+        i([0.035, 0.74, 0.025, 0.965, 0.81, 0.08], c))
+      : (i([0, 0.82, 0, 1, 0.91, 0.17], h),
+        i([0, 0.82, 0.78, 1, 0.91, 1], h),
+        i([0, 0.82, 0.17, 0.15, 0.91, 0.78], h),
+        i([0.85, 0.82, 0.17, 1, 0.91, 0.78], h),
+        i([0.15, 0.79, 0.17, 0.85, 0.805, 0.78], c),
+        i([0.46, 0.805, 0.44, 0.54, 0.812, 0.52], 10),
+        i([0.66, 0.91, 0.85, 0.72, 1, 0.91], c),
+        i([0.5, 0.965, 0.6, 0.72, 1, 0.91], c),
+        i([0.49, 0.935, 0.59, 0.55, 1, 0.65], c));
+  } else if (r === p.STORAGE_SHELF) {
+    for (const o of [0.04, 0.91])
+      for (const a of [0.1, 0.84]) i([o, 0, a, o + 0.05, 1, a + 0.05], c);
+    for (const o of [0.06, 0.48, 0.94])
+      i([0.03, o, 0.09, 0.97, o + 0.045, 0.9], c);
+    for (const [o, a, u, d, l, f] of [
+      [0.11, 0.105, 0.27, 0.33, 0.3, "brown_clay"],
+      [0.53, 0.105, 0.36, 0.3, 0.25, "green_clay"],
+      [0.12, 0.525, 0.3, 0.24, 0.3, "white_clay"],
+      [0.53, 0.525, 0.4, 0.28, 0.24, "brown_clay"],
+    ])
+      (i([o, a, u, o + d, a + l, u + 0.35], n(f)),
+        i(
+          [o + d * 0.35, a + l * 0.3, u - 0.004, o + d * 0.65, a + l * 0.66, u],
+          h,
+        ));
+  } else if (r === p.SOFA) {
+    for (const o of [0.09, 0.81])
+      for (const a of [0.15, 0.75]) i([o, 0, a, o + 0.1, 0.13, a + 0.1]);
+    (i([0.02, 0.13, 0.12, 0.98, 0.4, 0.94]),
+      i([0.035, 0.4, 0.1, 0.965, 0.58, 0.77], se),
+      i([0.035, 0.4, 0.77, 0.965, 0.95, 0.97], se),
+      i([0.08, 0.59, 0.75, 0.47, 0.88, 0.8], se),
+      i([0.53, 0.59, 0.75, 0.92, 0.88, 0.8], se));
+  } else if (r === p.WALL_LIGHT) {
+    (i([0.27, 0.18, 0.91, 0.73, 0.84, 1], c),
+      i([0.31, 0.23, 0.77, 0.69, 0.79, 0.91], T[p.GLOWSTONE].tex[0]));
+    for (const o of [0.2, 0.43, 0.76])
+      i([0.26, o, 0.75, 0.74, o + 0.035, 0.94], c);
+    for (const o of [0.27, 0.695]) i([o, 0.2, 0.75, o + 0.035, 0.8, 0.94], c);
+  } else if (r === p.AVIATION_LIGHT) {
+    const o = n("black_clay"),
+      a = n("red_clay"),
+      u = n("yellow_clay");
+    i([0.34, 0, 0.34, 0.66, 0.04, 0.66], o);
+    for (const [d, l] of [
+      [0.36, 0.36],
+      [0.61, 0.36],
+      [0.36, 0.61],
+      [0.61, 0.61],
+    ])
+      i([d, 0.04, l, d + 0.03, 0.055, l + 0.03], c);
+    (i([0.45, 0.04, 0.45, 0.55, 0.2, 0.55], u),
+      i([0.445, 0.1, 0.445, 0.555, 0.13, 0.555], o),
+      i([0.39, 0.2, 0.39, 0.61, 0.24, 0.61], o),
+      i([0.41, 0.24, 0.41, 0.59, 0.4, 0.59], a),
+      i([0.43, 0.4, 0.43, 0.57, 0.45, 0.57], a),
+      i([0.475, 0.45, 0.475, 0.525, 0.48, 0.525], o));
+  } else if (r === p.POTTED_PLANT) {
+    const o = n("brown_clay"),
+      a = n("green_clay");
+    (i([0.3, 0, 0.3, 0.7, 0.07, 0.7], o),
+      i([0.25, 0.07, 0.25, 0.75, 0.34, 0.75], o),
+      i([0.22, 0.31, 0.22, 0.78, 0.39, 0.78], o),
+      i([0.27, 0.39, 0.27, 0.73, 0.4, 0.73], T[p.DIRT].tex[0]),
+      i([0.47, 0.4, 0.47, 0.53, 0.88, 0.53], a));
+    for (const [u, d, l, f, m, _] of [
+      [0.2, 0.53, 0.39, 0.49, 0.61, 0.52],
+      [0.51, 0.64, 0.44, 0.86, 0.72, 0.57],
+      [0.33, 0.76, 0.27, 0.52, 0.85, 0.47],
+      [0.46, 0.85, 0.49, 0.67, 0.96, 0.63],
+    ])
+      i([u, d, l, f, m, _], a);
+  } else if (r === p.MINE_AP || r === p.MINE_AT) {
+    const o = r === p.MINE_AT,
+      a = o ? 0.44 : 0.3,
+      u = T.find((m) => m.name === (o ? "brown_clay" : "green_clay")).tex[0],
+      d = T.find((m) => m.name === "gray_clay").tex[0],
+      l = T.find((m) => m.name === "yellow_clay").tex[0],
+      f = (m, _, g, y) => {
+        for (let E = 0; E < 10; E++) {
+          const x = -m + (2 * m * E) / 10,
+            S = -m + (2 * m * (E + 1)) / 10,
+            M =
+              Math.sqrt(m * m - Math.max(Math.abs(x), Math.abs(S)) ** 2) ||
+              m * 0.25;
+          e.push({
+            box: [0.5 - M, _, 0.5 + x, 0.5 + M, _ + g, 0.5 + S],
+            tile: y,
+          });
+        }
+      };
+    (f(a, 0, 0.065, d),
+      f(a * 0.94, 0.065, o ? 0.075 : 0.055, u),
+      f(a * 0.68, o ? 0.14 : 0.12, 0.018, l),
+      f(a * 0.61, o ? 0.158 : 0.138, t & 8 ? 0.008 : 0.035, u));
+    for (let m = 0; m < 6; m++) {
+      const _ = (m * Math.PI) / 3,
+        g = 0.5 + Math.cos(_) * a * 0.8,
+        y = 0.5 + Math.sin(_) * a * 0.8;
+      e.push({
+        box: [g - 0.018, 0.12, y - 0.018, g + 0.018, 0.146, y + 0.018],
+        tile: d,
+      });
+    }
+    if ((e.push({ box: [0.46, 0.175, 0.46, 0.54, 0.19, 0.54], tile: d }), o))
+      for (const m of [0.08, 0.85])
+        e.push({ box: [m, 0.055, 0.39, m + 0.07, 0.11, 0.61], tile: d });
+  } else if (r === p.REMOTE_STATION) {
+    const o = qt,
+      a = ge,
+      u = (d, l = o) => e.push({ box: d, tile: l });
+    for (const d of [0.08, 0.79])
+      for (const l of [0.12, 0.75]) u([d, 0, l, d + 0.12, 0.045, l + 0.12]);
+    (u([0.04, 0.045, 0.08, 0.96, 0.15, 0.92]),
+      u([0.07, 0.15, 0.55, 0.93, 0.74, 0.88]),
+      u([0.105, 0.24, 0.535, 0.55, 0.685, 0.55], a),
+      u([0.59, 0.31, 0.535, 0.885, 0.68, 0.55], a));
+    for (let d = 0; d < 3; d++)
+      for (let l = 0; l < 9; l++)
+        u(
+          [
+            0.12 + l * 0.062,
+            0.15,
+            0.18 + d * 0.07,
+            0.166 + l * 0.062,
+            0.172,
+            0.222 + d * 0.07,
+          ],
+          10,
+        );
+    (u([0.77, 0.15, 0.2, 0.85, 0.19, 0.28]),
+      u([0.78, 0.19, 0.21, 0.84, 0.225, 0.27]),
+      u([0.12, 0.17, 0.45, 0.32, 0.19, 0.48], ge),
+      u([0.91, 0.15, 0.77, 0.94, 0.98, 0.8]),
+      u([0.89, 0.78, 0.75, 0.96, 0.81, 0.82]),
+      u([0.025, 0.27, 0.62, 0.07, 0.6, 0.76]),
+      u([0.93, 0.27, 0.62, 0.975, 0.6, 0.76]));
+  } else if (r === p.WOOD_TABLE || r === p.MAP_TABLE) {
+    s([0, 0.86, 0, 1, r === p.MAP_TABLE ? 0.97 : 1, 1]);
+    for (const o of [0.08, 0.78])
+      for (const a of [0.08, 0.78]) s([o, 0, a, o + 0.14, 0.86, a + 0.14]);
+    (s([0.08, 0.68, 0.08, 0.92, 0.86, 0.2]),
+      s([0.08, 0.68, 0.8, 0.92, 0.86, 0.92]));
+  } else if (r === p.WOOD_CHAIR || r === p.WOOD_BENCH) {
+    const o = r === p.WOOD_BENCH ? 0.03 : 0.14,
+      a = 1 - o;
+    (s([o, 0.42, 0.16, a, 0.54, 0.84]),
+      r === p.WOOD_CHAIR &&
+        e.push({
+          box: [o + 0.04, 0.54, 0.2, a - 0.04, 0.6, 0.76],
+          fabric: !0,
+          tile: se,
+        }));
+    for (const u of [o, a - 0.12])
+      for (const d of [0.18, 0.7]) s([u, 0, d, u + 0.12, 0.44, d + 0.12]);
+    for (const u of [o, a - 0.12]) s([u, 0.54, 0.72, u + 0.12, 1, 0.84]);
+    (s([o, 0.73, 0.72, a, 0.85, 0.84]), s([o, 0.9, 0.72, a, 1, 0.84]));
+  }
+  if (r === p.GRAVESTONE) {
+    const o = T[p.DIRT].tex[0];
+    (i([0.08, 0, 0.32, 0.92, 0.12, 0.68], ne),
+      i([0.14, 0.12, 0.4, 0.86, 0.78, 0.6], ne),
+      i([0.2, 0.78, 0.4, 0.8, 0.86, 0.6], ne),
+      i([0.32, 0.86, 0.4, 0.68, 0.92, 0.6], ne),
+      i([0.18, 0, 0.03, 0.82, 0.09, 0.3], o));
+  } else if (r === p.GRAVE_CROSS) {
+    const o = T[p.DIRT].tex[0];
+    (i([0.44, 0, 0.45, 0.56, 1, 0.57], oe),
+      i([0.18, 0.62, 0.45, 0.82, 0.73, 0.57], oe),
+      i([0.4, 0.6, 0.43, 0.6, 0.75, 0.45], It),
+      i([0.2, 0, 0.04, 0.8, 0.08, 0.36], o));
+  } else if (r === p.SKULL) {
+    const o = n("black_clay");
+    (i([0.3, 0.07, 0.34, 0.7, 0.42, 0.72], It),
+      i([0.33, 0.02, 0.3, 0.67, 0.14, 0.52], It),
+      i([0.36, 0, 0.32, 0.64, 0.05, 0.5], It),
+      i([0.35, 0.19, 0.325, 0.46, 0.3, 0.34], o),
+      i([0.54, 0.19, 0.325, 0.65, 0.3, 0.34], o),
+      i([0.47, 0.13, 0.325, 0.53, 0.18, 0.34], o));
+  } else if (r === p.CAULDRON) {
+    for (const o of [0.12, 0.76])
+      for (const a of [0.12, 0.76]) i([o, 0, a, o + 0.12, 0.12, a + 0.12], pt);
+    (i([0.12, 0.1, 0.12, 0.88, 0.2, 0.88], pt),
+      i([0.06, 0.18, 0.06, 0.94, 0.8, 0.16], pt),
+      i([0.06, 0.18, 0.84, 0.94, 0.8, 0.94], pt),
+      i([0.06, 0.18, 0.16, 0.16, 0.8, 0.84], pt),
+      i([0.84, 0.18, 0.16, 0.94, 0.8, 0.84], pt),
+      i([0.02, 0.76, 0.02, 0.98, 0.84, 0.1], pt),
+      i([0.02, 0.76, 0.9, 0.98, 0.84, 0.98], pt),
+      i([0.02, 0.76, 0.1, 0.1, 0.84, 0.9], pt),
+      i([0.9, 0.76, 0.1, 0.98, 0.84, 0.9], pt),
+      i([0.16, 0.64, 0.16, 0.84, 0.68, 0.84], Ji));
+  } else if (r === p.SCARECROW) {
+    const o = Y + 4,
+      a = n("red_clay"),
+      u = n("blue_clay"),
+      d = n("brown_clay");
+    (e.push({ box: [0.46, 0, 0.46, 0.54, 1.5, 0.54], tile: oe, fit: !0 }),
+      i([0.34, 0.16, 0.44, 0.48, 0.62, 0.58], u),
+      i([0.52, 0.16, 0.44, 0.66, 0.62, 0.58], u),
+      i([0.36, 0.1, 0.42, 0.46, 0.18, 0.6], o),
+      i([0.54, 0.1, 0.42, 0.64, 0.18, 0.6], o),
+      e.push({ box: [0.3, 0.6, 0.38, 0.7, 1.14, 0.62], tile: a, fit: !0 }),
+      e.push({ box: [0, 0.98, 0.43, 1, 1.09, 0.57], tile: a, fit: !0 }),
+      i([0, 0.9, 0.41, 0.07, 1, 0.59], o),
+      i([0.93, 0.9, 0.41, 1, 1, 0.59], o),
+      e.push({ box: [0.38, 1.12, 0.4, 0.62, 1.16, 0.6], tile: o, fit: !0 }),
+      t & 4
+        ? (e.push({ box: [0.3, 1.14, 0.3, 0.7, 1.52, 0.7], tile: Ft, fit: !0 }),
+          e.push({
+            box: [0.31, 1.15, 0.295, 0.69, 1.51, 0.3],
+            tile: ii,
+            fit: !0,
+          }))
+        : (e.push({
+            box: [0.31, 1.14, 0.32, 0.69, 1.5, 0.68],
+            tile: sr,
+            fit: !0,
+          }),
+          e.push({
+            box: [0.32, 1.15, 0.315, 0.68, 1.49, 0.32],
+            tile: ms,
+            fit: !0,
+          })),
+      e.push({ box: [0.2, 1.5, 0.2, 0.8, 1.54, 0.8], tile: d, fit: !0 }),
+      e.push({ box: [0.33, 1.54, 0.33, 0.67, 1.76, 0.67], tile: d, fit: !0 }),
+      e.push({
+        box: [0.32, 1.56, 0.32, 0.68, 1.6, 0.68],
+        tile: n("black_clay"),
+        fit: !0,
+      }));
+  } else if (r === p.COFFIN) {
+    (i([0.2, 0, 0.05, 0.8, 0.34, 0.95], tt),
+      i([0.26, 0, 0, 0.74, 0.3, 0.05], tt),
+      i([0.26, 0, 0.95, 0.74, 0.3, 1], tt),
+      i([0.16, 0.34, 0.03, 0.84, 0.42, 0.97], tt),
+      i([0.46, 0.42, 0.18, 0.54, 0.445, 0.72], It),
+      i([0.34, 0.42, 0.3, 0.66, 0.445, 0.38], It));
+    for (const o of [0.12, 0.84])
+      for (const a of [0.18, 0.78])
+        i([a, 0.14, o, a + 0.04, 0.2, o + 0.04], n("yellow_clay"));
+  } else if (r === p.POTION_SHELF) {
+    for (const d of [0.04, 0.9])
+      for (const l of [0.06, 0.82]) i([d, 0, l, d + 0.06, 1, l + 0.12], tt);
+    for (const d of [0.04, 0.48, 0.92])
+      i([0.03, d, 0.08, 0.97, d + 0.05, 0.94], tt);
+    i([0.03, 0.05, 0.9, 0.97, 0.95, 0.96], tt);
+    const o = [
+        n("purple_clay"),
+        n("lime_clay"),
+        n("red_clay"),
+        n("cyan_clay"),
+        n("orange_clay"),
+      ],
+      a = T[p.PLANKS].tex[0];
+    ([
+      [0.12, 0.09, 0.3, 0.2],
+      [0.33, 0.09, 0.24, 0.28],
+      [0.55, 0.09, 0.34, 0.22],
+      [0.74, 0.09, 0.26, 0.3],
+      [0.14, 0.53, 0.26, 0.26],
+      [0.38, 0.53, 0.34, 0.2],
+      [0.6, 0.53, 0.22, 0.3],
+      [0.8, 0.53, 0.3, 0.18],
+    ].forEach(([d, l, f, m], _) => {
+      const g = o[_ % o.length],
+        y = 0.12;
+      (i([d, l, f, d + y, l + m, f + y], g),
+        i(
+          [d + 0.03, l + m, f + 0.03, d + y - 0.03, l + m + 0.06, f + y - 0.03],
+          g,
+        ),
+        i(
+          [
+            d + 0.035,
+            l + m + 0.06,
+            f + 0.035,
+            d + y - 0.035,
+            l + m + 0.09,
+            f + y - 0.035,
+          ],
+          a,
+        ));
+    }),
+      i([0.1, 0.97, 0.3, 0.3, 1, 0.6], It));
+  }
+  r === p.MAP_TABLE &&
+    (e.push({
+      box: [0.06, 0.97, 0.06, 0.94, 0.98, 0.94],
+      tile: T[p.MAP_TABLE].tex[0],
+    }),
+    e.push({
+      box: [0.36, 0.98, 0.1, 0.5, 0.985, 0.9],
+      tile: T[p.WATER].tex[0],
+    }),
+    e.push({ box: [0.08, 0.985, 0.44, 0.92, 0.99, 0.49], tile: 10 }),
+    e.push({ box: [0.67, 0.985, 0.08, 0.71, 0.99, 0.92], tile: 10 }));
+  for (const o of e)
+    for (let a = 0; a < (t & 3); a++) {
+      const [u, d, l, f, m, _] = o.box;
+      o.box = [1 - _, d, u, 1 - l, m, f];
+    }
+  return e;
+}
+const _t = 16,
+  Dt = (r, t, e) =>
+    Math.max(0, Math.min(255, Math.round(r + (e - 0.5) * 2 * t)));
+function Zr(r, t, e, s) {
+  return (n, i, c) => {
+    const h = c();
+    return [Dt(r, s, h), Dt(t, s, h), Dt(e, s, h), 255];
+  };
+}
+rn.forEach(([, , r], t) => {});
+const $r = [
+  [45, 45, 48],
+  [196, 133, 88],
+  [226, 188, 75],
+  [73, 216, 232],
+  [185, 197, 212],
+];
+$r.forEach(([r, t, e], s) => {});
+const Jr = [
+    [
+      [8, 4, 2.2, 1.8, 0],
+      [5, 8, 2.6, 1.7, 0.25],
+      [11, 9, 2.6, 1.7, -0.25],
+      [8, 12, 2.1, 1.5, 0],
+    ],
+    [
+      [4, 5, 3, 2, 0.2],
+      [8, 4, 3, 2.2, 0],
+      [12, 5, 3, 2, -0.2],
+      [4, 9, 3, 2.1, -0.2],
+      [8, 8, 3.4, 2.3, 0],
+      [12, 9, 3, 2.1, 0.2],
+      [8, 12, 3, 1.9, 0],
+    ],
+    [
+      [4, 4, 3.1, 2.3, 0.15],
+      [8, 3, 3.3, 2.4, 0],
+      [12, 4, 3.1, 2.3, -0.15],
+      [3.4, 8, 3, 2.5, -0.15],
+      [8, 7, 3.5, 2.6, 0],
+      [12.6, 8, 3, 2.5, 0.15],
+      [4, 11, 3.2, 2.2, 0.2],
+      [8, 12, 3.3, 2.1, 0],
+      [12, 11, 3.2, 2.2, -0.2],
+    ],
+  ],
+  jr = [
+    [
+      [6, 5, 2.6, 2.2, 0.2],
+      [10, 6, 2.6, 2.2, -0.2],
+      [6, 10, 2.6, 2.2, -0.2],
+      [10, 10, 2.6, 2.2, 0.2],
+    ],
+    [
+      [5, 4, 3, 2.2, 0.2],
+      [10, 4, 3, 2.2, -0.2],
+      [12, 8, 2.5, 3, 0],
+      [10, 12, 3, 2.2, 0.2],
+      [5, 12, 3, 2.2, -0.2],
+      [4, 8, 2.5, 3, 0],
+      [8, 8, 3, 3, 0],
+    ],
+    [
+      [4, 4, 3, 2.4, 0.2],
+      [8, 3, 3, 2.5, 0],
+      [12, 4, 3, 2.4, -0.2],
+      [13, 8, 2.4, 3, 0],
+      [12, 12, 3, 2.4, 0.2],
+      [8, 13, 3, 2.5, 0],
+      [4, 12, 3, 2.4, -0.2],
+      [3, 8, 2.4, 3, 0],
+      [8, 8, 3.5, 3.5, 0],
+    ],
+  ],
+  Wn = (r, t, e, s) => {
+    const n = (s ? jr : Jr)[e],
+      i = s
+        ? [
+            [5, 5],
+            [11, 5],
+            [5, 11],
+            [11, 11],
+            [8, 8],
+          ]
+        : [
+            [4, 6],
+            [11, 5],
+            [5, 11],
+            [12, 10],
+            [8, 8],
+          ];
+    return (c, h, o) => {
+      if (e === 2)
+        for (const [l, f] of i) {
+          const m = Math.hypot(c - l, h - f);
+          if (m > 1.55) continue;
+          const _ = m > 1.1 ? -36 : c < l && h < f ? 48 : 0;
+          return [
+            Dt(t[0] + _, 5, o()),
+            Dt(t[1] + _, 5, o()),
+            Dt(t[2] + _, 5, o()),
+            255,
+          ];
+        }
+      let a = 1 / 0,
+        u,
+        d = 0;
+      if (
+        (n.forEach((l, f) => {
+          const [m, _, g, y, R] = l,
+            E = c - m,
+            x = h - _,
+            S = ((E + x * R) / g) ** 2 + (x / y) ** 2,
+            M = (c * 17 + h * 11 + f * 5) % 19 === 0 ? 0.16 : 0;
+          S < 1 - M && S < a && ((a = S), (u = l), (d = f));
+        }),
+        u)
+      ) {
+        const [l, f] = u,
+          m = Math.sqrt(a) > 0.82,
+          _ = !s && Math.abs(h - f - (c - l) * 0.3) < 0.42 && a < 0.62,
+          g =
+            (c < l ? 10 : -4) +
+            (h < f ? 8 : -5) +
+            ((d % 3) - 1) * 5 +
+            (_ ? 19 : 0) -
+            (m ? 23 : 0);
+        return [
+          Dt(r[0] + g, 5, o()),
+          Dt(r[1] + g, 6, o()),
+          Dt(r[2] + g * 0.8, 5, o()),
+          255,
+        ];
+      }
+      return !s && c === 8 && h >= 8 && h <= 14
+        ? Zr(83, 79, 44, 6)(c, h, o)
+        : [0, 0, 0, 0];
+    };
+  };
+Qt.forEach((r, t) => {
+  const e = t === 0 ? [74, 129, 56] : t === 1 ? [57, 112, 88] : [55, 104, 61],
+    s = [(r.color >> 16) & 255, (r.color >> 8) & 255, r.color & 255];
+  for (let n = 0; n < 3; n++) {
+    const i = n === 0 ? 16 : n === 1 ? 8 : 0,
+      c = [e[0] + i, e[1] + i, e[2] + i * 0.7];
+    (Wn(c, s, n, !1), Wn(c, s, n, !0));
+  }
+});
+const B = {
+  0: "organic",
+  1: "organic",
+  2: "dirt",
+  3: "stone",
+  4: "rock",
+  5: "sand",
+  6: "rock",
+  7: "wood",
+  8: "bark",
+  9: "organic",
+  10: "wood",
+  11: "stone",
+  12: "glass",
+  13: "liquid",
+  14: "rock",
+  15: "sand",
+  16: "metal",
+  17: "glass",
+  18: "glow",
+  19: "wood",
+  20: "wood",
+  21: "cloth",
+  22: "cloth",
+  23: "cloth",
+  24: "smooth",
+  25: "smooth",
+  26: "stone",
+  27: "wood",
+  28: "wood",
+  29: "stone",
+  30: "glow",
+  31: "glow",
+  32: "wood",
+  33: "wood",
+  34: "smooth",
+  35: "wood",
+  36: "wood",
+  37: "metal",
+  [Jn]: "cloth",
+  [jn]: "cloth",
+  [ti]: "cloth",
+  [ls]: "metal",
+  [ds]: "wood",
+  [Ae]: "metal",
+  [Ae + 1]: "metal",
+  [ye]: "metal",
+  [ye + 1]: "metal",
+  [ei]: "metal",
+  [si]: "metal",
+  [on]: "metal",
+  [an]: "metal",
+};
+rn.forEach((r, t) => {
+  B[$n + t] = "stone";
+});
+for (let r = 0; r < 5; r++) B[it + r] = "rock";
+["sand", "sand", "sand", "stone", "stone", "stone", "organic"].forEach(
+  (r, t) => {
+    B[j + t] = r;
+  },
+);
+[
+  "wood",
+  "metal",
+  "metal",
+  "metal",
+  "organic",
+  "wood",
+  "metal",
+  "organic",
+  "organic",
+  "organic",
+  "organic",
+  "organic",
+  "organic",
+].forEach((r, t) => {
+  B[Y + t] = r;
+});
+["wood", "stone", "stone", "stone", "sand"].forEach((r, t) => {
+  B[W + t] = r;
+});
+for (let r = 0; r < 4; r++)
+  ((B[P + r * 3] = "wood"),
+    (B[P + r * 3 + 1] = "bark"),
+    (B[P + r * 3 + 2] = "organic"));
+for (let r = 12; r <= 16; r++) B[P + r] = "organic";
+B[P + 17] = "liquid";
+B[P + 18] = "glow";
+B[P + 19] = "organic";
+B[P + 20] = "organic";
+B[P + 21] = "organic";
+B[fs] = "cloth";
+B[at] = "organic";
+B[at + 1] = "dirt";
+B[at + 2] = "dirt";
+for (let r = 3; r <= 8; r++) B[at + r] = "organic";
+for (let r = 0; r < Qt.length * 3; r++) B[js + r] = "organic";
+for (let r = 0; r < Qt.length * 3; r++) B[ni + r] = "organic";
+for (let r = 0; r < 3; r++) B[ze + r] = "cloth";
+B[Fe] = "bark";
+B[cn] = "glow";
+B[Gt] = "organic";
+B[Gt + 1] = "organic";
+for (let r = 2; r <= 4; r++) B[Gt + r] = "rock";
+B[Q] = "sand";
+B[Q + 1] = "sand";
+B[Q + 2] = "metal";
+B[Q + 3] = "rock";
+B[Q + 4] = "sand";
+B[Q + 5] = "sand";
+B[Q + 6] = "metal";
+B[z] = "sand";
+B[z + 1] = "rock";
+B[z + 2] = "rock";
+B[z + 3] = "glass";
+B[z + 4] = "rock";
+B[z + 5] = "metal";
+B[z + 6] = "glass";
+B[se] = "cloth";
+B[qt] = "metal";
+B[ge] = "glow";
+B[hn] = "metal";
+B[He] = "organic";
+B[He + 1] = "dirt";
+B[As] = "organic";
+B[As + 1] = "organic";
+B[ys] = "dirt";
+B[ys + 1] = "dirt";
+B[xs] = "organic";
+B[xs + 1] = "dirt";
+B[Js] = "wood";
+B[Os] = "organic";
+[201, 202, 203].forEach((r) => {
+  B[r] = "organic";
+});
+Object.assign(B, {
+  204: "wood",
+  205: "bark",
+  206: "organic",
+  207: "organic",
+  208: "organic",
+  209: "glow",
+  210: "organic",
+  211: "organic",
+  212: "smooth",
+  213: "cloth",
+  214: "stone",
+  215: "smooth",
+  216: "liquid",
+  217: "cloth",
+  218: "metal",
+  219: "wood",
+  220: "wood",
+  221: "bark",
+  222: "rock",
+  223: "organic",
+  224: "organic",
+  225: "organic",
+  226: "stone",
+  227: "wood",
+  228: "metal",
+  229: "organic",
+  230: "cloth",
+});
+Object.assign(B, {
+  231: "wood",
+  232: "wood",
+  233: "wood",
+  234: "metal",
+  235: "metal",
+  236: "wood",
+  237: "wood",
+  238: "smooth",
+});
+Object.assign(B, {
+  182: "glass",
+  183: "metal",
+  239: "cloth",
+  240: "cloth",
+  241: "smooth",
+  242: "smooth",
+  243: "metal",
+  244: "cloth",
+  245: "glow",
+  246: "smooth",
+  247: "cloth",
+  248: "smooth",
+  249: "glow",
+  250: "glass",
+  251: "cloth",
+  252: "smooth",
+  253: "wood",
+  254: "smooth",
+  255: "smooth",
+});
+const Ss = [
+    {
+      dir: [-1, 0, 0],
+      corners: [
+        { pos: [0, 1, 0], uv: [0, 1] },
+        { pos: [0, 0, 0], uv: [0, 0] },
+        { pos: [0, 1, 1], uv: [1, 1] },
+        { pos: [0, 0, 1], uv: [1, 0] },
+      ],
+    },
+    {
+      dir: [1, 0, 0],
+      corners: [
+        { pos: [1, 1, 1], uv: [0, 1] },
+        { pos: [1, 0, 1], uv: [0, 0] },
+        { pos: [1, 1, 0], uv: [1, 1] },
+        { pos: [1, 0, 0], uv: [1, 0] },
+      ],
+    },
+    {
+      dir: [0, -1, 0],
+      corners: [
+        { pos: [1, 0, 1], uv: [1, 0] },
+        { pos: [0, 0, 1], uv: [0, 0] },
+        { pos: [1, 0, 0], uv: [1, 1] },
+        { pos: [0, 0, 0], uv: [0, 1] },
+      ],
+    },
+    {
+      dir: [0, 1, 0],
+      corners: [
+        { pos: [0, 1, 1], uv: [1, 1] },
+        { pos: [1, 1, 1], uv: [0, 1] },
+        { pos: [0, 1, 0], uv: [1, 0] },
+        { pos: [1, 1, 0], uv: [0, 0] },
+      ],
+    },
+    {
+      dir: [0, 0, -1],
+      corners: [
+        { pos: [1, 0, 0], uv: [0, 0] },
+        { pos: [0, 0, 0], uv: [1, 0] },
+        { pos: [1, 1, 0], uv: [0, 1] },
+        { pos: [0, 1, 0], uv: [1, 1] },
+      ],
+    },
+    {
+      dir: [0, 0, 1],
+      corners: [
+        { pos: [0, 0, 1], uv: [0, 0] },
+        { pos: [1, 0, 1], uv: [1, 0] },
+        { pos: [0, 1, 1], uv: [0, 1] },
+        { pos: [1, 1, 1], uv: [1, 1] },
+      ],
+    },
+  ],
+  t0 = new Map(
+    Ss.map((r) => [r, Ss.find((t) => t.dir.every((e, s) => e === -r.dir[s]))]),
+  ),
+  e0 = [1, 1, 1, 1],
+  Et = 0.02,
+  Hn = 0.002,
+  At = 0.003,
+  Ti = 5,
+  pn = 7,
+  s0 = new Set([p.FLY_AGARIC, p.MUSHROOM]);
+class xe {
+  pos = [];
+  normal = [];
+  uv = [];
+  color = [];
+  light = [];
+  sky = 1;
+  tint = [1, 1, 1];
+  skylight = [];
+  index = [];
+  anim = [];
+  _animMode = 0;
+  hasAnim = !1;
+  get animMode() {
+    return this._animMode;
+  }
+  set animMode(t) {
+    ((this._animMode = t), t && (this.hasAnim = !0));
+  }
+  quad(t, e, s, n, i, c, h, o, a = 0.14, u) {
+    const d = this.pos.length / 3,
+      l = i % _t,
+      f = Math.floor(i / _t);
+    for (let m = 0; m < 4; m++) {
+      const _ = t.corners[m];
+      let g = _.pos[1];
+      h && g === 1 && (g -= a);
+      let y = _.pos[0],
+        R = _.pos[2];
+      (h &&
+        t.dir[1] === 0 &&
+        ((g += _.pos[1] === 1 ? Hn : -Hn),
+        t.dir[0] !== 0
+          ? ((y += t.dir[0] * At), (R += _.pos[2] === 1 ? At : -At))
+          : ((R += t.dir[2] * At), (y += _.pos[0] === 1 ? At : -At))),
+        this.pos.push(e + y, s + g, n + R),
+        this.normal.push(t.dir[0], t.dir[1], t.dir[2]));
+      const E = Et + _.uv[0] * (1 - 2 * Et),
+        x = Et + _.uv[1] * (1 - 2 * Et);
+      this.uv.push((l + E) / _t, 1 - (f + 1 - x) / _t);
+      const S = 0.5 + c[m] * (0.5 / 3);
+      (this.color.push(S * this.tint[0], S * this.tint[1], S * this.tint[2]),
+        this.skylight.push(this.sky),
+        this.light.push(u ? u[m] : o),
+        this.anim.push(this.animMode >= 3 ? 3 : 0));
+    }
+    c[0] + c[3] > c[1] + c[2]
+      ? this.index.push(d, d + 1, d + 3, d, d + 3, d + 2)
+      : this.index.push(d, d + 1, d + 2, d + 2, d + 1, d + 3);
+  }
+  rawQuad(t, e, s, n, i = !1, c = !1) {
+    const h = this.pos.length / 3,
+      o = s % _t,
+      a = Math.floor(s / _t),
+      u = [
+        [0, 1],
+        [0, 0],
+        [1, 1],
+        [1, 0],
+      ];
+    let d = 0,
+      l = 0,
+      f = 0,
+      m = 0;
+    if (c) {
+      ((d = l = t[0][0]), (f = m = t[0][2]));
+      for (let _ = 1; _ < 4; _++)
+        ((d = Math.min(d, t[_][0])),
+          (l = Math.max(l, t[_][0])),
+          (f = Math.min(f, t[_][2])),
+          (m = Math.max(m, t[_][2])));
+    }
+    for (let _ = 0; _ < 4; _++) {
+      let g = t[_][0],
+        y = t[_][2];
+      (c &&
+        (Math.abs(e[0]) > 0.5
+          ? ((g += e[0] * At),
+            (y += t[_][2] <= f + 1e-4 ? -At : t[_][2] >= m - 1e-4 ? At : 0))
+          : Math.abs(e[2]) > 0.5 &&
+            ((y += e[2] * At),
+            (g += t[_][0] <= d + 1e-4 ? -At : t[_][0] >= l - 1e-4 ? At : 0))),
+        this.pos.push(g, t[_][1], y),
+        this.normal.push(e[0], e[1], e[2]));
+      const R = Et + u[_][0] * (1 - 2 * Et),
+        E = Et + u[_][1] * (1 - 2 * Et);
+      (this.uv.push((o + R) / _t, 1 - (a + 1 - E) / _t),
+        this.color.push(this.tint[0], this.tint[1], this.tint[2]),
+        this.skylight.push(this.sky),
+        this.light.push(n));
+      const x = u[_][1] === 1;
+      this.anim.push(
+        this.animMode === Ti
+          ? x
+            ? 5
+            : 4
+          : this.animMode === pn
+            ? x
+              ? 7
+              : 6
+            : this.animMode === 3
+              ? 3
+              : this.animMode
+                ? x
+                  ? 2
+                  : 1
+                : 0,
+      );
+    }
+    (this.index.push(h, h + 1, h + 2, h + 2, h + 1, h + 3),
+      i && this.index.push(h, h + 2, h + 1, h + 1, h + 2, h + 3));
+  }
+  rawQuadUV(t, e, s, n, i, c = !1) {
+    const h = this.pos.length / 3,
+      o = s % _t,
+      a = Math.floor(s / _t);
+    for (let u = 0; u < 4; u++) {
+      (this.pos.push(t[u][0], t[u][1], t[u][2]),
+        this.normal.push(e[0], e[1], e[2]));
+      const d = Et + n[u][0] * (1 - 2 * Et),
+        l = Et + n[u][1] * (1 - 2 * Et);
+      (this.uv.push((o + d) / _t, 1 - (a + 1 - l) / _t),
+        this.color.push(this.tint[0], this.tint[1], this.tint[2]),
+        this.skylight.push(this.sky),
+        this.light.push(i),
+        this.anim.push(0));
+    }
+    (this.index.push(h, h + 1, h + 2, h + 2, h + 1, h + 3),
+      c && this.index.push(h, h + 2, h + 1, h + 1, h + 2, h + 3));
+  }
+  boxUV(t, e, s, n, i, c, h, o, a, u, d) {
+    const l = (E) => Math.max(0, Math.min(1, E)),
+      f = l(t - a),
+      m = l(n - a),
+      _ = l(e - u),
+      g = l(i - u),
+      y = l(s - d),
+      R = l(c - d);
+    (this.rawQuadUV(
+      [
+        [t, i, s],
+        [t, e, s],
+        [t, i, c],
+        [t, e, c],
+      ],
+      [-1, 0, 0],
+      h.side,
+      [
+        [y, g],
+        [y, _],
+        [R, g],
+        [R, _],
+      ],
+      o,
+    ),
+      this.rawQuadUV(
+        [
+          [n, i, c],
+          [n, e, c],
+          [n, i, s],
+          [n, e, s],
+        ],
+        [1, 0, 0],
+        h.side,
+        [
+          [1 - R, g],
+          [1 - R, _],
+          [1 - y, g],
+          [1 - y, _],
+        ],
+        o,
+      ),
+      this.rawQuadUV(
+        [
+          [t, i, c],
+          [n, i, c],
+          [t, i, s],
+          [n, i, s],
+        ],
+        [0, 1, 0],
+        h.top,
+        [
+          [f, R],
+          [m, R],
+          [f, y],
+          [m, y],
+        ],
+        o,
+      ),
+      this.rawQuadUV(
+        [
+          [t, e, s],
+          [n, e, s],
+          [t, e, c],
+          [n, e, c],
+        ],
+        [0, -1, 0],
+        h.bottom,
+        [
+          [f, 1 - y],
+          [m, 1 - y],
+          [f, 1 - R],
+          [m, 1 - R],
+        ],
+        o,
+      ),
+      this.rawQuadUV(
+        [
+          [n, i, s],
+          [n, e, s],
+          [t, i, s],
+          [t, e, s],
+        ],
+        [0, 0, -1],
+        h.side,
+        [
+          [1 - m, g],
+          [1 - m, _],
+          [1 - f, g],
+          [1 - f, _],
+        ],
+        o,
+      ),
+      this.rawQuadUV(
+        [
+          [t, i, c],
+          [t, e, c],
+          [n, i, c],
+          [n, e, c],
+        ],
+        [0, 0, 1],
+        h.side,
+        [
+          [f, g],
+          [f, _],
+          [m, g],
+          [m, _],
+        ],
+        o,
+      ));
+  }
+  box(t, e, s, n, i, c, h, o, a = !1) {
+    if (!a) {
+      this.boxUV(t, e, s, n, i, c, h, o, t, e, s);
+      return;
+    }
+    (this.rawQuad(
+      [
+        [t, i, s],
+        [t, e, s],
+        [t, i, c],
+        [t, e, c],
+      ],
+      [-1, 0, 0],
+      h.side,
+      o,
+    ),
+      this.rawQuad(
+        [
+          [n, i, c],
+          [n, e, c],
+          [n, i, s],
+          [n, e, s],
+        ],
+        [1, 0, 0],
+        h.side,
+        o,
+      ),
+      this.rawQuad(
+        [
+          [t, i, c],
+          [n, i, c],
+          [t, i, s],
+          [n, i, s],
+        ],
+        [0, 1, 0],
+        h.top,
+        o,
+      ),
+      this.rawQuad(
+        [
+          [t, e, s],
+          [n, e, s],
+          [t, e, c],
+          [n, e, c],
+        ],
+        [0, -1, 0],
+        h.bottom,
+        o,
+      ),
+      this.rawQuad(
+        [
+          [n, i, s],
+          [n, e, s],
+          [t, i, s],
+          [t, e, s],
+        ],
+        [0, 0, -1],
+        h.side,
+        o,
+      ),
+      this.rawQuad(
+        [
+          [t, i, c],
+          [t, e, c],
+          [n, i, c],
+          [n, e, c],
+        ],
+        [0, 0, 1],
+        h.side,
+        o,
+      ));
+  }
+  build() {
+    if (this.index.length === 0) return null;
+    const t = new bs();
+    return (
+      t.setAttribute("position", new Ot(this.pos, 3)),
+      t.setAttribute("normal", new Ot(this.normal, 3)),
+      t.setAttribute("uv", new Ot(this.uv, 2)),
+      t.setAttribute("color", new Ot(this.color, 3)),
+      t.setAttribute("skylight", new Ot(this.skylight, 1)),
+      t.setAttribute("blocklight", new Ot(this.light, 1)),
+      this.hasAnim && t.setAttribute("anim", new Ot(this.anim, 1)),
+      t.setIndex(this.index),
+      t
+    );
+  }
+}
+const n0 = { 0: [1, 2], 1: [0, 2], 2: [0, 1] },
+  Yn = [
+    [0, 0],
+    [-0.34, 0],
+    [0.34, 0],
+    [0, -0.34],
+    [0, 0.34],
+  ];
+function Vn(r, t, e, s, n, i, c) {
+  const [h, o] = Yn[n & 7] ?? Yn[0],
+    a = (n & 7) !== 0,
+    u = a ? 0.14 : 0,
+    d = t + 0.5 + h,
+    l = s + 0.5 + o,
+    f = a ? t + 0.5 + h * 0.48 : d,
+    m = a ? s + 0.5 + o * 0.48 : l,
+    _ = e + u + 0.03,
+    g = _ + 0.69,
+    y = 0.145;
+  (r.rawQuad(
+    [
+      [f - y, g, m],
+      [d - y, _, l],
+      [f + y, g, m],
+      [d + y, _, l],
+    ],
+    [0, 0, 1],
+    i,
+    c,
+    !0,
+  ),
+    r.rawQuad(
+      [
+        [f, g, m - y],
+        [d, _, l - y],
+        [f, g, m + y],
+        [d, _, l + y],
+      ],
+      [1, 0, 0],
+      i,
+      c,
+      !0,
+    ));
+}
+function i0(r, t, e, s, n, i, c) {
+  switch (n & 7) {
+    case 1:
+      r.rawQuad(
+        [
+          [t + 0.06, e + 1, s],
+          [t + 0.06, e, s],
+          [t + 0.06, e + 1, s + 1],
+          [t + 0.06, e, s + 1],
+        ],
+        [1, 0, 0],
+        i,
+        c,
+        !0,
+      );
+      break;
+    case 2:
+      r.rawQuad(
+        [
+          [t + 1 - 0.06, e + 1, s + 1],
+          [t + 1 - 0.06, e, s + 1],
+          [t + 1 - 0.06, e + 1, s],
+          [t + 1 - 0.06, e, s],
+        ],
+        [-1, 0, 0],
+        i,
+        c,
+        !0,
+      );
+      break;
+    case 3:
+      r.rawQuad(
+        [
+          [t, e + 1, s + 0.06],
+          [t, e, s + 0.06],
+          [t + 1, e + 1, s + 0.06],
+          [t + 1, e, s + 0.06],
+        ],
+        [0, 0, 1],
+        i,
+        c,
+        !0,
+      );
+      break;
+    default:
+      r.rawQuad(
+        [
+          [t + 1, e + 1, s + 1 - 0.06],
+          [t + 1, e, s + 1 - 0.06],
+          [t, e + 1, s + 1 - 0.06],
+          [t, e, s + 1 - 0.06],
+        ],
+        [0, 0, -1],
+        i,
+        c,
+        !0,
+      );
+      break;
+  }
+}
+const ot = 219,
+  vn = 10,
+  hs = 15,
+  qn = 22,
+  r0 = {
+    head: [
+      [[0, 0, 0, 0.125, 1, 0.125], ot],
+      [[0.875, 0, 0, 1, 1, 0.125], ot],
+      [[-0.008, 1, -0.008, 0.133, 1.06, 0.133], ot],
+      [[0.867, 1, -0.008, 1.008, 1.06, 0.133], ot],
+      [[0.125, 0.84, 0.02, 0.875, 0.95, 0.105], ot],
+      [[0.125, 0.3, 0.035, 0.875, 0.84, 0.09], vn],
+      [[0.02, 0.12, 0.125, 0.12, 0.32, 1], ot],
+      [[0.88, 0.12, 0.125, 0.98, 0.32, 1], ot],
+      [[0.06, 0.25, 0.11, 0.94, 0.5, 1], hs],
+      [[0.17, 0.5, 0.15, 0.83, 0.64, 0.46], hs],
+      [[0.04, 0.3, 0.56, 0.96, 0.56, 1], qn],
+      [[0.05, 0.5, 0.5, 0.95, 0.585, 0.61], hs],
+    ],
+    foot: [
+      [[0, 0, 0.875, 0.125, 0.66, 1], ot],
+      [[0.875, 0, 0.875, 1, 0.66, 1], ot],
+      [[-0.008, 0.66, 0.867, 0.133, 0.71, 1.008], ot],
+      [[0.867, 0.66, 0.867, 1.008, 0.71, 1.008], ot],
+      [[0.125, 0.52, 0.89, 0.875, 0.61, 0.985], ot],
+      [[0.125, 0.18, 0.905, 0.875, 0.52, 0.97], vn],
+      [[0.02, 0.12, 0, 0.12, 0.32, 0.875], ot],
+      [[0.88, 0.12, 0, 0.98, 0.32, 0.875], ot],
+      [[0.06, 0.25, 0, 0.94, 0.5, 0.9], hs],
+      [[0.04, 0.3, 0, 0.96, 0.56, 0.87], qn],
+    ],
+  };
+function o0(r, t, e, s, n, i) {
+  for (const [c, h] of r0[n & vi ? "head" : "foot"]) {
+    const [o, a, u, d, l, f] = lr(c, n & 3);
+    r.boxUV(
+      t + o,
+      e + a,
+      s + u,
+      t + d,
+      e + l,
+      s + f,
+      { top: h, side: h, bottom: h },
+      i,
+      t,
+      e,
+      s,
+    );
+  }
+}
+function a0(r, t, e, s, n, i, c) {
+  const h = { top: i, side: i, bottom: i };
+  r.box(t, e, s, t + 1, e + 0.5, s + 1, h, c);
+  const [o, a] = ae[n & 3] ?? ae[0];
+  let u = t,
+    d = t + 1,
+    l = s,
+    f = s + 1;
+  (o !== 0
+    ? o > 0
+      ? (u = t + 0.5)
+      : (d = t + 0.5)
+    : a > 0
+      ? (l = s + 0.5)
+      : (f = s + 0.5),
+    r.box(u, e + 0.5, l, d, e + 1, f, h, c));
+}
+function h0(r, t, e, s, n, i, c) {
+  const h = Math.max(1, Math.min(8, (n & 7) + 1)) / 8;
+  r.box(t, e, s, t + 1, e + h, s + 1, { top: i, side: i, bottom: i }, c);
+}
+const en = (r, t) => [r[0] - t[0], r[1] - t[1], r[2] - t[2]],
+  sn = (r, t) => [
+    r[1] * t[2] - r[2] * t[1],
+    r[2] * t[0] - r[0] * t[2],
+    r[0] * t[1] - r[1] * t[0],
+  ],
+  c0 = (r, t) => r[0] * t[0] + r[1] * t[1] + r[2] * t[2],
+  Me = (r) => {
+    const t = Math.hypot(r[0], r[1], r[2]) || 1;
+    return [r[0] / t, r[1] / t, r[2] / t];
+  };
+function gs(r, t, e, s, n, i) {
+  c0(sn(en(t[1], t[0]), en(t[2], t[0])), e) < 0
+    ? r.rawQuadUV([t[0], t[2], t[1], t[3]], e, s, [n[0], n[2], n[1], n[3]], i)
+    : r.rawQuadUV(t, e, s, n, i);
+}
+function Ee(r, t, e, s, n, i, c, h, o = 0, a = 0, u = !0, d = !0) {
+  const l = Me(en(e, t)),
+    f = Math.hypot(e[0] - t[0], e[1] - t[1], e[2] - t[2]);
+  let m = sn(l, [0, 1, 0]);
+  Math.hypot(m[0], m[1], m[2]) < 0.001 && (m = [1, 0, 0]);
+  const _ = Me(m),
+    g = sn(_, l),
+    y = (x, S) => {
+      const M = o + (S / n) * Math.PI * 2,
+        A = Math.cos(M) * s,
+        O = Math.sin(M) * s;
+      return [
+        x[0] + g[0] * A + _[0] * O,
+        x[1] + g[1] * A + _[1] * O,
+        x[2] + g[2] * A + _[2] * O,
+      ];
+    },
+    R = Math.min(1, a + f);
+  for (let x = 0; x < n; x++) {
+    const S = o + ((x + 0.5) / n) * Math.PI * 2,
+      M = Me([
+        g[0] * Math.cos(S) + _[0] * Math.sin(S),
+        g[1] * Math.cos(S) + _[1] * Math.sin(S),
+        g[2] * Math.cos(S) + _[2] * Math.sin(S),
+      ]),
+      A = x / n,
+      O = (x + 1) / n;
+    gs(
+      r,
+      [y(e, x), y(t, x), y(e, x + 1), y(t, x + 1)],
+      M,
+      i,
+      [
+        [R, A],
+        [a, A],
+        [R, O],
+        [a, O],
+      ],
+      h,
+    );
+  }
+  const E = (x, S) => {
+    const M = (A) => {
+      const O = (A / n) * Math.PI * 2;
+      return [0.5 + Math.cos(O) * 0.45, 0.5 + Math.sin(O) * 0.45];
+    };
+    for (let A = 0; A + 2 < n; A += 2) {
+      const O = Math.min(A + 3, n);
+      gs(
+        r,
+        [y(x, A + 1), y(x, 0), y(x, A + 2), y(x, O % n)],
+        S,
+        c,
+        [M(A + 1), M(0), M(A + 2), M(O % n)],
+        h,
+      );
+    }
+  };
+  (u && E(t, [-l[0], -l[1], -l[2]]), d && E(e, l));
+}
+function u0(r, t, e, s, n, i, c, h, o, a) {
+  const u = Math.cos(h),
+    d = Math.sin(h),
+    l = (x, S, M) => [t + x * u - M * d, e + S, s + x * d + M * u],
+    f = [u, 0, d],
+    m = [-d, 0, u],
+    _ = Math.min(1, n * 2),
+    g = Math.min(1, c * 2),
+    y = Math.min(1, i),
+    R = 0.78;
+  gs(
+    r,
+    [
+      l(-n * R, i, c * R),
+      l(n * R, i, c * R),
+      l(-n * R, i, -c * R),
+      l(n * R, i, -c * R),
+    ],
+    [0, 1, 0],
+    o,
+    [
+      [0, g],
+      [_, g],
+      [0, 0],
+      [_, 0],
+    ],
+    a,
+  );
+  const E = (x, S, M, A, O, I) =>
+    gs(
+      r,
+      [x, S, M, A],
+      Me([O[0], 0.35, O[2]]),
+      o,
+      [
+        [0, y],
+        [0, 0],
+        [I, y],
+        [I, 0],
+      ],
+      a,
+    );
+  (E(l(-n * R, i, c * R), l(-n, 0, c), l(n * R, i, c * R), l(n, 0, c), m, _),
+    E(
+      l(n * R, i, -c * R),
+      l(n, 0, -c),
+      l(-n * R, i, -c * R),
+      l(-n, 0, -c),
+      [-m[0], 0, -m[2]],
+      _,
+    ),
+    E(l(n * R, i, c * R), l(n, 0, c), l(n * R, i, -c * R), l(n, 0, -c), f, g),
+    E(
+      l(-n * R, i, -c * R),
+      l(-n, 0, -c),
+      l(-n * R, i, c * R),
+      l(-n, 0, c),
+      [-f[0], 0, -f[2]],
+      g,
+    ));
+}
+function l0(r, t, e, s, n, i) {
+  const c = t + 0.5,
+    h = s + 0.5;
+  let o = ((t * 73856093) ^ (s * 19349663) ^ (e * 83492791)) >>> 0;
+  const a = () => (
+      (o = (Math.imul(o ^ (o >>> 15), 2246822507) + 2654435769) >>> 0),
+      (o >>> 8) / 16777216
+    ),
+    u = cn,
+    d = [T[p.COBBLE]?.tex[1] ?? 4, T[p.STONE]?.tex[1] ?? 3],
+    l = 9,
+    f = a() * Math.PI * 2;
+  for (let x = 0; x < l; x++) {
+    const S = f + (x / l) * Math.PI * 2 + (a() - 0.5) * 0.25,
+      M = 0.395 + (a() - 0.5) * 0.03,
+      A = 0.07 + a() * 0.025,
+      O = 0.055 + a() * 0.02,
+      I = 0.085 + a() * 0.05;
+    u0(
+      r,
+      c + Math.cos(S) * M,
+      e,
+      h + Math.sin(S) * M,
+      A,
+      I,
+      O,
+      S + Math.PI / 2 + (a() - 0.5) * 0.4,
+      d[x % 2],
+      i,
+    );
+  }
+  Ee(r, [c, e, h], [c, e + 0.035, h], 0.31, 8, u, u, 1, a(), 0, !1, !0);
+  const m = a() * Math.PI;
+  for (let x = 0; x < 2; x++) {
+    const S = m + (x * Math.PI) / 2 + (a() - 0.5) * 0.3,
+      M = Math.cos(S) * 0.29,
+      A = Math.sin(S) * 0.29,
+      O = e + 0.075 + x * 0.05;
+    (Ee(
+      r,
+      [c - M, O, h - A],
+      [c - M * 0.25, O, h - A * 0.25],
+      0.048,
+      6,
+      n,
+      7,
+      i,
+      a(),
+    ),
+      Ee(
+        r,
+        [c - M * 0.25, O, h - A * 0.25],
+        [c + M * 0.25, O, h + A * 0.25],
+        0.046,
+        6,
+        u,
+        u,
+        1,
+        a(),
+        0,
+        !1,
+        !1,
+      ),
+      Ee(
+        r,
+        [c + M * 0.25, O, h + A * 0.25],
+        [c + M, O, h + A],
+        0.048,
+        6,
+        n,
+        7,
+        i,
+        a(),
+      ));
+  }
+  const _ = a() * Math.PI * 2;
+  for (let x = 0; x < 4; x++) {
+    const S = _ + (x * Math.PI) / 2 + (a() - 0.5) * 0.35,
+      M = [c + Math.cos(S) * 0.36, e + 0.03, h + Math.sin(S) * 0.36],
+      A = [
+        c + Math.cos(S) * 0.045,
+        e + 0.47 + a() * 0.06,
+        h + Math.sin(S) * 0.045,
+      ],
+      O = [
+        M[0] + (A[0] - M[0]) * 0.55,
+        M[1] + (A[1] - M[1]) * 0.55,
+        M[2] + (A[2] - M[2]) * 0.55,
+      ],
+      I = 0.05 + a() * 0.012,
+      k = a();
+    (Ee(r, M, O, I, 6, n, 7, i, k, 0, !0, !1),
+      Ee(r, O, A, I * 0.94, 6, u, 7, 1, k, 0, !1, !0));
+  }
+  const g = T[p.FIRE].tex[1];
+  r.animMode = 1;
+  const y = e + 0.05,
+    R = 0.74 + a() * 0.08,
+    E = 0.29;
+  for (let x = 0; x < 4; x++) {
+    const S = (x * Math.PI) / 4 + 0.2,
+      M = Math.cos(S) * E,
+      A = Math.sin(S) * E;
+    r.rawQuad(
+      [
+        [c - M, y + R, h - A],
+        [c - M, y, h - A],
+        [c + M, y + R, h + A],
+        [c + M, y, h + A],
+      ],
+      Me([-A, 0, M]),
+      g,
+      1,
+      !0,
+    );
+  }
+  for (let x = 0; x < 2; x++) {
+    const S = m + x * Math.PI + 0.5,
+      M = c + Math.cos(S) * 0.2,
+      A = h + Math.sin(S) * 0.2,
+      O = Math.cos(S + 1.3) * 0.1,
+      I = Math.sin(S + 1.3) * 0.1,
+      k = 0.3;
+    r.rawQuad(
+      [
+        [M - O, y + 0.05 + k, A - I],
+        [M - O, y + 0.05, A - I],
+        [M + O, y + 0.05 + k, A + I],
+        [M + O, y + 0.05, A + I],
+      ],
+      Me([-I, 0, O]),
+      g,
+      1,
+      !0,
+    );
+  }
+  r.animMode = 0;
+}
+function d0(r, t, e, s, n, i, c) {
+  const h = { top: i[0], side: i[1], bottom: i[2] },
+    o = 0.13,
+    a = 0.17,
+    u = 0.9;
+  for (const [m, _] of [
+    [0.08, 0.08],
+    [0.79, 0.08],
+    [0.08, 0.79],
+    [0.79, 0.79],
+  ])
+    r.boxUV(t + m, e, s + _, t + m + o, e + u, s + _ + o, h, c, t, e, s);
+  const d = (m) => {
+    for (let _ = 0; _ < 4; _++) {
+      const g = a + _ * 0.17,
+        y = g + 0.115;
+      m
+        ? (r.boxUV(
+            t + g,
+            e + 0.12,
+            s + 0.08,
+            t + y,
+            e + 0.84,
+            s + 0.2,
+            h,
+            c,
+            t,
+            e,
+            s,
+          ),
+          r.boxUV(
+            t + g,
+            e + 0.12,
+            s + 0.8,
+            t + y,
+            e + 0.84,
+            s + 0.92,
+            h,
+            c,
+            t,
+            e,
+            s,
+          ))
+        : (r.boxUV(
+            t + 0.08,
+            e + 0.12,
+            s + g,
+            t + 0.2,
+            e + 0.84,
+            s + y,
+            h,
+            c,
+            t,
+            e,
+            s,
+          ),
+          r.boxUV(
+            t + 0.8,
+            e + 0.12,
+            s + g,
+            t + 0.92,
+            e + 0.84,
+            s + y,
+            h,
+            c,
+            t,
+            e,
+            s,
+          ));
+    }
+  };
+  (d(!0),
+    d(!1),
+    r.boxUV(
+      t + 0.04,
+      e + 0.84,
+      s + 0.04,
+      t + 0.96,
+      e + 0.98,
+      s + 0.18,
+      h,
+      c,
+      t,
+      e,
+      s,
+    ),
+    r.boxUV(
+      t + 0.04,
+      e + 0.84,
+      s + 0.82,
+      t + 0.96,
+      e + 0.98,
+      s + 0.96,
+      h,
+      c,
+      t,
+      e,
+      s,
+    ),
+    r.boxUV(
+      t + 0.04,
+      e + 0.84,
+      s + 0.18,
+      t + 0.18,
+      e + 0.98,
+      s + 0.82,
+      h,
+      c,
+      t,
+      e,
+      s,
+    ),
+    r.boxUV(
+      t + 0.82,
+      e + 0.84,
+      s + 0.18,
+      t + 0.96,
+      e + 0.98,
+      s + 0.82,
+      h,
+      c,
+      t,
+      e,
+      s,
+    ));
+  const l = { top: i[0], side: i[1], bottom: i[2] };
+  r.boxUV(
+    t + a,
+    e + 0.08,
+    s + a,
+    t + 1 - a,
+    e + 0.12,
+    s + 1 - a,
+    l,
+    c,
+    t,
+    e,
+    s,
+  );
+  const f = Math.max(0, Math.min(100, n)) / 100;
+  if (f > 0) {
+    const m = 0.12 + f * 0.67;
+    r.boxUV(t + a, e + 0.1, s + a, t + 1 - a, e + m, s + 1 - a, l, c, t, e, s);
+  }
+}
+function f0(r, t, e, s, n, i) {
+  const c = t + 0.5,
+    h = s + 0.5,
+    o = { top: n, side: n, bottom: n };
+  (r.box(c - 0.22, e, h - 0.22, c + 0.22, e + 0.08, h + 0.22, o, i),
+    r.box(c - 0.11, e + 0.08, h - 0.11, c + 0.11, e + 0.62, h + 0.11, o, i),
+    r.box(c - 0.06, e + 0.62, h - 0.06, c + 0.06, e + 0.92, h + 0.06, o, i),
+    r.box(c - 0.025, e + 0.92, h - 0.025, c + 0.025, e + 1, h + 0.025, o, i));
+}
+function p0(r, t, e, s, n, i, c) {
+  const h = Math.max(0, Math.min(Pn - 1, n)) / Pn,
+    o = 0.0625,
+    a = 0.5,
+    u = t + o + h * (1 - 2 * o),
+    d = t + 1 - o,
+    l = s + o,
+    f = s + 1 - o;
+  (r.box(u, e, l, d, e + a, f, { top: i[0], side: i[1], bottom: i[2] }, c),
+    h > 0 &&
+      r.rawQuad(
+        [
+          [u - 0.001, e + a, l],
+          [u - 0.001, e, l],
+          [u - 0.001, e + a, f],
+          [u - 0.001, e, f],
+        ],
+        [-1, 0, 0],
+        i[2],
+        c,
+      ));
+  const m = [
+    [0.3, 0.32],
+    [0.62, 0.5],
+    [0.36, 0.7],
+  ];
+  for (const [_, g] of m) {
+    const y = u + (d - u) * _,
+      R = l + (f - l) * g;
+    if (y < u + 0.06 || y > d - 0.06) continue;
+    (r.box(
+      y - 0.035,
+      e + a,
+      R - 0.035,
+      y + 0.035,
+      e + a + 0.18,
+      R + 0.035,
+      { top: i[0], side: i[0], bottom: i[0] },
+      c,
+    ),
+      (r.animMode = 1));
+    const E = e + a + 0.19,
+      x = T[p.FIRE].tex[1];
+    (r.rawQuad(
+      [
+        [y - 0.05, E + 0.12, R],
+        [y - 0.05, E, R],
+        [y + 0.05, E + 0.12, R],
+        [y + 0.05, E, R],
+      ],
+      [0, 0, 1],
+      x,
+      15,
+      !0,
+    ),
+      r.rawQuad(
+        [
+          [y, E + 0.12, R - 0.05],
+          [y, E, R - 0.05],
+          [y, E + 0.12, R + 0.05],
+          [y, E, R + 0.05],
+        ],
+        [1, 0, 0],
+        x,
+        15,
+        !0,
+      ),
+      (r.animMode = 0));
+  }
+}
+function bi(r, t, e, s, n, i, c = 0.8) {
+  const h = c,
+    o = 0.15,
+    a = 0.85;
+  (r.rawQuad(
+    [
+      [t + o, e + h, s + o],
+      [t + o, e, s + o],
+      [t + a, e + h, s + a],
+      [t + a, e, s + a],
+    ],
+    [0, 0, 1],
+    n,
+    i,
+    !0,
+  ),
+    r.rawQuad(
+      [
+        [t + o, e + h, s + a],
+        [t + o, e, s + a],
+        [t + a, e + h, s + o],
+        [t + a, e, s + o],
+      ],
+      [0, 0, 1],
+      n,
+      i,
+      !0,
+    ));
+}
+function m0(r, t, e, s, n, i, c, h) {
+  const o = ir(n),
+    a = o <= 0 ? 0.34 : o === 1 ? 0.62 : 0.92,
+    u = o <= 0 ? 0.16 : o === 1 ? 0.27 : 0.36,
+    d = o <= 0 ? 3 : o === 1 ? 4 : 6,
+    l = t + 0.5,
+    f = s + 0.5;
+  r.animMode = 3;
+  for (let _ = 0; _ < d; _++) {
+    const g = _ * 2.399963 + ((t * 7 + s * 13) % 16) * 0.3927,
+      y = Math.cos(g) * u,
+      R = Math.sin(g) * u,
+      E = e + a * (0.78 + 0.2 * Math.sin(g * 2 + 1)),
+      x = Math.sin(g * 3) * 0.075,
+      S = Math.cos(g * 2) * 0.075;
+    r.rawQuad(
+      [
+        [l - y * 0.65 + x, E, f - R * 0.65 + S],
+        [l - y, e, f - R],
+        [l + y * 0.65 + x, E, f + R * 0.65 + S],
+        [l + y, e, f + R],
+      ],
+      [0, 0, 1],
+      i,
+      h,
+      !0,
+    );
+  }
+  const m = u * 0.82;
+  (r.rawQuad(
+    [
+      [l - m, e + a * 0.45, f - m],
+      [l + m * 0.5, e + a * 0.92, f - m * 0.4],
+      [l - m, e + a * 0.48, f + m],
+      [l + m * 0.5, e + a * 0.88, f + m * 0.4],
+    ],
+    [0, 1, 0],
+    c,
+    h,
+    !0,
+  ),
+    (r.animMode = 0));
+}
+function _0(r, t, e, s, n, i, c, h) {
+  const o = (g, y, R, E, x, S, M, A, O) => {
+    r.rawQuad(
+      [
+        [e + x, s + O, n + S],
+        [e + g, s, n + y],
+        [e + M, s + O, n + A],
+        [e + R, s, n + E],
+      ],
+      [0, 0, 1],
+      c,
+      h,
+      !0,
+    );
+  };
+  if (i !== p.SEAWEED && i !== p.SEAGRASS) {
+    for (const y of [0, Math.PI / 3, (2 * Math.PI) / 3]) {
+      const R = Math.cos(y) * 0.42,
+        E = Math.sin(y) * 0.42;
+      o(
+        0.5 - R,
+        0.5 - E,
+        0.5 + R,
+        0.5 + E,
+        0.5 - R,
+        0.5 - E,
+        0.5 + R,
+        0.5 + E,
+        0.92,
+      );
+    }
+    return;
+  }
+  const a = i === p.SEAWEED,
+    u = a ? 1 : 0.62,
+    d = a && t.getBlock(e, s + 1, n) !== p.SEAWEED,
+    l = 0.13,
+    f = 0.87,
+    m = d ? 0.36 : l,
+    _ = d ? 0.64 : f;
+  ((r.animMode = Ti),
+    o(l, l, f, f, m, m, _, _, u),
+    o(l, f, f, l, m, _, _, m, u),
+    (r.animMode = 0));
+}
+function bt(r, t, e, s, n, i, c, h) {
+  const o = T[c],
+    a = Kt(0),
+    u = t.getBlock(s, n + 1, i),
+    d = t.getMeta(s, n + 1, i),
+    l = u === c || h(u, d) ? 0 : 1 - a;
+  for (const f of Ss) {
+    const m = s + f.dir[0],
+      _ = n + f.dir[1],
+      g = i + f.dir[2],
+      y = _ < 0 || _ >= H ? 0 : t.getBlock(m, _, g),
+      R = _ < 0 || _ >= H ? 0 : t.getMeta(m, _, g);
+    if (_ >= 0 && _ < H && !(t.loaded?.(m, g) ?? !0)) continue;
+    const E = y === c || h(y, R);
+    if (f.dir[1] === 0 && E) {
+      const M = y === c ? Kt(R) : a;
+      if (a > M + 0.001) {
+        const A = Math.max(e.at(m, _, g), o.light) / 15,
+          O = f.corners.map((I) => [
+            s + I.pos[0],
+            n + (I.pos[1] === 1 ? a : M),
+            i + I.pos[2],
+          ]);
+        r.rawQuad(O, f.dir, o.tex[1], A, !1, !0);
+      }
+      continue;
+    }
+    if (E || !(y === 0 || !T[y].solid || T[y].liquid)) continue;
+    const x = o.tex[f.dir[1] === 1 ? 0 : f.dir[1] === -1 ? 2 : 1],
+      S = Math.max(e.at(m, _, g), o.light) / 15;
+    r.quad(f, s, n, i, x, [3, 3, 3, 3], !0, S, f.dir[1] === 0 ? l : 1 - a);
+  }
+}
+function E0(r, t, e, s, n, i) {
+  const c = e + 0.025;
+  r.rawQuadUV(
+    [
+      [t, c, s + 1],
+      [t + 1, c, s + 1],
+      [t, c, s],
+      [t + 1, c, s],
+    ],
+    [0, 1, 0],
+    n,
+    [
+      [
+        [0, 1],
+        [1, 1],
+        [0, 0],
+        [1, 0],
+      ],
+      [
+        [1, 1],
+        [1, 0],
+        [0, 1],
+        [0, 0],
+      ],
+      [
+        [1, 0],
+        [0, 0],
+        [1, 1],
+        [0, 1],
+      ],
+      [
+        [0, 0],
+        [0, 1],
+        [1, 0],
+        [1, 1],
+      ],
+    ][(t * 7 + s * 13) & 3],
+    i,
+  );
+}
+function A0(r, t, e, s, n, i) {
+  (r.rawQuad(
+    [
+      [t + 0.02, e + 1, s + 0.02],
+      [t + 0.02, e, s + 0.02],
+      [t + 0.98, e + 1, s + 0.98],
+      [t + 0.98, e, s + 0.98],
+    ],
+    [0, 0, 1],
+    n,
+    i,
+    !0,
+  ),
+    r.rawQuad(
+      [
+        [t + 0.02, e + 1, s + 0.98],
+        [t + 0.02, e, s + 0.98],
+        [t + 0.98, e + 1, s + 0.02],
+        [t + 0.98, e, s + 0.02],
+      ],
+      [0, 0, 1],
+      n,
+      i,
+      !0,
+    ));
+}
+function y0(r, t, e, s, n, i) {
+  const o = e + 1,
+    a = e + 0.12;
+  (r.rawQuad(
+    [
+      [t + 0.12, o, s + 0.12],
+      [t + 0.12, a, s + 0.12],
+      [t + 0.88, o, s + 0.88],
+      [t + 0.88, a, s + 0.88],
+    ],
+    [0, 0, 1],
+    n,
+    i,
+    !0,
+  ),
+    r.rawQuad(
+      [
+        [t + 0.12, o, s + 0.88],
+        [t + 0.12, a, s + 0.88],
+        [t + 0.88, o, s + 0.12],
+        [t + 0.88, a, s + 0.12],
+      ],
+      [0, 0, 1],
+      n,
+      i,
+      !0,
+    ));
+}
+function x0(r, t, e, s, n, i) {
+  const c = T[p.COBBLE].tex[0],
+    h = [];
+  for (const [o, a, u, d] of [
+    [0.38, 0.4, 0.42, 0.075],
+    [0.62, 0.36, 0.3, 0.07],
+    [0.5, 0.64, 0.22, 0.08],
+  ]) {
+    const l = t + o,
+      f = s + a;
+    (r.box(
+      l - d,
+      e,
+      f - d,
+      l + d,
+      e + u,
+      f + d,
+      { top: n, side: n, bottom: n },
+      i,
+    ),
+      r.box(
+        l - 0.012,
+        e + u,
+        f - 0.012,
+        l + 0.012,
+        e + u + 0.05,
+        f + 0.012,
+        { top: c, side: c, bottom: c },
+        i,
+      ),
+      h.push([l, e + u + 0.02, f]));
+  }
+  r.animMode = 1;
+  for (const [o, a, u] of h)
+    (r.rawQuad(
+      [
+        [o - 0.065, a + 0.2, u],
+        [o - 0.065, a, u],
+        [o + 0.065, a + 0.2, u],
+        [o + 0.065, a, u],
+      ],
+      [0, 0, 1],
+      n,
+      1,
+      !0,
+    ),
+      r.rawQuad(
+        [
+          [o, a + 0.2, u - 0.065],
+          [o, a, u - 0.065],
+          [o, a + 0.2, u + 0.065],
+          [o, a, u + 0.065],
+        ],
+        [1, 0, 0],
+        n,
+        1,
+        !0,
+      ));
+  r.animMode = 0;
+}
+function M0(r, t, e, s, n) {
+  ((r.animMode = pn), bi(r, t, e, s, un, n, 0.46), (r.animMode = 0));
+  const i = 0.22 + ((t * 5 + s * 3) & 3) * 0.015,
+    c = t + 0.5 + ((t * 7 + s) & 1 ? 0.06 : -0.06),
+    h = s + 0.5;
+  r.box(
+    c - i,
+    e,
+    h - i,
+    c + i,
+    e + i * 1.7,
+    h + i,
+    { top: Ls, side: Ft, bottom: Ft },
+    n,
+    !0,
+  );
+  const o = T[p.LOG].tex[1];
+  r.box(
+    c - 0.03,
+    e + i * 1.7,
+    h - 0.03,
+    c + 0.03,
+    e + i * 1.7 + 0.08,
+    h + 0.03,
+    { top: o, side: o, bottom: o },
+    n,
+  );
+}
+function S0(r, t, e, s, n, i) {
+  r.animMode = 1;
+  const h = (o, a, u, d) => {
+    r.rawQuad([o, a, u, d], [0, 0, 1], n, i, !0);
+  };
+  (h(
+    [t + 0.04, e + 0.96, s + 0.04],
+    [t + 0.04, e, s + 0.04],
+    [t + 0.96, e + 0.96, s + 0.96],
+    [t + 0.96, e, s + 0.96],
+  ),
+    h(
+      [t + 0.04, e + 0.96, s + 0.96],
+      [t + 0.04, e, s + 0.96],
+      [t + 0.96, e + 0.96, s + 0.04],
+      [t + 0.96, e, s + 0.04],
+    ),
+    h(
+      [t + 0.22, e + 0.76, s + 0.5],
+      [t + 0.22, e + 0.02, s + 0.5],
+      [t + 0.78, e + 0.76, s + 0.5],
+      [t + 0.78, e + 0.02, s + 0.5],
+    ),
+    h(
+      [t + 0.5, e + 0.76, s + 0.22],
+      [t + 0.5, e + 0.02, s + 0.22],
+      [t + 0.5, e + 0.76, s + 0.78],
+      [t + 0.5, e + 0.02, s + 0.78],
+    ),
+    (r.animMode = 0));
+}
+function g0(r, t, e, s, n, i, c) {
+  const h = n & 7;
+  let o = 0,
+    a = 0,
+    u = 0;
+  h === 1
+    ? (o = -0.28)
+    : h === 2
+      ? (o = 0.28)
+      : h === 3
+        ? (u = -0.28)
+        : h === 4
+          ? (u = 0.28)
+          : h === 5 && (a = 0.14);
+  const d = t + 0.5 + o,
+    l = s + 0.5 + u,
+    f = e + 0.13 + a,
+    m = e + 0.7 + a;
+  (r.box(
+    d - 0.2,
+    f,
+    l - 0.2,
+    d + 0.2,
+    m,
+    l + 0.2,
+    { top: i, side: i, bottom: i },
+    c,
+  ),
+    r.box(
+      d - 0.27,
+      f - 0.05,
+      l - 0.27,
+      d + 0.27,
+      f + 0.04,
+      l + 0.27,
+      { top: i, side: i, bottom: i },
+      c,
+    ),
+    r.box(
+      d - 0.27,
+      m - 0.04,
+      l - 0.27,
+      d + 0.27,
+      m + 0.05,
+      l + 0.27,
+      { top: i, side: i, bottom: i },
+      c,
+    ));
+  const _ = h === 5 ? e + 1 : m + 0.22,
+    g = { top: i, side: i, bottom: i };
+  if (
+    (r.box(d - 0.035, m, l - 0.035, d + 0.035, _, l + 0.035, g, c),
+    h >= 1 && h <= 4)
+  ) {
+    const y = _ - 0.07,
+      R = _;
+    if (h === 1 || h === 2) {
+      const E = h === 1 ? t : t + 1,
+        x = h === 1 ? 1 : -1;
+      (r.box(
+        Math.min(E, E + x * 0.06),
+        m - 0.08,
+        l - 0.1,
+        Math.max(E, E + x * 0.06),
+        R + 0.08,
+        l + 0.1,
+        g,
+        c,
+      ),
+        r.box(
+          Math.min(E, d),
+          y,
+          l - 0.035,
+          Math.max(E, d) + (h === 2 ? 0 : 0.035),
+          R,
+          l + 0.035,
+          g,
+          c,
+        ));
+    } else {
+      const E = h === 3 ? s : s + 1,
+        x = h === 3 ? 1 : -1;
+      (r.box(
+        d - 0.1,
+        m - 0.08,
+        Math.min(E, E + x * 0.06),
+        d + 0.1,
+        R + 0.08,
+        Math.max(E, E + x * 0.06),
+        g,
+        c,
+      ),
+        r.box(
+          d - 0.035,
+          y,
+          Math.min(E, l),
+          d + 0.035,
+          R,
+          Math.max(E, l) + (h === 4 ? 0 : 0.035),
+          g,
+          c,
+        ));
+    }
+  }
+}
+function R0(r, t, e, s, n, i, c) {
+  for (const h of Tr((o, a, u) => t.getBlock(o, a, u), e, s, n))
+    for (const o of br(h))
+      r.rawQuad(
+        o.points.map((a) => [e + a[0], s + a[1], n + a[2]]),
+        o.normal,
+        i,
+        c,
+      );
+}
+function T0(r, t, e, s, n, i, c) {
+  const h = { top: i, side: i, bottom: i },
+    { post1: o, post2: a, rail1: u, rail2: d, railsY: l } = pr;
+  r.boxUV(e + o, s, n + o, e + a, s + 1, n + a, h, c, e, s, n);
+  const f = (m, _) => {
+    if (ui(t.getBlock(e + m, s, n + _)))
+      for (const [g, y] of l)
+        if (m !== 0) {
+          const R = m < 0 ? e : e + a,
+            E = m < 0 ? e + o : e + 1;
+          r.boxUV(R, s + g, n + u, E, s + y, n + d, h, c, e, s, n);
+        } else {
+          const R = _ < 0 ? n : n + a,
+            E = _ < 0 ? n + o : n + 1;
+          r.boxUV(e + u, s + g, R, e + d, s + y, E, h, c, e, s, n);
+        }
+  };
+  (f(-1, 0), f(1, 0), f(0, -1), f(0, 1));
+}
+function b0(r, t, e, s, n, i, c) {
+  const h = { top: i, side: i, bottom: i },
+    o = (d, l, f, m, _, g) =>
+      r.boxUV(e + d, s + l, n + f, e + m, s + _, n + g, h, c, e, s, n),
+    a = 1 / 16;
+  (o(6.5 * a, 0, 6.5 * a, 9.5 * a, 0.92, 9.5 * a),
+    o(6 * a, 0.92, 6 * a, 10 * a, 0.98, 10 * a),
+    o(7 * a, 0.98, 7 * a, 9 * a, 1.06, 9 * a),
+    o(7.5 * a, 1.06, 7.5 * a, 8.5 * a, 1.13, 8.5 * a));
+  const u = (d, l) => {
+    (o(d - 0.5 * a, 0.05, l - 0.5 * a, d + 0.5 * a, 0.86, l + 0.5 * a),
+      o(d - 0.9 * a, 0.86, l - 0.9 * a, d + 0.9 * a, 0.9, l + 0.9 * a),
+      o(d - 0.45 * a, 0.9, l - 0.45 * a, d + 0.45 * a, 0.98, l + 0.45 * a));
+  };
+  for (const [d, l] of [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ]) {
+    if (!ui(t.getBlock(e + d, s, n + l))) continue;
+    for (const [m, _] of [
+      [0.14, 0.19],
+      [0.74, 0.79],
+    ])
+      d !== 0
+        ? o(d < 0 ? 0 : 9.5 * a, m, 7.5 * a, d < 0 ? 6.5 * a : 1, _, 8.5 * a)
+        : o(7.5 * a, m, l < 0 ? 0 : 9.5 * a, 8.5 * a, _, l < 0 ? 6.5 * a : 1);
+    const f = d !== 0 ? (m) => u(m, 0.5) : (m) => u(0.5, m);
+    d < 0 || l < 0 ? f(0.25) : (f(0.75), f(1));
+  }
+}
+function O0(r, t, e, s, n, i, c) {
+  const h = (d, l, f = 0.013) => {
+      const m = new C(l[0] - d[0], l[1] - d[1], l[2] - d[2]).normalize(),
+        _ = new C(0, Math.abs(m.y) < 0.9 ? 1 : 0, Math.abs(m.y) < 0.9 ? 0 : 1)
+          .cross(m)
+          .normalize(),
+        g = m.clone().cross(_).normalize(),
+        y = (R, E) => [
+          R[0] + f * (_.x * Math.cos(E) + g.x * Math.sin(E)),
+          R[1] + f * (_.y * Math.cos(E) + g.y * Math.sin(E)),
+          R[2] + f * (_.z * Math.cos(E) + g.z * Math.sin(E)),
+        ];
+      for (let R = 0; R < 4; R++) {
+        const E = (R * Math.PI) / 2,
+          x = E + Math.PI / 2,
+          S = _.clone()
+            .multiplyScalar(Math.cos(E + Math.PI / 4))
+            .addScaledVector(g, Math.sin(E + Math.PI / 4));
+        r.rawQuad([y(d, E), y(d, x), y(l, E), y(l, x)], [S.x, S.y, S.z], i, c);
+      }
+    },
+    o =
+      t.getBlock(e - 1, s, n) === p.BARBED_WIRE ||
+      t.getBlock(e + 1, s, n) === p.BARBED_WIRE,
+    a =
+      t.getBlock(e, s, n - 1) === p.BARBED_WIRE ||
+      t.getBlock(e, s, n + 1) === p.BARBED_WIRE,
+    u = (d) => {
+      const l = (f) => {
+        const m = f * Math.PI * 4,
+          _ = 0.34;
+        return d
+          ? [e + f, s + 0.46 + Math.sin(m) * _, n + 0.5 + Math.cos(m) * _]
+          : [e + 0.5 + Math.cos(m) * _, s + 0.46 + Math.sin(m) * _, n + f];
+      };
+      for (let f = 0; f < 48; f++) {
+        const m = l(f / 48),
+          _ = l((f + 1) / 48);
+        (h(m, _),
+          f % 6 === 3 &&
+            (h(
+              [m[0] - 0.065, m[1] - 0.055, m[2] - 0.025],
+              [m[0] + 0.065, m[1] + 0.055, m[2] + 0.025],
+              0.01,
+            ),
+            h(
+              [m[0] - 0.025, m[1] - 0.055, m[2] + 0.065],
+              [m[0] + 0.025, m[1] + 0.055, m[2] - 0.065],
+              0.01,
+            )));
+      }
+      for (const f of [0.22, 0.65])
+        h(
+          d ? [e, s + f, n + 0.5] : [e + 0.5, s + f, n],
+          d ? [e + 1, s + f, n + 0.5] : [e + 0.5, s + f, n + 1],
+          0.012,
+        );
+    };
+  (u(o || !a), o && a && u(!1));
+}
+const L0 = (r) => (r === p.METAL_DOOR ? Ae : r === p.ARMORED_DOOR ? ye : 35);
+function I0(r, t, e, s, n, i, c) {
+  if (i & hr) return;
+  const [h, , o, a, , u] = ur(i),
+    d = L0(n);
+  for (const l of [0, 1]) {
+    const f = { top: d + l, side: d + l, bottom: d + l };
+    r.box(t + h, e + l, s + o, t + a, e + l + 1, s + u, f, c);
+  }
+}
+function C0(r, t, e, s, n, i, c, h) {
+  const o = t + 0.5,
+    a = s + 0.5,
+    u = 0.44,
+    d = 0.31,
+    l = 16,
+    f = !n,
+    m = f ? e + 0.9 : e + 1,
+    _ = f ? 0.93 : 1,
+    g =
+      (Math.imul(t, 73856093) ^
+        Math.imul(s, 19349663) ^
+        Math.imul(e, 83492791)) >>>
+      0,
+    y = (x, S, M) => {
+      const A = (x * Math.PI * 2) / l;
+      return [o + Math.cos(A) * S, M, a + Math.sin(A) * S];
+    },
+    R = (x) => (x % 2 ? d : u);
+  for (let x = 0; x < l; x++) {
+    const S = (x + 1) % l,
+      M = R(x),
+      A = R(S),
+      O = y(x, M, e),
+      I = y(x, M * _, m),
+      k = y(S, A, e),
+      w = y(S, A * _, m),
+      N = Math.hypot(k[2] - O[2], k[0] - O[0]),
+      L = [(k[2] - O[2]) / N, 0, (O[0] - k[0]) / N],
+      U =
+        x % 2
+          ? [
+              [1, 1],
+              [1, 0],
+              [0, 1],
+              [0, 0],
+            ]
+          : [
+              [0, 1],
+              [0, 0],
+              [1, 1],
+              [1, 0],
+            ];
+    if ((r.rawQuadUV([w, k, I, O], L, c[1], U, h), f)) {
+      const v = [o, e + 1, a],
+        q = y(x, M * _ * 0.55, e + 0.975),
+        K = y(S, A * _ * 0.55, e + 0.975),
+        G = Math.atan2((I[2] + w[2]) / 2 - a, (I[0] + w[0]) / 2 - o),
+        V = [Math.cos(G) * 0.45, 0.89, Math.sin(G) * 0.45];
+      (r.rawQuad([K, w, q, I], V, c[1], h),
+        r.rawQuad([v, K, q, q], [0, 1, 0], c[0], h));
+    }
+    i ||
+      r.rawQuad(
+        [[o, e, a], y(x, M, e), y(S, A, e), y(S, A, e)],
+        [0, -1, 0],
+        c[2],
+        h,
+      );
+  }
+  const E = 0.075;
+  for (let x = 0; x < l; x += 2) {
+    const S = (x * Math.PI * 2) / l,
+      M = Math.cos(S),
+      A = Math.sin(S),
+      O = -A,
+      I = M;
+    for (let k = 0; k < 3; k++) {
+      const w = e + 0.16 + k * 0.31 + ((x >> 1) % 2) * 0.15;
+      if (w > m - 0.08) continue;
+      const N = u * (f ? 1 - ((1 - _) * (w - e)) / (m - e) : 1) + 0.02,
+        L = o + M * N,
+        U = a + A * N;
+      (r.rawQuad(
+        [
+          [L - O * E, w + E, U - I * E],
+          [L - O * E, w - E, U - I * E],
+          [L + O * E, w + E, U + I * E],
+          [L + O * E, w - E, U + I * E],
+        ],
+        [M, 0, A],
+        Bn,
+        h,
+        !0,
+      ),
+        r.rawQuad(
+          [
+            [L - M * E, w + E, U - A * E],
+            [L - M * E, w - E, U - A * E],
+            [L + M * E, w + E, U + A * E],
+            [L + M * E, w - E, U + A * E],
+          ],
+          [O, 0, I],
+          Bn,
+          h,
+          !0,
+        ));
+    }
+  }
+  if (f && g % 3 === 0) {
+    const S = e + 0.99,
+      M = ((g >> 3) % 8) * 0.4,
+      A = Math.cos(M) * 0.16,
+      O = Math.sin(M) * 0.16;
+    (r.rawQuad(
+      [
+        [o - A, S + 0.16 * 1.1, a - O],
+        [o - A, S, a - O],
+        [o + A, S + 0.16 * 1.1, a + O],
+        [o + A, S, a + O],
+      ],
+      [-O / 0.16, 0, A / 0.16],
+      Gs,
+      h,
+      !0,
+    ),
+      r.rawQuad(
+        [
+          [o + O, S + 0.16 * 1.1, a - A],
+          [o + O, S, a - A],
+          [o - O, S + 0.16 * 1.1, a + A],
+          [o - O, S, a + A],
+        ],
+        [A / 0.16, 0, O / 0.16],
+        Gs,
+        h,
+        !0,
+      ),
+      r.rawQuadUV(
+        [
+          [o - 0.16, S + 0.05, a - 0.16],
+          [o - 0.16, S + 0.05, a + 0.16],
+          [o + 0.16, S + 0.05, a - 0.16],
+          [o + 0.16, S + 0.05, a + 0.16],
+        ],
+        [0, 1, 0],
+        Gs,
+        [
+          [0, 1],
+          [0, 0],
+          [1, 1],
+          [1, 0],
+        ],
+        h,
+        !0,
+      ));
+  }
+}
+function N0(r, t, e, s, n = !1, i = !0, c = 1337, h = !1) {
+  const o = new xe(),
+    a = new xe(),
+    u = new xe(),
+    d = t * D,
+    l = e * D,
+    f = [3, 3, 3, 3],
+    m = (_) => (ee(_) && !i ? !0 : _i(_));
+  for (let _ = 0; _ < D; _++)
+    for (let g = 0; g < D; g++) {
+      const y = Si(c, d + _, l + g),
+        R = [1, 1, 1];
+      for (let E = 0; E < H; E++) {
+        const x = r.getBlock(d + _, E, l + g);
+        if (x === 0) continue;
+        const S = T[x];
+        o.tint =
+          x === p.GRASS ||
+          x === p.SAVANNA_GRASS ||
+          x === p.TALL_GRASS ||
+          x === p.DESERT_GRASS
+            ? y
+            : R;
+        const M = d + _,
+          A = l + g,
+          O = s.skyAt ? s.skyAt(M, E, A) / 15 : 1;
+        o.sky = a.sky = u.sky = O;
+        const I =
+          S.liquid || x === p.LAMP || x === p.FURNACE || x === p.JACK_O_LANTERN
+            ? r.getMeta(M, E, A)
+            : 0;
+        if (x === p.CACTUS) {
+          const N =
+            Math.max(
+              s.at(M, E, A),
+              s.at(M + 1, E, A),
+              s.at(M - 1, E, A),
+              s.at(M, E, A + 1),
+              s.at(M, E, A - 1),
+              s.at(M, E + 1, A),
+            ) / 15;
+          (s.skyAt &&
+            (o.sky =
+              Math.max(
+                s.skyAt(M + 1, E, A),
+                s.skyAt(M - 1, E, A),
+                s.skyAt(M, E, A + 1),
+                s.skyAt(M, E, A - 1),
+                s.skyAt(M, E + 1, A),
+              ) / 15),
+            C0(
+              o,
+              M,
+              E,
+              A,
+              r.getBlock(M, E + 1, A) === p.CACTUS,
+              r.getBlock(M, E - 1, A) === p.CACTUS,
+              S.tex,
+              N,
+            ));
+          continue;
+        }
+        if (S.shape !== "cube" || x === p.PISTON || x === p.SPISTON) {
+          const N = r.getMeta(M, E, A),
+            L =
+              Math.max(
+                s.at(M, E, A),
+                s.at(M, E + 1, A),
+                s.at(M + 1, E, A),
+                s.at(M - 1, E, A),
+                s.at(M, E, A + 1),
+                s.at(M, E, A - 1),
+                mi(x, N),
+              ) / 15;
+          (We(x) || x === p.PISTON || x === p.SPISTON) &&
+            s.skyAt &&
+            (o.sky =
+              Math.max(
+                s.skyAt(M + 1, E, A),
+                s.skyAt(M - 1, E, A),
+                s.skyAt(M, E, A + 1),
+                s.skyAt(M, E, A - 1),
+              ) / 15);
+          const U = yt(x, N),
+            v = Vt(x, N);
+          if (x === p.SIGN) {
+            Mr(N).forEach(([K, G, V, $, X, ht], ct) => {
+              ct === 0
+                ? o.box(
+                    M + K,
+                    E + G,
+                    A + V,
+                    M + $,
+                    E + X,
+                    A + ht,
+                    { top: Qs, side: Qs, bottom: Qs },
+                    L,
+                    !0,
+                  )
+                : o.boxUV(
+                    M + K,
+                    E + G,
+                    A + V,
+                    M + $,
+                    E + X,
+                    A + ht,
+                    { top: 10, side: 10, bottom: 10 },
+                    L,
+                    M,
+                    E,
+                    A,
+                  );
+            });
+            continue;
+          }
+          const q = Rr(
+            x,
+            N,
+            (K, G, V) => r.getBlock(K, G, V),
+            (K, G, V) => r.getMeta(K, G, V),
+            M,
+            E,
+            A,
+          );
+          if (q) {
+            for (const {
+              box: [K, G, V, $, X, ht],
+              tile: ct,
+            } of q)
+              o.boxUV(
+                M + K,
+                E + G,
+                A + V,
+                M + $,
+                E + X,
+                A + ht,
+                { top: ct, side: ct, bottom: ct },
+                L,
+                M,
+                E,
+                A,
+              );
+            continue;
+          }
+          if (S.shape === "stair") {
+            (a0(o, M, E, A, N, S.tex[1], L),
+              U && bt(a, r, s, M, E, A, p.WATER, yt),
+              v && bt(u, r, s, M, E, A, p.LAVA, Vt));
+            continue;
+          }
+          if (S.shape === "snow") {
+            h0(o, M, E, A, N, S.tex[1], L);
+            continue;
+          }
+          if (S.shape === "plant") {
+            (x === p.FIRE
+              ? S0(o, M, E, A, S.tex[1], L)
+              : yt(x)
+                ? _0(o, r, M, E, A, x, S.tex[1], L)
+                : x === p.PUMPKIN_CROP
+                  ? M0(o, M, E, A, L)
+                  : (s0.has(x) || (o.animMode = pn),
+                    bi(
+                      o,
+                      M,
+                      E,
+                      A,
+                      S.tex[1],
+                      L,
+                      x === p.WHEAT_SPROUT
+                        ? 0.34
+                        : x === p.WHEAT_YOUNG
+                          ? 0.58
+                          : x === p.FLY_AGARIC || x === p.MUSHROOM
+                            ? 0.52
+                            : x === p.PUMPKIN_SPROUT
+                              ? 0.36
+                              : x === p.PUMPKIN_YOUNG
+                                ? 0.5
+                                : 0.8,
+                    ),
+                    (o.animMode = 0)),
+              U && bt(a, r, s, M, E, A, p.WATER, yt),
+              v && bt(u, r, s, M, E, A, p.LAVA, Vt));
+            continue;
+          }
+          if (S.shape === "bush") {
+            m0(o, M, E, A, x, S.tex[1], S.tex[0], L);
+            continue;
+          }
+          if (S.shape === "litter") {
+            E0(o, M, E, A, S.tex[1], L);
+            continue;
+          }
+          if (S.shape === "web") {
+            A0(o, M, E, A, S.tex[1], L);
+            continue;
+          }
+          if (S.shape === "hanging") {
+            y0(o, M, E, A, S.tex[1], L);
+            continue;
+          }
+          if (S.shape === "candle") {
+            x0(o, M, E, A, ps, L);
+            continue;
+          }
+          if (S.shape === "furniture") {
+            const K = fn(x)
+              ? Ri(
+                  x,
+                  Qr((G, V, $) => r.getBlock(G, V, $), M, E, A, N),
+                  h ? "all" : "body",
+                )
+              : Xr(x, N);
+            for (const G of K) {
+              const [V, $, X, ht, ct, Xt] = G.box,
+                st = G.tile ?? (G.fabric ? 21 : 10);
+              if (G.top !== void 0 || G.bottom !== void 0) {
+                o.boxUV(
+                  M + V,
+                  E + $,
+                  A + X,
+                  M + ht,
+                  E + ct,
+                  A + Xt,
+                  { top: G.top ?? st, side: st, bottom: G.bottom ?? st },
+                  L,
+                  M,
+                  E,
+                  A,
+                );
+                continue;
+              }
+              if (st === ge) {
+                o.box(
+                  M + V,
+                  E + $,
+                  A + X,
+                  M + ht,
+                  E + ct,
+                  A + Xt,
+                  { top: st, side: st, bottom: st },
+                  Math.max(L, 0.8),
+                  !0,
+                );
+                continue;
+              }
+              if (G.fit) {
+                o.box(
+                  M + V,
+                  E + $,
+                  A + X,
+                  M + ht,
+                  E + ct,
+                  A + Xt,
+                  { top: st, side: st, bottom: st },
+                  L,
+                  !0,
+                );
+                continue;
+              }
+              o.boxUV(
+                M + V,
+                E + $,
+                A + X,
+                M + ht,
+                E + ct,
+                A + Xt,
+                { top: st, side: st, bottom: st },
+                L,
+                M,
+                E,
+                A,
+              );
+            }
+            continue;
+          }
+          if (S.shape === "cake") {
+            p0(o, M, E, A, N, S.tex, L);
+            continue;
+          }
+          if (S.shape === "campfire") {
+            l0(o, M, E, A, S.tex[1], L);
+            continue;
+          }
+          if (S.shape === "composter") {
+            d0(o, M, E, A, N, S.tex, L);
+            continue;
+          }
+          if (S.shape === "lantern") {
+            g0(o, M, E, A, N, S.tex[1], L);
+            continue;
+          }
+          if (S.shape === "chain") {
+            R0(o, r, M, E, A, S.tex[1], L);
+            continue;
+          }
+          if (S.shape === "fence") {
+            (x === p.IRON_FENCE
+              ? b0(o, r, M, E, A, S.tex[1], L)
+              : T0(o, r, M, E, A, S.tex[1], L),
+              U && bt(a, r, s, M, E, A, p.WATER, yt),
+              v && bt(u, r, s, M, E, A, p.LAVA, Vt));
+            continue;
+          }
+          if (S.shape === "gate") {
+            (U && bt(a, r, s, M, E, A, p.WATER, yt),
+              v && bt(u, r, s, M, E, A, p.LAVA, Vt));
+            continue;
+          }
+          if (S.shape === "wire") {
+            O0(o, r, M, E, A, S.tex[1], L);
+            continue;
+          }
+          switch (x) {
+            case p.LIGHTNING_ROD:
+              f0(o, M, E, A, S.tex[1], L);
+              break;
+            case p.TORCH:
+              Vn(o, M, E, A, N, S.tex[1], L);
+              break;
+            case p.RTORCH:
+              Vn(o, M, E, A, N, N & Mt ? 28 : 27, L);
+              break;
+            case p.LADDER:
+              i0(o, M, E, A, N, S.tex[1], L);
+              break;
+            case p.BED:
+              o0(o, M, E, A, N, L);
+              break;
+            case p.DOOR:
+            case p.METAL_DOOR:
+            case p.ARMORED_DOOR:
+              h && I0(o, M, E, A, x, N, L);
+              break;
+          }
+          if (We(x)) continue;
+          (U && bt(a, r, s, M, E, A, p.WATER, yt),
+            v && bt(u, r, s, M, E, A, p.LAVA, Vt));
+          continue;
+        }
+        ee(x) && i && (o.animMode = 3);
+        const k = S.liquid ? 1 - Kt(I) : 0;
+        let w = k;
+        if (S.liquid) {
+          const N = r.getBlock(M, E + 1, A),
+            L = r.getMeta(M, E + 1, A);
+          (N === x || (x === p.WATER ? yt(N, L) : Vt(N, L))) && (w = 0);
+        }
+        for (const N of Ss) {
+          const L = M + N.dir[0],
+            U = E + N.dir[1],
+            v = A + N.dir[2];
+          if (U < 0) continue;
+          const q = U >= H ? 0 : r.getBlock(L, U, v),
+            K = U >= 0 && U < H && (r.loaded?.(L, v) ?? !0);
+          if ((S.liquid && !K) || (!K && N.dir[1] === 0 && r.sealed?.(L, v)))
+            continue;
+          if (S.liquid && q === x && N.dir[1] === 0) {
+            const ut = Kt(I),
+              he = Kt(r.getMeta(L, U, v));
+            if (ut > he + 0.001) {
+              const Oe = Math.max(s.at(L, U, v), S.light) / 15,
+                Bt = N.corners.map((St) => [
+                  M + St.pos[0],
+                  E + (St.pos[1] === 1 ? ut : he),
+                  A + St.pos[2],
+                ]);
+              (x === p.LAVA ? u : a).rawQuad(
+                Bt,
+                N.dir,
+                S.tex[1],
+                Oe,
+                !1,
+                x === p.WATER,
+              );
+            }
+            continue;
+          }
+          let G;
+          if (S.liquid) {
+            const ut =
+              x === p.WATER
+                ? yt(q, r.getMeta(L, U, v))
+                : Vt(q, r.getMeta(L, U, v));
+            G = q !== x && !ut && (q === 0 || !T[q].solid || T[q].liquid);
+          } else
+            G =
+              !m(q) &&
+              !(S.transparent && q === x && !(i && ee(x))) &&
+              !(S.liquid && T[q]?.liquid);
+          if (!G) continue;
+          let V = S.tex[N.dir[1] === 1 ? 0 : N.dir[1] === -1 ? 2 : 1];
+          (x === p.LAMP && I & Mt && (V = 31),
+            x === p.FURNACE
+              ? (V = Xi(I, ...N.dir))
+              : x === p.JACK_O_LANTERN
+                ? (V = nr(I, ...N.dir))
+                : x === p.LED_SCREEN && (V = or(I, ...N.dir)));
+          let $ = f,
+            X;
+          if (!S.liquid) {
+            (($ = []), n && (X = []));
+            const ut = N.dir[0] !== 0 ? 0 : N.dir[1] !== 0 ? 1 : 2,
+              [he, Oe] = n0[ut],
+              Bt = M + N.dir[0],
+              St = E + N.dir[1],
+              Zt = A + N.dir[2];
+            for (let Is = 0; Is < 4; Is++) {
+              const Cs = N.corners[Is],
+                mn = Cs.pos[0],
+                _n = Cs.pos[1],
+                En = Cs.pos[2],
+                ve = he === 0 ? (mn === 1 ? 1 : -1) : 0,
+                qe = he === 1 ? (_n === 1 ? 1 : -1) : 0,
+                Ke = he === 2 ? (En === 1 ? 1 : -1) : 0,
+                Qe = Oe === 0 ? (mn === 1 ? 1 : -1) : 0,
+                Xe = Oe === 1 ? (_n === 1 ? 1 : -1) : 0,
+                Ze = Oe === 2 ? (En === 1 ? 1 : -1) : 0,
+                An = m(r.getBlock(Bt + ve, St + qe, Zt + Ke)),
+                yn = m(r.getBlock(Bt + Qe, St + Xe, Zt + Ze)),
+                xn = m(r.getBlock(Bt + ve + Qe, St + qe + Xe, Zt + Ke + Ze)),
+                Mn = An ? 1 : 0,
+                Sn = yn ? 1 : 0,
+                Oi = xn ? 1 : 0;
+              if (($.push(Mn && Sn ? 0 : 3 - (Mn + Sn + Oi)), X)) {
+                let $e = s.at(Bt, St, Zt),
+                  Je = 1;
+                (An || (($e += s.at(Bt + ve, St + qe, Zt + Ke)), Je++),
+                  yn || (($e += s.at(Bt + Qe, St + Xe, Zt + Ze)), Je++),
+                  xn ||
+                    (($e += s.at(Bt + ve + Qe, St + qe + Xe, Zt + Ke + Ze)),
+                    Je++),
+                  X.push(Math.max($e / Je / 15, S.light / 15)));
+              }
+            }
+          }
+          const ht = We(q),
+            ct = (ut) =>
+              Math.max(
+                ut(L + 1, U, v),
+                ut(L - 1, U, v),
+                ut(L, U, v + 1),
+                ut(L, U, v - 1),
+              ),
+            Xt =
+              Math.max(
+                ht ? ct(s.at) : K ? s.at(L, U, v) : s.at(M, E, A),
+                S.light,
+              ) / 15;
+          ht && X && X.fill(Xt);
+          const st = S.liquid ? (x === p.LAVA ? u : a) : o;
+          if (
+            ((st.sky = s.skyAt
+              ? (ht ? ct(s.skyAt) : K ? s.skyAt(L, U, v) : 15) / 15
+              : 1),
+            st.quad(
+              N,
+              M,
+              E,
+              A,
+              V,
+              $,
+              S.liquid,
+              Xt,
+              S.liquid && N.dir[1] === 0 ? w : k,
+              X,
+            ),
+            i && ee(x) && !ee(q))
+          ) {
+            const ut = t0.get(N);
+            ((o.sky = O),
+              o.quad(
+                ut,
+                L,
+                U,
+                v,
+                V,
+                e0,
+                !1,
+                Math.max(s.at(M, E, A), S.light) / 15,
+                0,
+              ));
+          }
+        }
+        ee(x) && i && (o.animMode = 0);
+      }
+    }
+  return { opaque: o.build(), water: a.build(), lava: u.build() };
+}
+function B0(r, t, e, s) {
+  const n = new xe(),
+    i = new xe(),
+    c = new xe(),
+    h = t * D,
+    o = e * D,
+    a = new Float32Array(324),
+    u = new Uint16Array(324),
+    d = (l, f) => (l + 1) * 18 + f + 1;
+  for (let l = -1; l <= 16; l++)
+    for (let f = -1; f <= 16; f++) {
+      const m = d(l, f);
+      a[m] = -1;
+      for (let _ = H - 1; _ >= 0; _--) {
+        const g = r.getBlock(h + l, _, o + f),
+          y = T[g];
+        if (!(!y || (!y.solid && !y.liquid))) {
+          ((u[m] = g),
+            (a[m] = _ + (y.liquid ? Kt(r.getMeta(h + l, _, o + f)) : 1)));
+          break;
+        }
+      }
+    }
+  for (let l = 0; l < 16; l++)
+    for (let f = 0; f < 16; f++) {
+      const m = d(l, f),
+        _ = a[m],
+        g = u[m],
+        y = T[g];
+      if (_ < 0 || !y) continue;
+      const R = h + l,
+        E = o + f,
+        x = y.liquid ? (g === p.LAVA ? c : i) : n,
+        S = y.light / 15;
+      ((x.tint =
+        g === p.GRASS || g === p.SAVANNA_GRASS ? Si(s, R, E) : [1, 1, 1]),
+        x.rawQuad(
+          [
+            [R, _, E + 1],
+            [R + 1, _, E + 1],
+            [R, _, E],
+            [R + 1, _, E],
+          ],
+          [0, 1, 0],
+          y.tex[0],
+          S,
+        ));
+      for (const [M, A] of [
+        [-1, 0],
+        [1, 0],
+        [0, -1],
+        [0, 1],
+      ]) {
+        const O = a[d(l + M, f + A)],
+          I = O < 0 ? _ - 4 : O;
+        if (I >= _) continue;
+        const k =
+          M < 0
+            ? [
+                [R, _, E],
+                [R, I, E],
+                [R, _, E + 1],
+                [R, I, E + 1],
+              ]
+            : M > 0
+              ? [
+                  [R + 1, _, E + 1],
+                  [R + 1, I, E + 1],
+                  [R + 1, _, E],
+                  [R + 1, I, E],
+                ]
+              : A < 0
+                ? [
+                    [R + 1, _, E],
+                    [R + 1, I, E],
+                    [R, _, E],
+                    [R, I, E],
+                  ]
+                : [
+                    [R, _, E + 1],
+                    [R, I, E + 1],
+                    [R + 1, _, E + 1],
+                    [R + 1, I, E + 1],
+                  ];
+        x.rawQuad(k, [M, 0, A], y.tex[1], S);
+      }
+    }
+  return { opaque: n.build(), water: i.build(), lava: c.build() };
+}
+class P0 {
+  constructor(t) {
+    this.chunks = t;
+  }
+  neighbors = new Array(9).fill(null);
+  ox = 0;
+  oz = 0;
+  sealedMask = 0;
+  setup(t, e, s = 0) {
+    ((this.ox = t * D), (this.oz = e * D), (this.sealedMask = s));
+    for (let n = -1; n <= 1; n++)
+      for (let i = -1; i <= 1; i++)
+        this.neighbors[(n + 1) * 3 + (i + 1)] =
+          this.chunks.get(we(t + n, e + i)) ?? null;
+  }
+  getBlock(t, e, s) {
+    if (e < 0 || e >= H) return 0;
+    let n = t - this.ox,
+      i = s - this.oz,
+      c = 4;
+    (n < 0 ? ((c -= 3), (n += D)) : n >= D && ((c += 3), (n -= D)),
+      i < 0 ? ((c -= 1), (i += D)) : i >= D && ((c += 1), (i -= D)));
+    const h = this.neighbors[c];
+    return h ? h.data[Se(n, e, i)] : 0;
+  }
+  getMeta(t, e, s) {
+    if (e < 0 || e >= H) return 0;
+    let n = t - this.ox,
+      i = s - this.oz,
+      c = 4;
+    (n < 0 ? ((c -= 3), (n += D)) : n >= D && ((c += 3), (n -= D)),
+      i < 0 ? ((c -= 1), (i += D)) : i >= D && ((c += 1), (i -= D)));
+    const h = this.neighbors[c];
+    return h ? h.meta[Se(n, e, i)] : 0;
+  }
+  loaded(t, e) {
+    let s = t - this.ox,
+      n = e - this.oz,
+      i = 4;
+    return (
+      s < 0 ? (i -= 3) : s >= D && (i += 3),
+      n < 0 ? (i -= 1) : n >= D && (i += 1),
+      this.neighbors[i] !== null
+    );
+  }
+  sealed(t, e) {
+    let s = t - this.ox,
+      n = e - this.oz,
+      i = 4;
+    return (
+      s < 0 ? (i -= 3) : s >= D && (i += 3),
+      n < 0 ? (i -= 1) : n >= D && (i += 1),
+      this.neighbors[i] === null && ((this.sealedMask >> i) & 1) === 1
+    );
+  }
+}
+function k0(r) {
+  const t = [],
+    e = [],
+    s = (i) => r.data[i] === p.WATER || yt(r.data[i], r.meta[i]);
+  for (let i = 0; i < D; i++)
+    for (let c = 0; c < D; c++)
+      for (let h = H - 1; h >= 0; h--) {
+        const o = Se(i, h, c);
+        if (!s(o)) continue;
+        const a = h + (r.data[o] === p.WATER ? Kt(r.meta[o]) : Kt(0));
+        let u = h;
+        for (; u > 0 && s(Se(i, u - 1, c));) u--;
+        const d = r.cx * D + i,
+          l = r.cz * D + c;
+        t.push(
+          d,
+          a,
+          l,
+          d,
+          a,
+          l + 1,
+          d + 1,
+          a,
+          l + 1,
+          d,
+          a,
+          l,
+          d + 1,
+          a,
+          l + 1,
+          d + 1,
+          a,
+          l,
+        );
+        for (let f = 0; f < 6; f++) e.push(u);
+        h = u;
+      }
+  if (!t.length) return null;
+  const n = new bs();
+  return (
+    n.setAttribute("position", new Ot(t, 3)),
+    n.setAttribute("waterFloor", new Ot(e, 1)),
+    n
+  );
+}
+const U0 = 32;
+class D0 {
+  chunks = new Map();
+  resolve(t) {
+    if (!t.cacheKeys) return t;
+    for (const s of t.chunks) this.chunks.set(we(s.cx, s.cz), s);
+    const e = t.cacheKeys.map((s) => {
+      const n = this.chunks.get(s);
+      if (!n) throw Error("Missing mesh snapshot " + s);
+      return (this.chunks.delete(s), this.chunks.set(s, n), n);
+    });
+    for (; this.chunks.size > U0;)
+      this.chunks.delete(this.chunks.keys().next().value);
+    return { ...t, chunks: e };
+  }
+}
+function Kn(r, t) {
+  if (!r || r.hasAttribute("azureWater")) return;
+  const e = r.getAttribute("position"),
+    s = new Float32Array(e.count),
+    n = new Map();
+  for (let i = 0; i < e.count; i++) {
+    const c = e.getX(i),
+      h = e.getZ(i),
+      o = `${c},${h}`;
+    let a = n.get(o);
+    (a === void 0 && ((a = Br(t, c, h)), n.set(o, a)), (s[i] = a));
+  }
+  r.setAttribute("azureWater", new re(s, 1));
+}
+function te(r) {
+  if (!r) return null;
+  const t = {};
+  for (const [s, n] of Object.entries(r.attributes))
+    t[s] = { array: n.array, itemSize: n.itemSize, normalized: n.normalized };
+  r.computeBoundingSphere();
+  const e = r.boundingSphere;
+  return {
+    attributes: t,
+    index: r.index?.array ?? null,
+    sphere: { center: e.center.toArray(), radius: e.radius },
+  };
+}
+function w0(r, t = new xi()) {
+  const e = new Map(r.chunks.map((a) => [we(a.cx, a.cz), a])),
+    s = new P0(e);
+  s.setup(r.cx, r.cz, r.sealed ?? 0);
+  const n = te(k0(e.get(we(r.cx, r.cz))));
+  if (r.surface) {
+    const a = B0(s, r.cx, r.cz, r.seed);
+    return (
+      Kn(a.water, r.seed),
+      {
+        opaque: te(a.opaque),
+        water: te(a.water),
+        waterColumns: n,
+        lava: te(a.lava),
+        light: new Uint8Array(),
+        sky: new Uint8Array(),
+      }
+    );
+  }
+  const i = t.compute(r.cx, r.cz, (a, u) => e.get(we(a, u))),
+    c = new Uint8Array(D * D * H),
+    h = new Uint8Array(c.length);
+  for (let a = 0; a < D; a++)
+    for (let u = 0; u < D; u++)
+      for (let d = 0; d < H; d++) {
+        const l = Se(a, d, u),
+          f = r.cx * D + a,
+          m = r.cz * D + u;
+        ((c[l] = i.at(f, d, m)), (h[l] = i.skyAt(f, d, m)));
+      }
+  const o = N0(s, r.cx, r.cz, i, r.smooth, r.fancy, r.seed);
+  return (
+    Kn(o.water, r.seed),
+    {
+      opaque: te(o.opaque),
+      water: te(o.water),
+      waterColumns: n,
+      lava: te(o.lava),
+      light: c,
+      sky: h,
+    }
+  );
+}
+function z0(r) {
+  const t = new Set([r.light.buffer, r.sky.buffer]);
+  for (const e of [r.opaque, r.water, r.waterColumns, r.lava])
+    if (e) {
+      for (const s of Object.values(e.attributes)) t.add(s.array.buffer);
+      e.index && t.add(e.index.buffer);
+    }
+  return [...t];
+}
+const F0 = new xi(),
+  G0 = new D0();
+self.onmessage = (r) => {
+  const t = w0(G0.resolve(r.data), F0);
+  self.postMessage(t, z0(t));
+};

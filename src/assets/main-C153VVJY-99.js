@@ -1,0 +1,309 @@
+// main-C153VVJY 99 — math
+// Lines 32979-33285 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+function lb(
+  _0x2b0daf,
+  _0x1117d1,
+  _0x3af07d,
+  _0x41ca84,
+  _0x4bebe7,
+  _0x1c5ef0,
+  _0x26c1d7,
+) {
+  const _0x135551 = _0x44a014;
+  if (!sg[_0x1117d1]) return [];
+  const _0x184cfb = Hf(_0x1117d1),
+    _0x4cfb1e = Math["cos"](_0x1c5ef0),
+    _0x37bd65 = Math["sin"](_0x1c5ef0),
+    _0x445d55 = _0x184cfb[_0x135551(0x222f)],
+    _0x448a22 = [-_0x184cfb[_0x135551(0xf6d)], _0x184cfb[_0x135551(0xf6d)]][
+      "flatMap"
+    ]((_0x2d8dbc) =>
+      [-_0x184cfb[_0x135551(0x222f)], _0x184cfb[_0x135551(0x222f)]][
+        _0x135551(0x73a)
+      ]((_0xe18f70) => ({
+        x: _0x3af07d + _0x2d8dbc * _0x4cfb1e + _0xe18f70 * _0x37bd65,
+        z: _0x4bebe7 - _0x2d8dbc * _0x37bd65 + _0xe18f70 * _0x4cfb1e,
+      })),
+    ),
+    _0x35ced7 =
+      Math[_0x135551(0x2f3)](
+        Math[_0x135551(0x16e0)](
+          ..._0x448a22[_0x135551(0x73a)]((_0xf759b3) => _0xf759b3["x"]),
+        ),
+      ) - 0x1,
+    _0x3ebef1 =
+      Math[_0x135551(0x2f3)](
+        Math["max"](
+          ..._0x448a22[_0x135551(0x73a)]((_0x30a45a) => _0x30a45a["x"]),
+        ),
+      ) + 0x1,
+    _0x33b930 =
+      Math["floor"](
+        Math[_0x135551(0x16e0)](
+          ..._0x448a22[_0x135551(0x73a)]((_0x577d51) => _0x577d51["z"]),
+        ),
+      ) - 0x1,
+    _0x3b0a0 =
+      Math[_0x135551(0x2f3)](
+        Math[_0x135551(0x723)](
+          ..._0x448a22[_0x135551(0x73a)]((_0xab0739) => _0xab0739["z"]),
+        ),
+      ) + 0x1,
+    _0x278099 = [],
+    _0x35f398 = Math[_0x135551(0x2f3)](_0x41ca84 + 0.05),
+    _0x1bdcce = Math["ceil"](_0x41ca84 + _0x184cfb["height"]) - 0x1;
+  for (let _0x2cc113 = _0x35ced7; _0x2cc113 <= _0x3ebef1; _0x2cc113++)
+    for (let _0x2ab1ad = _0x33b930; _0x2ab1ad <= _0x3b0a0; _0x2ab1ad++) {
+      const _0x29432c = _0x2cc113 + 0.5 - _0x3af07d,
+        _0x264747 = _0x2ab1ad + 0.5 - _0x4bebe7,
+        _0x14dd2f = _0x29432c * _0x4cfb1e - _0x264747 * _0x37bd65,
+        _0x1b7e4a = _0x29432c * _0x37bd65 + _0x264747 * _0x4cfb1e;
+      if (
+        Math["abs"](_0x14dd2f) > _0x184cfb[_0x135551(0xf6d)] + 0.5 ||
+        Math[_0x135551(0x1fc4)](_0x1b7e4a) > _0x184cfb[_0x135551(0x222f)] + 0.9
+      )
+        continue;
+      const _0x564c27 = -_0x1b7e4a * _0x26c1d7,
+        _0x4d2d4c = _0x564c27 >= Math[_0x135551(0x723)](0.3, _0x445d55 - 1.2);
+      if (_0x564c27 >= -0.2)
+        for (
+          let _0x269b4d = _0x35f398;
+          _0x269b4d <= _0x1bdcce + 0x1;
+          _0x269b4d++
+        ) {
+          const _0x2c58fc = _0x2b0daf[_0x135551(0xcdd)](
+              _0x2cc113,
+              _0x269b4d,
+              _0x2ab1ad,
+            ),
+            _0x160474 = q[_0x2c58fc];
+          if (
+            !_0x160474 ||
+            _0x2c58fc === l[_0x135551(0x1ff6)] ||
+            _0x2c58fc === l[_0x135551(0x1c8b)] ||
+            _0x2c58fc === l[_0x135551(0x4e8)] ||
+            (!_0x160474[_0x135551(0x1b2b)] &&
+              !$i(_0x2c58fc) &&
+              !ge(_0x2c58fc) &&
+              !hs(_0x2c58fc) &&
+              !ro(_0x2c58fc) &&
+              _0x2c58fc !== l[_0x135551(0x148e)]) ||
+            (kk(_0x2c58fc), !_0x4d2d4c && !sb(_0x2c58fc)) ||
+            (_0x269b4d > _0x1bdcce && !ge(_0x2c58fc))
+          )
+            continue;
+          const _0x591509 = xn(_0x2c58fc),
+            _0x5d3cf5 = ge(_0x2c58fc)
+              ? 0.00001
+              : $i(_0x2c58fc)
+                ? 0x2
+                : _0x2c58fc === l[_0x135551(0x148e)]
+                  ? 0x6
+                  : _0x591509
+                    ? ob
+                    : hs(_0x2c58fc) || ro(_0x2c58fc)
+                      ? Math[_0x135551(0x723)](
+                          0x12,
+                          _0x160474[_0x135551(0x163b)] * 0.38,
+                        )
+                      : Math[_0x135551(0x723)](
+                          0xe,
+                          _0x160474[_0x135551(0x163b)] * 1.8,
+                        );
+          _0x278099[_0x135551(0x2fb)]({
+            x: _0x2cc113,
+            y: _0x269b4d,
+            z: _0x2ab1ad,
+            id: _0x2c58fc,
+            cost: _0x5d3cf5,
+            tree: _0x591509,
+          });
+        }
+    }
+  return (
+    _0x278099[_0x135551(0x7cc)](
+      (_0x18b221, _0x103726) =>
+        _0x18b221[_0x135551(0xb54)] - _0x103726[_0x135551(0xb54)] ||
+        _0x18b221["y"] - _0x103726["y"],
+    ),
+    _0x278099
+  );
+}
+function Lk(_0x3da72a, _0x5cfbf1, _0x290532, _0x2aecea, _0x22015c, _0x204e96) {
+  const _0x5214b9 = _0x44a014;
+  if (!sg[_0x5cfbf1]) return [];
+  const {
+      halfWidth: _0x4fba79,
+      halfLength: _0x14b253,
+      height: _0x496e64,
+    } = Hf(_0x5cfbf1),
+    _0x138e8a = Math[_0x5214b9(0x12df)](_0x204e96),
+    _0xd74af2 = Math[_0x5214b9(0x1fcd)](_0x204e96),
+    _0x31da60 = Math[_0x5214b9(0x2af)](
+      Math["hypot"](_0x4fba79, _0x14b253) + 0.6,
+    ),
+    _0x162a62 = [],
+    _0x36f816 = Math[_0x5214b9(0x2f3)](_0x2aecea - 1.05),
+    _0x87cab = Math[_0x5214b9(0x2f3)](_0x2aecea + _0x496e64 + 0.45);
+  for (
+    let _0x33dfea = Math[_0x5214b9(0x2f3)](_0x290532) - _0x31da60;
+    _0x33dfea <= Math["floor"](_0x290532) + _0x31da60;
+    _0x33dfea++
+  )
+    for (
+      let _0x57b4db = Math[_0x5214b9(0x2f3)](_0x22015c) - _0x31da60;
+      _0x57b4db <= Math[_0x5214b9(0x2f3)](_0x22015c) + _0x31da60;
+      _0x57b4db++
+    ) {
+      const _0xfe5428 = _0x33dfea + 0.5 - _0x290532,
+        _0x546821 = _0x57b4db + 0.5 - _0x22015c;
+      if (!(
+        Math[_0x5214b9(0x1fc4)](_0xfe5428 * _0x138e8a - _0x546821 * _0xd74af2) >
+          _0x4fba79 + 0.6 ||
+        Math[_0x5214b9(0x1fc4)](_0xfe5428 * _0xd74af2 + _0x546821 * _0x138e8a) >
+          _0x14b253 + 0.6
+      ))
+        for (let _0x196259 = _0x36f816; _0x196259 <= _0x87cab; _0x196259++) {
+          const _0x9aa642 = _0x3da72a[_0x5214b9(0xcdd)](
+            _0x33dfea,
+            _0x196259,
+            _0x57b4db,
+          );
+          ge(_0x9aa642) &&
+            _0x162a62["push"]({
+              x: _0x33dfea,
+              y: _0x196259,
+              z: _0x57b4db,
+              id: _0x9aa642,
+              cost: 0.00001,
+              tree: !0x1,
+            });
+        }
+    }
+  return _0x162a62;
+}
+const cb = {
+    peace: 0x0,
+    easy: 0.24,
+    medium: 0.42,
+    hard: 0.62,
+    hardcore: 0.76,
+    "ultra-hardcore": 0.87,
+    "unreal-hardcore": 0.95,
+  },
+  fb = {
+    peace: 0x0,
+    easy: 0.38,
+    medium: 0.46,
+    hard: 0.56,
+    hardcore: 0.66,
+    "ultra-hardcore": 0.76,
+    "unreal-hardcore": 0.86,
+  };
+function hb(_0x2a1f03, _0x127b19, _0x577d09 = !0x1) {
+  return _0x127b19 ? cb[_0x2a1f03] * (_0x577d09 ? fb[_0x2a1f03] : 0x1) : 0.44;
+}
+const Q5 = new nn(),
+  Vp = new et(),
+  zk = new Map();
+for (const t of [I["FIGHTER_JET"], I[_0x44a014(0x14c6)], I[_0x44a014(0xa2c)]]) {
+  const e = [];
+  for (const n of ao[t])
+    for (let o = 0x0; o <= 0x2; o++)
+      for (let s = 0x0; s <= 0x2; s++)
+        for (const i of [n["min"]["y"], n[_0x44a014(0x723)]["y"]])
+          e["push"](
+            new et(
+              n[_0x44a014(0x16e0)]["x"] +
+                ((n[_0x44a014(0x723)]["x"] - n[_0x44a014(0x16e0)]["x"]) * o) /
+                  0x2,
+              i,
+              n[_0x44a014(0x16e0)]["z"] +
+                ((n[_0x44a014(0x723)]["z"] - n[_0x44a014(0x16e0)]["z"]) * s) /
+                  0x2,
+            ),
+          );
+  zk[_0x44a014(0x1b41)](t, e);
+}
+function ub(_0x5f1a99, _0x510fbb, _0x17c5ab = _0x5f1a99, _0x3a8d39) {
+  const _0x2d8c68 = _0x44a014,
+    _0x116758 = zk[_0x2d8c68(0xda9)](_0x5f1a99[_0x2d8c68(0x1556)]);
+  if (!_0x116758) return !0x1;
+  const _0x42e9d1 = eg(_0x5f1a99[_0x2d8c68(0x1556)]);
+  if (
+    _0x3a8d39 &&
+    Math[_0x2d8c68(0x16e0)](_0x5f1a99["y"], _0x17c5ab["y"]) - _0x42e9d1 >=
+      _0x3a8d39(
+        Math[_0x2d8c68(0x16e0)](_0x5f1a99["x"], _0x17c5ab["x"]) - _0x42e9d1,
+        Math[_0x2d8c68(0x16e0)](_0x5f1a99["z"], _0x17c5ab["z"]) - _0x42e9d1,
+        Math[_0x2d8c68(0x723)](_0x5f1a99["x"], _0x17c5ab["x"]) + _0x42e9d1,
+        Math[_0x2d8c68(0x723)](_0x5f1a99["z"], _0x17c5ab["z"]) + _0x42e9d1,
+      )
+  )
+    return !0x1;
+  Q5[_0x2d8c68(0x1b41)](
+    _0x5f1a99["qx"],
+    _0x5f1a99["qy"],
+    _0x5f1a99["qz"],
+    _0x5f1a99["qw"],
+  );
+  const _0x6ee2d1 = Math[_0x2d8c68(0x723)](
+    0x1,
+    Math[_0x2d8c68(0x16e0)](
+      0x100,
+      Math[_0x2d8c68(0x2af)](
+        Math[_0x2d8c68(0x1b0)](
+          _0x5f1a99["x"] - _0x17c5ab["x"],
+          _0x5f1a99["y"] - _0x17c5ab["y"],
+          _0x5f1a99["z"] - _0x17c5ab["z"],
+        ) / 0.4,
+      ),
+    ),
+  );
+  for (const _0x5c6477 of _0x116758) {
+    Vp["copy"](_0x5c6477)[_0x2d8c68(0x25b)](Q5);
+    for (let _0x13c299 = 0x0; _0x13c299 <= _0x6ee2d1; _0x13c299++) {
+      const _0x4af9f3 = _0x13c299 / _0x6ee2d1,
+        _0x144933 = _0x510fbb(
+          Math[_0x2d8c68(0x2f3)](
+            _0x17c5ab["x"] +
+              (_0x5f1a99["x"] - _0x17c5ab["x"]) * _0x4af9f3 +
+              Vp["x"],
+          ),
+          Math[_0x2d8c68(0x2f3)](
+            _0x17c5ab["y"] +
+              (_0x5f1a99["y"] - _0x17c5ab["y"]) * _0x4af9f3 +
+              Vp["y"],
+          ),
+          Math["floor"](
+            _0x17c5ab["z"] +
+              (_0x5f1a99["z"] - _0x17c5ab["z"]) * _0x4af9f3 +
+              Vp["z"],
+          ),
+        );
+      if (
+        _0x144933 === l[_0x2d8c68(0x1c8b)] ||
+        _0x144933 === l[_0x2d8c68(0x4e8)]
+      )
+        return !0x0;
+    }
+  }
+  return !0x1;
+}
+const db = 0xa,
+  mb = 0.65,
+  pb = 1.35,
+  Eb = 0.2,
+  yb = 0x2,
+  Ab = 0x3,
+  gb = 0x1e,
+  Mb = 0x5,
+  tR = { blast: 0x6e, fall: 0x64, any: 0xfa };
+function Rb(_0x53a077, _0x453e8a) {
+  const _0x1a72af = _0x44a014;
+  return (
+    _0x453e8a >= tR[_0x1a72af(0x61c)] ||
+    (_0x53a077 === _0x1a72af(0x1602) && _0x453e8a >= tR[_0x1a72af(0xb02)]) ||
+    (_0x53a077 === _0x1a72af(0xcf0) && _0x453e8a >= tR[_0x1a72af(0xcf0)])
+  );
+}

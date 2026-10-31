@@ -1,0 +1,337 @@
+// main-C153VVJY 92 — math
+// Lines 30795-31129 of readable/assets/main-C153VVJY.pretty.js (statement-aligned).
+const A9 = 0x1e;
+function NE(_0x3e9fb4) {
+  return _0x3e9fb4 === I["BTR_TURRET"]
+    ? {
+        interval: 0.08,
+        reload: 0x1,
+        accuracy: 0.96,
+        belt: !0x0,
+        spread: 0.012,
+        auto: 0.05,
+      }
+    : {
+        interval: 0.2,
+        reload: 0x2,
+        accuracy: 0.78,
+        belt: !0x1,
+        spread: 0x0,
+        auto: 0.2,
+      };
+}
+function g9(_0x4c60f3, _0x5eab73, _0x3fce3a, _0xdfb002, _0x4de65c, _0x2c5528) {
+  const _0x3e2d6c = _0x44a014,
+    _0x4aa240 = _0xdfb002 + _0x4de65c,
+    _0x47739f = 0.52 + 1.76 * Math[_0x3e2d6c(0x12df)](_0x2c5528);
+  return {
+    x:
+      _0x4c60f3 +
+      Math["sin"](_0xdfb002) * 0.15 -
+      Math[_0x3e2d6c(0x1fcd)](_0x4aa240) * _0x47739f,
+    y: _0x5eab73 + 1.68 + 1.76 * Math[_0x3e2d6c(0x1fcd)](_0x2c5528),
+    z:
+      _0x3fce3a +
+      Math[_0x3e2d6c(0x12df)](_0xdfb002) * 0.15 -
+      Math[_0x3e2d6c(0x12df)](_0x4aa240) * _0x47739f,
+  };
+}
+class M9 {
+  constructor(_0x2d2960, _0x3013c9 = Math["random"]) {
+    const _0x4fde4d = _0x44a014;
+    ((this["hooks"] = _0x2d2960), (this[_0x4fde4d(0x10b2)] = _0x3013c9));
+  }
+  [_0x44a014(0x1ca9)] = new Map();
+  [_0x44a014(0x9c6)] = 0x1;
+  [_0x44a014(0x11d0)](_0x1ae0e4, _0x246309, _0x20f80c, _0x41b16c) {
+    const _0xd488bd = _0x44a014;
+    if (
+      this[_0xd488bd(0x1ca9)]["size"] >= 0x100 ||
+      [...this[_0xd488bd(0x1ca9)][_0xd488bd(0x642)]()][_0xd488bd(0x1ca)](
+        (_0xf0acd9) => _0xf0acd9[_0xd488bd(0xbe9)] === _0x1ae0e4,
+      )[_0xd488bd(0x1715)] >= 0xc ||
+      ![
+        ...Object[_0xd488bd(0x642)](_0x20f80c),
+        ...Object[_0xd488bd(0x642)](_0x41b16c),
+      ][_0xd488bd(0x1b05)](Number["isFinite"])
+    )
+      return null;
+    const _0x46152d = Math["hypot"](
+      _0x41b16c["x"],
+      _0x41b16c["y"],
+      _0x41b16c["z"],
+    );
+    if (_0x46152d < 0.95 || _0x46152d > 1.05) return null;
+    const _0x4534a9 = {
+      id: this[_0xd488bd(0x9c6)]++ >>> 0x0,
+      owner: _0x1ae0e4,
+      planet: _0x246309,
+      ..._0x20f80c,
+      vx: (_0x41b16c["x"] / _0x46152d) * 0x12,
+      vy: (_0x41b16c["y"] / _0x46152d) * 0x12 + 0x2,
+      vz: (_0x41b16c["z"] / _0x46152d) * 0x12,
+      age: 0x0,
+    };
+    return (
+      this[_0xd488bd(0x1ca9)][_0xd488bd(0x1b41)](_0x4534a9["id"], _0x4534a9),
+      this[_0xd488bd(0x1ac7)][_0xd488bd(0x16de)](_0x4534a9, !0x1),
+      _0x4534a9
+    );
+  }
+  [_0x44a014(0x1b1)](_0xd828a2) {
+    const _0x4eee11 = _0x44a014;
+    for (const _0x24c49d of this[_0x4eee11(0x1ca9)][_0x4eee11(0x642)]()) {
+      _0x24c49d[_0x4eee11(0xaff)] += _0xd828a2;
+      const _0x3f3443 = Math["max"](
+          0x1,
+          Math[_0x4eee11(0x2af)](
+            (Math[_0x4eee11(0x1b0)](
+              _0x24c49d["vx"],
+              _0x24c49d["vy"],
+              _0x24c49d["vz"],
+            ) *
+              _0xd828a2) /
+              0.1,
+          ),
+        ),
+        _0x5d9a86 = _0xd828a2 / _0x3f3443;
+      let _0x3d07a0 = !0x1;
+      for (let _0x6a5abc = 0x0; _0x6a5abc < _0x3f3443; _0x6a5abc++) {
+        _0x24c49d["vy"] -=
+          0x12 * (_0x24c49d["planet"] === D["MOON"] ? ar : 0x1) * _0x5d9a86;
+        const _0x15ac7b = {
+            x: _0x24c49d["x"] + _0x24c49d["vx"] * _0x5d9a86,
+            y: _0x24c49d["y"] + _0x24c49d["vy"] * _0x5d9a86,
+            z: _0x24c49d["z"] + _0x24c49d["vz"] * _0x5d9a86,
+          },
+          _0x876ccc = Li(
+            _0x24c49d,
+            _0x15ac7b,
+            (_0x2cddc0, _0x1ee1cb, _0x4eabcd) =>
+              this[_0x4eee11(0x1ac7)][_0x4eee11(0x1b2b)](
+                _0x24c49d["planet"],
+                _0x2cddc0,
+                _0x1ee1cb,
+                _0x4eabcd,
+              ),
+          );
+        if (
+          (Object["assign"](_0x24c49d, _0x876ccc ?? _0x15ac7b),
+          _0x876ccc || this[_0x4eee11(0x1ac7)][_0x4eee11(0x1199)](_0x24c49d))
+        ) {
+          _0x3d07a0 = !0x0;
+          break;
+        }
+      }
+      _0x3d07a0 || _0x24c49d[_0x4eee11(0xaff)] > 0x8 || _0x24c49d["y"] < 0x0
+        ? (this[_0x4eee11(0x1ca9)][_0x4eee11(0x367)](_0x24c49d["id"]),
+          this[_0x4eee11(0x1ac7)]["changed"](_0x24c49d, !0x0),
+          _0x3d07a0 &&
+            _0x24c49d[_0x4eee11(0x529)] === D[_0x4eee11(0xd62)] &&
+            this[_0x4eee11(0x10b2)]() < 0.3 &&
+            this[_0x4eee11(0x1ac7)][_0x4eee11(0x1c98)](_0x24c49d))
+        : this["hooks"]["changed"](_0x24c49d, !0x1);
+    }
+  }
+}
+const Ho = R[_0x44a014(0xb84)],
+  R9 = 0x1e,
+  S9 = 0.42,
+  T9 = 3.3,
+  jM = 0x2e,
+  XM = 0x15,
+  x9 = 2.4,
+  _9 = 0x18,
+  O9 = 0x8,
+  w9 = 0x3,
+  N9 = 0.45,
+  I9 = 0x4,
+  X0 = { FLYING: 0x0, LANDED: 0x1, BROKEN: 0x2, HIT: 0x3 };
+function k9(_0x3fd7c1) {
+  return {
+    x: _0x3fd7c1["x"] * XM,
+    y: _0x3fd7c1["y"] * XM + x9,
+    z: _0x3fd7c1["z"] * XM,
+  };
+}
+class L9 {
+  constructor(_0x10bcfa) {
+    const _0x2aa7a7 = _0x44a014;
+    this[_0x2aa7a7(0x1ac7)] = _0x10bcfa;
+  }
+  [_0x44a014(0x1d58)] = new Map();
+  ["nextId"] = 0x1;
+  [_0x44a014(0x11d0)](
+    _0x5a22d0,
+    _0x24ccb9,
+    _0x133db7,
+    _0x4b81a0,
+    _0x565809,
+    _0xd9f8a2,
+  ) {
+    const _0x672531 = _0x44a014;
+    if (
+      this[_0x672531(0x1d58)][_0x672531(0x1c1e)] >= 0x80 ||
+      [...this["knives"][_0x672531(0x642)]()][_0x672531(0x1ca)](
+        (_0x41ed1c) => _0x41ed1c[_0x672531(0xbe9)] === _0x5a22d0,
+      )[_0x672531(0x1715)] >= 0x6 ||
+      ![
+        ...Object["values"](_0x4b81a0),
+        ...Object[_0x672531(0x642)](_0x565809),
+        _0xd9f8a2,
+      ]["every"](Number[_0x672531(0x1142)])
+    )
+      return null;
+    const _0x380835 = Math[_0x672531(0x1b0)](
+      _0x565809["x"],
+      _0x565809["y"],
+      _0x565809["z"],
+    );
+    if (_0x380835 < 0.95 || _0x380835 > 1.05) return null;
+    const _0x22c63f = k9({
+        x: _0x565809["x"] / _0x380835,
+        y: _0x565809["y"] / _0x380835,
+        z: _0x565809["z"] / _0x380835,
+      }),
+      _0x51de10 = {
+        id: this["nextId"]++ >>> 0x0,
+        owner: _0x5a22d0,
+        token: _0x24ccb9,
+        planet: _0x133db7,
+        ..._0x4b81a0,
+        vx: _0x22c63f["x"],
+        vy: _0x22c63f["y"],
+        vz: _0x22c63f["z"],
+        age: 0x0,
+        durability: _0xd9f8a2,
+      };
+    return (
+      this[_0x672531(0x1d58)]["set"](_0x51de10["id"], _0x51de10),
+      this[_0x672531(0x1ac7)]["changed"](_0x51de10),
+      _0x51de10
+    );
+  }
+  [_0x44a014(0x1b1)](_0x15b26d) {
+    const _0x28054d = _0x44a014;
+    for (const _0x4dd2db of this[_0x28054d(0x1d58)]["values"]()) {
+      _0x4dd2db[_0x28054d(0xaff)] += _0x15b26d;
+      const _0x32b621 = Math[_0x28054d(0x723)](
+          0x1,
+          Math[_0x28054d(0x2af)](
+            (Math[_0x28054d(0x1b0)](
+              _0x4dd2db["vx"],
+              _0x4dd2db["vy"],
+              _0x4dd2db["vz"],
+            ) *
+              _0x15b26d) /
+              0.1,
+          ),
+        ),
+        _0xd5ea01 = _0x15b26d / _0x32b621;
+      let _0x508f7a = null;
+      for (let _0x4bd50c = 0x0; _0x4bd50c < _0x32b621; _0x4bd50c++) {
+        _0x4dd2db["vy"] -=
+          _9 *
+          (_0x4dd2db["planet"] === D[_0x28054d(0xcbd)] ? ar : 0x1) *
+          _0xd5ea01;
+        const _0x2f6307 = {
+            x: _0x4dd2db["x"] + _0x4dd2db["vx"] * _0xd5ea01,
+            y: _0x4dd2db["y"] + _0x4dd2db["vy"] * _0xd5ea01,
+            z: _0x4dd2db["z"] + _0x4dd2db["vz"] * _0xd5ea01,
+          },
+          _0x296eeb = Li(
+            _0x4dd2db,
+            _0x2f6307,
+            (_0xf26a6a, _0x531b3e, _0x32c38d) =>
+              this[_0x28054d(0x1ac7)][_0x28054d(0x1b2b)](
+                _0x4dd2db[_0x28054d(0x529)],
+                _0xf26a6a,
+                _0x531b3e,
+                _0x32c38d,
+              ),
+          );
+        if (
+          (Object[_0x28054d(0x375)](_0x4dd2db, _0x296eeb ?? _0x2f6307),
+          this[_0x28054d(0x1ac7)]["hit"](_0x4dd2db))
+        ) {
+          _0x508f7a = _0x28054d(0x2172);
+          break;
+        }
+        if (_0x296eeb) {
+          _0x508f7a = _0x28054d(0xd06);
+          break;
+        }
+      }
+      (!_0x508f7a &&
+        (_0x4dd2db[_0x28054d(0xaff)] > I9 || _0x4dd2db["y"] < 0x0) &&
+        (_0x508f7a = "terrain"),
+        _0x508f7a
+          ? (this["knives"][_0x28054d(0x367)](_0x4dd2db["id"]),
+            this[_0x28054d(0x1ac7)][_0x28054d(0x7c7)](
+              _0x4dd2db,
+              _0x508f7a === _0x28054d(0x2172),
+            ))
+          : this[_0x28054d(0x1ac7)][_0x28054d(0x16de)](_0x4dd2db));
+    }
+  }
+}
+function Ax(_0x49c4b5, _0x225e67, _0x55e8bf, _0x7de808) {
+  const _0x5dd0ae = _0x44a014;
+  let _0x44fd12 = _0x49c4b5[_0x5dd0ae(0x878)](_0x225e67, _0x55e8bf, _0x7de808);
+  for (
+    ;
+    Number[_0x5dd0ae(0x1142)](_0x44fd12) &&
+    _0x44fd12 > 0x0 &&
+    ge(
+      _0x49c4b5[_0x5dd0ae(0xcdd)](
+        Math[_0x5dd0ae(0x2f3)](_0x225e67),
+        Math[_0x5dd0ae(0x2f3)](_0x44fd12) - 0x1,
+        Math[_0x5dd0ae(0x2f3)](_0x55e8bf),
+      ),
+    );
+  )
+    _0x44fd12 = _0x49c4b5[_0x5dd0ae(0x878)](
+      _0x225e67,
+      _0x55e8bf,
+      _0x44fd12 - 1.01,
+    );
+  return _0x44fd12;
+}
+const H5 = new Map();
+function Hf(_0x5e3f79) {
+  const _0x5b8cad = _0x44a014;
+  let _0x25c835 = H5[_0x5b8cad(0xda9)](_0x5e3f79);
+  if (_0x25c835) return _0x25c835;
+  const _0x48d81b = qh(_0x5e3f79),
+    _0x5daed5 = _0x5e3f79 === I["TANK"] || _0x5e3f79 === I[_0x5b8cad(0xd69)],
+    _0x4b6f6f = ao[_0x5e3f79] ?? [];
+  return (
+    (_0x25c835 = {
+      halfWidth:
+        Math[_0x5b8cad(0x723)](
+          0.5,
+          ..._0x4b6f6f["flatMap"]((_0x1ec211) => [
+            Math[_0x5b8cad(0x1fc4)](_0x1ec211[_0x5b8cad(0x16e0)]["x"]),
+            Math["abs"](_0x1ec211[_0x5b8cad(0x723)]["x"]),
+          ]),
+        ) + 0.08,
+      halfLength:
+        Math[_0x5b8cad(0x723)](
+          0.5,
+          ..._0x4b6f6f[_0x5b8cad(0x1ef3)]((_0x2882c2) => [
+            Math[_0x5b8cad(0x1fc4)](_0x2882c2["min"]["z"]),
+            Math[_0x5b8cad(0x1fc4)](_0x2882c2[_0x5b8cad(0x723)]["z"]),
+          ]),
+        ) + 0.08,
+      step: _0x5daed5 ? 2.05 : 1.55,
+      drop: _0x5daed5 ? 2.6 : 2.1,
+      height:
+        Math[_0x5b8cad(0x723)](
+          ..._0x4b6f6f[_0x5b8cad(0x73a)]((_0x3008b3) => _0x3008b3["max"]["y"]),
+          1.8 * _0x48d81b["y"],
+        ) + 0.06,
+    }),
+    H5[_0x5b8cad(0x1b41)](_0x5e3f79, _0x25c835),
+    _0x25c835
+  );
+}
